@@ -28,7 +28,7 @@
 -   将 Windows 实例用于建站、部署 Web 环境，需要至少 2 GiB 内存。1 核 1 GiB 实例规格无法启动 MySQL。
 -   为保证服务的连续性，避免因宕机迁移而导致的服务不可用，建议将相关软件都设置成开机启动。如果有应用服务连接的数据库，需要在程序中设置成自动重连机制。
 -   I/O 优化实例不要关闭 aliyun-service 服务。
--   不建议升级云服务器的内核和操作系统版本。如果需要升级内核，请参考 [如何避免升级Linux实例内核后无法启动](https://help.aliyun.com/document_detail/59360.html)。
+-   不建议升级云服务器的内核和操作系统版本。如果需要升级内核，请参考 [如何避免升级Linux实例内核后无法启动](https://www.alibabacloud.com/help/faq-detail/59360.htm)。
 
 ## Windows 操作系统须知 {#section_ajc_kdx_wdb .section}
 
@@ -45,5 +45,5 @@
 -   如果您使用普通云盘，不建议使用 swap 分区。如果是高效云盘或 SSD 云盘，可以根据实际情况使用 swap 分区。
 -   不要开启 NetWorkManager 服务。该服务会跟系统内部网络服务出现冲突，导致网络异常。
 
-关于云服务器 ECS 的使用限制，请参考 [使用限制](cn.zh-CN/用户指南/使用限制.md#)。
+关于云服务器 ECS 的使用限制，请参考 [使用限制](intl.zh-CN/用户指南/使用限制.md#)。
 

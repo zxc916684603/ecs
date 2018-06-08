@@ -4,6 +4,8 @@
 
 云服务器Elastic Compute Service（ECS）是阿里云提供的一种基础云计算服务。使用云服务器ECS就像使用水、电、煤气等资源一样便捷、高效。您无需提前采购硬件设备，而是根据业务需要，随时创建所需数量的云服务器ECS实例。在使用过程中，随着业务的扩展，您可以随时扩容磁盘、增加带宽。如果不再需要云服务器，也能随时释放资源，节省费用。
 
+您可以通过 [ECS Learning Path](https://help.aliyun.com/learn/learningpath/ecs.html) 快速了解产品，由浅入深学习使用和运维 ECS。
+
 下图列出了ECS涉及的所有资源，包括实例规格、块存储、镜像、快照、带宽和安全组。您可以通过 [云服务器管理控制台](https://ecs.console.aliyun.com/#/home)或者 [阿里云 App](https://help.aliyun.com/product/48842.html) 配置您的ECS资源。
 
 ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/4794_zh-CN.png)
@@ -26,7 +28,6 @@
 -   IP地址：包括用于 [内网通信](cn.zh-CN/产品简介/网络和安全性/内网.md#) 的内网IP或私有IP，以及用于访问Internet的公网IP。
 -   [弹性公网IP](https://help.aliyun.com/product/61789.html)：可以与实例反复绑定或解绑的静态公网IP地址。
 -   [云服务器管理控制台](https://ecs.console.aliyun.com/#/home)：是指ECS的Web操作界面。
--   [云服务器管理控制台](https://partners-intl.console.aliyun.com/#/ecs)：是指ECS的Web操作界面。
 
 ## 相关服务 {#section_cdb_tqj_ydb .section}
 
@@ -42,7 +43,7 @@
 
 您可以使用安骑士保障云服务器ECS的安全。更多信息，请参考 [安骑士文档](https://help.aliyun.com/product/28449.html)。
 
-对于部署在云服务器ECS上的应用，阿里云为您提供了免费的 [DDoS基础防护](https://help.aliyun.com/document_detail/55256.html)，您也可以使用DDoS高防IP保障源站的稳定可靠。更多信息，请参考 [DDoS基础防护文档](https://help.aliyun.com/product/28396.html) 和 [DDoS高防IP文档](https://help.aliyun.com/product/28461.html)。
+对于部署在云服务器ECS上的应用，阿里云为您提供了免费的 [DDoS基础防护](https://help.aliyun.com/document_detail/55256.html)，您也可以使用DDoS高防IP保障源站的稳定可靠。更多信息，请参考 [DDoS基础防护文档](https://help.aliyun.com/product/28399.html) 和 [DDoS高防IP文档](https://help.aliyun.com/product/28464.html)。
 
 您可以编写代码调用阿里云开发者工具包（SDK）访问阿里云的产品和服务，更多信息，请参考 [阿里云开发工具包\(SDK\)](https://develop.aliyun.com/tools/sdk?#/java)。您可以使用 [OpenAPI Explorer](https://api.aliyun.com/) 在线调试ECS API，并生成对应SDK Demo代码。
 
