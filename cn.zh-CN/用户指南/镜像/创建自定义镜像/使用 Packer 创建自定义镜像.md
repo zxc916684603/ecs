@@ -8,7 +8,7 @@
 
 **说明：** 
 
-由于 AccessKey 权限过大，为防止错误操作，建议您 [创建 RAM 用户](../../cn.zh-CN/快速入门/创建 RAM 用户.md#)，并使用 RAM 子账号 [创建 AccessKey](https://help.aliyun.com/document_detail/53045.html)。
+由于 AccessKey 权限过大，为防止错误操作，建议您 [创建 RAM 用户](../../intl.zh-CN/快速入门/创建 RAM 用户.md#)，并使用 RAM 子账号 [创建 AccessKey](https://help.aliyun.com/document_detail/53045.html)。
 
 ## 步骤一. 安装 Packer {#section_j5g_gdm_xdb .section}
 
@@ -16,7 +16,7 @@
 
 **在 Linux 服务器上安装 Packer**
 
-1.  连接并登录到 Linux 服务器。如果您的服务器为 ECS Linux 实例，可参阅文档 [使用用户名密码验证连接 Linux 实例](cn.zh-CN/用户指南/连接实例/使用用户名密码验证连接 Linux 实例.md#)。
+1.  连接并登录到 Linux 服务器。如果您的服务器为 ECS Linux 实例，可参阅文档 [使用用户名密码验证连接 Linux 实例](intl.zh-CN/用户指南/连接实例/使用用户名密码验证连接 Linux 实例.md#)。
 2.  执行命令 `cd /usr/local/bin` 进入 /usr/local/bin 目录。
 
     **说明：** /usr/local/bin 目录为环境变量目录，您可以将 Packer 安装到该目录下或其他已添加到环境变量的目录下。
@@ -29,24 +29,15 @@
 
 以 Windows Server 2012 安装 64 位 Packer 为例：
 
-1.  连接并登录到 Windows 服务器。如果您的服务器为 ECS Windows 实例，可参阅文档 [使用软件连接Windows实例](cn.zh-CN/用户指南/连接实例/使用软件连接Windows实例.md#)。
+1.  连接并登录到 Windows 服务器。如果您的服务器为 ECS Windows 实例，可参阅文档 [使用软件连接Windows实例](intl.zh-CN/用户指南/连接实例/使用软件连接Windows实例.md#)。
 2.  打开 [Packer 下载页面](https://www.packer.io/downloads.html) 选择下载 Windows 64 位 Packer。
 3.  解压文件到指定目录并安装，您可以指定自己常用的目录。
 4.  在环境变量 PATH 中 定义 Packer 所在目录。
     1.  打开 **控制面板**。
     2.  选择 **所有控制面板项** \> **系统** \> **高级系统设置**。
     3.  单击 **环境变量**。
-
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9698/4603_zh-CN.png)
-
     4.  在系统变量列表中找到 **Path**。
-
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9698/4604_zh-CN.png)
-
     5.  在 **变量值** 中加入 Packer 的安装目录，如本示例中的 C:\\Packer，目录之间以半角分号（;）隔开。单击 **确定**。
-
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9698/4605_zh-CN.png)
-
 5.  在 CMD 中执行命令 `packer.exe -v` 验证 Packer 安装状态。若 Windows 服务器返回 Packer 版本号，表示您已正确安装 Packer；若 Windows 服务器提示 **command not found** 表示 Packer 未正确安装。
 
 ## 步骤二. 定义 Packer 模板 {#section_kwk_bdv_ydb .section}
@@ -131,7 +122,7 @@ cn-beijing: m-2ze12578be1oa4ovs6r9
 
 ## 后续操作 {#section_chp_qdv_ydb .section}
 
-您可以使用该自定义镜像创建 ECS 实例，具体步骤参阅文档[使用自定义镜像创建实例](cn.zh-CN/用户指南/实例/创建实例/使用自定义镜像创建实例.md#)。
+您可以使用该自定义镜像创建 ECS 实例，具体步骤参阅文档[使用自定义镜像创建实例](intl.zh-CN/用户指南/实例/创建实例/使用自定义镜像创建实例.md#)。
 
 ## 参考链接 {#section_ntx_rdv_ydb .section}
 
