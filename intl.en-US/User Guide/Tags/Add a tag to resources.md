@@ -1,28 +1,60 @@
-# Add a tag to resources {#concept_a5f_p2j_zdb .concept}
+# Add a tag to resources {#concept_oqq_ztd_zdb .concept}
 
-If your account maintains various types of resources that are associated with each other in different ways, you can bind tags to the resources to categorize and manage the resources in a unified manner.
+You can unbind a tag from the resource if the tag is no longer applicable to resource management.  After a tag is unbound and is no longer bound to any other resource, the tag will be automatically deleted.
 
-You can bind ten tags to a resource at most. You can bind/unbind five tags at most for the resource each time.
+-   The Delete Tags function unbinds one or more tags from an instance at a time.
 
-Take the following steps to bind resources with tags:
+    **Note:** Currently, this function is only available for instances.  It is unavailable for other resource types.
 
-1.  Log on to the[ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
-2.  Select the resource type in the left-side navigation bar for the binding operation, such as Instance, Cloud Disks, Snapshot, Image, and Security Groups.
+-   The Edit Tags function unbinds tags one by one.
+
+    **Note:**  You can unbind five tags from a resource each time.
+
+
+## Unbind tags from instances using the tag deletion function {#section_amn_vfj_zdb .section}
+
+Currently, the Delete Tags function is only available for instances.
+
+See the following steps to delete tags:
+
+1.  Log on to the  [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
+2.  Click Instance in the left-side navigation pane.
 3.  Select a region.
-4.  Select the resources in the resource list to bind tags.
-5.  Click Edit Tags at the bottom of the resource list.
+4.  Select the instance\(s\) from which you want to unbind tags in the instance list.
 
-    **Note:** Choose **More** \> **Edit Tags at the bottom of the resource list if the selected resources are Instance.** .
+    **Note:** You can also filter instances by tag and select the expected instance.
 
-6.  In the edit label dialog box,
-    -   If the selected resource has already been created a label, click the existing label, and select the available labels.
-    -   Click **Create** and set Key and Value if no tags are available for the selected resource: Note when entering:
-        -   Key is mandatory whereas Value is optional.
-        -   Key cannot start with aliyun, http://, or https://. The key is case-insensitive and can contain up to 64 characters.
-        -   Value cannot start with http:// or https://. The value is case-insensitive and can contain up to 128 characters. It can be empty.
-        -   Any tag Key of a resource must be unique. A tag with the same key as an existing one will be overwritten.
-        -   Available Tags and Create are grayed out if the selected resources are already bound with 10 tags. You need to unbind some tags before binding new tags.
-7.  Click **Confirm**.
+5.  Choose** More** \> **Delete Tags**.
+6.  In the Delete Tags dialog box, enter the **Tag Key** of the tags you want to unbind.
 
-To check if tags are successfully bound, use the Edit Tags function of the resource or click Tags in the left-side navigation bar of the ECS console.  You can click Tags with a tag symbol at the top of the resource list to filter resources.
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9743/4810_en-US.png)
+
+7.  Click **OK** to complete tag unbinding.
+
+To check whether the tags are successfully unbound, use the Edit Tags function of the instance or click Tags in the left-side navigation pane of the ECS console.
+
+## Unbind tags from resources using the tag edit function {#section_fmn_vfj_zdb .section}
+
+The Edit Tags function unbinds one or more tags from a resource.
+
+See the following steps to unbind tags::
+
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
+2.  In the left-side navigation pane, select the resource type for the unbinding operation, such as Instance, Cloud Disks, Snapshots, Images, or Security Groups.
+
+    **Note:** The block storage function is now in beta，for more information, see[block storage FAQ](https://help.aliyun.com/knowledge_detail/53820.html) Learn more.
+
+3.  Select a region.
+4.  In the resource list, select the resource from which you want to unbind tags.
+
+    **Note:** You can also filter resources by tag and select the expected resource.
+
+5.  Click **Edit Tags** at the bottom of the resource list.
+6.  In the Edit Tags dialog box, click the deletion icon next to a tag.
+
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9743/4824_en-US.png)
+
+7.  Click **Confirm** to complete tag unbinding.
+
+To check whether the tags are successfully unbound, use the Edit Tags function of the resource or click **Tags** in the left-side navigation pane of the ECS console.
 
