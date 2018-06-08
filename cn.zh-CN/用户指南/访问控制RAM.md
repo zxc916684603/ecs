@@ -15,5 +15,5 @@
 -   Developers：该群组只需要使用实例的权限。您可以给 Developers 组附加一个授权策略，该策略授予组成员调用 DescribeInstances、StartInstance、StopInstance、CreateInstance 和 DeleteInstance 的权限。
 -   如果某开发人员的工作职责发生转变，成为一名系统管理人员，您可以方便的将其从 Developpers 群组移到 SysAdmins 群组。
 
-更多关于访问控制 RAM的介绍，请参考[RAM 的产品文档](../../intl.zh-CN/产品简介/什么是RAM？.md)。
+更多关于访问控制 RAM的介绍，请参考[RAM 的产品文档](../../cn.zh-CN/产品简介/什么是RAM？.md)。
 
