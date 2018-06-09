@@ -4,7 +4,7 @@
 
 ## 描述 {#section_yfq_yps_xdb .section}
 
--   能查询到的所有可能的实例状态参阅 [实例状态表](cn.zh-CN/API参考/附录/实例状态表.md#)。
+-   能查询到的所有可能的实例状态参阅 [实例状态表](intl.zh-CN/API参考/附录/实例状态表.md#)。
 -   该接口同时可用于获取实例列表。
 
 ## 请求参数 {#RequestParameter .section}
@@ -12,7 +12,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeInstanceStatus|
-|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |ZoneId|String|否|实例所属可用区|
 |PageNumber|Integer|否|实例状态列表的页码。起始值：1默认值：1
 
@@ -28,7 +28,7 @@
 |TotalCount|Integer|实例总个数|
 |PageNumber|Integer|实例列表的页码|
 |PageSize|Integer|输入时设置的每页行数|
-|InstanceStatuses|Array|实例状态集类型（`[InstanceStatusSetType](cn.zh-CN/API参考/数据类型/InstanceStatusSetType.md#)`）|
+|InstanceStatuses|Array|实例状态集类型（`[InstanceStatusSetType](intl.zh-CN/API参考/数据类型/InstanceStatusSetType.md#)`）|
 
 ## 示例 { .section}
 
@@ -86,7 +86,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceStatus
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|

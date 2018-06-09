@@ -8,11 +8,11 @@
 
 -   实例状态为 **已释放**（`Deleted`）或 **启动中**（`Starting`）时，无法重置实例密码。
 
--   被 [安全控制](cn.zh-CN/API参考/附录/安全锁定时的 API 行为.md#) 的实例的 `OperationLocks` 中标记了 `"LockReason" : "security"` 时，无法重置实例密码。
+-   被 [安全控制](intl.zh-CN/API参考/附录/安全锁定时的 API 行为.md#) 的实例的 `OperationLocks` 中标记了 `"LockReason" : "security"` 时，无法重置实例密码。
 
--   重置密码后，您需要在控制台 [重启实例](../cn.zh-CN/用户指南/实例/重启实例.md#) 或者调用 [RebootInstance](cn.zh-CN/API参考/实例/RebootInstance.md#) 使更改生效，在实例内部重启将不会生效。
+-   重置密码后，您需要在控制台 [重启实例](../intl.zh-CN/用户指南/实例/重启实例.md#) 或者调用 [RebootInstance](intl.zh-CN/API参考/实例/RebootInstance.md#) 使更改生效，在实例内部重启将不会生效。
 
--   实例状态为 **已停止**（`Stopped`）且满足 [实例自定义数据](../cn.zh-CN/用户指南/实例/实例自定义/元数据/实例自定义数据.md) 使用限制时，支持修改自定义数据。
+-   实例状态为 **已停止**（`Stopped`）且满足 [实例自定义数据](../intl.zh-CN/用户指南/实例/实例自定义/元数据/实例自定义数据.md) 使用限制时，支持修改自定义数据。
 
 
 ## 请求参数 {#RequestParameter .section}
@@ -34,7 +34,7 @@
 
 ## 返回参数 {#ResponseParameter .section}
 
-全是公共返回参数。参阅 [公共参数](cn.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)
+全是公共返回参数。参阅 [公共参数](intl.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)
 
 ## 示例 { .section}
 
@@ -67,7 +67,7 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceAttribute
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
