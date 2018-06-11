@@ -1,4 +1,4 @@
-# Billing of network bandwidth {#publicIP_intl .concept}
+# Billing of network bandwidth {#publicIP_china .concept}
 
 Alibaba Cloud only supports postpaid billing for ECS instance Internet bandwidth, which is called PayByTraffic. Alibaba Cloud collects the fees on an hourly basis according to actual traffic usage, regardless of ECS instance billing methods and network types. Network bandwidth prices vary among regions. For more information about pricing, see [Pricing of Elastic Cloud Server](https://www.alibabacloud.com/zh/product/ecs#pricing).
 
@@ -23,7 +23,7 @@ You can pay for Internet bandwidth by using any of the following payment options
 
 -   If an ECS instance needs to access the Internet by using its own Internet IP address, you must purchase Internet bandwidth while creating the instance.
 
-    **How to purchase**: When creating an ECS instance, in the Network Billing Method section, select **Assign public IP**.
+    **How to purchase**: When creating an ECS instance, in the **Network Billing Method** section, select **Assign public IP**.
 
 -   If your ECS instance is in a VPC network and you want to use an EIP \(Elastic IP address\) to access the Internet, you only need to purchase the EIP service. For more information about the EIP service, see [EIP address related documentation](https://www.alibabacloud.com/help/zh/doc-detail/32321.htm) in VPC.
 
@@ -43,5 +43,5 @@ Suppose that the average bandwidth of your ECS instance in an hour is 0.5 Mbit/s
 
 \[\(0.5 \* 60 \* 60\) /1024/8\] GB \* 0.081 USD/GB = 0.018 USD
 
-**Note:** In this example, for better understanding, the average Internet bandwidth value for calculations are used to assume that, every second, 0.5 Mbit of outbound traffic occurs from the ECS instance. For actual outbound Internet traffic calculations from your ECS instance, you can go to **Billing Management** \> **Usage Records** to download the usage history of Elastic Compute Service \(ECS\) - Pay-As-You-Go.
+**Note:** In this example, for better understanding, the average Internet bandwidth value for calculations are used to assume that, every second, 0.5 Mbit of outbound traffic occurs from the ECS instance. For actual outbound Internet traffic calculations from your ECS instance, you can go to**Billing Management** \> **Usage Records** to download the usage history of Elastic Compute Service \(ECS\) - Pay-As-You-Go.
 
