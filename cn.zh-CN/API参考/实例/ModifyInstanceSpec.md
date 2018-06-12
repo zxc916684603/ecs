@@ -27,7 +27,7 @@
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：ModifyInstanceSpec|
 |InstanceId|String|是|指定的实例 ID。|
-|InstanceType|String|否|实例规格。更多详情，请参阅 [实例规格族](../cn.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](cn.zh-CN/API参考/实例/DescribeInstanceTypes.md#)接口获得最新的规格表。|
+|InstanceType|String|否|实例规格。更多详情，请参阅 [实例规格族](../../../../cn.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](cn.zh-CN/API参考/实例/DescribeInstanceTypes.md#)接口获得最新的规格表。|
 |InternetMaxBandwidthOut|Integer|否|公网出带宽最大值，单位为 Mbps \(Megabit per second\)。取值范围：-   按固定带宽计费：\[0, 100\]
 -   按使用流量计费：\[0, 100\]
 
