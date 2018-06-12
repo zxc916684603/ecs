@@ -8,7 +8,7 @@
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：ModifyInstanceAutoReleaseTime|
 |InstanceId|String|是|需要自动释放的 ECS 实例 ID。|
-|AutoReleaseTime|String|否|自动释放时间。按照 [ISO8601](cn.zh-CN/API参考/附录/时间格式.md#) 标准表示，并需要使用 UTC 时间。格式为：yyyy-MM-ddTHH:mm:ssZ。-   如果秒（`ss`）取值不是 `00`，则自动取为当前分钟（`mm`）开始时。
+|AutoReleaseTime|String|否|自动释放时间。按照 [ISO8601](intl.zh-CN/API参考/附录/时间格式.md#) 标准表示，并需要使用 UTC 时间。格式为：yyyy-MM-ddTHH:mm:ssZ。-   如果秒（`ss`）取值不是 `00`，则自动取为当前分钟（`mm`）开始时。
 -   最短释放时间为当前时间半小时之后。
 -   最长释放时间不能超过当前时间三年。
 
@@ -16,7 +16,7 @@
 
 ## 返回参数 {#section_rjz_l25_xdb .section}
 
-全是公共返回参数。参阅 [公共参数](cn.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)
+全是公共返回参数。参阅 [公共参数](intl.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)
 
 ## 示例 { .section}
 
@@ -48,7 +48,7 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceAutoReleaseTime
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
