@@ -8,7 +8,7 @@
 
 -   如果指定的快照 ID 不存在，请求将被忽略。
 
--   如果快照已经被用于创建自定义镜像，则快照不能被删除。您需要先删除已创建的自定义镜像（[DeleteImage](cn.zh-CN/API参考/镜像/DeleteImage.md#)），才能继续删除快照。
+-   如果快照已经被用于创建自定义镜像，则快照不能被删除。您需要先删除已创建的自定义镜像（[DeleteImage](intl.zh-CN/API参考/镜像/DeleteImage.md#)），才能继续删除快照。
 
 
 ## 请求参数 {#RequestParameter .section}
@@ -20,7 +20,7 @@
 
 ## 返回参数 {#section_o3f_mxz_xdb .section}
 
-全是公共返回参数。参阅 [公共参数](cn.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅 [公共参数](intl.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -52,7 +52,7 @@ https://ecs.aliyuncs.com/?Action=DeleteSnapshot
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
