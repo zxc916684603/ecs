@@ -16,7 +16,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeSnapshotLinks|
-|RegionId|String|是|磁盘所属于的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|磁盘所属于的地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |InstanceId|String|否|实例 ID。|
 |DiskIds|String|否|磁盘 ID。一次最多指定 100 个磁盘 ID。`DiskIds` 参数取值格式为 JSON 数组，如 \["d-xxxxxxxxx", "d-yyyyyyyyy", … "d-zzzzzzzzz"\]，ID 之间用半角逗号（`,`）隔开。|
 |SnapshotLinkIds|String|否|快照 ID。一次最多指定 100 个快照 ID。`SnapshotLinkIds`参数取值格式为 JSON 数组，如 \["p-xxxxxxxxx", "p-yyyyyyyyy", … "p-zzzzzzzzz"\]，ID 之间用半角逗号（`,`）隔开。|
@@ -35,7 +35,7 @@
 |TotalCount|Integer|快照链总个数|
 |PageNumber|Integer|快照链列表的页码|
 |PageSize|Integer|输入时设置的每页行数|
-|SnapshotLinks|[SnapshotLinkType](cn.zh-CN/API参考/数据类型/SnapshotLinkType.md#)|快照链信息组成的集合|
+|SnapshotLinks|[SnapshotLinkType](intl.zh-CN/API参考/数据类型/SnapshotLinkType.md#)|快照链信息组成的集合|
 
 ## 示例 { .section}
 
@@ -117,7 +117,7 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshotLinks
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
