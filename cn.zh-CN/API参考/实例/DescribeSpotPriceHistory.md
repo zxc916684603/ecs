@@ -7,7 +7,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeSpotPriceHistory|
-|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |ZoneId|String|是|可用区 ID。|
 |NetworkType|String|是|竞价实例网络类型。取值范围：-   classic：表示竞价实例的网络类型为经典网络
 -   vpc：表示竞价实例的网络类型为专有网络
@@ -22,7 +22,7 @@
 系列 II 实例默认值：optimized系列 III 实例默认值：optimized
 
 |
-|StartTime|String|否|查询竞价实例历史价格的起始时间。按照 [ISO8601](cn.zh-CN/API参考/附录/时间格式.md#) 标准表示，需要使用 UTC 时间，格式为 YYYY-MM-DDTHH:MM:SSZ 。默认为空，空代表结束时间前 3 天，最大值不得超过指定的结束时间 30 天。|
+|StartTime|String|否|查询竞价实例历史价格的起始时间。按照 [ISO8601](intl.zh-CN/API参考/附录/时间格式.md#) 标准表示，需要使用 UTC 时间，格式为 YYYY-MM-DDTHH:MM:SSZ 。默认为空，空代表结束时间前 3 天，最大值不得超过指定的结束时间 30 天。|
 |EndTime|String|否|查询竞价实例历史价格的结束时间。按照 ISO8601 标准表示，需要使用 UTC 时间，格式为 YYYY-MM-DDTHH:MM:SSZ 。默认为空，空表示当前时间。
 
 |
@@ -35,7 +35,7 @@
 |名称|类型|描述|
 |:-|:-|:-|
 |NextOffset|Integer|下一页开始行，查询下一页的数据，参数 Offset 的指定值为该值|
-|SpotPrices|[SpotPriceType](cn.zh-CN/API参考/数据类型/SpotPriceType.md#)|竞价价格详情|
+|SpotPrices|[SpotPriceType](intl.zh-CN/API参考/数据类型/SpotPriceType.md#)|竞价价格详情|
 
 ## 示例 { .section}
 
@@ -107,7 +107,7 @@ https://ecs.aliyuncs.com/?Action=DescribeSpotHistory
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
