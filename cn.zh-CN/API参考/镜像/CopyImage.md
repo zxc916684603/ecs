@@ -1,6 +1,6 @@
 # CopyImage {#CopyImage .reference}
 
-复制一个地域下的自定义镜像到其他地域。您可以在其他地域可以使用复制后的镜像 创建 ECS 实例（[RunInstances](cn.zh-CN/API参考/实例/RunInstances.md#)）或者更换实例的系统盘（[ReplaceSystemDisk](cn.zh-CN/API参考/磁盘/ReplaceSystemDisk.md#)）。
+复制一个地域下的自定义镜像到其他地域。您可以在其他地域可以使用复制后的镜像 创建 ECS 实例（[RunInstances](intl.zh-CN/API参考/实例/RunInstances.md#)）或者更换实例的系统盘（[ReplaceSystemDisk](intl.zh-CN/API参考/磁盘/ReplaceSystemDisk.md#)）。
 
 ## 描述 {#section_mv5_ndz_xdb .section}
 
@@ -10,7 +10,7 @@
 
 -   被复制的自定义镜像必须为您账号下的镜像，不能跨账号复制。
 
--   复制镜像的过程中无法删除镜像（[DeleteImage](cn.zh-CN/API参考/镜像/DeleteImage.md#)），但是您可以取消复制任务（[CancelCopyImage](cn.zh-CN/API参考/镜像/CancelCopyImage.md#)）。
+-   复制镜像的过程中无法删除镜像（[DeleteImage](intl.zh-CN/API参考/镜像/DeleteImage.md#)），但是您可以取消复制任务（[CancelCopyImage](intl.zh-CN/API参考/镜像/CancelCopyImage.md#)）。
 
 
 ## 请求参数 {#RequestParameter .section}
@@ -18,7 +18,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：CopyImage|
-|RegionId|String|是|源自定义镜像的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|源自定义镜像的地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |ImageId|String|是|源自定义镜像的 ID。|
 |DestinationRegionId|String|是|复制到目标地域的 ID。|
 |DestinationImageName|String|否|复制后的镜像的名称。-   长度为 \[2, 128\] 个字符英文或中文字符，必须以大小字母或中文开头，可包含数字、半角冒号（:）、下划线（\_）或连字符（-）。
@@ -70,7 +70,7 @@ https://ecs.aliyuncs.com/?Action=CopyImage
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
