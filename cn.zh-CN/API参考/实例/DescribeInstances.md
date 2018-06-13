@@ -11,7 +11,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeInstances|
-|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |VpcId|String|否|专有网络 VPC ID。|
 |VSwitchId|String|否|虚拟交换机 ID。|
 |ZoneId|String|否|可用区 ID。|
@@ -36,7 +36,6 @@
 
 默认值：NoSpot|
 |InternetChargeType|String|否|网络计费方式。取值范围：-   PayByTraffic：按流量计费
--   PayByBandwidth：按带宽计费
 
 |
 |InstanceName|String|否|实例名称。支持模糊搜索，您可以配合通配符使用。|
@@ -68,7 +67,7 @@
 |TotalCount|Integer|实例总台数|
 |PageNumber|Integer|实例列表的页码|
 |PageSize|Integer|输入时设置的每页行数|
-|Instances|[InstanceAttributesType](cn.zh-CN/API参考/数据类型/InstanceAttributesType.md#)|由 InstanceAttributesType 组成的数组格式，返回实例的信息|
+|Instances|[InstanceAttributesType](intl.zh-CN/API参考/数据类型/InstanceAttributesType.md#)|由 InstanceAttributesType 组成的数组格式，返回实例的信息|
 
 ## 示例 { .section}
 
@@ -235,7 +234,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInstances
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
