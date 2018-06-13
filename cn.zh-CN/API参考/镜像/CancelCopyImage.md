@@ -1,6 +1,6 @@
 # CancelCopyImage {#CancelCopyImage .reference}
 
-取消正在进行中的复制镜像（[CopyImage](cn.zh-CN/API参考/镜像/CopyImage.md#)）任务。
+取消正在进行中的复制镜像（[CopyImage](intl.zh-CN/API参考/镜像/CopyImage.md#)）任务。
 
 ## 描述 {#section_qxx_22z_xdb .section}
 
@@ -16,12 +16,12 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：CancelCopyImage|
-|RegionId|String|是|目标镜像所属的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|目标镜像所属的地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |ImageId|String|是|正在被复制的镜像 ID。|
 
 ## 返回参数 {#section_wxx_22z_xdb .section}
 
-全是公共返回参数。参阅 [公共参数](cn.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)
+全是公共返回参数。参阅 [公共参数](intl.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)
 
 ## 示例 { .section}
 
@@ -54,7 +54,7 @@ https://ecs.aliyuncs.com/?Action=CancelCopyImage
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
