@@ -31,7 +31,7 @@ The **No fees for stopped instances \(VPC-Connected\)** feature has the followin
 
     **Note:** If you do not want the public network IP address to change, you can change the public network IP address to an EIP address before stopping the instance.
 
--   When a t5 instance is stopped, the existing CPU credits are valid but credit accumulation stops. When it starts, CPU credits continue to accumulate. For more information, see [Burstable instances](../intl.en-US/Product Introduction/Instance/Burstable instances.md#).
+-   When a t5 instance is stopped, the existing CPU credits are valid but credit accumulation stops. When it starts, CPU credits continue to accumulate. For more information, see [Burstable instances](../../../../intl.en-US/Product Introduction/Instance/Burstable instances.md#).
 
 
 When you perform the following actions, you must stop your instance and start it when you have performed the following actions: Replace the system disk \(ReplaceSystemDisk\) , Roll back a disk \(ResetDisk\), Reinitialize a disk \(ReInitDisk\), and other O&M operations. Along with the preceding actions, perform any one of the following actions to make sure that your instance starts successfully.
