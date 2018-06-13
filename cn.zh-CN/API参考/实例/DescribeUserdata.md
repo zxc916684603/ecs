@@ -1,6 +1,6 @@
 # DescribeUserdata {#DescribeUserdata .reference}
 
-查询一台 ECS 实例的 [自定义数据](../cn.zh-CN/用户指南/实例/实例自定义/元数据/实例自定义数据.md#)。
+查询一台 ECS 实例的 [自定义数据](../../../../intl.zh-CN/用户指南/实例/实例自定义/元数据/实例自定义数据.md#)。
 
 ## 描述 {#section_jwv_kws_xdb .section}
 
@@ -12,7 +12,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeUserdata|
-|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |InstanceId|String|是|要查询的实例 ID。|
 
 ## 返回参数 {#ResponseParameter .section}
@@ -69,7 +69,7 @@ https://ecs.example.com/?Action= DescribeUserdata
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
