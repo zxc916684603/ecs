@@ -1,6 +1,6 @@
 # DescribeInstanceVncUrl {#DescribeInstanceVncUrl .reference}
 
-查询一台 ECS 实例的 [Web 管理终端](../cn.zh-CN/用户指南/连接实例/使用管理终端连接 ECS 实例.md#) 地址。
+查询一台 ECS 实例的 [Web 管理终端](../../../../intl.zh-CN/用户指南/连接实例/使用管理终端连接 ECS 实例.md#) 地址。
 
 ## 描述 {#section_nkr_mss_xdb .section}
 
@@ -24,9 +24,15 @@
 
         **示例**：
 
-        [https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?vncUrl=ws%3A%2F%xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true](https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?vncUrl=ws%3A%2F%25xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true)
+        ```
+        https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?vncUrl=ws%3A%2F%xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true
+        ```
 
-        或 [https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?vncUrl=ws%3A%2F%xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true&Password=111111](https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?vncUrl=ws%3A%2F%25xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true&Password=111111)
+        或
+
+        ```
+        https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?vncUrl=ws%3A%2F%xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true&Password=111111
+        ```
 
 
 ## 请求参数 {#RequestParameter .section}
@@ -34,7 +40,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeInstanceVncUrl|
-|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |InstanceId|String|是|实例 ID。|
 
 ## 返回参数 {#ResponseParameter .section}
@@ -76,7 +82,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceVncUrl
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
