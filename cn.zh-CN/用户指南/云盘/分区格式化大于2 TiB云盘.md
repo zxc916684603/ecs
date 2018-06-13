@@ -2,7 +2,7 @@
 
 如果您要分区格式化一块大于2 TiB的作数据盘用的云盘（本文统一称为 **大容量数据盘**，小于2 TiB的数据盘统称为 **小容量数据盘**），您必须采用GPT分区形式。本文档描述了如何在不同的操作系统里分区格式化一块大容量数据盘。
 
-**说明：** 如果您要分区格式化一块小于2 TiB的数据盘，请参见 [Linux 格式化和挂载数据盘](../cn.zh-CN/个人版快速入门/步骤 4：格式化数据盘/Linux 格式化和挂载数据盘.md#) 和 [Windows 格式化数据盘](../cn.zh-CN/个人版快速入门/步骤 4：格式化数据盘/Windows 格式化数据盘.md#)。
+**说明：** 如果您要分区格式化一块小于2 TiB的数据盘，请参见 [Linux 格式化和挂载数据盘](../../../../intl.zh-CN/个人版快速入门/步骤 4：格式化数据盘/Linux 格式化和挂载数据盘.md#) 和 [Windows 格式化数据盘](../../../../intl.zh-CN/个人版快速入门/步骤 4：格式化数据盘/Windows 格式化数据盘.md#)。
 
 ## 注意事项 {#section_xmm_psc_ydb .section}
 
@@ -35,55 +35,36 @@
 
 **前提条件**
 
-数据盘已经挂载到实例上。具体操作，请参见 [挂载云盘](cn.zh-CN/用户指南/云盘/挂载云盘.md#)。
+数据盘已经挂载到实例上。具体操作，请参见 [挂载云盘](intl.zh-CN/用户指南/云盘/挂载云盘.md#)。
 
 **操作步骤**
 
 按以下步骤分区格式化一块大容量数据盘：
 
-1.  [远程连接Windows实例](cn.zh-CN/用户指南/连接实例/连接实例概述.md#)。
+1.  [远程连接Windows实例](intl.zh-CN/用户指南/连接实例/连接实例概述.md#)。
 2.  在任务栏里，单击 ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/4424_zh-CN.png) 图标。
 3.  在 **服务器管理器** 的左侧导航栏里，选择 **存储** \> **磁盘管理**。
-
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/4425_zh-CN.png)
-
 4.  找到需要分区格式化的磁盘（本示例中为 **磁盘 4**）。磁盘状态显示为 **脱机**。
 5.  右击磁盘 4周边空白处，单击 **联机**。
-
-    ![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/34377/cn_zh/1514438661986/Win2008_%E8%81%94%E6%9C%BA.png)
 
     联机后，磁盘 4的状态显示为 **没有初始化**。
 
 6.  右键单击磁盘 4周边的空白区，在弹出菜单中，选择 **初始化磁盘**。
 7.  在 初始化磁盘 对话框里，选择 **磁盘 4**，并选择磁盘分区形式为 **GPT**。
-
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/4427_zh-CN.png)
-
 8.  在 磁盘管理 窗口，右键单击磁盘 4的 **未分配** 区域，选择 **新建简单卷**，创建一个4 TiB的NTFS格式的卷。
-
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/4428_zh-CN.png)
-
 9.  在 新建简单卷向导 中，完成以下操作：
     1.  单击 **下一步**。
     2.  指定卷大小：指定简单卷大小。如果您只要创建一个主区，使用默认值。单击 **下一步**。您也可以把 **磁盘 4** 分成多个分区来使用。
 
         **说明：** NTFS卷上的最大尺寸，理论上，NTFS的最大卷包含264-1个簇。实际上，WinXP Pro中，NTFS卷的最大限制是232-1个簇。举例来说，如果是64 KiB的簇，那NTFS卷的最大尺寸就是约256 TiB 。如果选择4 KiB的簇，那NTFS卷的最大尺寸就是约16 TiB。NTFS会根据磁盘的容量来自动选择簇的大小。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/4429_zh-CN.png)
+         
 
     3.  分配驱动器号和路径：选择一个驱动器号（即盘符），如本示例中选择G。单击 **下一步**。
-
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/4430_zh-CN.png)
-
     4.  格式化分区：选择格式化设置，包括文件系统、分配单元大小和卷标，确认是否 **执行快速格式化** 和 **启用文件和文件夹压缩**。这里仅选择 **执行快速格式化**。单击 **下一步**。
-
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/4431_zh-CN.png)
-
     5.  开始创建新简单卷。当向导对话框里显示已经完成新简单卷的创建时，单击 **完成**，关闭 新建简单卷向导。
 
 格式化分区完成后，**磁盘管理** 中 **磁盘 4** 的状态如下截图所示。
-
-![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/34377/cn_zh/1514438976977/Win2008_%E6%96%B0%E5%BB%BA%E7%AE%80%E5%8D%95%E5%8D%B7_%E5%AE%8C%E6%88%90.png)
 
 ## Windows里分区格式化由小容量数据盘的快照创建的大容量数据盘 {#Windows2012Snapshot .section}
 
@@ -99,42 +80,26 @@
 
 按以下步骤分区格式化一块大容量数据盘：
 
-1.  [远程连接Windows实例](cn.zh-CN/用户指南/连接实例/连接实例概述.md#)。
+1.  [远程连接Windows实例](intl.zh-CN/用户指南/连接实例/连接实例概述.md#)。
 2.  在Windows Server桌面，右键单击 **开始** 图标，选择 **磁盘管理**。
 
     未格式化分区的数据盘（如本示例中的磁盘 2）处于 **脱机** 状态。
 
 3.  右键单击磁盘 2周边的空白区，在弹出菜单中，选择 **脱机**。
 4.  右键单击一个简单卷，在弹出菜单中，选择 **删除卷**。
-
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/4433_zh-CN.png)
-
 5.  右键单击磁盘 2周边的空白区，在弹出菜单中，选择 **转换成GPT磁盘**。
 6.  在 磁盘管理 窗口，右键单击磁盘 2的 **未分配** 区域，选择 **新建简单卷**,创建一个3 TiB的NTFS格式的卷。
-
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/4434_zh-CN.png)
-
 7.  在 新建简单卷向导 中，完成以下操作：
     1.  单击 **下一步**。
     2.  指定卷大小：指定简单卷大小。如果您只要创建一个主区，使用默认值。单击 **下一步**。您也可以把 **磁盘 2** 分成多个分区来使用。
 
         **说明：** NTFS卷上的最大尺寸，理论上，NTFS的最大卷包含264-1个簇。实际上，WinXP Pro中，NTFS卷的最大限制是232-1个簇。举例来说，如果是64 KiB的簇，那NTFS卷的最大尺寸就是约256 TiB。如果选择4 KiB的簇，那NTFS卷的最大尺寸就是约16 TiB。NTFS会根据磁盘的容量来自动选择簇的大小。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/4435_zh-CN.png)
-
     3.  分配驱动器号和路径：选择一个驱动器号（即盘符），如本示例中选择E。单击 **下一步**。
-
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/4436_zh-CN.png)
-
     4.  格式化分区：选择格式化设置，包括文件系统、分配单元大小和卷标，确认是否 **执行快速格式化** 和 **启用文件和文件夹压缩**。这里仅选择 **执行快速格式化**。单击 **下一步**。
-
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/4437_zh-CN.png)
-
     5.  开始创建新简单卷。当向导对话框里显示已经完成新简单卷的创建时，单击 **完成**，关闭 新建简单卷向导。
 
 格式化分区完成后，**磁盘管理** 中 **磁盘 4** 的状态如下截图所示。
-
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/6088_zh-CN.png)
 
 ## Linux里分区格式化大容量数据盘 {#section_a4m_psc_ydb .section}
 
@@ -148,7 +113,7 @@
 
 您的Linux实例上已经安装了 **e2fsprogs**。如果未安装，运行命令 `yum install -y e2fsprogs`。
 
-数据盘已经挂载到实例上。详细信息，请参见 [挂载云盘](cn.zh-CN/用户指南/云盘/挂载云盘.md#)。
+数据盘已经挂载到实例上。详细信息，请参见 [挂载云盘](intl.zh-CN/用户指南/云盘/挂载云盘.md#)。
 
 **操作步骤**
 
