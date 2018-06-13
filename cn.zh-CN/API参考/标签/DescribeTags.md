@@ -11,7 +11,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeTags|
-|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |ResourceType|String|是|资源类型。取值范围：-   disk
 -   instance
 -   image
@@ -41,7 +41,7 @@
 
 |名称|类型|描述|
 |:-|:-|:-|
-|Tags|[TagSetItem](cn.zh-CN/API参考/数据类型/TagSetItem.md#)|满足所有筛选条件的标签|
+|Tags|[TagSetItem](intl.zh-CN/API参考/数据类型/TagSetItem.md#)|满足所有筛选条件的标签|
 |TotalCount|Integer|标签总个数|
 |PageSize|Integer|分页查询时设置的每页行数|
 |PageNumber|Integer|标签列表的页码|
@@ -100,7 +100,7 @@ https://ecs.aliyuncs.com/?Action=DescribeTags
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
