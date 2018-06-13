@@ -10,7 +10,7 @@
 
 -   该接口单次最多返回 100 条记录。
 
--   当您无法删除某一安全组（[DeleteSecurityGroup](cn.zh-CN/API参考/安全组/DeleteSecurityGroup.md#)）时，可以调用该接口查看指定的安全组是否已被其他安全组授权。如果指定的安全组已被授权，您需要在删除该安全组之前解除授权行为。
+-   当您无法删除某一安全组（[DeleteSecurityGroup](intl.zh-CN/API参考/安全组/DeleteSecurityGroup.md#)）时，可以调用该接口查看指定的安全组是否已被其他安全组授权。如果指定的安全组已被授权，您需要在删除该安全组之前解除授权行为。
 
 
 ## 请求参数 {#RequestParameter .section}
@@ -19,13 +19,13 @@
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeSecurityGroupReferences|
 |SecurityGroupId.n|String|是|要查询的第 n 个 `SecurityGroupId`，`n` 的取值范围为 \[1, 10\]。|
-|RegionId|String|是|安全组所属地域。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|安全组所属地域。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 
 ## 返回参数 {#ResponseParameter .section}
 
 |名称|类型|描述|
 |:-|:-|:-|
-|SecurityGroupReferences|[SecurityGroupReference](cn.zh-CN/API参考/数据类型/SecurityGroupReference.md#)|所有用户指定的安全组被引用的完整信息|
+|SecurityGroupReferences|[SecurityGroupReference](intl.zh-CN/API参考/数据类型/SecurityGroupReference.md#)|所有用户指定的安全组被引用的完整信息|
 
 ## 示例 { .section}
 
@@ -88,7 +88,7 @@ https://ecs.aliyuncs.com/?Action=DescribeSecurityGroupReferences
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
