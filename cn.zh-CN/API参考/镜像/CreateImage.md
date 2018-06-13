@@ -1,6 +1,6 @@
 # CreateImage {#CreateImage .reference}
 
-创建一份自定义镜像。您可以使用创建的自定义镜像创建 ECS 实例（[RunInstances](cn.zh-CN/API参考/实例/RunInstances.md#)）或者更换实例的系统盘（[ReplaceSystemDisk](cn.zh-CN/API参考/磁盘/ReplaceSystemDisk.md#)）。
+创建一份自定义镜像。您可以使用创建的自定义镜像创建 ECS 实例（[RunInstances](intl.zh-CN/API参考/实例/RunInstances.md#)）或者更换实例的系统盘（[ReplaceSystemDisk](intl.zh-CN/API参考/磁盘/ReplaceSystemDisk.md#)）。
 
 ## 描述 {#section_yqm_y5y_xdb .section}
 
@@ -8,7 +8,7 @@
 
 -   您需要等待镜像状态变为 **可用**（`Available`）后才能使用镜像资源。
 
--   被 [安全控制](cn.zh-CN/API参考/附录/安全锁定时的 API 行为.md#) 的 ECS 实例的 `OperationLocks` 中标记了 `"LockReason" : "security"` 时，不能创建自定义镜像。
+-   被 [安全控制](intl.zh-CN/API参考/附录/安全锁定时的 API 行为.md#) 的 ECS 实例的 `OperationLocks` 中标记了 `"LockReason" : "security"` 时，不能创建自定义镜像。
 
 
 **创建方法**
@@ -35,7 +35,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：CreateImage|
-|RegionId|String|是|镜像所在的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|镜像所在的地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |SnapshotId|String|否|快照 ID。从指定的快照创建自定义镜像。|
 |InstanceId|String|否|实例 ID。|
 |DiskDeviceMapping.N.Size|String|否|磁盘的大小。单位为 GB。取值范围：\[5, 2000\]-   如果不指定磁盘大小，默认为快照（`DiskDeviceMapping.N.SnapshotId`）的大小。
@@ -57,7 +57,7 @@
 -   不填则为空，默认为空。
 
 |
-|ClientToken|String|否|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一。只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](cn.zh-CN/API参考/附录/如何保证幂等性.md#)。|
+|ClientToken|String|否|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一。只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](intl.zh-CN/API参考/附录/如何保证幂等性.md#)。|
 
 ## 返回参数 {#ResponseParameter .section}
 
@@ -99,7 +99,7 @@ https://ecs.aliyuncs.com/?Action=CreateImage
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
