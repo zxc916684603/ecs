@@ -1,6 +1,6 @@
 # DeleteSecurityGroup {#DeleteSecurityGroup .reference}
 
-删除一个安全组。删除安全组之前，请确保安全组内不存在实例，并且没有其他安全组与该安全组有授权行为（[DescribeSecurityGroupReferences](cn.zh-CN/API参考/安全组/DescribeSecurityGroupReferences.md#)），否则 `DeleteSecurityGroup` 请求失败。
+删除一个安全组。删除安全组之前，请确保安全组内不存在实例，并且没有其他安全组与该安全组有授权行为（[DescribeSecurityGroupReferences](intl.zh-CN/API参考/安全组/DescribeSecurityGroupReferences.md#)），否则 `DeleteSecurityGroup` 请求失败。
 
 ## 请求参数 {#RequestParameter .section}
 
@@ -8,11 +8,11 @@
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DeleteSecurityGroup|
 |SecurityGroupId|String|是|安全组 ID。|
-|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 
 ## 返回参数 {#section_f54_lk5_xdb .section}
 
-全是公共返回参数。参阅 [公共参数](cn.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅 [公共参数](intl.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -45,7 +45,7 @@ https://ecs.aliyuncs.com/?Action=DeleteSecurityGroup
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
