@@ -11,8 +11,8 @@
 -   指定 `VSwitchId` 不指定 `PrivateIpAddress` 时，系统自动为 ECS 实例分配一个私网 IP。
 -   指定实例的当前交换机和新的交换机（`VSwitchId`）必须要属于同一个地域下的可用区。
 -   指定实例的当前交换机和新的交换机（`VSwitchId`）必须要属于同一个 VPC 。
--   同时指定 `VSwitchId` 和 `PrivateIpAddress` 时，私网 IP 要属于指定交换机的 [网段](../../cn.zh-CN/产品简介/什么是专有网络.md#section_w1b_tvz_ndb)。`PrivateIpAddress` 依赖于 `VSwitchId`，不能单独指定 `PrivateIpAddress`。
--   更多 VPC 相关接口，请参见 [专有网络（VPC）的 API 参考](../../cn.zh-CN/API 参考/API概览.md#)。
+-   同时指定 `VSwitchId` 和 `PrivateIpAddress` 时，私网 IP 要属于指定交换机的 [网段](../../../../intl.zh-CN/产品简介/什么是专有网络.md#section_w1b_tvz_ndb)。`PrivateIpAddress` 依赖于 `VSwitchId`，不能单独指定 `PrivateIpAddress`。
+-   更多 VPC 相关接口，请参见 [专有网络（VPC）的 API 参考](../../../../intl.zh-CN/API 参考/API概览.md#)。
 
 ## 请求参数 {#RequestParameter .section}
 
@@ -25,7 +25,7 @@
 
 ## 返回参数 {#section_zgl_44t_xdb .section}
 
-全是公共返回参数。参阅 [公共参数](cn.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)
+全是公共返回参数。参阅 [公共参数](intl.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)
 
 ## 示例 { .section}
 
@@ -58,7 +58,7 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceVpcAttribute
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
