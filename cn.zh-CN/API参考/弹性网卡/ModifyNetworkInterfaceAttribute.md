@@ -7,7 +7,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：ModifyNetworkInterfaceAttribute|
-|RegionId|String|是|实例所在地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|实例所在地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |NetworkInterfaceId|String|是|弹性网卡 ID。|
 |SecurityGroupId.N|String|否|安全组 ID，新的安全组将会覆盖旧的安全组，安全组必须跟弹性网卡在同一个 VPC 内。|
 |NetworkInterfaceName|String|否|弹性网卡的名称。-   字符长度为 \[2, 128\] 个英文或中文字符，必须以大小字母或中文开头，可包含数字、下划线（\_） 或连字符（-）。
@@ -24,7 +24,7 @@
 
 ## 返回参数 {#section_f54_lk5_xdb .section}
 
-全是公共返回参数。参阅 [公共参数](cn.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅 [公共参数](intl.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -57,7 +57,7 @@ https://ecs.aliyuncs.com/?Action=ModifyNetworkInterfaceAttribute
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
