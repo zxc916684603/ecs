@@ -32,7 +32,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：AuthorizeSecurityGroup|
-|RegionId|String|是|安全组所属地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|安全组所属地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |SecurityGroupId|String|是|目的端安全组 ID。|
 |IpProtocol|String|是|传输层协议。取值大小写敏感。取值范围：-   tcp
 -   udp
@@ -83,15 +83,13 @@
 
 ## 返回参数 {#section_px3_2g1_ydb .section}
 
-全是公共返回参数。参阅 [公共参数](cn.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅 [公共参数](intl.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
-更多关于安全组规则的设置示例，请参阅 [应用案例](../cn.zh-CN/用户指南/安全组/应用案例.md#)、[安全组规则的典型应用](../cn.zh-CN/用户指南/安全组/安全组规则的典型应用.md#) 和 [安全组五元组规则介绍](https://yq.aliyun.com/articles/272107)。
-
 **请求示例一** 
 
-设置指定 IP 地址段的访问权限。此时，经典网络类型安全组的网卡类型（`NicType`）可设置公网（`internet`）和 [内网](../cn.zh-CN/产品简介/网络和安全性/内网.md#)（`intranet`）。VPC 类型安全组的网卡类型（`NicType`）只可设置内网（`intranet`）。
+设置指定 IP 地址段的访问权限。此时，经典网络类型安全组的网卡类型（`NicType`）可设置公网（`internet`）和 [内网](../../../../intl.zh-CN/产品简介/网络和安全性/内网.md#)（`intranet`）。VPC 类型安全组的网卡类型（`NicType`）只可设置内网（`intranet`）。
 
 ```
 https://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
@@ -140,7 +138,7 @@ https://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
