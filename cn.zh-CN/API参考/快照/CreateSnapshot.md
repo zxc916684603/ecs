@@ -14,13 +14,13 @@
 
 -   磁盘挂载的实例从未启动过时，无法创建快照。
 
--   被 [安全控制](cn.zh-CN/API参考/附录/安全锁定时的 API 行为.md#) 的 ECS 实例的 `OperationLocks` 中标记了 `"LockReason" : "security"` 时，实例挂载的磁盘无法创建快照。
+-   被 [安全控制](intl.zh-CN/API参考/附录/安全锁定时的 API 行为.md#) 的 ECS 实例的 `OperationLocks` 中标记了 `"LockReason" : "security"` 时，实例挂载的磁盘无法创建快照。
 
--   新建一台云服务器 ECS（[RunInstances](cn.zh-CN/API参考/实例/RunInstances.md#)）、更换系统盘（[ReplaceSystemDisk](cn.zh-CN/API参考/磁盘/ReplaceSystemDisk.md#)）或者根据快照新增数据盘（[CreateDisk](cn.zh-CN/API参考/磁盘/CreateDisk.md#)），由于尚未完成数据加载，无法创建快照。新建一台云服务器 ECS 或者更换系统盘大约 1 小时后可以创建快照，新增一块数据盘可创建快照的时间取决于磁盘数据的大小。
+-   新建一台云服务器 ECS（[RunInstances](intl.zh-CN/API参考/实例/RunInstances.md#)）、更换系统盘（[ReplaceSystemDisk](intl.zh-CN/API参考/磁盘/ReplaceSystemDisk.md#)）或者根据快照新增数据盘（[CreateDisk](intl.zh-CN/API参考/磁盘/CreateDisk.md#)），由于尚未完成数据加载，无法创建快照。新建一台云服务器 ECS 或者更换系统盘大约 1 小时后可以创建快照，新增一块数据盘可创建快照的时间取决于磁盘数据的大小。
 
 -   如果创建快照还未完成，您无法为该磁盘再次创建快照。
 
--   如果创建快照还未完成，这份快照无法用于创建自定义镜像 （[CreateImage](cn.zh-CN/API参考/镜像/CreateImage.md#)）。
+-   如果创建快照还未完成，这份快照无法用于创建自定义镜像 （[CreateImage](intl.zh-CN/API参考/镜像/CreateImage.md#)）。
 
 
 ## 请求参数 {#RequestParameter .section}
@@ -31,7 +31,7 @@
 |DiskId|String|是|磁盘 ID。|
 |SnapshotName|String|否|快照的显示名称。-   长度为 \[2, 128\] 个英文或中文字符。
 -   必须以大小字母或中文开头，可包含数字、半角冒号（:）、下划线（\_）或者短横线（-）。
--   为防止和 [自动快照](cn.zh-CN/API参考/快照/CreateAutoSnapshotPolicy.md#) 的名称冲突，不能以 `auto` 开头。
+-   为防止和 [自动快照](intl.zh-CN/API参考/快照/CreateAutoSnapshotPolicy.md#) 的名称冲突，不能以 `auto` 开头。
 -   不能以 http:// 和 https:// 开头。
 
 |
@@ -39,7 +39,7 @@
 -   不能以 http:// 和 https:// 开头。
 
 默认值：空|
-|ClientToken|String|否|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一。只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](cn.zh-CN/API参考/附录/如何保证幂等性.md#)。|
+|ClientToken|String|否|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一。只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](intl.zh-CN/API参考/附录/如何保证幂等性.md#)。|
 
 ## 返回参数 {#ResponseParameter .section}
 
@@ -79,7 +79,7 @@ https://ecs.aliyuncs.com/?Action=CreateSnapshot
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
@@ -95,7 +95,7 @@ https://ecs.aliyuncs.com/?Action=CreateSnapshot
 |IncorrectDiskStatus.NeverUsed|The specified disk has never been used after creating.|403|该磁盘未被使用，不能创建快照。|
 |InstanceLockedForSecurity|The disk attached instance is locked due to security.|403|指定的实例被安全锁定。|
 |InvalidAccountStatus.NotEnoughBalance|Your account does not have enough balance.|403|您的账户余额不足。请 [充值](https://help.aliyun.com/document_detail/37107.html) 后重试。|
-|InvalidAccountStatus.SnapshotServiceUnavailable|Snapshot service has not been opened yet.|403|您还未开通快照服务。请 [提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm) 申请开通。|
+|InvalidAccountStatus.SnapshotServiceUnavailable|Snapshot service has not been opened yet.|403|您还未开通快照服务。请 [提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) 申请开通。|
 |QuotaExceed.Snapshot|The maximum number of snapshots is exceeded.|403|您已超出能创建的最大快照数量。一块磁盘最多能创建 64 份快照。|
 |InvalidDescription.Malformed|The specified description is wrongly formed.|404|指定的参数 `Description` 不合法。|
 |InvalidDiskId.NotFound|The specified DiskId does not exist.|404|指定的磁盘不存在。|
