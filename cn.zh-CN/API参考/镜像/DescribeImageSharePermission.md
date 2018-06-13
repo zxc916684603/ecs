@@ -7,7 +7,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeImageSharePermission|
-|RegionId|String|是|自定义镜像所属的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|自定义镜像所属的地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |ImageId|String|是|自定义镜像 ID。|
 |PageNumber|Integer|否|查询结果显示的页码。起始值：1默认值：1
 
@@ -22,8 +22,8 @@
 |:-|:-|:-|
 |ImageId|String|自定义镜像 ID|
 |RegionId|String|镜像所属地域 ID|
-|ShareGroups|[ShareGroupType](cn.zh-CN/API参考/数据类型/ShareGroupType.md#)|共享组类型|
-|Accounts|[AccountType](cn.zh-CN/API参考/数据类型/AccountType.md#)|阿里云账号类型|
+|ShareGroups|[ShareGroupType](intl.zh-CN/API参考/数据类型/ShareGroupType.md#)|共享组类型|
+|Accounts|[AccountType](intl.zh-CN/API参考/数据类型/AccountType.md#)|阿里云账号类型|
 |TotalCount|Integer|记录总数|
 |PageNumber|Integer|查询结果显示的页码|
 |PageSize|Integer|每页的信息条目数|
@@ -93,7 +93,7 @@ https://ecs.aliyuncs.com/?Action=DescribeImageSharePermission
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
