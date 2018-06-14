@@ -1,6 +1,6 @@
 # DescribeAccountAttributes {#DescribeAccountAttributes .reference}
 
-查询您在一个阿里云地域下能创建的ECS资源上限。包括您能创建的安全组数量、弹性网卡数量、按量付费vCPU核数、竞价实例vCPU核数、专用宿主机数量、地域网络类型以及账号是否已完成实名认证。
+查询您在一个阿里云地域下能创建的ECS资源上限。包括您能创建的安全组数量、弹性网卡数量、按量付费vCPU核数、抢占式实例vCPU核数、专用宿主机数量、地域网络类型以及账号是否已完成实名认证。
 
 ## 描述 {#section_awr_p1k_b2b .section}
 
@@ -17,7 +17,7 @@
 -   max-security-groups：安全组数量。
 -   max-elastic-network-interfaces：当前地域下弹性网卡的数量。
 -   max-postpaid-instance-vcpu-count：当前地域下按量实例的vCPU核数。
--   max-spot-instance-vcpu-count：当前地域下竞价实例vCPU核数。
+-   max-spot-instance-vcpu-count：当前地域下抢占式实例vCPU核数。
 -   max-delicated-hosts：当前地域下专用宿主机数量。
 -   supported-postpay-instance-types：当前地域下按量付费 I/O 优化实例规格。
 -   real-name-authentication：账号是否完成了实名认证。
@@ -41,7 +41,7 @@
 -   max-security-groups：安全组数量。
 -   max-elastic-network-interfaces：当前地域下弹性网卡的数量。
 -   max-postpaid-instance-vcpu-count：当前地域下按量实例的vCPU核数。
--   max-spot-instance-vcpu-count：当前地域下竞价实例vCPU核数。
+-   max-spot-instance-vcpu-count：当前地域下抢占式实例vCPU核数。
 -   max-delicated-hosts：当前地域下专用宿主机数量。
 -   supported-postpay-instance-types：当前地域下按量付费I/O优化实例规格。
 -   real-name-authentication：账号是否完成了实名认证。
