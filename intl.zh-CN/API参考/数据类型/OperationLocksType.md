@@ -12,7 +12,7 @@ OperationLock
 |:-|:-|:-|
 |LockReason|String|锁定类型-   financial：因欠费被锁定
 -   security：因安全原因被锁定
--   recycling：竞价实例的待释放锁定状态
+-   recycling：抢占式实例的待释放锁定状态
 
 |
 
