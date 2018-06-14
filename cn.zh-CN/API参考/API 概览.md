@@ -22,7 +22,7 @@
 |[DescribeUserdata](intl.zh-CN/API参考/实例/DescribeUserdata.md#)|查询您的实例的自定义数据。|
 |[DescribeInstanceAutoRenewAttribute](intl.zh-CN/API参考/实例/DescribeInstanceAutoRenewAttribute.md#)|查询实例自动续费状态。|
 |[DescribeInstanceRamRole](intl.zh-CN/API参考/实例/DescribeInstanceRamRole.md#)|查询一台或者多台实例上的已赋予的实例 RAM 角色的信息。|
-|[DescribeSpotPriceHistory](intl.zh-CN/API参考/实例/DescribeSpotPriceHistory.md#)|查询竞价实例历史价格。最多能查询 30 天内的历史价格记录。|
+|[DescribeSpotPriceHistory](intl.zh-CN/API参考/实例/DescribeSpotPriceHistory.md#)|查询抢占式实例历史价格。最多能查询 30 天内的历史价格记录。|
 |[DescribeInstanceTypeFamilies](intl.zh-CN/API参考/实例/DescribeInstanceTypeFamilies.md#)|查询云服务器 ECS 提供的实例规格族资源。|
 |[DescribeInstanceTypes](intl.zh-CN/API参考/实例/DescribeInstanceTypes.md#)|查询云服务器 ECS 提供的实例规格资源。|
 |[ModifyInstanceVpcAttribute](intl.zh-CN/API参考/实例/ModifyInstanceVpcAttribute.md#)|修改实例的 VPC 属性。|
