@@ -4,7 +4,7 @@
 
 ## 描述 {#section_awr_p1k_b2b .section}
 
-[注册](https://account.aliyun.com/register/register.htm) 了阿里云账号后，您可以在不同的阿里云地域中创建一定数量的ECS资源，更多详情，请参阅 [使用限制](../cn.zh-CN/用户指南/使用限制.md#)。您也可以根据自己的需求 [提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm) 提高资源使用上限。
+[注册](https://account.aliyun.com/register/register.htm) 了阿里云账号后，您可以在不同的阿里云地域中创建一定数量的ECS资源，更多详情，请参阅 [使用限制](../../../../cn.zh-CN/用户指南/使用限制.md#)。您也可以根据自己的需求 [提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm) 提高资源使用上限。
 
 ## 请求参数 {#RequestParameter .section}
 
@@ -13,13 +13,13 @@
 |Action|String|是|系统规定参数。取值：DescribeAccountAttributes|
 |RegionId|String|是|地域ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |ZoneId|String|否|可用区ID。|
-|AttributeName.N|String|否|查询当前地域下某类资源的使用上限，`N`的取值范围为\[1, 8\]。取值范围：-   instance-network-type：当前地域可选择的网络类型。
+|AttributeName.N|String|否|查询某类资源的使用上限，`N`的取值范围为\[1, 8\]。取值范围：-   instance-network-type：当前地域可选择的网络类型。
 -   max-security-groups：安全组数量。
--   max-elastic-network-interfaces：弹性网卡的数量。
--   max-postpaid-instance-vcpu-count：按量实例的vCPU核数。
--   max-spot-instance-vcpu-count：竞价实例vCPU核数。
--   max-delicated-hosts：专用宿主机数量。
--   supported-postpay-instance-types：按量付费 I/O 优化实例规格。
+-   max-elastic-network-interfaces：当前地域下弹性网卡的数量。
+-   max-postpaid-instance-vcpu-count：当前地域下按量实例的vCPU核数。
+-   max-spot-instance-vcpu-count：当前地域下竞价实例vCPU核数。
+-   max-delicated-hosts：当前地域下专用宿主机数量。
+-   supported-postpay-instance-types：当前地域下按量付费 I/O 优化实例规格。
 -   real-name-authentication：账号是否完成了实名认证。
 
 **说明：** 说明：您只有完成了[实名认证](https://help.aliyun.com/knowledge_list/37170.html) 才可以创建ECS实例。
@@ -37,13 +37,13 @@
 
 |名称|类型|描述|
 |:-|:-|:-|
-|AttributeName|String|当前地域下资源的使用上限分类。可能值:-   instance-network-type：当前地域可选择的网络类型。
+|AttributeName|String|资源的使用上限分类。可能值:-   instance-network-type：当前地域可选择的网络类型。
 -   max-security-groups：安全组数量。
--   max-elastic-network-interfaces：弹性网卡的数量。
--   max-postpaid-instance-vcpu-count：按量实例的vCPU核数。
--   max-spot-instance-vcpu-count：竞价实例vCPU核数。
--   max-delicated-hosts：专用宿主机数量。
--   supported-postpay-instance-types：按量付费I/O优化实例规格。
+-   max-elastic-network-interfaces：当前地域下弹性网卡的数量。
+-   max-postpaid-instance-vcpu-count：当前地域下按量实例的vCPU核数。
+-   max-spot-instance-vcpu-count：当前地域下竞价实例vCPU核数。
+-   max-delicated-hosts：当前地域下专用宿主机数量。
+-   supported-postpay-instance-types：当前地域下按量付费I/O优化实例规格。
 -   real-name-authentication：账号是否完成了实名认证。
 
 |
@@ -53,8 +53,8 @@
 
 |名称|类型|描述|
 |:-|:-|:-|
-|Value|String|当前地域下某类资源的使用上限具体数值。可能值:-   分类为 `max-security-groups`、`max-elastic-network-interfaces`、`max-postpaid-instance-vcpu-count`、`max-delicated-hosts`、`max-spot-instance-vcpu-count`时：返回0或正整数。
--   分类为 `supported-postpay-instance-types` 时：返回实例规格取值。参阅 [实例规格族](../cn.zh-CN/产品简介/实例规格族.md#)。
+|Value|String|当前地域或全部地域下某类资源的使用上限具体数值。可能值:-   分类为 `max-security-groups`、`max-elastic-network-interfaces`、`max-postpaid-instance-vcpu-count`、`max-delicated-hosts`、`max-spot-instance-vcpu-count`时：返回0或正整数。
+-   分类为 `supported-postpay-instance-types` 时：返回实例规格取值。参阅 [实例规格族](../../../../cn.zh-CN/产品简介/实例规格族.md#)。
 -   分类为 `real-name-authentications`时：返回 yes | none | unnecessary
 -   分类为 `为instance-network-type` 时：返回 vpc | classic
 
