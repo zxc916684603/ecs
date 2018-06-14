@@ -43,8 +43,8 @@
 -   PostPaid：按量付费
 
 |
-|SpotStrategy|String|竞价实例的竞价策略。可能值：-   NoSpot：正常按量付费实例
--   SpotWithPriceLimit：设置上限价格的竞价实例
+|SpotStrategy|String|抢占式实例的竞价策略。可能值：-   NoSpot：正常按量付费实例
+-   SpotWithPriceLimit：设置上限价格的抢占式实例
 -   SpotAsPriceGo：系统自动出价，最高按量付费价格
 
 默认值：NoSpot|
