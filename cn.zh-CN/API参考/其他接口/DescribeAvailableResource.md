@@ -34,7 +34,7 @@
 
 默认值：PostPaid|
 |SpotStrategy|String|否|按量付费实例的竞价策略。取值范围：-   NoSpot：正常按量付费实例
--   SpotWithPriceLimit：设置上限价格的竞价实例
+-   SpotWithPriceLimit：设置上限价格的抢占式实例
 -   SpotAsPriceGo：系统自动出价，最高按量付费价格
 
 默认值：NoSpot 当参数 `InstanceChargeType` 取值为 `PostPaid` 时，参数 `SpotStrategy` 才有效。|
