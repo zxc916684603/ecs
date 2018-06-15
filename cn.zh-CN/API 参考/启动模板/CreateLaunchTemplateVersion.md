@@ -11,12 +11,12 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：CreateLaunchTemplateVersion|
-|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
-|LaunchTemplateId|String|是|实例启动模板 ID。更多详情，请调用 [DescribeLaunchTemplates](intl.zh-CN/API参考/启动模板/DescribeLaunchTemplates.md#)。您必须指定 `LaunchTemplateId` 或 `LaunchTemplateName` 以确定模板。|
+|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|LaunchTemplateId|String|是|实例启动模板 ID。更多详情，请调用 [DescribeLaunchTemplates](cn.zh-CN/API 参考/启动模板/DescribeLaunchTemplates.md#)。您必须指定 `LaunchTemplateId` 或 `LaunchTemplateName` 以确定模板。|
 |LaunchTemplateName|String|是|实例启动模板名称。|
 |VersionDescription|String|否|实例启动模板版本的描述。长度为 \[2, 256\] 个字符。不能以 http:// 和 https:// 开头。默认值为空。|
 |ImageId|String|否|镜像 ID。|
-|InstanceType|String|否|实例类型。更多详情，请调用 [DescribeInstanceTypes](intl.zh-CN/API参考/实例/DescribeInstanceTypes.md#)接口获得最新的规格表。|
+|InstanceType|String|否|实例类型。更多详情，请调用 [DescribeInstanceTypes](cn.zh-CN/API 参考/实例/DescribeInstanceTypes.md#)接口获得最新的规格表。|
 |SecurityGroupId|String|否|安全组 ID。|
 |NetworkType|String|否|实例网络类型。取值范围：classic | vpc|
 |VSwitchId|String|否|创建 VPC 类型实例时需要指定虚拟交换机 ID。|
@@ -65,14 +65,14 @@
 |NetworkInterface.n.SecurityGroupId|String|否|第 `n` 个所属的安全组 ID 必须是同一个 VPC 下的安全组。`n` 的取值范围参阅实例规格族。|
 |NetworkInterface.n.NetworkInterfaceName|String|否|第 `n` 个弹性网卡名称。`n` 的取值范围参阅实例规格族。|
 |NetworkInterface.n.Description|String|否|第 `n` 个弹性网卡描述信息。`n` 的取值范围参阅实例规格族。|
-|InternetChargeType|String|否|公网带宽计费类型。取值范围：PayByTraffic|
+|InternetChargeType|String|否|公网带宽计费类型。取值范围：PayByBandwidth |PayByTraffic|
 |UserData|String|否|实例自定义数据，需要以 Base64 方式编码，原始数据最多为 16 KB。|
 |KeyPairName|String|否|密钥对名称。-   Windows 实例，忽略该参数。默认为空。即使填写了该参数，仍旧只执行 `Password` 的内容。
 -   Linux 实例的密码登录方式会被初始化成禁止。
 
 |
-|RamRoleName|String|否|实例 RAM 角色名称。您可以使用 *RAM* API [ListRoles](../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#) 查询实例RAM角色名称。|
-|AutoReleaseTime|String|否|实例自动释放时间。按照 [ISO8601](intl.zh-CN/API参考/附录/时间格式.md#) 标准表示，并需要使用 UTC 时间。格式为 YYYY-MM-DDTHH:mm:ssZ。|
+|RamRoleName|String|否|实例 RAM 角色名称。您可以使用 *RAM* API [ListRoles](../../../../cn.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#) 查询实例RAM角色名称。|
+|AutoReleaseTime|String|否|实例自动释放时间。按照 [ISO8601](cn.zh-CN/API 参考/附录/时间格式.md#) 标准表示，并需要使用 UTC 时间。格式为 YYYY-MM-DDTHH:mm:ssZ。|
 |SpotStrategy|String|否|后付费实例的抢占策略。当参数 `InstanceChargeType` 取值为 `PostPaid` 时为生效。取值范围：-   NoSpot：正常按量付费实例
 -   SpotWithPriceLimit：设置上限价格的抢占式实例
 -   SpotAsPriceGo：系统自动出价，最高按量付费价格。
@@ -124,7 +124,7 @@ https://ecs.aliyuncs.com/?Action=CreateLaunchTemplateVersion
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
