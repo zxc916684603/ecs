@@ -17,15 +17,15 @@ This section introduces how to **upgrade configurations** in the ECS console. 
 
 -   You can use it to upgrade the specifications of vCPU and RAM simultaneously, but not separately, by changing the instance type.
 
--   Some instance types are not supported. For more information, see [Instance type families](../intl.en-US/Product Introduction/Instance type families.md#).
+-   Some instance types are not supported. For more information, see [Instance type families](../../../../intl.en-US/Product Introduction/Instance type families.md#).
 
 -   It can be used to change Internet bandwidth of only VPC-Connected ECS instances that no EIP address is bound to and classic network-connected ECS instances.
 
 -   It can be used to change the billing method of cloud disks that are used as data disks, but not that of system disk.
 
--   During the current billing cycle, if you have performed the Renew for Configuration Downgrade operation, [Renew for configuration downgrade](../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#) you cannot upgrade configurations until the next billing cycle.
+-   During the current billing cycle, if you have performed the Renew for Configuration Downgrade operation, [Renew for configuration downgrade](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#) you cannot upgrade configurations until the next billing cycle.
 
--   After you change the instance types or increase the Internet bandwidth of a classic network-connected ECS instance from 0 Mbit/s to a non-zero value for the first time, you must restart the instance in the ECS console [RebootInstance](../intl.en-US/API Reference/Instances/RebootInstance.md#) or by using the RebootInstance interface for the new configuration to take effect.
+-   After you change the instance types or increase the Internet bandwidth of a classic network-connected ECS instance from 0 Mbit/s to a non-zero value for the first time, you must restart the instance in the ECS console [RebootInstance](../../../../intl.en-US/API Reference/Instances/RebootInstance.md#) or by using the RebootInstance interface for the new configuration to take effect.
 
 
 ## Procedure {#section_gvw_myd_xdb .section}
@@ -49,7 +49,7 @@ This section introduces how to **upgrade configurations** in the ECS console. 
         ![](images/5422_en-US.png)
 
 7.  Click **Pay** to complete the order.
-8.  If you have changed the instance type, or if you have increased the bandwidth from 0 Mbit/s for your classic network-connected ECS instance, restart the instance in the console [RebootInstance](../intl.en-US/API Reference/Instances/RebootInstance.md#) or by using the RebootInstance interface.
+8.  If you have changed the instance type, or if you have increased the bandwidth from 0 Mbit/s for your classic network-connected ECS instance, restart the instance in the console [RebootInstance](../../../../intl.en-US/API Reference/Instances/RebootInstance.md#) or by using the RebootInstance interface.
 
     **Note:** You do not have to restart a VPC-Connected ECS instance if its bandwidth is increased from 0 Mbit/s for the first time.
 

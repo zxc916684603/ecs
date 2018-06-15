@@ -18,7 +18,7 @@ VPC类型ECS实例有2种IP地址：私有IP地址和公网IP地址。
 
 ## 修改私有IP地址 {#section_clh_djw_ydb .section}
 
-您可以根据业务需要，在ECS管理控制台上修改私有IP地址。详细信息，请参见 [修改VPC类型ECS实例的私有IP地址](../intl.zh-CN/用户指南/实例/修改IP地址/修改私有IP地址.md#)。
+您可以根据业务需要，在ECS管理控制台上修改私有IP地址。详细信息，请参见 [修改VPC类型ECS实例的私有IP地址](../../../../intl.zh-CN/用户指南/实例/修改IP地址/修改私有IP地址.md#)。
 
 ## 公网IP地址 {#section_dlh_djw_ydb .section}
 
