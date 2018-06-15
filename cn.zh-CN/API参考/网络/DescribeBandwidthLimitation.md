@@ -13,7 +13,7 @@
 -   PostPaid：按量付费
 
 默认值：PostPaid|
-|SpotStrategy|String|否|按量付费实例的竞价策略。取值范围：-   NoSpot：正常按量付费实例
+|SpotStrategy|String|否|按量付费实例的q抢占策略。取值范围：-   NoSpot：正常按量付费实例
 -   SpotWithPriceLimit：设置上限价格的抢占式实例
 -   SpotAsPriceGo：系统自动出价，最高按量付费价格
 
@@ -29,7 +29,7 @@
 
 |名称|类型|描述|
 |:-|:-|:-|
-|Bandwidths|Array of [`BandwidthType`](#BandwidthType)|数据中心信息组成的集合|
+|Bandwidths|Array of [BandwidthType](#BandwidthType)|数据中心信息组成的集合|
 
  **BandwidthType** 
 
