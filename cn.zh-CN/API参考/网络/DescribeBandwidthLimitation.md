@@ -8,13 +8,13 @@
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeBandwidthLimitation|
 |RegionId|String|是|目标地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
-|InstanceType|String|是|实例规格。更多详情，请参阅 [实例规格族](../cn.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](cn.zh-CN/API参考/实例/DescribeInstanceTypes.md#)接口获得最新的规格表。|
-|InstanceChargeType|String|否|实例的计费方式。更多详情，请参阅 [计费概述](../cn.zh-CN/产品定价/计费概述.md#)。取值范围：-   PrePaid：预付费（包年包月）
+|InstanceType|String|是|实例规格。更多详情，请参阅 [实例规格族](../../../../cn.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](cn.zh-CN/API参考/实例/DescribeInstanceTypes.md#)接口获得最新的规格表。|
+|InstanceChargeType|String|否|实例的计费方式。更多详情，请参阅 [计费概述](../../../../cn.zh-CN/产品定价/计费概述.md#)。取值范围：-   PrePaid：预付费（包年包月）
 -   PostPaid：按量付费
 
 默认值：PostPaid|
 |SpotStrategy|String|否|按量付费实例的竞价策略。取值范围：-   NoSpot：正常按量付费实例
--   SpotWithPriceLimit：设置上限价格的竞价实例
+-   SpotWithPriceLimit：设置上限价格的抢占式实例
 -   SpotAsPriceGo：系统自动出价，最高按量付费价格
 
 默认值：NoSpot 当参数 `InstanceChargeType` 取值为 `PostPaid` 时，参数 `SpotStrategy` 才有效。|
