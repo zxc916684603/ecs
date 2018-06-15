@@ -4,7 +4,7 @@
 
 ## 描述 {#section_nnh_jcy_wdb .section}
 
-创建一台实例前，您可以调用 [DescribeAvailableResource](intl.zh-CN/API参考/其他接口/DescribeAvailableResource.md#) 查看指定地域或者可用区内的实例资源供给情况。
+创建一台实例前，您可以调用 [DescribeAvailableResource](intl.zh-CN/API 参考/其他接口/DescribeAvailableResource.md#) 查看指定地域或者可用区内的实例资源供给情况。
 
 创建实例会涉及到资源计费，您需要提前了解云服务器 ECS 的计费方式（`InstanceChargeType`）。更多详情，请参阅 [预付费（包年包月）](../../../../intl.zh-CN/产品定价/预付费（包年包月）.md#)（`PrePaid`） 和 [按量付费](../../../../intl.zh-CN/产品定价/按量付费.md#)（`PostPaid`）。若实例付费类型为预付费的包年包月实例（`PrePaid`），则在付款时默认会使用您可用的优惠券。
 
@@ -21,7 +21,7 @@
 
 -   实例内存为 512 MB 时不能使用 Windows 镜像。
 
--   实例内存为 4 GB 以上时不能使用 32 位操作系统的镜像。
+-   实例内存为 4 GiB 以上时不能使用 32 位操作系统的镜像。
 
 
 **网络配置**
@@ -34,7 +34,7 @@
 
 -   `PrivateIpAddress` 依赖于 `VSwitchId`，不能单独指定 `PrivateIpAddress`。
 
--   使用本接口创建的实例将不会分配公网 IP，您可以调用 [AllocatePublicIpAddress](intl.zh-CN/API参考/网络/AllocatePublicIpAddress.md#) 分配公网 IP。
+-   使用本接口创建的实例将不会分配公网 IP，您可以调用 [AllocatePublicIpAddress](intl.zh-CN/API 参考/网络/AllocatePublicIpAddress.md#) 分配公网 IP。
 
 -   在创建实例时，`InternetChargeType` 和 `InternetMaxBandwidthOut` 的设置决定可能发生的带宽费用。`InternetMaxBandwidthIn` 的值在任何情况下都与计费无关，实例的入数据流量是免费的。
 
@@ -47,11 +47,11 @@
 
 **安全组**
 
--   安全组需要预先创建，可通过 [CreateSecurityGroup](intl.zh-CN/API参考/安全组/CreateSecurityGroup.md#) 创建。
+-   安全组需要预先创建，可通过 [CreateSecurityGroup](intl.zh-CN/API 参考/安全组/CreateSecurityGroup.md#) 创建。
 
--   可以在新创建实例时指定安全组，也可通过 [ModifyInstanceAttribute](intl.zh-CN/API参考/实例/ModifyInstanceAttribute.md#) 的接口变更实例所属安全组。
+-   可以在新创建实例时指定安全组，也可通过 [ModifyInstanceAttribute](intl.zh-CN/API 参考/实例/ModifyInstanceAttribute.md#) 的接口变更实例所属安全组。
 
--   在同一个安全组内的实例内网可以相互访问。不同安全组之间默认隔离，不可相互访问，但是可以授权访问。更多详情，请参阅 [AuthorizeSecurityGroup](intl.zh-CN/API参考/安全组/AuthorizeSecurityGroup.md#) 和 [AuthorizeSecurityGroupEgress](intl.zh-CN/API参考/安全组/AuthorizeSecurityGroupEgress.md#)。
+-   在同一个安全组内的实例内网可以相互访问。不同安全组之间默认隔离，不可相互访问，但是可以授权访问。更多详情，请参阅 [AuthorizeSecurityGroup](intl.zh-CN/API 参考/安全组/AuthorizeSecurityGroup.md#) 和 [AuthorizeSecurityGroupEgress](intl.zh-CN/API 参考/安全组/AuthorizeSecurityGroupEgress.md#)。
 
 -   同一个安全组内的实例数量不能超过 1000 个。
 
@@ -60,13 +60,13 @@
 
 -   不同类型云盘的最大容量不同：
 
-    -   单块普通云盘（`cloud`）容量最大不能超过 2000 GB。
+    -   单块普通云盘（`cloud`）容量最大不能超过 2000 GiB。
 
-    -   单块高效云盘（`cloud_efficiency`）容量最大不超过 32 TB（32768 GB）。
+    -   单块高效云盘（`cloud_efficiency`）容量最大不超过 32 TB（32768 GiB）。
 
-    -   单块 SSD 云盘（`cloud_ssd`）容量最大不能超过 32 TB（32768 GB）。
+    -   单块 SSD 云盘（`cloud_ssd`）容量最大不能超过 32 TB（32768 GiB）。
 
-    -   单块本地 SSD 盘（`ephemeral_ssd`）容量最大不能超过 800 GB。
+    -   单块本地 SSD 盘（`ephemeral_ssd`）容量最大不能超过 800 GiB。
 
 -   创建实例时，我们根据您指定的镜像为实例分配一个相应大小的系统盘。系统盘容量必须大于或者等于 max\{20, ImageSize\}。系统盘的种类有普通云盘（`cloud`）、高效云盘（`cloud_efficiency`）、SSD云盘（`cloud_ssd`）、和本地 SSD 盘（`ephemeral_ssd`）。
 
@@ -74,7 +74,7 @@
 
 -   当实例选择为 I/O 优化实例时，系统盘只能选择高效云盘（`cloud_efficiency`）及 SSD 云盘（`cloud_ssd`）。
 
--   一个实例最多添加 16 块数据盘。数据盘挂载点由系统默认顺序分配，/dev/xvdb 开始到 /dev/xvdz。数据盘选择本地 SSD 盘 `ephemeral_ssd`时，系统盘必须为本地 SSD 盘，同时一个实例的本地 SSD 盘总容量不超过 1 TB（1024 GB，不包括系统盘）。
+-   一个实例最多添加 16 块数据盘。数据盘挂载点由系统默认顺序分配，/dev/xvdb 开始到 /dev/xvdz。数据盘选择本地 SSD 盘 `ephemeral_ssd`时，系统盘必须为本地 SSD 盘，同时一个实例的本地 SSD 盘总容量不超过 1 TB（1024 GiB，不包括系统盘）。
 
 -   本地 SSD 盘 `ephemeral_ssd` 必须在创建实例时指定，实例创建完成后不能再添加。更多详情，请参阅 [实例规格族](../../../../intl.zh-CN/产品简介/实例规格族.md#)。
 
@@ -94,11 +94,11 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：CreateInstance|
-|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |ImageId|String|是|镜像文件 ID，启动实例时选择的镜像资源。|
-|InstanceType|String|是|实例的资源规格。更多详情，请参阅 [实例规格族](../../../../intl.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](intl.zh-CN/API参考/实例/DescribeInstanceTypes.md#) 接口获得最新的规格表。|
+|InstanceType|String|是|实例的资源规格。更多详情，请参阅 [实例规格族](../../../../intl.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](intl.zh-CN/API 参考/实例/DescribeInstanceTypes.md#) 接口获得最新的规格表。|
 |SecurityGroupId|String|是|指定新创建实例所属于的安全组代码，同一个安全组内的实例之间可以互相访问。|
-|ZoneId|String|否|实例所属的可用区编号。更多详情，请参阅 [DescribeZones](intl.zh-CN/API参考/地域/DescribeZones.md#) 获取可用区列表。空表示由系统选择，默认值：空。|
+|ZoneId|String|否|实例所属的可用区编号。更多详情，请参阅 [DescribeZones](intl.zh-CN/API 参考/地域/DescribeZones.md#) 获取可用区列表。空表示由系统选择，默认值：空。|
 |InstanceName|String|否|实例的名称。-   长度为 \[2, 128\] 个英文或中文字符，必须以大小字母或中文开头，可包含数字、点号（.）、半角冒号（:）、下划线（\_）或短横线（-）。
 -   实例名称会显示在控制台。
 -   如果没有指定该参数，默认值为实例的 InstanceId。
@@ -144,7 +144,7 @@
 [已停售的实例规格](https://www.alibabacloud.com/help/faq-detail/55263.htm)且非 I/O 优化实例默认值：cloud否则，默认值：cloud\_efficiency
 
 |
-|SystemDisk.Size|Integer|否|系统盘大小，单位为 GB。取值范围：\[20, 500\] 该参数的取值必须大于或者等于 max\{20, ImageSize\}。默认值：max\{40, ImageSize\}|
+|SystemDisk.Size|Integer|否|系统盘大小，单位为 GiB。取值范围：\[20, 500\] 该参数的取值必须大于或者等于 max\{20, ImageSize\}。默认值：max\{40, ImageSize\}|
 |SystemDisk.DiskName|String|否|系统盘名称。-   长度为 \[2, 128\] 个英文或中文字符，必须以大小字母或中文开头，可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。
 -   磁盘名称会展示在控制台。
 -   不能以 http:// 和 https:// 开头。
@@ -157,7 +157,7 @@
 -   不填则为空，默认值为空。
 
 |
-|DataDisk.n.Size|Integer|否|第 n 个数据盘的容量大小，n 的取值范围为 \[1, 16\]，内存单位为 GB。取值范围：-   cloud：\[5, 2000\]
+|DataDisk.n.Size|Integer|否|第 n 个数据盘的容量大小，n 的取值范围为 \[1, 16\]，内存单位为 GiB。取值范围：-   cloud：\[5, 2000\]
 -   cloud\_efficiency：\[20, 32768\]
 -   cloud\_ssd：\[20, 32768\]
 -   ephemeral\_ssd：\[5, 800\]
@@ -197,9 +197,9 @@
 -   PostPaid：后付费，即按量付费。
 
 默认值：PostPaid|
-|SpotStrategy|String|否|后付费实例的竞价策略。当参数 `InstanceChargeType` 取值为 `PostPaid` 时为生效。取值范围：-   NoSpot：正常按量付费实例
--   SpotWithPriceLimit：设置上限价格的竞价实例
--   SpotAsPriceGo：系统自动出价，最高按量付费价格。
+|SpotStrategy|String|否|后付费实例的抢占策略。当参数 `InstanceChargeType` 取值为 `PostPaid` 时生效。取值范围：-   NoSpot：正常按量付费实例。
+-   SpotWithPriceLimit：设置上限价格的抢占式实例。
+-   SpotAsPriceGo：系统自动出价，跟随当前市场实际价格。
 
 默认值：NoSpot|
 |SpotPriceLimit|Float|否|设置实例的每小时最高价格。支持最大 3 位小数，参数 `SpotStrategy` 取值为 `SpotWithPriceLimit` 时生效。|
@@ -230,7 +230,7 @@
 
 |
 |UserData|String|否|实例自定义数据，需要以 Base64 方式编码，原始数据最多为 16 KB。|
-|ClientToken|String|否|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一。只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](intl.zh-CN/API参考/附录/如何保证幂等性.md#)。|
+|ClientToken|String|否|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一。只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](intl.zh-CN/API 参考/附录/如何保证幂等性.md#)。|
 |KeyPairName|String|否|密钥对名称。-   Windows 实例，忽略该参数。默认为空。即使填写了该参数，仍旧只执行 `Password` 的内容。
 -   Linux 实例的密码登录方式会被初始化成禁止。
 
@@ -241,8 +241,8 @@
 -   Deactive：不启用安全加固，对所有镜像类型生效。
 
 |
-|Tag.n.Key|String|否|实例的标签键。`n` 的取值范围：\[1, 5\]。一旦传入该值，则不允许为空字符串。最多支持 64 个字符。 不能以 aliyun、acs、http:// 或者 https:// 开头。|
-|Tag.n.Value|String|否|实例的标签值。`n` 的取值范围：\[1, 5\]。一旦传入该值，可以为空字符串。最多支持 128 个字符。 不能以 aliyun、acs、http:// 或者 https:// 开头。|
+|Tag.n.Key|String|否|实例的标签键。`n` 的取值范围：\[1, 5\]。一旦传入该值，则不允许为空字符串。最多支持 64 个字符。 不能以 aliyun、acs:、http:// 或者 https:// 开头。|
+|Tag.n.Value|String|否|实例的标签值。`n` 的取值范围：\[1, 5\]。一旦传入该值，可以为空字符串。最多支持 128 个字符。 不能以 aliyun、http:// 或者 https:// 开头。|
 
 ## 返回参数 {#section_m5f_rjm_xdb .section}
 
@@ -316,8 +316,8 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |InvalidNetworkType.Mismatch|Specified parameter InternetMaxBandwidthIn or InternetMaxBandwidthOut conflict with instance network type.|400|指定的 `InternetMaxBandwidthIn` 或 `InternetMaxBandwidthOut` 与实例网络类型不符合。|
 |InvalidSpotStrategy|The specified SpotStrategy is not valid.|400|`SpotStrategy` 参数不合法。|
 |InvalidSpotPriceLimit|The specified SpotPriceLimitis not valid.|400|`SpotPriceLimit` 参数不合法。|
-|InvalidSpotAuthorized|The specified Spot param is unauthorized.|400|该账号没有授权创建竞价实例。|
-|InvalidSpotPrepaid|The specified Spot type is not support PrePay Instance.|400|竞价实例不支持预付费。|
+|InvalidSpotAuthorized|The specified Spot param is unauthorized.|400|该账号没有授权创建抢占式实例。|
+|InvalidSpotPrepaid|The specified Spot type is not support PrePay Instance.|400|抢占式支持预付费。|
 |InvalidSpotPriceLimit.LowerThanPublicPrice|The specified parameter spotPriceLimit can’t be lower than current public price.|400|出价低于当前系统公允价格。|
 |InvalidNetworkType.Mismatch|Specified parameter InternetChargeType conflict with instance network type.|400|指定的 `InternetChargeType`与实例网络类型不符合。|
 |InvalidNodeControllerId.Malformed|The specified parameter NodeControllerId is not valid.|400|指定的 `NodeControllerId` 不合法。|
@@ -338,7 +338,7 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |InvalidPrivateIpAddress.Malformed|Specified private IP address is malformed.|400|指定的私有 IP 不合法。|
 |InvalidPasswordParam.Mismatch|The input password should be null when passwdInherit is true.|400|指定了 `PasswdInherit` 后，您不能指定 `Password` 参数。|
 |InvalidSnapshotId.BasedSnapshotTooOld|The specified snapshot is created before 2013-07-15.|400|使用了 2013-07-15 之前创建的快照。|
-|InvalidSpotAliUid|The specified UID is not authorized to use SPOT instance.|400|该账号不能使用竞价实例。|
+|InvalidSpotAliUid|The specified UID is not authorized to use SPOT instance.|400|该账号不能使用抢占式|
 |InvalidSystemDiskCategory.ValueNotSupported|The specified parameter SystemDisk.Category is not valid.|400|指定的 `SystemDisk.Category`不合法。|
 |InvalidUserData.NotSupported|The specified parameter UserData only support the vpc and IoOptimized Instance.|400|UserData 只能使用在 VPC 和 I/O 优化实例上。|
 |InvalidUserData.SizeExceeded|The specified parameter UserData exceeds the size.|400|指定的 UserData 过长。|
