@@ -4,7 +4,7 @@
 
 云服务器Elastic Compute Service（ECS）是阿里云提供的一种基础云计算服务。使用云服务器ECS就像使用水、电、煤气等资源一样便捷、高效。您无需提前采购硬件设备，而是根据业务需要，随时创建所需数量的云服务器ECS实例。在使用过程中，随着业务的扩展，您可以随时扩容磁盘、增加带宽。如果不再需要云服务器，也能随时释放资源，节省费用。
 
-下图列出了ECS涉及的所有资源，包括实例规格、块存储、镜像、快照、带宽和安全组。您可以通过 [云服务器管理控制台](https://ecs.console.aliyun.com/#/home)配置您的ECS资源。
+下图列出了ECS涉及的所有资源，包括实例规格、块存储、镜像、快照、带宽和安全组。您可以通过 [云服务器管理控制台](https://ecs.console.aliyun.com/#/home) 配置您的ECS资源。
 
 ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/4795_zh-CN.png)
 
@@ -19,10 +19,10 @@
 -   [块存储](intl.zh-CN/产品简介/块存储.md#)：包括基于分布式存储架构的 [弹性块存储](intl.zh-CN/产品简介/块存储/弹性块存储.md#)，以及基于物理机本地硬盘的 [本地存储](intl.zh-CN/产品简介/块存储/本地存储.md#)。
 -   [快照](intl.zh-CN/产品简介/快照.md#)：是指某一个时间点上一块弹性块存储的数据备份。
 -   [网络类型](intl.zh-CN/产品简介/网络和安全性/网络类型.md#)：包括
-    -   专有网络：基于阿里云构建的一个隔离的网络环境，专有网络之间逻辑上彻底隔离。更多信息，请参考 [专有网络VPC](../../intl.zh-CN/产品简介/什么是专有网络.md#)。
+    -   专有网络：基于阿里云构建的一个隔离的网络环境，专有网络之间逻辑上彻底隔离。更多信息，请参考 [专有网络VPC](../../../../intl.zh-CN/产品简介/什么是专有网络.md#)。
     -   经典网络：统一部署在阿里云公共基础内，规划和管理由阿里云负责。
 -   [安全组](intl.zh-CN/产品简介/网络和安全性/安全组.md#)：由同一地域内具有相同保护需求并相互信任的实例组成，是一种虚拟防火墙，用于设置不同实例的网络访问控制。
--   [SSH 密钥对](intl.zh-CN/产品简介/网络和安全性/SSH 密钥对.md#) ：远程登录Linux ECS实例的验证方式，阿里云存储公钥，您需要自己妥善保管私钥。您也可以选择使用 [用户名密码](../intl.zh-CN/用户指南/连接实例/使用用户名密码验证连接 Linux 实例.md#) 验证登录Linux ECS实例。
+-   [SSH 密钥对](intl.zh-CN/产品简介/网络和安全性/SSH 密钥对.md#) ：远程登录Linux ECS实例的验证方式，阿里云存储公钥，您需要自己妥善保管私钥。您也可以选择使用 [用户名密码](../../../../intl.zh-CN/用户指南/连接实例/使用用户名密码验证连接 Linux 实例.md#) 验证登录Linux ECS实例。
 -   IP地址：包括用于 [内网通信](intl.zh-CN/产品简介/网络和安全性/内网.md#) 的内网IP或私有IP，以及用于访问Internet的公网IP。
 -   [弹性公网IP](https://help.aliyun.com/product/61789.html)：可以与实例反复绑定或解绑的静态公网IP地址。
 -   [云服务器管理控制台](https://ecs.console.aliyun.com/#/home)：是指ECS的Web操作界面。
@@ -45,9 +45,15 @@
 
 您可以编写代码调用阿里云开发者工具包（SDK）访问阿里云的产品和服务，更多信息，请参考 [阿里云开发工具包\(SDK\)](https://www.alibabacloud.com/zh/support/developer-resources)。您可以使用 [OpenAPI Explorer](https://api.aliyun.com/) 在线调试ECS API，并生成对应SDK Demo代码。
 
+## 使用ECS {#section_lsd_yqj_ydb .section}
+
+阿里云提供了Web服务页面，方便您管理云服务器ECS。您可以登录 [ECS管理控制台](https://ecs.console.aliyun.com/#/home) 操作ECS实例。关于管理控制台的操作，请参考 [操作指南](../../../../intl.zh-CN/用户指南/常用操作导航.md#)。
+
+阿里云也提供了API接口方便您管理云服务器ECS。关于API说明，请参考 [API参考](../../../../intl.zh-CN/API 参考/简介.md#)。您也可以使用阿里云命令行工具CLI（Alibaba Cloud CLI）调用API管理ECS，更多信息，请参考 [命令行工具CLI](https://www.alibabacloud.com/help/zh/product/29991.htm)。
+
 ## ECS定价 {#section_vq5_brj_ydb .section}
 
-ECS支持预付费和按量付费。更多信息，请参考 [产品计价](../intl.zh-CN/产品定价/计费概述.md#) 文档。
+ECS支持预付费和按量付费。更多信息，请参考 [产品定价](../../../../intl.zh-CN/产品定价/计费概述.md#) 文档。
 
 ECS及相关资源的价格信息，请参考 [云产品定价页](https://www.alibabacloud.com/zh/product/ecs)。
 
