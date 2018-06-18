@@ -13,10 +13,10 @@
 在使用ECS之前，您需要了解以下概念：
 
 -   [地域和可用区](https://www.alibabacloud.com/help/doc-detail/40654.htm)：是指ECS资源所在的物理位置。
--   [实例](intl.zh-CN/产品简介/实例.md#)：等同于一台虚拟机，包含CPU、内存、操作系统、网络、磁盘等最基础的计算组件。
+-   [实例](intl.zh-CN/产品简介/实例/实例概述.md#)：等同于一台虚拟机，包含CPU、内存、操作系统、网络、磁盘等最基础的计算组件。
 -   [实例规格](intl.zh-CN/产品简介/实例规格族.md#)：是指实例的不同配置，包括vCPU核数、内存、网络性能等。实例规格决定了ECS实例的计算和存储能力。
 -   [镜像](intl.zh-CN/产品简介/镜像.md#)：是指ECS实例运行环境的模板，一般包括操作系统和预装的软件。操作系统支持多种Linux发行版本和不同的Windows版本。
--   [块存储](intl.zh-CN/产品简介/块存储.md#)：包括基于分布式存储架构的 [弹性块存储](intl.zh-CN/产品简介/块存储/弹性块存储.md#)，以及基于物理机本地硬盘的 [本地存储](intl.zh-CN/产品简介/块存储/本地存储.md#)。
+-   [块存储](intl.zh-CN/产品简介/块存储/什么是块存储.md#)：包括基于分布式存储架构的 [弹性块存储](intl.zh-CN/产品简介/块存储/弹性块存储.md#)，以及基于物理机本地硬盘的 [本地存储](intl.zh-CN/产品简介/块存储/本地存储.md#)。
 -   [快照](intl.zh-CN/产品简介/快照.md#)：是指某一个时间点上一块弹性块存储的数据备份。
 -   [网络类型](intl.zh-CN/产品简介/网络和安全性/网络类型.md#)：包括
     -   专有网络：基于阿里云构建的一个隔离的网络环境，专有网络之间逻辑上彻底隔离。更多信息，请参考 [专有网络VPC](../../../../intl.zh-CN/产品简介/什么是专有网络.md#)。
@@ -41,7 +41,7 @@
 
 您可以使用安骑士保障云服务器ECS的安全。更多信息，请参考 [安骑士文档](https://www.alibabacloud.com/help/zh/product/28449.htm)。
 
-对于部署在云服务器ECS上的应用，阿里云为您提供了免费的DDoS基础防护，您也可以使用DDoS高防IP保障源站的稳定可靠。更多信息，请参考 [DDoS基础防护文档](https://www.alibabacloud.com/help/zh/product/28396.htm) 和 [DDoS高防IP文档](https://www.alibabacloud.com/help/zh/product/28461.htm)。
+对于部署在云服务器ECS上的应用，阿里云为您提供了免费的DDoS基础防护，您也可以使用DDoS高防IP保障源站的稳定可靠。更多信息，请参考 [DDoS基础防护文档](https://www.alibabacloud.com/help/doc-detail/28399.htm) 和 [DDoS高防IP文档](https://www.alibabacloud.com/help/doc-detail/28464.htm)。
 
 您可以编写代码调用阿里云开发者工具包（SDK）访问阿里云的产品和服务，更多信息，请参考 [阿里云开发工具包\(SDK\)](https://www.alibabacloud.com/zh/support/developer-resources)。您可以使用 [OpenAPI Explorer](https://api.aliyun.com/) 在线调试ECS API，并生成对应SDK Demo代码。
 
