@@ -1,18 +1,18 @@
 # OperationLocksType {#OperationLocksType .reference}
 
-Type of the reason why a resource is locked.
+The reason why a resource is locked.
 
-## Node Name {#section_yj4_1np_ydb .section}
+## Node {#section_yj4_1np_ydb .section}
 
 OperationLock
 
-## Subnode {#ResponseParameter .section}
+## Subnodes {#ResponseParameter .section}
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|LockReason|String|Lock reason-   financial: locked because the account is in arrears.
--   security: locked for security reasons.
--   recycling: pending release lock status for spot instance.
+|LockReason|String|Lock reason. Possible values:-   financial: Overdue payment.
+-   security: Security considerations.
+-   recycling: Pending release lock status for preemptible instances.
 
 |
 
