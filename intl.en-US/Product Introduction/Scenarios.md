@@ -6,7 +6,7 @@ ECS can be used in applications such as:
 
 ## Official corporate websites and simple web applications {#section_ur2_4wq_ydb .section}
 
-In the initial stage, corporate websites have low traffic volumes and require only low-configuration ECS instances to run applications, databases, storage files, and other resources.  As your business expands,  you can upgrade the ECS configuration and increase the number of ECS instances at any time.  You no longer need to worry about insufficient resources during peak traffic.
+In the initial stage, corporate websites have low traffic volumes and require only low-configuration ECS instances to run applications, databases, storage files, and other resources. As your business expands, you can upgrade the ECS configuration and increase the number of ECS instances at any time. You no longer need to worry about insufficient resources during peak traffic.
 
 ## Multimedia and large-traffic apps or websites {#section_vr2_4wq_ydb .section}
 
@@ -14,7 +14,7 @@ ECS can be used with OSS to store static images, videos, and downloaded packages
 
 ## Databases {#section_wr2_4wq_ydb .section}
 
-Supports databases with high requirements for I/O. A high-configuration I/O-optimized ECS instance can be used with an SSD cloud disk  to support high I/O concurrency with higher data reliability.  Alternatively, multiple lower-configuration I/O-optimized ECS instances can be used with Server Load Balancer to deliver a highly available architecture.
+A high-configuration I/O-optimized ECS instance can be used with an SSD cloud disk to support high I/O concurrency with higher data reliability. Alternatively, multiple lower-configuration I/O-optimized ECS instances can be used with Server Load Balancer to deliver a highly available architecture.
 
 ## Apps or websites with large traffic fluctuations {#section_xr2_4wq_ydb .section}
 
