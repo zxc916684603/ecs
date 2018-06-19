@@ -23,7 +23,8 @@
 |
 |ProductCode|String|从镜像市场继承的产品编号。|
 |RetentionDays|Integer|自动快照保留天数。|
-|CreationTime|String|创建时间。按照 [ISO8601](intl.zh-CN/API参考/附录/时间格式.md#) 标准表示，并需要使用 UTC 时间。格式为：YYYY-MM-DDThh:mmZ|
+|RemainTime|Integer|正在创建的快照剩余完成时间，单位为秒。|
+|CreationTime|String|创建时间。按照 [ISO8601](cn.zh-CN/API 参考/附录/时间格式.md#) 标准表示，并需要使用 UTC 时间。格式为：YYYY-MM-DDThh:mmZ|
 |Status|String|快照状态。取值范围：-   progressing
 -   accomplished
 -   failed
