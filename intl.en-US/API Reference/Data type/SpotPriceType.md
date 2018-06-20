@@ -1,20 +1,20 @@
 # SpotPriceType {#SpotPriceType .reference}
 
-The price information of a spot instance.
+The price information of a preemptible instance.
 
 ## Node {#section_wky_fk5_ydb .section}
 
 SpotPrices
 
-## Subnode {#ResponseParameter .section}
+## Subnodes {#ResponseParameter .section}
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|ZoneId|String| ID of the zone to where the spot instance belongs.|
-|NetworkType|String|The network type of the spot instance.|
-|InstanceType|String| The instance type of the spot instance.|
-|IoOptimized|String|Whether the spot instance is I/O optimized or not.|
-|SpotPrice|Float|The price of the spot instance.|
-|OriginPrice|Float|The price of a Pay-As-You-Go instance.|
-|Timestamp|String|The time when the price of a spot instance is valid. It is in the format of YYYY-MM-DDTHH:MM:SS.|
+|ZoneId|String|ID of the zone to where the preemptible instance belongs.|
+|NetworkType|String|The network type of the preemptible instance.|
+|InstanceType|String|The instance type of the preemptible instance.|
+|IoOptimized|String|Whether or not the preemptible instance is an I/O optimized instance.|
+|SpotPrice|Float|The spot price of the preemptible instance.|
+|OriginPrice|Float|The Pay-As-You-Go price of the instance.|
+|Timestamp|String|The time when the spot price of a preemptible instance is valid. It is in the format of YYYY-MM-DDTHH:MM:SS.|
 
