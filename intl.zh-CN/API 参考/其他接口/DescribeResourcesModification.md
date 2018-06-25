@@ -7,7 +7,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeResourcesModification|
-|RegionId|String|是|目标地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|目标地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |ResourceId|String|是|资源 ID。例如，当待查询的资源为实例时，可以理解为 InstanceId。|
 |DestinationResource|String|是|目标资源类型。取值范围：-   InstanceType：实例规格
 -   SystemDisk：系统盘类型
@@ -29,7 +29,7 @@
 -   Downgrade：降级资源
 
 默认值：Upgrade|
-|InstanceType|String|否|实例规格。更多详情，请参阅 [实例规格族](../../../../intl.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](intl.zh-CN/API参考/实例/DescribeInstanceTypes.md#)接口获得最新的规格表。当参数 `DestinationResource` 取值为 `SystemDisk` 时，必须同时指定该参数 `InstanceType`。|
+|InstanceType|String|否|实例规格。更多详情，请参阅 [实例规格族](../../../../intl.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](intl.zh-CN/API 参考/实例/DescribeInstanceTypes.md#)接口获得最新的规格表。当参数 `DestinationResource` 取值为 `SystemDisk` 时，必须同时指定该参数 `InstanceType`。|
 
 ## 返回参数 {#ResponseParameter .section}
 
@@ -82,12 +82,7 @@
 
 ```
 https://ecs.aliyuncs.com/?Action=DescribeResourcesModification
-&RegionId=cn-hangzhou
-&<公共请求参数>
-```
-
-```
-https://ecs.example.com/?Action=DescribeResourcesModification
+&DestinationResource=InstanceType
 &RegionId=cn-hangzhou
 &<公共请求参数>
 ```
