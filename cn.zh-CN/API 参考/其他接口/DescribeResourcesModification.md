@@ -27,6 +27,8 @@
 |
 |OperationType|String|否|更改配置的操作类型。取值范围：-   Upgrade：升级资源
 -   Downgrade：降级资源
+-   RenewDowngrade：续费降配
+-   RenewModify：过期实例到续费变配
 
 默认值：Upgrade|
 |InstanceType|String|否|实例规格。更多详情，请参阅 [实例规格族](../../../../intl.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](intl.zh-CN/API 参考/实例/DescribeInstanceTypes.md#)接口获得最新的规格表。当参数 `DestinationResource` 取值为 `SystemDisk` 时，必须同时指定该参数 `InstanceType`。|
@@ -182,6 +184,6 @@ https://ecs.aliyuncs.com/?Action=DescribeResourcesModification
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
 |Invalid.Param|The input parameter DestinationResource that is mandatory for processing this request is not supplied.|400|您必须指定必需参数 `DestinationResource`。|
-|Unavailable.Regions|The available regions does not exists.|404|指定的 `RegionId` 没有权限。|
+|Unavailable.Regions|The specified region is limited to access.|404|指定的 `RegionId` 没有权限。|
 |InvalidRegionId.NotFound|The specified RegionId does not exist.|404|指定的 `RegionId` 不存在。|
 
