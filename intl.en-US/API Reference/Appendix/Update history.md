@@ -65,7 +65,7 @@ Last update: April 25, 2017
  |
 |2015-02-06|Converted into online files, and added VPC APIs, bug fix information, and small adjustments.| -   Added VPC APIs.
 -   Added new instance types.
--   Added the input parameter of EnableAutoSnapshot for the ModifyDiskAttribute API,  and added the output parameter of EnableAutoSnapshot for the DescribeDisks API.
+-   Added the input parameter of EnableAutoSnapshot for the ModifyDiskAttribute API, and added the output parameter of EnableAutoSnapshot for the DescribeDisks API.
 -   Corrected the measurement units of InternetTX, InternetRX, IntranetTX, and IntranetRX for DescribeInstanceMonitorData.
 
  |
@@ -90,7 +90,7 @@ Last update: April 25, 2017
 
  |
 |2013-05-22| Supplemented descriptions of some instance, disk, and snapshot APIs.|Supplemented descriptions of some instance, disk, and snapshot APIs.|
-|2013-04-10|Added some functions, including resetting instances, displaying snapshot names, and querying specified instances..| -   Added the ResetInstance API.
+|2013-04-10|Added some functions, including resetting instances, displaying snapshot names, and querying specified instances.| -   Added the ResetInstance API.
 -   Added the SnapshotName attribute for snapshots.
 -   Added InstanceId for GetMonitorData to query monitoring information of the specified instance.
 -   Supplemented API descriptions.
