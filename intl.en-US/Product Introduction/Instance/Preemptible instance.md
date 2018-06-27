@@ -38,9 +38,9 @@ Currently, the maximum bid of a preemptible instance is the price of a Pay-As-Yo
 
 When creating a preemptible instance by using [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9856.md\#](../../../../intl.en-US/API Reference/Instances/RunInstances.md#), you can create a preemptible instance with the SpotAsPriceGo bidding mode by setting `SpotStrategy` to `SpotAsPriceGo`, which means you always set the real-time market price as the bidding price until the instance is released because of stock shortage.
 
-## Guaranteed period {#valid .section}
+## Guaranteed duration {#valid .section}
 
-Once a preemptible instance is created, it has a guaranteed period of one hour, namely, the first hour after it is created. During this period, we do not release your instance because of stock shortage, and you can run services on the instance as usual. Beyond the guaranteed period, we check the market price and stock every five minutes. If the market price at any given point of time is higher than your bid or the instance type stock is insufficient, we will release your preemptible instance.
+Once a preemptible instance is created, it has a guaranteed duration of one hour, namely, the first hour after it is created. During this period, we do not release your instance because of stock shortage, and you can run services on the instance as usual. Beyond the guaranteed duration, we check the market price and stock every five minutes. If the market price at any given point of time is higher than your bid or the instance type stock is insufficient, we will release your preemptible instance.
 
 ## Price and billing {#section_mdc_jt5_ydb .section}
 
