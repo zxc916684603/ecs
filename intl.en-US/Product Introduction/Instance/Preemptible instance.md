@@ -32,7 +32,7 @@ You can bid for a preemptible instance only one time in either of the following 
 
 In this mode, you must set the highest price you want to pay for a specified instance type. When creating a preemptible instance by using [RunInstances](../../../../intl.en-US/API Reference/Instances/RunInstances.md#), you can bid in this mode.
 
-Currently, the maximum bid of a preemptible instance is the price of a Pay-As-You-Go instance of the same configuration. When creating a preemptible instance, you can set a price according to the market price history, business features, and the estimated future price fluctuation. When the market price is lower than or equal to your bid, and the resource stock is sufficient, the instance continues to run. If your estimated quote is acccurate, you can hold the instance even after one hour [\#valid](#valid). Otherwise, your instance gets automatically released at any time.
+Currently, the maximum bid of a preemptible instance is the price of a Pay-As-You-Go instance of the same configuration. When creating a preemptible instance, you can set a price according to the market price history, business features, and the estimated future price fluctuation. When the market price is lower than or equal to your bid, and the resource stock is sufficient, the instance continues to run. If your estimated quote is acccurate, you can hold the instance even after one hour [Guaranteed duration](#valid). Otherwise, your instance gets automatically released at any time.
 
 **SpotAsPriceGo**
 
@@ -77,7 +77,7 @@ After a preemptible instance is created, it can be used exactly as a Pay-As-You-
 
 ## Stop a preemptible instance {#section_qdc_jt5_ydb .section}
 
-You can stop a preemptible instance in the [ECS console](../../../../intl.en-US/User Guide/Instances/Start or stop an instance.md#) or by using the [StopInstance](../../../../intl.en-US/API Reference/Instances/StopInstance.md#) interface. The VPC-Connected preemptible instances support the [../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_9595.md\#](../../../../intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) feature.
+You can stop a preemptible instance in the [ECS console](../../../../intl.en-US/User Guide/Instances/Start or stop an instance.md#) or by using the [StopInstance](../../../../intl.en-US/API Reference/Instances/StopInstance.md#) interface. The VPC-Connected preemptible instances support the feature.
 
 The network type and the bidding mode of a preemptible instance determine whether it can start after it is stopped, as displayed in the following table.
 
