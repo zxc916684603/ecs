@@ -2,29 +2,23 @@
 
 更换一台或者多台按量付费实例为预付费（包年包月）实例。同时可以将实例挂载的所有按量付费云盘转换为预付费（包年包月）云盘。
 
-## 描述 {#section_gjr_1h5_xdb .section}
+## 描述 {#Description .section}
 
 调用该接口时，您需要注意：
 
--   实例必须处于 **运行中**（`Running`）或者 **已停止**（`Stopped`）状态。
-
--   实例欠费时，无法修改计费方式。
-
--   实例设置了自动释放时间时，无法修改计费方式。
-
--   实例每成功操作一次，五分钟内不能继续操作。
-
--   更换计费方式后，默认自动扣费。您需要确保账户余额充足，否则会生成异常订单，此时只能作废订单。
-
-    如果您的账户余额不足，可以将参数 `AutoPay` 置为 `false`，此时会生成正常的未支付订单，您可以登录 [ECS 控制台](https://ecs.console.aliyun.com/) 支付。
-
+-   目标实例的状态必须为 **运行中**（`Running`）或者 **已停止**（`Stopped`），并且无欠费的情况下才能修改计费方式。
+-   如果按量付费实例已经设置了释放时间，则不能调用该接口。
+-   支持批量操作，单次最多支持修改 20 个实例的计费方式。
+-   支持将实例挂载的所有按量付费数据盘同时转换为包年包月数据盘。
+-   包年包月实例转按量实例的时候，新计费方式将覆盖实例的整个生命周期，您会收到修改前后的实例计费的价格差退款，退还到您的原付款渠道中，已使用的代金券将不退回。
+-   请确保您的账户余额充足。并且，参数 `AutoPay` 为 `true` 表示自动支付，账户余额不足的时候会生成无法支付的订单，您只能在 [ECS 控制台](https://ecs.console.aliyun.com/) 作废订单。
 
 ## 请求参数 {#RequestParameter .section}
 
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：ModifyInstanceChargeType|
-|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |InstanceIds|String|是|实例 ID。取值可以由多个实例 ID 组成一个 JSON 数组，格式为 \["s-xxxxxxxxx", "s-yyyyyyyyy", … "s-zzzzzzzzz"\]，最多支持 20 个 ID，ID 之间用半角逗号（`,`）隔开。|
 |Period|Integer|是|购买实例的时长。|
 |PeriodUnit|String|是|时长周期单位。取值范围：-   Year
@@ -33,19 +27,17 @@
 -   Day
 
 目前只支持 `Year`、`Week` 和 `Month`。|
-|IncludeDataDisks|Boolean|否|是否将实例挂载的所有按量付费云盘转换为预付费（包年包月）云盘。取值范围：-   true
--   false
+|IncludeDataDisks|Boolean|否|是否将实例挂载的所有按量付费数据盘一起转换为包年包月数据盘。默认值：true|
+|InstanceChargeType|String|否|实例需要修改的目标计费方式。取值范围：-   PrePaid：预付费（包年包月），即按量付费实例转换为包年包月实例。
+-   PostPaid：按量付费，即包年包月实例转换为按量付费实例。
 
-默认值：true|
+默认值：PrePaid|
 |AutoPay|Boolean|否|是否自动支付。取值范围：-   true：自动支付。您需要确保账户余额充足，如果账户余额不足会生成异常订单，只能作废订单。
 -   false：只生成订单不扣费。如果您的账户余额不足，会生成正常的未支付订单，此订单可登录 [ECS 控制台](https://ecs.console.aliyun.com/) 支付。
 
 默认值：true|
-|DryRun|Boolean|否|是否只预检。当 `DryRun` 值为 `true` 时，只预检测，不实际的修改付费类型操作。取值范围：-   true
--   false
-
-默认值： false|
-|ClientToken|String|否|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一。只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](cn.zh-CN/API参考/附录/如何保证幂等性.md#)。|
+|DryRun|Boolean|否|是否只预检。当 `DryRun` 值为 `true` 时，只预检测，不实际的修改付费类型操作。默认值：false|
+|ClientToken|String|否|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一。只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](cn.zh-CN/API 参考/附录/如何保证幂等性.md#)。|
 
 ## 返回参数 {#ResponseParameter .section}
 
@@ -80,7 +72,7 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceChargeType
 </ModifyInstanceConfigurationResponse>
 ```
 
- **JSON 格式** 
+**JSON 格式** 
 
 ```
 {
