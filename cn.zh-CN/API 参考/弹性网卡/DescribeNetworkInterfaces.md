@@ -13,7 +13,8 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeNetworkInterfaces|
-|RegionId|String|是|所在地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|所在地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|VpcId|String|否|查询您的一个 VPC 里所有辅助网卡。|
 |VSwitchId|String|否|VPC 的虚拟交换机 ID。|
 |PrimaryIpAddress|String|否|弹性网卡主私有 IP 地址。|
 |SecurityGroupId|String|否|安全组 ID。|
@@ -35,7 +36,7 @@
 
 |名称|类型|描述|
 |:-|:-|:-|
-|NetworkInterfaceSet|[NetworkInterfaceSet](intl.zh-CN/API参考/数据类型/NetworkInterfaceSet.md#)|弹性网卡信息组成的集合|
+|NetworkInterfaceSet|[NetworkInterfaceSet](intl.zh-CN/API 参考/数据类型/NetworkInterfaceSet.md#)|弹性网卡信息组成的集合|
 |TotalCount|Integer|实例总个数|
 |PageNumber|Integer|实例列表的页码|
 |PageSize|Integer|输入时设置的每页行数|
