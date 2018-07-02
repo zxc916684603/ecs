@@ -1,6 +1,6 @@
 # DescribeRegions {#DescribeRegions .reference}
 
-查询您可以使用的阿里云地域。更多详情，请参阅 [地域与可用区](https://help.aliyun.com/document_detail/40654.html)。
+查询您可以使用的阿里云地域。更多详情，请参阅 [地域与可用区](https://www.alibabacloud.com/help/doc-detail/40654.htm)。
 
 ## 请求参数 {#RequestParameter .section}
 
@@ -12,7 +12,7 @@
 
 |名称|类型|描述|
 |:-|:-|:-|
-|Regions|[RegionType](cn.zh-CN/API参考/数据类型/RegionType.md#)|地域信息集合|
+|Regions|[RegionType](intl.zh-CN/API 参考/数据类型/RegionType.md#)|地域信息集合|
 
 ## 示例 { .section}
 
@@ -59,5 +59,5 @@ https://ecs.aliyuncs.com/?Action=DescribeRegions
 
 ## 错误码 {#ErrorCode .section}
 
-全是公共错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+全是公共错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
