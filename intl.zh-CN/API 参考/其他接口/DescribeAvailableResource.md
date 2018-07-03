@@ -1,6 +1,6 @@
 # DescribeAvailableResource {#DescribeAvailableResource .reference}
 
-查询某一可用区的资源列表。例如，您可以在某一可用区创建实例（[RunInstances](intl.zh-CN/API参考/实例/RunInstances.md#)）时查询该可用区的资源列表。
+查询某一可用区的资源列表。例如，您可以在某一可用区创建实例（[RunInstances](intl.zh-CN/API 参考/实例/RunInstances.md#)）时查询该可用区的资源列表。
 
 ## 描述 {#section_av1_byg_ydb .section}
 
@@ -19,7 +19,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeAvailableResource|
-|RegionId|String|是|目标地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|目标地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |DestinationResource|String|是|要查询的资源类型。取值范围：-   Zone：可用区
 -   IoOptimized：I/O 优化
 -   InstanceType：实例规格
@@ -42,7 +42,7 @@
 -   optimized：I/O 优化实例
 
 当参数 `DestinationResource` 取值为 `InstanceType`、`SystemDisk` 或者 `DataDisk`时，`IoOptimized` 为必需参数。|
-|InstanceType|String|否|实例规格。更多详情，请参阅 [实例规格族](../../../../intl.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](intl.zh-CN/API参考/实例/DescribeInstanceTypes.md#)接口获得最新的规格表。当参数 `DestinationResource` 取值为 `SystemDisk` 或者 `DataDisk` 时，`InstanceType` 为必需参数。|
+|InstanceType|String|否|实例规格。更多详情，请参阅 [实例规格族](../../../../intl.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](intl.zh-CN/API 参考/实例/DescribeInstanceTypes.md#)接口获得最新的规格表。当参数 `DestinationResource` 取值为 `SystemDisk` 或者 `DataDisk` 时，`InstanceType` 为必需参数。|
 |SystemDiskCategory|String|否|系统盘类型。取值范围：-   cloud：普通云盘
 -   cloud\_efficiency：高效云盘
 -   cloud\_ssd：SSD 云盘
