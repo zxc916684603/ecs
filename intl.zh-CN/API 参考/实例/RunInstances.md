@@ -1,12 +1,12 @@
 # RunInstances {#RunInstances .reference}
 
-创建一台或多台按量付费（Pay-As-You-Go）ECS 实例。
+创建一台或多台 ECS 实例。
 
 ## 描述 {#section_qpz_vk5_ydb .section}
 
 创建实例前，您可以调用 [DescribeAvailableResource](intl.zh-CN/API 参考/其他接口/DescribeAvailableResource.md#) 查看指定地域或者可用区内的资源供给情况。
 
-创建实例会涉及到资源计费，您需要提前了解云服务器 ECS 的计费方式。更多详情，请参阅 [按量付费](../../../../intl.zh-CN/产品定价/按量付费.md#)（`PostPaid`）。
+创建实例会涉及到资源计费，您需要提前了解云服务器 ECS 的计费方式。更多详情，请参阅 [计费概述](../../../../intl.zh-CN/产品定价/计费概述.md#)。
 
 调用该接口时，您需要注意：
 
@@ -38,9 +38,30 @@
 空表示由系统选择。
 
 |
-|ImageId|String|否|镜像 ID，启动实例时选择的镜像资源。您可以通过 [DescribeImages](intl.zh-CN/API 参考/地域/DescribeZones.md#) 查询您可以使用的镜像资源。|
-|InstanceType|String|否|实例的资源规格。更多详情，请参阅 [实例规格族](../../../../intl.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](intl.zh-CN/API 参考/实例/DescribeInstanceTypes.md#) 获得最新的规格列表。|
-|SecurityGroupId|String|否|指定新创建实例所属于的安全组 ID。同一个安全组内的实例之间可以互相访问，一个安全组最多能管理 1000 台实例。|
+|ImageId|String|否|镜像 ID，启动实例时选择的镜像资源。您可以通过 [DescribeImages](intl.zh-CN/API 参考/镜像/DescribeImages.md#) 查询您可以使用的镜像资源。如果您不指定 `LaunchTemplateId` 或 `LaunchTemplateName` 以确定启动模板，`ImageId`为必需参数。
+
+|
+|InstanceType|String|否|实例的资源规格。更多详情，请参阅 [实例规格族](../../../../intl.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](intl.zh-CN/API 参考/实例/DescribeInstanceTypes.md#) 获得最新的规格列表。如果您不指定 `LaunchTemplateId` 或 `LaunchTemplateName` 以确定启动模板，`InstanceType` 为必需参数。
+
+|
+|SecurityGroupId|String|否|指定新创建实例所属于的安全组 ID。同一个安全组内的实例之间可以互相访问，一个安全组最多能管理 1000 台实例。如果您不指定 `LaunchTemplateId` 或 `LaunchTemplateName` 以确定启动模板，`SecurityGroupId` 为必需参数。
+
+|
+|LaunchTemplateId|String|否|启动模板 ID。更多详情，请调用 [`DescribeLaunchTemplates`](https://help.aliyun.com/document_detail/72102.html)。您必须指定 `LaunchTemplateId` 或 `LaunchTemplateName` 以确定启动模板。|
+|LaunchTemplateName|String|否|启动模板名称。您必须指定 `LaunchTemplateId` 或 `LaunchTemplateName` 以确定启动模板。|
+|LaunchTemplateVersion|String|否|启动模板版本。如果您指定了 `LaunchTemplateId` 或 `LaunchTemplateName` 而不指定启动模板版本号，默认采用默认版本。|
+|InstanceChargeType|String|否|实例的计费方式，更多详情，请参阅 [计费概述](../../../../intl.zh-CN/产品定价/计费概述.md#)。取值范围：-   PrePaid：预付费，即包年包月。此时，您必须确认自己的账号支持余额支付或者信用支付，否则将报错 `InvalidPayMethod`。
+-   PostPaid：按量付费。
+
+默认值：PostPaid|
+|PeriodUnit|String|否|购买资源的时长单位。取值范围：-   Month
+
+默认值：Month|
+|AutoRenew|Boolean|否|预付费实例到期后是否自动续费，当参数 `InstanceChargeType` 取值 `PrePaid` 时生效。默认值：False|
+|AutoRenewPeriod|Integer|否|单次自动续费的续费时长。取值范围：-   `PeriodUnit=Week` 时：\{“1”, “2”, “3”\}
+-   `PeriodUnit=Month` 时：\{“1”, “2”, “3”, “6”, “12”\}
+
+默认值：1|
 |InternetChargeType|String|否|网络计费类型。取值范围：-   PayByTraffic：按使用流量计费
 
 默认值：PayByTraffic|
@@ -124,6 +145,7 @@
 -    **其他类型（Linux 等）实例**：字符长度为\[2, 128\]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。
 
 |
+|UniqueSuffix|Boolean|否|创建多台实例时是否为 `HostName` 和 `InstanceName` 添加有序后缀，有序后缀从 001 开始递增，最大不能超过 999。例如：`LocalHost001`，`LocalHost002` 和 `MyInstance001`，`MyInstance002`。默认值：false。|
 |Description|String|否|实例的描述。-   长度为 \[2, 256\] 个字符。
 -   不填则为空，默认值为空。
 -   不能以 http:// 和 https:// 开头。
@@ -228,6 +250,7 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |IncorrectVSwitchStatus|The current status of virtual switch does not support this operation.|400|指定的虚拟交换机状态不正确。|
 |InstanceDiskCategoryLimitExceed|The specified DataDisk.n.Size beyond the permitted range, or the capacity of snapshot exceeds the size limit of the specified disk category.|400|指定的磁盘大小超过了该类型磁盘上限。|
 |InstanceDiskNumber.LimitExceed|The total number of specified disk in an instance exceeds.|400|镜像中包含的数据盘和数据盘参数合并后，数据盘的总数超出限制。|
+|InvalidAutoRenewPeriod.ValueNotSupported|The specified autoRenewPeriod is not valid.|400|指定的 `AutoRenewPeriod` 不合法。|
 |InvalidDataDiskSize.ValueNotSupported|The specified DataDisk.n.Size beyond the permitted range, or the capacity of snapshot exceeds the size limit of the specified disk category.|400|指定的 `DataDisk.n.Size` 不合法或者超出范围。|
 |InvalidDescription.Malformed|The specified parameter Description is not valid.|400|指定的资源描述格式错误。|
 |InvalidDiskCategory.ValueNotSupported|The specified parameter DiskCategory is not valid.|400|指定的磁盘种类不合法。|
