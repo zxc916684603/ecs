@@ -13,8 +13,8 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeNetworkInterfaces|
-|RegionId|String|是|所在地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
-|VpcId|String|否|查询您的一个 VPC 里所有辅助网卡。|
+|RegionId|String|是|所在地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|VpcId|String|否|网卡所属的专有网络 VPC ID。|
 |VSwitchId|String|否|VPC 的虚拟交换机 ID。|
 |PrimaryIpAddress|String|否|弹性网卡主私有 IP 地址。|
 |SecurityGroupId|String|否|安全组 ID。|
@@ -36,7 +36,7 @@
 
 |名称|类型|描述|
 |:-|:-|:-|
-|NetworkInterfaceSet|[NetworkInterfaceSet](intl.zh-CN/API 参考/数据类型/NetworkInterfaceSet.md#)|弹性网卡信息组成的集合|
+|NetworkInterfaceSet|[NetworkInterfaceSet](cn.zh-CN/API 参考/数据类型/NetworkInterfaceSet.md#)|弹性网卡信息组成的集合|
 |TotalCount|Integer|实例总个数|
 |PageNumber|Integer|实例列表的页码|
 |PageSize|Integer|输入时设置的每页行数|
@@ -89,7 +89,7 @@ https://ecs.aliyuncs.com/?Action=DescribeNetworkInterfaces
 </DescribeNetworkInterfacesResponse>
 ```
 
- **JSON 格式** 
+**JSON 格式** 
 
 ```
 {
@@ -135,7 +135,7 @@ https://ecs.aliyuncs.com/?Action=DescribeNetworkInterfaces
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
