@@ -39,7 +39,7 @@ To connect to the ECS instance by using the Management Terminal, follow these st
             -   The VNC password appears only once. You must save and secure password immediately for future use. If you need to change the VNC password, see [Change the VNC connection password](#password).
             -   If you log on as a RAM user to connect to the Management Terminal for the first time, you will not see this dialog box.
         2.  In the Enter VNC Password dialog box, paste the VNC connection password that you have copied, and click **OK**.
-    -   If you log on as a RAM user to connect to the Management Terminal for the first time or forget the VNC connection password, follow these steps to connect to the Management Terminal:
+    -   If you log on as a RAM user to connect to the Management Terminal for the first time or in case you have forgotten your VNC connection password, follow these steps to connect to the Management Terminal:
         -   [Change the VNC connection password](#password).
         -   In the upper-left corner of the Management Terminal page, select **Send Remote Command** \> **Connect to Management Terminal**.
         -   In the Enter VNC Password dialog box, enter the new password and click **OK**.
@@ -74,12 +74,12 @@ If you forget the VNC connection password, follow these steps to change the pass
     -   For an I/O-optimized instance, the new password takes effect immediately.
     -   For a non-I/O-optimized instance, [restart the instance](intl.en-US/User Guide/Instances/Restart an instance.md#) in the ECS console.
 
-        **Note:** Restarting the operating system cannot apply the new password.
+        **Note:** Restarting the operating system does not apply the new password.
 
 
 **Input commands**
 
-If you are connecting to a Linux instance, you can use the **Input Commands** feature to type long text, such as a complex command or a URL.
+If you are connecting to a Linux instance, use the **Input Commands** feature to type long text, such as a complex command or a URL.
 
 Follow these steps:
 
@@ -104,7 +104,7 @@ Follow these steps:
 
     For a Linux instance, click mouse or press any key to activate the screen.
 
-    For a Windows instance, click **Send remote command** \> **CTRL+ALT+DELETE** to have logon interface displayed.
+    For a Windows instance, click **Send remote command** \> **CTRL+ALT+DELETE** to view logon interface.
 
 -   Why am I unable to access the Management Terminal?
 
