@@ -1,18 +1,25 @@
 # DescribeRegions {#DescribeRegions .reference}
 
-查询您可以使用的阿里云地域。更多详情，请参阅 [地域与可用区](https://www.alibabacloud.com/help/doc-detail/40654.htm)。
+查询您可以使用的阿里云地域。更多详情，请参阅 [地域与可用区](https://help.aliyun.com/document_detail/40654.html)。
 
 ## 请求参数 {#RequestParameter .section}
 
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeRegions|
+|AcceptLanguage|String|否|根据汉语、英语和日语筛选返回结果。更多详情，请参阅 [RFC7231](https://tools.ietf.org/html/rfc7231)。取值范围：
+
+-   zh-CN
+-   en-US
+-   ja
+
+默认值：null。|
 
 ## 返回参数 {#ResponseParameter .section}
 
 |名称|类型|描述|
 |:-|:-|:-|
-|Regions|[RegionType](intl.zh-CN/API 参考/数据类型/RegionType.md#)|地域信息集合|
+|Regions|[RegionType](cn.zh-CN/API 参考/数据类型/RegionType.md#)|地域信息集合|
 
 ## 示例 { .section}
 
@@ -41,7 +48,7 @@ https://ecs.aliyuncs.com/?Action=DescribeRegions
 </DescribeRegionsResponse>
 ```
 
- **JSON 格式** 
+**JSON 格式** 
 
 ```
 {
@@ -59,5 +66,5 @@ https://ecs.aliyuncs.com/?Action=DescribeRegions
 
 ## 错误码 {#ErrorCode .section}
 
-全是公共错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+全是公共错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
