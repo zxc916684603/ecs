@@ -1,9 +1,9 @@
 # Connect to an instance on a mobile device {#concept_bln_hhz_wdb .concept}
 
-This documentation describes how to connect to an ECS instance on a mobile device.  The procedure varies with the operating system of your instance.
+This documentation describes how to connect to an ECS instance on a mobile device. The procedure varies with the operating system of your instance.
 
 -   [Connect to a Linux instance](#linux): We take SSH Control Lite as an example to describe how to connect to a Linux instance on an iOS device, and JuiceSSH to describe how to connect to a Linux instance on an Android device.
--   [Connect to Windows instances](#windows): We take Microsoft Remote Desktop as an example  to describe how to connect to a Windows instance on an iOS or Android device.
+-   [Connect to Windows instances](#windows): We take Microsoft Remote Desktop as an example to describe how to connect to a Windows instance on an iOS or Android device.
 
 ## Connect to a Linux instance {#linux .section}
 
@@ -11,9 +11,9 @@ This documentation describes how to connect to an ECS instance on a mobile devic
 
 Confirm the following before connecting to your instance:
 
--   The instance is  **Running** .
+-   The instance is **Running** .
 -   The instance has a public IP address and is accessible from public network.
--   You have set the logon password for the instance.   If the password is lost, you must [reset the instance password](intl.en-US/User Guide/Instances/Reset an instance password.md#).
+-   You have set the logon password for the instance. If the password is lost, you must [reset the instance password](intl.en-US/User Guide/Instances/Reset an instance password.md#).
 -   The security group of the instance has the [the following security group rules](intl.en-US/User Guide/Security groups/Add security group rules.md#):
 
     |Network type|NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
@@ -27,7 +27,7 @@ Confirm the following before connecting to your instance:
 
 **Procedure**
 
-For iOS devices, see [Use SSH Control Lite  to connect to a Linux instance](#SshControlLite).  In this example, user name and password are used for authentication.
+For iOS devices, see [Use SSH Control Lite  to connect to a Linux instance](#SshControlLite). In this example, user name and password are used for authentication.
 
 For Android devices, see  [Use JuiceSSH to connect  to a Linux instance](#JuiceSsh). In this example, user name and password are used for the authentication.
 
@@ -36,8 +36,8 @@ For Android devices, see  [Use JuiceSSH to connect  to a Linux instance](#Juic
 1.  Start SSH Control Lite, and tap **Hosts**.
 2.  Tap the **+** icon in the upper left corner of the Hosts page.
 3.  In the action sheet, tap **Connection**.
-4.  On the Connection  page, set the connection information and tap ****. The following connection information is required:
-    -   Name: Specify the Host name. DocTest is used in this example. DocTest.
+4.  On the Connection page, set the connection information and tap ****. The following connection information is required:
+    -   Name: Specify the Host name. DocTest is used in this example. .
     -   Protocol: Use the default value SSH.
     -   Host: Type the public IP address of the Linux instance to connect to.
     -   Port: Type the port number for SSH protocol. 22 is used in this example.
@@ -53,7 +53,7 @@ For Android devices, see  [Use JuiceSSH to connect  to a Linux instance](#Juic
 7.  On the New remote page, tap **Host1**.
 8.  In the action sheet, tap **Bind**.
 9.  Select the new Linux instance. In this example, select DocTest.
-10. On the New remote page, tap **Done** to switch it to the **Edit**  mode, and then tap **DocTest**.
+10. On the New remote page, tap **Done** to switch it to the **Edit** mode, and then tap **DocTest**.
 11. In the action sheet, tap **Connect**.
 
     The following figure shows Steps 7 through 11.
@@ -81,16 +81,16 @@ Now, you are connected to the Linux instance.
 
     ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/5321_en-US.png)
 
-3.  On the New Connection page, add the connection information and tap the ![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/58642/cn_zh/1503983576102/check%20icon.png) icon.  The following connection information is required:
+3.  On the New Connection page, add the connection information and tap the ![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/58642/cn_zh/1503983576102/check%20icon.png) icon. The following connection information is required:
     -   Nickname: Specify the name of the connection session. DocTest is used in this example.
     -   Type: Use the default value SSH.
     -   Address: Type the public IP address of the Linux instance to connect to.
     -   To setI Identity, follow these steps:
         1.  Tap **Identity**, and tap **New**in the drop-down list.
-        2.  On the New Identitypage, add the following information and tap the  ![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/58642/cn_zh/1503983576102/check%20icon.png) icon.  The following connection information is required:
+        2.  On the New Identitypage, add the following information and tap the  ![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/58642/cn_zh/1503983576102/check%20icon.png) icon. The following connection information is required:
             -   Nickname: Optional. You may set a nickname  to ease management.  DocTest is used in this example.
             -   Username: Type root for the user name.
-            -   Password: Tap **SET\(OPTIONAL\), ** and type the logon password of the instance.
+            -   Password: Tap **SET\(OPTIONAL\)**, and type the logon password of the instance.
 
                 ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/5322_en-US.png)
 
@@ -119,7 +119,7 @@ In this section, we take Microsoft Remote Desktop as an example to describe how 
 
 Confirm the following before connecting to your instance:
 
--   The instance is  **Running**.
+-   The instance is **Running**.
 -   The instance has a public IP address and is accessible from public network.
 -   You have set the logon password for the instance. If the password is lost, you must [reset the instance password](intl.en-US/User Guide/Instances/Reset an instance password.md#).
 -   The security group of the instance has [the following security group rules](intl.en-US/User Guide/Security groups/Add security group rules.md#):
