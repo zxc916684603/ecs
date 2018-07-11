@@ -4,9 +4,7 @@ Local disks are located on the physical servers \(host machines\) that ECS insta
 
 Because a local disk is attached to a single physical server, the data reliability depends on the reliability of the physical server, which may cause single points of failure. We recommend that you implement data redundancy at the application layer to guarantee data availability.
 
-**Warning:** Using a local disk for data storage comes with the risk of losing your data in some cases, such as when the host machine is down. Therefore, never store any business data that requires long-term persistence on a local disk. If no data reliability architecture is available for your application, we strongly recommend that you build your ECS with [Elastic block storage](intl.en-US/Product Introduction/Block storage/Elastic block storage.md#) elastic block storage.
-
-This document mainly describes the information about the local disks that are currently for sale along with the instances that support local disks. This document mainly describes the information about the local disks that are currently for sale along with the instances that support local disks.
+**Warning:** Using a local disk for data storage comes with the risk of losing your data in some cases, such as when the host machine is down. Therefore, never store any business data that requires long-term persistence on a local disk. If no data reliability architecture is available for your application, we strongly recommend that you build your ECS with [elastic block storage](intl.en-US/Product Introduction/Block storage/Elastic block storage.md#).
 
 ## Categories {#section_hdp_m2w_ydb .section}
 
@@ -16,7 +14,7 @@ Currently, Alibaba Cloud provides two types of local disks:
 
     -   Online games, e-businesses, live videos, media, and other industries that provide online businesses and have low latency and high I/O performance requirements on block level storage for I/O-intensive applications.
     -   Business scenarios that have high requirements on the storage I/O performance and availability of the application layer, such as NoSQL non-relational databases, MPP data warehouses, and distributed file systems.
--   Local SATA HDD: This disk is used together with instances of the d1ne and the d1 type families.  It is applicable to the Internet, finance, and other allied businesses that require big data computing and storage analysis for massive data storage and offline computing business scenarios. It fully meets the needs of distributed computing business models represented by Hadoop in multiple aspects, such as instance storage performance, capacity, and intranet bandwidth. The performance is shown in the table below.
+-   Local SATA HDD: This disk is used together with instances of the d1ne and the d1 type families. It is applicable to the Internet, finance, and other allied businesses that require big data computing and storage analysis for massive data storage and offline computing business scenarios. It fully meets the needs of distributed computing business models represented by Hadoop in multiple aspects, such as instance storage performance, capacity, and intranet bandwidth.
 
 
 ## Performance of local NVMe SSD {#section_kdp_m2w_ydb .section}
@@ -44,7 +42,7 @@ The following table lists the performance of local NVMe SSD of an i1 ECS instanc
  Total write throughput: 2.4 GBps
 
  |
-|Single-disk performance[\*](#singleDisk)| Write performance:-   Single disk IOPS: IOPS=min\{165 \* capacity, 240,000\}
+|Single-disk performance[\*](#singleDisk)|Write performance:-   Single disk IOPS: IOPS=min\{165 \* capacity, 240,000\}
 -   Single disk throughput: Throughput=min\{0.85 \* capacity, 1,200\}MBps
 
 Read performance:-   Single disk IOPS: IOPS=min\{165 \* capacity, 240,000\}
@@ -64,7 +62,7 @@ The following table lists the performance of local SATA HDD of a d1ne or d1 ECS 
 
 |Parameters|Local SATA HDD|
 |:---------|:-------------|
-|Maximum capacity|  Single disk: 5,500 GiB
+|Maximum capacity| Single disk: 5,500 GiB
 
  Total capacity per instance: 154,000 GiB
 
@@ -78,7 +76,7 @@ The following table lists the performance of local SATA HDD of a d1ne or d1 ECS 
 
 ## Billing {#section_sdp_m2w_ydb .section}
 
-Local disks charges are covered in the payment for the instances to which they are attached. For more information about instance billing methods, see [Subscription](../intl.en-US/Pricing/Subscription.md#) and [Pay-As-You-Go](../intl.en-US/Pricing/Pay-As-You-Go.md#).
+Local disks charges are covered in the payment for the instances to which they are attached. For more information about instance billing methods, see [Subscription](../../../../intl.en-US/Pricing/Subscription.md#) and [Pay-As-You-Go](../../../../intl.en-US/Pricing/Pay-As-You-Go.md#).
 
 ## Lifecycle {#section_tdp_m2w_ydb .section}
 
@@ -95,14 +93,14 @@ The following table shows how operations on an instance that has local storage a
 |:--------|:----------------------------------|:----------|
 |Restart within the operating system/restart or force restart in the ECS console|Retained|Both the storage volumes and data on the local disk are retained.|
 |Shut down within the operating system/Stop or force stop in the ECS console|Retained|Both the storage volumes and data on the local disk are retained.|
-|Release in the ECS console| Erased|The storage volumes on the local disk are erased and the data on it is not retained.|
-|Downtime migration| Erased|The storage volumes on the local disk are erased and the data on it is not retained.|
+|Release in the ECS console|Erased|The storage volumes on the local disk are erased and the data on it is not retained.|
+|Downtime migration|Erased|The storage volumes on the local disk are erased and the data on it is not retained.|
 |Out-of-service \(Before the computing resources of an instance is released\)|Retained|Both the storage volumes and data on the local disk are retained.|
 |Out-of-service \(After the computing resources of an instance is released\)|Erased|The storage volumes on the local disk are erased and the data on it is not retained.|
 
 ## Related operations {#section_ydp_m2w_ydb .section}
 
-f your ECS instance comes with local disks, you must connect to the instance to [format the disk](../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Linux _ Format and mount a data disk.md#). Unlike cloud disks, you cannot perform the following operations on local disks:
+If your ECS instance comes with local disks, you must connect to the instance to [format the disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Linux _ Format and mount a data disk.md#). Unlike cloud disks, you cannot perform the following operations on local disks:
 
 -   Independently creating an empty local disk or creating a local disk from a snapshot.
 -   Attaching a local disk in the ECS console.
