@@ -1,18 +1,18 @@
 # DeleteCommand {#DeleteCommand .reference}
 
-删除一条云助手命令。命令被删除后，仍保留原有执行的日志信息。
+删除一条云助手命令。
 
 ## 请求参数 {#RequestParameter .section}
 
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DeleteCommand|
-|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
-|CommandId|String|是|命令 ID。您可以通过接口 [DescribeCommands](cn.zh-CN/API参考/云助手/DescribeCommands.md#) 查询所有可用的 `CommandId`。|
+|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|CommandId|String|是|命令 ID。您可以通过接口 [DescribeCommands](cn.zh-CN/API 参考/云助手/DescribeCommands.md#) 查询所有可用的 `CommandId`。|
 
 ## 返回参数 {#section_f54_lk5_xdb .section}
 
-全是公共返回参数。参阅 [公共参数](cn.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅 [公共返回参数](cn.zh-CN/API 参考/调用方式/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -31,15 +31,15 @@ https://ecs.aliyuncs.com/?Action=DeleteCommand
 
 ```
 <DeleteCommandResponse>
-    <RequestId>540CFF28-407A-40B5-B6A5-73Bxxxxxxxxx</RequestId>
+    <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
 </DeleteCommandResponse>
 ```
 
- **JSON 格式** 
+**JSON 格式** 
 
 ```
 {
-    "RequestId":"540CFF28-407A-40B5-B6A5-73Bxxxxxxxxx",
+    "RequestId":"E69EF3CC-94CD-42E7-8926-F133B86387C0",
 }
 ```
 
@@ -49,18 +49,18 @@ https://ecs.aliyuncs.com/?Action=DeleteCommand
 
 ```
 <Error>
-    <RequestId>540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx</RequestId>
+    <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
     <HostId>ecs.aliyuncs.com</HostId>
     <Code>InvalidInstance.NoClient</Code>
     <Message>The specified instances have no cloud assistant client installed.</Message>
 </Error>
 ```
 
- **JSON 格式** 
+**JSON 格式** 
 
 ```
 {
-    "RequestId": "540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx",
+    "RequestId": "E69EF3CC-94CD-42E7-8926-F133B86387C0",
     "HostId": "ecs.aliyuncs.com"
     "Code": "InvalidInstance.NoClient"
     "Message": "The specified instances have no cloud assistant client installed."
