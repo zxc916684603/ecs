@@ -12,13 +12,13 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：StopInvocation|
-|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
-|InvokeId|String|是|命令进程执行 ID。您可以通过接口 [DescribeInvocations](cn.zh-CN/API参考/云助手/DescribeInvocations.md#) 查询所有的 `InvokeId`。|
-|InstanceIds|Array|否|需要停止执行命令的实例列表。参数取值为一个带有格式的 Json Array，格式为 \[`InstanceId1`, `InstanceId2`, …\]，最多能指定 100 个实例 ID，用半角逗号字符隔开。|
+|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|InvokeId|String|是|命令进程执行 ID。您可以通过接口 [DescribeInvocations](cn.zh-CN/API 参考/云助手/DescribeInvocations.md#) 查询所有的 `InvokeId`。|
+|InstanceId.N|Array|否|需要停止执行命令的实例列表，最多能指定 20 台实例 ID。`N` 的取值范围为 \[1, 20\]。|
 
 ## 返回参数 {#section_f54_lk5_xdb .section}
 
-全是公共返回参数。参阅 [公共参数](cn.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅 [公共返回参数](cn.zh-CN/API 参考/调用方式/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -37,15 +37,15 @@ https://ecs.aliyuncs.com/?Action=StopInvocation
 
 ```
 <StopInvocationResponse>
-    <RequestId>540CFF28-407A-40B5-B6A5-73Bxxxxxxxxx</RequestId>
+    <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
 </StopInvocationResponse>
 ```
 
- **JSON 格式** 
+**JSON 格式** 
 
 ```
 {
-    "RequestId":"540CFF28-407A-40B5-B6A5-73Bxxxxxxxxx",
+    "RequestId":"E69EF3CC-94CD-42E7-8926-F133B86387C0",
 }
 ```
 
@@ -55,18 +55,18 @@ https://ecs.aliyuncs.com/?Action=StopInvocation
 
 ```
 <Error>
-    <RequestId>540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx</RequestId>
+    <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
     <HostId>ecs.aliyuncs.com</HostId>
     <Code>InvalidInstance.NoClient</Code>
     <Message>The specified instances have no cloud assistant client installed.</Message>
 </Error>
 ```
 
- **JSON 格式** 
+**JSON 格式** 
 
 ```
 {
-    "RequestId": "540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx",
+    "RequestId": "E69EF3CC-94CD-42E7-8926-F133B86387C0",
     "HostId": "ecs.aliyuncs.com"
     "Code": "InvalidInstance.NoClient"
     "Message": "The specified instances have no cloud assistant client installed."
@@ -80,7 +80,6 @@ https://ecs.aliyuncs.com/?Action=StopInvocation
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
 |InvalidInvokeId.NotFound|The specified InvokeId does not exist.|400|指定的 `InvokeId` 不存在。|
-|MissingParameter.InstanceId|The input parameter “InstanceIds” that is mandatory for processing this request is not supplied.|400|您必须指定必需参数 `InstanceIds`。|
 |MissingParameter.RegionId|The input parameter “RegionId” that is mandatory for processing this request is not supplied.|400|您必须指定必需参数 `RegionId`，或者您暂时不能使用指定 `RegionId` 里的资源。|
 |MissingParameter.InvokeId|The input parameter “InvokeId” that is mandatory for processing this request is not supplied.|400|您必须指定必需参数 `InvokeId`。|
 |InvalidRegionId.NotFound|The RegionId provided does not exist in our items.|404|指定的 `RegionId` 不存在。|
