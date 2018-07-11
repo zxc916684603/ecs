@@ -42,11 +42,11 @@ The following table lists the performance of local NVMe SSD of an i1 ECS instanc
  Total write throughput: 2.4 GBps
 
  |
-|Single-disk performance[\*](#singleDisk)|Write performance:-   Single disk IOPS: IOPS=min\{165 \* capacity, 240,000\}
--   Single disk throughput: Throughput=min\{0.85 \* capacity, 1,200\}MBps
+|Single-disk performance[\*](#singleDisk)|Write performance:-   Single disk IOPS: IOPS=min\{165 \* capacity, 240000\}
+-   Single disk throughput: Throughput=min\{0.85 \* capacity, 1200\}MBps
 
-Read performance:-   Single disk IOPS: IOPS=min\{165 \* capacity, 240,000\}
--   Single disk throughput: Throughput=min\{1.4 \* capacity, 2,000\}MBps
+Read performance:-   Single disk IOPS: IOPS=min\{165 \* capacity, 240000\}
+-   Single disk throughput: Throughput=min\{1.4 \* capacity, 2000\}MBps
 
 |
 |Access latency|In microseconds|
