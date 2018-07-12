@@ -1,8 +1,8 @@
 # RunInstances {#RunInstances .reference}
 
-创建一台或多台 ECS 实例。
+创建一台或多台按量付费实例。
 
-## 描述 {#section_qpz_vk5_ydb .section}
+## 描述 {#BestPractice .section}
 
 创建实例前，您可以调用 [DescribeAvailableResource](intl.zh-CN/API 参考/其他接口/DescribeAvailableResource.md#) 查看指定地域或者可用区内的资源供给情况。
 
@@ -11,21 +11,13 @@
 调用该接口时，您需要注意：
 
 -   单次最多能创建 100 台实例。
-
 -   您可以指定参数 `AutoReleaseTime` 设置实例自动释放时间。
-
 -   创建成功后会返回实例 ID 列表，您可以通过 API [DescribeInstances](intl.zh-CN/API 参考/实例/DescribeInstances.md#) 查询新建实例状态。
-
 -   创建实例前，您需要确保您已经有可用的安全组。更多详情，请参阅 [CreateSecurityGroup](intl.zh-CN/API 参考/安全组/CreateSecurityGroup.md#)。
-
 -   创建实例时，默认自动启动实例，直到实例状态变成运行中（`Running`）。
-
 -   创建专有网络 VPC 类型实例前，您需要预先在相应的阿里云地域 [创建 VPC](../../../../intl.zh-CN/快速入门/搭建专有网络.md#)。
-
 -   与 [CreateInstance](intl.zh-CN/API 参考/实例/CreateInstance.md#) 相比，通过 `RunInstances` 创建的实例如果参数 `InternetMaxBandwidthOut` 的值大于 0，则自动为实例分配公网 IP。
-
 -   提交创建任务后，参数不合法或者库存不足的情况下会报错，具体的报错原因参阅 [错误码](#ErrorCode)。
-
 
 ## 请求参数 {#RequestParameter .section}
 
@@ -49,19 +41,7 @@
 |
 |LaunchTemplateId|String|否|启动模板 ID。更多详情，请调用 [`DescribeLaunchTemplates`](https://help.aliyun.com/document_detail/72102.html)。您必须指定 `LaunchTemplateId` 或 `LaunchTemplateName` 以确定启动模板。|
 |LaunchTemplateName|String|否|启动模板名称。您必须指定 `LaunchTemplateId` 或 `LaunchTemplateName` 以确定启动模板。|
-|LaunchTemplateVersion|String|否|启动模板版本。如果您指定了 `LaunchTemplateId` 或 `LaunchTemplateName` 而不指定启动模板版本号，默认采用默认版本。|
-|InstanceChargeType|String|否|实例的计费方式，更多详情，请参阅 [计费概述](../../../../intl.zh-CN/产品定价/计费概述.md#)。取值范围：-   PrePaid：预付费，即包年包月。此时，您必须确认自己的账号支持余额支付或者信用支付，否则将报错 `InvalidPayMethod`。
--   PostPaid：按量付费。
-
-默认值：PostPaid|
-|PeriodUnit|String|否|购买资源的时长单位。取值范围：-   Month
-
-默认值：Month|
-|AutoRenew|Boolean|否|预付费实例到期后是否自动续费，当参数 `InstanceChargeType` 取值 `PrePaid` 时生效。默认值：False|
-|AutoRenewPeriod|Integer|否|单次自动续费的续费时长。取值范围：-   `PeriodUnit=Week` 时：\{“1”, “2”, “3”\}
--   `PeriodUnit=Month` 时：\{“1”, “2”, “3”, “6”, “12”\}
-
-默认值：1|
+|LaunchTemplateVersion|String|否|启动模板版本。如果您指定了 `LaunchTemplateId` 或 `LaunchTemplateName` 而不指定启动模板版本号，则采用默认版本。|
 |InternetChargeType|String|否|网络计费类型。取值范围：-   PayByTraffic：按使用流量计费
 
 默认值：PayByTraffic|
@@ -88,12 +68,10 @@
 |
 |SystemDisk.DiskName|String|否|系统盘名称。-   长度为\[2, 128\]个英文或中文字符，必须以大小字母或中文开头，可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。
 -   不能以`http://`和`https://`开头。
--   不填则为空，默认值为空。
 
 |
 |SystemDisk.Description|String|否|系统盘描述。-   长度为 \[2, 256\] 个英文或中文字符。
 -   不能以`http://`和`https://`开头。
--   不填则为空，默认值为空。
 
 |
 |DataDisk.n.Category|String|否|数据盘n的磁盘种类，`n` 的取值范围为 \[1, 16\]。取值范围：-   cloud：普通云盘
@@ -115,12 +93,10 @@
 默认值：false|
 |DataDisk.n.DiskName|String|否|数据盘名称，`n` 的取值范围为 \[1, 16\]。-   长度为 \[2, 128\] 个英文或中文字符，必须以大小字母或中文开头，可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。
 -   不能以 http:// 和 https:// 开头。
--   不填则为空，默认值为空。
 
 |
 |DataDisk.n.Description|String|否|数据盘描述，`n` 的取值范围为 \[1, 16\]。-   长度为 \[2, 256\] 个英文或中文字符。
 -   不能以 http:// 和 https:// 开头。
--   不填则为空，默认值为空。
 
 |
 |DataDisk.n.DeleteWithInstance|Boolean|否|表示数据盘是否随实例释放，`n` 的取值范围为 \[1, 16\]。取值范围：-   true：实例释放时，这块磁盘随实例一起释放。
@@ -129,25 +105,23 @@
 默认值：true 这个参数只对独立云盘有效，即，参数 `DataDisk.n.Category` 取值为 `cloud`、`cloud_efficiency` 或 `cloud_ssd` 的云盘，否则会报错。|
 |HpcClusterId|String|否|实例所属的集群 ID。|
 |VSwitchId|String|否|虚拟交换机 ID。如果您创建的是 VPC 类型 ECS 实例，需要指定虚拟交换机 ID。|
-|InternetMaxBandwidthIn|Integer|否|公网入带宽最大值，单位为 Mbit/s。取值范围：\[1,200\] 默认值：200|
+|InternetMaxBandwidthIn|Integer|否|公网入带宽最大值，单位为 Mbit/s。取值范围：\[1, 200\] 默认值：200|
 |InternetMaxBandwidthOut|Integer|否|公网出带宽最大值，单位为 Mbit/s。取值范围：-   \[0, 100\]
 
 默认值： 0
 
 |
 |InstanceName|String|否|实例名称。-   长度为\[2, 128\]个英文或中文字符，必须以大小字母或中文开头，可以包含数字、点号（.）、半角冒号（:）、下划线（\_）或短横线（-）。
--   如果没有指定该参数，默认值为实例的 `InstanceId`。
 -   不能以 http:// 和 https:// 开头。
 
-|
+默认值为实例的 `InstanceId`。|
 |HostName|String|否|云服务器的主机名。-   点号（.）和短横线（-）不能作为 HostName 的首尾字符，不能连续使用。
--    **Windows 实例**：名字符长度为\[2, 15\]，允许字母（不限制大小写）、数字和短横线（-）组成，不支持点号（.），不能全是数字。
--    **其他类型（Linux 等）实例**：字符长度为\[2, 128\]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。
+-   **Windows 实例**：名字符长度为\[2, 15\]，允许字母（不限制大小写）、数字和短横线（-）组成，不支持点号（.），不能全是数字。
+-   **其他类型（Linux 等）实例**：字符长度为\[2, 128\]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。
 
 |
 |UniqueSuffix|Boolean|否|创建多台实例时是否为 `HostName` 和 `InstanceName` 添加有序后缀，有序后缀从 001 开始递增，最大不能超过 999。例如：`LocalHost001`，`LocalHost002` 和 `MyInstance001`，`MyInstance002`。默认值：false。|
 |Description|String|否|实例的描述。-   长度为 \[2, 256\] 个字符。
--   不填则为空，默认值为空。
 -   不能以 http:// 和 https:// 开头。
 
 |
@@ -163,8 +137,8 @@
 
 |
 |UserData|String|否|实例自定义数据。需要以 Base64 方式编码，原始数据最多为 16 KB。|
-|KeyPairName|String|否|密钥对名称。-    **Windows ECS 实例**：忽略该参数。默认为空。即使填写了该参数，仍旧只执行参数`Password`的内容。
--    **Linux ECS 实例**：如果指定该参数，默认禁用密码登录方式。
+|KeyPairName|String|否|密钥对名称。-   **Windows ECS 实例**：忽略该参数。默认为空。即使填写了该参数，仍旧只执行参数`Password`的内容。
+-   **Linux ECS 实例**：如果指定该参数，默认禁用密码登录方式。
 
 |
 |RamRoleName|String|否|实例RAM角色名称。您可以使用 *RAM* API [ListRoles](../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#) 查询实例RAM角色名称。参考相关 API [CreateRole](../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/CreateRole.md#) 和 [ListRoles](../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#) 。|
@@ -180,7 +154,9 @@
 
 默认值：NoSpot|
 |SpotPriceLimit|Float|否|设置实例的每小时最高价格。支持最大 3 位小数，参数 `SpotStrategy` 取值为 `SpotWithPriceLimit` 时生效。|
-|ClientToken|String|否|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一。只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](intl.zh-CN/API 参考/附录/如何保证幂等性.md#)。|
+|ClientToken|String|否| 用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一。只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](intl.zh-CN/API 参考/附录/如何保证幂等性.md#)。
+
+ |
 
 ## 返回参数 {#ResponseParameter .section}
 
@@ -224,7 +200,7 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 </RunInstancesResponse>
 ```
 
- **JSON 格式** 
+**JSON 格式** 
 
 ```
 {
