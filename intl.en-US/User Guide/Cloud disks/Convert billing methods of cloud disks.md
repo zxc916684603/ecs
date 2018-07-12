@@ -2,8 +2,8 @@
 
 The billing method of a cloud disk depends on how it is created:
 
--   For cloud disks created with Subscription \(monthly, yearly or weekly subscription\) instances, upfront payment is required for the service to be ready for use. For more information, see [../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_14004.md\#](../../../../intl.en-US/Pricing/Subscription.md#).
--   For cloud disks created jointly with Pay-As-You-Go instances or separately created are billed on a Pay-As-You-Go basis. For more information, see [../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_14005.md\#](../../../../intl.en-US/Pricing/Pay-As-You-Go.md#).
+-   For cloud disks created with Subscription \(monthly or yearly subscription\) instances, upfront payment is required for the service to be ready for use. For more information, see [../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_9585.md\#](../../../../intl.en-US/Pricing/Subscription.md#).
+-   For cloud disks created jointly with Pay-As-You-Go instances or separately created are billed on a Pay-As-You-Go basis. For more information, see [Pay-As-You-Go](../../../../intl.en-US/Pricing/Pay-As-You-Go.md#).
 
 You can change the billing method of a cloud disk, as shown in the following table.
 
