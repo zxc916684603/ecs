@@ -119,10 +119,6 @@ The latency varies according to the shared block storage categories as follows:
 
 For the performance of local disks, see [Local disks](https://www.alibabacloud.com/help/doc-detail/63138.htm).
 
-**Local disks**
-
-For the performance of local disks, see [Local disks](https://partners-intl.aliyun.com/help/doc-detail/63138.htm).
-
 ## Test disk performance {#section_jvz_vzv_ydb .section}
 
 According to the OS on which an instance is running, you can use different tools to test disk performance:
