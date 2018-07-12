@@ -44,8 +44,8 @@ The following table lists the features and typical scenarios of different types 
 
 |Parameters|SSD Cloud Disks|Ultra Cloud Disks|Basic Cloud Disks|
 |:---------|:--------------|:----------------|:----------------|
-|Capacity of a single disk|32,768 GiB|32,768 GiB|2000 GiB|
-|Maximum IOPS|20000[\*](https://help.aliyun.com/document_detail/25382.html?spm=a2c4g.11186623.6.552.AXb2YZ#ssd)|3000|Several hundreds|
+|Capacity of a single disk|32,768 GiB|32,768 GiB|2,000 GiB|
+|Maximum IOPS|20,000[\*](https://help.aliyun.com/document_detail/25382.html?spm=a2c4g.11186623.6.552.AXb2YZ#ssd)|3,000|Several hundreds|
 |Maximum throughput|300 MBps[\*](https://help.aliyun.com/document_detail/25382.html?spm=a2c4g.11186623.6.552.AXb2YZ#ssd)|80 MBps|30 MBps−40 MBps|
 |Formulas to calculate performance of a single disk[\*\*](https://help.aliyun.com/document_detail/25382.html?spm=a2c4g.11186623.6.552.AXb2YZ#formula)|IOPS = min\{1200 + 30 \* capacity, 20000\}|IOPS = min\{1000 + 6 \* capacity, 3000\}|N/A|
 |Throughput = min \{80 + 0.5 \* capacity, 300\} Mbps|Throughput = min\{50 + 0.1 \* capacity, 80\} MBps|N/A|
@@ -91,8 +91,8 @@ The following table lists the features and typical scenarios of different types 
 |Capacity|Singe disk: 32,768 GiB All disks attached to one instance: Up to 128 TiB|Single disk: 32,768 GiB All disks attached to one instance: Up to 128 TiB|
 |Maximum random read/write IOPS\*|30000|5000|
 |Maximum sequential read/write throughput\*|512 MBps|160 MBps|
-|Formulas to calculate performance of a single disk\*\*|IOPS = min\{40 \* capacity, 30000\}|IOPS = min\{1000 + 6 \* capacity, 5000\}|
-|Throughput = min\{50 + 0.5 \* capacity, 512\} MBps|Throughput = min\{50 + 0.15 \* capacity, 160\} MBps|
+|Formulas to calculate performance of a single disk\*\*|IOPS = min\{1600 + 40 \* capacity, 30000\}|IOPS = min\{1000 + 6 \* capacity, 5000\}|
+|Throughput = min\{100 + 0.5 \* capacity, 512\} MBps|Throughput = min\{50 + 0.15 \* capacity, 160\} MBps|
 |Typical scenarios| -   Oracle RAC
 -   SQL Server
 -   Failover Cluster
@@ -112,8 +112,8 @@ The following table lists the features and typical scenarios of different types 
 
 The latency varies according to the shared block storage categories as follows:
 
--   SSD Shared Block Storage: 0.5 ms
--   Ultra Shared Block Storage: 1 ms
+-   SSD Shared Block Storage: 0.5−2 ms
+-   Ultra Shared Block Storage: 1−3 ms
 
 **Local disks**
 
@@ -130,7 +130,7 @@ According to the OS on which an instance is running, you can use different tools
 -   Linux: DD, fio, or sysbench is recommended.
 -   Windows: fio or Iometer is recommended.
 
-This section takes a Linux instance and fio as an example to describe how to test the disk performance by using fio.  Before testing the disk, you must make sure the disk is 4K aligned. You can use fio to test the performance of a cloud disk.
+This section takes a Linux instance and fio as an example to describe how to test the disk performance by using fio. Before testing the disk, you must make sure the disk is 4K aligned. You can use fio to test the performance of a cloud disk.
 
 **Warning:** Testing bare disks can obtain more accurate performance data, but damages the structure of the file system. Make sure that you back up your data before testing. We recommend that you use a new ECS instance without data on the disks to test the disks by using fio.
 
@@ -164,15 +164,15 @@ Take the command for testing random read IOPS as an example to describe the mean
 |Parameter|Description|
 |:--------|:----------|
 |-direct=1|Ignore I/O buffer when testing. Data is written directly.|
-|-iodepth=128|Indicates that when you use AIO, the maximum number of I/O issues at the same time is 128.|
-|-rw=randwrite| Read and write policies.  Available options:-   randread \(random read\)
+|-rw=randwrite| Read and write policies. Available options:-   randread \(random read\)
+-   randwrite\(random write\)
 -   read\(sequential read\)
 -   write\(sequential write\)
 -   randrw \(random read and write\).
 
 |
 |-ioengine=libaio|Use libaio as the testing method \(Linux AIO, Asynchronous I/O\).  Usually you have two ways for an application to use I/O: synchronous and asynchronous. Synchronous I/O only sends out one I/O request each time, and returns only after the kernel is completed. In this case, the iodepth is always less than 1 for a single job, but can be resolved by multiple concurrent jobs. Usually 16-32 concurrent jobs can fill up the iodepth. Asynchronous method uses libaio to submit a batch of I/O requests each time, thus reduces interaction times, and makes interaction more effective.|
-|-bs=4k|The size of each block for one I/O is 4k. If not specified, the default value 4k is used.  When IOPS is tested, we recommend that you set the bs to a small value, such as 4k in this example command.  When throughput is tested, we recommend that you set the bs to a big value, such as 1024k in the IOPS tests.|
+|-bs=4k|The size of each block for one I/O is 4k. If not specified, the default value 4k is used. When IOPS is tested, we recommend that you set the bs to a small value, such as 4k in this example command.  When throughput is tested, we recommend that you set the bs to a big value, such as 1024k in the IOPS tests.|
 |-size=1G|The size of the testing file is 1 GiB.|
 |-numjobs=1|The number of testing jobs is 1.|
 |-runtime=1000|Testing time is 1000 seconds. If not specified, the test will go on with the value specified for -size, and write data in -bs each time.|
@@ -201,7 +201,7 @@ clat percentiles (usec):
 | 99.99th=[82432]
 bw (KB /s): min=79530, max=81840, per=99.45%, avg=80064.69, stdev=463.90
 lat (usec) : 250=0.04%, 500=1.49%, 750=6.08%, 1000=12.81%
-LAT (MSEC): 2 = 65.86%, 4 = 6.84%, 10 = 0.49, 20 = 0.04%, 100 = 6.35%
+lat (msec) : 2=65.86%, 4=6.84%, 10=0.49%, 20=0.04%, 100=6.35%
 cpu : usr=3.19%, sys=10.95%, ctx=23746, majf=0, minf=160
 IO depths : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=0.1%, >=64=100.0%
 submit : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
@@ -220,7 +220,7 @@ In the result, you must pay the most attention to the following code line:
 read : io=1024.0MB, bw=80505KB/s, iops=20126, runt= 13025msec
 ```
 
-The line means that fio did a total of 1 GiB of I/O at 80 MB/s for a total of 20126 IOPS \(at the default 4k block size\), and ran for 13 seconds. According to the formula, the maximum IOPS of an SSD cloud disk is: 20126，而根据公式计算的数值为：
+The line means that fio did a total of 1 GiB of I/O at 80 MB/s for a total of 20126 IOPS \(at the default 4k block size\), and ran for 13 seconds. According to the formula, the maximum IOPS of an SSD cloud disk of 800 GiB capacity is:
 
 *IOPS = min\{1200+30 ∗ capacity, 20000\} = IOPS = min\{1200+30 ∗ 800, 20000\} = 20,000*
 
