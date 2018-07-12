@@ -10,37 +10,37 @@ You can only switch up to 20 Pay-As-You-Go instances to subscription instances e
 
 The ECS instance to be switched must meet the following requirements:
 
--   The instance type is not any one of [Generation I](https://www.alibabacloud.com/help/zh/doc-detail/55263.htm) or type families of [n1, n2, or e3](https://www.alibabacloud.com/help/zh/doc-detail/25378.htm#previousgeneration).
+-   The instance type is not any one of [Generation I](https://www.alibabacloud.com/help/doc-detail/55263.htm) or type families of [n1, n2, or e3](https://www.alibabacloud.com/help/doc-detail/25378.htm#previousgeneration).
 
 -   The instance belongs to your account.
 
--   The instance is in **running** or **stopped** status.
+-   The instance is in the **running** or **stopped** status.
 
-    **Note:** If an order has been placed successfully when the ECS instance in the **running** or **stopped** status, but the instance status changes and does not meet the status requirement before the order is paid, the payment fails and the switch is discontinued. You can go to the billing center to pay the order when the instance is in the running or stopped status.
+    If an order has been placed successfully when the ECS instance in the **running** or **stopped** status, but the instance status changes and does not meet the status requirement before the order is paid, the payment fails and the switch is discontinued. You can go to the billing center to pay the order when the instance is in the running or stopped status.
 
--   No [timed release](https://www.alibabacloud.com/help/zh/doc-detail/25442.htm) is set for the instance.
+-   No [timed release](https://www.alibabacloud.com/help/doc-detail/25442.htm) is set for the instance.
 
-    **Note:** If the release time has been set for an instance, you need disable the timed release configuration and then switch the billing method.
+    If the release time has been set for an instance, you need disable the timed release configuration and then switch the billing method.
 
 -   No unpaid switch order for the instance.
 
-    **Note:** If an unpaid switch order exists, you need cancel the order and then place another order to switch its billing method.
+    If an unpaid switch order exists, you need cancel the order and then place another order to switch its billing method.
 
 
 ## Procedure {#section_s3c_51f_zdb .section}
 
 1.  Log on to the [ECS console](https://ecs.console.aliyun.com/).
-2.  Select a region.
-3.  Select one or more instances of Pay-As-You-Go mode, and under the instance list, click **Switch to Subscription**.
-4.  On the Switch to Subscription page, click **Batch Change**.
-5.  On the dialog box, set the Subscription Plan, including:
-    -   **Required** Duration: You can set the length of service time for the subscription instance, 1 month or 1 year. Instances executed in batch must have the same length of service time.
-    -   **Optional** Data Disk: Optional. If some data disks, which may be of Pay-As-You-Go mode, are mounted or attached to the selected instances, you can determine to **switch their billing method to Subscription**.
+2.  In the left-side navigation pane, click **Instances**.
+3.  Select a region.
+4.  Select one or more instances of Pay-As-You-Go mode, and under the instance list, click **Switch to Subscription**.
+5.  On the Switch to Subscription page, click **Batch Change**.
+6.  On the dialog box, set the Subscription Plan, including:
+    -   Duration: You can set the length of service time for the subscription instance, 1 month or 1 year. Instances executed in batch must have the same length of service time.
+    -   Data Disk: Optional. If some data disks, which may be of Pay-As-You-Go mode, are mounted or attached to the selected instances, you can determine to **switch their billing method to Subscription**.
+7.  Click **OK** to place an order and go to the payment page.
 
-        ![](images/5592_en-US.png)
+    After you make the payment, the operation is complete.
 
-6.  Click **OK** to place an order and go to the payment page.
-7.  After you make the payment, the operation is complete.
 
 ## FAQ {#section_dh5_fjf_zdb .section}
 
