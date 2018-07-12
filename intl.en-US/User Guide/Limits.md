@@ -50,7 +50,7 @@ Besides the preceding limit, the additional limits of ECS are mentioned in the f
 |Quota of Pay-As-You-Go cloud disks in all regions for one account |Five times of the number of Pay-As-You-Go instances in all regions under one account |Open a ticket|
 |Quota of system disks for one ECS instance |1|Not supported|
 |Quota of data disks for one ECS instance |16 \(including cloud disks and Shared Block Storage\) |Not supported|
-|Multi-node attachment of shared block storage |16 instances. Four instances supported during public beta. |Not supported|
+|Multi-node attachment of shared block storage |8|Not supported|
 |Quota of shared block storage in all regions for one account |10|Open a ticket|
 |Capacity of one Basic Cloud Disk |5 GiB ~ 2,000 GiB |Not supported|
 |Capacity of one SSD Cloud Disk |20 GiB ~ 32,768 GiB |Not supported|
@@ -103,7 +103,7 @@ Besides the preceding limit, the additional limits of ECS are mentioned in the f
 |Quota of security groups in all regions for one account | 100
 
  |Open a ticket|
-|Quota of security groups for one ECS instances |5|Not supported|
+|Quota of security groups for one ECS instances |5|Open a ticket|
 |Port|Access to TCP Port 25, which is the default port for the STMP service, is denied. It cannot be allowed by adding a security group rule. |Open a ticket. For more information, see [Apply to open TCP port 25](https://www.alibabacloud.com/help/doc-detail/56130.htm)|
 
 ## ENI {#section_gfq_v2x_wdb .section}
