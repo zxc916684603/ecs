@@ -14,7 +14,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：GetInstanceScreenshot|
-|RegionId|String|是|实例所在地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|实例所在地域 ID。您可以调用 [DescribeRegions](../cn.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |InstanceId|String|是|实例 ID。|
 |Wakeup|Boolean|否|是否唤醒处于休眠状态的实例。默认值：false
 
