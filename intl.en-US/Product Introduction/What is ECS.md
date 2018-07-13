@@ -1,6 +1,6 @@
 # What is ECS {#concept_rhf_xgv_tdb .concept}
 
-This article gives a brief introuction to what ECS is, and the resources and services that it involves.
+This article gives a brief introduction to what ECS is, and the resources and services that it involves.
 
 Elastic Compute Service \(ECS\) is a type of computing service that features elastic processing capabilities. ECS has a simpler and more efficient management mode than physical servers. You can create instances, change the operating system, and add or release any number of ECS instances at any time to fit your business needs. An ECS instance is a virtual computing environment that includes CPU, memory, and other basic computing components. An instance is the core component of ECS and is the actual operating entity offered by Alibaba Cloud. Other resources, such as disks, images, and snapshots, can only be used in conjunction with an ECS instance.
 
