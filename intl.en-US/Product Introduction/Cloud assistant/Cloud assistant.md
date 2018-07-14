@@ -125,14 +125,14 @@ Currently the cloud assistant is not available on the console. You can use it by
 
 ## References {#section_jvp_5dx_ydb .section}
 
--   [EN-US\_TP\_9582.md\#](intl.en-US/Product Introduction/Cloud assistant/Cloud assistant client.md#)
--   Cloud assistant APIs:
-    -   [CreateCommand](../intl.en-US/API Reference/Cloud assistant/CreateCommand.md#): CreateCommand
-    -   [InvokeCommand](../intl.en-US/API Reference/Cloud assistant/InvokeCommand.md#): InvokeCommand The instance has executed the created commands.
-    -   [../DNA0011860945/EN-US\_TP\_9962.md\#](../intl.en-US/API Reference/Cloud assistant/DescribeInvocations.md#): DescribeInvocations
-    -   [../DNA0011860945/EN-US\_TP\_9963.md\#](../intl.en-US/API Reference/Cloud assistant/DescribeInvocationResultsDescribeinvocationresults.md#): DescribeInvocationResults
-    -   [../DNA0011860945/EN-US\_TP\_9959.md\#](../intl.en-US/API Reference/Cloud assistant/Stopinvention.md#): StopInvocation
-    -   [../DNA0011860945/EN-US\_TP\_9964.md\#](../intl.en-US/API Reference/Cloud assistant/ModifyCommand.md#): ModifyCommand
-    -   [DescribeCommands](../intl.en-US/API Reference/Cloud assistant/DescribeCommands.md#): DescribeCommands
-    -   [../DNA0011860945/EN-US\_TP\_9960.md\#](../intl.en-US/API Reference/Cloud assistant/DeleteCommand.md#): DeleteCommand
+-   [Cloud Assistant Client](intl.en-US/Product Introduction/Cloud assistant/Cloud Assistant Client.md#)
+-   APIs:
+    -   [CreateCommand](../../../../intl.en-US/API Reference/Cloud assistant/CreateCommand.md#)
+    -   [InvokeCommand](../../../../intl.en-US/API Reference/Cloud assistant/InvokeCommand.md#)
+    -   [DescribeInvocations](../../../../intl.en-US/API Reference/Cloud assistant/DescribeInvocations.md#)
+    -   [DescribeInvocationResults](../../../../intl.en-US/API Reference/Cloud assistant/DescribeInvocationResultsDescribeinvocationresults.md#)
+    -   [StopInvocation](../../../../intl.en-US/API Reference/Cloud assistant/Stopinvention.md#)
+    -   [ModifyCommand](../../../../intl.en-US/API Reference/Cloud assistant/ModifyCommand.md#)
+    -   [DescribeCommands](../../../../intl.en-US/API Reference/Cloud assistant/DescribeCommands.md#)
+    -   [DeleteCommand](../../../../intl.en-US/API Reference/Cloud assistant/DeleteCommand.md#)
 
