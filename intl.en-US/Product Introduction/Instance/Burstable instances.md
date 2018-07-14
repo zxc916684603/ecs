@@ -87,7 +87,7 @@ After you stop a t5 instance in the [ECS console](../../../../intl.en-US/User Gu
 
 When you start a stopped instance, CPU credits continue accumulating.
 
-If the instance runs out-of-service because of payment overdue or expiration, the CPU credits remain valid, but the CPU credit accumulation stops. After [../../../../dita-oss-bucket/SP\_2/DNA0011894323/EN-US\_TP\_9650.md\#](../../../../intl.en-US/User Guide/Instances/Reactivate an instance.md#) or [Renew](../../../../intl.en-US/Pricing/Renew instances/Renewal overview.md#) an instance, CPU credits start to accumulate automatically.
+If the instance runs out-of-service because of payment overdue or expiration, the CPU credits remain valid, but the CPU credit accumulation stops. After the instance is reactivated or renewed, CPU credits start to accumulate automatically.
 
 ## Instance type {#section_c55_fx5_ydb .section}
 
@@ -128,7 +128,7 @@ Here, we use ecs.t5-c1m1.xlarge as an example to explain the t5 instance configu
 
 ## Billing method {#section_u55_fx5_ydb .section}
 
-t5 instances support the following billing methods: Pay-As-You-Go and Subscription. For more information on the billing methods, see [../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_9587.md\#](../../../../intl.en-US/Pricing/Billing method comparison.md#).
+t5 instances support the following billing methods: Pay-As-You-Go and Subscription. For more information on the billing methods, see [Billing method comparison](../../../../intl.en-US/Pricing/Billing method comparison.md#).
 
 ## Create an instance {#section_v55_fx5_ydb .section}
 
@@ -180,7 +180,7 @@ In the ECS console, if you see that the CPU usage is at the baseline level of CP
 
 You can change the instance type based on the billing method:
 
--   For a Subscription instance, you can change the instance type by [Change configurations](../../../../intl.en-US/User Guide/Instances/Change configurations/Overview of configuration changes.md#). You can change the instance type to any type in the t5 instance type family, any enterprise-level instance type families, or any type within the [xn4, n4, mn4, or e4](https://www.alibabacloud.com/help/doc-detail/25378.htm) type family.
+-   For a Subscription instance, you can change the instance type. For more information, see [Change configurations](../../../../intl.en-US/User Guide/Instances/Change configurations/Overview of configuration changes.md#). You can change the specification of an instance to any type in the t5 instance type family, any enterprise-level instance type families, or any type within the xn4, n4, mn4, or e4 type family.
 
 -   For a Pay-As-You-Go instance, you can change the instance type.
 
