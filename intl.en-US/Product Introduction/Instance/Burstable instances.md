@@ -60,10 +60,8 @@ Before you use t5 instances, you must know the following concepts:
     CPU credit accumulation per minute = 1 CPU credit * (Baseline CPU performance - Actual CPU usage) - Expired CPU credits within the minute
     ```
 
-    When the distribution of CPU credits is larger than consumption, the CPU credits increase; otherwise, the CPU credits decrease.
 
-
-You can view CPU accumulation and consumption on the ECS Management Console.
+You can view the CPU credits of a t5 instance in the ECS console.
 
 When the accumulated CPU credits are cleared, the actual CPU computing capability of the instance cannot be higher than the baseline CPU performance.
 
@@ -85,11 +83,11 @@ After you stop a t5 instance in the [ECS console](../../../../intl.en-US/User Gu
 |Classic network|Subscription or Pay-As-You-Go|The existing CPU credits are valid and the credit accumulation continues.|
 |VPC|Subscription|
 |Pay-As-You-Go with [../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_9595.md\#](../../../../intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) disabled|
-|Pay-As-You-Go with [../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_9595.md\#](../../../../intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) enabled|When you start a stopped instance, CPU credits continue accumulating.|
+|Pay-As-You-Go with [../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_9595.md\#](../../../../intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) enabled|The existing CPU credits are valid but not more credits are accumulated.|
 
 When you start a stopped instance, CPU credits continue accumulating.
 
-If the instance runs out-of-service because of payment overdue or expiration, the CPU credits remain valid, but the CPU credit accumulation stops. After [../../../../dita-oss-bucket/SP\_2/DNA0011894323/EN-US\_TP\_9650.md\#](../../../../intl.en-US/User Guide/Instances/Reactivate an instance.md#) or [Renew](../../../../intl.en-US/Pricing/Renew instances.md#) an instance, CPU credits start to accumulate automatically.
+If the instance runs out-of-service because of payment overdue or expiration, the CPU credits remain valid, but the CPU credit accumulation stops. After [../../../../dita-oss-bucket/SP\_2/DNA0011894323/EN-US\_TP\_9650.md\#](../../../../intl.en-US/User Guide/Instances/Reactivate an instance.md#) or [Renew](../../../../intl.en-US/Pricing/Renew instances/Renewal overview.md#) an instance, CPU credits start to accumulate automatically.
 
 ## Instance type {#section_c55_fx5_ydb .section}
 
@@ -128,30 +126,30 @@ Here, we use ecs.t5-c1m1.xlarge as an example to explain the t5 instance configu
 -   One instance is allocated with 36 CPU credits per hour, which means that each vCPU core is allocated with nine CPU credits per hour.
 
 
-## Billing methods {#section_u55_fx5_ydb .section}
+## Billing method {#section_u55_fx5_ydb .section}
 
-t5 instances support the following billing methods: Pay-As-You-Go and Subscription. For differences in the way you charge, see [../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_14006.md\#](../../../../intl.en-US/Pricing/Billing Method Comparison.md#).
+t5 instances support the following billing methods: Pay-As-You-Go and Subscription. For more information on the billing methods, see [../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_9587.md\#](../../../../intl.en-US/Pricing/Billing method comparison.md#).
 
 ## Create an instance {#section_v55_fx5_ydb .section}
 
-See [Create an ECS instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#)  to create a t5 instance. When creating a t5 instance, consider the following settings:
+See [Create an ECS instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#) to create a t5 instance. When creating a t5 instance, consider the following settings:
 
 -   Region: t5 instances are unavailable in the China North 3 \(Zhangjiakou\), Asia Pacific SE 3 \(Kuala Lumpur\), Asia Pacific NE 1 \(Tokyo\), US East 1 \(Virginia\), and Middle East 1 \(Dubai\) regions. For the detailed zones in other regions that supports t5 instances, see the ECS purchase page.
 
 -   Network type: Only VPC is supported.
 
--   Image: The minimum t5 instance memory configuration of 512 MiB only supports Linux. To create a Windows instance, the minimum memory is 1 GiB. For more information on image selection, see [How to select a system image](https://www.alibabacloud.com/help/faq-detail/40651.htm).
+-   Image and instance type: The minimum t5 instance memory configuration of 512 MiB only supports Linux. To create a Windows instance, the minimum memory is 1 GiB. For more information on image selection, see [How to select a system image](https://www.alibabacloud.com/help/faq-detail/40651.htm).
 
 
-## Instance management {#section_imz_wx5_ydb .section}
+## Manage t5 instances {#section_imz_wx5_ydb .section}
 
 **View CPU usage**
 
-You can view CPU usage in any of the following ways:
+You can view CPU usage in the following ways:
 
--   In the ECS console, go to the **Monitoring Information** section of the Instance Details page to view the instance CPU usage. You can also remotely connect to the ECS instance to view CPU usage.
+-   In the ECS console, go to the **Monitoring Information** section of the Instance Details page to view the instance CPU usage.
 
--   You can also remotely connect to the ECS instance to view CPU usage.
+-   Remotely connect to the ECS instance to view CPU usage.
 
 
 **View CPU usage in the ECS console**
@@ -176,20 +174,20 @@ The methods vary according to the operating system:
 -   Linux: [Connect to the instance](../../../../intl.en-US/User Guide/Connect/Connect to a Linux instance by using a password.md#) and run the `top` command to view the CPU usage.
 
 
-**Change configuration**
+**Change configurations**
 
 In the ECS console, if you see that the CPU usage is at the baseline level of CPU performance for an extended period or it never exceeds the baseline level, your current instance type is insufficient for your needs or exceeds your needs. In these cases, consider changing the instance type.
 
 You can change the instance type based on the billing method:
 
--   For a Subscription instance, you can change the instance type by [../../../../dita-oss-bucket/SP\_2/DNA0011894323/EN-US\_TP\_9641.md\#](../../../../intl.en-US/User Guide/Instances/Change configurations.md#) . You can change the instance type to any type in the t5 instance type family, any enterprise-level instance type families, or any type within the [xn4, n4, mn4, or e4](https://www.alibabacloud.com/help/zh/doc-detail/25378.htm) type family.
+-   For a Subscription instance, you can change the instance type by [../../../../dita-oss-bucket/SP\_2/DNA0011894323/EN-US\_TP\_9641.md\#](../../../../intl.en-US/User Guide/Instances/Change configurations.md#). You can change the instance type to any type in the t5 instance type family, any enterprise-level instance type families, or any type within the [xn4, n4, mn4, or e4](https://www.alibabacloud.com/help/doc-detail/25378.htm) type family.
 
--   For a Pay-As-You-Go instance, you can change the configurations by changing the type family.
+-   For a Pay-As-You-Go instance, you can change the instance type.
 
 
 **View CPU credits**
 
-Log on to the [ECS console](https://ecs.console.aliyun.com/#/home)and go to the Instance Details page to view the accumulated and consumed CPU credits of a t5 instance.
+Log on to the [ECS console](https://ecs.console.aliyun.com/#/home) and go to the Instance Details page to view the accumulated and consumed CPU credits of a t5 instance.
 
 -   To view the accumulated CPU credits of a t5 instance:
 
