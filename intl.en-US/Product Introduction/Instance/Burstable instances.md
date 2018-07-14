@@ -76,7 +76,7 @@ Take a t5 instance of the ecs.t5-lc1m2.small type as an example to introduce how
 
 ## CPU credits accumulation on a stopped t5 instance {#section_xt5_fx5_ydb .section}
 
-After you stop a t5 instance in the [ECS console](../../../../intl.en-US/User Guide/Instances/Start or stop an instance.md#) or [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9859.md\#](../../../../intl.en-US/API Reference/Instances/StopInstance.md#) by using the StopInstance interface, CPU credits changes vary according to the billing method and network type, as shown in the following table.
+After you stop a t5 instance in the [ECS console](../../../../intl.en-US/User Guide/Instances/Start or stop an instance.md#) or [StopInstance](../../../../intl.en-US/API Reference/Instances/StopInstance.md#) by using the StopInstance interface, CPU credits changes vary according to the billing method and network type, as shown in the following table.
 
 |Network type|Instance billing method| CPU credits changes after stopping|
 |:-----------|:----------------------|:----------------------------------|
@@ -180,7 +180,7 @@ In the ECS console, if you see that the CPU usage is at the baseline level of CP
 
 You can change the instance type based on the billing method:
 
--   For a Subscription instance, you can change the instance type by [../../../../dita-oss-bucket/SP\_2/DNA0011894323/EN-US\_TP\_9641.md\#](../../../../intl.en-US/User Guide/Instances/Change configurations.md#). You can change the instance type to any type in the t5 instance type family, any enterprise-level instance type families, or any type within the [xn4, n4, mn4, or e4](https://www.alibabacloud.com/help/doc-detail/25378.htm) type family.
+-   For a Subscription instance, you can change the instance type by [Change configurations](../../../../intl.en-US/User Guide/Instances/Change configurations/Overview of configuration changes.md#). You can change the instance type to any type in the t5 instance type family, any enterprise-level instance type families, or any type within the [xn4, n4, mn4, or e4](https://www.alibabacloud.com/help/doc-detail/25378.htm) type family.
 
 -   For a Pay-As-You-Go instance, you can change the instance type.
 
