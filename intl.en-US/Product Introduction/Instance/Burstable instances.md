@@ -82,7 +82,7 @@ After you stop a t5 instance in the [ECS console](../../../../intl.en-US/User Gu
 |:-----------|:----------------------|:----------------------------------|
 |Classic network|Subscription or Pay-As-You-Go|The existing CPU credits are valid and the credit accumulation continues.|
 |VPC|Subscription|
-|Pay-As-You-Go with [../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_9595.md\#](../../../../intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) disabled|
+|Pay-As-You-Go with [../../../../dita-oss-bucket/SP\_2/DNA0011894323/EN-US\_TP\_9641.md\#](../../../../intl.en-US/User Guide/Instances/Change configurations.md#)[../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_9595.md\#](../../../../intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) disabled|
 |Pay-As-You-Go with [../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_9595.md\#](../../../../intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) enabled|The existing CPU credits are valid but not more credits are accumulated.|
 
 When you start a stopped instance, CPU credits continue accumulating.
