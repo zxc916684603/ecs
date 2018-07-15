@@ -32,7 +32,7 @@ You can bid for a preemptible instance only one time in either of the following 
 
 In this mode, you must set the highest price you want to pay for a specified instance type. When creating a preemptible instance by using [RunInstances](../../../../intl.en-US/API Reference/Instances/RunInstances.md#), you can bid in this mode.
 
-Currently, the maximum bid of a preemptible instance is the price of a Pay-As-You-Go instance of the same configuration. When creating a preemptible instance, you can set a price according to the market price history, business features, and the estimated future price fluctuation. When the market price is lower than or equal to your bid, and the resource stock is sufficient, the instance continues to run. If your estimated quote is acccurate, you can hold the instance even after one hour [Guaranteed duration](#valid). Otherwise, your instance gets automatically released at any time.
+Currently, the maximum bid of a preemptible instance is the price of a Pay-As-You-Go instance of the same configuration. When creating a preemptible instance, you can set a price according to the market price history, business features, and the estimated future price fluctuation. When the market price is lower than or equal to your bid, and the resource stock is sufficient, the instance continues to run. If your estimated quote is accurate, you can hold the instance even after one hour [Guaranteed duration](#valid). Otherwise, your instance gets automatically released at any time.
 
 **SpotAsPriceGo**
 
