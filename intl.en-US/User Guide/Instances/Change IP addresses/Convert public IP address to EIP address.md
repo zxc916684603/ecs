@@ -49,3 +49,9 @@ Click the IP address to go to the EIP console to manage the EIP address. 
 
 After the public IP address is converted to an EIP address, you can unbind the EIP address from the instance and bind it to another instance. Besides, you can release the EIP address. For more information, see [EIP User Guide](https://www.alibabacloud.com/help/doc-detail/65203.htm).
 
+## Related APIs {#section_lsc_kgn_xdb .section}
+
+You can use the [ConvertNatPublicIpToEip](../../../../intl.en-US/API Reference/Networks/ConvertNatPublicIpToEip.md#) interface to convert a public IP address to an EIP address.  Currently, only SDK 4.3.0 or a higher version supports this interface.
+
+[Download](https://www.alibabacloud.com/help/doc-detail/25699.htm) the latest SDK.
+
