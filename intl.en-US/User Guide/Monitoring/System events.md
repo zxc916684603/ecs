@@ -10,7 +10,7 @@ Once system events occur, you are notified about the default actions and the tim
 
 ## Limits {#section_nnp_5yz_xdb .section}
 
-Phased-out instance types including c1, c2, m1, m2, s1, s2, s3, and t1 do not support system events. For more information, see [../../../../dita-oss-bucket/SP\_2/DNA0011858383/EN-US\_TP\_9548.md\#](../../../../intl.en-US/Product Introduction/Instance type families.md#).
+Phased-out instance types including c1, c2, m1, m2, s1, s2, s3, and t1 do not support system events. For more information, see [Instance type families](../../../../intl.en-US/Product Introduction/Instance type families.md#).
 
 ## Event types {#section_onp_5yz_xdb .section}
 
@@ -72,13 +72,13 @@ On the All events page, you can query the system events history within the last 
 System events make you perceptible to underlying components of Alibaba Cloud ECS. You can optimize the O&M of instances based on system events. We recommend the following actions to handle system events.
 
 |Event type|Parameter|Recommended|
-|An instance restarts after pending system maintenance.|SystemMaintenance.Reboot|Use either of the following methods at a convenient time within the user operation period:-   [EN-US\_TP\_9649.md\#](intl.en-US/User Guide/Instances/Restart an instance.md#) in the ECS console.
+|An instance restarts after pending system maintenance.|SystemMaintenance.Reboot|Use either of the following methods at a convenient time within the user operation period:-   [Restart the instance](intl.en-US/User Guide/Instances/Restart an instance.md#) in the ECS console.
 -   Call API [RebootInstance](../../../../intl.en-US/API Reference/Instances/RebootInstance.md).
 
 **Note:** Instance restart performed in the instance or from the instance list has no effect on this type of system events.
 
 
-We recommend that you [EN-US\_TP\_9687.md\#](intl.en-US/User Guide/Snapshots/Create snapshots.md#) \([CreateSnapshot](../../../../intl.en-US/API Reference/Snapshots/CreateSnapshot.md)\) for the attached disks to back up your data.|
+We recommend that you [Create snapshots](intl.en-US/User Guide/Snapshots/Create snapshots.md#) \([CreateSnapshot](../../../../intl.en-US/API Reference/Snapshots/CreateSnapshot.md)\) for the attached disks to back up your data.|
 |An instance restarts after unexpected system failures.|SystemFailure.Reboot|When you receive the notification, your instances are being restarted. We recommend that you verify the recovery of instances and applications after the event.|
 |An instance restarts after unexpected instance failures.|InstanceFailure.Reboot|When you receive the notification, your instances are being restarted. We recommend that you:-   Verify the recovery of instances and applications.
 -   Analyze the cause of instance crashes to prevent potential events.
