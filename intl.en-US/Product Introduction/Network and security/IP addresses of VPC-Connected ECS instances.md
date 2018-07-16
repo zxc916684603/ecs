@@ -25,7 +25,7 @@ To meet your business needs, you can modify the private IP address of a VPC-Conn
 A VPC-Connected ECS instance supports either of the following public IP addresses:
 
 -   NatPublicIp, which is assigned to a VPC-Connected ECS instance. It can be released only, but is not unbound from the instance.
--   Elastic public IP \(EIP\).  For more information, see [What is an EIP address](What is an EIP addresshttps://www.alibabacloud.com/help/doc-detail/32321.htm).
+-   Elastic public IP \(EIP\).  For more information, see [What is an EIP address](https://www.alibabacloud.com/help/doc-detail/32321.htm).
 
 When a VPC-Connected ECS instance accesses Internet, its public IP address is mapped to its private IP address through network address translation \(NAT\). 
 
@@ -44,13 +44,13 @@ NatPublicIp or EIP applies to different scenarios:
 
 -   NatPublicIp: When creating a VPC-Connected ECS instance, if you select **Assign a public IP**, a NatPublicIp is assigned to the instance when it is created.
 
--   EIP: You can apply for an EIP address and bind it to a VPC-Connected ECS instance. In this case, do not assign a NatPublicIp to an instance.  For more information, see [Apply for an EIP address](Apply for an EIP addresshttps://www.alibabacloud.com/help/doc-detail/65203.htm).
+-   EIP: You can apply for an EIP address and bind it to a VPC-Connected ECS instance. In this case, do not assign a NatPublicIp to an instance.  For more information, see [Apply for an EIP address](https://www.alibabacloud.com/help/doc-detail/65203.htm).
 
 
 ## Release a public IP address {#section_hbl_4sr_zdb .section}
 
 -   NatPublicIp: When a NatPublicIp address is assigned to an instance, you can only release the IP address, but cannot unbind it. Only a NatPublicIp address that is assigned to a Subscription instance can be released. For more information, see [Renew for configuration downgrade](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#).
--   EIP: If you do not need an EIP address, unbind it from a VPC-Connected ECS instance and release it in the EIP console.  For more information, see [Unbind and release an EIP address](Unbind and release an EIP addresshttps://www.alibabacloud.com/help/doc-detail/65204.htm).
+-   EIP: If you do not need an EIP address, unbind it from a VPC-Connected ECS instance and release it in the EIP console.  For more information, see [Unbind and release an EIP address](https://www.alibabacloud.com/help/doc-detail/65204.htm).
 
 ## Billing {#section_llh_djw_ydb .section}
 
