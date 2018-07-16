@@ -56,5 +56,3 @@ NatPublicIp or EIP applies to different scenarios:
 
 You are billed for outbound Internet traffic usage only. For more information, see [Billing of network bandwidth](../../../../intl.en-US/Pricing/Billing of network bandwidth.md#).
 
-[test](https://www.alibabacloud.com/help/doc-detail/61290.htm)
-
