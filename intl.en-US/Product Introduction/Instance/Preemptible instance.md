@@ -48,7 +48,7 @@ Preemptible instance price and billing considerations:
 
 -   **Price** 
 
-    The preemptible instance price applies to the instance type only, including vCPU and memory, but not to system disks, data disks, or network bandwidth. The prices for system disks, data disks, or network bandwidth are the same as for Pay-As-You-Go instances.
+    The preemptible instance price applies to the instance type only, including vCPU and memory, but not to system disks, data disks, or network bandwidth. The prices for system disks, data disks, or network bandwidth are the same as for [Pay-As-You-Go](../../../../intl.en-US/Pricing/Pay-As-You-Go.md#) instances.
 
 -   **Billing cycle** 
 
