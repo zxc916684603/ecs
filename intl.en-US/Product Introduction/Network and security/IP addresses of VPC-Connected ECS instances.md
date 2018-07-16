@@ -49,10 +49,12 @@ NatPublicIp or EIP applies to different scenarios:
 
 ## Release a public IP address {#section_hbl_4sr_zdb .section}
 
--   NatPublicIp: When a NatPublicIp address is assigned to an instance, you can only release the IP address, but cannot unbind it.  Only a NatPublicIp address that is assigned to a Subscription instance can be released.  For more information, see [Renew for configuration downgrade](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#).
+-   NatPublicIp: When a NatPublicIp address is assigned to an instance, you can only release the IP address, but cannot unbind it. Only a NatPublicIp address that is assigned to a Subscription instance can be released. For more information, see [Renew for configuration downgrade](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#).
 -   EIP: If you do not need an EIP address, unbind it from a VPC-Connected ECS instance and release it in the EIP console.  For more information, see [Unbind and release an EIP address](Unbind and release an EIP addresshttps://www.alibabacloud.com/help/doc-detail/65204.htm).
 
 ## Billing {#section_llh_djw_ydb .section}
 
 You are billed for outbound Internet traffic usage only. For more information, see [Billing of network bandwidth](../../../../intl.en-US/Pricing/Billing of network bandwidth.md#).
+
+[test](testhttps://www.alibabacloud.com/help/doc-detail/61290.htm)
 
