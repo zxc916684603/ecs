@@ -75,7 +75,7 @@ System events make you perceptible to underlying components of Alibaba Cloud ECS
 |An instance restarts after pending system maintenance.|SystemMaintenance.Reboot|Use either of the following methods at a convenient time within the user operation period:-   [EN-US\_TP\_9649.md\#](intl.en-US/User Guide/Instances/Restart an instance.md#) in the ECS console.
 -   Call API [RebootInstance](../../../../intl.en-US/API Reference/Instances/RebootInstance.md).
 
-**Note**: Instance restart performed in the instance or from the instance list has no effect on this type of system events.
+**Note:** Instance restart performed in the instance or from the instance list has no effect on this type of system events.
 
 
 We recommend that you [EN-US\_TP\_9687.md\#](intl.en-US/User Guide/Snapshots/Create snapshots.md#) \([CreateSnapshot](../../../../intl.en-US/API Reference/Snapshots/CreateSnapshot.md)\) for the attached disks to back up your data.|
