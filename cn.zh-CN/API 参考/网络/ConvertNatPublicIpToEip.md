@@ -1,6 +1,6 @@
 # ConvertNatPublicIpToEip {#ConvertNatPublicIpToEip .reference}
 
-将一台网络类型为 [专有网络 VPC](../../cn.zh-CN/产品简介/什么是专有网络.md#) 的 ECS 实例的公网 IP（NatPublicIp）转化为 [弹性公网 IP（EIP）](../../cn.zh-CN/产品简介/什么是弹性公网IP.md#)。
+将一台网络类型为 [专有网络 VPC](../../../../cn.zh-CN/产品简介/什么是专有网络.md#) 的 ECS 实例的公网 IP（NatPublicIp）转化为 [弹性公网 IP（EIP）](../../../../cn.zh-CN/产品简介/什么是弹性公网IP.md#)。
 
 ## 描述 {#section_o52_y3n_ydb .section}
 
@@ -18,16 +18,16 @@
 
 -   不支持即将在 24 小时内到期的 ECS 实例。
 
--   公网 IP（`NatPublicIp`）转换为 EIP 后，EIP 将单独计费，EIP 的计费方式参阅文档 [EIP 计费说明](../../cn.zh-CN/产品定价/预付费.md#)。
+-   公网 IP（`NatPublicIp`）转换为 EIP 后，EIP 将单独计费，EIP 的计费方式参阅文档 [EIP 计费说明](../../../../cn.zh-CN/产品定价/预付费.md#)。
 
--   不支持 [公网带宽](../cn.zh-CN/产品定价/公网带宽计费.md#) 为 **按固定带宽计费** 的 [包年包月](../cn.zh-CN/产品定价/包年包月.md#) ECS 实例。
+-   不支持 [公网带宽](../../../../cn.zh-CN/产品定价/公网带宽计费.md#) 为 **按固定带宽计费** 的 [包年包月](../../../../cn.zh-CN/产品定价/包年包月.md#) ECS 实例。
 
 ## 请求参数 {#RequestParameter .section}
 
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：ConvertNatPublicIpToEip|
-|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |InstanceId|String|是|需要转化公网 IP 的 ECS 实例 ID。|
 
 ## 返回参数 {#ResponseParameter .section}
