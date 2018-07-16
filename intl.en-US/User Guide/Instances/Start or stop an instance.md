@@ -30,8 +30,8 @@ To stop an instance is to shut it down. You can stop an ECS instance in the ECS 
 
 For a \(Subscription\) instance, stopping an instance does not affect its billing. However, for a Pay-As-You-Go instance, its network type and the No Fees for Stopped Instances \(VPC-Connected\) feature determine billing:
 
--   VPC: If the **No Fees for Stopped Instances \(VPC-Connected\)** is enabled, you can decide to keep your instance being billed or not. However, billing for other ECS-related resources is retained. Other resource are not affected. For more information, see [../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_9595.md\#](../../../../intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#). If this feature is not enabled, billing continues after the instance is stopped.
--   Classic network: A stopped instance still incurs fees.  Only after [EN-US\_TP\_9651.md\#](intl.en-US/User Guide/Instances/Release an instance.md#) , the billing will stop.
+-   VPC: If the **No Fees for Stopped Instances \(VPC-Connected\)** is enabled, you can decide to keep your instance being billed or not. However, billing for other ECS-related resources is retained. Other resource are not affected. For more information, see [No fees for stopped instances \(VPC-Connected\)](../../../../intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#). If this feature is not enabled, billing continues after the instance is stopped.
+-   Classic network: A stopped instance still incurs fees.  Only after [Release an instance](intl.en-US/User Guide/Instances/Release an instance.md#) , the billing will stop.
 
 **Prerequisites**
 
@@ -55,14 +55,14 @@ Do the following to stop an instance:
 
         -   If the **No Fees for Stopped Instances \(VPC-Connected\)** feature is disabled, in the Stop Instance dialog box, select **Stop Method** \(Stop or Force Stop\).
 
-            **Note:** To disable the **No Fees for Stopped Instances \(VPC-Connected\)** feature, see [../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_9595.md\#disable](../../../../intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#disable).
+            **Note:** To disable the **No Fees for Stopped Instances \(VPC-Connected\)** feature, see [Disable the feature](../../../../intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#disable).
 
 
 Once the instance is successfully stopped, the instance enters the  **Stopped** status. For a VPC-Connected Pay-As-You-Go instance, if you choose not to keep the instance, in the **Stop Mode** column of the instance list, **Stop Instance, No Fees**. Otherwise, **Keep Instance, Fees Apply** is shown. For other ECS instances, the **Stop Mode** does not display information.
 
 ## Related APIs {#section_pdq_nsl_xdb .section}
 
-Start instance: [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9858.md\#](../../../../intl.en-US/API Reference/Instances/StartInstance.md#)
+Start instance: [StartInstance](../../../../intl.en-US/API Reference/Instances/StartInstance.md#)
 
-Stop instance: [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9859.md\#](../../../../intl.en-US/API Reference/Instances/StopInstance.md#)
+Stop instance: [StopInstance](../../../../intl.en-US/API Reference/Instances/StopInstance.md#)
 
