@@ -25,7 +25,7 @@ VPC类型ECS实例有2种IP地址：私有IP地址和公网IP地址。
 VPC类型的ECS实例支持以下2种公网IP地址：
 
 -   ECS系统分配的公网IP地址（NatPublicIp）。
--   弹性公网IP（EIP）地址。详细信息，请参见 弹性公网IP文档。
+-   弹性公网IP（EIP）地址。详细信息，请参见 [弹性公网IP文档](https://help.aliyun.com/document_detail/32321.html)。
 
 一台VPC类型的ECS实例最多只能关联一个公网IP地址，可以是NatPublicIp或者EIP。
 
@@ -44,15 +44,15 @@ NatPublicIp与EIP的使用场景不同：
 
 -   NatPublicIp：在创建VPC类型的ECS实例时，如果您选择 **分配公网IP地址**，实例即被分配一个NatPublicIp。
 
--   EIP：您可以单独申请EIP地址，并绑定到未分配NatPublicIp的VPC类型ECS实例上。更多信息，请参见 弹性公网IP文档。
+-   EIP：您可以单独申请EIP地址，并绑定到未分配NatPublicIp的VPC类型ECS实例上。更多信息，请参见 [弹性公网IP文档](https://help.aliyun.com/document_detail/65203.html)。
 
 
 ## 释放公网IP地址 {#section_hbl_4sr_zdb .section}
 
--   NatPublicIp一经分配，只能释放，不能解绑。您只能释放包年包月实例的NatPublicIp。详细信息，请参见 续费降配 。
--   EIP：如果您不再需要一个EIP地址，先将其与ECS实例解绑，再登录EIP管理控制台释放EIP。详细信息，请参见 弹性网卡IP文档 。
+-   NatPublicIp一经分配，只能释放，不能解绑。您只能释放包年包月实例的NatPublicIp。详细信息，请参见 [续费降配](../../../../intl.zh-CN/产品定价/续费实例/续费降配.md#) 。
+-   EIP：如果您不再需要一个EIP地址，先将其与ECS实例解绑，再登录EIP管理控制台释放EIP。详细信息，请参见 [解绑和释放EIP](https://help.aliyun.com/document_detail/65204.html)。
 
 ## 计费 {#section_llh_djw_ydb .section}
 
-阿里云只对公网出网带宽收取费用，入网带宽免费。更多公网带宽的计费信息，请参考 产品定价-公网带宽计费。
+阿里云只对公网出网带宽收取费用，入网带宽免费。更多公网带宽的计费信息，请参见 [公网带宽计费](../../../../intl.zh-CN/产品定价/公网带宽计费.md#)。
 
