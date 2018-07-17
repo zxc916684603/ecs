@@ -15,6 +15,7 @@ Alibaba Cloud ECS instances are categorized into the following type families acc
 -   Type families for enterprise-level computing on the x86-architecture, including:
     -   [g5, general-purpose type family](#g5)
     -   [sn2ne, general-purpose type family with enhanced network performance](#sn2ne)
+    -   [ic5, intensive compute instance type family](#ic5)
     -   [c5, compute instance type family](#c5)
     -   [sn1ne, compute optimized type family with enhanced network performance](#sn1ne)
     -   [r5, memory instance type family](#r5)
@@ -33,13 +34,13 @@ Alibaba Cloud ECS instances are categorized into the following type families acc
     -   [f1, compute optimized type family with FPGA](#f1)
     -   [f2, compute optimized type family with FPGA](#f2)
 -   ECS Bare Metal Instance type families and Super Computing Cluster \(SCC\) instance type families, including:
-    -   [ebmg5, general-purpose ECS Bare Metal Instance type family](#ebmg5)
-    -   [ebmg4, general-purpose ECS Bare Metal Instance type family \(Coming soon\)](#ebmg4)
     -   [ebmhfg5, ECS Bare Metal Instance type family with high clock speed](#ebmhfg5)
+    -   [ebmc4, computing ECS Bare Metal Instance type family](#ebmc4)
+    -   [ebmg5, general-purpose ECS Bare Metal Instance type family](#ebmg5)
     -   [ebmhfg4, ECS Bare Metal Instance type family with high clock speed \(Coming soon\)](#ebmhfg4)
-    -   [ebmc4, computing ECS Bare Metal Instance type family \(Coming soon\)](#ebmc4)
-    -   [sccg5, geneneral-purpose Super Computing Cluster \(SCC\) instance type family \(Coming soon\)](#sccg5)
+    -   [ebmg4, general-purpose ECS Bare Metal Instance type family \(Coming soon\)](#ebmg4)
     -   [scch5, Super Computing Cluster \(SCC\) instance type family with high clock speed \(Coming soon\)](#scch5)
+    -   [sccg5, geneneral-purpose Super Computing Cluster \(SCC\) instance type family \(Coming soon\)](#sccg5)
 -   Type families for entry-level users, computing on the x86-architecture, including:
     -   [t5, burstable instances](#t5)
     -   [xn4/n4/mn4/e4, type families of previous generations for entry-level users, computing on the x86-architecture](#xn4-n4-mn4-e4)
@@ -104,6 +105,34 @@ Click [here](#top) to view other instance type families.
 |ecs.sn2ne. 14xlarge|56|224.0|N/A|10.0|450|14|8|
 
 **Note:** You can change the configurations of an sn2ne to any instance type in the sn2, sn2ne, sn1, sn1ne, se1, and se1ne instance type family.
+
+Click [here](#top) to view other instance type families.
+
+## ic5, intensive compute instance type family {#ic5 .section}
+
+**Features**
+
+-   I/O-optimized
+-   Support SSD Cloud Disks and Ultra Cloud Disks
+-   vCPU : Memory = 1:1
+-   Ultra high packet forwarding rate
+-   2.5 GHz Intel Xeon Platinum 8163 \(Skylake\) processors
+-   Higher computing specifications matching higher network performance
+-   Ideal for:
+    -   Web front-end servers
+    -   Data analysis, batch compute, and video coding
+    -   Scenarios that require receiving and transmitting a large volume of packets, such as the re-transmission of telecommunication services
+    -   Massively Multiplayer Online \(MMO\) game front-ends
+
+**Instance types**
+
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[\*](#localdisk)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Ten thousand pps\)[\*\*](#pps)|NIC queues[\*\*\*](#queue)|ENIs[\*\*\*\*](#eni)|
+|:------------|:---|:-------------|:----------------------------------|:--------------------|:------------------------------------------------------|:-------------------------|:-------------------|
+|ecs.ic5.large|2|2.0|N/A|1.0|30|2|2|
+|ecs.ic5.xlarge|4|4.0|N/A|1.5|50|2|3|
+|ecs.ic5.2xlarge|8|8.0|N/A|2.5|80|2|4|
+|ecs.ic5.3xlarge|12|12.0|N/A|4.0|90|4|6|
+|ecs.ic5.4xlarge|16|16.0|N/A|5.0|100|4|8|
 
 Click [here](#top) to view other instance type families.
 
@@ -603,64 +632,6 @@ Click [here](#top) to view other instance type families.
 
 Click [here](#top) to view other instance type families.
 
-## ebmg5, general-purpose ECS Bare Metal Instance type family {#ebmg5 .section}
-
-**Features**
-
--   I/O-optimized
--   Support SSD Cloud Disks and Ultra Cloud Disks
--   vCPU : Memory = 1:4
--   2.5 GHz Intel Xeon Platinum 8163 \(Skylake\) processors, 96-core vCPU, up to 2.9 GHz Turbo Boot
--   High network performance: 4.5 million pps packet forwarding rate
--   Support VPC network only
--   Ideal for:
-    -   Deployment of OpenStack, ZStack, and other private cloud services
-    -   Deployment of Docker containers and other services
-    -   Scenarios that require receiving and transmitting a large volume of packets, such as re-transmission of telecommunication services
-    -   Enterprise-level applications of various types and sizes
-    -   Medium and large database systems, caches, and search clusters
-    -   Data analysis and computing
-    -   Computing clusters and data processing depending on memory
-
-**Instance types**
-
-|Instance type|vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#localdisk)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Ten thousand pps\)[\*\*](#pps)|NIC queues[\*\*\*](#queue)|ENIs[\*\*\*\*](#eni)|
-|:------------|:---|:--------------|:----------------------------------|:--------------------|:------------------------------------------------------|:-------------------------|:-------------------|
-|ecs.ebmg5.24xlarge|96|384.0|N/A|10.0|450|8|32|
-
-**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instance/ECS Bare Metal Instance and Super Computing Clusters.md#).
-
-Click [here](#top) to view other instance type families.
-
-## ebmg4, general-purpose ECS Bare Metal Instance type family \(Coming soon\) {#ebmg4 .section}
-
-**Features**
-
--   I/O-optimized
--   Support SSD Cloud Disks and Ultra Cloud Disks
--   vCPU : Memory = 1:4
--   2.5 GHz Intel Xeon E5-2682 v4 \(Broadwell\) processors, up to 2.9 GHz Turbo Boot
--   High network performance: 4 million pps packet forwarding rate
--   Support VPC network only
--   Ideal for:
-    -   Deployment of OpenStack, ZStack, and other private cloud services
-    -   Deployment of Docker containers and other services
-    -   Scenarios that require receiving and transmitting a large volume of packets, such as re-transmission of telecommunication services
-    -   Enterprise-level applications of various types and sizes
-    -   Medium and large database systems, caches, and search clusters
-    -   Data analysis and computing
-    -   Computing clusters and data processing depending on memory
-
-**Instance types**
-
-|Instance type|vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#localdisk)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Ten thousand pps\)[\*\*](#pps)|NIC queues[\*\*\*](#queue)|ENIs[\*\*\*\*](#eni)|
-|:------------|:---|:--------------|:----------------------------------|:--------------------|:------------------------------------------------------|:-------------------------|:-------------------|
-|ecs.ebmg4.8xlarge|32|128.0|N/A|10.0|400|8|12|
-
-**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instance/ECS Bare Metal Instance and Super Computing Clusters.md#).
-
-Click [here](#top) to view other instance type families.
-
 ## ebmhfg5, ECS Bare Metal Instance type family with high clock speed {#ebmhfg5 .section}
 
 **Features**
@@ -671,10 +642,13 @@ Click [here](#top) to view other instance type families.
 -   3.7 GHz Intel Xeon E3-1240v6 \(Skylake\) processors, 8-core vCPU, up to 4.1 GHz Turbo Boot
 -   High network performance: 2 million pps packet forwarding rate
 -   Support VPC network only
+-   Provide dedicated hardware resources and physical isolation
+-   Support Intel SGX
 -   Ideal for:
-    -   Gaming or financial applications featuring low latency and high performance \(Supports Intel SGX\)
-    -   Scenarios that require receiving and transmitting a large volume of packets, such as re-transmission of telecommunication services
-    -   High performance databases and in-memory databases
+    -   Workloads that require direct access to physical resources, or binding a license to the hardware is required
+    -   Gaming or financial applications featuring high performance
+    -   High performance Web servers
+    -   Enterprise-level applications, such as high performance databases
 
 **Instance types**
 
@@ -686,33 +660,7 @@ Click [here](#top) to view other instance type families.
 
 Click [here](#top) to view other instance type families.
 
-## ebmhfg4, ECS Bare Metal Instance type family with high clock speed \(Coming soon\) {#ebmhfg4 .section}
-
-**Features**
-
--   I/O-optimized
--   Support SSD Cloud Disks and Ultra Cloud Disks
--   vCPU : Memory = 1:4
--   3.2 GHz Intel Xeon E5-2667 v4 \(Broadwell\) processors, up to 3.5 GHz Turbo Boot
--   High network performance: 4 million pps packet forwarding rate
--   Support VPC network only
--   Ideal for:
-    -   Gaming or financial applications featuring low latency and high performance
-    -   Scenarios that require receiving and transmitting a large volume of packets, such as re-transmission of telecommunication services
-    -   High performance databases and in-memory databases
-    -   Data analysis and mining, and distributed memory cache
-
-**Instance types**
-
-|Instance type|vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#localdisk)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Ten thousand pps\)[\*\*](#pps)|NIC queues[\*\*\*](#queue)|ENIs[\*\*\*\*](#eni)|
-|:------------|:---|:--------------|:----------------------------------|:--------------------|:------------------------------------------------------|:-------------------------|:-------------------|
-|ecs.ebmhfg4.4xlarge|16|64.0|N/A|10.0|400|8|12|
-
-**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instance/ECS Bare Metal Instance and Super Computing Clusters.md#).
-
-Click [here](#top) to view other instance type families.
-
-## ebmc4, computing ECS Bare Metal Instance type family \(Coming soon\) {#ebmc4 .section}
+## ebmc4, computing ECS Bare Metal Instance type family {#ebmc4 .section}
 
 **Feature**
 
@@ -722,6 +670,7 @@ Click [here](#top) to view other instance type families.
 -   2.5 GHz Intel Xeon E5-2682 v4 \(Broadwell\) processors, up to 2.9 GHz Turbo Boot
 -   High network performance: 4 million pps packet forwarding rate
 -   Support VPC network only
+-   Provide dedicated hardware resources and physical isolation
 -   Ideal for:
     -   Scenarios that require receiving and transmitting a large volume of packets, such as re-transmission of telecommunication services
     -   Enterprise-level applications of various types and sizes
@@ -738,28 +687,88 @@ Click [here](#top) to view other instance type families.
 
 Click [here](#top) to view other instance type families.
 
-## sccg5, geneneral-purpose Super Computing Cluster \(SCC\) instance type family \(Coming soon\) {#sccg5 .section}
+## ebmg5, general-purpose ECS Bare Metal Instance type family {#ebmg5 .section}
 
-**Feature**
+**Features**
 
 -   I/O-optimized
 -   Support SSD Cloud Disks and Ultra Cloud Disks
--   Supports both RoCE and VPC networks, of which RoCE is dedicated to RDMA communication
--   With all features of ECS Bare Metal Instance
--   2.5 GHz Intel Xeon Platinum 8163 \(Skylake\) processors
 -   vCPU : Memory = 1:4
+-   2.5 GHz Intel Xeon Platinum 8163 \(Skylake\) processors, 96-core vCPU, up to 2.7 GHz Turbo Boot
+-   High network performance: 4.5 million pps packet forwarding rate
+-   Support VPC network only
+-   Provide dedicated hardware resources and physical isolation
 -   Ideal for:
-    -   Large-scale machine learning applications
-    -   Large-scale high-performance scientific and engineering applications
-    -   Large-scale data analysis, batch computing, video encoding
+    -   Workloads that require direct access to physical resources, or binding a license to the hardware is required
+    -   Third-party virtualization \(includes but is not limited to Xen and KVM\), and AnyStack \(includes but is not limited to OpenStack and ZStack\)
+    -   Containers \(includes but is not limited to Docker, Clear Container, and Pouch\)
+    -   Enterprise-level applications, such as medium and large databases
+    -   Video coding
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\) |GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Ten thousand pps\)[\*\*](#pps)|RoCE \(Inbound/Outbound\) \(Gbit/s\) |NIC queues[\*\*\*](#queue)|ENIs[\*\*\*\*](#eni)|
-|:------------|:---|:--------------|:--|:--------------------|:------------------------------------------------------|:------------------------------------|:-------------------------|:-------------------|
-|ecs.sccg5.24xlarge|96|384.0|N/A|10.0|450|46|12|1|
+|Instance type|vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#localdisk)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Ten thousand pps\)[\*\*](#pps)|NIC queues[\*\*\*](#queue)|ENIs[\*\*\*\*](#eni)|
+|:------------|:---|:--------------|:----------------------------------|:--------------------|:------------------------------------------------------|:-------------------------|:-------------------|
+|ecs.ebmg5.24xlarge|96|384.0|N/A|10.0|450|8|32|
 
-**Note:** For more information about SCC, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instance/ECS Bare Metal Instance and Super Computing Clusters.md#).
+**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instance/ECS Bare Metal Instance and Super Computing Clusters.md#).
+
+Click [here](#top) to view other instance type families.
+
+## ebmhfg4, ECS Bare Metal Instance type family with high clock speed \(Coming soon\) {#ebmhfg4 .section}
+
+**Features**
+
+-   I/O-optimized
+-   Support SSD Cloud Disks and Ultra Cloud Disks
+-   vCPU : Memory = 1:4
+-   3.2 GHz Intel Xeon E5-2667 v4 \(Broadwell\) processors, up to 3.5 GHz Turbo Boot
+-   High network performance: 4 million pps packet forwarding rate
+-   Support VPC network only
+-   Provide dedicated hardware resources and physical isolation
+-   Ideal for:
+    -   Gaming or financial applications featuring low latency and high performance
+    -   Scenarios that require receiving and transmitting a large volume of packets, such as re-transmission of telecommunication services
+    -   High performance databases and in-memory databases
+    -   Data analysis and mining, and distributed memory cache
+
+**Instance types**
+
+|Instance type|vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#localdisk)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Ten thousand pps\)[\*\*](#pps)|NIC queues[\*\*\*](#queue)|ENIs[\*\*\*\*](#eni)|
+|:------------|:---|:--------------|:----------------------------------|:--------------------|:------------------------------------------------------|:-------------------------|:-------------------|
+|ecs.ebmhfg4.4xlarge|16|64.0|N/A|10.0|400|8|12|
+
+**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instance/ECS Bare Metal Instance and Super Computing Clusters.md#).
+
+Click [here](#top) to view other instance type families.
+
+## ebmg4, general-purpose ECS Bare Metal Instance type family \(Coming soon\) {#ebmg4 .section}
+
+**Features**
+
+-   I/O-optimized
+-   Support SSD Cloud Disks and Ultra Cloud Disks
+-   vCPU : Memory = 1:4
+-   2.5 GHz Intel Xeon E5-2682 v4 \(Broadwell\) processors, up to 2.9 GHz Turbo Boot
+-   High network performance: 4 million pps packet forwarding rate
+-   Support VPC network only
+-   Provide dedicated hardware resources and physical isolation
+-   Ideal for:
+    -   Deployment of OpenStack, ZStack, and other private cloud services
+    -   Deployment of Docker containers and other services
+    -   Scenarios that require receiving and transmitting a large volume of packets, such as re-transmission of telecommunication services
+    -   Enterprise-level applications of various types and sizes
+    -   Medium and large database systems, caches, and search clusters
+    -   Data analysis and computing
+    -   Computing clusters and data processing depending on memory
+
+**Instance types**
+
+|Instance type|vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#localdisk)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Ten thousand pps\)[\*\*](#pps)|NIC queues[\*\*\*](#queue)|ENIs[\*\*\*\*](#eni)|
+|:------------|:---|:--------------|:----------------------------------|:--------------------|:------------------------------------------------------|:-------------------------|:-------------------|
+|ecs.ebmg4.8xlarge|32|128.0|N/A|10.0|400|8|12|
+
+**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instance/ECS Bare Metal Instance and Super Computing Clusters.md#).
 
 Click [here](#top) to view other instance type families.
 
@@ -782,7 +791,32 @@ Click [here](#top) to view other instance type families.
 
 |Instance type|vCPU|Memory \(GiB\) |GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Ten thousand pps\)[\*\*](#pps)|RoCE \(Inbound/Outbound\) \(Gbit/s\) |NIC queues[\*\*\*](#queue)|ENIs[\*\*\*\*](#eni)|
 |:------------|:---|:--------------|:--|:--------------------|:------------------------------------------------------|:------------------------------------|:-------------------------|:-------------------|
-|ecs.scch5.16xlarge|64|192.0|N/A|10.0|450|46|12|1|
+|ecs.scch5.16xlarge|64|192.0|N/A|10.0|450|46|12|32|
+
+**Note:** For more information about SCC, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instance/ECS Bare Metal Instance and Super Computing Clusters.md#).
+
+Click [here](#top) to view other instance type families.
+
+## sccg5, geneneral-purpose Super Computing Cluster \(SCC\) instance type family \(Coming soon\) {#sccg5 .section}
+
+**Feature**
+
+-   I/O-optimized
+-   Support SSD Cloud Disks and Ultra Cloud Disks
+-   Supports both RoCE and VPC networks, of which RoCE is dedicated to RDMA communication
+-   With all features of ECS Bare Metal Instance
+-   2.5 GHz Intel Xeon Platinum 8163 \(Skylake\) processors
+-   vCPU : Memory = 1:4
+-   Ideal for:
+    -   Large-scale machine learning applications
+    -   Large-scale high-performance scientific and engineering applications
+    -   Large-scale data analysis, batch computing, video encoding
+
+**Instance types**
+
+|Instance type|vCPU|Memory \(GiB\) |GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Ten thousand pps\)[\*\*](#pps)|RoCE \(Inbound/Outbound\) \(Gbit/s\) |NIC queues[\*\*\*](#queue)|ENIs[\*\*\*\*](#eni)|
+|:------------|:---|:--------------|:--|:--------------------|:------------------------------------------------------|:------------------------------------|:-------------------------|:-------------------|
+|ecs.sccg5.24xlarge|96|384.0|N/A|10.0|450|46|12|32|
 
 **Note:** For more information about SCC, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instance/ECS Bare Metal Instance and Super Computing Clusters.md#).
 
