@@ -36,7 +36,7 @@ VPC类型的ECS实例的公网IP转为EIP有以下限制：
 
 ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9657/5473_zh-CN.png)
 
-您可以单击这个IP地址前往 IP 管理控制台 查看并操作弹性公网IP。
+您可以单击这个IP地址前往 [IP 管理控制台](https://ip.console.aliyun.com/#/eip/) 查看并操作弹性公网IP。
 
 ## 后续操作 {#section_jsc_kgn_xdb .section}
 
@@ -44,5 +44,5 @@ VPC类型的ECS实例的公网IP转为EIP有以下限制：
 
 ## API 操作 {#section_lsc_kgn_xdb .section}
 
-您可以使用OpenAPI [ConvertNatPublicIpToEip](../../../../intl.zh-CN/API 参考/网络/ConvertNatPublicIpToEip.md#) 将公网IP转换为EIP。目前仅SDK 4.3.0及以上版本支持该功能，请 [下载](https://www.alibabacloud.com/help/doc-detail/25699.htm)最新版的SDK。
+您可以使用 [ConvertNatPublicIpToEip](../../../../intl.zh-CN/API 参考/网络/ConvertNatPublicIpToEip.md#) 接口将公网IP转换为EIP。目前仅SDK 4.3.0及以上版本支持该功能，请 [下载](https://www.alibabacloud.com/help/doc-detail/25699.htm)最新版的SDK。
 
