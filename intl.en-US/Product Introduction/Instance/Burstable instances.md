@@ -82,8 +82,8 @@ After you stop a t5 instance in the [ECS console](../../../../intl.en-US/User Gu
 |:-----------|:----------------------|:----------------------------------|
 |Classic network|Subscription or Pay-As-You-Go|The existing CPU credits are valid and the credit accumulation continues.|
 |VPC|Subscription|
-|Pay-As-You-Go with [No fees for stopped instances \(VPC-Connected\)](No fees for stopped instances (VPC-Connected)https://www.alibabacloud.com/help/doc-detail/63353.html) disabled|
-|Pay-As-You-Go with [No fees for stopped instances \(VPC-Connected\)](No fees for stopped instances (VPC-Connected)https://www.alibabacloud.com/help/doc-detail/63353.html) enabled|The existing CPU credits are valid but not more credits are accumulated.|
+|Pay-As-You-Go with [No fees for stopped instances \(VPC-Connected\)](../../../../intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) disabled|
+|Pay-As-You-Go with [No fees for stopped instances \(VPC-Connected\)](../../../../intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) enabled|The existing CPU credits are valid but not more credits are accumulated.|
 
 When you start a stopped instance, CPU credits continue accumulating.
 
