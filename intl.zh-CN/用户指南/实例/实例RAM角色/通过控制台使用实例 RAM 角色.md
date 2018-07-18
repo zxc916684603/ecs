@@ -6,7 +6,7 @@
 
 -   只有专有网络 （VPC） 网络类型的 ECS 实例才能使用实例 RAM 角色。
 -   一个 ECS 实例一次只能授予一个实例 RAM 角色。
--   当您给 ECS 实例授予了实例 RAM 角色后，并希望在 ECS 实例内部部署的应用程序中访问云产品的 API 时，您需要通过 [实例元数据](intl.zh-CN/用户指南/实例/实例自定义/元数据/实例元数据.md#) 获取实例 RAM 角色的临时授权 Token。参阅 [6. （可选）获取临时授权 Token](#Token)。
+-   当您给 ECS 实例授予了实例 RAM 角色后，并希望在 ECS 实例内部部署的应用程序中访问云产品的 API 时，您需要通过 [实例元数据](intl.zh-CN/用户指南/实例/实例自定义数据和元数据/实例元数据.md#) 获取实例 RAM 角色的临时授权 Token。参阅 [6. （可选）获取临时授权 Token](#Token)。
 -   如果您是通过 RAM 用户子账号使用实例 RAM 角色，您需要通过云账号 [7. （可选）授权 RAM 用户使用实例 RAM 角色](#Authorize)。
 
 ## 前提条件 {#section_z4c_cdt_xdb .section}
@@ -36,7 +36,7 @@
     1.  **权限策略模板** 选择 **空白模板**。
     2.  输入 **授权策略名称** 及 **策略内容**，如 EcsRamRoleDocumentTestingPolicy。
 
-        **说明：** 关于如何编写策略内容，您可以参阅 RAM 文档 [Policy语法结构](../../../../intl.zh-CN/用户指南/授权策略语言/Policy语法结构.md#)。
+        **说明：** 关于如何编写策略内容，您可以参阅 RAM 文档 [Policy 语法结构](../../../../intl.zh-CN/用户指南/授权策略语言/Policy 语法结构.md#)。
 
         ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/5502_zh-CN.png)
 
@@ -86,7 +86,7 @@
 1.  远程连接并登录到 ECS 实例。
 2.  检索名为 EcsRamRoleDocumentTesting 的实例 RAM 角色的临时授权 Token：
     -   Linux 实例： 执行命令 `curl http://100.100.100.200/latest/meta-data/Ram/security-credentials/EcsRamRoleDocumentTesting`。
-    -   Windows 实例：参阅 [实例元数据](intl.zh-CN/用户指南/实例/实例自定义/元数据/实例元数据.md#)。
+    -   Windows 实例：参阅 [实例元数据](intl.zh-CN/用户指南/实例/实例自定义数据和元数据/实例元数据.md#)。
 3.  获得临时授权 Token。返回示例如下：
 
     ```
@@ -132,7 +132,7 @@
 }
 ```
 
-其中，\[ECS RAM Action\] 表示可授权 RAM 用户的权限，请参阅 [授权 RAM 用户](../../../../intl.zh-CN/API参考/授权 RAM 用户.md#)。
+其中，\[ECS RAM Action\] 表示可授权 RAM 用户的权限，请参阅 [鉴权规则](../../../../intl.zh-CN/API 参考/鉴权规则.md#)。
 
 ## 参考链接 {#section_bxr_pwt_xdb .section}
 
