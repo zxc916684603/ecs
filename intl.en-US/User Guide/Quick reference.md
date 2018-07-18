@@ -4,9 +4,7 @@ When using ECS, you may encounter various of issues, such conncting to the insta
 
 ## Operation instructions and limits {#instructions .section}
 
-To guarantee proper operation of your ECS instance, You must carefully read all the  [EN-US\_TP\_9615.md\#](intl.en-US/User Guide/ECS operation instructions.md#)
-
- and  [EN-US\_TP\_9616.md\#](intl.en-US/User Guide/Limits.md#) before you use it.
+To guarantee proper operation of your ECS instance, You must carefully read all the [ECS operation instructions](intl.en-US/User Guide/ECS operation instructions.md#) and [Limits](intl.en-US/User Guide/Limits.md#) before you use it.
 
 ## Create and manage ECS instances {#section_fpl_wyw_wdb .section}
 
@@ -14,44 +12,44 @@ To guarantee proper operation of your ECS instance, You must carefully read all 
 
 To use an ECS instances, follow these steps:
 
-1.   [Create an ECS instance.](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#).
+1.   [Create an ECS instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#).
 2.  Connect to the ECS instance. Use different methods according to its operating system:
-    1.  Use [EN-US\_TP\_9619.md\#](intl.en-US/User Guide/Connect/Connect to an instance by using the Management Terminal.md#) regardless of the operating system. Generally, this method is used for troubleshooting and maintenance.
-    2.  For Linux or Unix-like OS: [EN-US\_TP\_9621.md\#](intl.en-US/User Guide/Connect/Connect to a Linux instance by using a password.md#) Or  [EN-US\_TP\_9620.md\#](intl.en-US/User Guide/Connect/Connect to a Linux instance by using an SSH key pair.md#).
-    3.  For Windows OS: [EN-US\_TP\_9622.md\#](intl.en-US/User Guide/Connect/Connect to a Windows instance.md#)
-3.  [Stop the ECS instance](intl.en-US/User Guide/Instances/Start or stop an instance.md#)
-4.  [EN-US\_TP\_9651.md\#](intl.en-US/User Guide/Instances/Release an instance.md#).
+    1.  Use [the Management Terminal](intl.en-US/User Guide/Connect/Connect to an instance by using the Management Terminal.md#) regardless of the operating system. Generally, this method is used for troubleshooting and maintenance.
+    2.  For Linux or Unix-like OS: [Connect to a Linux instance by using a password](intl.en-US/User Guide/Connect/Connect to a Linux instance by using a password.md#), or [Connect to a Linux instance by using an SSH key pair](intl.en-US/User Guide/Connect/Connect to a Linux instance by using an SSH key pair.md#).
+    3.  For Windows OS: [Connect to a Windows instance](intl.en-US/User Guide/Connect/Connect to a Windows instance.md#)
+3.  [Stop the ECS instance](intl.en-US/User Guide/Instances/Start or stop an instance.md#).
+4.  [Release the instance](intl.en-US/User Guide/Instances/Release an instance.md#).
 
 **Change configurations**
 
 You can change the instance type, IP addresses, and network bandwidth of your instance if the configurations cannot meet your business needs.
 
--   Subscription instances: [包年包月实例升级配置](intl.en-US/User Guide/Instances/Change configurations/Upgrade configurations of Subscription instances.md#) or [../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_9593.md\#](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#)
--   [EN-US\_TP\_9644.md\#](intl.en-US/User Guide/Instances/Change configurations/Change configurations of Pay-As-You-Go instances.md#)
+-   Subscription instances: [Upgrade configurations of Subscription instances](intl.en-US/User Guide/Instances/Change configurations/Upgrade configurations of Subscription instances.md#) or [Renew for configuration downgrade](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#)
+-   [Change configurations of Pay-As-You-Go instances](intl.en-US/User Guide/Instances/Change configurations/Change configurations of Pay-As-You-Go instances.md#)
 
--   [EN-US\_TP\_9656.md\#](intl.en-US/User Guide/Instances/Change IP addresses/Change public IP address.md#)
+-   [Change public IP address](intl.en-US/User Guide/Instances/Change IP addresses/Change public IP address.md#)
 
--   [EN-US\_TP\_9657.md\#](intl.en-US/User Guide/Instances/Change IP addresses/Convert public IP address to EIP address.md#)
+-   [Convert public IP address to EIP address](intl.en-US/User Guide/Instances/Change IP addresses/Convert public IP address to EIP address.md#)
 
 
-If the current operating system does not meet your needs, you can [EN-US\_TP\_9640.md\#](intl.en-US/User Guide/Instances/Change the operating system.md#).
+If the current operating system does not meet your needs, you can [change the operating system](intl.en-US/User Guide/Instances/Change the operating system.md#).
 
 **Billing**
 
-You can [按量付费转包年包月](../../../../intl.en-US/Pricing/Switch from Pay-As-You-Go to subscription.md#).
+You can [switch from Pay-As-You-Go to subscription](../../../../intl.en-US/Pricing/Switch from Pay-As-You-Go to subscription.md#).
 
 You can use different ways to renew Subscription instances:
 
--   [../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_9591.md\#](../../../../intl.en-US/Pricing/Renew instances/Manual renewal.md#)
--   [../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_9592.md\#](../../../../intl.en-US/Pricing/Renew instances/Auto-renewal.md#)
+-   [Manual renewal](../../../../intl.en-US/Pricing/Renew instances/Manual renewal.md#)
+-   [Auto-renewal](../../../../intl.en-US/Pricing/Renew instances/Auto-renewal.md#)
 
 **Elaborate management of and control over ECS instances**
 
 You can use the following features to elaborate management of and control over ECS instances:
 
--   [EN-US\_TP\_9660.md\#](intl.en-US/User Guide/Instances/User-defined data and metadata/User data.md#)
+-   [User data](intl.en-US/User Guide/Instances/User-defined data and metadata/User data.md#)
 
--   [EN-US\_TP\_9661.md\#](intl.en-US/User Guide/Instances/User-defined data and metadata/Metadata.md#), including [EN-US\_TP\_9662.md\#](intl.en-US/User Guide/Instances/Instance identity.md#)
+-   [Metadata](intl.en-US/User Guide/Instances/User-defined data and metadata/Metadata.md#), including [instance identity](intl.en-US/User Guide/Instances/Instance identity.md#)
 
 -   [Instance RAM roles](intl.en-US/User Guide/Instances/Instance RAM roles/What is the RAM role of an instance.md#)
 
@@ -62,24 +60,24 @@ You can use the following features to elaborate management of and control over E
 
 To use a cloud disk as a data disk, follow these steps:
 
-1.  [EN-US\_TP\_9669.md\#](intl.en-US/User Guide/Cloud disks/Create a cloud disk.md#).
-2.  [EN-US\_TP\_9671.md\#](intl.en-US/User Guide/Cloud disks/Attach a cloud disk.md#).
-3.  On [../../../../dita-oss-bucket/SP\_2/DNA0011854887/EN-US\_TP\_9604.md\#](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Linux _ Format and mount a data disk.md#) or [../../../../dita-oss-bucket/SP\_2/DNA0011854887/EN-US\_TP\_9605.md\#](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Windows _ Format a data disk.md#).
-4.  [EN-US\_TP\_9687.md\#](intl.en-US/User Guide/Snapshots/Create snapshots.md#) back up data.
-5.  [EN-US\_TP\_9673.md\#](intl.en-US/User Guide/Cloud disks/Detach a cloud disk.md#).
-6.  [EN-US\_TP\_9685.md\#](intl.en-US/User Guide/Cloud disks/Release a cloud disk.md#).
+1.  [Create a cloud disk](intl.en-US/User Guide/Cloud disks/Create a cloud disk.md#).
+2.  [Attach a cloud disk](intl.en-US/User Guide/Cloud disks/Attach a cloud disk.md#).
+3.  On [Linux \_ Format and mount a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Linux _ Format and mount a data disk.md#) or [Windows \_ Format a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Windows _ Format a data disk.md#).
+4.  [Create snapshots](intl.en-US/User Guide/Snapshots/Create snapshots.md#) back up data.
+5.  [Detach a cloud disk](intl.en-US/User Guide/Cloud disks/Detach a cloud disk.md#).
+6.  [Release a cloud disk](intl.en-US/User Guide/Cloud disks/Release a cloud disk.md#).
 
 **Change configurations**
 
-When the capacity of the system disks or data disks cannot meet your business needs, you can [EN-US\_TP\_9676.md\#](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Increase system disk size.md#) increase system disk size or resize the data disks. Increase system disk size. Operations vary depending on your operating system. [EN-US\_TP\_9678.md\#](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Windows _ Resize a data disk.md#).
+When the capacity of the system disks or data disks cannot meet your business needs, you can [increase system disk size](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Increase system disk size.md#) or resize the data disks. Increase system disk size. Operations vary depending on your operating system. [Windows \_ Resize a data disk](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Windows _ Resize a data disk.md#).
 
 **Manage data on a cloud disk**
 
-When errors occur to data on a cloud disk, you can use a snapshot  [EN-US\_TP\_9680.md\#](intl.en-US/User Guide/Cloud disks/Roll back a cloud disk.md#) of the disk to restore data.
+When errors occur to data on a cloud disk, you can use a snapshot  [Roll back a cloud disk](intl.en-US/User Guide/Cloud disks/Roll back a cloud disk.md#) of the disk to restore data.
 
-If you want to restore a cloud disk to its initial status after it is created, you can [EN-US\_TP\_9679.md\#](intl.en-US/User Guide/Cloud disks/Reinitialize a cloud disk.md#).
+If you want to restore a cloud disk to its initial status after it is created, you can [Reinitialize a cloud disk](intl.en-US/User Guide/Cloud disks/Reinitialize a cloud disk.md#).
 
-If you want to copy data on an existing cloud disk to a new, empty cloud disk, you can [EN-US\_TP\_9670.md\#](intl.en-US/User Guide/Cloud disks/Create a cloud disk from a snapshot.md#).
+If you want to copy data on an existing cloud disk to a new, empty cloud disk, you can [Create a cloud disk from a snapshot](intl.en-US/User Guide/Cloud disks/Create a cloud disk from a snapshot.md#).
 
 ## Create and manage snapshots {#section_bc5_3cx_wdb .section}
 
@@ -88,16 +86,16 @@ If you want to copy data on an existing cloud disk to a new, empty cloud disk, y
 To use a snapshot, follow these steps:
 
 1.  Create a snapshot by using either of the following methods:
-    -   [EN-US\_TP\_9687.md\#](intl.en-US/User Guide/Snapshots/Create snapshots.md#).
-    -   [EN-US\_TP\_9688.md\#](intl.en-US/User Guide/Snapshots/Create and delete an automatic snapshot policy.md#), and [EN-US\_TP\_9689.md\#](intl.en-US/User Guide/Snapshots/Apply automatic snapshot policies to disks.md#), to enable creating snapshots automatically.
-2.  [EN-US\_TP\_9693.md\#](intl.en-US/User Guide/Snapshots/View a snapshot chain.md#).
+    -   [Create snapshots](intl.en-US/User Guide/Snapshots/Create snapshots.md#).
+    -   [Create and delete an automatic snapshot policy](intl.en-US/User Guide/Snapshots/Create and delete an automatic snapshot policy.md#), and [apply automatic snapshot policies to disks](intl.en-US/User Guide/Snapshots/Apply automatic snapshot policies to disks.md#), to enable creating snapshots automatically.
+2.  [View a snapshot chain](intl.en-US/User Guide/Snapshots/View a snapshot chain.md#).
 3.  To save space occupied by snapshots, [delete unnecessary snapshots](intl.en-US/User Guide/Snapshots/Delete snapshots or automatic snapshot policies.md#).
 
 **Using snapshots**
 
-To copy or back up data: you ccan use a snapshot to [EN-US\_TP\_9670.md\#](intl.en-US/User Guide/Cloud disks/Create a cloud disk from a snapshot.md#), or  [EN-US\_TP\_9680.md\#](intl.en-US/User Guide/Cloud disks/Roll back a cloud disk.md#).
+To copy or back up data: you ccan use a snapshot to [create a cloud disk from a snapshot](intl.en-US/User Guide/Cloud disks/Create a cloud disk from a snapshot.md#), or  [Roll back a cloud disk](intl.en-US/User Guide/Cloud disks/Roll back a cloud disk.md#).
 
-To ease environment deployment, you can use a system disk snapshot to [EN-US\_TP\_9696.md\#](intl.en-US/User Guide/Images/Create custom image/Create a custom mirror using a snapshot.md#), and [EN-US\_TP\_9627.md\#](intl.en-US/User Guide/Instances/Create an instance/Create an instance from a custom Image.md#).
+To ease environment deployment, you can use a system disk snapshot to [create a custom image using a snapshot](intl.en-US/User Guide/Images/Create custom image/Create a custom mirror using a snapshot.md#), and [create an instance from a custom Image](intl.en-US/User Guide/Instances/Create an instance/Create an instance from a custom Image.md#).
 
 ## Create and manage custom images {#section_mpg_qvw_wdb .section}
 
@@ -105,15 +103,15 @@ Only custom images can be operated in the ECS console. Using custom images can s
 
 You can own a custom image by using the following methods:
 
--   [EN-US\_TP\_9696.md\#](intl.en-US/User Guide/Images/Create custom image/Create a custom mirror using a snapshot.md#)
--   [EN-US\_TP\_9697.md\#](intl.en-US/User Guide/Images/Create custom image/Create a custom image by using an instance.md#)
--   [EN-US\_TP\_9698.md\#](intl.en-US/User Guide/Images/Create custom image/Use Packer to create a custom image.md#)
--   across different regions [EN-US\_TP\_9699.md\#](intl.en-US/User Guide/Images/Copy custom images.md#)
--   across different accounts [EN-US\_TP\_9700.md\#](intl.en-US/User Guide/Images/Share images.md#)
--   [EN-US\_TP\_9706.md\#](intl.en-US/User Guide/Images/Import images/Import custom images.md#)
--   [EN-US\_TP\_9708.md\#](intl.en-US/User Guide/Images/Import images/Create and import on-premise images by using Packer.md#)
+-   [Create a custom image using a snapshot](intl.en-US/User Guide/Images/Create custom image/Create a custom mirror using a snapshot.md#)
+-   [Create a custom image by using an instance](intl.en-US/User Guide/Images/Create custom image/Create a custom image by using an instance.md#)
+-   [Use Packer to create a custom image](intl.en-US/User Guide/Images/Create custom image/Use Packer to create a custom image.md#)
+-   across different regions [Copy custom images](intl.en-US/User Guide/Images/Copy custom images.md#)
+-   across different accounts [Share images](intl.en-US/User Guide/Images/Share images.md#)
+-   [Import custom images](intl.en-US/User Guide/Images/Import images/Import custom images.md#)
+-   [Create and import on-premise images by using Packer](intl.en-US/User Guide/Images/Import images/Create and import on-premise images by using Packer.md#)
 
-You can [EN-US\_TP\_9712.md\#](intl.en-US/User Guide/Images/Export custom images.md#) to back up the environment and [EN-US\_TP\_9710.md\#](intl.en-US/User Guide/Images/Delete custom images.md#).
+You can [Export custom images](intl.en-US/User Guide/Images/Export custom images.md#) to back up the environment and [Delete custom images](intl.en-US/User Guide/Images/Delete custom images.md#).
 
 ## Create and manage security groups {#section_egt_qcx_wdb .section}
 
@@ -159,5 +157,5 @@ You can use tags to group resources to improve efficiency.  To use tags, follow
 
 1.  [EN-US\_TP\_9742.md\#](intl.en-US/User Guide/Tags/Add a tag to resources.md#).
 2.  [EN-US\_TP\_9744.md\#](intl.en-US/User Guide/Tags/Filter resources by tags.md#).
-3.  [EN-US\_TP\_9743.md\#](intl.en-US/User Guide/Tags/Add a tag to resources.md#).
+3.  [EN-US\_TP\_9743.md\#](intl.en-US/User Guide/Tags/Delete a tag.md#).
 
