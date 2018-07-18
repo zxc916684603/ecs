@@ -44,9 +44,6 @@ To partition and format a large data disk, follow these steps:
 1.  [Connect to a Windows instance](intl.en-US/User Guide/Connect/Overview.md#).
 2.  Click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/4424_en-US.png) icon in the task bar.
 3.  In the left-side navigation pane of **Server Manager**, select **Storage \> ** \> **Disk Management**.
-
-    ![](images/4425_en-US.png)
-
 4.  Find the disk that is to be partitioned and formatted \(in this example,  **Disk 4**\). The disk status shows as **Offline**.
 5.  Right click the blank area around Disk 4, and then click **Online**.
 
@@ -56,29 +53,15 @@ To partition and format a large data disk, follow these steps:
 
 6.  Right click the blank area around Disk 4, and then select **Initialize Disk** in the context menu.
 7.  In the Initialize Disk  dialog box, select **Disk 4** and select **GPT** as the disk partitioning method.
-
-    ![](images/4427_en-US.png)
-
 8.  In the Disk Management window, right click the **Unallocated** area of Disk 4, and then select  **New Simple Volume** to create a 4 TiB volume in the NTFS format.
-
-    ![](images/4428_en-US.png)
-
 9.  In the New Simple Volume Wizard, follow these steps:
     1.  Click **Next**.
     2.  Choose a volume size: designate size of simple volume. If you need to create a master area only, use the default value. Click **Next**. You can also partition  **Disk 4**  into several partitions.
 
         **Note:** The maximum NTFS volume, in theory, is the maximum volume of NTFS containing 264-1 clusters. Actually, in WinXP  Pro, the maximum volume of NTFS is 232-1 clusters. For example, for a 64  KiB cluster, the maximum NTFS volume is approximately 256 TiB. If you select a 4 KiB cluster, the maximum NTFS volume is 16  TiB. NTFS selects the size of a cluster automatically based on the disk capacity.
 
-        ![](images/4429_en-US.png)
-
     3.  Distribute drive letter and path: select a drive letter, then select G in this instance. Click **Next**.
-
-        ![](images/4430_en-US.png)
-
     4.  Format Partition: Select the formatting settings, including file system, distributed unit size, and volume label, and then confirm whether to **Perform a quick format**  and **Enable file and folder compression**. Select  **Perform a quick format** here only.  Click **Next**.
-
-        ![](images/4431_en-US.png)
-
     5.  Start creating a new simple volume. After the wizard to create a new simple volume is completed, click **Finish** to close  New Simple Volume Wizard.
 
 After the formatted partition is completed, in **Disk Management**, the status of **Disk 4** is shown in the following screenshot.
@@ -106,35 +89,19 @@ To partition and format a large data disk, follow these steps:
 
 3.  Right click the blank area around Disk 2, and then select **Offline** in the context menu.
 4.  Right click a simple volume, and then select  **Delete Volume** in the context menu.
-
-    ![](images/4433_en-US.png)
-
 5.  Right click the blank area around Disk 2, and then select **Convert to GPT Disk** in the context menu.
 6.  In the  Disk Management window, right click  **Unallocated** area of Disk 2, and then select **New Simple Volume** to create a 3 TiB volume in the NTFS format.
-
-    ![](images/4434_en-US.png)
-
 7.  In the New Simple Volume Wizard, follow these steps:
     1.  Click **Next**.
     2.  Specify Volume Size: Specify the size of the simple volume.  If you need only one primary partition, use the default value,  and then click **Next**. You can also partition  **Disk 2**  into several partitions.
 
         **Note:** The maximum NTFS volume, in theory, is the maximum volume of NTFS containing 264-1 clusters.  Actually, in WinXP Pro,  the maximum volume of NTFS is 232-1 clusters.  For example, for a 64 KiB cluster,  the maximum NTFS volume is approximately 256 TiB. If you select a 4 KiB cluster, the maximum NTFS volume is 16  TiB.  NTFS selects the size of a cluster automatically based on the disk capacity.
 
-        ![](images/4435_en-US.png)
-
     3.  Assign Drive Letter or Path: Select a drive letter. Click **Next**.
-
-        ![](images/4436_en-US.png)
-
     4.  Format Partition: Select the formatting settings, including file system, distributed unit size and volume label, and then confirm whether to  **Perform a quick format** and  **Enable file and folder compression**. Select   **Perform a quick format** here only.  Click **Next**.
-
-        ![](images/4437_en-US.png)
-
     5.  Start creating a new simple volume. After the wizard to create a new simple volume is completed, click**Finish** to close  New Simple Volume Wizard.
 
 After the formatted partition is completed, in **Disk Management**, the status of **Disk 4** is shown in the following screenshot.
-
-![](images/4438_en-US.png)
 
 ## Linux \_ Partition and format a large data disk {#section_a4m_psc_ydb .section}
 
