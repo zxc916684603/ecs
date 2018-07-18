@@ -47,8 +47,6 @@ To partition and format a large data disk, follow these steps:
 4.  Find the disk that is to be partitioned and formatted \(in this example,  **Disk 4**\). The disk status shows as **Offline**.
 5.  Right click the blank area around Disk 4, and then click **Online**.
 
-    ![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/34377/cn_zh/1514438661986/Win2008_%E8%81%94%E6%9C%BA.png)
-
     After going online, Disk 4 is in the **Not Initialized** status.
 
 6.  Right click the blank area around Disk 4, and then select **Initialize Disk** in the context menu.
@@ -65,8 +63,6 @@ To partition and format a large data disk, follow these steps:
     5.  Start creating a new simple volume. After the wizard to create a new simple volume is completed, click **Finish** to close  New Simple Volume Wizard.
 
 After the formatted partition is completed, in **Disk Management**, the status of **Disk 4** is shown in the following screenshot.
-
-![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/34377/cn_zh/1514438976977/Win2008_%E6%96%B0%E5%BB%BA%E7%AE%80%E5%8D%95%E5%8D%B7_%E5%AE%8C%E6%88%90.png)
 
 ## Use windows to partition and format a large data disk created by a snapshot of a small data disk {#Windows2012Snapshot .section}
 
