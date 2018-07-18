@@ -7,7 +7,7 @@ As your business grows, the current capacity of your data disks may not be able 
 -   We recommend that you manually create a snapshot to back up your data before resizing a data disk.
 -   You can resize a data disk when the data disk is either in the **Available** status or in the **In Use** status.
 -   If a snapshot is being created for a data disk, you cannot resize the data disk.
--   If you have renewed a Subscription ECS instance for configration downgrade \(  [Renew for configuration downgrade](../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#) \) during its current billing cycle, you cannot resize the attached Subscription cloud disks, including its data or system disks.
+-   If you have renewed a Subscription ECS instance for configration downgrade \([Renew for configuration downgrade](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#)\) during its current billing cycle, you cannot resize the attached Subscription cloud disks, including its data or system disks.
 -   You can resize data disks, but not file system.
 -   You can resize data disks, but not system disks or local disks.
 -   Resize the data disks that are attached to the instance only when the instance is in the  **Running** \(**Running**\) or  **Stopped** \(**Stopped**\)   status. The changes are applied when you restart the instance in the ECS console. This action stops your instance from working and interrupts your business. Hence, **proceed with caution**.
@@ -41,7 +41,7 @@ Once the data disk resizing completes, you can do the following:
 
 -   If the data disk is attached to an instance, [Step 2. Log on to the instance to enable the extended storage space](#ResizeInInstance).
 -   If the data disk is not attached to an instance, attach the disk to an instance in the console \(x id="1"/\>\) first, and then proceed depending on the data disk:
-    -   If it is not formatted or partitioned, format and mount the data disk. For more information, see [Windows \_ Format a data disk](../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Windows _ Format a data disk.md#).
+    -   If it is not formatted or partitioned, format and mount the data disk. For more information, see [Windows \_ Format a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Windows _ Format a data disk.md#).
     -   If it is formatted and partitioned, [Step 2. Log on to the instance to enable the extended storage space](#ResizeInInstance).
 
 ## Step 2. Log on to the instance to enable the extended storage space {#ResizeInInstance .section}
@@ -73,8 +73,6 @@ To resize a data disk within the instance, follow these steps:
     ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/5364_en-US.png)
 
     **Note:** On Windows Server 2003, the extended storage space is added to the data disk but it is displayed as a separate volume in Disk Manager. On Windows Server 2003, one separate volume is created for each expansion and is not merged into the original volume, which does not affect the availability of the extended storage space.
-
-    ![](images/5365_en-US.png)
 
 
 You have resized a data disk successfully and the extended storage space is ready for use.
