@@ -75,6 +75,6 @@ The metadata is only applicable for VPC-Connected instances.
 |instance/virtualization-solution| The virtualization solution: ECS Virt 1.0 / 2.0|2016/1/1|
 |instance/virtualization-solution-version|The internal Build version.|2016/1/1|
 |instance/last-host-landing-time|The latest update time of the physical server, which your instance is hosted on.|2016/1/1|
-|instance-identity/document|[EN-US\_TP\_9662.md\#](intl.en-US/User Guide/Instances/Instance identity.md#)  Instance identity document.|2016/1/1|
+|instance-identity/document|[Instance identity](intl.en-US/User Guide/Instances/Instance identity.md#)  Instance identity document.|2016/1/1|
 |instance-identity/pkcs7|Instance identity signature.|2016/1/1|
 
