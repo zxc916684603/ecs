@@ -4,10 +4,10 @@
 
 -   One ECS instance can only bind one SSH key pair.
 -   Except for the non-I/O optimized generation I instance, all the Linux instances in the [Instance type families](../../../../intl.en-US/Product Introduction/Instance type families.md#) support the authentication method of SSH key pair.
--   When your ECS instance is in the Running status, [Restart an instance](intl.en-US/User Guide/Instances/Restart an instance.md#) after you bind a SSH key pair to the instance.
+-   When your ECS instance is in the Running status, [restart it](intl.en-US/User Guide/Instances/Restart an instance.md#) after you bind a SSH key pair to the instance.
 -   If the ECS instance has already bound a SSH key pair, after the new key pair is bound, the new key automatically replaces the original key.
 -   If you use password-based authentication for Linux logon, the password authentication feature is automatically disabled after the key pair is bound.
--   After a SSH key pair is unbound, you must [Reset an instance password](intl.en-US/User Guide/Instances/Reset an instance password.md#) for successful connection.
+-   After a SSH key pair is unbound, you must [reset the instance password](intl.en-US/User Guide/Instances/Reset an instance password.md#) for successful connection.
 
 ## Bind a SSH key pair {#section_d4l_ql1_ydb .section}
 
