@@ -62,7 +62,7 @@ To use a cloud disk as a data disk, follow these steps:
 
 1.  [Create a cloud disk](intl.en-US/User Guide/Cloud disks/Create a cloud disk.md#).
 2.  [Attach a cloud disk](intl.en-US/User Guide/Cloud disks/Attach a cloud disk.md#).
-3.  On [Linux \_ Format and mount a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Linux _ Format and mount a data disk.md#) or [Windows \_ Format a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Windows _ Format a data disk.md#).
+3.  [\(Linux\) Format and mount a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Linux _ Format and mount a data disk.md#) or [\(Windows\) Format a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Windows _ Format a data disk.md#).
 4.  [Create snapshots](intl.en-US/User Guide/Snapshots/Create snapshots.md#) back up data.
 5.  [Detach a cloud disk](intl.en-US/User Guide/Cloud disks/Detach a cloud disk.md#).
 6.  [Release a cloud disk](intl.en-US/User Guide/Cloud disks/Release a cloud disk.md#).
@@ -73,11 +73,11 @@ When the capacity of the system disks or data disks cannot meet your business ne
 
 **Manage data on a cloud disk**
 
-When errors occur to data on a cloud disk, you can use a snapshot  [Roll back a cloud disk](intl.en-US/User Guide/Cloud disks/Roll back a cloud disk.md#) of the disk to restore data.
+When errors occur to data on a cloud disk, you can use a snapshot to [roll back a cloud disk](intl.en-US/User Guide/Cloud disks/Roll back a cloud disk.md#) of the disk to restore data.
 
-If you want to restore a cloud disk to its initial status after it is created, you can [Reinitialize a cloud disk](intl.en-US/User Guide/Cloud disks/Reinitialize a cloud disk.md#).
+If you want to restore a cloud disk to its initial status after it is created, you can [reinitialize a cloud disk](intl.en-US/User Guide/Cloud disks/Reinitialize a cloud disk.md#).
 
-If you want to copy data on an existing cloud disk to a new, empty cloud disk, you can [Create a cloud disk from a snapshot](intl.en-US/User Guide/Cloud disks/Create a cloud disk from a snapshot.md#).
+If you want to copy data on an existing cloud disk to a new, empty cloud disk, you can [create a cloud disk from a snapshot](intl.en-US/User Guide/Cloud disks/Create a cloud disk from a snapshot.md#).
 
 ## Create and manage snapshots {#section_bc5_3cx_wdb .section}
 
@@ -93,7 +93,7 @@ To use a snapshot, follow these steps:
 
 **Using snapshots**
 
-To copy or back up data: you ccan use a snapshot to [create a cloud disk from a snapshot](intl.en-US/User Guide/Cloud disks/Create a cloud disk from a snapshot.md#), or  [Roll back a cloud disk](intl.en-US/User Guide/Cloud disks/Roll back a cloud disk.md#).
+To copy or back up data: you ccan use a snapshot to [create a cloud disk from a snapshot](intl.en-US/User Guide/Cloud disks/Create a cloud disk from a snapshot.md#), or [roll back a cloud disk](intl.en-US/User Guide/Cloud disks/Roll back a cloud disk.md#).
 
 To ease environment deployment, you can use a system disk snapshot to [create a custom image using a snapshot](intl.en-US/User Guide/Images/Create custom image/Create a custom mirror using a snapshot.md#), and [create an instance from a custom Image](intl.en-US/User Guide/Instances/Create an instance/Create an instance from a custom Image.md#).
 
@@ -106,8 +106,8 @@ You can own a custom image by using the following methods:
 -   [Create a custom image using a snapshot](intl.en-US/User Guide/Images/Create custom image/Create a custom mirror using a snapshot.md#)
 -   [Create a custom image by using an instance](intl.en-US/User Guide/Images/Create custom image/Create a custom image by using an instance.md#)
 -   [Use Packer to create a custom image](intl.en-US/User Guide/Images/Create custom image/Use Packer to create a custom image.md#)
--   across different regions [Copy custom images](intl.en-US/User Guide/Images/Copy custom images.md#)
--   across different accounts [Share images](intl.en-US/User Guide/Images/Share images.md#)
+-   [Copy custom images](intl.en-US/User Guide/Images/Copy custom images.md#) across different regions.
+-   [Share images](intl.en-US/User Guide/Images/Share images.md#) across different accounts.
 -   [Import custom images](intl.en-US/User Guide/Images/Import images/Import custom images.md#)
 -   [Create and import on-premise images by using Packer](intl.en-US/User Guide/Images/Import images/Create and import on-premise images by using Packer.md#)
 
