@@ -2,7 +2,7 @@
 
 ## Overview {#section_kvc_4qk_zdb .section}
 
-The ECS introduces the **No fees for stopped instances \(VPC-Connected\)** feature. If you enable this feature, you do not have to pay for a VPC-Connected Pay-As-You-Go instance when it enters the **Stopped** \(`Stopped`\) status after you stop it in the [ECS console](../../../../intl.en-US/User Guide/Instances/Start or stop an instance.md#) or when you use the [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9859.md\#](../../../../intl.en-US/API Reference/Instances/StopInstance.md#) interface or [Alibaba Cloud CLI](https://www.alibabacloud.com/help/product/29991.htm).
+The ECS introduces the **No fees for stopped instances \(VPC-Connected\)** feature. If you enable this feature, you do not have to pay for a VPC-Connected Pay-As-You-Go instance when it enters the **Stopped** \(`Stopped`\) status after you stop it in the [ECS console](../../../../intl.en-US/User Guide/Instances/Start or stop an instance.md#) or when you use the [StopInstance](../intl.en-US/API Reference/Instances/StopInstance.md#) interface or [Alibaba Cloud CLI](https://www.alibabacloud.com/help/product/29991.htm).
 
 ## Applicable resources {#section_lvc_4qk_zdb .section}
 
@@ -12,7 +12,7 @@ This **No fees for stopped instances \(VPC-Connected\)** feature is **not applic
 
 -   All instances with local disks, including but not limited to d1ne, d1, i2, i1, gn5, and ga1 instances.
 
--   Cloud disks attached to the instances \(including system disks and data disks\), Internet bandwidth, elastic IP \(EIP\) addresses, and images. After the **No fees for stopped instances \(VPC-Connected\)** feature is enabled, billing of these resources continues when the instance is **stopped**. For more information about billing, see [EN-US\_TP\_9586.md\#](intl.en-US/Pricing/Pay-As-You-Go.md#), [Cloud disk pricing](https://www.alibabacloud.com/product/ecs), [EN-US\_TP\_9596.md\#](intl.en-US/Pricing/Billing of network bandwidth.md#), [Bandwidth pricing](https://www.alibabacloud.com/product/ecs), and [EIP pricing](https://www.alibabacloud.com/help/doc-detail/27767.htm).
+-   Cloud disks attached to the instances \(including system disks and data disks\), Internet bandwidth, elastic IP \(EIP\) addresses, and images. After the **No fees for stopped instances \(VPC-Connected\)** feature is enabled, billing of these resources continues when the instance is **stopped**. For more information about billing, see [ZH-CN\_TP\_9586.md\#](intl.en-US/Pricing/Pay-As-You-Go.md#), [Cloud disk pricing](https://www.alibabacloud.com/product/ecs), [ZH-CN\_TP\_9596.md\#](intl.en-US/Pricing/Billing of network bandwidth.md#), [Bandwidth pricing](https://www.alibabacloud.com/product/ecs), and [EIP pricing](https://www.alibabacloud.com/help/doc-detail/27767.htm).
 
 -   New VPC-Connected Pay-As-You-Go instances that are in the **Stopped** \(`Stopped`\) status after they are created, either by using the [ECS console](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#) or the [CreateInstance](../../../../intl.en-US/API Reference/Instances/CreateInstance.md#) interface, and before entering the **Running** \(`Running`\) status.
 
@@ -31,7 +31,7 @@ The **No fees for stopped instances \(VPC-Connected\)** feature has the followin
 
     **Note:** If you do not want to change the public IP address, you can stop the instance after [converting the public IP address to an EIP address](../../../../intl.en-US/User Guide/Instances/Change IP addresses/Convert public IP address to EIP address.md#).
 
--   When a t5 instance is stopped, the existing CPU credits are valid but credit accumulation stops. When it starts, CPU credits continue to accumulate. For more information, see [../../../../dita-oss-bucket/SP\_2/DNA0011858383/EN-US\_TP\_9554.md\#](../../../../intl.en-US/Product Introduction/Instance/Burstable instances.md#).
+-   When a t5 instance is stopped, the existing CPU credits are valid but credit accumulation stops. When it starts, CPU credits continue to accumulate. For more information, see [../DNA0011858383/ZH-CN\_TP\_9554.md\#](../intl.en-US/Product Introduction/Instance/Burstable instances.md#).
 
 
 When you [replace the system disk](../../../../intl.en-US/User Guide/Cloud disks/Change a system disk (public image).md#) \([ReplaceSystemDisk](../../../../intl.en-US/API Reference/Disk/ReplaceSystemDisk.md#)\), [roll back a disk](../../../../intl.en-US/User Guide/Cloud disks/Roll back a cloud disk.md#) \([ResetDisk](../../../../intl.en-US/API Reference/Disk/ResetDisk.md#)\), [reinitialize a disk](../../../../intl.en-US/User Guide/Cloud disks/Reinitialize a cloud disk.md#) \([ReInitDisk](../../../../intl.en-US/API Reference/Disk/ReInitDisk.md#)\), or perform other O&M operations, you must stop your instance and start it when you have performed these actions. Along with the preceding actions, perform any one of the following actions to make sure that your instance starts successfully:
