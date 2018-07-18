@@ -2,7 +2,7 @@
 
 To save cost, we recommend that you release a Pay-As-You-Go instance if you no longer need it.
 
-For a Pay-As-You-Go instance, if the [../../../../dita-oss-bucket/SP\_2/DNA0011810291/EN-US\_TP\_9595.md\#](../../../../intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) feature is not enabled, charges do not stop until the instance is released.
+For a Pay-As-You-Go instance, if the [No fees for stopped instances \(VPC-Connected\)](../../../../intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) feature is not enabled, charges do not stop until the instance is released.
 
 For a Subscription instance, the instance is automatically released after the billing cycle expires.
 
@@ -59,5 +59,5 @@ To disable the automatic release feature, follow these steps:
 
 ## Related APIs {#section_rqg_ccn_xdb .section}
 
-[../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9861.md\#](../../../../intl.en-US/API Reference/Instances/DeleteInstance.md#)
+[DeleteInstance](../../../../intl.en-US/API Reference/Instances/DeleteInstance.md#)
 
