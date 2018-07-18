@@ -1,10 +1,10 @@
 # Scenarios {#concept_ngr_vht_xdb .concept}
 
-This article introduces several common scenarios of of VPC-connected and classic network-connected security groups.
+This article introduces several common scenarios of VPC-connected and classic network-connected security groups.
 
 **Note:** 
 
--   For more information about how to create a security group and its rules, see [EN-US\_TP\_9717.md\#](intl.en-US/User Guide/Security groups/Create a security group.md#) and [EN-US\_TP\_9718.md\#](intl.en-US/User Guide/Security groups/Add a security group rule.md#).
+-   For more information about how to create a security group and its rules, see [Creating a Security Group](intl.en-US/User Guide/Security groups/Creating a Security Group.md#) and [Add security group rules](intl.en-US/User Guide/Security groups/Add security group rules.md#).
 -   For common ports, see [Introduction to common ECS instance ports](intl.en-US/User Guide/Security groups/Introduction to common ECS instance ports.md#).
 -   For security group rule configuration of common port, see[Typical application of security group rules](intl.en-US/User Guide/Security groups/Typical application of security group rules.md#).
 
@@ -171,7 +171,7 @@ For more information on customizing remote connection ports, see [Modiy the serv
 If your account is in the same intranet with another account in the same region, and you want to allow a remote connection to the instance in a security group of that account, follow the example below to add a security group rule.
 
 -   Allow another account in the intranet to connect to your instance.
-    -   VPC: ensure  instances of both accounts [跨账号VPC互连](../../intl.en-US/Quick Start/跨账号VPC互连.md#)  before adding the security group rules shown in the following table.
+    -   VPC: ensure instances of both accounts [establish an intranet connection between VPCs under different accounts](https://www.alibabacloud.com/help/doc-detail/44843.htm) before adding the security group rules shown in the following table.
 
         |Network Type|NIC|Rule Direction|Authorization Policy|Protocol Type|Port Range|Authorization Type|Authorization Object|Priority|
         |VPC|N/A|Inbound|Allow|Windows: RDP\(3389\)|3389/3389|Address Field Access|The private IP address of the other instance|1|
@@ -186,7 +186,7 @@ If your account is in the same intranet with another account in the same region,
         |Custom TCP|Customize|
 
 -   Allow all ECs instances in one Security Group to connect to your instance
-    -   VPC: ensure instances of both accounts [跨账号VPC互连](../../intl.en-US/Quick Start/跨账号VPC互连.md#) before adding the security group rules shown in the following table.
+    -   VPC: ensure instances of both accounts [establish an intranet connection between VPCs under different accounts](https://www.alibabacloud.com/help/doc-detail/44843.htm) before adding the security group rules shown in the following table.
 
         |Network Type|NIC|Rule Direction|Authorization Policy|Protocol Type|Port Range|Authorization Type|Authorization Object|Priority|
         |VPC|N/A|Inbound|Allow|Windows: RDP \(3389\)|3389/3389|Security Group access \(cross-account authorization\)|The security group ID of the other instance, and enter the other's account ID|1|
@@ -222,5 +222,5 @@ If you  host a website on an instance, and you want your users to be able to ac
 
 **Note:** 
 
--   If you are unable to access your instance via `http://公网 IP 地址`, see [Check the TCP port 80 .](https://www.alibabacloud.com/help/faq-detail/59367.htm)
+-   If you are unable to access your instance via `http://Public IP address`, see [Check the TCP port 80 .](https://www.alibabacloud.com/help/faq-detail/59367.htm)
 
