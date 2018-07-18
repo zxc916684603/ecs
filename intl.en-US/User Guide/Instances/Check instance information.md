@@ -3,8 +3,8 @@
 Through the console, you can check all the ECS instances you own. You can check the:
 
 -   On the [View all ECS instances under your account on the Overview page](#overview) page, all ESC instances in all regions and their status under your account can be viewed.
--   View all the ECS instances in a specified region on the Instance List page For details, see[View the information of ECS instances on the Instance List page](#list).
--   Detailed information of any ECS instance on its  Instance Details page. For details, see[View details of an ECS instance on Instance Details page](#detail).
+-   View all the ECS instances in a specified region on the Instance List page For details, see [View the information of ECS instances on the Instance List page](#list).
+-   Detailed information of any ECS instance on its  Instance Details page. For details, see [View details of an ECS instance on Instance Details page](#detail).
 
 ## View all ECS instances under your account on the Overview page {#overview .section}
 
@@ -19,7 +19,7 @@ The homepage of the ECS console is theOverview  page by default.
 
 To navigate to the Instance List page, follow these steps:
 
-1.  Log on to the  [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
 2.  On the left-side navigation pane, click **Instances**.
 3.  Select a region.
 
@@ -35,7 +35,7 @@ You can see information of all the existing ECS instances in the selected region
 
 You can navigate to the Instance Details page to view detailed information of an ECS instance.
 
-To navigate to theInstance Detailspage, follow these steps:
+To navigate to the Instance Detailspage, follow these steps:
 
 1.  Log on to the  [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.11.FNEORG#/home).
 2.  In the left-side navigation pane, click **Instances**.
