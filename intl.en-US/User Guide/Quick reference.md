@@ -119,43 +119,43 @@ You can [Export custom images](intl.en-US/User Guide/Images/Export custom images
 
 To use a security group, follow these steps:
 
-1.  [EN-US\_TP\_9717.md\#](intl.en-US/User Guide/Security groups/Creating a Security Group.md#).
-2.  [EN-US\_TP\_9718.md\#](intl.en-US/User Guide/Security groups/Add security group rules.md#).
-3.  [EN-US\_TP\_9652.md\#](intl.en-US/User Guide/Instances/Add to or remove from a security group.md#)
-4.  [EN-US\_TP\_9722.md\#](intl.en-US/User Guide/Security groups/Delete a security group rule.md#).
-5.  [EN-US\_TP\_9723.md\#](intl.en-US/User Guide/Security groups/Delete a security group.md#).
+1.  [Create a Security Group](intl.en-US/User Guide/Security groups/Creating a Security Group.md#).
+2.  [Add security group rules](intl.en-US/User Guide/Security groups/Add security group rules.md#).
+3.  [Add to or remove from a security group](intl.en-US/User Guide/Instances/Add to or remove from a security group.md#)
+4.  [Delete a security group rule](intl.en-US/User Guide/Security groups/Delete a security group rule.md#).
+5.  [Delete a security group](intl.en-US/User Guide/Security groups/Delete a security group.md#).
 
 **Manage security groups and their rules**
 
-To simplify business deployment, you can [EN-US\_TP\_9724.md\#](intl.en-US/User Guide/Security groups/Clone a security group.md#) across regions or network types.
+To simplify business deployment, you can [Clone a security group](intl.en-US/User Guide/Security groups/Clone a security group.md#) across regions or network types.
 
-When new security group rules impair the online business application, you can  [EN-US\_TP\_9726.md\#](intl.en-US/User Guide/Security groups/Restore security group rules.md#) fully or partially.
+When new security group rules impair the online business application, you can  [Restore security group rules](intl.en-US/User Guide/Security groups/Restore security group rules.md#) fully or partially.
 
 ## Create and manage SSH key pairs {#section_vpg_qvw_wdb .section}
 
 To use an SSH key pair, follow these steps:
 
-1.  [EN-US\_TP\_9728.md\#](intl.en-US/User Guide/Key pairs/Create an SSH key pair.md#), or [EN-US\_TP\_9729.md\#](intl.en-US/User Guide/Key pairs/Import an SSH key pair.md#).
-2.  [EN-US\_TP\_9730.md\#](intl.en-US/User Guide/Key pairs/Bind or unbind a SSH key pair.md#), or bind the SSH key pair after a Linux instance is created or when you create a Linux instance.
-3.  [EN-US\_TP\_9620.md\#](intl.en-US/User Guide/Connect/Connect to a Linux instance by using an SSH key pair.md#).
+1.  [Create an SSH key pair](intl.en-US/User Guide/Key pairs/Create an SSH key pair.md#), or [import an SSH key pair](intl.en-US/User Guide/Key pairs/Import an SSH key pair.md#).
+2.  [Bind a SSH key pair](intl.en-US/User Guide/Key pairs/Bind or unbind a SSH key pair.md#), or bind the SSH key pair after a Linux instance is created or when you create a Linux instance.
+3.  [Connect to a Linux instance by using an SSH key pair](intl.en-US/User Guide/Connect/Connect to a Linux instance by using an SSH key pair.md#).
 4.  Unbind an SSH key pair.
-5.  [EN-US\_TP\_9731.md\#](intl.en-US/User Guide/Key pairs/Delete a SSH key pair.md#).
+5.  [Delete a SSH key pair](intl.en-US/User Guide/Key pairs/Delete a SSH key pair.md#).
 
 ## Create and manage ENIs {#section_zpg_qvw_wdb .section}
 
 To use an ENI, follow these steps:
 
-1.  [EN-US\_TP\_9734.md\#](intl.en-US/User Guide/Elastic Network Interfaces/Create an ENI.md#).
-2.  [EN-US\_TP\_9735.md\#](intl.en-US/User Guide/Elastic Network Interfaces/Attach an ENI to an instance.md#), or  [EN-US\_TP\_9733.md\#](intl.en-US/User Guide/Elastic Network Interfaces/Attach an ENI when creating an instance.md#).
-3.  Optional. [EN-US\_TP\_9739.md\#](intl.en-US/User Guide/Elastic Network Interfaces/Configure an ENI.md#).
-4.  [EN-US\_TP\_9736.md\#](intl.en-US/User Guide/Elastic Network Interfaces/Detach an ENI from an instance.md#).
-5.  [EN-US\_TP\_9738.md\#](intl.en-US/User Guide/Elastic Network Interfaces/Delete an ENI.md#).
+1.  [Create an ENI](intl.en-US/User Guide/Elastic Network Interfaces/Create an ENI.md#).
+2.  [Attach an ENI to an instance](intl.en-US/User Guide/Elastic Network Interfaces/Attach an ENI to an instance.md#), or  [attach an ENI when creating an instance](intl.en-US/User Guide/Elastic Network Interfaces/Attach an ENI when creating an instance.md#).
+3.  Optional. [Configure an ENI](intl.en-US/User Guide/Elastic Network Interfaces/Configure an ENI.md#).
+4.  [Detach an ENI from an instance](intl.en-US/User Guide/Elastic Network Interfaces/Detach an ENI from an instance.md#).
+5.  [Delete an ENI](intl.en-US/User Guide/Elastic Network Interfaces/Delete an ENI.md#).
 
 ## Use tags {#section_dqg_qvw_wdb .section}
 
-You can use tags to group resources to improve efficiency.  To use tags, follow these steps:
+You can use tags to group resources to improve efficiency. To use tags, follow these steps:
 
-1.  [EN-US\_TP\_9742.md\#](intl.en-US/User Guide/Tags/Add a tag to resources.md#).
-2.  [EN-US\_TP\_9744.md\#](intl.en-US/User Guide/Tags/Filter resources by tags.md#).
-3.  [EN-US\_TP\_9743.md\#](intl.en-US/User Guide/Tags/Delete a tag.md#).
+1.  [Add a tag to resources](intl.en-US/User Guide/Tags/Add a tag to resources.md#).
+2.  [Filter resources by tags](intl.en-US/User Guide/Tags/Filter resources by tags.md#).
+3.  [Delete a tag](intl.en-US/User Guide/Tags/Delete a tag.md#).
 
