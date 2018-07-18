@@ -6,7 +6,7 @@ If you did not specify a logon password for an instance at the time of creation,
 
 ## Prerequisites {#section_mg1_3fl_xdb .section}
 
-The instance must be in a stable status, such as **Stopped** and **Running**. For more information, see [ECS instance life cycle](../intl.en-US/Product Introduction/Instance/ECS instance life cycle.md#).
+The instance must be in a stable status, such as **Stopped** and **Running**. For more information, see [ECS instance life cycle](../../../../intl.en-US/Product Introduction/Instance/ECS instance life cycle.md#).
 
 ## Procedure {#section_ng1_3fl_xdb .section}
 
@@ -18,23 +18,10 @@ To reset a password for one or multiple ECS instances, follow these steps:
 4.  According to the number of instances to be operated, do the following:
     -   To reset the password for one instance, find the instance, and in the **Actions** column, select **More** \> **Reset Password**.
 
-        ![](images/5441_en-US.png)
-
     -   To reset the passwords for multiple instances, select the instances, and under the instance list, click **Reset Password**.
 
-        ![](images/5442_en-US.png)
-
 5.  In the Reset Password dialog box, specify a new valid password, and click **Submit**.
-
-    ![](images/5443_en-US.png)
-
 6.  Operate different actions to make the password effective according to the instance status:
-    -   **Running**: [Restart an instance](intl.en-US/User Guide/Instances/Restart an instance.md#)  in the console.
-
-        ![](images/5444_en-US.png)
-
+    -   **Running**: [Restart an instance](intl.en-US/User Guide/Instances/Restart an instance.md#) in the console.
     -   **Stopped**: Start the instance in the console.
-
-        ![](images/5445_en-US.png)
-
 
