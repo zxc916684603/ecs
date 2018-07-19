@@ -5,10 +5,6 @@ Restoring security group rules refers to the process of completely or partially 
 -   **Completely restoring** refers to moving the rules that do not exist in the target security group from the original security group and adding the rules that only exist in the target security group to the original security group.  After restoration, rules in the original security group are identical with those in the target security group.
 -   **Partially restoring** refers to adding the rules that only exist in the target security group to the original security group and ignoring the rules that only exist in the original group.
 
-![](images/4666_en-US.png)
-
-![](images/4667_en-US.png)
-
 ## Limits {#section_en2_ng1_ydb .section}
 
 Restoring security group rules has the following limits:
@@ -36,13 +32,10 @@ You must own at least one security group of the same network type in the same re
     2.  Select a **Restore type**:
         -   If you want the original security group to have the same rules as the target security group, select **Completely restored**.
         -   If you only want to add the rules that only exist in the target security group to the original security group,  select **Partially restored**.
-
-            ![](images/4668_en-US.png)
-
     3.  In the Result preview area, preview the restoration result:
-        -   Rules highlighted in green only exist in the target security group.  No matter whether you choose  **Completely restored** or  **Partially restored**, these rules are added to the original security group.
+        -   Rules highlighted in green only exist in the target security group.  No matter whether you choose  **Completely restored** or **Partially restored**, these rules are added to the original security group.
         -   Rules highlighted in red are the rules that do not exist in the target security group.  If  **Completely restored** is selected, the system removes these rules from the original security group.  If  **Partially restored** is selected, the rules are retained in the original security group.
     4.  Click **OK**.
 
-The Restore rules dialog box is closed automatically after successful creation. In the **Security Group List**  find the original security group you restored the rules for. In the **Action column** click **Configure Rules** to enter the  Security Group Rules page, and view the updated security group rules.
+The Restore rules dialog box is closed automatically after successful creation. In the **Security Group List**  find the original security group you restored the rules for. In the **Action** column, click **Configure Rules** to enter the Security Group Rules page, and view the updated security group rules.
 
