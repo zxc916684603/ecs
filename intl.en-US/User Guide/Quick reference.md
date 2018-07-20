@@ -158,5 +158,4 @@ You can use tags to group resources to improve efficiency. To use tags, follow 
 1.  [Add a tag to resources](intl.en-US/User Guide/Tags/Add a tag to resources.md#).
 2.  [Filter resources by tags](intl.en-US/User Guide/Tags/Filter resources by tags.md#).
 3.  [Delete a tag](intl.en-US/User Guide/Tags/Delete a tag.md#).
-4.  [EN-US\_TP\_9619.md\#](intl.en-US/User Guide/Connect/Connect to an instance by using the Management Terminal.md#)
 
