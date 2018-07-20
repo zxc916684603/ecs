@@ -25,7 +25,7 @@ To convert a public IP address to an EIP address, consider the following limits:
 
 -   The billing method of the public traffic remains unchanged.
 
--   After conversion, the EIP address is charged separately. For more information about billing of EIP addresses, see [Billing](https://www.alibabacloud.com/help/doc-detail/27767.htm). You can go to the [Usage Records](https://billing.console.aliyun.com/#/usage/record) page in the **Billing Management** to download the **Elastic Public IP** usage record.
+-   After conversion, the EIP address is charged separately. For more information about billing of EIP addresses, see [EIP billing](https://www.alibabacloud.com/help/doc-detail/72142.htm). You can go to the [Usage Records](https://billing.console.aliyun.com/#/usage/record) page in the **Billing Management** to download the **Elastic Public IP** usage record.
 
 
 ## Procedure {#section_fsc_kgn_xdb .section}
