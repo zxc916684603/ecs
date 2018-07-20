@@ -6,7 +6,7 @@
 
 -   只有专有网络 （VPC） 网络类型的 ECS 实例才能使用实例 RAM 角色。
 -   一个 ECS 实例一次只能授予一个实例 RAM 角色。
--   当您给 ECS 实例授予了实例 RAM 角色后，并希望在 ECS 实例内部部署的应用程序中访问云产品的 API 时，您需要通过 [实例元数据](intl.zh-CN/用户指南/实例/实例自定义/元数据/实例元数据.md#) 获取实例 RAM 角色的临时授权 Token。参阅 [5. （可选）获取临时授权 Token](#Token)。
+-   当您给 ECS 实例授予了实例 RAM 角色后，并希望在 ECS 实例内部部署的应用程序中访问云产品的 API 时，您需要通过 [实例元数据](intl.zh-CN/用户指南/实例/实例自定义数据和元数据/实例元数据.md#) 获取实例 RAM 角色的临时授权 Token。参阅 [5. （可选）获取临时授权 Token](#Token)。
 -   如果您是通过 RAM 用户子账号使用实例 RAM 角色，您需要通过云账号 [6. （可选）授权 RAM 用户使用实例 RAM 角色](#Authorize)。
 
 ## 前提条件 {#section_h2w_td5_xdb .section}
@@ -68,13 +68,13 @@
 
 ## 3. 授予实例 RAM 角色 {#section_pmw_bf5_xdb .section}
 
-1.  调用接口 [AttachInstanceRamRole](../../../../intl.zh-CN/API参考/实例/AttachInstanceRamRole.md#) 为实例授予 RAM 角色。
+1.  调用接口 [AttachInstanceRamRole](../../../../intl.zh-CN/API 参考/实例/AttachInstanceRamRole.md#) 为实例授予 RAM 角色。
 2.  设置 RegionId 及 InstanceIds 参数指定一个 ECS 实例。
 3.  设置 RamRoleName 参数，如 EcsRamRoleDocumentTesting。
 
 ## 4. （可选）收回实例 RAM 角色 {#section_k4m_2f5_xdb .section}
 
-1.  调用接口 [DetachInstanceRamRole](../../../../intl.zh-CN/API参考/实例/DetachInstanceRamRole.md#) 收回实例 RAM 角色。
+1.  调用接口 [DetachInstanceRamRole](../../../../intl.zh-CN/API 参考/实例/DetachInstanceRamRole.md#) 收回实例 RAM 角色。
 2.  设置 RegionId 及 InstanceIds 参数指定一个 ECS 实例。
 3.  设置 RamRoleName 参数，如 EcsRamRoleDocumentTesting。
 
@@ -84,7 +84,7 @@
 
 1.  检索名为 EcsRamRoleDocumentTesting 的实例 RAM 角色的临时授权 Token：
     -   Linux 实例： 执行命令 `curl http://100.100.100.200/latest/meta-data/Ram/security-credentials/EcsRamRoleDocumentTesting` 。
-    -   Windows 实例：参阅文档 [实例元数据](intl.zh-CN/用户指南/实例/实例自定义/元数据/实例元数据.md#)。
+    -   Windows 实例：参阅文档 [实例元数据](intl.zh-CN/用户指南/实例/实例自定义数据和元数据/实例元数据.md#)。
 2.  获得临时授权 Token。返回示例如下：
 
     ```
@@ -132,7 +132,7 @@
 }
 ```
 
-其中，\[ECS RAM Action\] 表示可授权 RAM 用户的权限，请参阅文档 [授权 RAM 用户](../../../../intl.zh-CN/API参考/授权 RAM 用户.md#)。
+其中，\[ECS RAM Action\] 表示可授权 RAM 用户的权限，请参阅 [鉴权规则](../../../../intl.zh-CN/API 参考/鉴权规则.md#)。
 
 ## 参考链接 {#section_bgl_kf5_xdb .section}
 
@@ -143,7 +143,7 @@
     -   查询 RAM 角色列表：[ListRoles](../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#)
     -   新建 RAM 角色策略：[CreatePolicy](../../../../intl.zh-CN/API参考/API 参考（RAM）/授权策略管理接口/CreatePolicy.md#)
     -   授权 RAM 角色策略：[AttachPolicyToRole](../../../../intl.zh-CN/API参考/API 参考（RAM）/授权策略管理接口/AttachPolicyToRole.md#)
-    -   授予实例 RAM 角色：[AttachInstanceRamRole](../../../../intl.zh-CN/API参考/实例/AttachInstanceRamRole.md#)
-    -   收回实例 RAM 角色：[DetachInstanceRamRole](../../../../intl.zh-CN/API参考/实例/DetachInstanceRamRole.md#)
-    -   查询实例 RAM 角色：[DescribeInstanceRamRole](../../../../intl.zh-CN/API参考/实例/DescribeInstanceRamRole.md#)
+    -   授予实例 RAM 角色：[AttachInstanceRamRole](../../../../intl.zh-CN/API 参考/实例/AttachInstanceRamRole.md#)
+    -   收回实例 RAM 角色：[DetachInstanceRamRole](../../../../intl.zh-CN/API 参考/实例/DetachInstanceRamRole.md#)
+    -   查询实例 RAM 角色：[DescribeInstanceRamRole](../../../../intl.zh-CN/API 参考/实例/DescribeInstanceRamRole.md#)
 
