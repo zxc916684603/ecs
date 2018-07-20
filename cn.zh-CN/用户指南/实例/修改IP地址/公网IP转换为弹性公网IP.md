@@ -10,6 +10,7 @@ VPC类型的ECS实例的公网IP转为EIP有以下限制：
 -   仅支持处于 **已停止**（**Stopped**）或 **运行中**（**Running**）的VPC类型的ECS实例。其他状态的VPC类型的ECS实例不支持此操作。
 -   如果VPC类型的ECS实例有未生效的变更配置任务，不支持此操作。
 -   包年包月的VPC类型的ECS实例到期前24小时内，不支持此操作。
+-   按固定带宽计费的包年包月VPC类型的ECS实例，不支持此操作。
 -   此功能只支持将公网IP转为EIP，不支持其他转换。
 
 ## 使用说明 {#section_mj3_qgn_xdb .section}
@@ -18,7 +19,7 @@ VPC类型的ECS实例的公网IP转为EIP有以下限制：
 
 -   转换前后，公网带宽计费方式不变。
 
--   转换后EIP将单独计费，单独产生账单。关于EIP计费，请参考 [包年包月](../../../../intl.zh-CN/产品定价/预付费（包年包月）.md#)。您可以在 **费用中心** 的 [使用记录](https://billing.console.aliyun.com/#/usage/record)，选择导出 **弹性公网IP** 产品的消费记录。
+-   转换后EIP将单独计费，单独产生账单。关于EIP计费，请参考 [预付费（包年包月）](../../../../cn.zh-CN/产品定价/预付费（包年包月）.md#)。您可以在 [费用中心](https://expense.console.aliyun.com/#/account/home) 通过 **消费记录** \> **使用记录**，选择导出 **弹性公网IP** 产品的消费记录。
 
 
 ## 操作步骤 {#section_fsc_kgn_xdb .section}
@@ -40,9 +41,12 @@ VPC类型的ECS实例的公网IP转为EIP有以下限制：
 
 ## 后续操作 {#section_jsc_kgn_xdb .section}
 
-转换成功后，您可以解绑EIP并绑定其他实例，也可以释放EIP。具体操作，请参考 [弹性公网 IP 的用户指南](https://www.alibabacloud.com/help/doc-detail/65203.htm)。
+转换成功后，您可以执行以下操作：
+
+-   解绑EIP并绑定其他实例，也可以释放EIP。具体操作，请参考 [弹性公网 IP 的用户指南](https://help.aliyun.com/document_detail/65203.html)。
+-   [在共享带宽包中添加EIP](https://help.aliyun.com/document_detail/65205.html)，节省成本。详细信息，请参考 [如何选择公网类产品](https://help.aliyun.com/document_detail/53402.html) 和 [如何节约公网成本](https://help.aliyun.com/document_detail/67459.html)。
 
 ## API 操作 {#section_lsc_kgn_xdb .section}
 
-您可以使用 [ConvertNatPublicIpToEip](../../../../intl.zh-CN/API 参考/网络/ConvertNatPublicIpToEip.md#) 接口将公网IP转换为EIP。目前仅SDK 4.3.0及以上版本支持该功能，请 [下载](https://www.alibabacloud.com/help/doc-detail/25699.htm)最新版的SDK。
+您可以使用 [ConvertNatPublicIpToEip](../../../../cn.zh-CN/API 参考/网络/ConvertNatPublicIpToEip.md#) 接口将公网IP转换为EIP。目前仅SDK 4.3.0及以上版本支持该功能，请 [下载](https://help.aliyun.com/document_detail/25699.html) 最新版的SDK。
 
