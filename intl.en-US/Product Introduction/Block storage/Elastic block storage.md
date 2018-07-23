@@ -1,6 +1,6 @@
 # Elastic block storage {#concept_n1s_rzb_wdb .concept}
 
-Elastic block storage is a low-latency, persistent, and high-reliability random block level data storage service provided by Alibaba Cloud to ECS users. It uses a [triplicate distributed system](intl.en-US/Product Introduction/Block storage/Triplicate technology.md#) to provide 99.9999999% data reliability for ECS instances. Elastic block storage supports the automatic copying of your data within the zone. It prevents unexpected hardware faults from causing data unavailability and protects your service against the threat of component faults.  Like what you can do with a hard disk, you can partition the elastic block storage attached to an ECS instance, create a file system, and store data on it.
+Elastic block storage is a low-latency, persistent, and high-reliability random block-level data storage service provided by Alibaba Cloud to ECS users. It uses a [triplicate distributed system](intl.en-US/Product Introduction/Block storage/Triplicate technology.md#) to provide 99.9999999% data reliability for ECS instances. Elastic block storage supports the automatic copying of your data within the zone. It prevents unexpected hardware faults from causing data unavailability and protects your service against the threat of component faults.  Like what you can do with a hard disk, you can partition the elastic block storage attached to an ECS instance, create a file system, and store data on it.
 
 You can expand your elastic block storage as needed at any time.  For more information, see [Linux \_ Resize a data disk](../../../../intl.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md#) or  [Increase system disk size](../../../../intl.en-US/User Guide/Cloud disks/Resize cloud disks/Increase system disk size.md#). You can also create snapshots to back up data for the elastic block storage. For more information about snapshots, see [What are ECS snapshots](intl.en-US/Product Introduction/Snapshots/What are ECS snapshots.md#).
 
@@ -32,7 +32,7 @@ When used as data disks, cloud disks share the data disk quota with Shared Block
 
 ## Shared Block Storage {#section_gnz_nbw_ydb .section}
 
-The Shared Block Storage is a block level data storage service with high level of concurrency, performance, and reliability. It supports concurrent reads/writes to multiple ECS instances. It delivers the data reliability of up to 99.9999999. Shared Block Storage can be attached to a maximum of 8 ECS instances. This service is currently in public beta, during which the Shared Block Storage can be attached to a maximum of four ECS instances.
+The Shared Block Storage is a block-level data storage service with high level of concurrency, performance, and reliability. It supports concurrent reads/writes to multiple ECS instances. It delivers the data reliability of up to 99.9999999. Shared Block Storage can be attached to a maximum of 8 ECS instances. This service is currently in public beta, during which the Shared Block Storage can be attached to a maximum of four ECS instances.
 
 Shared Block Storage can only be used as data disks and can only be created separately. Shared access is allowed.  You can set the Shared Block Storage to release with the ECS instances.
 
