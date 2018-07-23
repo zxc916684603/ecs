@@ -10,7 +10,7 @@ You can only switch up to 20 Pay-As-You-Go instances to subscription instances e
 
 The ECS instance to be switched must meet the following requirements:
 
--   The instance type is not any one of [Generation I](https://www.alibabacloud.com/help/doc-detail/55263.htm) or type families of [n1, n2, or e3](https://www.alibabacloud.com/help/doc-detail/25378.htm#previousgeneration).
+-   The instance type is not any one of [Generation I](https://www.alibabacloud.com/help/doc-detail/55263.htm).
 
 -   The instance belongs to your account.
 
@@ -18,7 +18,7 @@ The ECS instance to be switched must meet the following requirements:
 
     If an order has been placed successfully when the ECS instance in the **running** or **stopped** status, but the instance status changes and does not meet the status requirement before the order is paid, the payment fails and the switch is discontinued. You can go to the billing center to pay the order when the instance is in the running or stopped status.
 
--   No [timed release](https://www.alibabacloud.com/help/doc-detail/25442.htm) is set for the instance.
+-   [No timed release is set for the instance](../../../../intl.en-US/User Guide/Instances/Release an instance.md#).
 
     If the release time has been set for an instance, you need disable the timed release configuration and then switch the billing method.
 
@@ -34,9 +34,9 @@ The ECS instance to be switched must meet the following requirements:
 3.  Select a region.
 4.  Select one or more instances of Pay-As-You-Go mode, and under the instance list, click **Switch to Subscription**.
 5.  On the Switch to Subscription page, click **Batch Change**.
-6.  On the dialog box, set the Subscription Plan, including:
+6.  On the dialog box, set the **Subscription Plan**, including:
     -   Duration: You can set the length of service time for the subscription instance, 1 month or 1 year. Instances executed in batch must have the same length of service time.
-    -   Data Disk: Optional. If some data disks, which may be of Pay-As-You-Go mode, are mounted or attached to the selected instances, you can determine to **switch their billing method to Subscription**.
+    -   Data Disk: Optional. If some data disks, which may be of Pay-As-You-Go mode, are mounted or attached to the selected instances, you can determine to switch their billing method to Subscription.
 7.  Click **OK** to place an order and go to the payment page.
 
     After you make the payment, the operation is complete.
@@ -50,7 +50,6 @@ Any of the following error messages may be prompted:
 
 -   The current instance status is not supported to switch.
 -   Switch is not allowed because the release time has been set for the instance.
--   Switch is not allowed because the instance has expired.
 -   Switch is not allowed because instance information has changed.
 -   A switch order for the instance has not been paid.
 
