@@ -1,6 +1,6 @@
 # Renewal overview {#concept_dzp_g2d_5db .concept}
 
-After the Subscription instance expires, if you want to keep it, you need to renew it within in a specific period. Otherwise, the instance and disks will be released, and the data will be lost permanently. For more infomation about the status change after the instance expires, see Subscription
+If you want to continue using a Subscription instance after it expires, you must renew the instance within the prescribed period. Otherwise, both the instance and disk are automatically released. The data is erased permanently beyond recovery. For more information about the changes in the status after a Subscription instance expires, see [Subscription](intl.en-US/Pricing/Subscription.md#).
 
 **Note:** 
 
@@ -9,15 +9,15 @@ After the Subscription instance expires, if you want to keep it, you need to ren
 
 Subscriptions to Alibaba Cloud ECS can be renewed by the following means:
 
--   Manual renewal.  It has the following features:
+-   [Manual renewal](intl.en-US/Pricing/Renew instances/Manual renewal.md#). It has the following features:
 
     -   The instance configuration is unchangeable at the time of renewal.
     -   Renewal cycles: One month or one year.
--   Auto-renewal.  You can enable the auto-renewal feature for an instance at or after instance creation. The instance is automatically renewed before it expires. It has the following features:
+-   [Auto-renewal](intl.en-US/Pricing/Renew instances/Auto-renewal.md#). You can enable the auto-renewal feature for an instance at or after instance creation. The instance is automatically renewed before it expires. It has the following features:
 
     -   The instance configuration is unchangeable at the time of renewal.
     -   Renewal cycles: Renewed based on the current billing cycle of the instance.
--   Renewal for Configuration Downgrade.  You can downgrade the configuration of an instance and its associated resources when renewing the instance. The downgraded configuration takes effect in the next billing cycle, which can reduce the costs. It has the following features:
+-   [Renewal for Configuration Downgrade](intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#). You can downgrade the configuration of an instance and its associated resources when renewing the instance. The downgraded configuration takes effect in the next billing cycle, which can reduce the costs. It has the following features:
 
     -   The instance configuration is changeable at the time of renewal.
     -   Renewal cycles: One month or one year.
