@@ -16,7 +16,7 @@ The following table lists Internet bandwidth types and related information for E
  |[Open a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to increase the bandwidth limit to 200 Mbit/s for a Pay-As-You-Go instance.|
 |Inbound bandwidth|The bandwidth for inbound traffic to ECS instances. For example, you want to download resources for external networks from inside the ECS instance, or upload resources to ECS instances by using an FTP client.|The maximum speed is 200 Mbit/s.|The limit cannot be increased.|
 
-Alibaba Cloud only charges fees for outbound traffic usage. The fee is calculated on an hourly basis and the billing unit is USD/GB. To prevent high charges because of sudden traffic spikes, you can set a peak value for outbound bandwidth while creating an instance.
+Alibaba Cloud only charges fees for outbound traffic usage. The fee is calculated on an hourly basis and the billing unit is USD/GB. To prevent high charges because of sudden traffic spikes, you can set a peak value for outbound bandwidth while creating an instance
 
 **Note:** Traffic between ECS instances on the same LAN is free of charge.
 
