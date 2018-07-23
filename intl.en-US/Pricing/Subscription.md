@@ -1,4 +1,4 @@
-# Subscription {#subs_intl .concept}
+# Subscription {#subs_china .concept}
 
 The Subscription billing is a Subscription method, in which you can use the resources only after you make the payment.
 
@@ -20,7 +20,7 @@ You can pay for resources in Subscription mode using either of the following met
 
 -   Coupons that can be used to pay for Subscription products under your account.
 
-    **Note:** Log on to the ECS console and select **Billing Management** \> **Coupon Management** to view the **Applicable Scenarios** of your coupons and determine whether the coupons are applicable to Subscription products.
+    **Note:** Log on to the ECS console and select **Billing Management \>** \> **Coupon Management** to view the **Applicable Scenarios** of your coupons and determine whether the coupons are applicable to Subscription products.
 
 
 ## Settlement cycle {#section_mlw_jv2_zdb .section}
@@ -33,7 +33,7 @@ The price unit varies depending on different resources. The following table list
 
 |Resource|Price unit|
 |:-------|:---------|
-|ECS instance |USD/month|
+|ECS instance|USD/month|
 |Image|USD/month|
 |System disk|USD/\(GiB\*month\)|
 |Data disk|USD/\(GiB\*month\)|
@@ -48,14 +48,14 @@ The auto-renewal feature affects the status changes of the resources when a Subs
 
 If a Subscription instance is not set to be auto-renew, it is out of service at any time within the 24 hours from 00:00:00 of the expiration day to the next 00:00:00. If you do not manually renew the instance within 15 days after it expires, the status changes of related resources are displayed in the following table.
 
-|Period|ECS instances and images |System disks |Data disks |Internet IP addresses |Snapshots|
-|:-----|:------------------------|:------------|:----------|:---------------------|:--------|
-|On the expiration day |Out of service\*, and images are disabled |Out of service, but data is retained |Out of service, but data on cloud disks, local disks, or shared block storage devices is retained| For an instance of the Classic network type: If an Internet IP address is assigned, it is retained.
+|Period|ECS instances and images|System disks|Data disks|Internet IP addresses|Snapshots|
+|:-----|:-----------------------|:-----------|:---------|:--------------------|:--------|
+|On the expiration day.|Out of service\*, and images are disabled.|Out of service, but data is retained.|Out of service, but data on cloud disks, local disks, or shared block storage devices is retained.| For an instance of the Classic network type: If an Internet IP address is assigned, it is retained.
 
  For a VPC-Connected ECS instance: If an Internet IP address is assigned, it is retained; If an EIP address is bound, it is retained.
 
  |Retained.|
-|15 days after expiration day|Released automatically |Released along with the instance, and data cannot be recovered.| By default, cloud disks are released along with the instance and data on them cannot be recovered. If you have set the cloud disks not to be released along with the instance, the disks stop working.
+|15 days after expiration day|Released automatically|Released along with the instance, and data cannot be recovered.| By default, cloud disks are released along with the instance and data on them cannot be recovered. If you have set the cloud disks not to be released along with the instance, the disks stop working.
 
  Local disks are released along with the instance and data on them cannot be recovered.
 
@@ -65,7 +65,7 @@ If a Subscription instance is not set to be auto-renew, it is out of service at 
 
  For a VPC-Connected ECS instance: If an Internet IP address is assigned, it is retained; If an EIP address is bound, it is unbound from the instance.
 
- |Automatic snapshots are automatically deleted, but those manually created are retained.|
+ |Automatic snapshots are automatically deleted, but those manually created are retained.Manual snapshots are not affected.|
 
 \* When an instance is **Out of service**, you cannot connect to it, the website deployed on the instance cannot be accessed, or your business start to run abnormally.
 
@@ -75,15 +75,15 @@ If a Subscription instance is not set to be auto-renew, it is out of service at 
 
 If a Subscription instance is set to be renewed automatically, but it fails to be renewed in the specified period, the status changes of the related resources are displayed in the following table.
 
-|Period|ECS instances and images |System disks|Data disks |Internet IP addresses |Snapshots|
-|:-----|:------------------------|:-----------|:----------|:---------------------|:--------|
-|Within 15 days after the expiration day |Running properly\*. |Running properly. |Running properly. |Retained. |Retained. |
-|15 days after the expiration day |The instance is out of service at any time within the 24 hours from 00:00:00 of the 15th day after expiration to the next 00:00:00.  Out of service\*\* and images are disabled. |Out of service, but data is retained. |Out of service, but data is retained.| For an instance of the Classic network type: If an Internet IP address is assigned, it is released.
+|Period| ECS instances and images|System disks|Data disks|Internet IP addresses|Snapshots|
+|:-----|:------------------------|:-----------|:---------|:--------------------|:--------|
+|Within 15 days after the expiration day|Running properly\*.|Running properly.|Running properly.|Retained.|Retained.|
+|15 days after the expiration day|The instance is out of service at any time within the 24 hours from 00:00:00 of the 15th day after expiration to the next 00:00:00. Out of service\*\* and images are disabled.|Out of service, but data is retained.|Out of service, but data is retained.| For an instance of the Classic network type: If an Internet IP address is assigned, it is released.
 
  For a VPC-Connected ECS instance: If an Internet IP address is assigned, it is retained; If an EIP address is bound, it is retained.
 
  |Retained.|
-|30 days after the expiration day |Automatically released. |Released along with the instance, and data cannot be recovered.| By default, the cloud disks are released along with the instance. If you set them not to be released along with the instance, they stop working.
+|30 days after the expiration day|Automatically released.|Released along with the instance, and data cannot be recovered.| By default, the cloud disks are released along with the instance. If you set them not to be released along with the instance, they stop working.
 
  Local disks are released along with the instance.
 
