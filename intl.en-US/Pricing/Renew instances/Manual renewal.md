@@ -4,7 +4,7 @@
 
 Manual renewal only applies to instances in **Subscription** mode.
 
-When your instances in Subscription mode are in the **Expired** status or **shut down**, You can manually renew them. You can manually renew your instance for a month or a year. Therefore, if you want to modify the service duration of your subscription-mode instances, you can choose manual renewal.
+You can manually renew your instances in **Subscription** mode when they are in the **Expired** status or shut down. You can manually renew your instance for a month or a year. Therefore, if you want to modify the service duration of your subscription-mode instances, you can choose manual renewal.
 
 -   Your instance will still work normally when the instance is in the **Expired**  status. If the manual renewal is successfully completed within 15 days after expiration, your instance will go into the next billing cycle from the day of expiration.
 
@@ -28,8 +28,11 @@ You can manually renew your instance with the following steps.
 2.  In the left-side navigation pane, click **Instances**.
 3.  On the Instance List page, select the expected region and locate the ECS instance by the instance name, instance ID, or status \( **Expired**\).
 4.  In the **Actions** column, click **Renew**.
+
+    ![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/48360/intl_en/1490601672035/ecs%20_%20renew.png)
+
 5.  On the renewal page,
     1.  Confirm the instance configuration.
-    2.  Select the expected renewal length, 1 Month or 1 Year, and click Place Order.
+    2.  Select the expected renewal length, **1 Month** or **1 Year**, and click **Place Order**.
 6.  On the Pay page, confirm the order information and click **Pay** to complete the renewal operation.
 
