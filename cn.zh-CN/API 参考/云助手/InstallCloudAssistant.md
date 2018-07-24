@@ -8,7 +8,7 @@
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：InstallCloudAssistant|
 |RegionId|String|是|实例所在地域ID。您可以调用[DescribeRegions](cn.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
-|InstanceIds|Array|是|实例ID列表。以Python SDK为例，您可以取值为\[InstanceID1, InstanceID2, InstanceID3…\]，单次请求最多支持100台实例。|
+|InstanceIds|Array|是|实例ID列表。以Python SDK为例，您可以取值为\[InstanceID1, InstanceID2, InstanceID3…\]，单次请求最多支持20台实例。|
 
 ## 返回参数 {#ResponseParameter .section}
 
@@ -51,6 +51,6 @@ https://ecs.aliyuncs.com/?Action=InstallCloudAssistant
 |:---|:---|:-------|:-|
 |MissingParameter.RegionId|The input parameter “RegionId” that is mandatory for processing this request is not supplied.|400|`RegionId`为必需参数。或者您暂时无法使用该地域里的资源。|
 |MissingParameter.InstanceIds|The input parameter “InstanceIds” that is mandatory for processing this request is not supplied.|400|`InstanceIds`为必需参数。|
-|InvalidInstance.NotFound|The specified instances does not exist.|404|指定的`InstanceId`不存在。|
+|InvalidInstance.NotFound|The specified instances do not exist.|404|指定的`InstanceId`不存在。|
 |InvalidRegionId.NotFound|The RegionId provided does not exist inour items.|404|指定的`RegionId`不存在。|
 
