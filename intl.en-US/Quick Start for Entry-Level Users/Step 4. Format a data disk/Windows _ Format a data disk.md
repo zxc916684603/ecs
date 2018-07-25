@@ -4,7 +4,7 @@ If you have already attached a data disk to your ECS instance, you must log on t
 
 This document describes how to create a single-partition data disk using a new data disk and format the partition. You can also create multiple partitions on a data disk according to your business needs.
 
-This document describes how to create a single-partition data disk using a new data disk and format the partition. You can also create multiple partitions on a data disk according to your business needs. This document only applies to partitioning a data disk less than 2 TiB. If you want to partition and format a data disk more than 2 TiB, see [Partition and format data disk more than 2 TiB](../../../../intl.en-US/User Guide/Cloud disks/Partition and format data disk more than 2 TB.md#).
+This document only applies to partitioning a data disk less than 2 TiB. If you want to partition and format a data disk more than 2 TiB, see [Partition and format data disk more than 2 TiB](../../../../intl.en-US/User Guide/Cloud disks/Partition and format data disk more than 2 TB.md#).
 
 **Warning:** 
 
