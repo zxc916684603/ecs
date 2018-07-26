@@ -2,13 +2,13 @@
 
 We perform the sender authentication for each request. Therefore, a signature information must be included in the request, irrespective of the use of HTTP or HTTPS protocol. By using the AccessKeyID and AccessKeySecret, we perform symmetric encryption to authenticate the sender request.
 
-The AccessKey is equivalent to a logon password. However, an AccessKey is used to call APIs, while the logon password is used to log on to the [ECS console](https://ecs.console.aliyun.com/) . Where an AccessKeyID is the visitor identity, an AccessKeySecret is the secret key to encrypt the signature string and to verify the signature string sent to our server. You must keep your AccessKey confidential to prevent possible data breach event.
+The AccessKey is equivalent to a logon password. However, an AccessKey is used to call APIs, while the logon password is used to log on to the [ECS console](https://ecs.console.aliyun.com/). Where an AccessKeyID is the visitor identity, an AccessKeySecret is the secret key to encrypt the signature string and to verify the signature string sent to our server. You must keep your AccessKey confidential to prevent possible data breach event.
 
 **Note:** We provide SDKs and third-party SDKs for multiple programming languages to help you skip the authentication process. For more information, see [SDK](https://github.com/aliyun).
 
 ## Step 1. Compose a standardized request URL {#section_czy_tyb_wdb .section}
 
-1.  Sort the request parameters in an lexicographical order. The request parameters include the API-specific parameters and [common request parameters](intl.en-US/API Reference/Call methods/Common parameters.md#commonRequestParameters) except for the `Signature` parameter.
+1.  Sort the request parameters in a lexicographical order. The request parameters include the API-specific parameters and [common request parameters](intl.en-US/API Reference/Call methods/Common parameters.md#commonRequestParameters) except for the `Signature` parameter.
 
     **Note:** For example, if you make a request by using the GET method, these parameters are in the section of the URL followed by a question mark `?` and connected by ampersands `&`.
 
@@ -153,7 +153,7 @@ Assume that you are calling the [DescribeRegions](intl.en-US/API Reference/Regio
       canonicalizedQueryString.toString().substring(1)));
     ```
 
-4.  Sign and encode the signature. Because you have the AccessKeySecret=testsecret, the Key for computing HMAC is `testsecret&` and the value of signature after calculation is  `OLeaidS1JvxuMvnyHOwuJ%2BuX5qY%3D`.
+4.  Sign and encode the signature. Because you have the AccessKeySecret=testsecret, the Key for computing HMAC is `testsecret&` and the value of signature after calculation is `OLeaidS1JvxuMvnyHOwuJ%2BuX5qY%3D`.
 
     ```
     
@@ -167,7 +167,7 @@ Assume that you are calling the [DescribeRegions](intl.en-US/API Reference/Regio
     String signature = new String(Base64.encodeBase64(signData));
     ```
 
-    After adding the Signature parameter, the request URL encoded according to [RFC3986](http://tools.ietf.org/html/rfc3986)  rules is ready to use.
+    After adding the Signature parameter, the request URL encoded according to [RFC3986](http://tools.ietf.org/html/rfc3986) rules is ready to use.
 
     ```
     http://ecs.aliyuncs.com/?SignatureVersion=1.0&Action=DescribeRegions&Format=XML&SignatureNonce=3ee8c1b8-83d3-44af-a94f-4e0ad82fd6cf&Version=2014-05-26&AccessKeyId=testid&Signature=OLeaidS1JvxuMvnyHOwuJ%2BuX5qY%3D&SignatureMethod=HMAC-SHA1&Timestamp=2016-02-23T12%253A46%253A24Z
