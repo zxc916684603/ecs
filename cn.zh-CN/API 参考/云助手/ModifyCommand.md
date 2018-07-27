@@ -12,21 +12,14 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：ModifyCommand|
-|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
-|CommandId|String|是|命令 ID。您可以通过接口 [DescribeCommands](cn.zh-CN/API参考/云助手/DescribeCommands.md#) 查询所有可用的 `CommandId`。|
-|Name|String|否|命令名称，支持全字符集。|
-|Description|String|否|命令描述，支持全字符集。|
-|WorkingDir|String|否|命令将在实例中的什么路径下执行。默认值：-   对于 Linux 实例，默认在管理员 root 用户的 home 目录下，具体为 `/root` 目录。
--   对于 Windows 实例，默认在 [云助手客户端](../cn.zh-CN/产品简介/云助手/云助手客户端.md#) 进程所在目录，例如，`C:\ProgramData\aliyun\assist\$(version)`。
-
-|
-|TimeOut|Integer|否|修改命令在 ECS 实例中执行时最大的超时时间，单位为秒。当因为某种原因无法运行您创建的命令时，会出现超时现象；超时后，云助手客户端会强制终止命令进程，即取消命令的 PID。参数取值必须大于等于 `60`，如果取值小于 `60`，默认为 60 秒。默认值：3600
-
-|
+|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|CommandId|String|是|命令 ID。您可以通过接口 [DescribeCommands](cn.zh-CN/API 参考/云助手/DescribeCommands.md#) 查询所有可用的 `CommandId`。|
+|Name|String|否|命令名称，支持全字符集。长度不得超过 30 个字符。|
+|Description|String|否|命令描述，支持全字符集。长度不得超过100个字符。|
 
 ## 返回参数 {#section_f54_lk5_xdb .section}
 
-全是公共返回参数。参阅 [公共参数](cn.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅 [公共返回参数](cn.zh-CN/API 参考/调用方式/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -47,7 +40,7 @@ https://ecs.aliyuncs.com/?Action=ModifyCommand
 
 ```
 <ModifyCommandResponse>
-    <RequestId>540CFF28-407A-40B5-B6A5-73Bxxxxxxxxx</RequestId>
+    <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
 </ModifyCommandResponse>
 ```
 
@@ -55,7 +48,7 @@ https://ecs.aliyuncs.com/?Action=ModifyCommand
 
 ```
 {
-    "RequestId":"540CFF28-407A-40B5-B6A5-73Bxxxxxxxxx",
+    "RequestId":"E69EF3CC-94CD-42E7-8926-F133B86387C0",
 }
 ```
 
@@ -65,21 +58,21 @@ https://ecs.aliyuncs.com/?Action=ModifyCommand
 
 ```
 <Error>
-    <RequestId>540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx</RequestId>
+    <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
     <HostId>ecs.aliyuncs.com</HostId>
-    <Code>InvalidInstance.NoClient</Code>
-    <Message>The specified instances have no cloud assistant client installed.</Message>
+    <Code>InvalidCmdId.NotFound</Code>
+    <Message>The specified command ID does not exist.</Message>
 </Error>
 ```
 
- **JSON 格式** 
+**JSON 格式** 
 
 ```
 {
-    "RequestId": "540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx",
+    "RequestId": "E69EF3CC-94CD-42E7-8926-F133B86387C0",
     "HostId": "ecs.aliyuncs.com"
-    "Code": "InvalidInstance.NoClient"
-    "Message": "The specified instances have no cloud assistant client installed."
+    "Code": "InvalidCmdId.NotFound"
+    "Message": "The specified command ID does not exist."
 }
 ```
 
