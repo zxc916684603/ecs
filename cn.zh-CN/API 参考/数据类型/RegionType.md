@@ -12,4 +12,5 @@ Region
 |:-|:-|:-|
 |RegionId|String|地域 ID|
 |LocalName|String|地域名称|
+|RegionEndpoint|String|地域对应的接入地址（Endpoint）|
 
