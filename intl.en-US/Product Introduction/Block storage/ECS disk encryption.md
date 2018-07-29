@@ -2,7 +2,7 @@
 
 ## What is ECS disk encryption {#concept .section}
 
-When you want to encrypt the data stored on a disk due to business needs or certification requirements, you can use ECS disk encryption function to encrypt cloud disks and shared block storage \(referred to collectively as  **cloud disks**, unless otherwise specified\). This secure encryption feature allows you to encrypt new cloud disks. You do not have to create, maintain, or protect your own key management infrastructure, nor change any of your existing applications or maintenance processes. In addition, no extra decryption operations are required, so the operation of the disk encryption function is practically invisible to your applications or your operations.
+When you want to encrypt the data stored on a disk due to business needs or certification requirements, you can use ECS disk encryption function to encrypt cloud disks and shared block storage \(referred to collectively as **cloud disks**, unless otherwise specified\). This secure encryption feature allows you to encrypt new cloud disks. You do not have to create, maintain, or protect your own key management infrastructure, nor change any of your existing applications or maintenance processes. In addition, no extra decryption operations are required, so the operation of the disk encryption function is practically invisible to your applications or your operations.
 
 Encryption and decryption barely degrades cloud disk performance. For information on the performance testing method, see [Storage parameters and performance test](intl.en-US/Product Introduction/Block storage/Storage parameters and performance test.md#).
 
@@ -20,13 +20,13 @@ ECS disk encryption supports all available instance types.
 
 ## ECS disk encryption dependencies {#dependencies .section}
 
-The ECS disk encryption function depends on the Key Management Service \(KMS\) in the same region. However, you are not required to perform any additional operations in the KMS console, unless you want to perform separate KMS operations.
+The ECS disk encryption function depends on the [Key Management Service \(KMS\)](https://www.alibabacloud.com/help/doc-detail/28935.htm) in the same region. However, you are not required to perform any additional operations in the KMS console, unless you want to perform separate KMS operations.
 
 The first time you use the ECS disk encryption function when you are creating ECS instances or cloud disks, you must follow the prompts to authorize and activate KMS. Otherwise, you cannot create encrypted cloud disks or instances with encrypted disks.
 
-If you use an API or the CLI to use the ECS disk encryption function, such as CreateInstance or CreateDisk, you must first activate KMS on the Alibaba Cloud website.
+If you use an API or the CLI to use the ECS disk encryption function, such as [CreateInstance](../../../../intl.en-US/API Reference/Instances/CreateInstance.md#) or [CreateDisk](../../../../intl.en-US/API Reference/Disk/CreateDisk.md#), you must first activate KMS on the Alibaba Cloud website.
 
-The first time you encrypt a disk in a given region, Alibaba Cloud automatically creates a Customer Master Key \(CMK\) in the KMS region, exclusively for ECS. You cannot delete this CMK and can query it in the KMS console.
+The first time you encrypt a disk in a given region, Alibaba Cloud automatically creates a [Customer Master Key \(CMK\)](https://www.alibabacloud.com/help/doc-detail/28936.htm) in the KMS region, exclusively for ECS. You cannot delete this CMK and can query it in the KMS console.
 
 ## Key management for ECS disk encryption {#kms .section}
 
@@ -48,12 +48,12 @@ The CMK that ECS creates for you in each region is a service key. It does not co
 
 These operations include:
 
--   Creating encrypted cloud disks by calling CreateInstance or CreateDisk.
--   Attaching an encrypted cloud disk to an instance by calling AttachDisk.
--   Detaching an encrypted cloud disk from an instance by calling DetachDisk.
--   Creating a snapshot by calling CreateSnapshot.
--   Restoring a cloud disk by calling ResetDisk.
--   Re-initializing a cloud disk by calling ReInitDisk.
+-   Creating encrypted cloud disks by calling [CreateInstance](../../../../intl.en-US/API Reference/Instances/CreateInstance.md#) or [CreateDisk](../../../../intl.en-US/API Reference/Disk/CreateDisk.md#).
+-   Attaching an encrypted cloud disk to an instance by calling [AttachDisk](../../../../intl.en-US/API Reference/Disk/AttachDisk.md#).
+-   Detaching an encrypted cloud disk from an instance by calling [DetachDisk](../../../../intl.en-US/API Reference/Disk/DetachDisk.md#).
+-   Creating a snapshot by calling [CreateSnapshot](../../../../intl.en-US/API Reference/Snapshots/CreateSnapshot.md#).
+-   Restoring a cloud disk by calling [ResetDisk](../../../../intl.en-US/API Reference/Disk/ResetDisk.md#).
+-   Re-initializing a cloud disk by calling [ReInitDisk](../../../../intl.en-US/API Reference/Disk/ReInitDisk.md#).
 
 ## Create an encrypted cloud disk {#howtocreate .section}
 
@@ -65,23 +65,18 @@ Currently, only cloud disks can be encrypted. You can create an encrypted cloud 
     -   Select an encrypted screenshot to create a cloud disk.
 -   When using APIs or the CLI:
 
-    -   Set the parameter `DataDisk.n.Encrypted` \(CreateInstance\) or Encrypted  `Encrypted` \(CreateDisk\) to `true`.
-    -   In CreateInstance or CreateDisk, specify the `SnapshotId` parameter of the encrypted snapshot.
+    -   Set the parameter `DataDisk.n.Encrypted` \([CreateInstance](../../../../intl.en-US/API Reference/Instances/CreateInstance.md#)\) or `Encrypted` \([CreateDisk](../../../../intl.en-US/API Reference/Disk/CreateDisk.md#)\) to `true`.
+    -   Specify the `SnapshotId` parameter of the encrypted snapshot in [CreateInstance](../../../../intl.en-US/API Reference/Instances/CreateInstance.md#) or [CreateDisk](../../../../intl.en-US/API Reference/Disk/CreateDisk.md#).
 
 ## Convert unencrypted data to encrypted data {#convert .section}
 
-You cannot directly convert an **unencrypted disk** to an **encrypted disk**. Likewise, you cannot convert a snapshot created from an **unencrypted disk** to an **encrypted snapshot**.
-
-You cannot directly convert an **unencrypted disk** to an **encrypted disk**. Likewise, you cannot convert a snapshot created from an **unencrypted disk** to an **encrypted snapshot**.
-
-Therefore, if you must encrypt existing data from an **unencrypted disk** to an **encrypted snapshot**, we recommend that you use the `rsync` command in a Linux instance or the `robocopy` command in a Windows instance to copy data from an **unencrypted disk** to a \(new\) **encrypted disk**.
-
-If you must encrypt existing data from an **encrypted disk** to an **unencrypted snapshot**, we recommend that you use the `rsync` command in a Linux instance or the `robocopy` command in a Windows instance to copy data from an **encrypted disk** to a \(new\) **unencrypted disk**.
+You cannot directly convert an unencrypted disk to an encrypted disk. Likewise, you cannot convert a snapshot created from an unencrypted disk to an encrypted snapshot. Therefore, if you must encrypt existing data, we recommend that you use the `rsync` command in a Linux instance or the `robocopy` command in a Windows instance to copy data from an unencrypted disk to a \(new\) encrypted disk.
 
 ## Limits {#limits .section}
 
 ECS disk encryption has the following limits:
 
+-   Now, all regions support cloud disk encryption except for US East and US West.
 -   You can only encrypt cloud disks, not local disks or ephemeral disks.
 -   You can only encrypt data disks, not system disks.
 -   You cannot directly convert existing unencrypted disks into encrypted disks.
