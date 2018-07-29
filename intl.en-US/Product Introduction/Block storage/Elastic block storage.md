@@ -2,7 +2,7 @@
 
 Elastic block storage is a low-latency, persistent, and high-reliability random block-level data storage service provided by Alibaba Cloud to ECS users. It uses a [triplicate distributed system](intl.en-US/Product Introduction/Block storage/Triplicate technology.md#) to provide 99.9999999% data reliability for ECS instances. Elastic block storage supports the automatic copying of your data within the zone. It prevents unexpected hardware faults from causing data unavailability and protects your service against the threat of component faults.  Like what you can do with a hard disk, you can partition the elastic block storage attached to an ECS instance, create a file system, and store data on it.
 
-You can expand your elastic block storage as needed at any time.  For more information, see [Linux \_ Resize a data disk](../../../../intl.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md#) or  [Increase system disk size](../../../../intl.en-US/User Guide/Cloud disks/Resize cloud disks/Increase system disk size.md#). You can also create snapshots to back up data for the elastic block storage. For more information about snapshots, see [What are ECS snapshots](intl.en-US/Product Introduction/Snapshots/What are ECS snapshots.md#).
+You can expand your elastic block storage as needed at any time.  For more information, see [Linux \_ Resize a data disk](../../../../intl.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md#) or  [Increase system disk size](../../../../intl.en-US/User Guide/Cloud disks/Resize cloud disks/Increase system disk size.md#). You can also create snapshots to back up data for the elastic block storage. For more information about snapshots, see [Snapshots](intl.en-US/Product Introduction/Snapshots/What are ECS snapshots.md#).
 
 Based on whether it can be attached to multiple ECS instances, the elastic block storage can be divided into:
 
@@ -32,9 +32,9 @@ When used as data disks, cloud disks share the data disk quota with Shared Block
 
 ## Shared Block Storage {#section_gnz_nbw_ydb .section}
 
-The Shared Block Storage is a block-level data storage service with high level of concurrency, performance, and reliability. It supports concurrent reads/writes to multiple ECS instances. It delivers the data reliability of up to 99.9999999. Shared Block Storage can be attached to a maximum of 8 ECS instances. This service is currently in public beta, during which the Shared Block Storage can be attached to a maximum of four ECS instances.
+The Shared Block Storage is a block-level data storage service with high level of concurrency, performance, and reliability. It supports concurrent reads/writes to multiple ECS instances. It delivers the data reliability of up to 99.9999999%. Shared Block Storage can be attached to a maximum of 8 ECS instances. This service is currently in public beta, during which the Shared Block Storage can be attached to a maximum of four ECS instances.
 
-Shared Block Storage can only be used as data disks and can only be created separately. Shared access is allowed.  You can set the Shared Block Storage to release with the ECS instances.
+Shared Block Storage can only be used as data disks and can only be created separately. Shared access is allowed. You can set the Shared Block Storage to release with the ECS instances.
 
 Based on different performance, the Shared Block Storage can be divided into:
 
@@ -57,15 +57,15 @@ The billing method of a cloud disk depends on how it is created:
 You can change the billing method of a cloud disk, as shown in the following table.
 
 |Conversion of billing methods|Features|Effective date|Suitable for|
-|Subscription —\> Pay-As-You-Go|[Renew for configuration downgrade](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#)|Effective from the next billing cycle|Subscription cloud disks attached to Subscription instances.  The billing method of the system disk cannot be changed.|
-|Pay-As-You-Go —\> Subscription|[Upgrade configurations](../../../../intl.en-US/User Guide/Instances/Change configurations/Upgrade configurations of Subscription instances.md#)|Effective immediately|Pay-As-You-Go data disks attached to Subscription instances.  The billing method of the system disk cannot be changed.|
+|Subscription —\> Pay-As-You-Go|[Renew and downgrade configurations](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#)|Effective from the next billing cycle|Subscription cloud disks attached to Subscription instances.  The billing method of the system disk cannot be changed.|
+|Pay-As-You-Go —\> Subscription|[Upgrade configurations](../../../../intl.en-US/User Guide/Instances/Change configurations/Upgrade configurations of Subscription instances.md#)|Effective immediately|Pay-As-You-Go data disks attached to Subscription instances. The billing method of the system disk cannot be changed.|
 |[Switch from Pay-As-You-Go to subscription](../../../../intl.en-US/Pricing/Switch from Pay-As-You-Go to subscription.md#)|The system disks and data disks attached to the Pay-As-You-Go instances.|
 
 ## Related operations {#section_mnz_nbw_ydb .section}
 
 You can perform one of the following operations on an elastic block storage:
 
--   If [an elastic block storage device is created separately as a data disk](../../../../intl.en-US/User Guide/Cloud disks/Create a cloud disk.md#), you must [attach the device to an instance](../../../../intl.en-US/User Guide/Cloud disks/Attach a cloud disk.md#) in the console, and then connect to the ECS instance to [partition and format the data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Linux _ Format and mount a data disk.md#).
+-   If [an elastic block storage device is created separately as a data disk](../../../../intl.en-US/User Guide/Cloud disks/Create a cloud disk.md#), you must [attach the device to an instance](../../../../intl.en-US/User Guide/Cloud disks/Attach a cloud disk.md#) in the console, and then connect to the ECS instance to [partition and format the data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Linux _ Format and mount a data disk.md#).
 -   If you want to encrypt the data on elastic block storage, [encrypt the storage](intl.en-US/Product Introduction/Block storage/ECS disk encryption.md#).
 -   If your data disk capacity is insufficient, you can [resize the data disk](../../../../intl.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md#).
 -   If you want to change the operating system, you have to change the system disk.
@@ -74,7 +74,6 @@ You can perform one of the following operations on an elastic block storage:
 -   If you want to restore the elastic block storage to the status when the snapshot is created, you can [roll back the disk](../../../../intl.en-US/User Guide/Cloud disks/Roll back a cloud disk.md#) by using its snapshot.
 -   If you want to restore the elastic block storage to the status when it is created, you can [reinitialize the disk](../../../../intl.en-US/User Guide/Cloud disks/Reinitialize a cloud disk.md#).
 -   If you do not need the elastic block storage, you can [detach](../../../../intl.en-US/User Guide/Cloud disks/Detach a cloud disk.md#) and [release it](../../../../intl.en-US/User Guide/Cloud disks/Release a cloud disk.md#). 
--   If you do not need the elastic block storage, you can detach and release it.
 
 For more information about the operations on cloud disks, see the [Cloud disks](../../../../intl.en-US/User Guide/Cloud disks/Create a cloud disk.md#) section in the User Guide.
 
