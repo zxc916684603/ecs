@@ -10,11 +10,11 @@ Because a local disk is attached to a single physical server, the data reliabili
 
 Currently, Alibaba Cloud provides two types of local disks:
 
--   Local NVMe SSD: This disk is used together with instances of the following type families: i2, i1, gn5, and  ga1. The instance type families i1 and i2 apply to the following scenarios:
+-   Local NVMe SSD: This disk is used together with instances of the following type families: [i2, i1, gn5, and ga1](intl.en-US/Product Introduction/Instance type families.md#). The instance type families i1 and i2 apply to the following scenarios:
 
     -   Online games, e-businesses, live videos, media, and other industries that provide online businesses and have low latency and high I/O performance requirements on block level storage for I/O-intensive applications.
     -   Business scenarios that have high requirements on the storage I/O performance and availability of the application layer, such as NoSQL non-relational databases, MPP data warehouses, and distributed file systems.
--   Local SATA HDD: This disk is used together with instances of the d1ne and the d1 type families. It is applicable to the Internet, finance, and other allied businesses that require big data computing and storage analysis for massive data storage and offline computing business scenarios. It fully meets the needs of distributed computing business models represented by Hadoop in multiple aspects, such as instance storage performance, capacity, and intranet bandwidth.
+-   Local SATA HDD: This disk is used together with instances of [the d1ne and the d1 type families](intl.en-US/Product Introduction/Instance type families.md#). It is applicable to the Internet, finance, and other allied businesses that require big data computing and storage analysis for massive data storage and offline computing business scenarios. It fully meets the needs of distributed computing business models represented by Hadoop in multiple aspects, such as instance storage performance, capacity, and intranet bandwidth.
 
 
 ## Performance of local NVMe SSD {#section_kdp_m2w_ydb .section}
@@ -100,7 +100,7 @@ The following table shows how operations on an instance that has local storage a
 
 ## Related operations {#section_ydp_m2w_ydb .section}
 
-If your ECS instance comes with local disks, you must connect to the instance to [format the disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Linux _ Format and mount a data disk.md#). Unlike cloud disks, you cannot perform the following operations on local disks:
+If your ECS instance comes with local disks, you must connect to the instance to [format the disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Linux _ Format and mount a data disk.md#). Unlike cloud disks, you cannot perform the following operations on local disks:
 
 -   Independently creating an empty local disk or creating a local disk from a snapshot.
 -   Attaching a local disk in the ECS console.
