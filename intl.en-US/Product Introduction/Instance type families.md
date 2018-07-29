@@ -68,9 +68,9 @@ Alibaba Cloud ECS instances are categorized into the following type families:
 
 |Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[\*](#localdisk)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\) [\*\*](#pps)|NIC queues [\*\*\*](#queue)|ENIs [\*\*\*\*](#eni)|
 |:------------|:---|:-------------|:----------------------------------|:--------------------|:---------------------------------------------------|:--------------------------|:--------------------|
-|ecs.g5.large|2|8.0|N/A |1.0|300|2|2|
+|ecs.g5.large|2|8.0|N/A|1.0|300|2|2|
 |ecs.g5.xlarge|4|16.0|N/A|1.5|500|2|3|
-|ecs.g5.2xlarge|8|32.0|N/A |2.5|800|2|4.|
+|ecs.g5.2xlarge|8|32.0|N/A |2.5|800|2|4|
 |ecs.g5.4xlarge|16|64.0|N/A |5.0|1,000|4|8|
 |ecs.g5.6xlarge|24|96.0|N/A |7.5|1,500|6|8|
 |ecs.g5.8xlarge|32|128.0|N/A |10.0|2,000|8|8|
@@ -161,7 +161,7 @@ Click [here](#top) to view other instance type families.
 |:------------|:---|:-------------|:----------------------------------|:--------------------|:--------------------------------------------------|:-------------------------|:-------------------|
 |ecs.c5.large|2|4.0|N/A|1.0|300|2|2|
 |ecs.c5.xlarge|4|8.0|N/A|1.5|500|2|3|
-|ecs.c5.2xlarge|8|16.0|N/A|2.5|800|2|4.|
+|ecs.c5.2xlarge|8|16.0|N/A|2.5|800|2|4|
 |ecs.c5.4xlarge|16|32.0|N/A|5.0|1,000|4|8|
 |ecs.c5.6xlarge|24|48.0|N/A|7.5|1,500|6|8|
 |ecs.c5.8xlarge|32|64.0|N/A|10.0|2,000|8|8|
@@ -192,9 +192,9 @@ Click [here](#top) to view other instance type families.
 |:------------|:---|:-------------|:----------------------------------|:--------------------|:--------------------------------------------------|:-------------------------|:-------------------|
 |ecs.sn1ne.large|2|4.0|N/A|1.0|300|2|2|
 |ecs.sn1ne.xlarge|4|8.0|N/A|1.5|500|2|3|
-|ecs.sn1ne. 2 x large|8|16.0|N/A|2.0|1,000|4|4|
-|ecs.sn1ne. 4 x large|16|32.0|N/A|3.0|1,600|4|8|
-|ecs.sn1ne. 8xlarge|32|64.0|N/A|6.0|2,500|8|8|
+|ecs.sn1ne.2xlarge|8|16.0|N/A|2.0|1,000|4|4|
+|ecs.sn1ne.4xlarge|16|32.0|N/A|3.0|1,600|4|8|
+|ecs.sn1ne.8xlarge|32|64.0|N/A|6.0|2,500|8|8|
 
 **Note:** You can change the configurations of an sn1ne instance to any instance type in the sn2, sn2ne, sn1, sn1ne, se1, and se1ne instance type family.
 
@@ -251,10 +251,10 @@ Click [here](#top) to view other instance type families.
 |:------------|:---|:-------------|:----------------------------------|:--------------------|:--------------------------------------------------|:-------------------------|:-------------------|
 |ecs.se1ne.large|2|16.0|N/A|1.0|300|2|2|
 |ecs.se1ne.xlarge|4|32.0|N/A|1.5|500|2|3|
-|ecs.se1ne. 2xlarge|8|64.0|N/A|2.0|1,000|4|4|
-|ecs.se1ne. 4xlarge|16|128.0|N/A|3.0|1,600|4|8|
-|ecs.se1ne. 8xlarge|32|256.0|N/A|6.0|2,500|8|8|
-|ecs.se1ne. 14xlarge|56|480.0|N/A|10.0|4,500|14|8|
+|ecs.se1ne.2xlarge|8|64.0|N/A|2.0|1,000|4|4|
+|ecs.se1ne.4xlarge|16|128.0|N/A|3.0|1,600|4|8|
+|ecs.se1ne.8xlarge|32|256.0|N/A|6.0|2,500|8|8|
+|ecs.se1ne.14xlarge|56|480.0|N/A|10.0|4,500|14|8|
 
 **Note:** You can change the configurations of an se1ne instance to any instance type in the sn2, sn2ne, sn1, sn1ne, se1, and se1ne instance type family.
 
@@ -307,11 +307,11 @@ Click [here](#top) to view other instance type families.
 
 |Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[\*](#localdisk)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#pps)|NIC queues[\*\*\*](#queue)|ENIs[\*\*\*\*](#eni)|
 |:------------|:---|:-------------|:----------------------------------|:--------------------|:--------------------------------------------------|:-------------------------|:-------------------|
-|ecs.d1ne. 2xlarge|8|32.0|4 \* 5500|6.0|1,000|4|4|
-|ecs.d1ne. 4xlarge|16|64.0|8 \* 5500|12.0|1,600|4|8|
-|ecs.d1ne. 6xlarge|24|96.0|12 \* 5500|16.0|2,000|6|8|
-|ecs.d1ne. 8xlarge|32|128.0|16 \* 5500|20.0|2,500|8|8|
-|ecs.d1ne. 14xlarge|56|224.0|28 \* 5500|35.0|4,500|14|8|
+|ecs.d1ne.2xlarge|8|32.0|4 \* 5500|6.0|1,000|4|4|
+|ecs.d1ne.4xlarge|16|64.0|8 \* 5500|12.0|1,600|4|8|
+|ecs.d1ne.6xlarge|24|96.0|12 \* 5500|16.0|2,000|6|8|
+|ecs.d1ne.8xlarge|32|128.0|16 \* 5500|20.0|2,500|8|8|
+|ecs.d1ne.14xlarge|56|224.0|28 \* 5500|35.0|4,500|14|8|
 
 **Note:** 
 
@@ -480,7 +480,7 @@ Click [here](#top) to view other instance type families.
 
 **Features**
 
--   -   I/O-optimized
+-   I/O-optimized
 -   Supports SSD Cloud Disks and Ultra Cloud Disks
 -   Stable performance
 -   3.2 GHz Intel Xeon E5-2667 v4 \(Broadwell\) processors
@@ -578,9 +578,9 @@ Click [here](#top) to view other instance type families.
 
 **Features**
 
--   -   I/O-optimized
+-   I/O-optimized
 -   Supports SSD Cloud Disks and Ultra Cloud Disks
--   Intel Arria 10 GX 1150 FPGA
+-   Intel ARRIA 10 GX 1150 FPGA
 -   vCPU to memory ratio = 1:7.5
 -   2.5 GHz Intel Xeon E5-2682 v4 \(Broadwell\) processors
 -   Higher computing specifications matching higher network performance
