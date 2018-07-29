@@ -1,6 +1,6 @@
 # Benefits of ECS {#concept_c1y_bp2_vdb .concept}
 
-Compared with Internet Data Centers \(IDCs\) and server vendors, the ECS has the benefits in the following aspects: Availability, Security, Elasticity.
+Compared with Internet Data Centers \(IDCs\) and server vendors, the ECS has the benefits in the following aspects: availability, security, and elasticity.
 
 ## Availability {#section_jrm_cv4_ydb .section}
 
@@ -8,7 +8,7 @@ Alibaba Cloud adopts more stringent IDC standards, server access standards, and 
 
 In addition, each region of Alibaba Cloud consists of multiple zones. For greater fault tolerance, you can build active/standby or active/active services in multiple zones. For a finance-oriented solution with three IDCs in two regions, you can build fault tolerant systems in multiple regions and zones. Those services include disaster tolerance and backup, which are supported by the mature solutions built by Alibaba Cloud.
 
-Switching between services is smooth within the Alibaba Cloud framework. For more information, see [E-Commerce Solutions](https://www.alibabacloud.com/solutions/gaming). Alibaba Cloud industry solutions support a variety of services, such as finance, E-commerce, and video services. Alibaba Cloud provides you with the following support services:
+Switching between services is smooth within the Alibaba Cloud framework. For more information, see [E-Commerce Solutions](https://www.alibabacloud.com/solutions/gaming). Alibaba Cloud industry solutions support a variety of services, such as finance, E-commerce, and video services.
 
 Alibaba Cloud provides you with the following support services:
 
@@ -39,6 +39,11 @@ Elasticity is a key benefit of cloud computing. By using Alibaba Cloud, you can 
 
 ## **Elastic computing** {#section_orm_cv4_ydb .section}
 
+Elastic computing contains the following types of scalability:
+
+-   Vertical scaling
+-   Horizontal scaling
+
 **Vertical scaling** involves modifying the configurations of a server. After you purchase ECS or storage capacity of Alibaba Cloud, you can configure your server with great flexibility based on your actual transaction volume, whereas you may find it difficult to make configurations in the traditional IDC model. For more information about vertical scaling, see [Change configurations](../../../../intl.en-US/User Guide/Instances/Change configurations/Overview of configuration changes.md#).
 
 **Horizontal scaling** allows the re-division of resources between applications. For example, at peak hours for game or live video streaming apps, in the traditional IDC model, your hands may be tied when the request for additional resources arises. Cloud computing now leverages elasticity to tide you over that period. When the period ends, you release unnecessary resources to reduce your business cost. By using both horizontal scaling and auto-scaling that Alibaba Cloud provides, you can determine how and when you scale your resources or apply your scaling based on business loads. For more information about horizontal scaling, see [Auto Scaling](https://www.alibabacloud.com/help/doc-detail/25857.htm).
@@ -49,7 +54,13 @@ Alibaba Cloud has elastic storage. When more storage space is required, in the t
 
 ## Elastic network {#section_qrm_cv4_ydb .section}
 
-Alibaba Cloud features elastic network as well. When you purchase the Alibaba Virtual Private Cloud \(VPC\), you can have the network configurations the same as those of data centers. In addition, you can have the following benefits: interconnection between data centers, separate secure domains in data centers, and flexible network configurations and planning within the VPC. For more information about elastic network, see [Virtual Private Cloud](https://www.alibabacloud.com/help/product/27706.htm).
+Alibaba Cloud features elastic network as well. When you purchase the Alibaba Virtual Private Cloud \(VPC\), you can have the network configurations the same as those of data centers. In addition, you can have the following benefits:
+
+-   Interconnection between data centers
+-   Separate secure domains in data centers
+-   Flexible network configurations and planning within the VPC
+
+For more information about elastic network, see [Virtual Private Cloud](https://www.alibabacloud.com/help/product/27706.htm).
 
 Elasticity of Alibaba Cloud is a combination of elastic computing, storage, network, and the elasticity to redesign business architecture. By using Alibaba Cloud, you can work out your business portfolio in whatever way you want.
 
