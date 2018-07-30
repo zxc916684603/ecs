@@ -2,7 +2,7 @@
 
 If you want to partition and format a data disk more than 2 TB \(referred to as a **large data disk** in this article, and a disk smaller than 2 TB is a **small data disk**\), you must use the GPT format. This document describes how to partition and format a large data disk in different operating systems.
 
-**Note:** If you want to partition and format a data disk less than 2 TiB, please see [Linux \_ Format and mount a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Linux _ Format and mount a data disk.md#) and [Windows \_ Format a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Windows _ Format a data disk.md#).
+**Note:** If you want to partition and format a data disk less than 2 TiB, please see [Linux \_ Format and mount a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Linux _ Format and mount a data disk.md#) and [Windows \_ Format a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Windows _ Format a data disk.md#).
 
 ## Note {#section_xmm_psc_ydb .section}
 
@@ -42,7 +42,7 @@ The data disk has been attached to an instance. For detailed operation, see [Att
 To partition and format a large data disk, follow these steps:
 
 1.  [Connect to a Windows instance](intl.en-US/User Guide/Connect/Overview.md#).
-2.  Click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/4424_en-US.png) icon in the task bar.
+2.  Click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/15329666994424_en-US.png) icon in the task bar.
 3.  In the left-side navigation pane of **Server Manager**, select **Storage \> ** \> **Disk Management**.
 4.  Find the disk that is to be partitioned and formatted \(in this example,  **Disk 4**\). The disk status shows as **Offline**.
 5.  Right click the blank area around Disk 4, and then click **Online**.
@@ -103,7 +103,7 @@ After the formatted partition is completed, in **Disk Management**, the status o
 
 To partition and format a large data disk that is attached to a Linux instance, use the GPT format.  In Linux system, large data disk normally uses xfs or ext4 file system. 
 
-The example operating system is CentOS 7.4 64-bit.This section describes how to use **parted** and  **e2fsprogs** tools to partition and format a large data disk on a Linux instance.  Assume the data disk to be processed is an empty 3 TiB new disk, and the device name is  /dev/vdd。
+The example operating system is CentOS 7.4 64-bit.This section describes how to use **parted** and  **e2fsprogs** tools to partition and format a large data disk on a Linux instance.  Assume the data disk to be processed is an empty 3 TiB new disk, and the device name is  /dev/vdd.
 
 **Prerequisites**
 
@@ -162,7 +162,7 @@ To partition and format a large data disk and mount the file system, follow thes
 
     -   If you want to disable the lazy init function of ext4 file system to avoid its effect on data disk I/O performance, see [Appendix2: Disable lazy  init function.](#LazyInit).
     -   If capacity of the data disk is 16 TiB, you have to format it by using e2fsprogs in the designated version. See[Appendix1: update e2fsprogs](#e2fsprogs).
-    -   If you want to create an xfs file system, run `mkfs -t xfs /dev/vdd1`。
+    -   If you want to create an xfs file system, run `mkfs -t xfs /dev/vdd1`.
 5.  Run `mkdir /test` to create a mount point with the name /test.
 6.  Run `mount /dev/vdd1 /test` to mount /dev/vdd1 to /test.
 7.  Run `df -h` to check current disk space and usage. 
@@ -204,7 +204,7 @@ mkfs.ext4: Size of device /dev/vdd too big to be expressed in 32 bits using a bl
 
 To install e2fsprogs of later version, such as 1.42.8 in this example, follow these steps:
 
-1.  Run `rpm -qa | grep e2fsprogs` to check the current version of e2fsprogs.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/4439_en-US.png)
+1.  Run `rpm -qa | grep e2fsprogs` to check the current version of e2fsprogs.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/15329666994439_en-US.png)
 
     If the current version is earlier than 1.42, update the software by following these steps.
 
