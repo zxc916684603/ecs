@@ -4,7 +4,7 @@ You can unbind a tag from the resource if the tag is no longer applicable to res
 
 -   The Delete Tags function unbinds one or more tags from an instance at a time.
 
-    **Note:** Currently, this function is only available for instances.  It is unavailable for other resource types.
+    **Note:** Currently, this function is only available for instances. It is unavailable for other resource types.
 
 -   The Edit Tags function unbinds tags one by one.
 
@@ -27,7 +27,7 @@ See the following steps to delete tags:
 5.  Choose** More** \> **Delete Tags**.
 6.  In the Delete Tags dialog box, enter the **Tag Key** of the tags you want to unbind.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9743/4810_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9743/15329663814810_en-US.png)
 
 7.  Click **OK** to complete tag unbinding.
 
@@ -37,12 +37,12 @@ To check whether the tags are successfully unbound, use the Edit Tags function o
 
 The Edit Tags function unbinds one or more tags from a resource.
 
-See the following steps to unbind tags::
+See the following steps to unbind tags:
 
 1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
 2.  In the left-side navigation pane, select the resource type for the unbinding operation, such as Instance, Cloud Disks, Snapshots, Images, or Security Groups.
 
-    **Note:** The block storage function is now in beta，for more information, see [block storage FAQ](https://help.aliyun.com/knowledge_detail/53820.html) Learn more.
+    **Note:** The block storage function is now in beta. For more information, see [block storage FAQ](https://help.aliyun.com/knowledge_detail/53820.html) Learn more.
 
 3.  Select a region.
 4.  In the resource list, select the resource from which you want to unbind tags.
@@ -52,7 +52,7 @@ See the following steps to unbind tags::
 5.  Click **Edit Tags** at the bottom of the resource list.
 6.  In the Edit Tags dialog box, click the deletion icon next to a tag.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9743/4824_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9743/15329663814824_en-US.png)
 
 7.  Click **Confirm** to complete tag unbinding.
 
