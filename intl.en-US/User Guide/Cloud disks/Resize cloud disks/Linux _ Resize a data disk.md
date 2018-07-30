@@ -4,10 +4,10 @@ As your business grows, the current capacity of your data disks may not be able 
 
 **Note:** 
 
--   Resize the data disks that are attached to an instance only when the instance is in the **Running** or **Stopped** status. **You must restart the instance in the ECS console to apply the changes. This action causes your instance to stop working and may cause your business to be interrupted, so please proceed with caution.**。
+-   Resize the data disks that are attached to an instance only when the instance is in the **Running** or **Stopped** status. **You must restart the instance in the ECS console to apply the changes. This action causes your instance to stop working and may cause your business to be interrupted, so please proceed with caution.**
 -   We recommend that you manually create a snapshot to back up your data before resizing your data disk.
 -   You can resize a data disk when the data disk is either in the **Available** status or in the **In Use** status.
--   If you have renewed a Subscription ECS instance for configration downgrade \( [Renew for configuration downgrade](../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#) \), during its current billing cycle, you cannot resize the attached Subscription cloud disks, including its data or system disks.
+-   If you have renewed a Subscription ECS instance for configration downgrade \( [Renew for configuration downgrade](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#) \), during its current billing cycle, you cannot resize the attached Subscription cloud disks, including its data or system disks.
 -   If a snapshot is being created for a data disk, you cannot resize the data disk.
 -   You can resize data disks, but not system disks or local disks.
 
@@ -40,7 +40,7 @@ After the disk size is increased,
 
 -   If the data disk is attached to an instance, [Step 2. Log on to the instance to resize the file system](#ResizeInInstance).
 -   If the data disk is not attached to an instance, attach the disk to an instance in the console \([Attach a cloud disk](intl.en-US/User Guide/Cloud disks/Attach a cloud disk.md#)\) first, and then proceed depending on the data disk:
-    -   If it is a new data disk, which has not been formatted, format it.  For more information, see [../DNA0011854887/EN-US\_TP\_9604.md\#](../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Linux _ Format and mount a data disk.md#).
+    -   If it is a new data disk, which has not been formatted, format it.  For more information, see [Linux \_ Format and mount a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Linux _ Format and mount a data disk.md#).
     -   If it has been formatted and partitioned, [Step 2. Log on to the instance to resize the file system](#ResizeInInstance).
 
 ## Step 2. Log on to the instance to resize the file system {#ResizeInInstance .section}
@@ -122,7 +122,7 @@ In this example, the data disk is attached to a Linux instance running the 64-bi
 
         **Note:** If you are using the `parted` tool, type `p` in the `parted` window to list the current partition details. If any partition is displayed, use rm + serial number to delete the original partition table, then run the `unit s` command to specify the start unit, calculated by the number of sectors, and finally run the `mkpart` command to create it, as shown in the following figure.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9677/5353_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9677/15329666095353_en-US.png)
 
 4.  For some operating systems, the file system may be automatically mounted to the mount point after partitioning. We recommend that you run the `df -h` command to check the file system space and usage. Run the `umount [file system name]` to unmount the file system again.
 5.  Check the file system and resize the file system.
