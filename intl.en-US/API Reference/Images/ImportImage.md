@@ -1,21 +1,16 @@
 # ImportImage {#ImportImage .reference}
 
-Imports an on-premises image to Alibaba Cloud ECS. You can use the imported image to create an instance \([RunInstances](intl.en-US/API Reference/Instances/RunInstances.md#)\) or replace the system disk of an instance \([ReplaceSystemDisk](intl.en-US/API Reference/Disk/ReplaceSystemDisk.md#)\).
+Imports an on-premises image to Alibaba Cloud ECS.
 
 ## Description {#section_zj2_5wy_xdb .section}
 
-When you call this interface, consider the following:
+You can use the imported image to create instances \([RunInstances](intl.en-US/API Reference/Instances/RunInstances.md#)\) or replace the system disk of an instance \([ReplaceSystemDisk](intl.en-US/API Reference/Disk/ReplaceSystemDisk.md#)\). When you call this interface, consider the following:
 
--   You must [upload the image file to OSS](../../intl.en-US/Quick Start/Upload an object.md#) beforehand.
-
+-   You must [upload the image file to OSS](../../../../intl.en-US/Quick Start/Upload an object.md#) beforehand.
 -   You can only import an image file to a region from OSS in the same region. The image and OSS must belong to one account.
-
 -   The n in `DiskDeviceMapping.n` indicates the disk type. When n is set to 1, it represents a system disk. When n is set to \[2, 17\], it represents a data disk.
-
 -   You cannot delete an image that is being imported. However, you can cancel the image import task \([CancelTask](intl.en-US/API Reference/Others/CancelTask.md#)\).
-
--   To use [RAM](../../intl.en-US/Product Introduction/What is RAM.md#) to allow ECS to access OSS for your Alibaba Cloud account, follow these steps:
-
+-   To use [RAM](../../../../intl.en-US/Product Introduction/What is RAM.md#) to allow ECS to access OSS for your Alibaba Cloud account, follow these steps:
     1.  Create a role with a name `AliyunECSImageImportDefaultRole` \(**image import fails if a different name is used**\), and see the following code snippet to set its role policy.
 
         ```
@@ -93,12 +88,13 @@ Default value: Linux.|
 Default value: Others Linux.|
 |DiskDeviceMapping.n.Format|String|No|The image format. Optional values:-   RAW
 -   VHD
+-   qcow2
 
 After an image is imported, the image format is automatically checked and scanned. The result obtained from this process is used as the default value of this parameter.|
 |DiskDeviceMapping.n.OSSBucket|String|Yes|The OSS bucket where an image file is stored.|
 |DiskDeviceMapping.n.OSSObject|String|Yes|The name \(key\) of the OSS object with an image file.|
-|DiskDeviceMapping.n.DiskImageSize|String|No|The size of a custom image. The space of the disk must be larger than or equal to the actual used space of disks. Value range:-   When n is set to 1: \[5, 500\] GB.
--   When n is set to \[2, 16\]: \[5, 1000\] GB.
+|DiskDeviceMapping.n.DiskImageSize|String|No|The size of a custom image. The space of the disk must be larger than or equal to the actual used space of disks. Value range:-   When n is set to 1: \[5, 500\] GiB.
+-   When n is set to \[2, 16\]: \[5, 1000\] GiB.
 
 When you import an image, the system auto scans and checks the size of the image, and the checking result is used as a default value of this parameter.|
 
@@ -117,8 +113,8 @@ When you import an image, the system auto scans and checks the size of the image
 ```
 https://ecs.aliyuncs.com/?Action=ImportImage
 &RegionId=cn-hangzhou
-&DiskDeviceMapping. 1. OSSBucket=ecsimageos
-&DiskDeviceMapping. 1. OSSObject=CentOS_5.4_32.raw
+&DiskDeviceMapping.1.OSSBucket=ecsimageos
+&DiskDeviceMapping.1.OSSObject=CentOS_5.4_32.raw
 &<Common Request Parameters>
 ```
 
@@ -148,8 +144,8 @@ https://ecs.aliyuncs.com/?Action=ImportImage
 
 Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
-|Error code|Error message |HTTP status code|Meaning|
-|:---------|:-------------|:---------------|:------|
+|Error code|Error message|HTTP status code|Meaning|
+|:---------|:------------|:---------------|:------|
 |Forbbiden|User not authorized to operate on the specified resource|400|You cannot import the image now.[Open a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to enable the image import feature.
 
 |
