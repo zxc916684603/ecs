@@ -2,7 +2,7 @@
 
 An image is a running environment template for ECS instances.  It generally includes an operating system and preinstalled software. You can use an image to create an ECS instance or change the system disk of an ECS instance. It works as a file copy that includes data from one more multiple disks.  These disks can be a single system disk, or the combination of the system disk and data disks.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9572/5238_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9572/15330040175238_en-US.png)
 
 ## Image types {#section_nyg_r5w_ydb .section}
 
@@ -32,7 +32,7 @@ These images are of high stability and are licensed. You can customize your appl
 
 ## Image format {#section_tyg_r5w_ydb .section}
 
-Currently, ECS supports VHD and RAW.  You must convert other formats into VHD or RAW to use them in ECS
+Currently, ECS supports VHD, qcow2, and RAW.  You must convert other formats before using them in ECS
 
 ## Fees {#section_uyg_r5w_ydb .section}
 
@@ -64,13 +64,10 @@ Except for public images, custom images, Marketplace images, and shared images v
 **Console operations**
 
 -   You can create instances by using existing images.
-
 -   You can change the system disk in any of the following ways:
-
     -   Using a public image
     -   Using other images other than public ones
 -   You can obtain custom images in the following ways:
-
     -   Creating a custom image by using a snapshot
     -   Creating a custom image by using a an instance
     -   Importing a custom image
