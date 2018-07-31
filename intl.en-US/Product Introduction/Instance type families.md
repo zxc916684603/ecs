@@ -39,8 +39,6 @@ Alibaba Cloud ECS instances are categorized into the following type families:
     -   [ebmhfg5, ECS Bare Metal Instance type family with high clock speed](#ebmhfg5)
     -   [ebmc4, computing ECS Bare Metal Instance type family](#ebmc4)
     -   [ebmg5, general-purpose ECS Bare Metal Instance type family](#ebmg5)
-    -   [ebmhfg4, ECS Bare Metal Instance type family with high clock speed \(Coming soon\)](#ebmhfg4)
-    -   [ebmg4, general-purpose ECS Bare Metal Instance type family \(Coming soon\)](#ebmg4)
     -   [scch5, Super Computing Cluster \(SCC\) instance type family with high clock speed \(Coming soon\)](#scch5)
     -   [sccg5, geneneral-purpose Super Computing Cluster \(SCC\) instance type family \(Coming soon\)](#sccg5)
 -   Type families for entry-level computing on the x86-architecture:
@@ -656,7 +654,7 @@ Click [here](#top) to view other instance type families.
 |:------------|:---|:--------------|:----------------------------------|:--------------------|:--------------------------------------------------|:-------------------------|:--------------------|
 |ecs.ebmhfg5.2xlarge|8|32.0|N/A|6.0|2,000|8|6|
 
-**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instance/ECS Bare Metal Instance and Super Computing Clusters.md#).
+**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instances/ECS Bare Metal Instance and Super Computing Clusters.md#).
 
 Click [here](#top) to view other instance type families.
 
@@ -683,7 +681,7 @@ Click [here](#top) to view other instance type families.
 |:------------|:---|:--------------|:----------------------------------|:--------------------|:--------------------------------------------------|:-------------------------|:-------------------|
 |ecs.ebmc4.8xlarge|32|64.0|N/A|10.0|4,000|8|12|
 
-**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instance/ECS Bare Metal Instance and Super Computing Clusters.md#).
+**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instances/ECS Bare Metal Instance and Super Computing Clusters.md#).
 
 Click [here](#top) to view other instance type families.
 
@@ -711,64 +709,7 @@ Click [here](#top) to view other instance type families.
 |:------------|:---|:--------------|:----------------------------------|:--------------------|:--------------------------------------------------|:-------------------------|:-------------------|
 |ecs.ebmg5.24xlarge|96|384.0|N/A|10.0|4,500|8|32|
 
-**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instance/ECS Bare Metal Instance and Super Computing Clusters.md#).
-
-Click [here](#top) to view other instance type families.
-
-## ebmhfg4, ECS Bare Metal Instance type family with high clock speed \(Coming soon\) {#ebmhfg4 .section}
-
-**Features**
-
--   I/O-optimized
--   Supports SSD Cloud Disks and Ultra Cloud Disks
--   vCPU to memory ratio = 1:4
--   3.2 GHz Intel Xeon E5-2667 v4 \(Broadwell\) processors, up to 3.5 GHz Turbo Boot
--   High network performance: 4 million pps packet forwarding rate
--   Supports VPC network only
--   Provides dedicated hardware resources and physical isolation
--   Ideal for:
-    -   Gaming or financial applications featuring low latency and high performance
-    -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication services
-    -   High performance databases and in-memory databases
-    -   Data analysis and mining, and distributed memory cache
-
-**Instance types**
-
-|Instance type|vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#localdisk)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#pps)|NIC queues[\*\*\*](#queue)|ENIs[\*\*\*\*](#eni)|
-|:------------|:---|:--------------|:----------------------------------|:--------------------|:--------------------------------------------------|:-------------------------|:-------------------|
-|ecs.ebmhfg4.4xlarge|16|64.0|N/A|10.0|4,000|8|12|
-
-**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instance/ECS Bare Metal Instance and Super Computing Clusters.md#).
-
-Click [here](#top) to view other instance type families.
-
-## ebmg4, general-purpose ECS Bare Metal Instance type family \(Coming soon\) {#ebmg4 .section}
-
-**Features**
-
--   I/O-optimized
--   Supports SSD Cloud Disks and Ultra Cloud Disks
--   vCPU to memory ratio = 1:4
--   2.5 GHz Intel Xeon E5-2682 v4 \(Broadwell\) processors, up to 2.9 GHz Turbo Boot
--   High network performance: 4 million pps packet forwarding rate
--   Supports VPC network only
--   Provides dedicated hardware resources and physical isolation
--   Ideal for:
-    -   Deployment of OpenStack, ZStack, and other private cloud services
-    -   Deployment of Docker containers and other services
-    -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication services
-    -   Enterprise-level applications of various types and sizes
-    -   Medium and large database systems, caches, and search clusters
-    -   Data analysis and computing
-    -   Computing clusters and data processing depending on memory
-
-**Instance types**
-
-|Instance type|vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#localdisk)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#pps)|NIC queues[\*\*\*](#queue)|ENIs[\*\*\*\*](#eni)|
-|:------------|:---|:--------------|:----------------------------------|:--------------------|:--------------------------------------------------|:-------------------------|:-------------------|
-|ecs.ebmg4.8xlarge|32|128.0|N/A|10.0|4,000|8|12|
-
-**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instance/ECS Bare Metal Instance and Super Computing Clusters.md#).
+**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instances/ECS Bare Metal Instance and Super Computing Clusters.md#).
 
 Click [here](#top) to view other instance type families.
 
@@ -793,7 +734,7 @@ Click [here](#top) to view other instance type families.
 |:------------|:---|:--------------|:--|:--------------------|:--------------------------------------------------|:------------------------------------|:-------------------------|:-------------------|
 |ecs.scch5.16xlarge|64|192.0|N/A|10.0|4,500|46|12|32|
 
-**Note:** For more information about SCC, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instance/ECS Bare Metal Instance and Super Computing Clusters.md#).
+**Note:** For more information about SCC, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instances/ECS Bare Metal Instance and Super Computing Clusters.md#).
 
 Click [here](#top) to view other instance type families.
 
@@ -818,7 +759,7 @@ Click [here](#top) to view other instance type families.
 |:------------|:---|:--------------|:--|:--------------------|:--------------------------------------------------|:------------------------------------|:-------------------------|:-------------------|
 |ecs.sccg5.24xlarge|96|384.0|N/A|10.0|4,500|46|12|32|
 
-**Note:** For more information about SCC, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instance/ECS Bare Metal Instance and Super Computing Clusters.md#).
+**Note:** For more information about SCC, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instances/ECS Bare Metal Instance and Super Computing Clusters.md#).
 
 Click [here](#top) to view other instance type families.
 
@@ -858,7 +799,7 @@ Click [here](#top) to view other instance type families.
 |ecs.t5-c1m1.4xlarge|16|16.0|144|1728|15%|2|
 |ecs.t5-c1m2.4xlarge|16|32.0|144|1728|15%|2|
 
-**Note:** For more information about t5, see [Burstable instances](intl.en-US/Product Introduction/Instance/Burstable instances.md#).
+**Note:** For more information about t5, see [Burstable instances](intl.en-US/Product Introduction/Instances/Burstable instances.md#).
 
 Click [here](#top) to view other instance type families.
 
