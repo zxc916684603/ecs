@@ -38,7 +38,7 @@ The key management infrastructure of Alibaba Cloud conforms to the recommendatio
 
 Each Alibaba Cloud account has a unique CMK for ECS product in each region. This key is separate from the data and stored in a system protected by strict physical and logical security controls. Each encrypted disk uses an encryption key unique to the specific disk and its snapshots. The encryption key is created from and encrypted by the CMK for the current user in the current region. The disk encryption key is only used in the memory of the host that runs your ECS instance. The key is never stored in plaintext in any permanent storage media \(such as a disk\).
 
-## Fees {#fees .section}
+## Fees {#fees000 .section}
 
 ECS does not charge any additional fees for the disk encryption function.
 
