@@ -9,13 +9,13 @@
 按以下步骤导入密钥对。
 
 1.  登录 [阿里云 ECS 控制台](https://ecs.console.aliyun.com/#/home)。
-2.  选择地域。。
-3.  在 密钥对管理 页面上，单击 **创建密钥对**。
+2.  在 密钥对管理 页面上，单击 **创建密钥对**。
+3.  选择地域。
 4.  在 创建密钥对 页面上，设置密钥对名称，选择 **导入已有密钥对**，并在 **公钥内容** 里输入公钥信息。
 
     **说明：** 指定的名称不应该与已有的密钥对名称重复，也不应该与删除前仍绑定实例的密钥对名称重复，否则，控制台会报错“密钥对已存在”。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9729/4670_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9729/15331248464670_zh-CN.png)
 
 5.  单击 **确定**，开始导入密钥对。
 
