@@ -6,7 +6,7 @@ To create an on-premises image by yourself and then upload it on a cloud platfor
 
 ## Prerequisites {#section_fss_xws_xdb .section}
 
--   You must have the [Create AccessKey](https://help.aliyun.com/document_detail/53045.html)AccessKey ready to fill out the configuration file. .
+-   You must have the [AccessKey](https://www.alibabacloud.com/help/doc-detail/53045.htm) ready to fill out the configuration file. .
 
     **Note:** The AccessKey has a high level of account privileges. We recommend that you  [../../../../dita-oss-bucket/SP\_65/DNRAM11815774/EN-US\_TP\_12340.md\#](../../../../intl.en-US/Quick Start/Create a RAM user.md#) and use the RAM account to [create an AccessKey](https://help.aliyun.com/document_detail/53045.html) to prevent data breach.
 
@@ -31,8 +31,6 @@ To create an on-premises image by yourself and then upload it on a cloud platfor
     ```
 
     If a GUI runs in the VM console window, you have successfully installed the KVM.
-
-    ![](images/4642_en-US.png)
 
 3.  Install Packer.
 
@@ -186,9 +184,9 @@ For more information about other optional parameters, see Packer [QEMU Builder](
 [\#Sample](#Sample) The provisioner in the preceding sample contains a Post-Processor module that enables automated upload of on-premises images to Alibaba Cloud. Required parameters for the provisioner are as follows:
 
 |Parameter|Type |Description |
-|access\_key|String |Your AccessKeyID. The AccessKey has a high privilege. We recommend that you first [../../../../dita-oss-bucket/SP\_65/DNRAM11815774/EN-US\_TP\_12340.md\#](../../../../intl.en-US/Quick Start/Create a RAM user.md#) and use the RAM account to [create an AccessKey](https://help.aliyun.com/document_detail/53045.html) to prevent data breach.|
-|secret\_key|String |Your AccessKeySecret. The AccessKey has a high privilege. We recommend that you first [../../../../dita-oss-bucket/SP\_65/DNRAM11815774/EN-US\_TP\_12340.md\#](../../../../intl.en-US/Quick Start/Create a RAM user.md#) and use the RAM account to [create an AccessKey](https://help.aliyun.com/document_detail/53045.html) to prevent data breach.|
-|region|String |Select the region where you want to upload your on-premises image. In the sample, the region is cn-beijing.  For more information, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).|
+|access\_key|String |Your AccessKeyID. The AccessKey has a high privilege. We recommend that you first [../../../../dita-oss-bucket/SP\_65/DNRAM11815774/EN-US\_TP\_12340.md\#](../../../../intl.en-US/Quick Start/Create a RAM user.md#) and use the RAM account to create an AccessKey to prevent data breach.|
+|secret\_key|String |Your AccessKeySecret. The AccessKey has a high privilege. We recommend that you first [../../../../dita-oss-bucket/SP\_65/DNRAM11815774/EN-US\_TP\_12340.md\#](../../../../intl.en-US/Quick Start/Create a RAM user.md#) and use the RAM account to create an AccessKey to prevent data breach.|
+|region|String |Select the region where you want to upload your on-premises image. In the sample, the region is cn-beijing.  For more information, see [Regions and zones](https://www.alibabacloud.com/help/doc-detail/40654.htm).|
 |image\_name|String |The name of your on-premises image. The value:-   Can contain \[2, 128\] characters in length.
 -   Must start with an either upper case or lower case letter. 
 -   Can contain digits, underscores \(\_\), colons\(:\), or hyphens \(-\). 
