@@ -1,15 +1,15 @@
 # DetachInstanceRamRole {#DetachInstanceRamRole .reference}
 
-Detaches a [RAM  role](../../../../intl.en-US/User Guide/Instances/Instance RAM roles.md#) from an instance.
+Detaches a [RAM role](../../../../intl.en-US/User Guide/Instances/Instance RAM roles/What is the RAM role of an instance.md#) from an instance.
 
 ## Request Parameters {#RequestParameter .section}
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: DetachInstanceRamRole.|
-|RegionId|String|Yes| Region ID. You can call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#). For more information, see Regions and zones.|
-|InstanceIds|String|Yes|Instance ID set.  A maximum of 100 instances are supported, in the format of \["instanceId1", "instanceId2",  "instanceId3"…\].|
-|RamRoleName|String|No|Instance RAM role name. The name is provided and maintained by  *RAM* and can be queried using [ListRoles](../../../../intl.en-US//Role Management Interface/ListRoles.md#) . Refer to the relevant APIs [CreateRole](../../../../intl.en-US//Role Management Interface/CreateRole.md#) and [ListRoles](../../../../intl.en-US//Role Management Interface/ListRoles.md#).|
+|RegionId|String|Yes| Region ID. You can call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#).|
+|InstanceIds|String|Yes|Instance ID set. A maximum of 100 instances are supported, in the format of \["instanceId1", "instanceId2",  "instanceId3"…\].|
+|RamRoleName|String|No|Instance RAM role name. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../intl.en-US//Role Management Interface/ListRoles.md#). For more information, see the relevant APIs [CreateRole](../../../../intl.en-US//Role Management Interface/CreateRole.md#) and [ListRoles](../../../../intl.en-US//Role Management Interface/ListRoles.md#).|
 
 ## Response parameters {#ResponseParameter .section}
 
@@ -26,9 +26,9 @@ Detaches a [RAM  role](../../../../intl.en-US/User Guide/Instances/Instance RAM
 |:---|:---|:----------|
 |InstanceId|String|The ECS instance from which the instance RAM role is going to be detached.|
 |Code|Integer|It indicates whether you have successfully detached the instance RAM role from the ECS instance or not. If `Code=200` returns,  the action is successful, and if the other value returns, the action is unsuccessful. For more information on how to fix the errors, see [Error codes](#ErrorCode).|
-|Message|String|It indicates whether you have successfully detached the instance RAM role from the ECS instance or not. If  `Message=Success` returns,  the action is successful, and if the other value returns, the action is unsuccessful. For more information on how to fix the errors, see [Error codes](#ErrorCode).|
+|Message|String|Indicates whether you have successfully detached the instance RAM role from the ECS instance or not. If  `Message=Success` returns,  the action is successful, and if the other value returns, the action is unsuccessful. For more information on how to fix the errors, see [Error codes](#ErrorCode).|
 
-## Example { .section}
+## Examples { .section}
 
 **Request example** 
 
