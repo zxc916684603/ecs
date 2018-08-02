@@ -54,7 +54,7 @@ When you call this interface, consider the following:
 
 |
 |DataDisk.n.Size|Integer|No|The data disk capacity. Value range of `n`: \[1, 16\]. Value range:-   cloud: \[5, 2000\]
--   cloud\_efficiency：\[20, 32768\]
+-   cloud\_efficiency: \[20, 32768\]
 -   cloud\_ssd: \[20, 32768\]
 -   ephemeral\_ssd: \[5, 800\]
 
