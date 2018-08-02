@@ -4,8 +4,8 @@ Restarts an ECS instance.
 
 ## Description {#section_nkm_wnr_xdb .section}
 
--   You can only restart an ECS instance that is in the **Running** status.
--   After an ECS instance is restarted, its transient status is **Starting**.
+-   You can only restart an ECS instance that is in the **Running** \(`Running`\) status.
+-   After an ECS instance is restarted, its intermediate status is **Starting** \(`Starting`\).
 -   An instance can be forcefully stopped. Forcing an instance to stop \(`ForceStop`\) is same as a power failure. The temporary data and files in the instance may be lost.
 -   If the specified instance is [locked](intl.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#), and the `OperationLocks` of the instance indicates  `"LockReason" : "security"`, you cannot restart the instance.
 
@@ -15,7 +15,7 @@ Restarts an ECS instance.
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: RebootInstance.|
 |InstanceId|String|Yes|The specified instance ID.|
-|ForceStop|String|否|Whether to force shutting down the instance before it restarts. Optional values:-   true: Forces shutting down the instance before it restarts.
+|ForceStop|String|No|Whether to force shutting down the instance before it restarts. Optional values:-   true: Forces shutting down the instance before it restarts.
 -   false: Shuts down the instance normally before it restarts.
 
 Default value: false.|
@@ -47,9 +47,9 @@ https://ecs.aliyuncs.com/?Action=RebootInstance
  **JSON format** 
 
 ```
-
+{
     "RequestId": "F2E2C40D-AB09-45A1-B5C5-EB9F5C4E4E4A"
-
+}
 ```
 
 ## Error codes {#ErrorCode .section}
