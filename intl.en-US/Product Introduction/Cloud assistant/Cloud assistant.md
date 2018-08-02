@@ -83,7 +83,7 @@ Cloud assistant features are free of charge.
 
 -   Generally, the invocation status of a command includes **overall invocation status** , **instance invocation status** , and **invocation-record status**. The relationships among various levels are shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/15331911635245_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/15332008895245_en-US.png)
 
 
 **For one-time invocations**
@@ -98,10 +98,10 @@ Cloud assistant features are free of charge.
 
         Take three ECS instances as an example. The following picture shows the relationships between the overall invocation status and the instance invocation status during a one-time invocation on multiple instances.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/15331911635246_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/15332008895246_en-US.png)
 
 -   **Instance invocation status**: The command is invoked only once in a one-time invocation, so the instance invocation status and the invocation-record status are identical.
--   **Invocation-record status:**:
+-   **Invocation-record status**:
     -   `Running`: Indicates that the command is being executed.
     -   `Stopped`: Indicates that the command invocation has been manually stopped by the user.
     -   `Finished`: Indicates that the command invocation has been completed smoothly. But invocation completion does not indicate invocation success. You can confirm whether the invocation is successful based on the actual `Output`of the command process.
@@ -111,7 +111,7 @@ Cloud assistant features are free of charge.
 
 -   **Overall invocation status**: The overall invocation status is always `Running` unless you stop all the scheduled invocation for all instances.
 -   **Instance invocation status**: The instance invocation status is always `Running` unless you stop the current invocation.
--   **Invocation-record status:**:
+-   **Invocation-record status**:
     -   `Running`: The command is being executed.
     -   `Stopped`: You have stopped the command invocation.
     -   `Finished`: The command invocation is complete. However, invocation completion does not guarantee invocation success. You can confirm whether the invocation is successful or not based on the actual `Output` of the command process.
