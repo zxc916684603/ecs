@@ -105,7 +105,7 @@ Default value: false.|
 Default value: true. This parameter is valid only when and the value of parameter `DataDisk.n.Category` is `cloud`, `cloud_efficiency`, or `cloud_ssd`. Otherwise, an error is returned.|
 |HpcClusterId|String|No|The cluster ID to which the instance belongs.|
 |VSwitchId|String|No|VSwitch ID. It must be specified when you create VPC-Connected instances.|
-|InternetMaxBandwidthIn|Integer|No|The maximum inbound bandwidth from the internet network, measured in Mbit/s. Value range: \[1, 200\]. Default value: 200.|
+|InternetMaxBandwidthIn|Integer|No|The maximum inbound bandwidth from Internet network, measured in Mbit/s. Value range: \[1, 200\]. Default value: 200.|
 |InternetMaxBandwidthOut|Integer|No|Maximum outbound bandwidth to the Internet in Mbit/s. Value range:-   \[0, 100\].
 
 Default value: 0.
