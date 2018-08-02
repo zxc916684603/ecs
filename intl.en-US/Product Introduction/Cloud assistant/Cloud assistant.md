@@ -2,7 +2,7 @@
 
 Cloud assistant is a lightweight and convenient maintenance ECS feature for automated and batched invocation of daily maintenance tasks.
 
-By installing the cloud assistant client on ECS instances, you can run Bat/PowerShell \(for Windows instances\) scripts or Shell scripts \(for Linux  instances\) on one or more running ECS instances in the ECS console or by calling APIs. The invocation is exclusive to individual instances to complete tasks rapidly. You can also set command invocation to the periodical mode to keep the ECS instance at a specific status or run the command as a daemon for ECS instances. Cloud assistant does not initiate any operations. All operations are within your controllable range.
+By installing the cloud assistant client on ECS instances, you can run Bat/PowerShell \(for Windows instances\) scripts or Shell scripts \(for Linux instances\) on one or more running ECS instances in the ECS console or by calling APIs. The invocation is exclusive to individual instances to complete tasks rapidly. You can also set command invocation to the periodical mode to keep the ECS instance at a specific status or run the command as a daemon for ECS instances. Cloud assistant does not initiate any operations. All operations are within your controllable range.
 
 ## Scenarios {#section_f5p_5dx_ydb .section}
 
@@ -11,14 +11,14 @@ You can use cloud assistant in the following scenarios.
 -   Install, uninstall, or update applications for ECS instances that are in the `Running` status.
 -   Update patches for ECS instances that are in the Running status.
 -   Add configuration for ECS instances that are in the Running status.
--   Set daemon process for ECS instances that are in the  Running status.
+-   Set daemon process for ECS instances that are in the Running status.
 -   Retrieve monitoring and log information for ECS instances that are in the Running status.
 -   Other maintenance tasks that must be completed by running scripts.
 
 ## Terminology {#section_zfz_wdx_ydb .section}
 
-|Term|Common name |Description|
-|:---|:-----------|:----------|
+|Term|Common name|Description|
+|:---|:----------|:----------|
 |Cloud assistant|Cloud assistant|A convenient feature provided by Alibaba Cloud ECS for automated and batched invocation of daily maintenance tasks.|
 |Cloud assistant client|Client|The client program that is installed on ECS instance. All operations to ECS instances are performed by using the client.|
 |Command|Command|The specific command and operation to be invoked on ECS instances, such as a shell script.|
@@ -79,29 +79,29 @@ Cloud assistant features are free of charge.
 
 ## Invocation status {#section_cyj_ydx_ydb .section}
 
--   Specifically, the invocation status of a command consists of `Running`, `Stopped`,  `Finished`, and `Failed`.
+-   Specifically, the invocation status of a command consists of `Running`, `Stopped`, `Finished`, and `Failed`.
 
--   Generally, the invocation status of a command includes **overall invocation status** , **instance invocation status** , and  **invocation-record status**. The relationships among various levels are shown in the following figure.
+-   Generally, the invocation status of a command includes **overall invocation status** , **instance invocation status** , and **invocation-record status**. The relationships among various levels are shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/5245_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/15331911635245_en-US.png)
 
 
 **For one-time invocations**
 
--   **Overall invocation status**：
+-   **Overall invocation status**:
     -   When the invocation status of all instances are `Finished`, the overall invocation status is displayed as `Finished`.
     -   When the invocation status of some instances are `Finished` and those of some others are `Stopped`, the overall invocation status is displayed as. `Finished`
     -   When the invocation status of all instances are `Failed`, the overall invocation status is displayed as `Failed`.
     -   When the invocation status of all instances are `Stopped`, the overall invocation status is displayed as `Stopped`.
-    -   When the invocation statuses of all or some instances are `Running`, the overall invocation status is displayed as  `Running`.
+    -   When the invocation statuses of all or some instances are `Running`, the overall invocation status is displayed as `Running`.
     -   When the invocation statuses of some instances are `Failed`, the overall invocation status is displayed as `PartialFailed`.
 
         Take three ECS instances as an example. The following picture shows the relationships between the overall invocation status and the instance invocation status during a one-time invocation on multiple instances.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/5246_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/15331911635246_en-US.png)
 
 -   **Instance invocation status**: The command is invoked only once in a one-time invocation, so the instance invocation status and the invocation-record status are identical.
--   **Invocation-record status:**：
+-   **Invocation-record status:**:
     -   `Running`: Indicates that the command is being executed.
     -   `Stopped`: Indicates that the command invocation has been manually stopped by the user.
     -   `Finished`: Indicates that the command invocation has been completed smoothly. But invocation completion does not indicate invocation success. You can confirm whether the invocation is successful based on the actual `Output`of the command process.
@@ -111,7 +111,7 @@ Cloud assistant features are free of charge.
 
 -   **Overall invocation status**: The overall invocation status is always `Running` unless you stop all the scheduled invocation for all instances.
 -   **Instance invocation status**: The instance invocation status is always `Running` unless you stop the current invocation.
--   **Invocation-record status:**：
+-   **Invocation-record status:**:
     -   `Running`: The command is being executed.
     -   `Stopped`: You have stopped the command invocation.
     -   `Finished`: The command invocation is complete. However, invocation completion does not guarantee invocation success. You can confirm whether the invocation is successful or not based on the actual `Output` of the command process.
@@ -131,7 +131,7 @@ Currently the cloud assistant is not available on the console. You can use it by
     -   [InvokeCommand](../../../../intl.en-US/API Reference/Cloud assistant/InvokeCommand.md#)
     -   [DescribeInvocations](../../../../intl.en-US/API Reference/Cloud assistant/DescribeInvocations.md#)
     -   [DescribeInvocationResults](../../../../intl.en-US/API Reference/Cloud assistant/DescribeInvocationResultsDescribeinvocationresults.md#)
-    -   [StopInvocation](../../../../intl.en-US/API Reference/Cloud assistant/Stopinvention.md#)
+    -   [StopInvocation](../../../../intl.en-US/API Reference/Cloud assistant/StopInvocation.md#)
     -   [ModifyCommand](../../../../intl.en-US/API Reference/Cloud assistant/ModifyCommand.md#)
     -   [DescribeCommands](../../../../intl.en-US/API Reference/Cloud assistant/DescribeCommands.md#)
     -   [DeleteCommand](../../../../intl.en-US/API Reference/Cloud assistant/DeleteCommand.md#)
