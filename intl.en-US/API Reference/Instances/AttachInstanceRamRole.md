@@ -1,6 +1,6 @@
 # AttachInstanceRamRole {#AttachInstanceRamRole .reference}
 
-Attaches an [instance RAM role](../intl.en-US/User Guide/Instances/Instance RAM roles.md#) to your ECS instance. You can only assign one RAM role to an instance at any time. If the instance already has a RAM role, an error code returns when you attach another RAM role to the same instance.
+Attaches an [instance RAM role](../../../../intl.en-US/User Guide/Instances/Instance RAM roles/What is the RAM role of an instance.md#) to your ECS instance. You can only assign one RAM role to an instance at any time. If the instance already has a RAM role, an error code returns when you attach another RAM role to the same instance.
 
 ## Request parameters {#RequestParameter .section}
 
@@ -9,7 +9,7 @@ Attaches an [instance RAM role](../intl.en-US/User Guide/Instances/Instance RAM 
 |Action|String|Yes|The name of this interface. Value: AttachInstanceRamRole.|
 |RegionId|String|Yes|Region ID. You can call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |InstanceIds|Array|Yes|Instance ID set. A maximum of 100 instances are supported, in the format of \["instanceId1", "instanceId2",  "instanceId3"…\].|
-|RamRoleName|String|Yes|Instance RAM role name. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../intl.en-US//Role Management Interface/ListRoles.md#). See API [CreateRole](../../intl.en-US//Role Management Interface/CreateRole.md#) and [ListRoles](../../intl.en-US//Role Management Interface/ListRoles.md#).|
+|RamRoleName|String|Yes|Instance RAM role name. The name is provided and maintained by *RAM*. You can call [ListRoles](../../../../intl.en-US//Role Management Interface/ListRoles.md#) to view the ram role list. For more information, see API [CreateRole](../../../../intl.en-US//Role Management Interface/CreateRole.md#) and [ListRoles](../../../../intl.en-US//Role Management Interface/ListRoles.md#).|
 
 ## Response parameters {#ResponseParameter .section}
 
@@ -50,21 +50,21 @@ https://ecs.aliyuncs.com/?Action=AttachInstanceRamRole
  **JSON format** 
 
 ```
-
+{
     "RequestId": "D9553E4C-6C3A-4D66-AE79-9835AF705639",
     "AttachInstanceRamRoleResults": {
         "AttachInstanceRamRoleResult": [
-            
+            {
                 "Message": "success",
                 "InstanceId": "i-instance1",
                 "Code": "200"
-            
-        
-    
+            }
+        ]
+    },
     "TotalCount": 1,
     "FailCount": 0,
     "RamRoleName": "RamRoleTest"
-
+}
 ```
 
 ## Error codes {#ErrorCode .section}
