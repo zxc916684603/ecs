@@ -36,17 +36,8 @@ Take Windows Server 2012 64-bit as an example:
     1.  Open the **Control Panel**.
     2.  Select **All Control Panel Items** \> **System** \> **Advanced System Settings**.
     3.  Click **Environment Variable**.
-
-        ![](images/4603_en-US.png)
-
     4.  Find **Path** in the system variable list.
-
-        ![](images/4604_en-US.png)
-
-    5.  Add the Packer installation directory to the **Variable Value**,  such as C:\\Packer as seen in this example. Separate multiple directories with half-width semicolons \(;\).  Click **/OK**。
-
-        ![](images/4605_en-US.png)
-
+    5.  Add the Packer installation directory to the **Variable Value**,  such as C:\\Packer as seen in this example. Separate multiple directories with half-width semicolons \(;\).  Click **OK**.
 5.  Run `packer.exe -v`  in CMD to verify Packer’s installation status.  If the Packer version number is returned, you have successfully installed Packer.  If error  **command not found** prompt is returned,  Packer has not been correctly installed.
 
 ## Step 2. Define a Packer template {#section_kwk_bdv_ydb .section}
