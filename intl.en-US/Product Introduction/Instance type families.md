@@ -15,21 +15,21 @@ Alibaba Cloud ECS provides two kinds of instance type families: enterprise-level
 Alibaba Cloud ECS instances are categorized into the following type families:
 
 -   Type families for enterprise-level computing on the x86-architecture:
-    -   [\#g5](#g5)
-    -   [\#sn2ne](#sn2ne)
-    -   [\#ic5](#ic5)
-    -   [\#c5](#c5)
-    -   [\#sn1ne](#sn1ne)
-    -   [r5, memory instance type family](#r5)
-    -   [se1ne, memory optimized type family with enhanced network performance](#se1ne)
-    -   [se1, memory optimized type family](#se1)
-    -   [d1ne, big data type family with enhanced network performance](#d1ne)
-    -   [d1, big data type family](#d1)
-    -   [i2, type family with local SSD disks](#i2)
-    -   [i1, type family with local SSD disks](#i1)
-    -   [hfc5, compute optimized type family with high clock speed](#hfc5)
-    -   [hfg5, general-purpose type family with high clock speed](#hfg5)
-    -   [c4, cm4, and ce4, compute optimized type family with high clock speed](#c4)
+    -   [g5, general-purpose type family](#)
+    -   [sn2ne, general-purpose type family with enhanced network performance](#)
+    -   [ic5, intensive compute instance type family](#)
+    -   [c5, compute instance type family](#)
+    -   [sn1ne, compute optimized type family with enhanced network performance](#)
+    -   [r5, memory instance type family](#)
+    -   [se1ne, memory optimized type family with enhanced network performance](#)
+    -   [se1, memory optimized type family](#)
+    -   [d1ne, big data type family with enhanced network performance](#)
+    -   [d1, big data type family](#)
+    -   [i2, type family with local SSD disks](#)
+    -   [i1, type family with local SSD disks](#)
+    -   [hfc5, compute optimized type family with high clock speed](#)
+    -   [hfg5, general-purpose type family with high clock speed](#)
+    -   [c4, cm4, and ce4, compute optimized type family with high clock speed](#)
 -   Type families for enterprise-level heterogeneous computing:
     -   [gn5, compute optimized type family with GPU](#gn5)
     -   [gn4, compute optimized type family with GPU](#gn4)
@@ -45,7 +45,7 @@ Alibaba Cloud ECS instances are categorized into the following type families:
     -   [t5, burstable instances](#t5)
     -   [xn4/n4/mn4/e4, type families of previous generations for entry-level users, computing on the x86-architecture](#xn4-n4-mn4-e4)
 
-## g5, general-purpose type family {#g5000 .section}
+## g5, general-purpose type family {#g5 .section}
 
 **Features**
 
@@ -76,7 +76,7 @@ Alibaba Cloud ECS instances are categorized into the following type families:
 
 Click [here](#top) to view other instance type families.
 
-## sn2ne, general-purpose type family with enhanced network performance {#sn2ne000 .section}
+## sn2ne, general-purpose type family with enhanced network performance {#sn2ne .section}
 
 **Features**
 
@@ -108,7 +108,7 @@ Click [here](#top) to view other instance type families.
 
 Click [here](#top) to view other instance type families.
 
-## ic5, intensive compute instance type family {#ic5000 .section}
+## ic5, intensive compute instance type family {#ic5 .section}
 
 **Features**
 
@@ -136,7 +136,7 @@ Click [here](#top) to view other instance type families.
 
 Click [here](#top) to view other instance type families.
 
-## c5, compute instance type family {#c5000 .section}
+## c5, compute instance type family {#c5 .section}
 
 **Features**
 
@@ -167,7 +167,7 @@ Click [here](#top) to view other instance type families.
 
 Click [here](#top) to view other instance type families.
 
-## sn1ne, compute optimized type family with enhanced network performance {#sn1ne000 .section}
+## sn1ne, compute optimized type family with enhanced network performance {#sn1ne .section}
 
 **Features**
 
