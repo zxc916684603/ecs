@@ -15,11 +15,11 @@ Alibaba Cloud ECS provides two kinds of instance type families: enterprise-level
 Alibaba Cloud ECS instances are categorized into the following type families:
 
 -   Type families for enterprise-level computing on the x86-architecture:
-    -   [g5, general-purpose type family](#g5)
-    -   [sn2ne, general-purpose type family with enhanced network performance](#sn2ne)
-    -   [ic5, intensive compute instance type family](#ic5)
-    -   [c5, compute instance type family](#c5)
-    -   [sn1ne, compute optimized type family with enhanced network performance](#sn1ne)
+    -   [\#g5](#g5)
+    -   [\#sn2ne](#sn2ne)
+    -   [\#ic5](#ic5)
+    -   [\#c5](#c5)
+    -   [\#sn1ne](#sn1ne)
     -   [r5, memory instance type family](#r5)
     -   [se1ne, memory optimized type family with enhanced network performance](#se1ne)
     -   [se1, memory optimized type family](#se1)
@@ -45,7 +45,7 @@ Alibaba Cloud ECS instances are categorized into the following type families:
     -   [t5, burstable instances](#t5)
     -   [xn4/n4/mn4/e4, type families of previous generations for entry-level users, computing on the x86-architecture](#xn4-n4-mn4-e4)
 
-## g5, general-purpose type family {#g5 .section}
+## g5, general-purpose type family {#g5000 .section}
 
 **Features**
 
@@ -76,7 +76,7 @@ Alibaba Cloud ECS instances are categorized into the following type families:
 
 Click [here](#top) to view other instance type families.
 
-## sn2ne, general-purpose type family with enhanced network performance {#sn2ne .section}
+## sn2ne, general-purpose type family with enhanced network performance {#sn2ne000 .section}
 
 **Features**
 
@@ -108,7 +108,7 @@ Click [here](#top) to view other instance type families.
 
 Click [here](#top) to view other instance type families.
 
-## ic5, intensive compute instance type family {#ic5 .section}
+## ic5, intensive compute instance type family {#ic5000 .section}
 
 **Features**
 
@@ -136,7 +136,7 @@ Click [here](#top) to view other instance type families.
 
 Click [here](#top) to view other instance type families.
 
-## c5, compute instance type family {#c5 .section}
+## c5, compute instance type family {#c5000 .section}
 
 **Features**
 
@@ -167,7 +167,7 @@ Click [here](#top) to view other instance type families.
 
 Click [here](#top) to view other instance type families.
 
-## sn1ne, compute optimized type family with enhanced network performance {#sn1ne .section}
+## sn1ne, compute optimized type family with enhanced network performance {#sn1ne000 .section}
 
 **Features**
 
