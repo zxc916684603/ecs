@@ -594,7 +594,9 @@ Click [here](#top) to view other instance type families.
 |Instance type|vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#localdisk)|FPGA|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#pps)|NIC queues[\*\*\*](#queue)|ENIs[\*\*\*\*](#eni)|
 |:------------|:---|:--------------|:----------------------------------|:---|:--------------------|:--------------------------------------------------|:-------------------------|:-------------------|
 |ecs.f1-c8f1.2xlarge|8|60.0|N/A|Intel ARRIA 10 GX 1150|3.0|400|4|4|
+|ecs.f1-c8f1.4xlarge|16|120.0|N/A|2 \* Intel ARRIA 10 GX 1150|5.0|1,000|4|8|
 |ecs.f1-c28f1.7xlarge|28|112.0|N/A|Intel ARRIA 10 GX 1150|5.0|2,000|8|8|
+|ecs.f1-c28f1.14xlarge|56|224.0|N/A|2 \* Intel ARRIA 10 GX 1150|10.0|2,000|14|8|
 
 **Note:** You cannot change configurations of f1 instances.
 
