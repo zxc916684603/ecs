@@ -4,13 +4,13 @@ Alibaba Cloud offers Virtual Private Cloud \(VPC\) networks and a Classic networ
 
 ## Virtual Private Cloud \(VPC\) {#section_ix4_gfw_ydb .section}
 
-VPCs are isolated networks established in Alibaba Cloud and logically isolated from each other.  You can customize the topology and IP addresses in a VPC.  We recommend VPCs if you are skilled in network management and have higher network security requirements.
+VPCs are isolated networks established in Alibaba Cloud and logically isolated from each other. You can customize the topology and IP addresses in a VPC. We recommend VPCs if you are skilled in network management and have higher network security requirements.
 
-For more information about VPC, see [Virtual Private Cloud](https://www.alibabacloud.com/product/vpc) documentation.
+For more information about VPC, see [Virtual Private Cloud](../../../../intl.en-US/VPC product introduction/What is VPC.md#) documentation.
 
 ## Classic network {#section_jx4_gfw_ydb .section}
 
-A classic network is majorly deployed in the public infrastructure of Alibaba Cloud, which is responsible for its planning and management. We recommend classic network if your business requirements are higher in terms of network usability.
+A classic network is majorly deployed in the public infrastructure of Alibaba Cloud, which is responsible for its planning and management. We recommend classic networks if your business requirements are higher in terms of network usability.
 
 **Note:** If you did not purchase an ECS instance before 17:00 \(UTC+8\) on June 14, 2017, you cannot choose the Classic network.
 
