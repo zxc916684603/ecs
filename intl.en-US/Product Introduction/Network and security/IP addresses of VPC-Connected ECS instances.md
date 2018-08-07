@@ -1,10 +1,10 @@
 # IP addresses of VPC-Connected ECS instances {#concept_olx_cjw_ydb .concept}
 
-Each VPC-Connected ECS instance can communicate within intranet or Internet by using a private IP address and a public IP address.
+Each VPC-Connected ECS instance can communicate within intranet by using a private IP address or within Internet by using a public IP address.
 
 ## Private IP addresses {#section_zkh_djw_ydb .section}
 
-Each VPC-Connected ECS instance is assigned with a private IP address when it is created, and the address is determined by the VPC and the CIDR block of the VSwitch that the instance is connected to.
+Each VPC-Connected ECS instance is assigned a private IP address when it is created. That address is determined by the VPC and the CIDR block of the VSwitch to which the instance is connected.
 
 ## Scenarios {#section_alh_djw_ydb .section}
 
@@ -12,7 +12,7 @@ A private IP address can be used in the following scenarios:
 
 -   Load balancing
 -   Communication among ECS instances within an intranet
--   Communication between an ECS instance and other cloud products, such as OSS and RDS, within an intranet
+-   Communication between an ECS instance and other cloud products \(such as OSS and RDS\) within an intranet
 
 For more information, see [Intranet](intl.en-US/Product Introduction/Network and security/Intranet.md#).
 
@@ -24,7 +24,7 @@ To meet your business needs, you can modify the private IP address of a VPC-Conn
 
 A VPC-Connected ECS instance supports either of the following public IP addresses:
 
--   NatPublicIp, which is assigned to a VPC-Connected ECS instance. It can be released only, but is not unbound from the instance.
+-   NatPublicIp, which is assigned to a VPC-Connected ECS instance. It can be released only, and cannot be unbound from the instance.
 -   Elastic public IP \(EIP\).  For more information, see [What is an EIP address](https://www.alibabacloud.com/help/doc-detail/32321.htm).
 
 When a VPC-Connected ECS instance accesses Internet, its public IP address is mapped to its private IP address through network address translation \(NAT\). 
@@ -49,7 +49,7 @@ NatPublicIp or EIP applies to different scenarios:
 
 ## Release a public IP address {#section_hbl_4sr_zdb .section}
 
--   NatPublicIp: When a NatPublicIp address is assigned to an instance, you can only release the IP address, but cannot unbind it. Only a NatPublicIp address that is assigned to a Subscription instance can be released. For more information, see [Renew for configuration downgrade](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#).
+-   NatPublicIp: When a NatPublicIp address is assigned to an instance, you can only release the IP address, but cannot unbind it. Only the NatPublicIp address that is assigned to a Subscription instance can be released. For more information, see [Renew for configuration downgrade](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#).
 -   EIP: If you do not need an EIP address, unbind it from a VPC-Connected ECS instance and release it in the EIP console.  For more information, see [Unbind and release an EIP address](https://www.alibabacloud.com/help/doc-detail/65204.htm).
 
 ## Billing {#section_llh_djw_ydb .section}
