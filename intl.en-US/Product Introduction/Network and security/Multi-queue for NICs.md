@@ -1,6 +1,6 @@
 # Multi-queue for NICs {#concept_xwg_mjw_ydb .concept}
 
-If you use a single CPU, chances of many network interruptions increase. For processing, you can route NIC interruptions in the ECS instances to different CPUs. In the network PPS and network bandwidth tests, a solution that uses two queues instead of one queue can enhance the performance by 50% to 100%. A solution that uses four queues can bring significant increase in the performance.
+A single CPU is not sufficient for handling network interruptions. Therefore, you should route NIC interruptions in the ECS instances to different CPUs. In the network PPS and bandwidth tests, a solution that uses two queues instead of one queue can enhance the performance by 50% to 100%. A solution that uses four queues can bring a significant increase in the performance.
 
 ## ECS instance types supporting multi-queue {#section_bgd_bkw_ydb .section}
 
@@ -16,7 +16,7 @@ The following public images officially provided by Alibaba Cloud support multi-q
 -   Ubuntu 14.04/16.04
 -   Debian 8.9
 -   SUSE Linux Enterprise Server 12 SP1
--   Windows 2012 R2 and Windows 2016: You may be invited to test this feature in future.
+-   Windows 2012 R2 and Windows 2016: You may be invited to test this feature in the future.
 
 The SUSE Linux Enterprise Server 12 SP2 edition will be available soon.
 
@@ -51,7 +51,7 @@ Here we take CentOS 7.2 as an example to illustrate how to configure multi-queue
 
 -   We recommend that you enable the irqbalance service so that the system can automatically adjust the allocation of the NIC interrupts on multiple CPU cores. Run the command: `systemctl start irqbalance` \(this feature is enabled by default in CentOS 7.2\).
 
--   If the network performance improvement is not as high as you have expected after the multi-queue feature is enabled, you can enable the RPS feature. See the following Shell script.
+-   If the network performance is not improved as expected after the multi-queue feature is enabled, you can enable the RPS feature. See the following Shell script.
 
     ```
     
@@ -85,7 +85,7 @@ To install the driver for Windows systems, follow these steps:
 1.  [Open a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to request and download the driver installation package.
 2.  Unzip the driver installation package. For Windows 2012/2016 systems, use the driver in the Win8/amd64 folder.
 3.  Upgrade the NIC driver:
-    1.  Select **Device Manager \>** \> **Network adapters**.
+    1.  Select **Device Manager** \> **Network adapters**.
     2.  Right click **Red Hat VirtIO Ethernet Adapter** and select **Update Driver**.
     3.  Select the Win8/admin64 directory of the driver directory that you have unzipped, and update the driver.
 4.  After the driver is upgraded, we recommend that you restart the Windows system.
