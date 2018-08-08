@@ -8,7 +8,7 @@ Each type family contains multiple ECS instance types with different CPU and mem
 
 **Note:** The availability of instance type families and their types varies from region to region. Go to the [purchase page](https://ecs-buy-intl.aliyun.com/#/prepay) to check the available instance types.
 
-Alibaba Cloud ECS provides two kinds of instance type families: enterprise-level instance type families and entry-level instance type families. Type families for enterprise-level computing feature stable performance and dedicated resources, while entry-level type families are ideal for small and mid-sized websites, or individual customers. For the differences, see [Enterprise-level instances and entry-level instances FAQ](https://www.alibabacloud.com/help/faq-detail/44078.htm).
+Alibaba Cloud ECS provides two kinds of instance type families: enterprise-level instance type families and entry-level instance type families. Type families for enterprise-level computing offer stable performance and dedicated resources, while entry-level type families are ideal for small and mid-sized websites, or individual customers. For the differences, see [Enterprise-level instances and entry-level instances FAQ](https://www.alibabacloud.com/help/faq-detail/44078.htm).
 
 **Note:** If you are using sn1, sn2, t1, s1, s2, s3, m1, m2, c1, c2, n1, n2, or e3, see [Phased-out instance types](https://www.alibabacloud.com/help/faq-detail/55263.htm).
 
@@ -872,7 +872,7 @@ Click [here](#top) to view other instance type families.
 
 Click [here](#top) to view other instance type families.
 
-\* Cache disks, or Local disks, are the disks located on the physical servers \(host machines\) that ECS instances are hosted on. They provide temporary block level storage for instances. In some cases, such as when the computing resources of an instance, including CPU and memory, are released, or an instance is in the downtime migration, data on the local disks is erased. For more information, see [Local disks](intl.en-US/Product Introduction/Block storage/Local disks.md#).
+\* Cache disks, or Local disks, are the disks located on the physical servers \(host machines\) that ECS instances are hosted on. They provide temporary block level storage for instances. In some cases, such as when the computing resources of an instance, including CPU and memory, are released, or an instance is inactive while migration occurs, data on the local disks is erased. For more information, see [Local disks](intl.en-US/Product Introduction/Block storage/Local disks.md#).
 
 \*\* The maximum packet forwarding rate of inbound or outbound traffic. For more information about packet forwarding rate testing, see [Test network performance](https://www.alibabacloud.com/help/faq-detail/55757.htm).
 
