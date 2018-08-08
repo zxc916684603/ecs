@@ -192,9 +192,9 @@ The configuration of each instance type determines its maximum flow cleaning thr
 
 By default, Anti-DDoS Basic is enabled for an ECS instance after it is created. You can do the following:
 
--   Set a threshold for flow cleaning. After an ECS instance is created, the maximum threshold for the instance type is used for Anti-DDoS Basic by default. However, the maximum BPS threshold for some instance types is excessive for security. Therefore, you must set a threshold according to your business needs. For more information, DDoS basic protection configuration in the Anti-DDoS Basic documentation.
+-   Set a threshold for flow cleaning. After an ECS instance is created, the maximum threshold for the instance type is used for Anti-DDoS Basic by default. However, the maximum BPS threshold for some instance types is excessive for security. Therefore, you must set a threshold according to your business needs. For more information, see DDoS basic protection configuration in the Anti-DDoS Basic documentation.
 
--   Cancel flow cleaning, which is not recommended. When the inbound traffic to an ECS instance exceeds the cleaning threshold, the traffic, including normal business traffic, is cleaned.  To avoid business interruptions, you can cancel flow cleaning. For more information, see How to cancel flow cleaning.
+-   Cancel flow cleaning, which is not recommended. When the inbound traffic to an ECS instance exceeds the cleaning threshold, thehe traffic, including normal business traffic, is cleaned.  To avoid business interruptions, you can cancel flow cleaning. For more information, see How to cancel flow cleaning.
 
     **Warning:** If you cancel flow cleaning, when the inbound traffic to an ECS instance exceeds 5 Gbit/s, all traffic is routed to a black hole.
 
