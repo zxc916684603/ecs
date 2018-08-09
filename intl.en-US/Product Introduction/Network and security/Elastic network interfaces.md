@@ -52,7 +52,7 @@ Using an ENI has the following limits:
 
 -   The ECS instance must be in the same zone of the same region as the ENI, but they do not have to be in the same VSwitch.
 
--   The number of ENIs can be attached to an ECS instance is determined by the instance type. For more information, see [Instance type families](intl.en-US/Product Introduction/Instance type families.md#).
+-   The number of ENIs can be attached to an ECS instance is determined by the instance type. For more information, see [ECS instance type families](intl.en-US/Product Introduction/Instance type families.md#).
 
 -   Only I/O optimized instance types support ENIs.
 
@@ -63,7 +63,7 @@ Using an ENI has the following limits:
 
 ## Related operations {#section_kc1_qnw_ydb .section}
 
-For those images that cannot recognize ENIs, you can connect to the instance to [configure the ENI](../../../../dita-oss-bucket/SP_2/DNA0011894323/EN-US_TP_9739.dita) after an instance is created.
+For those images that cannot recognize ENIs, you can connect to the instance to [configure the ENI](../../../../intl.en-US/User Guide/Elastic Network Interfaces/Configure an ENI.md) after an instance is created.
 
 You can operate ENIs by using the ECS console or APIs.
 
@@ -86,8 +86,8 @@ You can complete the following operations by using APIs:
 -   [Create an ENI](../../../../intl.en-US/API Reference/Elastic network interfaces/CreateNetworkInterface.md#)
 -   [Delete an ENI](../../../../intl.en-US/API Reference/Elastic network interfaces/DeleteNetworkInterface.md#)
 -   [Query ENI list](../../../../intl.en-US/API Reference/Elastic network interfaces/DescribeNetworkInterfaces.md#)
--   [Attach an ENI to an instance](../../../../intl.en-US/User Guide/Elastic Network Interfaces/Attach an ENI to an instance.md#): The instance must be in the **Stopped** or **Running** status.
--   [Detach an ENI from an instance](../../../../intl.en-US/User Guide/Elastic Network Interfaces/Detach an ENI from an instance.md#): The instance must be in the **Stopped** or **Running** status.
--   [Modify attributes of an ENI](../../../../intl.en-US/User Guide/Elastic Network Interfaces/Modify attributes of an ENI.md#): You can modify attributes of an ENI, including its name, its security group, and its description.
+-   [Attach an ENI to an instance](../../../../intl.en-US/API Reference/Elastic network interfaces/AttachNetworkInterface .md): The instance must be in the **Stopped** or **Running** status.
+-   [Detach an ENI from an instance](../../../../intl.en-US/API Reference/Elastic network interfaces/DetachNetworkInterface.md): The instance must be in the **Stopped** or **Running** status.
+-   [Modify attributes of an ENI](../../../../intl.en-US/API Reference/Elastic network interfaces/ModifyNetworkInterfaceAttribute.md): You can modify attributes of an ENI, including its name, its security group, and its description.
 -   You can use the [DescribeInstances](../../../../intl.en-US/API Reference/Instances/DescribeInstances.md#) interface to query the information of the ENI when an ENI is attached to an instance.
 
