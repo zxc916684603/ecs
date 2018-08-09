@@ -105,7 +105,7 @@ Click [here](#) to view other instance type families.
 |ecs.sn2ne.4xlarge|16|64.0|N/A|3.0|1,600|4|8|
 |ecs.sn2ne.6xlarge|24|96.0|N/A|4.5|2,000|6|8|
 |ecs.sn2ne.8xlarge|32|128.0|N/A|6.0|2,500|8|8|
-|ecs.sn2ne.14xlarge|56|224.0| None|10.0|4,500|14|8|
+|ecs.sn2ne.14xlarge|56|224.0|N/A|10.0|4,500|14|8|
 
 **Note:** You can change the configurations of an se1 instance to any instance type in the sn2, sn2ne, sn1, sn1ne, se1, and se1ne instance type family.
 
@@ -131,10 +131,10 @@ Click [here](#) to view other instance type families.
 
 |Instance type |Vcpu|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
 |:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
-|ecs.ic5.large|2|2.0| None|1.0|300|2|2|
-|ecs.ic5.xlarge|4|4.0| None|1.5|500|2|3|
-|ecs.ic5.2xlarge|8|8.0| None|2.5|800|2|4|
-|ecs.ic5.3xlarge|12|12.0| None|4.0|900|4|6|
+|ecs.ic5.large|2|2.0|N/A|1.0|300|2|2|
+|ecs.ic5.xlarge|4|4.0|N/A|1.5|500|2|3|
+|ecs.ic5.2xlarge|8|8.0|N/A|2.5|800|2|4|
+|ecs.ic5.3xlarge|12|12.0|N/A|4.0|900|4|6|
 |ecs.ic5.4xlarge|16|16.0|N/A|5.0|1,000|4|8|
 
 Click [here](#) to view other instance type families.
