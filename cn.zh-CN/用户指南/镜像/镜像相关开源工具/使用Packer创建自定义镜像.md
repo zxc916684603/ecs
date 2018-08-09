@@ -58,10 +58,10 @@
 
 |参数|描述|
 |:-|:-|
-|access\_key|您的AccessKeyID。更多详情，参阅 [创建AccessKey](https://www.alibabacloud.com/help/doc-detail/53045.htm)。**说明：** 由于AccessKey权限过大，为防止错误操作，建议您 [创建 RAM 用户](../../../../intl.zh-CN/快速入门/创建 RAM 用户.md#)，并使用RAM子账号 [创建AccessKey](https://www.alibabacloud.com/help/doc-detail/53045.htm)。
+|access\_key|您的AccessKeyID。更多详情，参阅 [创建AccessKey](https://www.alibabacloud.com/help/doc-detail/53045.htm)。**说明：** 由于AccessKey权限过大，为防止错误操作，建议您 [创建 RAM 用户](../../../../intl.zh-CN/快速入门/创建 RAM 用户.md#)，并使用RAM子账号 [创建AccessKey](https://www.alibabacloud.com/help/doc-detail/53045.htm)
 
 |
-|secret\_key|您的AccessKeySecret。更多详情，参阅 [创建AccessKey](https://www.alibabacloud.com/help/doc-detail/53045.htm)。|
+|secret\_key|您的AccessKeySecret。更多详情，参阅 [创建AccessKey](https://www.alibabacloud.com/help/doc-detail/53045.htm)|
 |region|创建自定义镜像时使用临时资源的地域|
 |image\_name|自定义镜像的名称|
 |source\_image|基础镜像的名称，可以从阿里云公共镜像列表获得|
