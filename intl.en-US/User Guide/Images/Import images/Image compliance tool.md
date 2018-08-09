@@ -129,7 +129,7 @@ The compliance tool provides detection reports in both TXT and JSON formats afte
     ```
 
 
-**Next steps**
+## Next steps {#section_mb3_ct1_b2b .section}
 
 1.  View [Notes for importing images](intl.en-US/User Guide/Images/Import images/Notes for importing custom images.md#).
 2.  [Install the virtio driver.](intl.en-US/User Guide/Images/Import images/Install virtio driver.md#)
