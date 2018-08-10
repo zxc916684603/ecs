@@ -1,6 +1,6 @@
 # Quick reference {#concept_q3w_45w_wdb .concept}
 
-When using ECS, you may encounter various of issues, such conncting to the instance, resizing the disk, upgrade or downgrade the instance configurations, and use snapshots or images. This article provides you with a quick reference to popular features of ECS resources.
+When using ECS, you may encounter various of issues, such as connecting to the instance, resizing the disk, upgrading or downgrading the instance configurations, and using snapshots or images. This article provides you with a quick reference to popular features of ECS resources.
 
 ## Operation instructions and limits {#instructions .section}
 
@@ -62,14 +62,14 @@ To use a cloud disk as a data disk, follow these steps:
 
 1.  [Create a cloud disk](intl.en-US/User Guide/Cloud disks/Create a cloud disk.md#).
 2.  [Attach a cloud disk](intl.en-US/User Guide/Cloud disks/Attach a cloud disk.md#).
-3.  [\(Linux\) Format and mount a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Linux _ Format and mount a data disk.md#) or [\(Windows\) Format a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Windows _ Format a data disk.md#).
-4.  [Create snapshots](intl.en-US/User Guide/Snapshots/Create snapshots.md#) back up data.
+3.  [\(Linux\) Format and mount a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Linux _ Format and mount a data disk.md#) or [\(Windows\) Format a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Windows _ Format a data disk.md#).
+4.  [Create snapshots](intl.en-US/User Guide/Snapshots/Create snapshots.md#) to back up data.
 5.  [Detach a cloud disk](intl.en-US/User Guide/Cloud disks/Detach a cloud disk.md#).
 6.  [Release a cloud disk](intl.en-US/User Guide/Cloud disks/Release a cloud disk.md#).
 
 **Change configurations**
 
-When the capacity of the system disks or data disks cannot meet your business needs, you can [increase system disk size](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Increase system disk size.md#) or resize the data disks. Increase system disk size. Operations vary depending on your operating system. [Windows \_ Resize a data disk](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Windows _ Resize a data disk.md#).
+When the capacity of the system disks or data disks cannot meet your business needs, you can [increase system disk size](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Increase system disk size.md#) or resize the data disks. For more information about resizing a data disk, see [Linux \_ Resize a data disk](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md)[Windows \_ Resize a data disk](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Windows _ Resize a data disk.md#).
 
 **Manage data on a cloud disk**
 
@@ -93,9 +93,9 @@ To use a snapshot, follow these steps:
 
 **Using snapshots**
 
-To copy or back up data: you ccan use a snapshot to [create a cloud disk from a snapshot](intl.en-US/User Guide/Cloud disks/Create a cloud disk from a snapshot.md#), or [roll back a cloud disk](intl.en-US/User Guide/Cloud disks/Roll back a cloud disk.md#).
+To copy or back up data: you can use a snapshot to [create a cloud disk from a snapshot](intl.en-US/User Guide/Cloud disks/Create a cloud disk from a snapshot.md#), or [roll back a cloud disk](intl.en-US/User Guide/Cloud disks/Roll back a cloud disk.md#).
 
-To ease environment deployment, you can use a system disk snapshot to [create a custom image using a snapshot](intl.en-US/User Guide/Images/Create custom image/Create a custom mirror using a snapshot.md#), and [create an instance from a custom Image](intl.en-US/User Guide/Instances/Create an instance/Create an instance from a custom Image.md#).
+To ease environment deployment, you can use a system disk snapshot to [create a custom image using a snapshot](intl.en-US/User Guide/Images/Create custom image/Create a custom image by using a snapshot.md#), and [create an instance from a custom Image](intl.en-US/User Guide/Instances/Create an instance/Create an instance from a custom Image.md#).
 
 ## Create and manage custom images {#section_mpg_qvw_wdb .section}
 
@@ -103,15 +103,15 @@ Only custom images can be operated in the ECS console. Using custom images can s
 
 You can own a custom image by using the following methods:
 
--   [Create a custom image using a snapshot](intl.en-US/User Guide/Images/Create custom image/Create a custom mirror using a snapshot.md#)
+-   [Create a custom image using a snapshot](intl.en-US/User Guide/Images/Create custom image/Create a custom image by using a snapshot.md#)
 -   [Create a custom image by using an instance](intl.en-US/User Guide/Images/Create custom image/Create a custom image by using an instance.md#)
--   [Use Packer to create a custom image](intl.en-US/User Guide/Images/Create custom image/Use Packer to create a custom image.md#)
+-   [Use Packer to create a custom image](intl.en-US/User Guide/Images/Open source tools/Use Packer to create a custom image.md#)
 -   [Copy custom images](intl.en-US/User Guide/Images/Copy custom images.md#) across different regions.
 -   [Share images](intl.en-US/User Guide/Images/Share images.md#) across different accounts.
 -   [Import custom images](intl.en-US/User Guide/Images/Import images/Import custom images.md#)
--   [Create and import on-premise images by using Packer](intl.en-US/User Guide/Images/Import images/Create and import on-premise images by using Packer.md#)
+-   [Create and import on-premise images by using Packer](intl.en-US/User Guide/Images/Open source tools/Create and import on-premise images by using Packer.md#)
 
-You can [Export custom images](intl.en-US/User Guide/Images/Export custom images.md#) to back up the environment and [Delete custom images](intl.en-US/User Guide/Images/Delete custom images.md#).
+You can [export custom images](intl.en-US/User Guide/Images/Export custom images.md#) to back up the environment and [delete custom images](intl.en-US/User Guide/Images/Delete custom images.md#).
 
 ## Create and manage security groups {#section_egt_qcx_wdb .section}
 
@@ -127,18 +127,18 @@ To use a security group, follow these steps:
 
 **Manage security groups and their rules**
 
-To simplify business deployment, you can [Clone a security group](intl.en-US/User Guide/Security groups/Clone a security group.md#) across regions or network types.
+To simplify business deployment, you can [clone a security group](intl.en-US/User Guide/Security groups/Clone a security group.md#) across regions or network types.
 
-When new security group rules impair the online business application, you can  [Restore security group rules](intl.en-US/User Guide/Security groups/Restore security group rules.md#) fully or partially.
+When new security group rules impair the online business application, you can  [restore security group rules](intl.en-US/User Guide/Security groups/Restore security group rules.md#) fully or partially.
 
 ## Create and manage SSH key pairs {#section_vpg_qvw_wdb .section}
 
 To use an SSH key pair, follow these steps:
 
 1.  [Create an SSH key pair](intl.en-US/User Guide/Key pairs/Create an SSH key pair.md#), or [import an SSH key pair](intl.en-US/User Guide/Key pairs/Import an SSH key pair.md#).
-2.  [Bind a SSH key pair](intl.en-US/User Guide/Key pairs/Bind or unbind a SSH key pair.md#), or bind the SSH key pair after a Linux instance is created or when you create a Linux instance.
+2.  [Bind a SSH key pair](intl.en-US/User Guide/Key pairs/Bind or unbind a SSH key pair.md#), or bind the SSH key pair after a Linux instance is created or when you [create an instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md).
 3.  [Connect to a Linux instance by using an SSH key pair](intl.en-US/User Guide/Connect/Connect to a Linux instance by using an SSH key pair.md#).
-4.  Unbind an SSH key pair.
+4.  [Unbind an SSH key pair](intl.en-US/User Guide/Key pairs/Bind or unbind a SSH key pair.md).
 5.  [Delete a SSH key pair](intl.en-US/User Guide/Key pairs/Delete a SSH key pair.md#).
 
 ## Create and manage ENIs {#section_zpg_qvw_wdb .section}
