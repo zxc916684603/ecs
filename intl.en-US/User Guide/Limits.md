@@ -2,12 +2,12 @@
 
 When using ECS, consider the following:
 
--   ECS does not support virtual application installation or subsequent virtualization such as when using VMware.  Currently, only [ECS Bare Metal Instance and Super Computing Clusters](../../../../intl.en-US/Product Introduction/Instance/ECS Bare Metal Instance and Super Computing Clusters.md#) supports virtualization.
+-   ECS does not support virtual application installation or subsequent virtualization such as when using VMware.  Currently, only [ECS Bare Metal Instance and Super Computing Clusters](../../../../intl.en-US/Product Introduction/Instances/ECS Bare Metal Instance and Super Computing Clusters.md#) supports virtualization.
 -   ECS does not support sound card applications. 
 -   ECS does not support the installation of external hardware devices such as hardware dongles, USB drives, external hard drives, and  the USB security keys issued by banks.
 -   ECS does not support SNAT and other IP packet address translation services.  You can achieve this by using an external VPN or proxy.
 -   ECS does not support multicast protocol.  If multicasting services are required, we recommend that you use unicast point-to-point method.
--   Currently, Log Service does not support 32-bit Linux ECS instance. To know the regions that support Log Service, see [Service endpoint](https://www.alibabacloud.com/help/doc-detail/29008.htm). See [Overview](../../../../intl.en-US/User Guide/Logtail collection/Overview.md#) to know the server operating systems that support Log Service.
+-   Currently, Log Service does not support 32-bit Linux ECS instance. To know the regions that support Log Service, see [Service endpoint](https://www.alibabacloud.com/help/doc-detail/29008.htm). To know the server operating systems that support Log Service, see [Overview](../../../../intl.en-US/User Guide/Logtail collection/Overview.md#).
 
 Besides the preceding limit, the additional limits of ECS are mentioned in the following table.
 
