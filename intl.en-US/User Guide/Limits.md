@@ -66,7 +66,7 @@ Besides the preceding limit, the additional limits of ECS are mentioned in the f
 |Capacity of one Ultra Shared Block Storage device |32,768 GiB |Not supported|
 |Capacity of Ultra Shared Block Storage devices on one ECS instance |128 TiB |Not supported|
 |Size limit of one system disk |Windows: 40 GiB − 500 GiB   Linux \(excluding CoreOS\)+ FreeBSD: 20 GiB − 500 GiB   CoreOS: 30 GiB − 500 GiB|Not supported|
-|Size limit of one data disk |Basic Cloud Disk: 5 GiB − 2,000 GiB   SSD Cloud Disk/Ultra Cloud Disk/SSD Shared Block Storage/Ultra Shared Block Storage: 20 GiB − 32,768 GiB  Local disk: See Local disks|Not supported|
+|Size limit of one data disk |Basic Cloud Disk: 5 GiB − 2,000 GiB   SSD Cloud Disk/Ultra Cloud Disk/SSD Shared Block Storage/Ultra Shared Block Storage: 20 GiB − 32,768 GiB  Local disk: See [Local disks](../../../../intl.en-US/Product Introduction/Block storage/Local disks.md).|Not supported|
 |Attaching an independent local disk to an ECS instance with local disks |Not supported|Not supported|
 |Configuration changes of an ECS instance with local disks |Only changes to public network bandwidth are permitted |Not supported|
 |Mount point for system disks |/dev/xvda|Not supported|
