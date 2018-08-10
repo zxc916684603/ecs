@@ -46,7 +46,7 @@ Besides the preceding limit, the additional limits of ECS are mentioned in the f
 
 |Item |Limit|Supply for higher configuration or unlock configuration rights|
 |:----|:----|:-------------------------------------------------------------|
-|Permission to create Pay-As-You-Go cloud disks|Complete [real-name registration](https://www.alibabacloud.com/help/zh/doc-detail/52595.htm) to create cloud disks in the mainland China regions |Not supported|
+|Permission to create Pay-As-You-Go cloud disks|[Complete real-name registration](https://www.alibabacloud.com/help/faq-detail/52595.htm) to create cloud disks in the mainland China regions |Not supported|
 |Quota of Pay-As-You-Go cloud disks in all regions for one account |Five times of the number of Pay-As-You-Go instances in all regions under one account |Open a ticket|
 |Quota of system disks for one ECS instance |1|Not supported|
 |Quota of data disks for one ECS instance |16 \(including cloud disks and Shared Block Storage\) |Not supported|
