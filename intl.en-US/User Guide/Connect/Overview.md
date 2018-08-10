@@ -25,9 +25,9 @@ Choose an ideal method from the following table to create remote connection to y
 
 |Internet access|Operating system of the local machine|Connection option|
 |:--------------|:------------------------------------|:----------------|
-|Yes/No|Windows or Unix-like OS|[EN-US\_TP\_9619.md\#](intl.en-US/User Guide/Connect/Connect to an instance by using the Management Terminal.md#)|
+|Yes/No|Windows or Unix-like OS|[Connect to an instance by using the Management Terminal](intl.en-US/User Guide/Connect/Connect to an instance by using the Management Terminal.md#)|
 |Yes|Windows|Use mstsc to create remote connection: [Connect to a Windows instance](intl.en-US/User Guide/Connect/Connect to a Windows instance.md#windows)|
-|Yes|Linux|Use a remote connection tool, such as rdesktop, to create remote connection: [Connect to a Linux instance](intl.en-US/User Guide/Connect/Connect to a Windows instance.md#linux)|
+|Yes|Linux|Use a remote connection tool, such as rdesktop, to create remote connection: [Connect to a Windows instance](intl.en-US/User Guide/Connect/Connect to a Windows instance.md#linux)|
 |Yes|Mac OS|Use Microsoft Remote Desktop Connection for Mac to create remote connection: [Connect to a Windows instance](intl.en-US/User Guide/Connect/Connect to a Windows instance.md#macOS)|
 |Yes|iOS or Android|Use Microsoft Remote Desktop to create a remote connection: [Connect to an instance on a mobile device](intl.en-US/User Guide/Connect/Connect to an instance on a mobile device.md#windows)|
 
