@@ -15,7 +15,7 @@ Besides the preceding limit, the additional limits of ECS are mentioned in the f
 
 |Item|Limit|Supply for higher configuration or unlock configuration rights|
 |:---|:----|:-------------------------------------------------------------|
-|Permission to create instances |Complete real-name registration to create ECS instances in the mainland China regions|Not supported|
+|Permission to create instances |[Complete real-name registration](https://www.alibabacloud.com/help/faq-detail/52595.htm) to create ECS instances in the mainland China regions|Not supported|
 |Default quota of Pay-As-You-Go ECS instances \(including preemptible instances\) in all regions for one account |10|Open a ticket|
 |Launch templates in each region for one account|30|Not supported|
 |Versions of one launch template|30|Not supported|
