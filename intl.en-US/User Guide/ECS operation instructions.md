@@ -2,8 +2,6 @@
 
 To guarantee proper operation of your ECS instance, you must take the considerations outlined in this section into account before use.
 
-## **Note** {#section_mqk_ddx_wdb .section}
-
 **Prohibitions**
 
 -   Alibaba Cloud prohibits you from using your instance for flow-through services.  Any violation results in punishment up to shutdown and lockout of instance, and termination of services.
