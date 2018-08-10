@@ -35,32 +35,32 @@ Based on the operating system of your local machine, you have various options to
 If the local machine is running Windows OS, you can use the mstsc to create a remote connection to a Windows instance.
 
 1.  Use any one of the following methods to start **mstsc**:
-    -   Select **Start** \> **icon \>** \> **Remote Desktop Connection**.
+    -   Select **Start** \> **icon** \> **Remote Desktop Connection**.
     -   Click the **Start** icon and search for mstsc.
     -   Press the shortcut key **Windows Logo** + **R** to open the Run windows, type mstsc, and then press the Enter key.
 2.  In the Remote Desktop Connection dialog box, follow these steps:
     1.  Click the **Show Options** drop-down box.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9622/15338940405258_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9622/15338953465258_en-US.png)
 
     2.  Type the public IP address or EIP address of the instance.
     3.  Type the user name. The default user name is Administrator
 
         **Note:** If you want to log on to the instance next time without repeating these steps, select **Allow me to save credentials**.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9622/15338940405259_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9622/15338953465259_en-US.png)
 
     4.  Optional. If you want to copy text or files from the local machine to the instance, click the **Local Resources** tab to see options for sharing local computer resources.
         -   If you want to copy text only, select **Clipboard**.
         -   If you also want to copy files, select **More** and select drive letters from which you want to copy files to your instance and click OK.
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9622/15338940405260_en-US.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9622/15338953465260_en-US.png)
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9622/15338940405261_en-US.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9622/15338953465261_en-US.png)
 
     5.  Optional. Click the **Display** tab and resize the remote desktop window. Full Screen is recommended.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9622/15338940405262_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9622/15338953465262_en-US.png)
 
     6.  Click **Connect**.
 
