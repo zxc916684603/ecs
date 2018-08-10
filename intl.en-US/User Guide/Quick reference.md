@@ -1,6 +1,6 @@
 # Quick reference {#concept_q3w_45w_wdb .concept}
 
-When using ECS, you may encounter various of issues, such as connecting to the instance, resizing the disk, upgrading or downgrading the instance configurations, and using snapshots or images. This article provides you with a quick reference to popular features of ECS resources.
+When using ECS, you may encounter various issues, such as connecting to the instance, resizing the disk, upgrading or downgrading the instance configurations, and using snapshots or images. This article provides you with a quick reference to popular features of ECS resources.
 
 ## Operation instructions and limits {#instructions .section}
 
@@ -14,7 +14,7 @@ To use an ECS instances, follow these steps:
 
 1.   [Create an ECS instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#).
 2.  Connect to the ECS instance. Use different methods according to its operating system:
-    1.  Use [the Management Terminal](intl.en-US/User Guide/Connect/Connect to an instance by using the Management Terminal.md#) regardless of the operating system. Generally, this method is used for troubleshooting and maintenance.
+    1.  Use the [Management Terminal](intl.en-US/User Guide/Connect/Connect to an instance by using the Management Terminal.md#) regardless of the operating system. Generally, this method is used for troubleshooting and maintenance.
     2.  For Linux or Unix-like OS: [Connect to a Linux instance by using a password](intl.en-US/User Guide/Connect/Connect to a Linux instance by using a password.md#), or [Connect to a Linux instance by using an SSH key pair](intl.en-US/User Guide/Connect/Connect to a Linux instance by using an SSH key pair.md#).
     3.  For Windows OS: [Connect to a Windows instance](intl.en-US/User Guide/Connect/Connect to a Windows instance.md#)
 3.  [Stop the ECS instance](intl.en-US/User Guide/Instances/Start or stop an instance.md#).
@@ -69,7 +69,7 @@ To use a cloud disk as a data disk, follow these steps:
 
 **Change configurations**
 
-When the capacity of the system disks or data disks cannot meet your business needs, you can [increase system disk size](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Increase system disk size.md#) or resize the data disks. For more information about resizing a data disk, see [Linux \_ Resize a data disk](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md)[Windows \_ Resize a data disk](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Windows _ Resize a data disk.md#).
+When the capacity of the system disks or data disks cannot meet your business needs, you can [increase system disk size](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Increase system disk size.md#) or resize the data disks. For more information about resizing a data disk, see [Linux \_ Resize a data disk](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md) and [Windows \_ Resize a data disk](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Windows _ Resize a data disk.md#).
 
 **Manage data on a cloud disk**
 
