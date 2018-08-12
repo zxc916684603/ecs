@@ -490,7 +490,7 @@ Click [here](#) to view other instance type families.
 
 Click [here](#) to view other instance type families.
 
-## c4, compute optimized type family with high clock speed {#ce4 .section}
+## ce4, compute optimized type family with high clock speed {#ce4 .section}
 
 **Features**
 
@@ -884,7 +884,7 @@ Click [here](#) to view other instance type families.
 |ecs.ce4.xlarge|2|16.0|N/A|0.5|100|1|1|
 |ecs.ce4.xlarge|4|32.0|N/A|0.8|150|1|2|
 |ecs.e4.2xlarge|8|64.0|N/A|1.2|300|1|3|
-|ecs.ce4.xlarge|16|128.0|N/A|2.5|400|1|8.|
+|ecs.ce4.xlarge|16|128.0|N/A|2.5|400|1|8|
 
 Click [here](#) to view other instance type families.
 
