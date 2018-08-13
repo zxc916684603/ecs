@@ -38,7 +38,7 @@ Default value: NoSpot.|
 |InternetChargeType|String|No|Billing method of the instance bandwidth. Optional values:-   PayByTraffic: You are billed based on the traffic.
 
 |
-|InstanceName|String|No|The name of the instance. You can use wildcard for fuzzy search.|
+|InstanceName|String|No|The name of the instance. You can use wildcard \(\*\) for fuzzy search.|
 |ImageId|String|No|Image ID.|
 |DeploymentSetId|String|No|Deployment Set ID.|
 |Status|String|No|Status of the instances. Optional values:-   Running

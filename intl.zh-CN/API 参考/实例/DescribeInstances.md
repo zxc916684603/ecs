@@ -4,33 +4,34 @@
 
 ## 描述 {#section_phb_mrs_xdb .section}
 
-请求参数的作用类似于一个过滤器，过滤器为逻辑与（`AND`）关系。如果某一参数为空，则过滤器不起作用。但是参数 `InstanceIds` 如果是一个空 JSON 数组，即 `[]`，则视为该过滤器有效，且返回空。
+请求参数的作用类似于一个过滤器，过滤器为逻辑与（`AND`）关系。如果某一参数为空，则过滤器不起作用。但是参数`InstanceIds`如果是一个空JSON数组，即`[]`，则视为该过滤器有效，且返回空。
 
 ## 请求参数 {#RequestParameter .section}
 
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeInstances|
-|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
-|VpcId|String|否|专有网络 VPC ID。|
-|VSwitchId|String|否|虚拟交换机 ID。|
-|ZoneId|String|否|可用区 ID。|
-|InstanceIds|String|否|实例 ID。取值可以由多个实例 ID 组成一个 JSON 数组，格式为 \["i-xxxxxxxxx", "i-yyyyyyyyy", … "i-zzzzzzzzz"\]，最多支持 100 个 ID，ID 之间用半角逗号（`,`）隔开。|
+|RegionId|String|是|地域ID。您可以调用[DescribeRegions](../intl.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
+|VpcId|String|否|专有网络VPC ID。|
+|VSwitchId|String|否|虚拟交换机ID。|
+|ZoneId|String|否|可用区ID。|
+|InstanceIds|String|否|实例ID。取值可以由多个实例ID组成一个JSON数组，格式为\["i-xxxxxxxxx", "i-yyyyyyyyy", … "i-zzzzzzzzz"\]，最多支持100个ID，ID之间用半角逗号（`,`）隔开。|
 |InstanceType|String|否|实例的规格。|
 |InstanceTypeFamily|String|否|实例的规格族。|
 |InstanceNetworkType|String|否|实例网络类型。取值范围：-   classic：经典网络
 -   vpc：VPC
 
 |
-|PrivateIpAddresses|String|否|VPC 网络类型实例的私有 IP。当 `InstanceNetworkType=vpc` 时生效，取值可以由多个 IP 组成一个 JSON 数组，格式为 \["172.16.1.1", "172.16.2.1", … "172.16.10.1"\]，最多支持 100 个 IP，IP 之间用半角逗号（`,`）隔开。|
-|InnerIpAddresses|String|否|经典网络类型实例的内网 IP 列表。当 `InstanceNetworkType=classic` 时生效，取值可以由多个 IP 组成一个 JSON 数组，格式为 \["10.1.1.1", "10.1.2.1", … "10.1.10.1"\]，最多支持 100 个 IP，IP 之间用半角逗号（`,`）隔开。|
-|PublicIpAddresses|String|否|经典网络类型实例的公网 IP 列表。当 `InstanceNetworkType=classic` 时生效，取值可以由多个 IP 组成一个 JSON 数组，格式为 \["42.1.1.1", "42.1.2.1", … "42.1.10.1"\]，最多支持 100 个 IP，IP 之间用半角逗号（`,`）隔开。|
+|PrivateIpAddresses|String|否|VPC网络类型实例的私有IP。当`InstanceNetworkType=vpc`时生效，取值可以由多个IP组成一个JSON数组，格式为\["172.16.1.1", "172.16.2.1", … "172.16.10.1"\]，最多支持100个IP，IP之间用半角逗号（`,`）隔开。|
+|InnerIpAddresses|String|否|经典网络类型实例的内网IP列表。当`InstanceNetworkType=classic`时生效，取值可以由多个IP组成一个JSON数组，格式为\["10.1.1.1", "10.1.2.1", … "10.1.10.1"\]，最多支持100个IP，IP之间用半角逗号（`,`）隔开。|
+|PublicIpAddresses|String|否|实例的公网IP列表。当`InstanceNetworkType=classic`时生效，取值可以由多个IP组成一个JSON数组，格式为\["42.1.1.1", "42.1.2.1", … "42.1.10.1"\]，最多支持100个IP，IP之间用半角逗号（`,`）隔开。|
+|EipAddresses|String|否|实例的弹性公网IP列表。当`InstanceNetworkType=classic` 时生效，取值可以由多个IP组成一个JSON数组，格式为\["42.1.1.1", "42.1.2.1", … "42.1.10.1"\]，最多支持100个IP，IP之间用半角逗号（`,`）隔开。|
 |SecurityGroupId|String|否|实例所属的安全组。|
 |InstanceChargeType|String|否|实例的计费方式。取值范围：-   PrePaid：包年包月
 -   PostPaid：按量付费
 
 |
-|SpotStrategy|String|否|后付费实例的竞价策略。当 `InstanceChargeType=PostPaid` 时生效，取值范围：-   NoSpot：正常按量付费实例。
+|SpotStrategy|String|否|按量付费实例的抢占策略。当`InstanceChargeType=PostPaid`时生效，取值范围：-   NoSpot：正常按量付费实例。
 -   SpotWithPriceLimit：设置上限价格的抢占式实例。
 -   SpotAsPriceGo：系统自动出价，最高按量付费价格。
 
@@ -38,25 +39,28 @@
 |InternetChargeType|String|否|网络计费方式。取值范围：-   PayByTraffic：按流量计费
 
 |
-|InstanceName|String|否|实例名称。支持模糊搜索，您可以配合通配符使用。|
-|ImageId|String|否|镜像 ID。|
-|DeploymentSetId|String|否|部署集 ID。|
+|InstanceName|String|否|实例名称，支持使用通配符`*`进行模糊搜索。|
+|ImageId|String|否|镜像ID。|
+|DeploymentSetId|String|否|部署集ID。|
 |Status|String|否|实例状态。取值范围：-   Running：运行中
 -   Starting：启动中
 -   Stopping：停止中
 -   Stopped：已停止
 
 |
-|IoOptimized|String|否|是否是 I/O 优化型实例。取值范围：-   True：是 I/O 优化型实例
--   False：不是 I/O 优化型实例
-
-|
-|Tag.n.Key|String|否|实例的标签键。n 的取值范围：\[1, 5\]。最多支持 64 个字符。不能以 aliyun、acs、http:// 或者 https:// 开头。|
-|Tag.n.Value|String|否|实例的标签值。n 的取值范围：\[1, 5\]。最多支持 128 个字符。不能以 aliyun、acs、http:// 或者 https:// 开头。|
+|IoOptimized|Boolean|否|是否是I/O优化型实例。|
+|Tag.n.Key|String|否|实例的标签键。n的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http://或者https://开头。|
+|Tag.n.Value|String|否|实例的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http://或者https://开头。|
 |PageNumber|Integer|否|实例状态列表的页码。起始值：1默认值：1
 
 |
 |PageSize|Integer|否|分页查询时设置的每页行数。最大值：100默认值：10
+
+|
+|DryRun|Boolean|否|是否只预检此次请求。-   true：发送检查请求，不会查询资源状况。检查项包括AccessKey是否有效、RAM用户的授权情况和是否填写了必需参数。如果检查不通过，则返回对应错误。如果检查通过，会返回错误码 `DryRunOperation`。
+-   false：发送正常请求，通过检查后返回2XX HTTP状态码并直接查询资源状况。
+
+默认值：false
 
 |
 
@@ -67,7 +71,7 @@
 |TotalCount|Integer|实例总台数|
 |PageNumber|Integer|实例列表的页码|
 |PageSize|Integer|输入时设置的每页行数|
-|Instances|[InstanceAttributesType](intl.zh-CN/API参考/数据类型/InstanceAttributesType.md#)|由 InstanceAttributesType 组成的数组格式，返回实例的信息|
+|Instances|[InstanceAttributesType](intl.zh-CN/API 参考/数据类型/InstanceAttributesType.md#)|由InstanceAttributesType组成的数组格式，返回实例的信息|
 
 ## 示例 { .section}
 
@@ -79,9 +83,9 @@ https://ecs.aliyuncs.com/?Action=DescribeInstances
 &<公共请求参数>
 ```
 
-**返回示例** 
+**返回示例**
 
-**XML 格式**
+**XML格式**
 
 ```
 <DescribeInstancesResponse>
@@ -173,7 +177,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInstances
 </DescribeInstancesResponse>
 ```
 
- **JSON 格式** 
+**JSON格式**
 
 ```
 {
@@ -234,14 +238,15 @@ https://ecs.aliyuncs.com/?Action=DescribeInstances
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
-|错误代码|错误信息|HTTP 状态码|说明|
-|:---|:---|:-------|:-|
-|InvalidInstanceChargeType.NotFound|The InstanceChargeType does not exist in our records.|404|指定的 `InstanceChargeType`不存在。|
-|InvalidInternetChargeType.ValueNotSupported|The specified InternetChargeType is not valid|404|指定的 `InternetChargeType`不合法。|
-|InvalidNetworkType.NotFound|The specified InstanceNetworkType is not found|404|指定的 `InstanceNetworkType`不存在。|
-|InvalidStatus.NotFound|The specified Status is not found|404|指定的 `Status` 不存在。|
-|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|400|指定的 `Tag.n.Key` 和 `Tag.n.Value` 必须键值匹配。|
-|InvalidTagCount|The specified tags are beyond the permitted range.|400|指定的标签数不能超过五个。|
+|错误代码|错误信息|HTTP状态码|说明|
+|:---|:---|:------|:-|
+|DryRunOperation|Request validation has been passed with DryRun flag set.|400|此次DryRun预检请求合格。|
+|InvalidInstanceChargeType.NotFound|The InstanceChargeType does not exist in our records.|404|指定的InstanceChargeType不存在。|
+|InvalidInternetChargeType.ValueNotSupported|The specified InternetChargeType is not valid|404|指定的InternetChargeType不合法。|
+|InvalidNetworkType.NotFound|The specified InstanceNetworkType is not found|404|指定的InstanceNetworkType不存在。|
+|InvalidStatus.NotFound|The specified Status is not found|404|指定的Status不存在。|
+|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|400|指定的Tag.n.Key和Tag.n.Value必须键值匹配。|
+|InvalidTagCount|The specified tags are beyond the permitted range.|400|指定的标签数不能超过20个。|
 

@@ -11,11 +11,11 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeInstances|
-|RegionId|String|是|地域ID。您可以调用[DescribeRegions](../cn.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
+|RegionId|String|是|地域ID。您可以调用[DescribeRegions](../intl.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
 |VpcId|String|否|专有网络VPC ID。|
 |VSwitchId|String|否|虚拟交换机ID。|
-|ZoneId|String|否|可用区 ID。|
-|InstanceIds|String|否|实例ID。取值可以由多个实例ID 组成一个JSON数组，格式为 \["i-xxxxxxxxx", "i-yyyyyyyyy", … "i-zzzzzzzzz"\]，最多支持100个ID，ID之间用半角逗号（`,`）隔开。|
+|ZoneId|String|否|可用区ID。|
+|InstanceIds|String|否|实例ID。取值可以由多个实例ID组成一个JSON数组，格式为\["i-xxxxxxxxx", "i-yyyyyyyyy", … "i-zzzzzzzzz"\]，最多支持100个ID，ID之间用半角逗号（`,`）隔开。|
 |InstanceType|String|否|实例的规格。|
 |InstanceTypeFamily|String|否|实例的规格族。|
 |InstanceNetworkType|String|否|实例网络类型。取值范围：-   classic：经典网络
@@ -31,16 +31,15 @@
 -   PostPaid：按量付费
 
 |
-|SpotStrategy|String|否|后付费实例的抢占策略。当`InstanceChargeType=PostPaid`时生效，取值范围：-   NoSpot：正常按量付费实例。
+|SpotStrategy|String|否|按量付费实例的抢占策略。当`InstanceChargeType=PostPaid`时生效，取值范围：-   NoSpot：正常按量付费实例。
 -   SpotWithPriceLimit：设置上限价格的抢占式实例。
 -   SpotAsPriceGo：系统自动出价，最高按量付费价格。
 
 默认值：NoSpot|
 |InternetChargeType|String|否|网络计费方式。取值范围：-   PayByTraffic：按流量计费
--   PayByBandwidth：按带宽计费
 
 |
-|InstanceName|String|否|实例名称。支持模糊搜索，您可以配合通配符使用。|
+|InstanceName|String|否|实例名称，支持使用通配符`*`进行模糊搜索。|
 |ImageId|String|否|镜像ID。|
 |DeploymentSetId|String|否|部署集ID。|
 |Status|String|否|实例状态。取值范围：-   Running：运行中
@@ -49,12 +48,9 @@
 -   Stopped：已停止
 
 |
-|IoOptimized|String|否|是否是I/O优化型实例。取值范围：-   True：是I/O优化型实例
--   False：不是I/O优化型实例
-
-|
-|Tag.n.Key|String|否|实例的标签键。n的取值范围：\[1, 5\]。最多支持64个字符。不能以aliyun、acs:、http://或者https://开头。|
-|Tag.n.Value|String|否|实例的标签值。n的取值范围：\[1, 5\]。最多支持128个字符。不能以aliyun、http://或者https://开头。|
+|IoOptimized|Boolean|否|是否是I/O优化型实例。|
+|Tag.n.Key|String|否|实例的标签键。n的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http://或者https://开头。|
+|Tag.n.Value|String|否|实例的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http://或者https://开头。|
 |PageNumber|Integer|否|实例状态列表的页码。起始值：1默认值：1
 
 |
@@ -75,7 +71,7 @@
 |TotalCount|Integer|实例总台数|
 |PageNumber|Integer|实例列表的页码|
 |PageSize|Integer|输入时设置的每页行数|
-|Instances|[InstanceAttributesType](cn.zh-CN/API 参考/数据类型/InstanceAttributesType.md#)|由InstanceAttributesType组成的数组格式，返回实例的信息|
+|Instances|[InstanceAttributesType](intl.zh-CN/API 参考/数据类型/InstanceAttributesType.md#)|由InstanceAttributesType组成的数组格式，返回实例的信息|
 
 ## 示例 { .section}
 
@@ -242,15 +238,15 @@ https://ecs.aliyuncs.com/?Action=DescribeInstances
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
-|错误代码|错误信息|HTTP 状态码|说明|
-|:---|:---|:-------|:-|
+|错误代码|错误信息|HTTP状态码|说明|
+|:---|:---|:------|:-|
 |DryRunOperation|Request validation has been passed with DryRun flag set.|400|此次DryRun预检请求合格。|
-|InvalidInstanceChargeType.NotFound|The InstanceChargeType does not exist in our records.|404|指定的`InstanceChargeType`不存在。|
-|InvalidInternetChargeType.ValueNotSupported|The specified InternetChargeType is not valid|404|指定的`InternetChargeType`不合法。|
-|InvalidNetworkType.NotFound|The specified InstanceNetworkType is not found|404|指定的`InstanceNetworkType`不存在。|
-|InvalidStatus.NotFound|The specified Status is not found|404|指定的`Status`不存在。|
-|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|400|指定的`Tag.n.Key`和`Tag.n.Value`必须键值匹配。|
-|InvalidTagCount|The specified tags are beyond the permitted range.|400|指定的标签数不能超过五个。|
+|InvalidInstanceChargeType.NotFound|The InstanceChargeType does not exist in our records.|404|指定的InstanceChargeType不存在。|
+|InvalidInternetChargeType.ValueNotSupported|The specified InternetChargeType is not valid|404|指定的InternetChargeType不合法。|
+|InvalidNetworkType.NotFound|The specified InstanceNetworkType is not found|404|指定的InstanceNetworkType不存在。|
+|InvalidStatus.NotFound|The specified Status is not found|404|指定的Status不存在。|
+|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|400|指定的Tag.n.Key和Tag.n.Value必须键值匹配。|
+|InvalidTagCount|The specified tags are beyond the permitted range.|400|指定的标签数不能超过20个。|
 
