@@ -6,52 +6,53 @@ Modifies the bandwidth configuration of your Instance. If the network specificat
 
 When you call this interface, consider the following:
 
--   When you change the bandwidth configuration of a **Subscription** \(`Pre-Paid`\)instance, , consider the following:
+-   When you change the bandwidth configuration of a **Subscription** \(`PrePaid`\) instance, consider the following:
 
-    -   The configuration of bandwidth billed by **PayByTraffic**\(`Pay By Traffic`\) can be upgraded or downgraded.
+    -   The configuration of bandwidth that is **PayByTraffic**\(`Pay By Traffic`\) can be upgraded or downgraded.
 
-    -   **InternetMaxBandwidthOut** \(`InternetMaxBandwidthOut`\) can be upgraded from 0 Mbps  when its bandwidth configurations is upgraded from zero Mbps.
+    -   The instance has an Internet IP allocated when the **InternetMaxBandwidthOut** \(`InternetMaxBandwidthOut`\) is upgraded from 0 Mbps.
 
 -   When you change the bandwidth configuration of a **Pay-As-You-Go** \(`Pay-As-You-Go`\) instance, consider the following:
 
     -   The bandwidth configuration can be upgraded or downgraded.
 
-    -   **InternetMaxBandwidthOut** \(`InternetMaxBandwidthOut`\) from 0 Mbps when its bandwidth configurations is upgraded from zero Mbps. However, you can call [AllocatePublicIpAddress](intl.en-US/API Reference/Networks/AllocatePublicIpAddress.md#)  IP address of the corresponding Server Load Balancer instance. 
+    -   The instance has no Internet IP allocated when the **InternetMaxBandwidthOut** \(`InternetMaxBandwidthOut`\) is upgraded from zero Mbps. However, you can call [AllocatePublicIpAddress](intl.en-US/API Reference/Networks/AllocatePublicIpAddress.md#)  to allocate Internet IP address for the instance.
 
--   For classic type instances, when **InternetMaxBandwidthOut**\(`InternetMaxBandwidthOut`\) from 0 Mbps only when the instance is in the `Stopped` status.
+-   For classic type instances, when **InternetMaxBandwidthOut**\(`InternetMaxBandwidthOut`\) is upgraded from 0 Mbps, the instance must be in the **Stopped** \(`Stopped`\) status.
 
 -   Before going ahead with an upgrade, you must make sure that you have registered a valid credit card, once you upgrade the bandwidth configuration, auto-payment is initiated. If the payment is unsuccessful, an abnormal order is returned and can only be nullified.
 
-    If your account balance is insufficient, you can set the parameter  `AutoPay` `false` to cancel the automatic bill payment. Thus, an unpaid order is returned and you can complete the order by making the payment in the [ECS console](https://ecs.console.aliyun.com/). in the .
+    If your account balance is insufficient, you can set the parameter  `AutoPay` to `false` to cancel the automatic payment. Thus, an unpaid order is returned and you can complete the order by making the payment in the [ECS console](https://ecs.console.aliyun.com/).
 
 -   The bandwidth cannot be changed again within five minutes after the action is performed.
 
+-   The bandwidth of a Subscription instance can only be downgraded three times.
 
 ## Request parameters {#RequestParameter .section}
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: ModifyInstanceNetworkSpec|
+|Action|String|Yes|The name of this interface. Value: ModifyInstanceNetworkSpec.|
 |InstanceId|String|Yes|ID of the instance.|
 |InternetMaxBandwidthOut|Integer|No|Maximum value of public network outbound bandwidth; unit: Mbps \(Megabit per second\). Value range: \[1, 100\].|
 |InternetMaxBandwidthIn|Integer|No|The maximum inbound bandwidth from the Internet, measured in Mbps. Value range: \[1, 100\].|
-|NetworkChargeType|String|No|The billing method of the bandwidth. Value range:-   PayByTraffic: The bandwidth is billed by the sum of network traffic.
+|NetworkChargeType|String|No|The billing method of the bandwidth. Optional values:-   PayByTraffic: The bandwidth is billed by the sum of network traffic.
 
 |
-|Autopay|Boolean |No|Whether or not automatic payment is enabled. Value range:-   true: The payment goes through automatically, once you upgrade the bandwidth configuration. However, before that, you must make sure that your registered credit card is valid and does not have credit limit set. Moreover, if you choose PayPal, you must maintain sufficient balance in your account. If the auto payment attempt is unsuccessful, an abnormal order returns and can only be nullified. However, before you set `Autopay` `True` you must make sure that your registered credit card is valid and does not have credit limit set. Moreover, if you choose PayPal, you must maintain sufficient balance in your account. console payment, can only be extinct.
--   false: The payment does not go through automatically, once you upgrade the bandwidth configuration. When your registered credit card is invalid or you have insufficient balance in your PayPal account, you can set the `AutoPay` parameter to `false` to cancel the auto pay option. This results into an unpaid order and you can complete the order [ECS console](https://ecs.console.aliyun.com/) .
+|Autopay|Boolean |No|Whether or not automatic payment is enabled. Optional values:-   true: The payment goes through automatically after you upgrade the bandwidth configuration. However, before that, you must make sure that your registered credit card is valid and does not have credit limit set. Moreover, if you choose PayPal, you must maintain sufficient balance in your account. If the auto payment attempt is unsuccessful, an abnormal order returns and can only be nullified. However, before you set `Autopay` to `True` you must make sure that your registered credit card is valid and does not have credit limit set. Moreover, if you choose PayPal, you must maintain sufficient balance in your account.
+-   false: The payment does not go through automatically, once you upgrade the bandwidth configuration. When your registered credit card is invalid or you have insufficient balance in your PayPal account, you can set the `AutoPay` parameter to `false` to cancel the auto-payment option. This results into an unpaid order and you can complete the order [ECS console](https://ecs.console.aliyun.com/) .
 
-Default value: True|
-|ClientToken|String|No|Used to guarantee the idempotence of the request. The value is generated by a client. It must be unique among all requests and contains a maximum of 64 ASCII characters. For more information, see [How to ensure idempotence](intl.en-US/API Reference/Appendix/How to ensure idempotence.md#).|
+Default value: True.|
+|ClientToken|String|No|Guarantees the idempotence of the request. The value is generated by a client. It must be unique among all requests and contains a maximum of 64 ASCII characters. For more information, see [How to ensure idempotence](intl.en-US/API Reference/Appendix/How to ensure idempotence.md#).|
 
-## Return parameters {#ResponseParameter .section}
+## Response parameters {#ResponseParameter .section}
 
 |Name|Type|Description|
 |:---|:---|:----------|
 |RequestId|String|The ID of the request.|
 |Orderid|Long|Order ID.|
 
-## Example { .section}
+## Examples { .section}
 
 **Request example** 
 
@@ -84,7 +85,7 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceNetworkSpec
 
 ## Error codes {#ErrorCode .section}
 
-Specific error codes to this interface are as follows. For more error codes, visit the[API error center](https://error-center.alibabacloud.com/status/product/Ecs).
+Error codes specific to this interface are as follows. For more error codes, visit [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code |Description|
 |:---------|:------------|:----------------|:----------|
