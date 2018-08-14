@@ -1,8 +1,8 @@
 # Preemptible instance {#concept_t3p_gv2_5db .concept}
 
-Preemptible instances are a type of on-demand instances. They are designed to reduce your ECS costs in some cases. When you create a preemptible instance, you can set a maximum rate per hour for bidding a specified instance type. When your bid is higher than or equal to the current market price, your instance runs. You can hold a preemptible instance without interruption for at least one hour.  When the market price exceeds your bid or the resource stock is insufficient, the instance is automatically released. The following figure shows the life cycle of a preemptible instance.
+Preemptible instances are on-demand instances. They are designed to reduce your ECS costs in some cases. When you create a preemptible instance, you can set a maximum price per hour to bid for a specified instance type. If your bid is higher than or equal to the current market price, your instance is created. A preemptible instance is held without interruption for at least one hour after it is created. After one hour, your bid is compared with the market price every five minutes. When the market price exceeds your bid or the resource stock is insufficient, the instance is automatically released. The following figure shows the life cycle of a preemptible instance.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9552/15328637155106_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9552/15342175095106_en-US.png)
 
 ## Scenarios {#section_fdc_jt5_ydb .section}
 
@@ -12,14 +12,14 @@ You can deploy the following businesses on preemptible instances:
 
 -   Real-time analysis
 -   Big data
--   Geological survey
+-   Geological surveys
 -   Image coding and media coding
 -   Scientific computing
 -   Scalable Web sites and Web crawlers
 -   Image and media coding
 -   Testing
 
-Preemptible instances are not suitable for stateful applications, such as databases, because it is difficult to store application states if the instance is released because of a failed bid or some other reasons.
+Preemptible instances are not suitable for stateful applications, such as databases, because it is difficult to store application states if the instance is released because of a failed bid or other reasons.
 
 ## Bidding modes {#section_hdc_jt5_ydb .section}
 
@@ -32,7 +32,7 @@ You can bid for a preemptible instance only one time in either of the following 
 
 In this mode, you must set the highest price you want to pay for a specified instance type. When creating a preemptible instance by using [RunInstances](../../../../intl.en-US/API Reference/Instances/RunInstances.md#), you can bid in this mode.
 
-Currently, the maximum bid of a preemptible instance is the price of a Pay-As-You-Go instance of the same configuration. When creating a preemptible instance, you can set a price according to the market price history, business features, and the estimated future price fluctuation. When the market price is lower than or equal to your bid, and the resource stock is sufficient, the instance continues to run. If your estimated quote is accurate, you can hold the instance even after one hour [guaranteed duration](#valid). Otherwise, your instance gets automatically released at any time.
+Currently, the maximum bid of a preemptible instance is the price of a Pay-As-You-Go instance of the same configuration. When creating a preemptible instance, you can set a price according to the market price history, business features, and the estimated future price fluctuation. When the market price is lower than or equal to your bid, and the resource stock is sufficient, the instance continues to run. If your estimated quote is accurate, you can hold the instance after the one hour [guaranteed duration](#valid). Otherwise, your instance can get automatically released at any time.
 
 **SpotAsPriceGo**
 
@@ -40,7 +40,7 @@ When creating a preemptible instance by using [RunInstances](../../../../intl.en
 
 ## Guaranteed duration {#valid .section}
 
-Once a preemptible instance is created, it has a guaranteed duration of one hour, namely, the first hour after it is created. During this period, we do not release your instance because of stock shortage, and you can run services on the instance as usual. Beyond the guaranteed duration, we check the market price and stock every five minutes. If the market price at any given point of time is higher than your bid or the instance type stock is insufficient, we will release your preemptible instance.
+When a preemptible instance is created, it has a guaranteed duration of one hour, namely, the first hour after it is run. During this period, the instance is not released because of stock shortage, and you can run services on the instance as usual. Beyond the guaranteed duration, the market price and stock is checked every five minutes. If the market price at any given point in time is higher than your bid or the instance type stock is insufficient, your preemptible instance will be automatically released.
 
 ## Price and billing {#section_mdc_jt5_ydb .section}
 
@@ -63,7 +63,7 @@ Preemptible instance price and billing considerations:
     During creation of a preemptible instance, it runs when your bid is higher than the current market price and the relevant demand and supply conditions are satisfied. The final price you pay for your instance type is based on the current market price.
 
 
-The actual market price of a preemptible instance fluctuates according to the changes in the demand and supply of a given instance type. Therefore, you can take full advantage of the price fluctuations of preemptible instances. If you purchase preemptible instance types at the right time, the computing costs are reduced but your business throughput for this period is increased.
+The actual market price of a preemptible instance fluctuates according to the changes in the demand and supply of a given instance type, and you can take advantage of these price fluctuations. If you purchase preemptible instance types at the right time, the computing costs are reduced, whereas your throughput is increased for the period the instance is held.
 
 ## Quota {#section_l24_3tk_zdb .section}
 
@@ -73,7 +73,7 @@ For more information about the preemptible instance quota, see [Limits](../../..
 
 You can purchase a preemptible instance by using the [RunInstances](../../../../intl.en-US/API Reference/Instances/RunInstances.md#) interface.
 
-After a preemptible instance is created, it can be used exactly as a Pay-As-You-Go instance. You can also use it with other cloud products, such as cloud disks or EIP addresses.
+After a preemptible instance is created, it can be used in exactly the same way as a Pay-As-You-Go instance. You can also use it with other cloud products, such as cloud disks or EIP addresses.
 
 ## Stop a preemptible instance {#section_qdc_jt5_ydb .section}
 
@@ -106,17 +106,17 @@ The network type and the bidding mode of a preemptible instance determine whethe
 
 When the guaranteed period ends, we automatically release your preemptible instance because of changes in the market price or short resource stock. Additionally, you can independently [release the instance](../../../../intl.en-US/User Guide/Instances/Release an instance.md#).
 
-When a preemptible instance is released because of market price or changes in the demand and supply of resources, the instance enters the **Pending Release** status. Then, the instance is released in about five minutes. You can use [instance metadata](../../../../intl.en-US/User Guide/Instances/User-defined data and metadata/Metadata.md#) or the `OperationLocks` information returned by calling the [DescribeInstances](../../../../intl.en-US/API Reference/Instances/DescribeInstances.md#) interface to check if an instance is in the **Pending Release** status.
+When a preemptible instance is released because of market price or changes in the demand and supply of resources, the instance's status changes to **Pending Release**. Then, the instance is released in about five minutes. You can use [instance metadata](../../../../intl.en-US/User Guide/Instances/User-defined data and metadata/Metadata.md#) or the `OperationLocks` information returned by calling the [DescribeInstances](../../../../intl.en-US/API Reference/Instances/DescribeInstances.md#) interface to check if an instance is in the **Pending Release** status.
 
 **Note:** Although you can check if a preemptible instance is in the **Pending Release** status by using the API and save a small amount of data while the instance is in this status, we recommend that you design your applications so work can be properly resumed if the preemptible instance is immediately released. When you release the instance manually, you can test whether or not your application functions normally if a preemptible instance is immediately recovered.
 
-Generally, we release preemptible instance in the order of bidding price, from low to high. If multiple preemptible instances have the same bidding price, they are randomly released.
+Generally, we release preemptible instances in the order of bidding price, from low to high. If multiple preemptible instances have the same bidding price, they are randomly released.
 
 ## Best practices {#section_zdc_jt5_ydb .section}
 
 When using a preemptible instance, consider the following:
 
--   Set a proper bidding price. In other words, you must quote a competitive price to meet your business budget and hedge against the future market price fluctuations. By using this price, your preemptible instance can be created. In addition, the price must meet your expectations based on your own business assessment.
+-   Set an appropriate bidding price. In other words, you must quote a competitive price to meet your business budget and hedge against the future market price fluctuations. By using this price, your preemptible instance can be created. In addition, the price must meet your expectations based on your own business assessment.
 
 -   The image must have all the software configurations that your applications need, assuring that you can run your business immediately after the instance is created. Additionally, you can use [User-defined data](../../../../intl.en-US/User Guide/Instances/User-defined data and metadata/User data.md#) to run commands at startup.
 
@@ -131,5 +131,5 @@ When using a preemptible instance, consider the following:
 
 For more information, see [FAQ about preemptible instances](https://www.alibabacloud.com/help/faq-detail/48269.htm).
 
-For more information about using APIs to create preemptible instances, see [Using APIs to manage preemptible instances](https://www.alibabacloud.com/help/zh/doc-detail/61259.htm).
+For more information about using APIs to create preemptible instances, see [Use APIs to manage preemptible instances](https://www.alibabacloud.com/help/doc-detail/61259.htm).
 
