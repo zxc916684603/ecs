@@ -544,7 +544,7 @@ Click [here](#) to view other instance type families.
 
 **Note:** 
 
--   For more information, see [Create a gn4 or a gn5 instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a gn4 or a gn5 instance.md#).
+-   For more information, see [Create a gn4 or a gn5 instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a gn4 or gn5 instance.md#).
 -   You cannot change configurations of gn5 instances.
 
 Click [here](#) to view other instance type families.
@@ -577,7 +577,7 @@ Click [here](#) to view other instance type families.
 
 **Note:** 
 
--   For more information, see [Create a gn4 or a gn5 instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a gn4 or a gn5 instance.md#).
+-   For more information, see [Create a gn4 or a gn5 instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a gn4 or gn5 instance.md#).
 -   You can change the configurations of a gn4 instance within the gn4 family.
 
 Click [here](#) to view other instance type families.
