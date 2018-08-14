@@ -1,12 +1,12 @@
 # Benefits of ECS {#concept_c1y_bp2_vdb .concept}
 
-Compared with Internet Data Centers \(IDCs\) and server vendors, the ECS has the benefits in the following aspects: availability, security, and elasticity.
+Compared with Internet Data Centers \(IDCs\) and server vendors, ECS has benefits in terms of availability, security, and elasticity.
 
 ## Availability {#section_jrm_cv4_ydb .section}
 
 Alibaba Cloud adopts more stringent IDC standards, server access standards, and O&M standards to guarantee data reliability and high availability of cloud computing infrastructure and cloud servers.
 
-In addition, each region of Alibaba Cloud consists of multiple zones. For greater fault tolerance, you can build active/standby or active/active services in multiple zones. For a finance-oriented solution with three IDCs in two regions, you can build fault tolerant systems in multiple regions and zones. Those services include disaster tolerance and backup, which are supported by the mature solutions built by Alibaba Cloud.
+In addition, each Alibaba Cloud region consists of multiple zones. For greater fault tolerance, you can build active/standby or active/active services in multiple zones. For a finance-oriented solution with three IDCs in two regions, you can build fault tolerant systems in multiple regions and zones. Those services include disaster tolerance and backup, which are supported by the mature solutions built by Alibaba Cloud.
 
 Switching between services is smooth within the Alibaba Cloud framework. For more information, see [E-Commerce Solutions](https://www.alibabacloud.com/solutions/gaming). Alibaba Cloud industry solutions support a variety of services, such as finance, E-commerce, and video services.
 
@@ -18,55 +18,52 @@ Alibaba Cloud provides you with the following support services:
 
 ## Security {#section_lrm_cv4_ydb .section}
 
-Users of cloud computing are most concerned about security and stability. Alibaba Cloud has recently passed a host of international information security certifications, including ISO 27001 and MTCS, which demand strict confidentiality of user data and user information and user privacy protection. [Alibaba Cloud VPC](https://www.alibabacloud.com/help/product/27706.htm) is the prime choice for providing your cloud computing services.
+For cloud computing users, security and stability are priorities. Alibaba Cloud has passed a host of international information security certifications, including ISO 27001 and MTCS, which demand strict confidentiality of user data and user information, as well as user privacy protection. We recommend that you use ECS in an [Alibaba Cloud Virtual Private Cloud \(VPC\)](https://www.alibabacloud.com/help/doc-detail/34217.htm).
 
 -   **Alibaba Cloud VPC offers more business possibilities.** You only need to perform a simple configuration to connect your business environment to global IDCs, making your business more flexible, stable, and extensible.
 
--   **Alibaba Cloud VPC can connect to your IDC** through a leased line to build a hybrid cloud architecture. You can build a more flexible business with the robust networking derived from Alibaba Cloud’s various hybrid cloud solutions and network products. A superior business ecosystem is possible with Alibaba Cloud’s ecosystem.
+-   **Alibaba Cloud VPC can connect to your IDC** through a leased line to build a hybrid cloud architecture. You can build a more flexible business with robust networking derived from Alibaba Cloud’s various hybrid cloud solutions and network products. A superior business ecosystem is made possible with Alibaba Cloud’s ecosystem.
 
 -   **Alibaba Cloud VPC is more stable and secure.**
 
     **Stable:** After you build your business on VPC, you can update your network architecture and obtain new network functions on a daily basis as the network infrastructure evolves constantly, allowing your business to run steadily. You can divide, configure, and manage your network on VPC according to your needs.
 
-    **Secure:** VPC features traffic isolation and attack isolation to protect your services from endless attack traffic on the Internet. After you build your business on VPC, the first line of defense is established.
+    **Secure:** VPC features traffic isolation and attack isolation to protect your services from attack traffic on the Internet. By building your business on VPC, the first line of defense is established.
 
 
-VPC provides a stable, secure, fast-deliverable, self-managed, and controllable network environment. The capability and architecture of VPC hybrid cloud bring the technical advantages of cloud computing to traditional industries and industries and enterprises that are not engaged in cloud computing.
+VPC provides a stable, secure, fast-deliverable, self-managed, and controllable network environment. VPC hybrid cloud brings the technical advantages of cloud computing to traditional industries, in addition to industries and enterprises that are not engaged in cloud computing.
 
 ## Elasticity {#section_nrm_cv4_ydb .section}
 
-Elasticity is a key benefit of cloud computing. By using Alibaba Cloud, you can have all the necessary IT resources provisioned within minutes to build an IT company of medium size. The resources and capacity of this size can meet the requirements of most companies for their applications built on the cloud to handle huge volume of transactions without problems.
+Elasticity is a key benefit of cloud computing. By using Alibaba Cloud, you can have all the IT resources necessary to build an IT company of medium size provisioned within minutes. The available resources and capacities can meet the requirements of most companies, allowing their applications built on the cloud to handle a huge volume of transactions without problems.
 
-## **Elastic computing** {#section_orm_cv4_ydb .section}
+-   Elastic computing
 
-Elastic computing contains the following types of scalability:
+    Elastic computing contains the following types of scalability:
 
--   Vertical scaling
--   Horizontal scaling
+    -   Vertical scaling involves modifying the configurations of a server. After you purchase ECS or storage capacity of Alibaba Cloud, you can configure your server with great flexibility based on your actual transaction volume, whereas it may be difficult to change configurations in the traditional IDC model. For more information about vertical scaling, see [Change configurations](../../../../intl.en-US/User Guide/Instances/Change configurations/Overview of configuration changes.md#).
 
-**Vertical scaling** involves modifying the configurations of a server. After you purchase ECS or storage capacity of Alibaba Cloud, you can configure your server with great flexibility based on your actual transaction volume, whereas you may find it difficult to make configurations in the traditional IDC model. For more information about vertical scaling, see [Change configurations](../../../../intl.en-US/User Guide/Instances/Change configurations/Overview of configuration changes.md#).
+    -   **Horizontal scaling** allows the re-division of resources between applications. For example, at peak hours for game or live video streaming apps, in the traditional IDC model, your hands may be tied if additional resources are required when you are already at full capacity. Cloud computing uses elasticity to provide additional resources to you over that period. When the period ends, you can release unnecessary resources to reduce your business costs. By using both horizontal scaling and auto-scaling, you can determine how and when you scale your resources or apply your scaling based on business loads. For more information about horizontal scaling, see [Auto Scaling](https://www.alibabacloud.com/help/doc-detail/25857.htm).
 
-**Horizontal scaling** allows the re-division of resources between applications. For example, at peak hours for game or live video streaming apps, in the traditional IDC model, your hands may be tied when the request for additional resources arises. Cloud computing now leverages elasticity to tide you over that period. When the period ends, you release unnecessary resources to reduce your business cost. By using both horizontal scaling and auto-scaling that Alibaba Cloud provides, you can determine how and when you scale your resources or apply your scaling based on business loads. For more information about horizontal scaling, see [Auto Scaling](https://www.alibabacloud.com/help/doc-detail/25857.htm).
+-   Elastic storage
 
-## Elastic storage {#section_prm_cv4_ydb .section}
+    Alibaba Cloud provides elastic storage. In the traditional IDC model, if more storage space is required, you can only add servers, but the number of servers that you can add is limited. In the cloud computing model, however, the sky is the limit. Order as much storage space as you need to meet business demand. For more information about elastic storage, see [Resize a disk](../../../../intl.en-US/User Guide/Cloud disks/Resize cloud disks/Overview.md#).
 
-Alibaba Cloud has elastic storage. When more storage space is required, in the traditional IDC model, you can only add servers, but the number of servers that you can add is limited. However, in the cloud computing model, the sky is the limit. Order as you want to guarantee the sufficient storage space. For more information about elastic storage, see [Resize a disk](../../../../intl.en-US/User Guide/Cloud disks/Resize cloud disks/Overview.md#).
+-   Elastic network
 
-## Elastic network {#section_qrm_cv4_ydb .section}
+    Alibaba Cloud features elastic network as well. When you purchase Alibaba Virtual Private Cloud \(VPC\), you can set network configurations to be the same as those of data centers. In addition, VPC has the following benefits:
 
-Alibaba Cloud features elastic network as well. When you purchase the Alibaba Virtual Private Cloud \(VPC\), you can have the network configurations the same as those of data centers. In addition, you can have the following benefits:
+    -   Interconnection between data centers
+    -   Separate secure domains in data centers
+    -   Flexible network configurations and planning within the VPC
+    For more information about elastic networks, see [Virtual Private Cloud](https://www.alibabacloud.com/help/product/27706.htm).
 
--   Interconnection between data centers
--   Separate secure domains in data centers
--   Flexible network configurations and planning within the VPC
 
-For more information about elastic network, see [Virtual Private Cloud](https://www.alibabacloud.com/help/product/27706.htm).
-
-Elasticity of Alibaba Cloud is a combination of elastic computing, storage, network, and the elasticity to redesign business architecture. By using Alibaba Cloud, you can work out your business portfolio in whatever way you want.
+Alibaba Cloud incorporates elasticity in computing, storage, network, and business architecture design. By using Alibaba Cloud, you can build your business portfolio in any way you want.
 
 ## Comparison between ECS and traditional IDCs {#section_rrm_cv4_ydb .section}
 
-The table lists the benefits of ECS compared with the traditional IDCs.
+The table lists the benefits of ECS compared with traditional IDCs.
 
 |Item|ECS|Traditional IDCs|
 |:---|:--|:---------------|
@@ -75,18 +72,18 @@ The table lists the benefits of ECS compared with the traditional IDCs.
 |Provides multiline BGP equipment rooms, enabling smooth and balanced access throughout the country.|Provides equipment rooms with single or dual line primarily.|
 |Ease of operation|Provides built-in mainstream operating systems, including activated Windows OS.|Purchases and installs operating system manually.|
 |Switches operating systems online.|Reinstalls operating systems manually.|
-|Provides a Web-based console for online management.|Manages and maintains manually.|
+|Provides a Web-based console for online management.|Users must manage and maintain network manually.|
 |Provides mobile phone verification for password setting, increasing data security.|Has difficulty in resetting passwords, and exposes high risk of password cracking.|
 |Disaster recovery and backup|Each data segment has multiple copies. When one copy is corrupted, the data can be quickly restored.|Users must build disaster recovery environment by themselves, and use traditional storage devices.|
 |Users can customize automatic snapshot policies to create automatic snapshots for data recovery.|Users must restore all corrupted data manually.|
 |Faults can be recovered fast and automatically.|Faults cannot be recovered automatically.|
-|Security and reliability |Effectively prevents MAC spoofing and ARP attacks.|Failed to prevent MAC spoofing and ARP attacks.|
-|Effectively defend against DDoS attacks by using black holes and cleaning traffic.|Needs additional costs for devices for traffic cleaning and black hole shielding systems.|
+|Security and reliability |Effectively prevents MAC spoofing and ARP attacks.|Fails to prevent MAC spoofing and ARP attacks.|
+|Effectively defends against DDoS attacks by using black holes and cleaning traffic.|Needs additional costs for devices for traffic cleaning and black hole shielding systems.|
 |Provides additional services, such as port scanning, Trojan scanning, and vulnerability scanning.|Typically encountered problems such as vulnerability, Trojan, and port scanning.|
-|Flexible scalability|Activates cloud servers on demand and upgrades configurations online.|Needs long time for server delivery.|
-|Adjusts outbound bandwidth whenever required.|One-off purchase of outbound bandwidth, unable to adjust.|
+|Flexible scalability|Activates cloud servers on demand and upgrades configurations online.|Needs a long time for server delivery.|
+|Adjusts outbound bandwidth as required.|One-off purchase of outbound bandwidth, unable to adjust.|
 |Combines with Server Load Balancer online, enabling scaling up applications quickly and easily.|Uses hardware-based server load balancing, which is expensive and extremely difficult to set up.|
-|Cost effectiveness |Costs low.|Costs high.|
-|Invests a little up front.|Invests a lot up front, causing serious waste of resources.|
+|Cost effectiveness |Low cost.|High cost.|
+|Small up front investment.|Large up front investment, possible waste of resources.|
 |Purchases on demand and pay as you go, meeting requirements for constant business changes.|Purchases up front to meet configuration requirements for peak hours.|
 
