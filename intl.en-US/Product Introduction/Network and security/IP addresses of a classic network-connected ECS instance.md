@@ -1,6 +1,6 @@
 # IP addresses of a classic network-connected ECS instance {#concept_lky_f3w_ydb .concept}
 
-IP addresses are mainly used for remote access to your instance or the services deployed on your instance. Currently, in the classic network provided by Alibaba Cloud, IP addresses are distributed in a unified way and divided into public and private IP addresses.
+IP addresses are mainly used for remote access to your instance or to the services deployed on your instance. Currently, for ECS instances of the classic network type, IP addresses are distributed in a unified way and divided into public and private IP addresses.
 
 ## Intranet IP addresses {#section_dlg_g3w_ydb .section}
 
@@ -20,11 +20,11 @@ Communication traffic through intranet IP addresses within an intranet is free o
 
 Once a classic network-connected ECS instance is created, you cannot change its intranet IP address.
 
-**Note:** Do not change an intranet IP address within a guest operating system. Otherwise, communication within an intranet gets interrupted.
+**Note:** Do not change an intranet IP address within a guest operating system. Otherwise, communication within an intranet is interrupted.
 
 ## Public IP addresses {#section_hlg_g3w_ydb .section}
 
-If you purchase bandwidth for Internet access, a public IP address is assigned to your classic network-connected ECS instance.  You cannot change the public IP address once it is assigned.
+If you purchase bandwidth for Internet access, a public IP address is assigned to your classic network-connected ECS instance. You cannot change the public IP address once it is assigned.
 
 **Scenarios**
 
@@ -37,7 +37,7 @@ A public IP address is used in the following scenarios:
 
 When you create an ECS instance, a public IP address is assigned to it if **Assign public IP** is selected.
 
-For a Subscription instance with no public IP address, you can use the Upgrade Configuration or the Renew for Configuration Downgrade feature to purchase public network bandwidth.
+For a Subscription instance with no public IP address, you can use the [Upgrade Configuration](../../../../intl.en-US/User Guide/Instances/Change configurations/Upgrade configurations of Subscription instances.md) or the [Renew for Configuration Downgrade](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md) feature to purchase public network bandwidth.
 
 **Note:** 
 
@@ -46,7 +46,7 @@ For a Subscription instance with no public IP address, you can use the Upgrade C
 
 **Billing**
 
-You are billed for usage of Internet outbound traffic only.  For more information, see Billing of network bandwidth.
+You are billed for usage of Internet outbound traffic only. For more information, see [Billing of network bandwidth](../../../../intl.en-US/Pricing/Billing of network bandwidth.md).
 
 ## Multicast and broadcast {#section_nlg_g3w_ydb .section}
 
