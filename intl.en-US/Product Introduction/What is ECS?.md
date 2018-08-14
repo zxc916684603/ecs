@@ -6,7 +6,7 @@ Elastic Compute Service \(ECS\) is a type of computing service that features ela
 
 The following figure illustrates the concept of an ECS instance. You can use the [ECS console](https://ecs.console.aliyun.com/#/home) to configure the instance type, disks, operating system, and other affiliated resources.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/15342132514795_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/15342290244795_en-US.png)
 
 ## Basic concepts {#section_jkn_4qj_ydb .section}
 
@@ -27,7 +27,7 @@ It is helpful to understand the following concepts before you use ECS:
 
 [Alibaba Cloud marketplace](https://www.alibabacloud.com/marketplace) is an online market. You can purchase software infrastructure, developer tools, and business software provided by third-party partners. You can become a marketplace service provider.
 
-Auto Scaling enables you to dynamically scale your computing capacity up or down to meet the workload of your ECS instances according to scaling policies you specify. It also reduces the need of manual provision.  For more information, see [What is Auto Scaling](https://www.alibabacloud.com/help/product/25855.htm).
+Auto Scaling enables you to dynamically scale your computing capacity up or down to meet the workload of your ECS instances according to scaling policies you specify. It also reduces the need of manual provision. For more information, see [What is Auto Scaling](https://www.alibabacloud.com/help/product/25855.htm).
 
 Container Service enables you to manage the lifecycle of containerized applications by using Docker and Kubernetes. For more information, see [What is Container Service](https://www.alibabacloud.com/help/product/25972.htm).
 
@@ -39,13 +39,13 @@ Server Guard \(Server Security\) provides real-time awareness and defense agains
 
 Anti-DDoS Basic prevents and mitigates DDoS attacks by routing traffic away from your infrastructure. Alibaba Cloud Anti-DDoS Pro safeguards your ECS instances under high volume DDoS attacks. For more information, see [What is Anti-DDoS Basic](https://www.alibabacloud.com/help/doc-detail/28399.htm) and [What is Anti-DDoS Pro](https://www.alibabacloud.com/help/doc-detail/28464.htm).
 
-Alibaba Cloud SDK enables you to access Alibaba Cloud services and to manage your applications by using the programming language of your choice. For more information, see [Developer Resources](https://www.alibabacloud.com/support/developer-resources).  You can use [OpenAPI Explorer](https://api.aliyun.com/) to debug ECS API and generate the SDK Demo.
+Alibaba Cloud SDK enables you to access Alibaba Cloud services and to manage your applications by using the programming language of your choice. For more information, see [Developer Resources](https://www.alibabacloud.com/support/developer-resources). You can use [OpenAPI Explorer](https://api.aliyun.com/) to debug ECS API and generate the SDK Demo.
 
 ## Operations {#section_lsd_yqj_ydb .section}
 
 Alibaba Cloud provides an intuitive operation interface for you to manage your ECS instances. You can log on to the [ECS console](https://ecs.console.aliyun.com/#/home) to operate ECS instances. For more information, see [User Guide](../../../../intl.en-US/User Guide/Quick reference.md#).
 
-You can use API to manage your ECS instances. For more information, see [API References](../../../../intl.en-US/API Reference/Introduction.md#).  You can also use Alibaba Cloud CLI to call API to manage ECS instances. For more information, see [Alibaba Cloud Command Line Interface](https://www.alibabacloud.com/help/zh/product/29991.htm).
+You can use API to manage your ECS instances. For more information, see [API References](../../../../intl.en-US/API Reference/Introduction.md#). You can also use Alibaba Cloud CLI to call API to manage ECS instances. For more information, see [Alibaba Cloud Command Line Interface](https://www.alibabacloud.com/help/product/29991.htm).
 
 ## ECS pricing and billing {#section_vq5_brj_ydb .section}
 
