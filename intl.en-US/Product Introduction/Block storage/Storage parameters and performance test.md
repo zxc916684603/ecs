@@ -8,7 +8,7 @@ The main index for measuring storage performance includes IOPS, throughput, and 
 
 **IOPS**
 
-IOPS stands for Input/Output Operations per Second, which means the amount of write or read operations can be done in one second.  Transaction-intensive applications are sensitive to IOPS.
+IOPS stands for Input/Output Operations per Second, which means the amount of write or read operations that can be done each second. Transaction-intensive applications are sensitive to IOPS.
 
 The following table lists the most common performance characteristics measured: sequential operations and random operations.
 
@@ -45,9 +45,9 @@ The following table lists the features and typical scenarios of different types 
 |Parameters|SSD Cloud Disks|Ultra Cloud Disks|Basic Cloud Disks|
 |:---------|:--------------|:----------------|:----------------|
 |Capacity of a single disk|32,768 GiB|32,768 GiB|2,000 GiB|
-|Maximum IOPS|20,000[\*](https://help.aliyun.com/document_detail/25382.html?spm=a2c4g.11186623.6.552.AXb2YZ#ssd)|3,000|Several hundreds|
-|Maximum throughput|300 MBps[\*](https://help.aliyun.com/document_detail/25382.html?spm=a2c4g.11186623.6.552.AXb2YZ#ssd)|80 MBps|30 MBps−40 MBps|
-|Formulas to calculate performance of a single disk[\*\*](https://help.aliyun.com/document_detail/25382.html?spm=a2c4g.11186623.6.552.AXb2YZ#formula)|IOPS = min\{1200 + 30 \* capacity, 20000\}|IOPS = min\{1000 + 6 \* capacity, 3000\}|N/A|
+|Maximum IOPS|20,000\*|3,000|Several hundreds|
+|Maximum throughput|300 MBps\*|80 MBps|30 MBps−40 MBps|
+|Formulas to calculate performance of a single disk\*\*|IOPS = min\{1200 + 30 \* capacity, 20000\}|IOPS = min\{1000 + 6 \* capacity, 3000\}|N/A|
 |Throughput = min \{80 + 0.5 \* capacity, 300\} MBps|Throughput = min\{50 + 0.1 \* capacity, 80\} MBps|N/A|
 |Data reliability|99.9999999%|99.9999999%|99.9999999%|
 |API name|cloud\_ssd|cloud\_efficiency|cloud|
@@ -62,7 +62,7 @@ The following table lists the features and typical scenarios of different types 
 
  |
 
-The performance of an SSD Cloud Disk varies according to the size of the data blocks. Smaller data blocks result in lower throughput and higher IOPS, as shown in the following table. An SSD Cloud Disk can achieve the expected performance only when it is attached to an I/O-optimized instance.
+\* The performance of an SSD Cloud Disk varies according to the size of the data blocks. Smaller data blocks result in lower throughput and higher IOPS, as shown in the following table. An SSD Cloud Disk can achieve the expected performance only when it is attached to an I/O-optimized instance.
 
 |Data block size|Maximum IOPS|Throughput|
 |:--------------|:-----------|:---------|
@@ -71,10 +71,10 @@ The performance of an SSD Cloud Disk varies according to the size of the data bl
 |32 KiB|About 9,600|
 |64 KiB|About 4,800|
 
-\*\* Take an SSD Cloud Disk as an example to describe how to calculate the performance of a single disk:
+\*\* Here, an SSD Cloud Disk is taken as an example to describe the performance of a single disk:
 
--   The maximum IOPS: The base is 1,200 IOPS, increase by 30 IOPS per GiB storage, and the maximum IOPS of a single disk is 20,000.
--   The maximum throughput: The base is 80 MBps, increase by 0.5 MBps per GiB storage, and the maximum throughput of a singled disk is 300 MBps.
+-   The maximum IOPS: The baseline is 1,800 IOPS. It can increase by 30 IOPS per GiB of storage. The maximum IOPS is 25,000.
+-   The maximum throughput: The baseline is 120 MBps. It can increase by 0.5 MBps per GiB of storage. The maximum throughput is 300 MBps.
 
 The latency varies according to the disk categories as follows:
 
@@ -111,10 +111,10 @@ The following table lists the features and typical scenarios of different types 
 
 \* The maximum IOPS and throughput listed in the preceding table are the maximum performance of a bare shared block storage device that is attached to two or more instances at the same time during stress tests.
 
-\*\* Take an SSD Shared Block Storage as an example to describe how to calculate the performance of a single disk:
+\*\* Here, an SSD Shared Block Storage is used as an example to describe the performance of a single disk:
 
--   The maximum IOPS: The base is 0, increase by 40 IOPS per GiB storage, and the maximum IOPS is 30,000 IOPS.
--   The maximum throughput: The base is 50 MBps, increase by 0.5 MBps per GiB storage, and the maximum throughput is 512 MBps.
+-   The maximum IOPS: The baseline is 0 IOPS. It can increase by 40 IOPS per GiB of storage. The maximum IOPS is 30,000.
+-   The maximum throughput: The baseline is 50 MBps. It can increase by 0.5 MBps per GiB of storage. The maximum throughput is 512 MBps.
 
 The latency varies according to the shared block storage categories as follows:
 
@@ -132,11 +132,11 @@ According to the OS on which an instance is running, you can use different tools
 -   Linux: DD, fio, or sysbench is recommended.
 -   Windows: fio or Iometer is recommended.
 
-This section takes a Linux instance and fio as an example to describe how to test the disk performance by using fio. Before testing the disk, you must make sure the disk is 4K aligned.
+This section describes how to test disk performance, taking the fio tool used with a Linux instance as an example. Before you test the disk, you must make sure the disk is 4K aligned.
 
 You can use fio to test the performance of a cloud disk.
 
-**Warning:** Testing bare disks can obtain more accurate performance data, but damages the structure of the file system. Make sure that you back up your data before testing. We recommend that you use a new ECS instance without data on the disks to test the disks by using fio.
+**Warning:** You can test bare disks to obtain more accurate performance data, but the test causes damage to the structure of the file system. Make sure that you back up your data before testing. We recommend that you use a new ECS instance without data on the disks to test the disks by using fio.
 
 -   Test random write IOPS
 
@@ -175,12 +175,12 @@ Take the command for testing random read IOPS as an example to describe the mean
 -   randrw \(random read and write\).
 
 |
-|-ioengine=libaio|Use libaio as the testing method \(Linux AIO, Asynchronous I/O\).  Usually you have two ways for an application to use I/O: synchronous and asynchronous. Synchronous I/O only sends out one I/O request each time, and returns only after the kernel is completed. In this case, the iodepth is always less than 1 for a single job, but can be resolved by multiple concurrent jobs. Usually 16−32 concurrent jobs can fill up the iodepth. Asynchronous method uses libaio to submit a batch of I/O requests each time, thus reduces interaction times, and makes interaction more effective.|
-|-bs=4k|The size of each block for one I/O is 4k. If not specified, the default value 4k is used. When IOPS is tested, we recommend that you set the bs to a small value, such as 4k in this example command.  When throughput is tested, we recommend that you set the bs to a big value, such as 1024k in the IOPS tests.|
+|-ioengine=libaio|Use libaio as the testing method \(Linux AIO, Asynchronous I/O\). Usually there are two ways for an application to use I/O: synchronous and asynchronous. Synchronous I/O only sends out one I/O request at a time, and returns only after the kernel is completed. In this case, the iodepth is always less than 1 for a single job, but can be resolved by multiple concurrent jobs. Usually 16−32 concurrent jobs can fill up the iodepth. The asynchronous method uses libaio to submit a batch of I/O requests each time, thus reducing interaction times, and makes interaction more effective.|
+|-bs=4k|The size of each block for one I/O is 4k. If not specified, the default value 4k is used. When IOPS is tested, we recommend that you set the bs to a small value, such as 4k in this example command. When throughput is tested, we recommend that you set the bs to a large value, such as 1024k in the IOPS tests.|
 |-size=1G|The size of the testing file is 1 GiB.|
 |-numjobs=1|The number of testing jobs is 1.|
 |-runtime=1000|Testing time is 1,000 seconds. If not specified, the test will go on with the value specified for -size, and write data in -bs each time.|
-|-group\_reporting|The display mode of showing the testing results. Group\_reporting means sums up statistics of each job, instead of showing statistics by different jobs.|
-|-filename=iotest|The output path and name of the test files. Testing bare disks can obtain more accurate performance data, but damages the structure of the file sytem. Make sure that you back up your data before testing.|
+|-group\_reporting|The display mode for showing the testing results. Group\_reporting means the statistics of each job are summed up, instead of all statistics of each job being shown.|
+|-filename=iotest|The output path and name of the test files. You can test bare disks to obtain more accurate performance data, but the test causes damage to the structure of the file system. Make sure that you back up your data before testing.|
 |-name=Rand\_Write\_Testing|The name of the testing task.|
 
