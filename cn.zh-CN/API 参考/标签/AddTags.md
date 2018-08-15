@@ -27,7 +27,7 @@
 以上取值均为小写。|
 |ResourceId|String|是|要绑定标签的资源ID。例如，当资源类型（`ResourceType`）为实例（`instance`）时，资源ID可以理解为实例ID。|
 |Tag.n.Key|String|否|资源的标签键。n的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http://或者https://开头。|
-|Tag.n.Value|String|否| 资源的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http://或者https://开头。
+|Tag.n.Value|String|否| 资源的标签值。n的取值范围：\[1, 20\]。一旦使用标签，该值可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http://或者https://开头。
 
  |
 
