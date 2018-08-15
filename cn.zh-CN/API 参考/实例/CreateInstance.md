@@ -73,7 +73,7 @@
 
 -   创建实例时，我们根据您指定的镜像为实例分配一个相应大小的系统盘。系统盘容量必须大于或者等于max\{20, ImageSize\}。系统盘的种类有普通云盘（`cloud`）、高效云盘（`cloud_efficiency`）、SSD云盘（`cloud_ssd`）、和本地SSD盘（`ephemeral_ssd`）。
 
--   当系统盘是普通云盘（`cloud`）、高效云盘（`cloud_efficiency`）或SSD云盘（`cloud_ssd`）时，数据盘不能是本地SSD 盘 `ephemeral_ssd`。
+-   当系统盘是普通云盘（`cloud`）、高效云盘（`cloud_efficiency`）或SSD云盘（`cloud_ssd`）时，数据盘不能是本地SSD盘 `ephemeral_ssd`。
 
 -   当实例选择为I/O优化实例时，系统盘只能选择高效云盘（`cloud_efficiency`）及SSD云盘（`cloud_ssd`）。
 
@@ -104,14 +104,10 @@
 |ZoneId|String|否|实例所属的可用区编号。更多详情，请参阅 [DescribeZones](cn.zh-CN/API 参考/地域/DescribeZones.md#) 获取可用区列表。空表示由系统选择，默认值：空。
 
 |
-|InstanceName|String|否|实例的名称。-   长度为\[2, 128\]个英文或中文字符，必须以大小字母或中文开头，可包含数字、点号（.）、半角冒号（:）、下划线（\_）或短横线（-）。
--   如果没有指定该参数，默认值为实例的InstanceId。
--   不能以 http:// 和 https:// 开头。
+|InstanceName|String|否|实例的名称。长度为\[2, 128\]个英文或中文字符。必须以大小字母或中文开头，不能以http://和https://开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。如果没有指定该参数，默认值为实例的InstanceId。
 
 |
-|Description|String|否|实例的描述。-   长度为 \[2, 256\] 个字符。
--   不填则为空，默认值为空。
--   不能以 http:// 和 https:// 开头。
+|Description|String|否|实例的描述。长度为\[2, 256\]个英文或中文字符，不能以http://和https://开头。默认值：空。
 
 |
 |InternetChargeType|String|否|网络计费类型。取值范围：-   PayByBandwidth：按固定带宽计费
@@ -124,15 +120,14 @@
 |InternetMaxBandwidthOut|String|否|公网出带宽最大值，单位为Mbit/s。取值范围：\[0, 100\]默认值：0
 
 |
-|HostName|String|否|云服务器的主机名。-   点号（.）和短横线（-）不能作为HostName的首尾字符，不能连续使用。
--   Windows系统主机名字符长度为 \[2, 15\]，允许字母（不限制大小写）、数字和短横线（-）组成，不支持点号（.），不能全是数字。
--   其他（Linux等）平台字符长度为 \[2, 128\]，允许支持多个点号，点之间为一段，每段允许字母（不限制大小写）、数字和短横线（-）组成。
+|HostName|String|否|云服务器的主机名。-   点号（.）和短横线（-）不能作为首尾字符，更不能连续使用。
+-   Windows实例：字符长度为\[2, 15\]，不支持点号（.），不能全是数字。允许大小写英文字母、数字和短横线（-）。
+-   其他类型实例（Linux等）：字符长度为\[2, 64\]，支持多个点号（.），点之间为一段，每段允许大小写英文字母、数字和短横线（-）。
 
 |
-|Password|String|否|实例的密码。-   长度为\[8, 30\]个字符，必须同时包含三类不同的字符（大、小写字母，数字和特殊符号）。
--   支持以下特殊字符：\( \) \` ~ ! @ \# $ % ^ & \* - + = | \{ \} \[ \] : ; ‘ < \> , . ? /
+|Password|String|否|实例的密码。长度为8至30个字符，必须同时包含大小写英文字母、数字和特殊符号。特殊符号可以是\(\)\`~!@\#$%^&\*-+=|\{\}\[\]:;‘<\>,.?/**说明：** 如果传入`Password`参数，建议您使用HTTPS协议发送请求，避免密码泄露。
 
-如果传入`Password`参数，建议您使用HTTPS协议发送请求，避免密码泄露。|
+|
 |PasswordInherit|Boolean|否|是否使用镜像预设的密码。使用该参数时，`Password`参数必须为空，同时您需要确保使用的镜像已经设置了密码。|
 |IoOptimized|String|否|是否为I/O优化实例。取值范围：-   none：非I/O优化
 -   optimized：I/O优化
@@ -153,14 +148,10 @@
 默认值：max\{40, ImageSize\}
 
 |
-|SystemDisk.DiskName|String|否|系统盘名称。-   长度为\[2, 128\]个英文或中文字符，必须以大小字母或中文开头，可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。
--   不能以http://和https:// 开头
--   不填则为空，默认值为空。
+|SystemDisk.DiskName|String|否|系统盘名称。长度为\[2, 128\]个英文或中文字符。必须以大小字母或中文开头，不能以http://和https://开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值：空。
 
 |
-|SystemDisk.Description|String|否|系统盘描述。-   长度为\[2, 256\]个英文或中文字符。
--   不能以http://和https://开头。
--   不填则为空，默认值为空。
+|SystemDisk.Description|String|否|系统盘描述。长度为\[2, 256\]个英文或中文字符，不能以http://和https://开头。默认值：空。
 
 |
 |DataDisk.n.Size|Integer|否|第n个数据盘的容量大小，n的取值范围为\[1, 16\]，内存单位为 GiB。取值范围：-   cloud：\[5, 2000\]
@@ -176,15 +167,11 @@
 
 默认值：cloud|
 |DataDisk.n.Encrypted|Boolean|否|数据盘n是否加密。默认值：false|
-|DataDisk.n.SnapshotId|String|否|创建数据盘n使用的快照。 指定参数 `DataDisk.n.SnapshotId` 后，参数 `DataDisk.n.Size` 会被忽略，实际创建的磁盘大小为参数 `SnapshotId` 的大小。若 `SnapshotId` 的创建时间早于2013年7月15日（含），该次请求会被拒绝，且返回错误 `InvalidSnapshot.TooOld`。|
-|DataDisk.n.DiskName|String|否|数据盘名称。-   长度为\[2, 128\]个英文或中文字符，必须以大小字母或中文开头，可包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。
--   不能以http://和https://开头。
--   不填则为空，默认值为空。
+|DataDisk.n.SnapshotId|String|否|创建数据盘n使用的快照。 指定参数`DataDisk.n.SnapshotId`后，参数`DataDisk.n.Size`会被忽略，实际创建的磁盘大小为参数 `SnapshotId` 的大小。若 `SnapshotId` 的创建时间早于2013年7月15日（含），该次请求会被拒绝，且返回错误 `InvalidSnapshot.TooOld`。|
+|DataDisk.n.DiskName|String|否|数据盘名称。长度为\[2, 128\]个英文或中文字符。必须以大小字母或中文开头，不能以http://和https://开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值：空。
 
 |
-|DataDisk.n.Description|String|否|数据盘描述。-   长度为\[2, 256\]个英文或中文字符。
--   不能以http://和https://开头。
--   不填则为空，默认值为空。
+|DataDisk.n.Description|String|否|数据盘描述。长度为\[2, 256\]个英文或中文字符，不能以http://和https://开头。默认值：空。
 
 |
 |DataDisk.n.DeleteWithInstance|Boolean|否|表示数据盘是否随实例释放。默认值：true
@@ -220,11 +207,11 @@
 -   AutoRenewPeriod 取值 \{“1”, “2”, “3”, “6”, “12”\}
 
 默认值：Month|
-|AutoRenew|String|否|是否要自动续费。当参数 `InstanceChargeType` 取值 `PrePaid` 时才生效。取值范围：-   True：自动续费。
+|AutoRenew|Boolean|否|是否要自动续费。当参数 `InstanceChargeType` 取值 `PrePaid` 时才生效。取值范围：-   True：自动续费。
 -   False：不自动续费。
 
 默认值：False|
-|AutoRenewPeriod|Integer|否|每次自动续费的时长，当参数 `AutoRenew` 取值 `True` 时为必填。取值范围：-   1
+|AutoRenewPeriod|Integer|否|每次自动续费的时长，当参数`AutoRenew`取值`True`时为必填。取值范围：-   1
 -   2
 -   3
 -   6
@@ -245,9 +232,9 @@
 -   Deactive：不启用安全加固，对所有镜像类型生效。
 
 |
-|Tag.n.Key|String|否|实例的标签键。`n` 的取值范围：\[1, 5\]。一旦传入该值，则不允许为空字符串。最多支持64个字符。 不能以aliyun、acs:、http://或者https://开头。|
-|Tag.n.Value|String|否|实例的标签值。`n` 的取值范围：\[1, 5\]。一旦传入该值，可以为空字符串。最多支持128个字符。 不能以aliyun、http://或者https://开头。|
-|DryRun|Boolean|否|是否只预检此次请求。-   true：发送检查请求，不会创建实例。检查项包括是否填写了必需参数、请求格式、业务限制和ECS库存。如果检查不通过，则返回对应错误。如果检查通过，则返回错误码 `DryRunOperation`。
+|Tag.n.Key|String|否|实例的标签键。n的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http://或者https://开头。|
+|Tag.n.Value|String|否|实例的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http://或者https://开头。|
+|DryRun|Boolean|否|是否只预检此次请求。-   true：发送检查请求，不会创建实例。检查项包括是否填写了必需参数、请求格式、业务限制和ECS库存。如果检查不通过，则返回对应错误。如果检查通过，则返回错误码`DryRunOperation`。
 -   false：发送正常请求，通过检查后直接创建实例。
 
 默认值：false
@@ -300,69 +287,69 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |:---|:---|:------|:-|
 |Account.Arrearage|Your account has an outstanding payment.|400|账号已经欠费。|
 |DryRunOperation|Request validation has been passed with DryRun flag set.|400|此次DryRun预检请求合格。|
-|IncorrectVSwitchStatus|The current status of virtual switch does not support this operation.|400|指定的 VSwitch 状态不正确。|
+|IncorrectVSwitchStatus|The current status of virtual switch does not support this operation.|400|指定的VSwitch状态不正确。|
 |InstanceDiskCategoryLimitExceed|The specified DataDisk.n.Size beyond the permitted range, or the capacity of snapshot exceeds the size limit of the specified disk category.|400|指定的磁盘大小超过了该类型磁盘上限。|
 |InstanceDiskNumber.LimitExceed|The total number of specified disk in an instance exceeds.|400|镜像中包含的数据盘和数据盘参数合并后，数据盘的总数超出限制。|
-|InvalidAutoRenewPeriod.ValueNotSupported|The specified autoRenewPeriod is not valid.|400|指定的 `AutoRenewPeriod` 不合法。|
-|InvalidDataDiskCategory.ValueNotSupported|The specified parameter DataDisk.n.Category is not valid.|400|指定的 `DataDisk.n.Category`不合法。|
-|InvalidDataDiskCategory.ValueNotSupported|The specified parameter DataDisk.n.Category is not valid.|400|指定的 `DataDisk.n.Category`不合法。|
-|InvalidDataDiskSize.ValueNotSupported|The specified DataDisk.n.Size beyond the permitted range, or the capacity of snapshot exceeds the size limit of the specified disk category.|400|指定的 `DataDisk.n.Size` 不合法（超出范围）。|
-|InvalidDescription.Malformed|The specified parameter Description is not valid.|400|指定的 `Description` 格式不合法。|
+|InvalidAutoRenewPeriod.ValueNotSupported|The specified autoRenewPeriod is not valid.|400|指定的`AutoRenewPeriod`不合法。|
+|InvalidDataDiskCategory.ValueNotSupported|The specified parameter DataDisk.n.Category is not valid.|400|指定的`DataDisk.n.Category`不合法。|
+|InvalidDataDiskCategory.ValueNotSupported|The specified parameter DataDisk.n.Category is not valid.|400|指定的`DataDisk.n.Category`不合法。|
+|InvalidDataDiskSize.ValueNotSupported|The specified DataDisk.n.Size beyond the permitted range, or the capacity of snapshot exceeds the size limit of the specified disk category.|400|指定的`DataDisk.n.Size`不合法（超出范围）。|
+|InvalidDescription.Malformed|The specified parameter Description is not valid.|400|指定的`Description`格式不合法。|
 |InvalidDiskCategory.Mismatch|The specified disk categories’ combination is not supported.|400|指定的磁盘类型组合不支持。|
-|InvalidDiskCategory.ValueNotSupported|The specified parameter DiskCategory is not valid.|400|指定的 `DiskCategory` 不合法。|
-|InvalidDiskDescription.Malformed|The specified parameter SystemDisk.DiskDescription or DataDisk.n.Description is not valid.|400|指定的 `SystemDisk.DiskDescription`或 `DataDisk.n.Description`不合法。|
-|InvalidDiskDescription.Malformed|The specified parameter SystemDisk.DiskDescription or DataDisk.n.Description is not valid.|400|指定的 `SystemDisk.DiskDescription`或 `DataDisk.n.Description`不合法。|
-|InvalidDiskName.Malformed|The specified parameter SystemDisk.DiskName or DataDisk.n.DiskName is not valid.|400|指定的 `SystemDisk.DiskName`或 `DataDisk.n.DiskName` 不合法。|
-|InvalidHostName.Malformed|The specified parameter HostName is not valid.|400|指定的 `HostName` 格式不合法。|
-|InvalidHpcClusterId.NotFound|The specified HpcClusterId is not found.|400|指定的 `HpcClusterId` 不存在。|
-|InvalidHpcClusterId.Creating|The specified HpcClusterId is creating.|400|指定的 `HpcClusterId` 正在创建中。|
-|InvalidHpcClusterId.Unnecessary|The specified HpcClusterId is unnecessary.|400|只有部分实例规格 `InstanceType` 支持指定[HPC](https://help.aliyun.com/document_detail/57677.html)集群 ID。|
-|InvalidVSwitchId.Necessary|The HpcClusterId is necessary.|400|该实例规格 `InstanceType` 需要指定 E-HPC 集群 ID，您需要传入 `HpcClusterId`。|
-|InvalidInstanceName.Malformed|The specified parameter InstanceName is not valid.|400|指定的 `InstanceName` 格式不合法。|
-|InvalidInstanceType.ValueNotSupported|The specified InstanceType beyond the permitted range.|400|指定的 `InstanceType` 不合法（超出可选范围）。|
-|InvalidInstanceType.ValueUnauthorized|The specified InstanceType is not authorized.|400|指定的 `InstanceType` 未授权使用。|
-|InvalidInternetChargeType.ValueNotSupported|The specified InternetChargeType is not valid.|400|指定的 `InternetChargeType`不存在。|
-|InvalidIoOptimizedValue.ValueNotSupported|IoOptimized value not supported.|400|指定的 `IoOptimized` 参数不支持。|
-|InvalidIPAddress.AlreadyUsed|The specified IPAddress is already used by other resource.|400|指定的 IP 地址已经被使用。|
-|InvalidNetworkType.Mismatch|Specified parameter InternetMaxBandwidthIn or InternetMaxBandwidthOut conflict with instance network type.|400|指定的 `InternetMaxBandwidthIn` 或 `InternetMaxBandwidthOut` 与实例网络类型不符合。|
-|InvalidSpotStrategy|The specified SpotStrategy is not valid.|400|`SpotStrategy` 参数不合法。|
-|InvalidSpotPriceLimit|The specified SpotPriceLimitis not valid.|400|`SpotPriceLimit` 参数不合法。|
+|InvalidDiskCategory.ValueNotSupported|The specified parameter DiskCategory is not valid.|400|指定的`DiskCategory`不合法。|
+|InvalidDiskDescription.Malformed|The specified parameter SystemDisk.DiskDescription or DataDisk.n.Description is not valid.|400|指定的`SystemDisk.DiskDescription`或`DataDisk.n.Description`不合法。|
+|InvalidDiskDescription.Malformed|The specified parameter SystemDisk.DiskDescription or DataDisk.n.Description is not valid.|400|指定的`SystemDisk.DiskDescription`或`DataDisk.n.Description`不合法。|
+|InvalidDiskName.Malformed|The specified parameter SystemDisk.DiskName or DataDisk.n.DiskName is not valid.|400|指定的`SystemDisk.DiskName`或`DataDisk.n.DiskName`不合法。|
+|InvalidHostName.Malformed|The specified parameter HostName is not valid.|400|指定的`HostName`格式不合法。|
+|InvalidHpcClusterId.NotFound|The specified HpcClusterId is not found.|400|指定的`HpcClusterId`不存在。|
+|InvalidHpcClusterId.Creating|The specified HpcClusterId is creating.|400|指定的`HpcClusterId`正在创建中。|
+|InvalidHpcClusterId.Unnecessary|The specified HpcClusterId is unnecessary.|400|只有部分实例规格 `InstanceType` 支持指定[HPC](https://help.aliyun.com/document_detail/57677.html)集群ID。|
+|InvalidVSwitchId.Necessary|The HpcClusterId is necessary.|400|该实例规格 `InstanceType` 需要指定E-HPC集群ID，您需要传入 `HpcClusterId`。|
+|InvalidInstanceName.Malformed|The specified parameter InstanceName is not valid.|400|指定的`InstanceName`格式不合法。|
+|InvalidInstanceType.ValueNotSupported|The specified InstanceType beyond the permitted range.|400|指定的`InstanceType`不合法（超出可选范围）。|
+|InvalidInstanceType.ValueUnauthorized|The specified InstanceType is not authorized.|400|指定的`InstanceType`未授权使用。|
+|InvalidInternetChargeType.ValueNotSupported|The specified InternetChargeType is not valid.|400|指定的`InternetChargeType`不存在。|
+|InvalidIoOptimizedValue.ValueNotSupported|IoOptimized value not supported.|400|指定的`IoOptimized`参数不支持。|
+|InvalidIPAddress.AlreadyUsed|The specified IPAddress is already used by other resource.|400|指定的IP地址已经被使用。|
+|InvalidNetworkType.Mismatch|Specified parameter InternetMaxBandwidthIn or InternetMaxBandwidthOut conflict with instance network type.|400|指定的`InternetMaxBandwidthIn`或`InternetMaxBandwidthOut`与实例网络类型不符合。|
+|InvalidSpotStrategy|The specified SpotStrategy is not valid.|400|`SpotStrategy`参数不合法。|
+|InvalidSpotPriceLimit|The specified SpotPriceLimitis not valid.|400|`SpotPriceLimit`参数不合法。|
 |InvalidSpotAuthorized|The specified Spot param is unauthorized.|400|该账号没有授权创建抢占式实例。|
 |InvalidSpotPrepaid|The specified Spot type is not support PrePay Instance.|400|抢占式支持预付费。|
 |InvalidSpotPriceLimit.LowerThanPublicPrice|The specified parameter spotPriceLimit can’t be lower than current public price.|400|出价低于当前系统公允价格。|
-|InvalidNetworkType.Mismatch|Specified parameter InternetChargeType conflict with instance network type.|400|指定的 `InternetChargeType`与实例网络类型不符合。|
-|InvalidNodeControllerId.Malformed|The specified parameter NodeControllerId is not valid.|400|指定的 `NodeControllerId` 不合法。|
-|InvalidParameter|The specified parameter InternetMaxBandwidthOut is not valid.|400|指定的 `InternetMaxBandwidthOut` 不合法（不是数字或超出范围）。|
+|InvalidNetworkType.Mismatch|Specified parameter InternetChargeType conflict with instance network type.|400|指定的`InternetChargeType`与实例网络类型不符合。|
+|InvalidNodeControllerId.Malformed|The specified parameter NodeControllerId is not valid.|400|指定的`NodeControllerId`不合法。|
+|InvalidParameter|The specified parameter InternetMaxBandwidthOut is not valid.|400|指定的`InternetMaxBandwidthOut` 不合法（不是数字或超出范围）。|
 |InvalidParameter|The specified instance bandwidth is not valid.|400|指定的带宽值不合法。|
 |InvalidParameter.Bandwidth|The specified parameter Bandwidth is not valid.|400|指定的带宽值不合法。|
 |EncryptedOption.Conflict|Encryption value of disk and snapshot conflict.|400|磁盘的加密属性和快照的加密属性不一致。|
-|InvalidParameter.Conflict|The specified image does not support the specified instance type.|400|指定的 `InstanceType` 上不允许使用该指定的镜像。|
-|InvalidParameter.Encrypted.KmsNotEnabled|The encrypted disk need enable KMS.|400|您未开通 KMS 服务。|
-|InvalidParameter.EncryptedIllegal|The value of parameter Encrypted is illegal.|400|传入的参数 `Encrypted` 非法。|
+|InvalidParameter.Conflict|The specified image does not support the specified instance type.|400|指定的`InstanceType`上不允许使用该指定的镜像。|
+|InvalidParameter.Encrypted.KmsNotEnabled|The encrypted disk need enable KMS.|400|您未开通KMS服务。|
+|InvalidParameter.EncryptedIllegal|The value of parameter Encrypted is illegal.|400|传入的参数`Encrypted`非法。|
 |InvalidParameter.EncryptedNotSupported|Encrypted disk is not support in this region.|400|所选择的地域不支持加密特性。|
 |InvalidParameter.EncryptedNotSupported|Corresponding data disk category does not support encryption.|400|对应的磁盘种类不支持加密。|
-|InvalidParameter.Mismatch|Specified security group and virtual switch are not in the same VPC.|400|指定安全组与 VSwitch 不属于同一个 VPC。|
-|InvalidParameter.Mismatch|Specified virtual switch is not in the specified zone.|400|指定的 VSwitch 不在指定 Zone。|
-|InvalidPassword.Malformed|The specified parameter Password is not valid.|400|指定的 `Password` 格式不合法。|
-|InvalidPrivateIpAddress|Specified private IP address is not in the CIDR block of virtual switch.|400|指定的 IP 不属于该 VSwitch。|
-|InvalidPrivateIpAddress.Duplicated|Specified private IP address is duplicated.|400|指定的 `PrivateIpAddress` 重复。|
-|InvalidPrivateIpAddress.Malformed|Specified private IP address is malformed.|400|指定的私有 IP 不合法。|
-|InvalidPasswordParam.Mismatch|The input password should be null when passwdInherit is true.|400|指定了 `PasswdInherit` 后，您不能指定 `Password` 参数。|
-|InvalidSnapshotId.BasedSnapshotTooOld|The specified snapshot is created before 2013-07-15.|400|使用了 2013-07-15 之前创建的快照。|
+|InvalidParameter.Mismatch|Specified security group and virtual switch are not in the same VPC.|400|指定安全组与VSwitch不属于同一个VPC。|
+|InvalidParameter.Mismatch|Specified virtual switch is not in the specified zone.|400|指定的VSwitch不在指定Zone。|
+|InvalidPassword.Malformed|The specified parameter Password is not valid.|400|指定的`Password`格式不合法。|
+|InvalidPrivateIpAddress|Specified private IP address is not in the CIDR block of virtual switch.|400|指定的IP不属于该VSwitch。|
+|InvalidPrivateIpAddress.Duplicated|Specified private IP address is duplicated.|400|指定的`PrivateIpAddress`重复。|
+|InvalidPrivateIpAddress.Malformed|Specified private IP address is malformed.|400|指定的私有IP不合法。|
+|InvalidPasswordParam.Mismatch|The input password should be null when passwdInherit is true.|400|指定了`PasswdInherit`后，您不能指定`Password`参数。|
+|InvalidSnapshotId.BasedSnapshotTooOld|The specified snapshot is created before 2013-07-15.|400|使用了2013年07月15日之前创建的快照。|
 |InvalidSpotAliUid|The specified UID is not authorized to use SPOT instance.|400|该账号不能使用抢占式|
-|InvalidSystemDiskCategory.ValueNotSupported|The specified parameter SystemDisk.Category is not valid.|400|指定的 `SystemDisk.Category`不合法。|
-|InvalidUserData.NotSupported|The specified parameter UserData only support the vpc and IoOptimized Instance.|400|UserData 只能使用在 VPC 和 I/O 优化实例上。|
-|InvalidUserData.SizeExceeded|The specified parameter UserData exceeds the size.|400|指定的 UserData 过长。|
-|MissingParameter|The input parameter VSwitchId that is mandatory for processing this request is not supplied.|400|缺少必填参数 `VSwitchId`。|
-|MissingParamter|The specified parameter Period is not null.|400|参数 `Period` 不能为空。|
+|InvalidSystemDiskCategory.ValueNotSupported|The specified parameter SystemDisk.Category is not valid.|400|指定的`SystemDisk.Category`不合法。|
+|InvalidUserData.NotSupported|The specified parameter UserData only support the vpc and IoOptimized Instance.|400|UserData只能使用在VPC和I/O优化实例上。|
+|InvalidUserData.SizeExceeded|The specified parameter UserData exceeds the size.|400|指定的UserData过长。|
+|MissingParameter|The input parameter VSwitchId that is mandatory for processing this request is not supplied.|400|缺少必填参数`VSwitchId`。|
+|MissingParamter|The specified parameter Period is not null.|400|参数`Period`不能为空。|
 |QuotaExceed.AfterpayInstance|The maximum number of Pay-As-You-Go instances is exceeded.|400|您的按量付费实例个数达到上限。|
-|QuotaExceeded|Living instances quota exceeded in this VPC.|400|VPC 中实例数量超限。|
-|QuotaExceeded.PrivateIpAddress|Don’t have enough private IPs in this switch.|400|私有 IP 数量不足。|
+|QuotaExceeded|Living instances quota exceeded in this VPC.|400|VPC中实例数量超限。|
+|QuotaExceeded.PrivateIpAddress|Don’t have enough private IPs in this switch.|400|私有IP数量不足。|
 |ResourceNotAvailable|Resource you requested is not available in this region or zone.|400|指定的地域或可用区内该资源不可用。|
 |CategoryNotSupported|The specified zone does not offer the specified disk category.|403|该可用区无权创建指定种类的磁盘。|
 |DeleteWithInstance.Conflict|The specified disk is not a portable disk and cannot be set to DeleteWithInstance attribute.|403|该磁盘不支持挂载与卸载。|
-|DependencyViolation.WindowsInstance|The instance creating is window, cannot use ssh key pair to login.|403|Windows 实例不能使用 SSH 密钥对。|
-|DeploymentSet.NoRoom|There is no room for more instance creation in the specified DeploymentSet.|403|指定的 `DeploymentSet` 中不能创建更多的实例。|
+|DependencyViolation.WindowsInstance|The instance creating is window, cannot use ssh key pair to login.|403|Windows实例不能使用SSH 密钥对。|
+|DeploymentSet.NoRoom|There is no room for more instance creation in the specified DeploymentSet.|403|指定的`DeploymentSet`中不能创建更多的实例。|
 |Forbbiden|User not authorized to operate on the specified resource.|403|您暂时无法使用该资源。|
 |ImageNotSubscribed|The specified image has not be subscribed.|403|没有订阅镜像市场的镜像。|
 |ImageNotSupportInstanceType|The specified image don’t support the InstanceType instance.|403|指定镜像不支持该实例类型。|
@@ -372,50 +359,50 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |InvalidDiskCategory.Mismatch|The specified disk categories combination is not supported.|403|指定的磁盘类型组合不支持。|
 |InvalidDiskCategory.NotSupported|The specified disk category is not support the specified instance type.|403|指定的磁盘类型不支持该实例类型。|
 |InvalidDiskSize.TooSmall|Specified disk size is less than the size of snapshot.|403|指定的磁盘小于指定快照大小。|
-|InvalidInstanceType.ZoneNotSupported|The specified zone does not support this InstanceType.|403|指定 Zone 不支持该实例类型。|
-|InvalidNetworkType.MismatchRamRole|Ram role cannot be attached to instances of Classic network type.|403|实例 RAM 角色不能被用于经典网络。|
-|InvalidParameter.ResourceOwnerAccount|ResourceOwnerAccount is Invalid.|403|指定的 `ResourceOwnerAccount`不合法。|
+|InvalidInstanceType.ZoneNotSupported|The specified zone does not support this InstanceType.|403|指定Zone不支持该实例类型。|
+|InvalidNetworkType.MismatchRamRole|Ram role cannot be attached to instances of Classic network type.|403|实例RAM角色不能被用于经典网络。|
+|InvalidParameter.ResourceOwnerAccount|ResourceOwnerAccount is Invalid.|403|指定的`ResourceOwnerAccount`不合法。|
 |InvalidPayMethod|The specified billing method is not valid.|403|指定的付费类型不存在。|
 |InvalidResourceType.NotSupported|This resource type is not supported; please try other resource types.|403|创建实例的配置暂无可用区支持，请选择其他配置创建。|
 |InvalidSnapshotId.NotDataDiskSnapshot|The specified snapshot is system disk snapshot.|403|系统盘快照不能创建数据盘。|
 |InvalidSnapshotId.NotReady|The specified snapshot has not completed yet.|403|快照没有完成。|
 |InvalidSystemDiskCategory.ValueUnauthorized|The disk category is not authorized.|403|磁盘种类未被授权使用。|
-|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|您使用的 RAM 用户账号暂不具有 PassRole 的权限，请联系主账号拥有者 [授权](../../../../../cn.zh-CN/快速入门/为 RAM 用户授权.md#) PassRole 权限。|
-|InvalidVSwitchId.NotFound|The VSwitchId provided does not exist in our records.|403|指定的 `VSwitchId` 不存在。|
-|IoOptimized.NotSupported|The specified image is not support IoOptimized Instance.|403|指定的镜像不支持 I/O 优化实例。|
-|IoOptimized.NotSupported|Vpc is not support IoOptimized instance.|403|指定的 VPC 中无法创建 I/O 优化实例。|
+|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|您使用的RAM用户账号暂不具有 `PassRole` 的权限，请联系主账号拥有者[授权](../cn.zh-CN/快速入门/为 RAM 用户授权.md#)PassRole 权限。|
+|InvalidVSwitchId.NotFound|The VSwitchId provided does not exist in our records.|403|指定的`VSwitchId`不存在。|
+|IoOptimized.NotSupported|The specified image is not support IoOptimized Instance.|403|指定的镜像不支持I/O优化实例。|
+|IoOptimized.NotSupported|Vpc is not support IoOptimized instance.|403|指定的VPC中无法创建I/O优化实例。|
 |OperationDenied|The specified snapshot is not allowed to create disk.|403|特定磁盘的快照不能创建磁盘或者快照不能创建磁盘。|
-|OperationDenied|The creation of Instance to the specified Zone is not allowed.|403|该可用区无权创建实例或者 `ZoneId` 和 `RegionId` 不匹配。|
+|OperationDenied|The creation of Instance to the specified Zone is not allowed.|403|该可用区无权创建实例或者`ZoneId`和`RegionId`不匹配。|
 |OperationDenied|The specified Image is disabled or is deleted.|403|指定的镜像找不到。|
 |OperationDenied|Sales of this resource are temporarily suspended in the specified region; please try again later.|403|该地域暂时停售按量实例。|
-|OperationDenied|The capacity of snapshot exceeds the size limit of the specified disk category or the specified category is not authorized.|403|指定的 DataDisk.n.Size 不合法（超出范围）或者磁盘种类未被授权使用。|
+|OperationDenied|The capacity of snapshot exceeds the size limit of the specified disk category or the specified category is not authorized.|403|指定的DataDisk.n.Size不合法（超出范围）或者磁盘种类未被授权使用。|
 |OperationDenied|The type of the disk does not support the operation.|403|指定磁盘类型不支持该操作。|
 |OperationDenied.NoStock|Sales of this resource are temporarily suspended in the specified region; please try again later.|403|库存不足，请尝试其它系列或者其它可用区/地域的实例。|
 |QuotaExceed.BuyImage|The specified image is from the image market, You have not bought it or your quota has been exceeded.|403|指定镜像没有购买或超过限制。|
-|QuotaExceed.PortableCloudDisk|The quota of portable cloud disk exceeds.|403|可挂载的云磁盘数量已经达到上限（最多 16 块）。|
+|QuotaExceed.PortableCloudDisk|The quota of portable cloud disk exceeds.|403|可挂载的云磁盘数量已经达到上限（最多16块）。|
 |RegionUnauthorized|There is no authority to create instance in the specified region.|403|您暂时无法使用该地域的资源。|
 |SecurityGroupInstanceLimitExceed|The maximum number of instances in a security group is exceeded.|403|该安全组内实例数量已经达到上限。|
 |Zone.NotOnSale|The specified zone is not available for purchase.|403|创建实例的可用区已经关闭售卖，请更换其他可用区。或者无法在该可用区使用指定 VPC 的虚拟交换机。|
 |Zone.NotOpen|The specified zone is not granted to you to buy resources yet.|403|您暂时无法在指定可用区创建实例。|
 |ZoneId.NotFound|The specified zone does not exists.|403|指定的可用区不存在。|
-|DependencyViolation.IoOptimized|The specified InstanceType must be IoOptimized instance.|404|指定的实例规格必须是 I/O 优化实例。|
-|HOSTNAME\_ILLEGAL|hostname is not valid.|404|指定的 `HostName` 不合法。|
-|InvalidDataDiskSnapshotId.NotFound|The specified parameter DataDisk.n.SnapshotId is not valid.|404|指定的 `DataDisk.n.SnapshotId` 不存在。|
-|InvalidDataDiskSnapshotId.NotFound|The specified parameter DataDisk.n.SnapshotId is not valid.|404|指定的 `DataDisk.n.SnapshotId` 不存在。|
-|InvalidDeploymentSetId.NotFound|The specified DeploymentSetId does not exist.|404|指定的 `DeploymentSetId` 不存在。|
+|DependencyViolation.IoOptimized|The specified InstanceType must be IoOptimized instance.|404|指定的实例规格必须是I/O优化实例。|
+|HOSTNAME\_ILLEGAL|hostname is not valid.|404|指定的`HostName`不合法。|
+|InvalidDataDiskSnapshotId.NotFound|The specified parameter DataDisk.n.SnapshotId is not valid.|404|指定的`DataDisk.n.SnapshotId`不存在。|
+|InvalidDataDiskSnapshotId.NotFound|The specified parameter DataDisk.n.SnapshotId is not valid.|404|指定的`DataDisk.n.SnapshotId`不存在。|
+|InvalidDeploymentSetId.NotFound|The specified DeploymentSetId does not exist.|404|指定的`DeploymentSetId`不存在。|
 |InvalidImageId.NotFound|The specified ImageId does not exist.|404|指定的镜像不存在。|
-|InvalidInstanceChargeType.NotFound|The InstanceChargeType does not exist in our records.|404|指定的 `InstanceChargeType`不存在。|
-|InvalidKeyPairName.NotFound|The specified KeyPairName does not exist in our records.|404|指定的 `KeyPairName` 不存在。|
-|InvalidRamRole.NotFound|The specified RamRoleName does not exist.|404|指定的 `RamRoleName` 不存在。|
-|InvalidRegionId.NotFound|The specified RegionId does not exist.|404|指定的 `RegionId` 不存在。|
-|InvalidSecurityGroupId.NotFound|The specified SecurityGroupId does not exist.|404|指定的 `SecurityGroupId` 不存在。或者您无法使用指定的安全组。|
-|InvalidSystemDiskSize|The specified parameter SystemDisk.Size is invalid.|404|指定的 `SystemDisk.Size` 不合法。|
-|InvalidSystemDiskSize.LessThanImageSize|The specified parameter SystemDisk.Size is less than the image size.|404|指定的 `SystemDisk.Size` 小于镜像大小。|
-|InvalidSystemDiskSize.LessThanMinSize|The specified parameter SystemDisk.Size is less than the min size.|404|指定的 `SystemDisk.Size` 小于磁盘大小下限。|
+|InvalidInstanceChargeType.NotFound|The InstanceChargeType does not exist in our records.|404|指定的`InstanceChargeType`不存在。|
+|InvalidKeyPairName.NotFound|The specified KeyPairName does not exist in our records.|404|指定的`KeyPairName`不存在。|
+|InvalidRamRole.NotFound|The specified RamRoleName does not exist.|404|指定的`RamRoleName`不存在。|
+|InvalidRegionId.NotFound|The specified RegionId does not exist.|404|指定的`RegionId`不存在。|
+|InvalidSecurityGroupId.NotFound|The specified SecurityGroupId does not exist.|404|指定的`SecurityGroupId`不存在。或者您无法使用指定的安全组。|
+|InvalidSystemDiskSize|The specified parameter SystemDisk.Size is invalid.|404|指定的`SystemDisk.Size`不合法。|
+|InvalidSystemDiskSize.LessThanImageSize|The specified parameter SystemDisk.Size is less than the image size.|404|指定的`SystemDisk.Size`小于镜像大小。|
+|InvalidSystemDiskSize.LessThanMinSize|The specified parameter SystemDisk.Size is less than the min size.|404|指定的`SystemDisk.Size`小于磁盘大小下限。|
 |InvalidSystemDiskSize.MoreThanMaxSize|The specified parameter SystemDisk.Size is more than the max size.|404|指定的 `SystemDisk.Size` 大于磁盘大小上限。|
-|InvalidVSwitchId.NotFound|Specified virtual switch does not exist.|404|指定的 VSwitch 不存在。|
-|InvalidZoneId.NotFound|The specified ZoneId does not exist.|404|指定 Zone 不存在。|
-|IoOptimized.NotSupported|The specified InstanceType is not support IoOptimized instance.|404|指定的实例类型不支持 I/O 优化实例。|
+|InvalidVSwitchId.NotFound|Specified virtual switch does not exist.|404|指定的VSwitch不存在。|
+|InvalidZoneId.NotFound|The specified ZoneId does not exist.|404|指定Zone 存在。|
+|IoOptimized.NotSupported|The specified InstanceType is not support IoOptimized instance.|404|指定的实例类型不支持I/O优化实例。|
 |OperationDenied|Another Instance is being created.|404|正在创建另外的实例。|
 |PaymentMethodNotFound|No billing method has been registered on the account.|404|该账号下没有付款方式。|
 |InternalError|The request processing has failed due to some unknown error,exception or failure.|500|内部错误。|
