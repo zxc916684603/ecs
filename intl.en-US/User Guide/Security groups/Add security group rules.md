@@ -5,9 +5,11 @@ You can add security group rules to enable or disable access to and from the Int
 -   VPC: You only need to set inbound and outbound rules. Also, you do not need to create different rules for private networks and Internet. The rules apply to Internet and intranet access at the same time. The Internet access for VPC instance is realized through private NIC mapping. So, you cannot see the Internet NIC inside the instance, and you can only set intranet rules in the security group. The rules apply to Internet and intranet access at the same time.
 -   Classic network: It is required to set outbound and inbound rules for Internet and intranet respectively.
 
+For a new security group without any rules, outbound traffic is allowed and inbound traffic is dropped by default, over either intranet or Internet. Therefore, we recommend that you only need rules to drop outbound traffic or allow inbound traffic.
+
 Changes to the security group rules are automatically applied to ECS instances in the security group.
 
-## Prerequisite {#section_fxy_lwz_xdb .section}
+## Prerequisites {#section_fxy_lwz_xdb .section}
 
 You have created a security group. For more information, see [Creating a Security Group](intl.en-US/User Guide/Security groups/Creating a Security Group.md#).
 
@@ -16,12 +18,12 @@ You know which Internet or intranet requests need to be allowed or dropped for y
 ## Procedure {#section_trd_pwz_xdb .section}
 
 1.  Log on to the [ECS console](https://ecs.console.aliyun.com/#/home).
-2.  Select a region.
-3.  In the left-side navigation pane, select **Networks & Security ** \> **Security group**.
-4.  Find the security group to add authorization rules, and in the **Actions** column click **Configure Rules**.
-5.  On the Security Group Rules page, click **Add Security Group Rules**.
+2.  In the left-side navigation pane, select **Networks and Security ** \> **Security Groups**.
+3.  Select a region.
+4.  Find the security group to add authorization rules, and in the **Actions** column, click **Add Rules**.
+5.  On the Security Group Rules page, click **Add Security Group Rule**.
 
-    **Note:** If you do not need to enable or disable all ports for all protocols, ICMP, or GRE, you can select **Quickly Create Rules**.
+    **Note:** If you do not need to enable or disable all ports for all protocols, ICMP, or GRE, you can select **Quick Rule Creation**.
 
     |Protocol|SSH|telnet|HTTP|HTTPS|MS SQL|
     |Port|22|2, 3|80.|443|1433|
@@ -94,7 +96,7 @@ If you have installed a web service in the instance and added a security group r
 
 For a Linux instance in the security group, follow these steps to verify the security group rule
 
-1.  [Connect to a Linux instance by using a password](intl.en-US/User Guide/Connect/Connect to a Linux instance by using a password.md#).
+1.  [Connect to a Linux instance by using a password](intl.en-US/User Guide/Connect to instances/Connect to a Linux instance by using a password.md#).
 2.  Run the following command to check whether TCP 80 is being listened.
 
     ```
@@ -113,7 +115,7 @@ For a Linux instance in the security group, follow these steps to verify the sec
 
 For a Windows instance in the security group, follow these steps to verify the security group rule
 
-1.  [Connect to a Windows instance](intl.en-US/User Guide/Connect/Connect to a Windows instance.md#).
+1.  [Connect to a Windows instance](intl.en-US/User Guide/Connect to instances/Connect to a Windows instance.md#).
 2.  Run **cmd**, and run the following command to check whether TCP Whether 80 is being listened.
 
     ```
