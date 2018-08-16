@@ -21,6 +21,7 @@ Alibaba Cloud ECS instances are categorized into the following type families:
     -   [c5, compute instance type family](#)
     -   [sn1ne, compute optimized type family with enhanced network performance](#)
     -   [r5, memory instance type family](#)
+    -   [re4, memory optimized type family with enhanced performance](#)
     -   [se1ne, memory optimized type family with enhanced network performance](#)
     -   [se1, memory optimized type family](#)
     -   [d1ne, big data type family with enhanced network performance](#)
@@ -32,7 +33,9 @@ Alibaba Cloud ECS instances are categorized into the following type families:
     -   [ce4, compute optimized type family with high clock speed](#)
 -   Type families for enterprise-level heterogeneous computing:
     -   [gn5, compute optimized type family with GPU](#)
+    -   [gn5i, compute optimized type family with GPU](#)
     -   [gn4, compute optimized type family with GPU](#)
+    -   [ga1, visualization compute optimized type family with GPU](#)
     -   [f1, compute optimized type family with FPGA](#)
     -   [f2, compute optimized type family with FPGA](#)
 -   ECS Bare Metal Instance type families and Super Computing Cluster \(SCC\) instance type families:
@@ -231,6 +234,30 @@ Click [here](#) to view other instance type families.
 |ecs.r5.6xlarge|24|192.0|N/A|7.5|1,500|6|8|
 |ecs.r5.8xlarge|32|256.0|N/A|10.0|2,000|8|8|
 |ecs.r5.16xlarge|64|512.0|N/A |20.0|4,000|16|8|
+
+Click [here](#) to view other instance type families.
+
+## re4, memory optimized instance type family with enhanced performance {#re4 .section}
+
+**Features**
+
+-   Supports SSD Cloud Disks and Ultra Cloud Disks
+-   I/O-optimized
+-   Optimization for high performance databases, high memory databases, and other memory-intensive enterprise applications
+-   2.2 GHz Intel Xeon E7 8880 v4 \(Broadwell\) processors, up to 2.4 GHz Turbo Boot
+-   vCPU to memory ratio = 1:12, up to 1920.0 GiB memory
+-   ecs.re4.20xlarge and ecs.re4.40xlarge have been certified by SAP HANA
+-   Ideal for:
+    -   High performance databases and high memory databases \(for example, SAP HANA\)
+    -   Memory intensive applications
+    -   Big Data processing engines, such as Apache spark or presto
+
+**Instance types**
+
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|ecs.re4.20xlarge|80|960.0|N/A|15.0|2,000|16|8|
+|ecs.re4.40xlarge|160|1920.0|N/A|30.0|4,500|16|8|
 
 Click [here](#) to view other instance type families.
 
@@ -549,6 +576,35 @@ Click [here](#) to view other instance type families.
 
 Click [here](#) to view other instance type families.
 
+## gn5i, compute optimized type family with GPU {#gn5i .section}
+
+**Features**
+
+-   I/O-optimized
+-   Supports SSD Cloud Disks and Ultra Cloud Disks
+-   NVIDIA P4 GPU processors
+-   vCPU to memory ratio = 1:4
+-   2.5 GHz Intel Xeon E5-2682 v4 \(Broadwell\) processors
+-   Higher computing specifications matching higher network performance
+-   Ideal for:
+    -   Deep learning
+    -   Multi-media coding and decoding, and other server-side GPU compute workloads
+
+**Instance types**
+
+|Instance type |vCPU|Memory \(GiB\) |Memory \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
+|:-------------|:---|:--------------|:--------------------|:--|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|ecs.gn5i-c2g1.large|2|8.0|N/A|1 \* NVIDIA P4|1.0|100|2|2|
+|ecs.gn5i-c4g1.xlarge|4|16.0|N/A|1 \* NVIDIA P4|1.5|200|2|3|
+|ecs.gn5i-c8g1.2xlarge|8|32.0|N/A|1 \* NVIDIA P4|2.0|400|4|4|
+|ecs.gn5i-c16g1.4xlarge|16|64.0|N/A|1 \* NVIDIA P4|3.0|800|4|8|
+|ecs.gn5i-c16g1.8xlarge|32|128.0|N/A|2 \* NVIDIA P4|6.0|1,200|8|8|
+|ecs.gn5i-c28g1.14xlarge|56|224.0|N/A|2 \* NVIDIA P4|10.0|2,000|14|8|
+
+**Note:** For more information, see [Create a gn4 or a gn5 instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a gn4 or gn5 instance.md#).
+
+Click [here](#) to view other instance type families.
+
 ## gn4, compute optimized type family with GPU {#gn4 .section}
 
 **Features**
@@ -579,6 +635,39 @@ Click [here](#) to view other instance type families.
 
 -   For more information, see [Create a gn4 or a gn5 instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a gn4 or gn5 instance.md#).
 -   You can change the configurations of a gn4 instance within the gn4 family.
+
+Click [here](#) to view other instance type families.
+
+## ga1, visualization compute type family with GPU {#ga1 .section}
+
+**Features**
+
+-   I/O-optimized
+-   Supports SSD Cloud Disks and Ultra Cloud Disks
+-   AMD S7150 GPU processors
+-   vCPU to memory ratio = 1:2.5
+-   2.5 GHz Intel Xeon E5-2682 v4 \(Broadwell\) processors
+-   High performance local NVMe SSD disks
+-   Higher computing specifications matching higher network performance
+-   Ideal for:
+    -   Rendering, multimedia coding and decoding
+    -   Machine learning, high-performance computing, and high performance databases
+    -   Other server-end business scenarios that require powerful concurrent floating-point compute capabilities
+
+**Instance types**
+
+|Instance type |vCPU|Memory \(GiB\) |Memory \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
+|:-------------|:---|:--------------|:--------------------|:--|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|ecs.ga1.xlarge|4|10.0|1 \* 87|0.25 \* AMD S7150|1.0|200|1|3|
+|ecs.ga1.2xlarge|8|20.0|1 \* 175|0.5 \* AMD S7150|1.5|300|1|4|
+|ecs.ga1.4xlarge|16|40.0|1 \* 350|1 \* AMD S7150|3.0|500|2|8|
+|ecs.ga1.8xlarge|32|80.0|1 \* 700|2 \* AMD S7150|6.0|800|3|8|
+|ecs.ga1.14xlarge|56|160.0|1 \* 1400|4 \* AMD S7150|10.0|1,200|4|8|
+
+**Note:** 
+
+-   For more information, see [Creating an instance of ga1](../../../../intl.en-US/User Guide/Instances/Create an instance/Create an instance of ga1.md#).
+-   You cannot change the configurations of a ga1 instance.
 
 Click [here](#) to view other instance type families.
 
