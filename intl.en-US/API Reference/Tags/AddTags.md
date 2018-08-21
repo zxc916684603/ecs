@@ -6,7 +6,7 @@ Adds or overwrites one or more tags to your ECS resource. You can add tags to EC
 
 When you call this interface, consider the following:
 
--   Up to 10 tags can be added to each ECS resource.
+-   Up to 20 tags can be added to each ECS resource.
 -   The key \(`Tag.n.Key`\) and value \(`Tag.n.Value`\) of the tag must be key-value matched.
 
 -   If the key \(`Tag.n.Key`\) is already added for the specified resource, the former value \(`Tag.n.Value`\) is overwritten with the new one.
@@ -16,9 +16,9 @@ When you call this interface, consider the following:
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: AddTags|
+|Action|String|Yes|The name of this interface. Value: AddTags.|
 |RegionId|String|Yes|The ID of the region to which the ECS resource belongs. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|ResourceType|String|Yes| The type of the ECS resource. Value range:-   disk
+|ResourceType|String|Yes| The type of the ECS resource. Optional values:-   disk
 -   instance
 -   image
 -   securitygroup
@@ -26,14 +26,14 @@ When you call this interface, consider the following:
 
 All values must be lowercase.|
 |ResourceId|String|Yes|The resource ID.  For example, if you set the `ResourceType` to `instance`, the ResourceId can be interpreted as InstanceId.|
-|Tag.n.Key|String|Yes|The tag key where `n` ranges from 1 to 5. Tag names can be up to 64 characters in length. Cannot begin with aliyun, acs, http:// or https://. Cannot be a null string.|
-|Tag.n.Value|String|Yes|The tag value where `n` ranges from 1 to 5. Tag names can be up to 128 characters in length. Cannot begin with aliyun, acs, http:// or https://. Can be a null string.|
+|Tag.n.Key|String|Yes|The tag key where `n` ranges from 1 to 20. Tag names can be up to 64 characters in length. Cannot begin with aliyun, acs:, http://, or https://. Cannot be a null string.|
+|Tag.n.Value|String|Yes|The tag value where `n` ranges from 1 to 20. Tag names can be up to 128 characters in length. Cannot begin with aliyun, http://, or https://. Can be a null string.|
 
 ## Response parameters {#section_f54_lk5_xdb .section}
 
 All are common parameters. See [Common parameters](intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
 
-## Example { .section}
+## Examples { .section}
 
 **Request example** 
 
@@ -49,7 +49,7 @@ https://ecs.aliyuncs.com/?Action=AddTags
 
 **Response example** 
 
-**XML format**
+**XML format** 
 
 ```
 <AddTagsResponse>
@@ -75,7 +75,7 @@ Error codes specific to this interface are as follows. For more error codes, vis
 |InvalidTagCount|The specified tags are beyond the permitted range.|400|You can specify a maximum of five tags.|
 |InvalidTagKey.Malformed|The specified Tag.n.Key is not valid.|400|The specified `Tag.n.Key` is invalid.|
 |InvalidTagValue.Malformed|The specified Tag.n.Value is not valid.|400|The specified `Tag.n.Value` is invalid.|
-|OperationDenied.QuotaExceed|The quota of tags on resource is beyond permitted range.|400|Up to 10 tags can be added to each ECS resource.|
+|OperationDenied.QuotaExceed|The quota of tags on resource is beyond permitted range.|400|Up to 20 tags can be added to each ECS resource.|
 |InvalidResourceId.NotSupported|The specified ResourceId does not support tagging.|403|You cannot add tags to the specified ECS resource.|
 |InvalidRegionId.NotFound|The RegionId provided does not exist in our records.|404|The specified `RegionId` does not exist.|
 |InvalidResourceId.NotFound|The specified ResourceId is not found in our records.|404|The specified `ResourceId` does not exist.|
