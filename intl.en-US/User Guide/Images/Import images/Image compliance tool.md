@@ -11,7 +11,7 @@ The compliance tool currently supports Linux images only, such as Ubuntu, CentOS
 The following sample use a CentOS 7.4 64-bit server.
 
 1.  Log on to your server, virtual machine, or cloud host on any cloud platform.
-2.  [Download](https://shusong-image-test.oss-cn-hangzhou.aliyuncs.com/image_check) the compliance tool.
+2.  [Download](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/84961/cn_zh/1534906727238/image_check) the compliance tool.
 3.  Run `image_check` with root permissions to guarantee that the compliance tool can read configuration files under permission control.
 
     ```
@@ -72,7 +72,7 @@ The compliance tool detects the following server configuration items to ensure t
 |SElinux|The ECS instance cannot start normally.|Do not modify /etc/selinux/config to start SELinux.|
 |qemu-ga|Some of the services required by ECS are unavailable, and the instance is not fully functional.|Uninstall qemu-ga.|
 |network|Network functions of the ECS instance are unstable.|Disable or delete the Network Manager and enable the network service. For the latest Linux versions, we recommend that you use the Network Manager and run the nmcli command to configure the network.|
-|ssh|You cannot [connect](intl.en-US/User Guide/Connect/Overview.md#) to the ECS instance from the console.|Enable the SSH service and do not set PermitRootLogin.|
+|ssh|You cannot [connect](intl.en-US/User Guide/Connect to instances/Overview.md#) to the ECS instance from the console.|Enable the SSH service and do not set PermitRootLogin.|
 |firewall|The system does not automatically configure your ECS instance environment.|Disable the firewall iptables, firewalld, IPFilter \(IPF\), IPFireWall \(IPFW\), or PacketFilter \(PF\).|
 |file system|You cannot [resize the disk](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Overview.md#).|The XFS, Ext3, and Ext4 file systems are used, and the Ext2, UFS, and UDF file systems are allowed. The Ext4 file system does not support 64-bit features.|
 |root|You cannot use your username and password to remotely connect to the ECS instance.|Reserve the root account.|
