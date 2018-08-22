@@ -31,28 +31,8 @@ You can monitor the status of instances using the following two portals:
 2.  In the left-side navigation pane, click Host Monitoring, and then select the name of the instance you want to monitor.
 3.   Click Install to monitor the operating system of the instance. Click Batch Install to monitor the instance OS, click Monitoring Chart to view basic parameters, and click Alarm Rules to set alarm rules.
 
-    ![](images/3939_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9747/15349234253939_en-US.png)
 
 
 For more information about CloudMonitor, see CloudMonitor Product Documentation.
-
-##   {#section_szt_sxz_xdb .section}
-
- 
-
--    
--    
--    
-
-       
-
- 
-
- 
-
- 
-
- 
-
-   
 
