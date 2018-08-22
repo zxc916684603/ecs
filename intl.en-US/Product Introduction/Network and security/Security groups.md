@@ -1,19 +1,26 @@
 # Security groups {#concept_o2y_mqw_ydb .concept}
 
-A security group is a virtual firewall that provides stateful packet inspection \(SPI\). Security groups are used to set network access control for one or more ECS instances. As an important means of security isolation, security groups are used to divide security domains on the cloud.
+A security group is a virtual firewall that provides Stateful Packet Inspection \(SPI\). Security groups are used to set network access control for one or more ECS instances. As an important means of security isolation, security groups are used to divide security domains on the cloud.
 
 A security group is a logical group that contains instances in the same region with the same security requirements and mutual trust. Each instance belongs to at least one security group, which must be specified at the time of creation. Instances in the same security group can communicate through the intranet network, but instances in different security groups cannot communicate by default. However, mutual access between two security groups can be authorized.
 
 ## Security group restrictions {#section_t1g_4qw_ydb .section}
 
--   A single security group cannot contain more than 1,000 instances. If you require intranet mutual access between more than 1,000 instances, you can allocate them to different security groups and authorize mutual access.
--   Each instance can join up to five security groups by default. You can [open a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to raise the upper limit to a maximum of 16.
--   There a maximum limit for the number of security groups you can have for a region. The limit depends on your level of experience with Alibaba Cloud. For new users, the limit is 100 security groups. For more experienced users, the limit is higher.
--   Adjusting security groups will not affect the continuity of user service.
--   Security groups are stateful. If an outbound packet is permitted, inbound packets corresponding to this connection will also be permitted.
+-   There is a maximum limit for the number of security groups you can have for a region. The limit depends on your level of experience with Alibaba Cloud. For new users, the limit is 100 security groups. For more experienced users, the limit is higher. To raise the upper limit, you can [open a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex).
+-   Each Elastic Network Interface \(ENI\) in one instance can join up to five security groups by default. You can [open a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex) to raise the upper limit to a maximum of 16.
 -   Security groups have two network types: classic network and Virtual Private Cloud \(VPC\).
     -   Classic network instances can join security groups on classic networks in the same region.
+
+        A single security group on the classic network cannot contain more than 1,000 instances. If you require intranet mutual access between more than 1,000 instances, you can allocate them to different security groups and authorize mutual access.
+
     -   VPC instances can join security groups on the same VPC.
+
+        A single security group on a VPC cannot contain more than 2,000 private IP addresses \(shared by the primary and secondary ENIs\). If you require intranet mutual access between more than 2,000 private IP addresses, you can allocate the relevant instances to different security groups and authorize mutual access.
+
+-   Adjusting security groups will not affect the continuity of user service.
+-   Security groups are stateful. If an outbound packet is permitted, inbound packets corresponding to this connection will also be permitted.
+
+For more information, see [Security groups](https://help.aliyun.com/knowledge_detail/87018.html).
 
 ## Security group rules {#section_vsf_nqw_ydb .section}
 
@@ -25,5 +32,6 @@ When setting security group rules, make sure they are concise. If you add an ECS
 
 ## Security group rule restrictions {#section_wsf_nqw_ydb .section}
 
-Each security group can have a maximum of 100 security group rules.
+-   Each security group can have a maximum of 100 security group rules, that is, the total number of inbound and outbound rules per security group cannot exceed 100.
+-   Each ENI in one instance can have a maximum of 500 security group rules.
 
