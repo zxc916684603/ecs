@@ -7,7 +7,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeCloudAssistantStatus|
-|RegionId|String|是|实例所在地域ID。您可以调用[DescribeRegions](cn.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
+|RegionId|String|是|实例所在地域ID。您可以调用[DescribeRegions](intl.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
 |InstanceIds|Array|是|实例ID列表。以Python SDK为例，您可以取值为\[InstanceID1, InstanceID2,InstanceID3…\]，单次请求最多支持20台实例。|
 
 ## 返回参数 {#ResponseParameter .section}
@@ -74,7 +74,7 @@ https://ecs.aliyuncs.com/?Action=DescribeCloudAssistantStatus
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
