@@ -13,12 +13,6 @@ You can monitor the status of instances using the following two portals:
 2.  In the left-side navigation pane, click **Instances**. Select a region.
 3.  Click an instance to go to the Instance Details page.
 4.  On the Instance Details  page, you can view the monitoring information, including CPU utilization and outbound/inbound network traffic information.
-5.   
-
-    **Note:**      
-
-
- 
 
 -   Information about CPU monitoring: For Linux instances, use the top command to view CPU usage details. Log on to the instance and run the top command in the command line. 
     -   Then, pressShift+P key to list programs by CPU utilization to view which processes are using the most CPU resources.
@@ -31,7 +25,7 @@ You can monitor the status of instances using the following two portals:
 2.  In the left-side navigation pane, click Host Monitoring, and then select the name of the instance you want to monitor.
 3.   Click Install to monitor the operating system of the instance. Click Batch Install to monitor the instance OS, click Monitoring Chart to view basic parameters, and click Alarm Rules to set alarm rules.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9747/15349234253939_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9747/15349236263939_en-US.png)
 
 
 For more information about CloudMonitor, see CloudMonitor Product Documentation.
