@@ -50,7 +50,7 @@ Default value: PayByTraffic|
 
 If you set `InstanceType` as one of the [Phased-out instance types](https://www.alibabacloud.com/help/faq-detail/55263.htm), the default value is none.
 
-`Otherwise,` the default value is optimized.
+Otherwise, the default value is `optimized`.
 
 |
 |SystemDisk.Category|String|No|The category of the system disk. Optional values:-   Cloud: Basic cloud disk.
