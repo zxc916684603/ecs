@@ -105,6 +105,7 @@ Default value: false.|
 Default value: true. This parameter is valid only when and the value of parameter `DataDisk.n.Category` is `cloud`, `cloud_efficiency`, or `cloud_ssd`. Otherwise, an error is returned.|
 |HpcClusterId|String|No|The cluster ID to which the instance belongs.|
 |VSwitchId|String|No|VSwitch ID. It must be specified when you create VPC-Connected instances.|
+|PrivateIpAddress|String|No|Private IP address of an ECS instance. PrivateIpAddress depends on `VSwitchId` and cannot be specified separately.|
 |InternetMaxBandwidthIn|Integer|No|The maximum inbound bandwidth from Internet network, measured in Mbit/s. Value range: \[1, 200\]. Default value: 200.|
 |InternetMaxBandwidthOut|Integer|No|Maximum outbound bandwidth to the Internet in Mbit/s. Value range:-   \[0, 100\].
 
@@ -146,8 +147,8 @@ If you specify a value for parameter `Password`, use HTTPS to call the API to av
 -   Deactive: Disables the security enhancement feature. No network security software is installed. Applicable to all kinds of images.
 
 |
-|Tag.n.Key|String|No|The key of a tag of which n is from 1 to 5. Once you use this parameter, it cannot be a null string. It supports up to 64 characters. It cannot start with "aliyun", "acs:", "http://", or "https://".|
-|Tag.n.Value|String|No|The value of a tag of which n is from 1 to 5. It can be a null string. It can be up to 128 characters in length. It cannot begin with "aliyun", "http://", or "https://".|
+|Tag.n.Key|String|No|The key of a tag of which n is from 1 to 20. Once you use this parameter, it cannot be a null string. It supports up to 64 characters. It cannot start with "aliyun", "acs:", "http://", or "https://".|
+|Tag.n.Value|String|No|The value of a tag of which n is from 1 to 20. It can be a null string. It can be up to 128 characters in length. It cannot begin with "aliyun", "http://", acs:, or "https://".|
 |SpotStrategy|String|No|Sets an expected spot price if you are creating preemptible instances. It takes effect only when parameter `InstanceChargeType` is `PostPaid`. Options:-   NoSpot: A normal Pay-As-You-Go instance.
 -   SpotWithPriceLimit: Sets the price threshold for a preemptible instance.
 -   SpotAsPriceGo: A price that is based on the highest Pay-As-You-Go instance.
