@@ -1,17 +1,17 @@
 # InvokeCommand {#InvokeCommand .reference}
 
-Performs a specified command on the target ECS instances.
+Performs a specified command on one or more ECS instances.
 
 ## Description {#section_amn_fm4_ydb .section}
 
 When you call this interface, consider the following:
 
 -   The network type of the specified instances must be VPC.
--   The target ECS instance must be in the  **Running** \(`Running`\) status.
--   The target ECS instance must have the [cloud assistant client](../intl.en-US/Product Introduction/Cloud assistant/Cloud assistant client.md#) installed in advance.
+-   The target ECS instance must be in the **Running** \(`Running`\) status.
+-   The target ECS instance must have the [cloud assistant client](../intl.en-US/Product Introduction/Cloud assistant/Cloud Assistant Client.md#) installed in advance.
 -   To perform a PowerShell command, make sure that the target Windows ECS instance has been configured with the PowerShell module.
--   For one-time invocation \(`Timed=False`\), the command will be performed only once.
--   For periodical invocation \(`Timed=True`\), the first invocation task will start at the time specified in the `Frequency` parameter. Subsequent invocations will follow the frequency specified in the `Frequency` parameter. The result of last invocation does not affect the next invocation.
+-   For one-time invocation \(`Timed=False`\), the command is performed only once.
+-   For periodical invocation \(`Timed=True`\), the first invocation task starts at the time specified in the `Frequency` parameter. Subsequent invocations follow the frequency specified in the `Frequency` parameter. The result of last invocation does not affect the next invocation.
 -   The scheduled time for periodical invocation is in UTC +08:00, and based on the system time of ECS instances. Make sure that the time on your ECS instances are consistent with your expectation.
 -   You can specify multiple ECS instances in the InstanceIds. When one of these instances does not comply with the invocation conditions, you can try again by specifying other instances.
 -   Command invocation may fail because of target instance status exception, network exception or cloud assistant client exception. No invocation information is generated for invocation failures.
@@ -21,14 +21,14 @@ When you call this interface, consider the following:
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: InvokeCommand.|
-|RegionId|String|Yes|The region ID. You can call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|The region ID. For more information, call [DescribeRegions](../intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |InstanceIds|Array|Yes|List of instances for command invocation. The parameter value is a formatted JSON array in the format of \[`InstanceId1`, `instanceId2`, …\]. You can specify a maximum of 100 instance IDs separated by commas \(,\).|
 |CommandId|String|Yes.|Command ID. You can call the [DescribeCommands](intl.en-US/API Reference/Cloud assistant/DescribeCommands.md#) API to check all the available `CommandId`.|
 |Timed|Boolean|No|Whether the command is periodically performed or not. Optional values:-   True: Periodical invocation.
 -   False: Non-periodical invocation.
 
 Default value: False|
-|Frequency|String|No|The invocation period of a periodical task. When the [`Timed`](#Timed) parameter value is `True`, the `Frequency`  parameter is required.The parameter value observes the Cron expression. For more information, see [Cron expressions](https://help.aliyun.com/document_detail/64769.html)[Cron expressions](https://www.alibabacloud.com/help/faq-detail/64769.htm).
+|Frequency|String|No|The invocation period of a periodical task. When the [`Timed`](#Timed) parameter value is `True`, the `Frequency` parameter is required.The parameter value observes the Cron expression. For more information, see [Cron expressions](https://www.alibabacloud.com/help/faq-detail/64769.htm).
 
 |
 
@@ -36,7 +36,7 @@ Default value: False|
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|InvokeId|String|Command invocation ID|
+|InvokeId|String|Command invocation ID.|
 
 ## Examples { .section}
 
@@ -63,13 +63,13 @@ https://ecs.aliyuncs.com/?Action=InvokeCommand
 </InvokeCommandResponse>
 ```
 
- **JSON format** 
+**JSON format**
 
 ```
-
+{
     "RequestId":"540CFF28-407A-40B5-B6A5-73Bxxxxxxxxx",
     "InvokeId":"t-1fad2a8876de47068cc734d5xxxxxxxxx"
-
+|
 ```
 
 **Error response example** 
@@ -85,15 +85,15 @@ https://ecs.aliyuncs.com/?Action=InvokeCommand
 </Error>
 ```
 
- **JSON format** 
+**JSON format**
 
 ```
-
+{
     "RequestId": "540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx",
     "HostId": "ecs.aliyuncs.com"
     "Code": "MissingParameter.CommandId"
     "Message": "The input parameter “CommandId” that is mandatory for processing this request is not supplied."
-
+}
 ```
 
 ## Error codes {#ErrorCode .section}
@@ -102,7 +102,7 @@ Error codes specific to this interface are as follows. For more information, see
 
 |Error code|Error message |HTTP status code|Meaning|
 |:---------|:-------------|:---------------|:------|
-|InvalidInstance.NoClient|The specified instances have no cloud assistant client installed.|400|The target ECS instance must have the cloud assistant client installed in advance. For more information, see [云client](../intl.en-US/Product Introduction/Cloud assistant/Cloud assistant client.md#).|
+|InvalidInstance.NoClient|The specified instances have no cloud assistant client installed.|400|The target ECS instance must have the cloud assistant client installed in advance. For more information, see [Cloud assistant client](../intl.en-US/Product Introduction/Cloud assistant/Cloud Assistant Client.md#).|
 |InvalidInstance.NotVpc|The specified instances must be VPC instances.|400|The network type of the specified `InstanceIds` must be VPC.|
 |InvalidInstanceStatus|The specified instance’s status can not execute this operation|400|The specified instance must be in the Running status. Or the specified instance has abnormal network connection.|
 |MissingParameter.CommandId|The input parameter “CommandId” that is mandatory for processing this request is not supplied.|400|You must specify the required parameter `CommandId`.|
