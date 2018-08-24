@@ -69,7 +69,7 @@ Or when you manually stop the invocation of command processes on some target in
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|Invokeid|String|Command invocation ID.|
+|InvokeId|String|Command invocation ID.|
 |CommandId|String| Command ID.|
 |CommandName|String|Command name.|
 |InvokeStatus|String|Specifies the overall invocation status of a command. The overall invocation status is dependent on the invocation status of command processes on all the target instances. `InstanceInvokeStatus`. Optional values:-   Running: The command process is running.
@@ -95,13 +95,13 @@ Or when you manually stop the invocation of command processes on some target ins
 |Frequency|String|The interval of a periodical task. For more information about the value specifications, see [Cron expression](https://www.alibabacloud.com/help/faq-detail/64769.htm).
 
 |
-|Invokeinstances|Array of [`InvokeInstanceSetType`](#)|Type of the target instance set for invocation.|
+|InvokeInstances|Array of [`InvokeInstanceSetType`](#)|Type of the target instance set for invocation.|
 
  **Type of the target instance set for invocation \(InvokeInstanceSetType\)** 
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|Invokeinstance|Array of [`InvokeInstanceType`](#)|Invocation status type of the target instance.|
+|InvokeInstance|Array of [`InvokeInstanceType`](#)|Invocation status type of the target instance.|
 
  **Invocation status type of the target instance \(InvokeInstanceType\)** 
 
