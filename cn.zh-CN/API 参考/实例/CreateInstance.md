@@ -98,7 +98,7 @@
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：CreateInstance|
 |RegionId|String|是|实例所属的地域ID。您可以调用[DescribeRegions](../cn.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
-|ImageId|String|是|镜像文件ID，启动实例时选择的镜像资源。|
+|ImageId|String|是|镜像文件ID，启动实例时选择的镜像资源。如需使用云市场镜像，您可以在云市场镜像商详情页查看ImageId。|
 |InstanceType|String|是|实例的资源规格。更多详情，请参阅 [实例规格族](../cn.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](cn.zh-CN/API 参考/实例/DescribeInstanceTypes.md#) 接口获得最新的规格表。|
 |SecurityGroupId|String|是|指定新创建实例所属于的安全组代码，同一个安全组内的实例之间可以互相访问。|
 |ZoneId|String|否|实例所属的可用区编号。更多详情，请参阅 [DescribeZones](cn.zh-CN/API 参考/地域/DescribeZones.md#) 获取可用区列表。空表示由系统选择，默认值：空。
@@ -232,8 +232,8 @@
 -   Deactive：不启用安全加固，对所有镜像类型生效。
 
 |
-|Tag.n.Key|String|否|实例的标签键。n的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http://或者https://开头。|
-|Tag.n.Value|String|否|实例的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http://或者https://开头。|
+|Tag.n.Key|String|否|实例、安全组、磁盘和主网卡的标签键。n的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http://或者https://开头。|
+|Tag.n.Value|String|否|实例、安全组、磁盘和主网卡的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http://或者https://开头。|
 |DryRun|Boolean|否|是否只预检此次请求。-   true：发送检查请求，不会创建实例。检查项包括是否填写了必需参数、请求格式、业务限制和ECS库存。如果检查不通过，则返回对应错误。如果检查通过，则返回错误码`DryRunOperation`。
 -   false：发送正常请求，通过检查后直接创建实例。
 
