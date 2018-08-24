@@ -6,36 +6,37 @@ Describes the basic information about your security groups, such as the security
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DescribeSecurityGroups|
+|Action|String|Yes|The name of this interface. Value: DescribeSecurityGroups.|
 |RegionId|String|Yes|Regional ID. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |VpcId|String|No|The ID of the VPC to which the security groups belong.|
-|Tag.n.Key| String|No|The tag key of security groups. The valid range of `n` is \[1, 5\]. Once you use this parameter, it cannot be a null string.|
-|Tag.n.Value|String|No|The tag value of security groups. The valid range of n is \[1, 5\]. Once you use this parameter, it can be a null string.|
+|SecurityGroupIds|Array|No|Security group ID set. A maximum of 100 ID are supported, in the format of \["sg-Id1", "sg-Id2",  "sg-Id3"…\].|
+|Tag.n.Key|String|No|The key of a tag of which n is from 1 to 20. Once you use this parameter, it cannot be a null string. It can be up to 64 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
+|Tag.n.Value|String|No|The value of a tag of which n is a number from 1 to 20. Once you use this parameter, it can be a null string. It can be up to 128 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
 |PageNumber|Integer|No|Displays the security groups on several pages. Initial value: 1.Default value: 1.
 
 |
-|PageSize|Integer|No|The maximum entries on a page. Maximum value: 50Default value: 10
+|PageSize|Integer|No|The maximum entries on a page. Maximum value: 50.Default value: 10.
 
 |
 
-## Return parameters {#ResponseParameter .section}
+## Response parameters {#ResponseParameter .section}
 
 |Name|Type|Description|
 |:---|:---|:----------|
 |TotalCount|Integer|The total number of security groups.|
-|PageNumber|Integer|Current page number|
+|PageNumber|Integer|Current page number.|
 |PageSize|Integer|The number of entries on each page.|
 |RegionId|String|The region ID.|
 |SecurityGroups|[SecurityGroupItemType](intl.en-US/API Reference/Data type/Securitygroupitemtype.md#)|The security group information, composed by a SecurityGroupItemType collection.|
 
-## Example { .section}
+## Examples { .section}
 
 **Request example** 
 
 ```
 https://ecs.aliyuncs.com/?Action=DescribeSecurityGroups
 &RegionId=cn-hangzhou
-&<Common request parameters>
+&<Common Request Parameters>
 ```
 
 **Return example** 
@@ -102,5 +103,5 @@ https://ecs.aliyuncs.com/?Action=DescribeSecurityGroups
 
 ## Error codes {#ErrorCode .section}
 
-All are common error codes. For more error codes, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
+All are common response parameters. See [Common response parameters](../intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
 
