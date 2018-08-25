@@ -6,23 +6,23 @@ For the price information, see the [Pricing](https://www.alibabacloud.com/produc
 
 ## Chargeable resources {#section_zpf_wr2_zdb .section}
 
-When you create an ECS instance, the following resources determine its price:
+The price of an ECS instance depends on the following resources:
 
--   Instance types, images, and cloud disks: Their prices vary according to their billing methods, including [Subscription](intl.en-US/Pricing/Subscription.md#) and [Pay-As-You-Go](intl.en-US/Pricing/Pay-As-You-Go.md#). For more information, see [Billing method comparison](intl.en-US/Pricing/Billing method comparison.md#).
+-   Instance types, images, and cloud disks: The price of these resources vary according to the billing method you select. For more information, see [Billing method comparison](intl.en-US/Pricing/Billing method comparison.md#).
 
-    -   Instance types: Including the number of vCPU cores and the size of memory.
+    -   Instance types: The instance type determines the number of vCPU cores and the size of memory.
 
     -   Images:
 
-        -   Public images: Only Windows OS images are charged. Linux or Unix-like OS images are free of charge.
-        -   Marketplace images: The price is determined by their suppliers.
+        -   Public images: Charges apply only for Windows OS images. Linux or Unix-like OS images are free of charge.
+        -   Marketplace images: The price is determined by the image supplier.
         -   Shared images or custom images: If they are created by using marketplace images, the price is determined by the image provider.
-    -   Cloud disks: The disks created together with an ECS instance have the same billing method with the ECS instance. The separately created disks are billed according to [Pay-As-You-Go](intl.en-US/Pricing/Pay-As-You-Go.md#) billing method. For a Pay-As-You-Go cloud disk, after an ECS instance is created, you can [convert its billing method from Pay-As-You-Go to Subscription](intl.en-US/Pricing/Switch from Pay-As-You-Go to subscription.md#) or [upgrade configurations of a Subscription instance](../../../../intl.en-US/User Guide/Instances/Change configurations/Upgrade configurations of Subscription instances.md#)  to convert its billing method, to synchronize its lifecycle with the instance.
+    -   Cloud disks: Disks created together with an ECS instance have the same billing method as the ECS instance. Disks created separately are billed according to the [Pay-As-You-Go](intl.en-US/Pricing/Pay-As-You-Go.md#) billing method. For a Pay-As-You-Go cloud disk, after an ECS instance is created, you can [change the instance billing method from Pay-As-You-Go to Subscription](intl.en-US/Pricing/Limits.md#) in the ECS console. Alternatively, you can [upgrade the Pay-As-You-Go instance configurations](../../../../intl.en-US/User Guide/Instances/Change configurations/Upgrade configurations of Subscription instances.md#) to change the billing method.
 
--   Public network bandwidth: If a public IP address is assigned to your ECS instance when you create or upgrade it, you must pay for the public network bandwidth. For more information, see [Billing of network bandwidth](intl.en-US/Pricing/Billing of network bandwidth.md#).
+-   Public network bandwidth: If a public IP address is assigned to your ECS instance when you create or upgrade it, you must pay for public network bandwidth. For more information, see [Billing of network bandwidth](intl.en-US/Pricing/Billing of network bandwidth.md#).
 
-    **Note:** VPC-Connected ECS instances can access Internet by binding an EIP address. For more information, see [Billing of EIP](https://www.alibabacloud.com/help/doc-detail/72142.htm).
+    **Note:** VPC-Connected ECS instances can access the Internet by binding an EIP address to them. For more information, see [Billing of EIP](https://www.alibabacloud.com/help/doc-detail/72142.htm).
 
--   Snapshot: Currently snapshots are free of charge.
+-   Snapshots: Snapshots are free of charge.
 
 
