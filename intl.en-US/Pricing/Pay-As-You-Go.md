@@ -110,7 +110,7 @@ An instance stops working and is rendered out-of-service when a payment is overd
 
 A stopped instance is in a Stopped status and has been stopped [in the ECS console](../../../../intl.en-US/User Guide/Instances/Start or stop an instance.md#) or by using the [StopInstance](../../../../intl.en-US/API Reference/Instances/StopInstance.md#) interface. Billing of a stopped instance varies according to the network type of the instance:
 
--   VPC: You can enable the [No fees for stopped instances](intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) feature. When this feature is enabled, an instance is not billed when it is in a **Stopped** status. This feature is only available for instances, and not for other resources.
+-   VPC: You can enable the [No fees for stopped instances \(VPC-Connected\)](intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) feature. When this feature is enabled, an instance is not billed when it is in a **Stopped** status. This feature is only available for instances, and not for other resources.
 
 -   Classic: An instance continues to be billed even after it is in a **Stopped** status.
 
