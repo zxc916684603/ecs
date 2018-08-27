@@ -11,11 +11,11 @@ Follow these steps:
 
 1.  Log on to the [ECS console](https://ecs.console.aliyun.com/#/home).
 2.  Select a region.
-3.  In the left-side navigation pane, click **Block Storage** \> **Disks** .
+3.  In the left-side navigation pane, click **Block Storage** \> **Disks**.
 4.  Select the disk that you want to configure, and in the **Actions** column, click **More** \> **Modify Attributes**.
 5.  In the **Modify Disk Type** dialog box, select **Delete Automatic Snapshots while Releasing Disk**, and then click **OK**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9690/15353593774573_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9690/15353647144573_en-US.png)
 
 
 ## Related API {#section_wgl_bpl_xdb .section}
