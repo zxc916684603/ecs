@@ -14,7 +14,7 @@ The price of an ECS instance depends on the following resources:
 
     -   Images:
 
-        -   Public images: Charges apply only for Windows OS images. Linux or Unix-like OS images are free of charge.
+        -   Public images: Charges apply only for Windows OS images and Red Hat images. Linux or Unix-like OS images are free of charge.
         -   Marketplace images: The price is determined by the image supplier.
         -   Shared images or custom images: If they are created by using marketplace images, the price is determined by the image provider.
     -   Cloud disks: Disks created together with an ECS instance have the same billing method as the ECS instance. Disks created separately are billed according to the [Pay-As-You-Go](intl.en-US/Pricing/Pay-As-You-Go.md#) billing method. For a Pay-As-You-Go cloud disk, after an ECS instance is created, you can [change the instance billing method from Pay-As-You-Go to Subscription](intl.en-US/Pricing/Limits.md#) in the ECS console. Alternatively, you can [upgrade the Pay-As-You-Go instance configurations](../../../../intl.en-US/User Guide/Instances/Change configurations/Upgrade configurations of Subscription instances.md#) to change the billing method.
