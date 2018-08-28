@@ -22,7 +22,9 @@
 -   vpc：VPC
 
 |
-|PrivateIpAddresses|String|否|VPC网络类型实例的私有IP。当`InstanceNetworkType=vpc`时生效，取值可以由多个IP组成一个JSON数组，格式为\["172.16.1.1", "172.16.2.1", … "172.16.10.1"\]，最多支持100个IP，IP之间用半角逗号（`,`）隔开。|
+|PrivateIpAddresses|String|否|VPC网络类型实例的私有IP。当`InstanceNetworkType=vpc`时生效，取值可以由多个IP组成一个JSON数组，格式为\["172.16.1.1", "172.16.2.1", … "172.16.10.1"\]，最多支持100个IP，IP之间用半角逗号（`,`）隔开。当`InstanceNetworkType=vpc`时，该参数有效。
+
+|
 |InnerIpAddresses|String|否|经典网络类型实例的内网IP列表。当`InstanceNetworkType=classic`时生效，取值可以由多个IP组成一个JSON数组，格式为\["10.1.1.1", "10.1.2.1", … "10.1.10.1"\]，最多支持100个IP，IP之间用半角逗号（`,`）隔开。|
 |PublicIpAddresses|String|否|实例的公网IP列表。当`InstanceNetworkType=classic`时生效，取值可以由多个IP组成一个JSON数组，格式为\["42.1.1.1", "42.1.2.1", … "42.1.10.1"\]，最多支持100个IP，IP之间用半角逗号（`,`）隔开。|
 |EipAddresses|String|否|实例的弹性公网IP列表。当`InstanceNetworkType=classic` 时生效，取值可以由多个IP组成一个JSON数组，格式为\["42.1.1.1", "42.1.2.1", … "42.1.10.1"\]，最多支持100个IP，IP之间用半角逗号（`,`）隔开。|
@@ -243,10 +245,10 @@ https://ecs.aliyuncs.com/?Action=DescribeInstances
 |错误代码|错误信息|HTTP状态码|说明|
 |:---|:---|:------|:-|
 |DryRunOperation|Request validation has been passed with DryRun flag set.|400|此次DryRun预检请求合格。|
+|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|400|指定的Tag.n.Key和Tag.n.Value必须键值匹配。|
+|InvalidTagCount|The specified tags are beyond the permitted range.|400|指定的标签数不能超过20个。|
 |InvalidInstanceChargeType.NotFound|The InstanceChargeType does not exist in our records.|404|指定的InstanceChargeType不存在。|
 |InvalidInternetChargeType.ValueNotSupported|The specified InternetChargeType is not valid|404|指定的InternetChargeType不合法。|
 |InvalidNetworkType.NotFound|The specified InstanceNetworkType is not found|404|指定的InstanceNetworkType不存在。|
 |InvalidStatus.NotFound|The specified Status is not found|404|指定的Status不存在。|
-|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|400|指定的Tag.n.Key和Tag.n.Value必须键值匹配。|
-|InvalidTagCount|The specified tags are beyond the permitted range.|400|指定的标签数不能超过20个。|
 
