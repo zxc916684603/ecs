@@ -7,15 +7,15 @@ A security group is a logical group that contains instances in the same region w
 ## Security group restrictions {#section_t1g_4qw_ydb .section}
 
 -   There is a maximum limit for the number of security groups you can have for a region. The limit depends on your level of experience with Alibaba Cloud. For new users, the limit is 100 security groups. For more experienced users, the limit is higher. To raise the upper limit, you can [open a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex).
--   Each Elastic Network Interface \(ENI\) in one instance can join up to five security groups by default. You can [open a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex) to raise the upper limit to a maximum of 16.
+-   Each Elastic Network Interface \(ENI\) of an instance can join to up to five security groups by default. You can [open a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex) to raise the upper limit to a maximum of 16.
 -   Security groups have two network types: classic network and Virtual Private Cloud \(VPC\).
     -   Classic network instances can join security groups on classic networks in the same region.
 
-        A single security group on the classic network cannot contain more than 1,000 instances. If you require intranet mutual access between more than 1,000 instances, you can allocate them to different security groups and authorize mutual access.
+        A single security group on a classic network cannot contain more than 1,000 instances. If you require mutual intranet access between more than 1,000 instances, you can allocate them to different security groups and authorize mutual access.
 
     -   VPC instances can join security groups on the same VPC.
 
-        A single security group on a VPC cannot contain more than 2,000 private IP addresses \(shared by the primary and secondary ENIs\). If you require intranet mutual access between more than 2,000 private IP addresses, you can allocate the relevant instances to different security groups and authorize mutual access.
+        A single security group on a VPC cannot contain more than 2,000 private IP addresses \(shared by the primary and secondary ENIs\). If you require mutual intranet access between more than 2,000 private IP addresses, you can allocate the relevant instances to different security groups and authorize mutual access.
 
 -   Adjusting security groups will not affect the continuity of user service.
 -   Security groups are stateful. If an outbound packet is permitted, inbound packets corresponding to this connection will also be permitted.
@@ -32,6 +32,6 @@ When setting security group rules, make sure they are concise. If you add an ECS
 
 ## Security group rule restrictions {#section_wsf_nqw_ydb .section}
 
--   Each security group can have a maximum of 100 security group rules, that is, the total number of inbound and outbound rules per security group cannot exceed 100.
--   Each ENI in one instance can have a maximum of 500 security group rules.
+-   Each security group can have a maximum of 100 security group rules in total, including both inbound and outbound rules.
+-   Each ENI of an instance can have a maximum of 500 security group rules.
 
