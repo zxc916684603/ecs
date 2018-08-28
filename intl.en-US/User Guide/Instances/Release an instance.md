@@ -9,37 +9,39 @@ For a Subscription instance, the instance is automatically released after the bi
 To release a Pay-As-You-Go instance, you have two options:
 
 -   Release now: immediately releases the pay-per-order instance.
--   Timed Release: Customizes the release of your Pay-As-You-Go instance. The instance cannot be released automatically in less than 30 minutes from the current time. Applying new schedules overwrites the previous ones.
+-   Scheduled Release: Customizes the release of your Pay-As-You-Go instance. The instance cannot be released automatically in less than 30 minutes from the current time. Applying new schedules overwrites the previous ones.
+
+**Note:** After an instance is released, its data cannot be recovered. We recommend that you [create an image](https://help.aliyun.com/document_detail/25455.html#concept_eps_gbl_xdb) to back up data before releasing an instance.
 
 ## Release an instance now {#section_cqg_ccn_xdb .section}
 
 To release an instance now, follow these steps:
 
-1.  Log on to the [ECS Management Console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
 2.  In the left-side navigation pane, click **Instances**.
 3.  Select a region.
 4.  Set release:
-    -   If you want to release an instance: Find the instance that you want to release, in the **Actions**  column, select **More** \> **Release**.
-    -   If you want to release multiple instances: find the Pay-As-You-Go instances according to the  **Billing Method**, select multiple instances to release. And at the bottom of the list, click **Release Setting**.
+    -   If you want to release an instance, find the instance that you want to release, and in the **Actions** column, select **Manage** \> **Release**.
+    -   If you want to release multiple instances, find the Pay-As-You-Go instances according to the **Billing Method**, select multiple instances to release, and click **Release Setting** at the bottom of the list.
 5.  In the dialog box, select **Release Now**.
-6.  Click **Next**, and then click to **Confirm**.
+6.  Click **Next**, and then click **OK**.
 
 ## Enable automatic release {#section_gqg_ccn_xdb .section}
 
 To enable auto release, follow these steps:
 
-1.  Log on to the [ECS Management Console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
-2.  In the left-hand navigation bar, click **Instances**.
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
+2.  In the left-side navigation pane, click **Instances**.
 3.  Select a region.
 4.  Set release:
-    -   If you want to release a single instance: Find an instance that needs to be released, in the **Actions** column, select **More** \> **Release settings**.
-    -   If you want to release multiple instances: find the Pay-As-You-Go instances according to the  **Billing Method**, select multiple instances to release. And at the bottom of the list, click **Release settings**.
-5.  In the pop-up window, select **Scheduled release**.
-6.  Turn on the Automatic Release Setting switch, and specify the release date and time. The earliest setting can only be set to automatically release an instance after 30 minutes.
+    -   If you want to release an instance, find the instance that you want to release, and in the **Actions** column, select **Manage** \> **Release**.
+    -   If you want to release multiple instances, find the Pay-As-You-Go instances according to the **Billing Method**, select multiple instances to release, and click **Release Setting** at the bottom of the list.
+5.  In the dialog box, select **Scheduled Release**.
+6.  Turn on the Automatic Release switch, and specify the release date and time. The earliest setting can only be set to automatically release an instance after 30 minutes.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9651/5454_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9651/15354714885454_en-US.png)
 
-7.  Click **Next**, and then click **Confirm**.
+7.  Click **Next**, and then click **OK**.
 
 ## Disable automatic release {#section_mqg_ccn_xdb .section}
 
@@ -47,15 +49,15 @@ If you want to cancel the automatic release schedule of a Pay-As-You-Go instance
 
 To disable the automatic release feature, follow these steps:
 
-1.  Log on to the [ECS Management Console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
-2.  In the left-hand navigation bar, click **Instances**.
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
+2.  In the left-side navigation pane, click **Instances**.
 3.  Select a region.
-4.  Release settings:
-    -   If you want to release an instance: Find the instance that you want to release, in the **Actions** column, select **More** \> **Release settings**.
-    -   If you want to release multiple instances: find the Pay-As-You-Go instances according to the **Billing Method**, select multiple instances to release. And at the bottom of the list, click **Release Setting**.
-5.  In the pop-up window, select **Scheduled release**.
-6.  Turn off the Automatic Release Setting switch.
-7.  Click **Next**, and then click **Confirm**.
+4.  Set release:
+    -   If you want to disable automatic release for an instance, find the instance, and in the **Actions** column, select **Manage** \> **Release**.
+    -   If you want to disable automatic release for multiple instances, find the Pay-As-You-Go instances according to the **Billing Method**, select the target instances, and click **Release Setting** at the bottom of the list.
+5.  In the dialog box, select **Scheduled Release**.
+6.  Turn off the Automatic Release switch.
+7.  Click **Next**, and then click **OK**.
 
 ## Related APIs {#section_rqg_ccn_xdb .section}
 
