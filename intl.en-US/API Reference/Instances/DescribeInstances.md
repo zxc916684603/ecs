@@ -11,7 +11,7 @@ The request parameters are filters used for describing a specific list of result
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: Description instances.|
-|RegionId|String|No|Regional ID. You can call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|No|Regional ID. For more information, call [DescribeRegions](../intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |VpcId|String|No|VPC ID. |
 |VSwitchId|String|No|VSwitch ID.|
 |ZoneId|String|No|The default value is blank, which indicates a query of disks in all zones.|
@@ -51,8 +51,8 @@ Default value: NoSpot.|
 -   false
 
 |
-|Tag.n.Key|String|No|The key of a tag. The valid range of n is \[1, 5\]. It supports up to 64 characters. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
-|Tag.n.Value|String|No|The value of a tag. N value range: \[1, 5\]. It can be up to 128 characters in length. It cannot begin with "aliyun", "http://", or "https://".|
+|Tag.n.Key|String|No|The key of a tag of which n is from 1 to 20. Once you use this parameter, it cannot be a null string. It can be up to 64 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
+|Tag.n.Value|String|No|The value of a tag of which n is a number from 1 to 20. Once you use this parameter, it can be a null string. It can be up to 128 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
 |PageNumber|Integer|No|Displays the instances on several pages. Start value: 1.Default: 1.
 
 |
@@ -173,7 +173,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInstances
 </DescribeInstancesResponse>
 ```
 
- **JSON format** 
+**JSON format** 
 
 ```
 {
@@ -234,14 +234,14 @@ https://ecs.aliyuncs.com/?Action=DescribeInstances
 
 ## Error codes {#ErrorCode .section}
 
-The following error codes are specific to this interface. For more error codes, visit the [API error center](https://error-center.alibabacloud.com/status/product/Ecs).
+Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error messages|HTTP status code |Description|
 |:---------|:-------------|:----------------|:----------|
+|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|400|The specified `Tag.n.Key` and `Tag.n.Value` must be key-value matched.|
+|InvalidTagCount|The specified tags are beyond the permitted range.|400|You can add up to five tags to the specified ECS resource in this query request.|
 |InvalidInstanceChargeType.NotFound|The InstanceChargeType does not exist in our records.|404|The specified `InstanceChargeType` does not exist.|
 |InvalidInternetChargeType.ValueNotSupported|The specified InternetChargeType is not valid|404|The specified `InternetChargeType` is invalid.|
 |InvalidNetworkType.NotFound|The specified InstanceNetworkType is not found|404|The specified `InstanceNetworkType` does not exist.|
 |InvalidStatus.NotFound|The specified Status is not found|404|The specified`Status` does not exist.|
-|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|400|The specified `Tag.n.Key` and `Tag.n.Value` must be key-value matched.|
-|InvalidTagCount|The specified tags are beyond the permitted range.|400|You can add up to five tags to the specified ECS resource in this query request.|
 
