@@ -32,6 +32,7 @@ Alibaba Cloud ECS instances are categorized into the following type families:
     -   [hfg5, general-purpose type family with high clock speed](#)
     -   [ce4, compute optimized type family with high clock speed](#)
 -   Type families for enterprise-level heterogeneous computing:
+    -   [gn6v, compute optimized type family with GPU](#)
     -   [gn5, compute optimized type family with GPU](#)
     -   [gn5i, compute optimized type family with GPU](#)
     -   [gn4, compute optimized type family with GPU](#)
@@ -243,14 +244,14 @@ Click [here](#) to view other instance type families.
 
 -   Supports SSD Cloud Disks and Ultra Cloud Disks
 -   I/O-optimized
--   Optimization for high performance databases, high memory databases, and other memory-intensive enterprise applications
+-   Optimized for high performance databases, high memory databases, and other memory-intensive enterprise applications
 -   2.2 GHz Intel Xeon E7 8880 v4 \(Broadwell\) processors, up to 2.4 GHz Turbo Boot
 -   vCPU to memory ratio = 1:12, up to 1920.0 GiB memory
 -   ecs.re4.20xlarge and ecs.re4.40xlarge have been certified by SAP HANA
 -   Ideal for:
     -   High performance databases and high memory databases \(for example, SAP HANA\)
     -   Memory intensive applications
-    -   Big Data processing engines, such as Apache spark or presto
+    -   Big Data processing engines, such as Apache spark or Presto
 
 **Instance types**
 
@@ -540,6 +541,35 @@ Click [here](#) to view other instance type families.
 
 Click [here](#) to view other instance type families.
 
+## gn6v, compute optimized type family with GPU {#gn6v .section}
+
+**Features**
+
+-   I/O-optimized
+-   Supports SSD Cloud Disks and Ultra Cloud Disks
+-   NVIDIA V100 GPU processors
+-   vCPU to memory ratio = 1:4
+-   2.5 GHz Intel Xeon Platinum 8163 \(Skylake\) processors
+-   Higher computing specifications matching higher network performance
+-   Ideal for:
+    -   Deep learning, such as image classification, driverless car, voice recognition, and other AI reasoning applications
+    -   Scientific computing, such as computational fluid dynamics, computational finance, genomics, and environmental analysis
+
+**Instance types**
+
+|Instance types|vCPU|Memory \(GiB\)|Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\)|Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
+|:-------------|:---|:-------------|:-------------------------|:--|:-------------------|:-----------------------------------------------|:--------------------|:----------------|
+|ecs.gn6v-c8g1.2xlarge|8|32.0|N/A|1 \* NVIDIA V100|2.5|800|4|4|
+|ecs.gn6v-c8g1.8xlarge|32|128.0|N/A|4 \* NVIDIA V100|10.0|2,000|8|8|
+|ecs.gn6v-c8g1.16xlarge|64|256.0|N/A|8 \* NVIDIA V100|20.0|2,500|16|8|
+
+**Note:** 
+
+-   For more information, see [**Create a gn4 or gn5 instance**](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a GPU Compute instance.md#)。
+-   The gn6v instance type family does not support changing the configuration for the time being.
+
+Click [here](#) to view other instance type families.
+
 ## gn5, compute optimized type family with GPU {#gn5 .section}
 
 **Features**
@@ -558,8 +588,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Memory \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:--------------------|:--|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:--|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
 |ecs.gn5-c4g1.xlarge|4|30.0|440|1 \* NVIDIA P100|3.0|300|1|3|
 |ecs.gn5-c8g1.2xlarge|8|60.0|440|1 \* NVIDIA P100|3.0|400|1|4|
 |ecs.gn5-c4g1.2xlarge|8|60.0|880|2 \* NVIDIA P100|5.0|1,000|2|4|
@@ -571,7 +601,7 @@ Click [here](#) to view other instance type families.
 
 **Note:** 
 
--   For more information, see [Create a gn4 or a gn5 instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a gn4 or gn5 instance.md#).
+-   For more information, see [Create a gn4 or a gn5 instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a GPU Compute instance.md#).
 -   You cannot change configurations of gn5 instances.
 
 Click [here](#) to view other instance type families.
@@ -592,8 +622,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Memory \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:--------------------|:--|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:--|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
 |ecs.gn5i-c2g1.large|2|8.0|N/A|1 \* NVIDIA P4|1.0|100|2|2|
 |ecs.gn5i-c4g1.xlarge|4|16.0|N/A|1 \* NVIDIA P4|1.5|200|2|3|
 |ecs.gn5i-c8g1.2xlarge|8|32.0|N/A|1 \* NVIDIA P4|2.0|400|4|4|
@@ -601,7 +631,7 @@ Click [here](#) to view other instance type families.
 |ecs.gn5i-c16g1.8xlarge|32|128.0|N/A|2 \* NVIDIA P4|6.0|1,200|8|8|
 |ecs.gn5i-c28g1.14xlarge|56|224.0|N/A|2 \* NVIDIA P4|10.0|2,000|14|8|
 
-**Note:** For more information, see [Create a gn4 or a gn5 instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a gn4 or gn5 instance.md#).
+**Note:** For more information, see [Create a gn4 or a gn5 instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a GPU Compute instance.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -622,8 +652,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Memory \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:--------------------|:--|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:--|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
 |ecs.gn4-c4g1.xlarge|4|30.0|N/A|1 \* NVIDIA M40|3.0|300|1|3|
 |ecs.gn4-c8g1.2xlarge|8|60.0|N/A|1 \* NVIDIA M40|3.0|400|1|4|
 |ecs.gn4.8xlarge|32|48.0|N/A|1 \* NVIDIA M40|6.0|800|3|8|
@@ -633,7 +663,7 @@ Click [here](#) to view other instance type families.
 
 **Note:** 
 
--   For more information, see [Create a gn4 or a gn5 instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a gn4 or gn5 instance.md#).
+-   For more information, see [Create a gn4 or a gn5 instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a GPU Compute instance.md#).
 -   You can change the configurations of a gn4 instance within the gn4 family.
 
 Click [here](#) to view other instance type families.
@@ -656,8 +686,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Memory \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:--------------------|:--|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:--|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
 |ecs.ga1.xlarge|4|10.0|1 \* 87|0.25 \* AMD S7150|1.0|200|1|3|
 |ecs.ga1.2xlarge|8|20.0|1 \* 175|0.5 \* AMD S7150|1.5|300|1|4|
 |ecs.ga1.4xlarge|16|40.0|1 \* 350|1 \* AMD S7150|3.0|500|2|8|
