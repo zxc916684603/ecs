@@ -1,19 +1,15 @@
 # AttachDisk {#AttachDisk .reference}
 
-Attaches a data disk to your ECS instance.
+Attaches a data disk to an instance.
 
 ## Description {#section_vgf_j45_xdb .section}
 
 When you call this interface, consider the following:
 
 -   The target instance must be in the **Running** \(`Running`\) or **Stopped** \(`Stopped`\).
-
 -   The target cloud disk must be in the **Available** \(`Available`\) status.
-
--   If the specified instance is [locked](intl.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#), and the OperationLocks of the instance indicates `"LockReason": "security"`, you cannot call this interface.
-
--   Even if you set the `DeleteWithInstance` to `false` when attaching the cloud disk, once the instance is locked and the `OperationLocks` of the instance indicates `"LockReason": "security"`, when you release the instance,  the `DeleteWithInstance` attribute of the cloud disk is ignored and the disk is released along with the instance.
-
+-   The `OperationLocks` of the [locked](../intl.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#) instance cannot be `"LockReason" : "security"`.
+-   Even if you set the `DeleteWithInstance` to `false` when attaching the cloud disk, once the instance is locked and the `OperationLocks` of the instance indicates `"LockReason": "security"`, when you release the instance, the `DeleteWithInstance` attribute of the cloud disk is ignored and the disk is released along with the instance.
 
 ## Request parameters {#RequestParameter .section}
 
@@ -22,14 +18,11 @@ When you call this interface, consider the following:
 |Action|String|Yes|The name of this interface. Value: AttachDisk.|
 |InstanceId|String|Yes|The ID of the target instance.|
 |DiskId|String|Yes|Indicates the cloud disk ID. The cloud disk \(`DiskId`\) and instance \(`InstanceId`\) must be in the same zone.|
-|DeleteWithInstance|String|No|Indicates whether the cloud disk is released along with the instance or not. Optional values:-   true: When the instance is released, the cloud disk is released with it.
--   false: When the instance is released, the cloud disk is retained.
+|DeleteWithInstance|Boolean|No|When the instance is released, whether the cloud disk is released along with the instance or retained. Default value: False.|
 
-Default value: null.|
+## Response parameters {#ResponseParameter .section}
 
-## Response parameters {#section_ehf_j45_xdb .section}
-
-All parameters are common response parameters. For more information, see [Common parameters](intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
+All are common response parameters. See [Common response parameters](../intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
 
 ## Examples { .section}
 
@@ -55,9 +48,9 @@ https://ecs.aliyuncs.com/?Action=AttachDisk
  **JSON format** 
 
 ```
-
+{
     "RequestId": "473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E"
-
+}
 ```
 
 ## Error codes {#ErrorCode .section}
