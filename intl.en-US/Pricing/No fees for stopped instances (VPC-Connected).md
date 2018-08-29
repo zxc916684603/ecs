@@ -2,7 +2,9 @@
 
 ## Overview {#section_kvc_4qk_zdb .section}
 
-The **No fees for stopped instances \(VPC-Connected\)** feature means you do not have to pay for a VPC-Connected Pay-As-You-Go instance when it enters a **Stopped** status.
+The No fees for stopped instances \(VPC-Connected\) feature means you do not have to pay for a VPC-Connected Pay-As-You-Go instance after you stop it either in the ECS console, by using the StopInstance interface, or by using Alibaba Cloud CLI.
+
+**Note:** If you stop the instance in other ways, for example, in the OS, the instance is still billed even if the No fees for stopped instances \(VPC-Connected\) feature is enabled.
 
 ## Applicable resources {#section_lvc_4qk_zdb .section}
 
