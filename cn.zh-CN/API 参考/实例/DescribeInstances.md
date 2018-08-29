@@ -22,7 +22,7 @@
 -   vpc：VPC
 
 |
-|PrivateIpAddresses|String|否|VPC网络类型实例的私有IP。取值可以由多个IP组成一个JSON数组，格式为\["172.16.1.1", "172.16.2.1", … "172.16.10.1"\]，最多支持100个IP，IP之间用半角逗号（`,`）隔开。|
+|PrivateIpAddresses|String|否|VPC网络类型实例的私有IP。当`InstanceNetworkType=vpc`时生效，取值可以由多个IP组成一个JSON数组，格式为\["172.16.1.1", "172.16.2.1", … "172.16.10.1"\]，最多支持100个IP，IP之间用半角逗号（`,`）隔开。|
 |InnerIpAddresses|String|否|经典网络类型实例的内网IP列表。当`InstanceNetworkType=classic`时生效，取值可以由多个IP组成一个JSON数组，格式为\["10.1.1.1", "10.1.2.1", … "10.1.10.1"\]，最多支持100个IP，IP之间用半角逗号（`,`）隔开。|
 |PublicIpAddresses|String|否|实例的公网IP列表。当`InstanceNetworkType=classic`时生效，取值可以由多个IP组成一个JSON数组，格式为\["42.1.1.1", "42.1.2.1", … "42.1.10.1"\]，最多支持100个IP，IP之间用半角逗号（`,`）隔开。|
 |EipAddresses|String|否|实例的弹性公网IP列表。当`InstanceNetworkType=vpc`该参数时生效，取值可以由多个IP组成一个JSON数组，格式为\["42.1.1.1", "42.1.2.1", … "42.1.10.1"\]，最多支持100个IP，IP之间用半角逗号（`,`）隔开。|
