@@ -20,14 +20,14 @@ Currently, the image export function has the following constraints and restricti
 -   When you export images that contain data disk snapshot, the snapshot and image files are shown in your OSS bucket.
     -   A snapshot of the system disk has a system in the file name.
     -   A snapshot of the data disk has data in the file name. The data disk snapshot will have the identity corresponding to the data disk, which is the mount point of the data disk, such as xvdb or xvdc.
--   When using exported images [EN-US\_TP\_9626.md\#](intl.en-US/User Guide/Instances/Create an instance/Create an instance of the same configuration.md#), you need to confirm that the file device recorded in /etc/fstab records corresponds to the exported data disk snapshot information.
+-   When using exported images to [Create an instance of the same configuration](intl.en-US/User Guide/Instances/Create an instance/Create an instance of the same configuration.md#), you need to confirm that the file device recorded in /etc/fstab records corresponds to the exported data disk snapshot information.
 
 ## Prerequisites {#section_b41_g2t_xdb .section}
 
-Before exporting a custom mirror, you need to do the following:
+Before exporting a custom image, you need to do the following:
 
 -   [Open a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to activate the image export feature. Describe the use cases of the exported images in the ticket.
--   Activate OSS and make sure that the region where your custom images are located has an available OSS bucket.  See [Create a bucket](../../intl.en-US/Quick Start/Create a bucket.md#).  to create an OSS bucket.
+-   Activate OSS and make sure that the region where your custom images are located has an available OSS bucket.  See [Create a bucket](../../../../intl.en-US/Quick Start/Create a bucket.md#).  to create an OSS bucket.
 
 ## Procedure {#section_wwm_h2t_xdb .section}
 
@@ -45,7 +45,7 @@ Before exporting a custom mirror, you need to do the following:
     -   Set the prefix of the object name of the exported image. For example, if you set Demo as the prefix, then the exported image file displayed in the OSS bucket is named  Demo-\[automatically generated file name\].
 7.  Click **OK** to export the image.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9712/4655_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9712/15356106544655_en-US.png)
 
 
 The duration of exporting depends on the size of the image file and the number of other export tasks in the queue. Be patient. You can go to the [**Manage Tasks**](https://ecs.console.aliyun.com/#/task/region/cn-qingdao) page in the ECS console to query the task progress based on the task ID.  When  the **Task Status** is Task **Completed**, the image is successfully exported.
@@ -55,5 +55,5 @@ To cancel the export task, go to the [**Manage Tasks**](https://ecs.console.aliy
 ## Next step {#section_qlv_v2t_xdb .section}
 
 -   To query the export result, log on to the [OSS console](https://oss.console.aliyun.com/index#/).
--   To download the exported image file, log on to the OSS console [Get object URL](../../intl.en-US/Console User Guide/Manage objects/Get object URL.md#) and Get object URL.
+-   To download the exported image file, log on to the OSS console [Get object URL](../../../../intl.en-US/Console User Guide/Manage objects/Get object URL.md#) and Get object URL.
 
