@@ -1,8 +1,8 @@
 # Step 1. Select the configuration {#concept_ef3_c2h_vdb .concept}
 
-Alibaba Cloud offers more than 200 instance types in 10 categories to meet your needs in different application scenarios and under different business loads.
+Alibaba Cloud offers more than 200 instance types in 10 categories to meet your needs in different application scenarios.
 
-This article is applicable to entry-level users. These recommended configurations are only for reference when you start using an ECS instance. 
+This article is applicable to entry-level users. The recommended configurations are only for reference when you start using an ECS instance. 
 
 |Type|Instance Type|Cloud disk|Internet bandwidth|Scenarios|
 |:---|:------------|:---------|:-----------------|:--------|
