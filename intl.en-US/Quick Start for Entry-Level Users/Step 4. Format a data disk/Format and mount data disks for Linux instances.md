@@ -2,45 +2,53 @@
 
 If data disks are selected when you create an instance, you must format them and mount a file system before use.
 
-This document describes how to create a single-partition data disk using a new data disk and mount a file system. This article applies only to partitioning a data disk that is not greater than 2 TiB using the `fdisk` command. If the data disk is greater than 2 TiB, refer to [Partition and format data disk more than 2 TB](../../../../intl.en-US/User Guide/Cloud disks/Partition and format data disk more than 2 TB.md#).
+This document describes how to create a single-partition data disk using a new data disk and mount a file system. This article applies only to partitioning a data disk that is not greater than 2 TiB using the `fdisk` command. If the data disk is greater than 2 TiB, refer to [Partition and format data disk larger than 2 TiB](../../../../intl.en-US/User Guide/Cloud disks/Partition and format data disk more than 2 TB.md#).
 
-You can also configure multiple partitions based on service requirements.  We recommend that you use the built-in system tool for partitioning.
+You can also configure multiple partitions based on service requirements. We recommend that you use the built-in system tool for partitioning.
 
 **Warning:** 
 
--   Disk partitioning and formatting are high-risk operations, so please proceed with caution.  This article describes how to deal with a blank data disk. If you have data on a data disk, make sure that you have created a snapshot of the data disk to avoid any possible data loss.
+-   Disk partitioning and formatting are high-risk operations, so please proceed carefully. This article describes how to deal with a blank data disk. If you have data on a data disk, make sure that you have created a snapshot of the data disk to avoid any possible data loss.
 
 -   ECS instances only support partitioning the **data disks**, but not the **system disk** . If you use a third-party tool to forcibly partition the system disk, some unknown risks, such as system crash and data loss, may occur.
 
 
-## Before you proceed {#section_dqp_xc2_wdb .section}
+## Prerequisites {#section_dqp_xc2_wdb .section}
 
-For a separately [purchased data disk](../../../../intl.en-US/User Guide/Cloud disks/Create a cloud disk.md#), you must [attach it to an instance](../../../../intl.en-US/User Guide/Cloud disks/Attach a cloud disk.md#) in the ECS console before partitioning and formatting.
+For a [data disk](../../../../intl.en-US/User Guide/Cloud disks/Create a cloud disk.md#) purchased separately from an instance, you must [attach it to an instance](../../../../intl.en-US/User Guide/Cloud disks/Attach a cloud disk.md#) in the ECS console before partitioning and formatting.
 
-For data disks purchased with an instance, you do not have to mount them. You can format them directly.
+For data disks purchased with an instance, you do not have to mount them.
 
-You need to know the device name of the data disk that will be mounted to the instance. You can find the device name of the data disk through  **ECS Console** \> **Disk Details** \> **Disk Attachment Information** to find the **device name** of the data disk. The device names are assigned by the system by default , starting from  /dev/xvdb and arranged in the order of /dev/xvdb−/dev/xvdz.
+You need to know the device name of the data disk that will be mounted to the instance. You can find the device name of the data disk by going to  **ECS Console** \> **Disk Details** \> **Disk Attachment Information**. By default, the device names are assigned by the system, starting from  /dev/xvdb and arranged in the order /dev/xvdb−/dev/xvdz.
 
 ## Procedure {#section_xtx_yc2_wdb .section}
 
-In this example, we create a single-partition data disk with a new 20 GiB data disk \(device name /dev/xvdb\) and mount an ext3 file system.  In this example, we use an I/O-optimized  instance with the CentOS 6.8 operating system.
+In this example, a single-partition data disk is created with a new 20 GiB data disk \(device name /dev/xvdb\) and an ext3 file system is mounted. An I/O-optimized instance with the CentOS 6.8 operating system is used.
 
 1.  [Connect to an instance](intl.en-US/Quick Start for Entry-Level Users/Step 3: Connect to an instance.md#).
-2.  Run the `fdisk -l` command to view the data disk.  If you do not find  /dev/vdb after running the command, it indicates that your instance does not have a data disk. Therefore, formattingis not required. In this case, you can skip the subsequent contents in this article.
+
+2.  Run the `fdisk -l` command to view the data disk. If you do not find  /dev/vdb after running the command, it indicates that your instance does not have a data disk. Therefore, formatting is not required and you can skip the rest of this article.
+
     -   If your data disk shows dev/xvd?, you are using a non-I/O optimized instance. 
 
-    -   ? is  any letter of a−z. 
+    -   ? is any letter from a−z. 
 
 3.  Create a single-partition data disk and execute the following commands in sequence: 
-    1.  Run `fdisk /dev/vdb`: Partition the data disk.
-    2.  Enter `n` and press the Enter key: Create a new partition.
-    3.  Enter `p` and press the Enter key: Select the primary partition. In this example, you are creating a single-partition data disk, so it is sufficient to create one primary partition.
+
+    1.  Run `fdisk /dev/vdb` to partition the data disk.
+
+    2.  Enter `n` and press the Enter key to create a new partition.
+
+    3.  Enter `p` and press the Enter key to select the primary partition. In this example, you are creating a single-partition data disk, so it is sufficient to create one primary partition.
 
         **Note:** If you want to create more than four partitions, you should create at least one extended partition by selecting `e`.
 
-    4.  Type the partition number and press the Enter key. Because only one partition is created here, you can enter `1`.
-    5.  Enter the first available sector number: Press the Enter key to use the default value of 1.
-    6.  Type a number for the last sector: Because only one partition is to be created in this example, press the Enter key to use the default value.
+    4.  Type the partition number and press the Enter key. In this example, `1` is entered.
+
+    5.  Enter the first available sector number. Press the Enter key to use the default value of 1.
+
+    6.  Type a number for the last sector. Because only one partition is created in this example, press the Enter key to use the default value.
+
     7.  Type `wq` and press the Enter key.
 
         ```
@@ -69,7 +77,7 @@ In this example, we create a single-partition data disk with a new 20 GiB data d
         Syncing disks.
         ```
 
-4.  View the new partition: Run the `fdisk -l` command.  The new partition /dev/vdb1 is created  if the following information appears.
+4.  Run the `fdisk -l` command to view the new partition. If the following information appears, the new partition /dev/vdb1 is created.
 
     ```
     
@@ -92,8 +100,10 @@ In this example, we create a single-partition data disk with a new 20 GiB data d
     /dev/vdb1 1 41610 20971408+ 83 Linux
     ```
 
-5.  Create a file system on the new partition: Run the command `mkfs.ext3 /dev/vdb1`.
+5.  Run the command `mkfs.ext3 /dev/vdb1` to create a file system on the new partition.
+
     -   In this example, an ext3 file system will be created. You can also choose to create other file systems according to your needs. For example, if you need to share files between Linux, Windows, and Mac, you can use `mkfs.vfat` to create a VFAT file system.
+
     -   The time required to create a file system depends on the data disk size.
 
         ```
@@ -122,12 +132,13 @@ In this example, we create a single-partition data disk with a new 20 GiB data d
         180 days, whichever comes first. Use tune2fs -c or -i to override.
         ```
 
-6.  \(Recommended\) Back up etc/fstab: Run the command `cp /etc/fstab  /etc/fstab.bak`.
-7.  Write new partition information to /etc/fstab: Run the command `echo /dev/vdb1 /mnt ext3  defaults 0 0 >> /etc/fstab`.
+6.  \(Recommended\) Run the command `cp /etc/fstab  /etc/fstab.bak` to back up the data disk.
 
-    **Note:** Ubuntu 12.04 does not support  barrier, so the correct command for this system is: `echo '/dev/vdb1 /mnt ext3 barrier=0 0 0' >> /etc/fstab`.
+7.  Run the command `echo /dev/vdb1 /mnt ext3  defaults 0 0 >> /etc/fstab` to write new partition information to /etc/fstab.
 
-    If you need to mount the data disk to a folder separately, for example, to store web pages separately, replace  `/mnt` with the desired mount point path. 
+    **Note:** Ubuntu 12.04 does not support barrier, so the correct command for this system is `echo '/dev/vdb1 /mnt ext3 barrier=0 0 0' >> /etc/fstab`.
+
+    If you need to mount the data disk to a folder separately, for example, to store web pages separately, replace `/mnt` with the desired mount point path. 
 
 8.  View the new partition information in /etc/fstab: Run the command `cat /etc/fstab`.
 
@@ -149,7 +160,10 @@ In this example, we create a single-partition data disk with a new 20 GiB data d
     /dev/vdb1 /mnt ext3 defaults 0 0
     ```
 
-9.  Mount the file system: Run the command `mount /dev/vdb1 /mnt`. 
+9.  Mount the file system: Run the command `mount /dev/vdb1 /mnt`.
+
+     
+
 10. To view disk space and usage: run the command `df -h`. If the new file system information appears in the returned results, the mount operation is successful and you can use the new file system.
 
     After mounting, you can use the new file system directly and do not need to restart the instance.
