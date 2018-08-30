@@ -2,7 +2,7 @@
 
 This document describes how to quickly create, connect, and release instances using the console.
 
-Elastic Compute Service \(ECS\) instances, may be also called Alibaba Cloud Elastic Compute Service, Elastic Compute Service, or ECS. To avoid misunderstanding, only ECS instances or instances are used in this document.
+Elastic Compute Service \(ECS\) instances are referred to as ECS instances or instances in this document.
 
 This document applies only to console operations. For API users, see [API overview](../../../../intl.en-US/API Reference/API overview.md#).
 
