@@ -28,29 +28,15 @@ You can share your custom images with other users. Through the ECS console or EC
 ## Procedure {#section_tsh_dhm_xdb .section}
 
 1.  Log on to the [ECS console](https://ecs.console.aliyun.com/). In the left-side navigation pane, click Images. Select a region. Select the Custom Image you want to share. Click **Share Image**.
-
-    ![](images/4609_en-US.png)
-
 2.  In the displayed dialog box, select the Account Type and enter the account ID you want to share the image with. To obtain the account ID, logg on to Security Settings
-
-    ![](images/4610_en-US.png)
-
 3.  of the Alibaba Cloud console and click**Account Management** \> **Security Settings** \> **Account ID**.
-
-    ![](images/4611_en-US.jpg)
-
 4.  View accounts using your shared images.
 
-    ![](images/4612_en-US.jpg)
-
-
-## Creating ECs instances using shared mirrors {#section_d22_5hm_xdb .section}
+## Creating ECs instances using shared images {#section_d22_5hm_xdb .section}
 
 **Note:** 
 
 The integrity or security of images is not guaranteed. Make sure that you use only images shared by trusted accounts. If you delete an account that has shared a custom image, the users who are using the shared image can no longer find the image through the ECS console or ECS API, or use the image to create ECS instances.
-
-![](images/4616_en-US.jpg)
 
 ## Cancel the sharing of an image {#section_hq5_33m_xdb .section}
 
@@ -85,6 +71,6 @@ You can view a list of the shared images from other accounts that you are using.
 2.  Select a region.
 3.  In the image type dropdown, select the **Image Type**. as **Shared Image**, A list of the shared images you are using will be displayed.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9700/4618_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9700/15356101374618_en-US.png)
 
 
