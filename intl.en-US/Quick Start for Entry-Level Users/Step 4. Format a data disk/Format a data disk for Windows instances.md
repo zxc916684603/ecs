@@ -22,6 +22,7 @@ A data disk purchased along with the instance can be partitioned and formatted w
 This example describes how to partition and format a 20 GiB data disk on the 64-bit Windows Server 2012 R2.
 
 1.  [Connect to an instance](intl.en-US/Quick Start for Entry-Level Users/Step 3: Connect to an instance.md#).
+
 2.  On Windows Server desktop, right click the **Start** icon, then select **Disk management**.
 
     The unformatted data disk \(Disk 2\) appears as **Offline**.
@@ -31,7 +32,9 @@ This example describes how to partition and format a 20 GiB data disk on the 64-
     After going online, the status of Disk 2 is displayed as **Not Initialized**.
 
 4.  Right click the blank area around Disk 2, and then select **Initialize Disk** in the context menu.
+
 5.  In the Initialize Disk dialog box, select **Disk 2** and a partitioning method:
+
     -   MBR is still the most common partitioning method. However, this method only supports data disks that no greater than 2 TB and can divide a disk into up to four primary partitions. If you want to divide a disk into more than four partitions, you need to take a primary partition as an extended partition and create logical partitions within it.
 
     -   GPT is a new partitioning method, and cannot be recognized by earlier versions of Windows. The size of GPT-partitioned data disk is determined by the operating system and the file system. In the Windows operating system, GPT supports up to 128 primary partitions.
@@ -39,16 +42,23 @@ This example describes how to partition and format a 20 GiB data disk on the 64-
         In this example, select the MBR partitioning method, and click **OK**.
 
 6.  In the Disk Management window, right click the **Unallocated** area for Disk 2 and select **New Simple Volume**.
+
 7.  In the New Simple Volume Wizard, follow these steps:
+
     1.  Click **Next**.
+
     2.  Specify Volume Size: Specify the size of the simple volume to create. If you need only one primary partition, use the default value, and then click **Next**.
+
     3.  Assign Drive Letter or Path: Select a drive letter \(in this example, F\). Click **Next**.
+
     4.  Format Partition: select format settings \(including the file system, allocation unit size, and volume label\), and confirm whether to enable **Quick Formatting** and **File and Folder Compression**. Use the default values,  then click **Next**.
+
     5.  Create a new simple volume. When the wizard shows the information below, a new simple volume is created. Click **Finish** to close the New Simple Volume Wizard.
+
 
 After the partition formatting is completed, the status of Disk 2 in **Disk Management** is as shown in the following figure.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15356399735103_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15356406035103_en-US.png)
 
 In **This PC**, you can view a new drive named **New Volume \(F:\)**. The data disk is now ready to use.
 
