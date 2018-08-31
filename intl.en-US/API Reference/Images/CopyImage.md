@@ -18,25 +18,19 @@ When you call this interface, consider the following:
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: CopyImage.|
-|RegionId|String|Yes|ID of the region to which the source custom image belongs. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|ID of the region to which the source custom image belongs. For more information, call [DescribeRegions](../intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |ImageId|String|Yes|ID of the source custom image.|
 |DestinationRegionId|String|Yes|ID of the region to where the destination custom image belongs.|
-|DestinationImageName|String|No|Name of the destination custom image.-   Can contain \[2, 128\] characters in length. Must begin with an uppercase or lowercase English letter, or a Chinese character. Can contain digits, backslashes \(\\\), colons \(:\), underscores \(\_\), or hyphens \(-\).
--   Cannot begin with http:// or https://.
+|DestinationImageName|String|No|Name of the destination custom image.The name is a string of 2 to 128 characters. It must begin with an English or a Chinese character. It can contain A-Z, a-z, Chinese characters, numbers, periods \(.\), colons \(:\), underscores \(\_\), and hyphens \(-\). Default value: null.|
+|DestinationDescription|String|No|The description of the destination custom image.It cannot begin with http:// or https://. Default value: null.|
 
-Can be null. Default value: null.|
-|DestinationDescription|String|No|The description of the destination custom image.-   Length is \[0,256\] characters.
--   You cannot start with http: // and https.
-
-Can be null. Default value: null.|
-
-## Return parameters {#ResponseParameter .section}
+## Response parameters {#ResponseParameter .section}
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|ImageId|String|ID of the destination custom image|
+|ImageId|String|ID of the destination custom image.|
 
-## Example { .section}
+## Examples { .section}
 
 **Request example** 
 
@@ -48,9 +42,9 @@ https://ecs.aliyuncs.com/?Action=CopyImage
 &<Common request parameters>
 ```
 
-**Response sample** 
+**Response example** 
 
-**XML format**
+**XML format** 
 
 ```
 <CopyImageResponse>
@@ -59,7 +53,7 @@ https://ecs.aliyuncs.com/?Action=CopyImage
 </CopyImageResponse>
 ```
 
- **JSON format** 
+**JSON format** 
 
 ```
 {
@@ -70,7 +64,7 @@ https://ecs.aliyuncs.com/?Action=CopyImage
 
 ## Error codes {#ErrorCode .section}
 
-Error codes specific to this interface are as follows. For more error codes, see [API error center](https://error-center.alibabacloud.com/status/product/Ecs).
+Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Note|
 |:---------|:------------|:---------------|:---|
