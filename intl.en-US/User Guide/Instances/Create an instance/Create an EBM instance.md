@@ -21,6 +21,6 @@ You can see [create an ECS instance](../../../../intl.en-US/Quick Start for Entr
     -   2012 R2 Data Center Edition 64-bit English Edition
  |
 
--   **Storage**: EBM instances support up to 16 data disks. You can add a data disk here, or you can  [add a disk](intl.en-US/User Guide/Cloud disks/Create a cloud disk.md#) after the instance has been created, and [mount the data disk](intl.en-US/User Guide/Cloud disks/Attach a cloud disk.md#).
+-   **Storage**: EBM instances support up to 16 data disks. You can add a data disk here, or you can [add a disk](intl.en-US/User Guide/Cloud disks/Create a cloud disk.md#) after the instance has been created, and [mount the data disk](intl.en-US/User Guide/Cloud disks/Attach a cloud disk.md#).
 -   **Network**: Supports VPC only.
 
