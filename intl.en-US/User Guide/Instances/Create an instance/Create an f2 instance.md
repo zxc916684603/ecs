@@ -11,7 +11,7 @@ You need an image pre-installed with the development environment of Xilinx to cr
 Follow the steps described in [create an ECS instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#), but before doing so, consider the following:
 
 -   **Region**: Select **China East 1 \(Hangzhou\)** \> **China East 1 Zone B**.
--   **Instance Type**: Select **Heterogeneous Computing** \> **FPGA** \> **Compute**.
+-   **Instance Type**: Select **Heterogeneous Computing** \> **FPGA Compute**.
 -   **Image**: Click **Shared Image**, and then select the shared image.
 -   **Network**: Select **VPC**, and select a created VPC and VSwitch.
 
