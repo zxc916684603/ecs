@@ -10,7 +10,11 @@ ECS instances are categorized into specification types, which are called type fa
 
 Alibaba Cloud ECS provides two kinds of instance type families: enterprise-level instance type families and entry-level instance type families. Type families for enterprise-level computing offer stable performance and dedicated resources, while entry-level type families are ideal for small and mid-sized websites, or individual customers. For the differences, see [Enterprise-level instances and entry-level instances FAQ](https://www.alibabacloud.com/help/faq-detail/44078.htm).
 
-**Note:** If you are using sn1, sn2, t1, s1, s2, s3, m1, m2, c1, c2, c4, cm4, n1, n2, or e3, see [Phased-out instance types](https://www.alibabacloud.com/help/faq-detail/55263.htm).
+**Note:** 
+
+-   If you are using sn1, sn2, t1, s1, s2, s3, m1, m2, c1, c2, c4, cm4, n1, n2, or e3, see [Phased-out instance types](https://www.alibabacloud.com/help/faq-detail/55263.htm).
+-   Upgrading instance types is supported within or between certain instance type families. For such families and corresponding upgrade rules, see [Instance type families that support upgrading instance types](../../../../intl.en-US/User Guide/Instances/Change configurations/Instance type families that support upgrading instance types.md#).
+-   Upgrading instance types is not supported within or between the following instance type families: d1, d1ne, i1, i2, ga1, gn5, f1, f2, f3, ebmc4, ebmg5, sccg5, and scch5.
 
 Alibaba Cloud ECS instances are categorized into the following type families:
 
@@ -81,7 +85,7 @@ Alibaba Cloud ECS instances are categorized into the following type families:
 
 Click [here](#) to view other instance type families.
 
-## sn2ne, general-purpose type family with enhanced network performance {#sn2ne000 .section}
+## sn2ne, general-purpose type family with enhanced network performance {#sn2ne .section}
 
 **Features**
 
@@ -110,8 +114,6 @@ Click [here](#) to view other instance type families.
 |ecs.sn2ne.6xlarge|24|96.0|N/A|4.5|2,000|6|8|
 |ecs.sn2ne.8xlarge|32|128.0|N/A|6.0|2,500|8|8|
 |ecs.sn2ne.14xlarge|56|224.0|N/A|10.0|4,500|14|8|
-
-**Note:** You can change the configurations of an se1 instance to any instance type in the sn2, sn2ne, sn1, sn1ne, se1, and se1ne instance type family.
 
 Click [here](#) to view other instance type families.
 
@@ -204,8 +206,6 @@ Click [here](#) to view other instance type families.
 |ecs.sn1ne.6xlarge|24|48.0|N/A|4.5|2,000|6|8|
 |ecs.sn1ne.8xlarge|32|64.0|N/A|6.0|2,500|8|8|
 
-**Note:** You can change the configurations of an sn1ne instance to any instance type in the sn2, sn2ne, sn1, sn1ne, se1, and se1ne instance type family.
-
 Click [here](#) to view other instance type families.
 
 ## r5, memory instance type family {#r5 .section}
@@ -291,8 +291,6 @@ Click [here](#) to view other instance type families.
 |ecs.se1ne.8xlarge|32|256.0|N/A|6.0|2,500|8|8|
 |ecs.se1ne.14xlarge|56|480.0|N/A|10.0|4,500|14|8|
 
-**Note:** You can change the configurations of an se1ne instance to any instance type in the sn2, sn2ne, sn1, sn1ne, se1, and se1ne instance type family.
-
 Click [here](#) to view other instance type families.
 
 ## se1, memory optimized type family {#se1 .section}
@@ -319,8 +317,6 @@ Click [here](#) to view other instance type families.
 |ecs.se1.4xlarge|16|128.0|N/A|3.0|500|2|8|
 |ecs.se1.8xlarge|32|256.0|N/A|6.0|800|3|8|
 |ecs.se1.14xlarge|56|480.0|N/A|10.0|1,200|4|8|
-
-**Note:** You can change the configurations of an se1 instance to any instance type in the sn2, sn2ne, sn1, sn1ne, se1, and se1ne instance type family.
 
 Click [here](#) to view other instance type families.
 
@@ -386,10 +382,7 @@ Click [here](#) to view other instance type families.
 |ecs.d1-c14d3.14xlarge|56|160.0|12 \* 5500|17.0|1,800|6|8|
 |ecs.d1.14xlarge|56|224.0|28 \* 5500|17.0|1,800|6|8|
 
-**Note:** 
-
--   You cannot change configurations of d1 instances.
--   For more information about d1 type families, see [FAQ on d1 and d1ne](https://www.alibabacloud.com/help/faq-detail/52993.htm).
+**Note:** For more information about d1 type families, see [FAQ on d1 and d1ne](https://www.alibabacloud.com/help/faq-detail/52993.htm).
 
 Click [here](#) to view other instance type families.
 
@@ -417,8 +410,6 @@ Click [here](#) to view other instance type families.
 |ecs.i2.4xlarge|16|128.0|2 \* 1788|3.0|1,500|4|8|
 |ecs.i2.8xlarge|32|256.0|4 \* 1788|6.0|2,000|8|8|
 |ecs.i2.16xlarge|64|512.0|8 \* 1788|10.0|4,000|16|8|
-
-**Note:** You cannot change configurations of i2 instances.
 
 Click [here](#) to view other instance type families.
 
@@ -451,8 +442,6 @@ Click [here](#) to view other instance type families.
 |ecs.i1-c10d1.8xlarge|32|128.0|2 \* 1456|6.0|800|3|8|
 |ecs.i1.14xlarge|56|224.0|2 \* 1456|10.0|1,200|4|8|
 
-**Note:** You cannot change configurations of i1 instances.
-
 Click [here](#) to view other instance type families.
 
 ## hfc5, compute optimized type family with high clock speed {#hfc5 .section}
@@ -481,8 +470,6 @@ Click [here](#) to view other instance type families.
 |ecs.hfc5.4xlarge|16|32.0|N/A|3.0|1,600|4|8|
 |ecs.hfc5.6xlarge|24|48.0|N/A|4.5|2,000|6|8|
 |ecs.hfc5.8xlarge|32|64.0|N/A|6.0|2,500|8|8|
-
-**Note:** You can change the configurations of an hfc5 instance to any instance type in the hfc5 and hfg5 instance type families.
 
 Click [here](#) to view other instance type families.
 
@@ -514,8 +501,6 @@ Click [here](#) to view other instance type families.
 |ecs.hfg5.8xlarge|32|128.0|N/A|6.0|2,500|8|8|
 |ecs.hfg5.14xlarge|56|160.0|N/A|10.0|4,000|14|8|
 
-**Note:** You can change the configurations of an hfg5 instance to any instance type in the hfc5 and hfg5 instance type families.
-
 Click [here](#) to view other instance type families.
 
 ## ce4, compute optimized type family with high clock speed {#ce4 .section}
@@ -541,19 +526,19 @@ Click [here](#) to view other instance type families.
 
 Click [here](#) to view other instance type families.
 
-## gn6v, compute optimized type family with GPU {#gn6v .section}
+## gn6v, compute optimized type family with GPUs {#gn6v .section}
 
 **Features**
 
 -   I/O-optimized
--   Supports SSD Cloud Disks and Ultra Cloud Disks
+-   Supports SSD Cloud Disk and Ultra Cloud Disk
 -   NVIDIA V100 GPU processors
 -   vCPU to memory ratio = 1:4
 -   2.5 GHz Intel Xeon Platinum 8163 \(Skylake\) processors
 -   Higher computing specifications matching higher network performance
 -   Ideal for:
-    -   Deep learning, such as image classification, driverless car, voice recognition, and other AI reasoning applications
-    -   Scientific computing, such as computational fluid dynamics, computational finance, genomics, and environmental analysis
+    -   Deep learning, autonomous vehicles, voice recognition, and other AI applications
+    -   Scientific computing, computational finance, genomics, and environmental analysis
 
 **Instance types**
 
@@ -563,10 +548,7 @@ Click [here](#) to view other instance type families.
 |ecs.gn6v-c8g1.8xlarge|32|128.0|N/A|4 \* NVIDIA V100|10.0|2,000|8|8|
 |ecs.gn6v-c8g1.16xlarge|64|256.0|N/A|8 \* NVIDIA V100|20.0|2,500|16|8|
 
-**Note:** 
-
--   For more information, see [**Create a gn4 or gn5 instance**](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a GPU Compute instance.md#)。
--   The gn6v instance type family does not support changing the configuration for the time being.
+**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -599,10 +581,7 @@ Click [here](#) to view other instance type families.
 |ecs.gn5-c28g1.14xlarge|56|224.0|880|2 \* NVIDIA P100|10.0|2,000|14|8|
 |ecs.gn5-c8g1.14xlarge|54|480.0|3520|8 \* NVIDIA P100|25.0|4,000|14|8|
 
-**Note:** 
-
--   For more information, see [Create a gn4 or a gn5 instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a GPU Compute instance.md#).
--   You cannot change configurations of gn5 instances.
+**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -631,7 +610,7 @@ Click [here](#) to view other instance type families.
 |ecs.gn5i-c16g1.8xlarge|32|128.0|N/A|2 \* NVIDIA P4|6.0|1,200|8|8|
 |ecs.gn5i-c28g1.14xlarge|56|224.0|N/A|2 \* NVIDIA P4|10.0|2,000|14|8|
 
-**Note:** For more information, see [Create a gn4 or a gn5 instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a GPU Compute instance.md#).
+**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -661,10 +640,7 @@ Click [here](#) to view other instance type families.
 |ecs.gn4-c8g1.4xlarge|16|60.0|N/A|2 \* NVIDIA M40|5.0|500|1|8|
 |ecs.gn4.14xlarge|56|96.0|N/A|2 \* NVIDIA M40|10.0|1,200|4|8|
 
-**Note:** 
-
--   For more information, see [Create a gn4 or a gn5 instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a GPU Compute instance.md#).
--   You can change the configurations of a gn4 instance within the gn4 family.
+**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -694,10 +670,7 @@ Click [here](#) to view other instance type families.
 |ecs.ga1.8xlarge|32|80.0|1 \* 700|2 \* AMD S7150|6.0|800|3|8|
 |ecs.ga1.14xlarge|56|160.0|1 \* 1400|4 \* AMD S7150|10.0|1,200|4|8|
 
-**Note:** 
-
--   For more information, see [Creating an instance of ga1](../../../../intl.en-US/User Guide/Instances/Create an instance/Create an instance of ga1.md#).
--   You cannot change the configurations of a ga1 instance.
+**Note:** For more information, see [Create an instance of ga1](../../../../intl.en-US/User Guide/Instances/Create an instance/Create an instance of ga1.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -727,8 +700,6 @@ Click [here](#) to view other instance type families.
 |ecs.f1-c28f1.7xlarge|28|112.0|N/A|Intel ARRIA 10 GX 1150|5.0|2,000|8|8|
 |ecs.f2-c28f1.14xlarge|56|224.0|N/A|2 \* Intel ARRIA 10 GX 1150|10.0|2,000|14|8|
 
-**Note:** You cannot change configurations of f1 instances.
-
 Click [here](#) to view other instance type families.
 
 ## f2, compute optimized type family with FPGA {#f2 .section}
@@ -756,8 +727,6 @@ Click [here](#) to view other instance type families.
 |ecs.f2-c8f1.4xlarge|16|120.0|N/A|2 \* Xilinx Kintex UltraScale XCKU115|5.0|1,000|4|8|
 |ecs.f2-c28f1.7xlarge|28|112.0|N/A|Xilinx Kintex UltraScale XCKU115|5.0|1,000|8|8|
 |ecs.f2-c28f1.14xlarge|56|224.0|N/A|2 \* Xilinx Kintex UltraScale XCKU115|10.0|2,000|14|8|
-
-**Note:** You cannot change configurations of f2 instances.
 
 Click [here](#) to view other instance type families.
 
@@ -964,8 +933,6 @@ Click [here](#) to view other instance type families.
 -   Lightweight databases and cache
 
  |
-
-**Note:** You can change the configurations of an instance between any two type families of xn4, n4, mn4, and e4, and within the same instance type family.
 
 **xn4**
 
