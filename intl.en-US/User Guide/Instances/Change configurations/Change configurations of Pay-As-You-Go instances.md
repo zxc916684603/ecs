@@ -1,70 +1,40 @@
 # Change configurations of Pay-As-You-Go instances {#concept_fzw_gbf_5db .concept}
 
-If you find that the instance specifications exceed or are insufficient for your application requirements, you can change the instance type, that is, the specification of the memory and the CPU.  Different operations are allowed based on the billing method of an instance: Note: You must stop your instance to change the instance type, 
+If you find that instance configurations exceed or are insufficient for your application requirements, you can change the instance type, that is, to change memory and CPU configurations. This document describes how to change configurations of Pay-As-You-Go instances. For more information about how to change configurations of \(Subscription\) instances, see [Overview of configuration changes](intl.en-US/User Guide/Instances/Change configurations/Overview of configuration changes.md#).
 
-**Note:** which may lead to interruptions in your service.  We recommend that you perform this operation during non-peak hours.
+**Note:** Changing instance configurations requires stopping your instance, which interrupts your services. Therefore, it is recommended that you change instance configurations during off-peak hours.
 
-## Limits {#section_hxl_fc2_xdb .section}
+## Limitations {#section_hxl_fc2_xdb .section}
 
-Pay-As-You-Go instances are subject to the following limits for configuration change:
+This feature has the following limitations:
 
--   The interval between two configuration change operations must be more than five minutes.
--   You cannot change the instance type across instance generations. For example, instance types of Generation I are not allowed to be changed to those of Generation II or Generation III.
--   For instance types of Generation III, you cannot change the configuration within or between the following instance type families:
-    -   GPU-based instance type families, including gn5 and gn4.
-    -   FPGA-based instance type families, including f1.
-    -   Big data instance type families, including d1 and d1ne.
-    -   Local SSD instance type families, including i1 and i2.
--   For instance types of Generation III, you can change the instance types according to the following table.
+-   The interval between two changes should be no less than 5 minutes.
 
-    |Instance type families|ecs.sn1ne|ecs.sn2ne|ecs.mn4|ecs.se1ne|ecs.cm4|ecs.c4|ecs.se1|ecs.ce4|ecs.xn4|ecs.e4|ecs.n4|
-    |----------------------|---------|---------|-------|---------|-------|------|-------|-------|-------|------|------|
-    |ecs.sn1ne|Y|Y|—|Y|Y|Y|Y|Y|—|—|—|
-    |ecs.sn2ne|Y|Y|—|Y|Y|Y|Y|Y|—|—|—|
-    |ecs.mn4|—|—|Y|—|—|—|—|—|Y|Y|Y|
-    |ecs.se1ne|Y|Y|—|Y|Y|Y|Y|Y|—|—|-|
-    |ecs.cm4|Y|Y|—|Y|Y|Y|Y|Y|—|—|—|
-    |ecs.c4|Y|Y|—|Y|Y|Y|Y|Y|—|—|—|
-    |ecs.se1|Y|Y|—|Y|Y|Y|Y|Y|—|—|—|
-    |ecs.ce4|Y|Y|—|Y|Y|Y|Y|Y|-|—|—|
-    |ecs.xn4|—|—|Y|—|—|—|—|—|Y|Y|Y|
-    |ecs.e4|-|—|Y|—|—|—|—|—|Y|Y|Y|
-    |ecs.n4|—|—|Y|—|—|—|—|—|Y|Y|Y|
+-   Not supported within or between such instance type families: d1, d1ne, i1, i2, ga1, gn5, f1, f2, f3, ebmc4, ebmg5, sccg5, and scch5. For the instance type families that support this feature and the rules for changing instance types, see [Instance type families that support upgrading instance types](intl.en-US/User Guide/Instances/Change configurations/Instance type families that support upgrading instance types.md#).
 
--   For instance types of Generation II, you can change the instance type according to the following table.
-
-    |Instance type families|ecs.n2|ecs.e3|ecs.n1|ecs.sn2|ecs.sn1|
-    |----------------------|------|------|------|-------|-------|
-    |ecs.n2|Y|Y|Y|—|—|
-    |ecs.e3|Y|Y|Y|—|—|
-    |ecs.n1|Y|Y|Y|—|—|
-    |ecs.sn2|—|—|—|Y|Y|
-    |ecs.sn1|—|—|—|Y|Y|
-
--   You can change the configuration of all instance types within Generation I.
-
-**Note:** In the preceding table, “Y” indicates that you can change the configuration between the instance type families, and “-“ indicates that you are not allowed to change the configuration between the instance type families.
 
 ## Prerequisites {#section_jyl_fc2_xdb .section}
 
-You must stop the instance.
+The instance has been stopped.
 
 ## Procedure {#section_kyl_fc2_xdb .section}
 
-To change the memory and vCPU configurations of a Pay-As-You-Go instance, follow these steps:
+Do as follows to change memory and vCPU configurations of the instance:
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
-2.  In the left-side navigation pane, click **Instances**.
+1.  Log on to the [ECS Console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
+2.  In the left navigation tree, click **Instances**.
 3.  Select a region.
-4.  Find the Pay-As-You-Go instance you want to change the configuration, and in the **Actions** column, click  **Change Instance Type**.
-5.  In the Change Instance Type dialog box, select an instance type and click OK. **OK**.
+4.  In the **Actions** column, click **Change Instance Type**.
+5.  On the Instance Type page, select the desired instance type and click **Confirm**.
 
     **Note:** You can enter the instance type information in the search box to filter instance types in real time.
 
 
-The change is immediately effective after you complete the operation.  You can view the instance type information  in the **Basic Information** area of  the Instance Details page.
+Once the change is complete, it will take effect immediately. You can view the instance type information in the **Basic Information** area of the Instance Details page, as shown in the following figure.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9644/5424_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9644/15363054785424_en-US.png)
 
-Then, start the instance to provide services again.
+Then, restart the instance to restore your services.
+
+You can also use the API [DescribeResourcesModification](../../../../intl.en-US/API Reference/Others/DescribeResourcesModification.md#) to query the instance types that can be changed.
 
