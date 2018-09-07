@@ -1,8 +1,10 @@
 # ECS disk encryption {#concept_udk_5wj_ydb .concept}
 
-## What is ECS disk encryption {#concept .section}
+The ECS disk in this article refers to **cloud disks** and **shared block storage**. Hereinafter referred to as **ECS disks**, unless otherwise specified.
 
-When you want to encrypt the data stored on a disk due to business needs or certification requirements, you can use ECS disk encryption function to encrypt cloud disks and shared block storage \(referred to collectively as **cloud disks**, unless otherwise specified\). This secure encryption feature allows you to encrypt new cloud disks. You do not have to create, maintain, or protect your own key management infrastructure, nor change any of your existing applications or maintenance processes. In addition, no extra decryption operations are required, so the operation of the disk encryption function is practically invisible to your applications or your operations.
+## What is ECS disk encryption? {#concept .section}
+
+When you want to encrypt the data stored on a cloud disk due to business needs or certification requirements, you can use ECS disk encryption to encrypt your ECS disks. This secure encryption feature allows you to encrypt new cloud disks. You do not have to create, maintain, or protect your own key management infrastructure, nor change any of your existing applications or maintenance processes. In addition, no extra decryption operations are required, so the disk encryption operation is practically invisible to your applications or other operations.
 
 Encryption and decryption barely degrades cloud disk performance. For information on the performance testing method, see [Storage parameters and performance test](intl.en-US/Product Introduction/Block storage/Storage parameters and performance test.md#).
 
@@ -14,29 +16,29 @@ After an encrypted cloud disk is created and attached to an ECS instance, the da
 
 Encryption and decryption are performed on the host that runs the ECS instance, so the data transmitted from the ECS instance to the cloud disk is encrypted.
 
-ECS disk encryption supports all available cloud disks \(basic cloud disks, ultra cloud disks, and SSD cloud disks\) and shared block storage \(ultra and SSD\).
+ECS disk encryption supports all available cloud disks \(basic cloud disks, ultra cloud disks, SSD cloud disks, and ESSD cloud disks\) and shared block storage \(ultra shared block storage and SSD shared block storage\).
 
-ECS disk encryption supports all available instance types.
+ECS disk encryption supports all available instance types. ECS disk encryption is supported in all regions.
 
 ## ECS disk encryption dependencies {#dependencies .section}
 
-The ECS disk encryption function depends on the [Key Management Service \(KMS\)](https://www.alibabacloud.com/help/doc-detail/28935.htm) in the same region. However, you are not required to perform any additional operations in the KMS console, unless you want to perform separate KMS operations.
+ECS disk encryption is dependent on the [Key Management Service \(KMS\)](https://www.alibabacloud.com/help/doc-detail/28935.htm) in the same region. However, you are not required to perform any additional operations in the KMS console, unless you want to perform separate KMS operations.
 
 The first time you use the ECS disk encryption function when you are creating ECS instances or cloud disks, you must follow the prompts to authorize and activate KMS. Otherwise, you cannot create encrypted cloud disks or instances with encrypted disks.
 
 If you use an API or the CLI to use the ECS disk encryption function, such as [CreateInstance](../../../../intl.en-US/API Reference/Instances/CreateInstance.md#) or [CreateDisk](../../../../intl.en-US/API Reference/Disk/CreateDisk.md#), you must first activate KMS on the Alibaba Cloud website.
 
-The first time you encrypt a disk in a given region, Alibaba Cloud automatically creates a [Customer Master Key \(CMK\)](https://www.alibabacloud.com/help/doc-detail/28936.htm) in the KMS region, exclusively for ECS. You cannot delete this CMK and can query it in the KMS console.
+The first time you encrypt a disk in a given region, Alibaba Cloud automatically creates a Customer Master Key \(CMK\) in the KMS region, exclusively for ECS. You cannot delete this CMK and can query it in the KMS console.
 
 ## Key management for ECS disk encryption {#kms .section}
 
-The ECS disk encryption function handles key management for you. Each new cloud disk is encrypted by using a unique 256-bit key \(derived from the CMK\). This key is also associated with all snapshots created from this cloud disk and any cloud disks subsequently created from these snapshots. These keys are protected by the key management infrastructure of Alibaba Cloud provided by KMS. This approach implements strong logical and physical security controls to prevent unauthorized access. Your data and the associated keys are encrypted by using an industry standard AES-256 algorithm.
+ECS disk encryption handles key management for you. Each new cloud disk is encrypted by using a unique 256-bit key \(derived from the CMK\). This key is also associated with all snapshots created from this cloud disk and any cloud disks subsequently created from these snapshots. These keys are protected by the key management infrastructure of Alibaba Cloud provided by KMS. This approach implements strong logical and physical security controls to prevent unauthorized access. Your data and the associated keys are encrypted by using an industry standard AES-256 algorithm.
 
 You cannot change the CMK associated with encrypted cloud disks and snapshots.
 
 The key management infrastructure of Alibaba Cloud conforms to the recommendations in \(NIST\) 800-57 and uses cryptographic algorithms that comply with the \(FIPS\) 140-2 standard.
 
-Each Alibaba Cloud account has a unique CMK for ECS product in each region. This key is separate from the data and stored in a system protected by strict physical and logical security controls. Each encrypted disk uses an encryption key unique to the specific disk and its snapshots. The encryption key is created from and encrypted by the CMK for the current user in the current region. The disk encryption key is only used in the memory of the host that runs your ECS instance. The key is never stored in plaintext in any permanent storage media \(such as a disk\).
+Each Alibaba Cloud account has a unique CMK for ECS products in each region. This key is separate from the data and is stored in a system protected by strict physical and logical security controls. Each encrypted disk uses an encryption key that is unique to the specific disk and its snapshots. The encryption key is created from and encrypted by the CMK for the current user in the current region. The disk encryption key is only used in the memory of the host that runs your ECS instance. The key is never stored in plaintext in any permanent storage media \(such as a disk\).
 
 ## Fees {#section_r4l_5r5_q8y .section}
 
@@ -59,24 +61,29 @@ These operations include:
 
 Currently, only cloud disks can be encrypted. You can create an encrypted cloud disk in the following ways:
 
--   Create a cloud disk as a data disk when creating an ECS instance:
+-   Create a cloud disk as a data disk when creating an ECS instance :
 
     -   Check Encrypted to create a encrypted blank cloud disk.
     -   Select an encrypted screenshot to create a cloud disk.
 -   When using APIs or the CLI:
 
     -   Set the parameter `DataDisk.n.Encrypted` \([CreateInstance](../../../../intl.en-US/API Reference/Instances/CreateInstance.md#)\) or `Encrypted` \([CreateDisk](../../../../intl.en-US/API Reference/Disk/CreateDisk.md#)\) to `true`.
-    -   Specify the `SnapshotId` parameter of the encrypted snapshot in [CreateInstance](../../../../intl.en-US/API Reference/Instances/CreateInstance.md#) or [CreateDisk](../../../../intl.en-US/API Reference/Disk/CreateDisk.md#).
+    -   Specify the `SnapshotId` parameter of the encrypted snapshot in CreateInstance or CreateDisk.
 
 ## Convert unencrypted data to encrypted data {#convert .section}
 
-You cannot directly convert an unencrypted disk to an encrypted disk. Likewise, you cannot convert a snapshot created from an unencrypted disk to an encrypted snapshot. Therefore, if you must encrypt existing data, we recommend that you use the `rsync` command in a Linux instance or the `robocopy` command in a Windows instance to copy data from an unencrypted disk to a \(new\) encrypted disk.
+You cannot directly convert an **unencrypted disk** to an **encrypted disk**. Likewise, you cannot directly convert an **encrypted disk** to an **unencrypted disk**.
+
+You cannot convert a snapshot created from an **unencrypted disk** to an **encrypted snapshot**. Likewise, you cannot convert a snapshot created from an **encrypted disk** to an **unencrypted snapshot**.
+
+Therefore, if you must switch the existing data from status **unencrypted** to **encrypted**, we recommend that you use the `rsync` command in a Linux instance or the `robocopy` command in a Windows instance to copy data from an **unencrypted disk** to a \(new\) **encrypted disk**.
+
+If you must switch existing data from status **encrypted** to **unencrypted**, we recommend that you use the `rsync` command in a Linux instance or the `robocopy` command in a Windows instance to copy data from an **encrypted disk** to a \(new\) **unencrypted disk**.
 
 ## Limits {#limits .section}
 
 ECS disk encryption has the following limits:
 
--   Now, all regions support cloud disk encryption except for US East and US West.
 -   You can only encrypt cloud disks, not local disks or ephemeral disks.
 -   You can only encrypt data disks, not system disks.
 -   You cannot directly convert existing unencrypted disks into encrypted disks.
@@ -86,7 +93,7 @@ ECS disk encryption has the following limits:
 -   You cannot share images created from encrypted snapshots.
 -   You cannot copy images created from encrypted snapshots across regions.
 -   You cannot export images created from encrypted snapshots.
--   You cannot choose your CMKs for each region, as these are generated by the system.
--   The ECS system creates CMKs for each region. You cannot delete these keys, but no fees are incurred.
+-   You cannot choose your CMKs for each region. They are generated by the system.
+-   The ECS system creates CMKs for each region. You cannot delete these keys, and you do not incur fees from them.
 -   After a cloud disk is encrypted, you cannot change the CMK used for encryption and decryption.
 
