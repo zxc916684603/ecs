@@ -9,12 +9,12 @@ To set the command name and description in the ECS console, perform the followin
 1.  Log on to the [ECS console](https://ecs.console.aliyun.com/) .
 2.  Select **Cloud Assistant** from the left-side navigation pane.
 3.  Select a region.
-4.  Move the mouse cursor to the command you want to edit, and click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9709/15362284727167_en-US.png) icon that appears in the prompted window.
+4.  Move the mouse cursor to the command you want to edit, and click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9709/15365690757167_en-US.png) icon that appears in the prompted window.
     -   **Command name**: Input the new command name.
     -   **Command description**: Input the new command description.
 5.  Click **OK**.
 
-You can also use the ECS API [../DNA0011860945/EN-US\_TP\_9964.md\#](../intl.en-US/API Reference/Cloud assistant/ModifyCommand.md#) to modify command information.
+You can also use the ECS API [ModifyCommand](../intl.en-US/API Reference/Cloud assistant/ModifyCommand.md#) to modify command information.
 
 ## Clone a command {#CopyCommands .section}
 
@@ -27,7 +27,7 @@ The clone command is equivalent to add a new version for an existing cloud assis
 5.  In the Clone command dialogue box, complete the following optional steps:
     1.  Enter a new **Command name**, such as HelloECS.
     2.  Enter a new **Command description**, such as UserGuide.
-    3.  Click the icon ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17007/15362284728334_en-US.png) to replace the command type from the drop-down list. For Windows instances, you can select **Bat** or **Power Shell**. For Linux instances, you can select **Shell**.
+    3.  Click the icon ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17007/15365690758334_en-US.png) to replace the command type from the drop-down list. For Windows instances, you can select **Bat** or **Power Shell**. For Linux instances, you can select **Shell**.
     4.  Edit or paste new command content.
     5.  Determine a new command **Execution path**. The default execution path for Bat or PowerShell commands is the directory where the cloud assistant client is installed, such as `C:\ProgramData\aliyun\assist\$(version)`. The default execution path for Shell commands is the `/root` directory.
     6.  Configure the timeout time in seconds for the command. The default value is set to 3600. When a command you created cannot be executed for the amount of time set by this parameter, the command times out. When the timeout time of the command expires, the command process will be forcibly terminated.
@@ -44,9 +44,9 @@ Within an Alibaba Cloud region, you can create a maximum of 100 cloud assistant 
     -   To delete a single command, from the **Operation** list, select **Delete**.
     -   To delete multiple commands, select the target instances, and click **Delete command**.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17035/15362284728634_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17035/15365690758634_en-US.png)
 
 5.  In the Delete command dialogue box, click **OK**.
 
-You can also use the ECS API [../DNA0011860945/EN-US\_TP\_9960.md\#](../intl.en-US/API Reference/Cloud assistant/DeleteCommand.md#) to delete commands.
+You can also use the ECS API [DeleteCommand](../intl.en-US/API Reference/Cloud assistant/DeleteCommand.md#) to delete commands.
 
