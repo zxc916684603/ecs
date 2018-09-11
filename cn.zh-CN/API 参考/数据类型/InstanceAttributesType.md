@@ -17,33 +17,36 @@
 |RegionId|String|实例所属地域 ID|
 |ZoneId|String|实例所属可用区|
 |Cpu|Integer|vCPU 核数|
-|Memory|Integer|内存大小，单位 MB|
+|GPUSpec|String|实例规格附带的 GPU 类型|
+|GPUAmount|Integer|实例规格附带的 GPU 数量|
+|Memory|Integer|内存大小，单位 MiB|
 |InstanceType|String|实例资源规格|
 |InstanceTypeFamily|String|实例规格族|
 |HostName|String|实例主机名|
 |SerialNumber|String|实例序列号|
 |Status|String|实例状态|
-|SecurityGroupIds|[SecurityGroupIdSetType](cn.zh-CN/API参考/数据类型/SecurityGroupIdSetType.md#)|实例所属安全组集合|
-|PublicIpAddress|[IpAddressSetType](cn.zh-CN/API参考/数据类型/IpAddressSetType.md#)|实例公网 IP 地址|
+|SecurityGroupIds|[SecurityGroupIdSetType](intl.zh-CN/API 参考/数据类型/SecurityGroupIdSetType.md#)|实例所属安全组集合|
+|PublicIpAddress|[IpAddressSetType](intl.zh-CN/API 参考/数据类型/IpAddressSetType.md#)|实例公网 IP 地址|
 |InternetMaxBandwidthIn|Integer|公网入带宽最大值|
 |InternetMaxBandwidthOut|Integer|公网出带宽最大值|
 |InternetChargeType|String|网络计费类型。可能值：-   PayByTraffic：按流量计费
--   PayByBandwidth：按带宽计费
 
 |
-|CreationTime|String|实例创建时间。按照 [ISO8601](cn.zh-CN/API参考/附录/时间格式.md#) 标准表示，使用 UTC 时间。格式为 YYYY-MM-DDThh:mm:ssZ|
+|CreationTime|String|实例创建时间。按照[ISO8601](../intl.zh-CN/API 参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
 |InstanceNetworkType|String|实例网络类型。可能值：-   Classic
 -   Vpc
 
 |
-|VpcAttributes|[VpcAttributesType](cn.zh-CN/API参考/数据类型/VpcAttributesType.md#)|专有网络 VPC 属性|
-|EipAddress|[EipAddressAssociateType](cn.zh-CN/API参考/数据类型/EipAddressAssociateType.md#)|弹性公网 IP 绑定信息|
-|InnerIpAddress|[IpAddressSetType](cn.zh-CN/API参考/数据类型/IpAddressSetType.md#)|实例的内网 IP 地址|
-|OperationLocks|[OperationLocksType](cn.zh-CN/API参考/数据类型/OperationLocksType.md#)|实例的锁定原因|
-|InstanceChargeType|String|实例的付费方式。可能值：-   PrePaid：包年包月
+|VpcAttributes|[VpcAttributesType](intl.zh-CN/API 参考/数据类型/VpcAttributesType.md#)|专有网络 VPC 属性|
+|EipAddress|[EipAddressAssociateType](intl.zh-CN/API 参考/数据类型/EipAddressAssociateType.md#)|弹性公网 IP 绑定信息|
+|InnerIpAddress|[IpAddressSetType](intl.zh-CN/API 参考/数据类型/IpAddressSetType.md#)|实例的内网 IP 地址|
+|OperationLocks|[OperationLocksType](intl.zh-CN/API 参考/数据类型/OperationLocksType.md#)|实例的锁定原因|
+|InstanceChargeType|String|实例的计费方式。可能值：-   PrePaid：预付费（包年包月 ）
 -   PostPaid：按量付费
 
 |
+|SaleCycle|String|当实例为预付费实例时，实例购买的周期单位。取值范围：week | month | year|
+|SpotPriceLimit|Float|设置实例的每小时最高价格。支持最大3位小数，参数`SpotStrategy=SpotWithPriceLimit`时，该参数生效。|
 |SpotStrategy|String|抢占式实例的抢占策略。可能值：-   NoSpot：正常按量付费实例
 -   SpotWithPriceLimit：设置上限价格的抢占式实例
 -   SpotAsPriceGo：系统自动出价，最高按量付费价格
@@ -56,8 +59,8 @@
 
 |
 |DeploymentSetId|String|部署集 ID|
-|NetworkInterfaces|[NetworkInterfaceType](cn.zh-CN/API参考/数据类型/NetworkInterfaceType.md#)|实例包含的弹性网卡集合|
+|NetworkInterfaces|[NetworkInterfaceType](intl.zh-CN/API 参考/数据类型/NetworkInterfaceType.md#)|实例包含的弹性网卡集合|
 |IoOptimized|Boolean|是否为 I/O 优化型实例|
-|ExpiredTime|String|过期时间。按照 [ISO8601](cn.zh-CN/API参考/附录/时间格式.md#) 标准表示，使用 UTC 时间。格式为 YYYY-MM-DDThh:mm:ssZ|
+|ExpiredTime|String|过期时间。按照[ISO8601](../intl.zh-CN/API 参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
 |KeyPairName|String|密钥对名称|
 

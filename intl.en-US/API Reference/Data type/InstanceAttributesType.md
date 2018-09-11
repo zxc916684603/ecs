@@ -16,8 +16,10 @@ Depends on the interface.
 |ImageId|String|ID of the image that is running in the instance.|
 |RegionId|String|ID of the region where the instance belongs.|
 |ZoneId|String|Zone ID of the zone where the ENS instance is located.|
-|Cpu |Integer|Number of vCPU.|
-|Memory|Integer|Memory size in MB.|
+|Cpu|Integer|Number of vCPU.|
+|GPUSpec|String|GPU processor type of the instance.|
+|GPUAmount|Integer|GPU processor number of the instance.|
+|Memory|Integer|Memory size in MiB.|
 |InstanceType|String|Instance type.|
 |InstanceTypeFamily|String|Instance type family|
 |HostName|String|Instance host name.|
@@ -30,11 +32,8 @@ Depends on the interface.
 |InternetChargeType|String|The billing method of the network bandwidth. Possible values:-   PayByTraffic: You are billed based on the traffic.
 
 |
-|CreationTime|String|Instance creation time. The value is represented according to [ISO8601](intl.en-US/API Reference/Appendix/ISO 8601 Time Format.md#), The format is YYYY-MM-DDThh:mm:ssZ.|
-|InstanceNetworkType|String|Network type of the instance. Possible values:-   Classic
--   Vpc
-
-|
+|CreationTime|String|Instance creation time. The time format follows the [ISO8601](../intl.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.|
+|InstanceNetworkType|String|Network type of the instance. Possible values: Classic | Vpc|
 |VpcAttributes |[VpcAttributesType](intl.en-US/API Reference/Data type/VpcAttributesType.md#)|VPC related attributes of an ECS instance.|
 |EipAddress|[EipAddressAssociateType](intl.en-US/API Reference/Data type/EipAddressAssociateType.md#)|EIP binding information.|
 |InnerIpAddress|[IpAddressSetType](intl.en-US/API Reference/Data type/IpAddressSetType.md#)|Intranet IP address.|
@@ -43,6 +42,8 @@ Depends on the interface.
 -   PostPaid: Pay-As-You-Go.
 
 |
+|SaleCycle|String|The billing cycle selected for a Subscription instance. Optional values: week | month | year.|
+|SpotPriceLimit|Float|The hourly price threshold for a preemptible instance, and it takes effect only when parameter `SpotStrategy=SpotWithPriceLimit`. Three decimal places are allowed at most.|
 |SpotStrategy|String|The spot price you are willing to accept for preemptible instances. Possible values:-   NoSpot: A normal Pay-As-You-Go instance.
 -   SpotWithPriceLimit: Sets the maximum price for a spot instance.
 -   SpotAsPriceGo: A price that is based on the highest Pay-As-You-Go instance.
@@ -57,6 +58,6 @@ Default value: NoSpot.|
 |DeploymentSetId|String|Deployment set ID.|
 |NetworkInterfaces|[NetworkInterfaceType](intl.en-US/API Reference/Data type/NetworkInterfaceType.md#)|The ENI related information.|
 |IoOptimized|Boolean |Whether an instance is I/O optimized or not.|
-|ExpiredTime|String|Time of expiration. The value is represented according to [ISO8601](intl.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) and UTC time is used. It is in the YYYY-MM-DDThh:mm:ssZ format.|
+|ExpiredTime|String|Time of expiration. The time format follows the [ISO8601](../intl.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.|
 |KeyPairName|String|SSH key pair name.|
 
