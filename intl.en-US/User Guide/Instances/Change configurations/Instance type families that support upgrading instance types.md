@@ -1,6 +1,6 @@
 # Instance type families that support upgrading instance types {#concept_mdh_2rb_1fb .concept}
 
-This article describes the instance type families that support upgrading instance types.
+This article describes the instance type families that support instance type upgrading.
 
 ## Impacts {#section_sxr_zhb_1fb .section}
 
@@ -8,13 +8,13 @@ Upgrading instance types has the following impacts:
 
 -   Classic network instances:
 
-    -   For [phased-out instance types](https://help.aliyun.com/knowledge_detail/55263.html), when a non-I/O optimized instance is upgraded to an I/O optimized instance, changes will be made to the private IP address, the driver name, and the software authorization code. For Linux instances, Basic Cloud Disks \(`cloud`\) will be recognized as `xvda` or `xvdb`, while Ultra Cloud Disks \(`cloud_efficiency`\) and SSD Cloud Disks \(`cloud_ssd`\) as `vda` or `vdb`.
+    -   For [phased-out instance types](https://help.aliyun.com/knowledge_detail/55263.html), when a non-I/O optimized instance is upgraded to an I/O optimized instance, changes are made to the private IP address, the driver name, and the software authorization code. For Linux instances, Basic Cloud Disks \(`cloud`\) are recognized as `xvda` or `xvdb`, while Ultra Cloud Disks \(`cloud_efficiency`\) and SSD Cloud Disks \(`cloud_ssd`\) as `vda` or `vdb`.
 
-    -   For [available instance types](../../../../intl.en-US/Product Introduction/Instance type families.md#), changes will be made to the private IP address of the instance.
+    -   For [available instance types](../../../../intl.en-US/Product Introduction/Instance type families.md#), changes are made to the private IP address of the instance.
 
 -   VPC instances:
 
-    For [phased-out instance types](https://help.aliyun.com/knowledge_detail/55263.html), when a non-I/O optimized instance is upgraded to an I/O optimized instance, changes will be made to the driver name and the software authorization code. For Linux instances, Basic Cloud Disks \(`cloud`\) will be recognized as `xvda` or `xvdb`, while Ultra Cloud Disks \(`cloud_efficiency`\) and SSD Cloud Disks \(`cloud_ssd`\) as `vda` or `vdb`.
+    For [phased-out instance types](https://help.aliyun.com/knowledge_detail/55263.html), when a non-I/O optimized instance is upgraded to an I/O optimized instance, changes are made to the driver name and the software authorization code. For Linux instances, Basic Cloud Disks \(`cloud`\) are recognized as `xvda` or `xvdb`, while Ultra Cloud Disks \(`cloud_efficiency`\) and SSD Cloud Disks \(`cloud_ssd`\) as `vda` or `vdb`.
 
 
 ## Instance type families that support upgrading instance types {#section_ehm_smb_1fb .section}
