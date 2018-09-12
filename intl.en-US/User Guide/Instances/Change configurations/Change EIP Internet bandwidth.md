@@ -10,20 +10,20 @@ The **Change Bandwidth** feature only applies to the VPC-connected instance, and
 
 To change the Internet bandwidth of an EIP address, follow these steps:
 
-1.  Log on to the [ECS Management Console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
-2.  In the left-hand navigation bar, click **Instances**.
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
+2.  In the left-side navigation pane, click **Instances**.
 3.  Select a region.
-4.  Find an instance to which an EIP address is bound, and in the **Actions** column, click **Change configurations**.
-5.  In the Change configurations wizard dialog box, select change bandwidth, and click **Continue**.
+4.  Find an instance to which an EIP address is bound, and in the **Actions** column, click **Change Configuration**.
+5.  In the Change Configurations dialog box, select change bandwidth, and click **Continue**.
 6.  On the Confirm Order page, set the new peak bandwidth.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9646/5429_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9646/15367414695429_en-US.png)
 
 7.  Click **Activate** and finish changing the bandwidth as instructed on the page.
 
 ## Related operations {#section_wtj_j3z_xdb .section}
 
-For Subscription instances of the Classic network type or VPC-Connected ECS instances to which no EIP addresses are bound, you can use the following features to change the Internet bandwidth:
+For Subscription instances of the classic network type or VPC-connected ECS instances to which no EIP addresses are bound, you can use the following features to change the Internet bandwidth:
 
 -   Use the [Upgrade Configuration](https://www.alibabacloud.com/help/zh/doc-detail/25438.htm) feature to change the Internet bandwidth immediately.
 
