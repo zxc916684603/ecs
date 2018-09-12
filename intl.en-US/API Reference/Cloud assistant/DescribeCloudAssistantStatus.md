@@ -8,7 +8,7 @@ Checks whether the cloud assistant client is installed or not on one or more ins
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The operation that you want to perform. Value: DescribeCloudAssistantStatus.|
 |RegionId|String|Yes|The ID of the region where the ECS instance is located. You can call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to view the latest region list.|
-|InstanceIds|Array|Yes|The list of instance IDs. For example, if Python SDK is used, you can set the value to \[InstanceID1, InstanceID2, InstanceID3…\]. A single request supports up to 100 instances.|
+|InstanceId.N|Array|Yes|The list of instance IDs. A single request supports up to 20 instances, therefore, the N can be set to \[1, 20\].|
 
 ## Response parameters {#ResponseParameter .section}
 
@@ -30,7 +30,8 @@ Checks whether the cloud assistant client is installed or not on one or more ins
 ```
 https://ecs.aliyuncs.com/?Action=DescribeCloudAssistantStatus
 &RegionId=cn-hangzhou
-&InstanceIds=["i-bp11f7trr4hbi1xxxxxx", "i-bp1iudwa5b1tqaxxxxxx"]
+&InstanceId.N="i-bp11f7trr4hbi1xxxxxx" 
+&InstanceId.N="i-bp1iudwa5b1tqaxxxxxx"
 &<Common Request Parameters>
 ```
 
