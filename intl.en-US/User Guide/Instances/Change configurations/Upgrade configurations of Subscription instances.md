@@ -1,9 +1,11 @@
 # Upgrade configurations of Subscription instances {#concept_jl1_2bf_5db .concept}
 
-The **Upgrade Configuration** feature helps you to upgrade the specifications of your Subscription instances to meet your business needs. However, you may have to pay the price difference  for the upgrade. While you are changing the instance type, you can also perform any of the following operations:
+If a Subscription instance type cannot meet your business needs, you can upgrade the instance type by using the feature of upgrading configurations.
 
--   **Convert the billing method of cloud disks** that are used as data disks from Pay-As-You-Go to Subscription. Note that you cannot change the billing method of system disks.
--   **Adjust the Internet bandwidth** of a VPC-Connected ECS instance that no EIP address is bound to or a classic network-connected ECS instance. You can use this feature to assign an Internet IP address to the instance.
+Apart from upgrading the instance type, you can use this feature to do the following:
+
+-   **Convert the billing method of data disks**: Convert the billing method of data disks from Pay-As-You-Go to Subscription. The billing method of system disks cannot be changed.
+-   **Change the Internet bandwidth**: Adjust the Internet bandwidth. This applies to the instances in a classic network and instances in a VPC that are not bound with EIPs. If you do not purchase the Internet bandwidth when creating an instance, no public IP address is assigned. In this case, you can use this feature to assign a public IP address to the instance when needed.
 
 ## Fees {#section_u4k_fyd_xdb .section}
 
@@ -11,21 +13,23 @@ After upgrading the configuration, you must make up the difference for the rest 
 
 ## Limits {#section_v4k_fyd_xdb .section}
 
-This section introduces how to **upgrade configurations** in the ECS console. 
+This feature has the following limits:
 
--   It is only applicable to Subscription instances.
+-   Only applicable to Subscription instances.
 
--   You can use it to upgrade the specifications of vCPU and RAM simultaneously, but not separately, by changing the instance type.
+-   The interval between two upgrades should be no less than five minutes.
 
--   Some instance types are not supported. For more information, see [Instance type families](../../../../intl.en-US/Product Introduction/Instance type families.md#).
+-   You can only upgrade the instance type \(including vCPU cores and memory size\), but cannot upgrade one item solely.
 
--   It can be used to change Internet bandwidth of only VPC-Connected ECS instances that no EIP address is bound to and classic network-connected ECS instances.
+-   Not supported within or between such instance type families: d1, d1ne, i1, i2, ga1, gn5, f1, f2, f3, ebmc4, ebmg5, sccg5, and scch5. For the instance type families that support this feature and the rules for upgrading instance types, see [instance type families that support upgrading instance types](intl.en-US/User Guide/Instances/Change configurations/Instance type families that support upgrading instance types.md#).
 
--   It can be used to change the billing method of cloud disks that are used as data disks, but not that of system disk.
+-   This feature can be used to change the Internet bandwidth only for VPC instances bound with no EIPs and classic network instances.
 
--   During the current billing cycle, if you have performed the Renew for Configuration Downgrade operation, [Renew for configuration downgrade](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#) you cannot upgrade configurations until the next billing cycle.
+-   You can change the billing method from Pay-As-You-Go to Subscription only for data disks, not for system disks.
 
--   After you change the instance types or increase the Internet bandwidth of a classic network-connected ECS instance from 0 Mbit/s to a non-zero value for the first time, you must restart the instance in the ECS console [RebootInstance](../../../../intl.en-US/API Reference/Instances/RebootInstance.md#) or by using the RebootInstance interface for the new configuration to take effect.
+-   In the current billing cycle, if you have already performed the [renewal for configuration downgrade](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#) operation, you cannot upgrade the configuration until a new billing cycle begins. That is, the configuration cannot be upgraded during the remaining time of the current billing cycle.
+
+-   After upgrading an instance type or changing the Internet bandwidth of a classic network instance from 0 Mbps to a non-zero value for the first time, you must restart the instance on the console or through the [RebootInstance](../../../../intl.en-US/API Reference/Instances/RebootInstance.md#) API to activate the new configuration.
 
 
 ## Procedure {#section_gvw_myd_xdb .section}
@@ -33,24 +37,23 @@ This section introduces how to **upgrade configurations** in the ECS console. 
 1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
 2.  In the left-side navigation pane, click **Instances**.
 3.  Select a region.
-4.  In the , find your instance, and in the **Actions** column, click **Change Configuration**.
+4.  Select the Subscription instance to upgrade. In the **Actions** column, click **Change Configuration**.
 5.  In the Configuration Change Guide dialog box, select **Upgrade Configuration** and click **Continue**.
 6.  On the Upgrade Configuration page, perform any of the following operations:
     -   Select a new **Instance Type**.
 
         **Note:** The page displays all the new instance types that are available for your instance.
 
-    -   If a Pay-As-You-Go data disk is [Attach a cloud disk](intl.en-US/User Guide/Cloud disks/Attach a cloud disk.md#) to your instance, you can **convert its billing method to Subscription**.
+    -   If a [Pay-As-You-Go data disk is attached](intl.en-US/User Guide/Cloud disks/Attach a cloud disk.md#) to your instance, you can convert its billing method to Subscription.
+    -   If the instance is a classic network instance or a VPC instance that is not bound with an EIP, you can modify its Internet bandwidth.
 
-    -   If the instance is a classic network type instance or a VPC type instance that is not bound to an EIP, you can modify the bandwidth values.
+        **Note:** If you do not purchase the Internet bandwidth when creating an instance, no public IP address is assigned. In this case, you can use this feature to assign a public IP address to the instance when needed.
 
-        **Note:** If you do not purchase Internet bandwidth when you create the instance, that is, the Internet IP address is not assigned, you can assign an Internet IP address here by setting the Internet bandwidth to a non-zero value.
+7.  Confirm the price, click **Create Order**, and then finish the upgrade as instructed.
+8.  After upgrading an instance type or changing the Internet bandwidth of a classic network instance from 0 Mbps to a non-zero value for the first time, you must restart the instance on the console or through the [RebootInstance](../../../../intl.en-US/API Reference/Instances/RebootInstance.md#) API to activate the new configuration.
 
-        ![](images/5422_en-US.png)
+    **Note:** You do not have to restart a VPC instance if its Internet bandwidth is increased from 0 Mbps to a non-zero value for the first time.
 
-7.  Click **Pay** to complete the order.
-8.  If you have changed the instance type, or if you have increased the bandwidth from 0 Mbit/s for your classic network-connected ECS instance, restart the instance in the console [RebootInstance](../../../../intl.en-US/API Reference/Instances/RebootInstance.md#) or by using the RebootInstance interface.
 
-    **Note:** You do not have to restart a VPC-Connected ECS instance if its bandwidth is increased from 0 Mbit/s for the first time.
-
+You can also use the [DescribeResourcesModification](../../../../intl.en-US/API Reference/Others/DescribeResourcesModification.md#) API to query the instance types that can be upgraded.
 
