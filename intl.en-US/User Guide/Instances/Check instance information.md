@@ -3,8 +3,8 @@
 Through the console, you can check all the ECS instances you own:
 
 -   You can [view all ECS instances under your account on the Overview page](#overview).
--   View all the ECS instances in a specified region on the Instances page For more information, see [view details of an ECS instance on the Instance Details page](#list).
--   View the details of any ECS instance on the Instances page. For more information, see [view details of an ECS instance on the Instance Details page](#detail).
+-   You can view all the ECS instances in a specified region on the Instances page. For more information, see [view details of an ECS instance on the Instance Details page](#list).
+-   You can view the details of any ECS instance on the Instances page. For more information, see [view details of an ECS instance on the Instance Details page](#detail).
 
 ## View all ECS instances under your account on the Overview page {#overview .section}
 
@@ -28,7 +28,7 @@ You can see information of all the existing ECS instances in the selected region
 1.  In the upper-right corner of the Instance List, click the ![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/25441/cn_zh/1514174627852/icon_CustomizeItem.png) icon.
 2.  In the dialog box of Set Display Items, select the instance information to be displayed and click **OK**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9639/15367363265368_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9639/15367367395368_en-US.png)
 
 
 ## View details of an ECS instance on Instance Details page {#detail .section}
