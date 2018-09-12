@@ -4,14 +4,12 @@ You can change the configurations of an instance and its Internet bandwidth afte
 
 ## Upgrade or downgrade instance configurations {#ChangeType .section}
 
-You can only upgrade or downgrade the configurations of vCPU and memory \([Instance type families](../../../../intl.en-US/Product Introduction/Instance type families.md#)\) simultaneously by changing instance types. The methods to change an instance type vary according to the billing method of the instance:
+You can only upgrade or downgrade the configurations of vCPU and memory \(that is, [instance type family](../../../../intl.en-US/Product Introduction/Instance type families.md#)\) simultaneously by changing instance types. The methods to change an instance type vary according to the billing method of the instance:
 
 -   Subscription:
-    -   Upgrade: See [upgrade configurations](intl.en-US/User Guide/Instances/Change configurations/Upgrade configurations of Subscription instances.md#). The new configurations are effective after you [Restart an instance](intl.en-US/User Guide/Instances/Restart an instance.md#) in the console or by using the [RebootInstance](../../../../intl.en-US/API Reference/Instances/RebootInstance.md#) interface.
-    -   Downgrade: See [renewsal for configuration downgrade](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#) . You can downgrade the configuration of an instance when you renew the instance. The new configuration takes effect after you [Restart an instance](intl.en-US/User Guide/Instances/Restart an instance.md#) in the ECS console within the first seven days of the new billing cycle.
--   Pay-As-You-Go:
-
-    See [change configurations of Pay-As-You-Go instances](intl.en-US/User Guide/Instances/Change configurations/Change configurations of Pay-As-You-Go instances.md#). You must stop the instance to use this feature.
+    -   Upgrade: See [upgrade configurations](intl.en-US/User Guide/Instances/Change configurations/Upgrade configurations of Subscription instances.md#). The new configurations are effective after you [restart an instance](intl.en-US/User Guide/Instances/Restart an instance.md#) in the console or by using the [RebootInstance](../../../../intl.en-US/API Reference/Instances/RebootInstance.md#) interface.
+    -   Downgrade: See [renewsal for configuration downgrade](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#) . You can downgrade the configuration of an instance when you renew the instance. The new configuration takes effect after you [restart an instance](intl.en-US/User Guide/Instances/Restart an instance.md#) in the ECS console within the first seven days of the new billing cycle.
+-   Pay-As-You-Go: See [change configurations of Pay-As-You-Go instances](intl.en-US/User Guide/Instances/Change configurations/Change configurations of Pay-As-You-Go instances.md#). You must stop the instance to use this feature.
 
     **Note:** Stopping an instance disrupts your business traffic. Proceed with caution.
 
@@ -28,7 +26,7 @@ You can adjust the Internet bandwidth of an instance. The methods vary according
 
 ## Assign a public IP address {#AllocatePublicIp .section}
 
-Assign a public IP address to an ECS instance while [Step 2. Create an instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#). If you skip it, you can even assign after an ECS instance is created. However, the feature is only available for Subscription instances. For more information, see the following table.
+Assign a public IP address to an ECS instance while [creating it](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#). If you skip it, you can even assign after an ECS instance is created. However, the feature is only available for Subscription instances. For more information, see the following table.
 
 |Feature|Effective immediately|Description|
 |:------|:--------------------|:----------|
