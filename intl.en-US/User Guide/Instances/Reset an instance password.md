@@ -4,9 +4,9 @@ If you did not specify a logon password for an instance at the time of creation,
 
 **Note:** You must restart an instance after its password is reset, which may impact the service. To reduce the impact, we recommend that you reset the password when the related service is not busy.
 
-## Prerequisites {#section_mg1_3fl_xdb .section}
+## Prerequisite {#section_mg1_3fl_xdb .section}
 
-The instance must be in a stable status, such as **Stopped** and **Running**. For more information, see [ECS instance life cycle](../../../../intl.en-US/Product Introduction/Instance/ECS instance life cycle.md#).
+The instance must be in a stable status, such as **Stopped** and **Running**. For more information, see [ECS instance life cycle](../../../../intl.en-US/Product Introduction/Instances/ECS instance life cycle.md#).
 
 ## Procedure {#section_ng1_3fl_xdb .section}
 
