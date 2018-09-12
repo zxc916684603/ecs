@@ -10,14 +10,14 @@ One template can have multiple versions. The default version number of a newly c
 
 You can create a version using the following methods:
 
--   If you do not want to create an instance now, you can still create multiple versions of a template [Create an instance using the ECS console](#console) and create instances using your specified version later.
+-   [Create an instance using the ECS console](#console) to create versions of a template for future use.
 
--   If you want to create an instance and save the configuration information, go to the ECS buy page [Create an instance on the ECS buy page](#commonbuy) to create versions of a template.
+-   If you want to create an instance and save the configuration information, you can [create an instance on the ECS buy page](#commonbuy) to create versions of a template.
 
 
-## Prerequisites {#section_s44_z1v_xdb .section}
+## Prerequisite {#section_s44_z1v_xdb .section}
 
-You have already [Create a template](intl.en-US/User Guide/Instances/Instance startup Templates/Create a template.md#).
+You have already [created a template](intl.en-US/User Guide/Instances/Launch template/Create a template.md#).
 
 ## Create an instance using the ECS console {#console .section}
 
@@ -25,7 +25,7 @@ You have already [Create a template](intl.en-US/User Guide/Instances/Instance st
 2.  In the left-side navigation pane, select **Launch Template**.
 3.  Select a template ID to view its configurations, and then click **New Version**. You can also click **New Version** in the **Actions** column.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13806/5351_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13806/15367330635351_en-US.png)
 
 4.  On the Launch Template page, set the parameters.
 
@@ -45,9 +45,9 @@ You have already [Create a template](intl.en-US/User Guide/Instances/Instance st
 
 ## Change the default version {#section_n3m_2bv_xdb .section}
 
-1.  In the ECS console, select a template ID that has multiple versions to view its version details.
+1.  In the ECS console, select a template ID that has multiple versions.
 2.  Locate the version you want to set as default, and then click **Set as Default** in the **Actions** column.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13806/5352_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13806/15367330645352_en-US.png)
 
 
