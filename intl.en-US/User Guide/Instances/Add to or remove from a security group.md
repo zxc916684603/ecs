@@ -6,10 +6,10 @@ You can add an instance to a security group using the ECS Management console. On
 
 1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
 2.  Click **Instances** in the left-side navigation pane.
-3.  Select your desired region.
-4.  Select the desired instance. Click the instance name or corresponding **Manage** button.
+3.  Select a region.
+4.  Select an instance. Click the instance name or corresponding **Manage** button.
 5.  Click **Security Groups** in the left-side navigation pane.
-6.  Click **Add Security Group**.  In the displayed dialog box, select the appropriate security group.
+6.  Click **Add Security Group**. In the displayed dialog box, select the appropriate security group.
 7.  Click **OK**.
 
 After you add an instance to the security group, the rules apply to the instance automatically. 
@@ -20,16 +20,16 @@ You can remove instances from security groups.
 
 **Note:** 
 
--   Note that an instance must be in at least two security group for this action to be performed
--   , and you have done enough test before this operation to avoid any intranet communication error between instances.
+-   An instance must be in at least two security groups for this action to be performed.
+-   Do enough test before this operation to avoid any intranet communication error between instances.
 
 1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
 2.  Click **Instances** in the left-side navigation pane.
-3.  Select your desired region.
-4.  Select the desired instance. Click the instance name or corresponding **Manage** button.
+3.  Select a region.
+4.  Select an instance. Click the instance name or corresponding **Manage** button.
 5.  Click **Security Groups** in the left-side navigation pane. You can view the security group list that this instance belongs to. 
 6.  Select the security group to remove from and click **Remove**.
 7.  Click **OK**.
 
-For use cases of security groups, see [Scenarios](intl.en-US/User Guide/Security groups/Scenarios.md#).
+For use cases of security groups, see [scenarios](intl.en-US/User Guide/Security groups/Scenarios.md#).
 
