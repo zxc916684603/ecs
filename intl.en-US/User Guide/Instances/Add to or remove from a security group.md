@@ -2,7 +2,7 @@
 
 ## Add an instance to a security group {#section_g4z_32n_xdb .section}
 
-You can add an instance to a security group using the ECS Management console. One ECS instance can be added to up to five security groups.
+You can add an instance to a security group using the console. One ECS instance can be added to up to five security groups.
 
 1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
 2.  Click **Instances** in the left-side navigation pane.
