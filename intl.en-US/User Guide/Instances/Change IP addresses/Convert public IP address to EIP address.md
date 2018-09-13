@@ -19,7 +19,7 @@ To convert a public IP address to an EIP address, consider the following limits:
 -   You can only use this feature to convert a public IP address to an EIP address.
 
 
-## Note {#section_mj3_qgn_xdb .section}
+**Note:** 
 
 -   The conversion has no effect on the Internet access of the VPC instance. It does not cause transient traffic interruption.
 
@@ -41,7 +41,7 @@ To convert a public IP address to an elastic public IP \(EIP\) address, follow t
 
 After the public IP address is converted to an EIP address, the IP address is followed by **\(Elastic IP Address\)**. 
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9657/15368076215473_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9657/15368078925473_en-US.png)
 
 Click the IP address to go to the EIP console to manage the EIP address. 
 
