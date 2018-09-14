@@ -2,7 +2,9 @@
 
 Preemptible instances are on-demand instances. They are designed to reduce your ECS costs in some cases. When you create a preemptible instance, you can set a maximum price per hour to bid for a specified instance type. If your bid is higher than or equal to the current market price, your instance is created. A preemptible instance is held without interruption for at least one hour after it is created. After one hour, your bid is compared with the market price every five minutes. When the market price exceeds your bid or the resource stock is insufficient, the instance is automatically released. The following figure shows the life cycle of a preemptible instance.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9552/15342175095106_en-US.png)
+**Note:** After an instance is released, its data cannot be recovered. We recommend that you [create a snapshot](../../../../intl.en-US/User Guide/Snapshots/Create snapshots.md#) to back up data before releasing an instance.
+
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9552/15368966085106_en-US.png)
 
 ## Scenarios {#section_fdc_jt5_ydb .section}
 
