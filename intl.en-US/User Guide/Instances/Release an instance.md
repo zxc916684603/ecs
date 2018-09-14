@@ -11,7 +11,7 @@ To release a Pay-As-You-Go instance, you have two options:
 -   Release now: immediately releases the pay-per-order instance.
 -   Scheduled Release: Customizes the release of your Pay-As-You-Go instance. The instance cannot be released automatically in less than 30 minutes from the current time. Applying new schedules overwrites the previous ones.
 
-**Note:** After an instance is released, its data cannot be recovered. We recommend that you [create an image](https://help.aliyun.com/document_detail/25455.html#concept_eps_gbl_xdb) to back up data before releasing an instance.
+**Note:** After an instance is released, its data cannot be recovered. We recommend that you [create a snapshot](intl.en-US/User Guide/Snapshots/Create snapshots.md#) to back up data before releasing an instance.
 
 ## Release an instance now {#section_cqg_ccn_xdb .section}
 
@@ -39,7 +39,7 @@ To enable auto release, follow these steps:
 5.  In the dialog box, select **Scheduled Release**.
 6.  Turn on the Automatic Release switch, and specify the release date and time. The earliest setting can only be set to automatically release an instance after 30 minutes.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9651/15354714885454_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9651/15368967645454_en-US.png)
 
 7.  Click **Next**, and then click **OK**.
 
