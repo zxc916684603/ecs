@@ -14,7 +14,7 @@
 
 |
 |Cores|Integer|否|实例规格的vCPU内核数目。取值参阅[实例规格族](../cn.zh-CN/产品简介/实例规格族.md#)。当`DestinationResource=InstanceType`参数有效，`Cores`才为有效参数。|
-|Memory|Integer|否|实例规格的内存大小，单位为GiB。取值参阅[实例规格族](../cn.zh-CN/产品简介/实例规格族.md#)。当`DestinationResource=InstanceType`，`Memory`才为有效参数。|
+|Memory|Float|否|实例规格的内存大小，单位为GiB。取值参阅[实例规格族](../cn.zh-CN/产品简介/实例规格族.md#)。当`DestinationResource=InstanceType`，`Memory`才为有效参数。|
 |MigrateAcrossZone|Boolean|否|是否支持跨集群升级实例规格。取值范围：-   True：支持
 -   False：不支持
 
@@ -39,7 +39,7 @@
 
 |名称|类型|描述|
 |:-|:-|:-|
-|AvailableZones|Array of [`AvailableZones`](#AvailableZoneType)|数据中心信息AvailableZoneType组成的集合|
+|AvailableZones|Array of [`AvailableZones`](#)|数据中心信息AvailableZoneType组成的集合|
 
 **AvailableZoneType** 
 
@@ -51,7 +51,7 @@
 -   SoldOut：资源已售罄
 
 |
-|AvailableResources|Array of [`AvailableResourcesType`](#AvailableResourcesType)|可供创建的具体资源组成的数组|
+|AvailableResources|Array of [`AvailableResourcesType`](#)|可供创建的具体资源组成的数组|
 
 **AvailableResourcesType** 
 
@@ -65,7 +65,7 @@
 -   Network：网络类型
 
 |
-|SupportedResources|Array of [`SupportedResourcesType`](#SupportedResourcesType)|支持的可供创建的具体资源组成的数组|
+|SupportedResources|Array of [`SupportedResourcesType`](#)|支持的可供创建的具体资源组成的数组|
 
 **SupportedResourcesType** 
 
@@ -181,7 +181,7 @@ https://ecs.aliyuncs.com/?Action=DescribeResourcesModification
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
