@@ -19,7 +19,7 @@ Depends on the interface.
 |Cpu|Integer|Number of vCPU.|
 |GPUSpec|String|GPU processor type of the instance.|
 |GPUAmount|Integer|GPU processor number of the instance.|
-|Memory|Integer|Memory size in MiB.|
+|Memory|Float|Memory size in GiB.|
 |InstanceType|String|Instance type.|
 |InstanceTypeFamily|String|Instance type family|
 |HostName|String|Instance host name.|
