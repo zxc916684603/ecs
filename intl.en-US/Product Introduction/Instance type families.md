@@ -897,10 +897,10 @@ Click [here](#) to view other instance type families.
 |ecs.t5-c1m1.2xlarge|8|8.0|72|1,728|15%|2|
 |ecs.t5-c1m2.2xlarge|8|16.0|72|1,728|15%|2|
 |ecs.t5-c1m4.2xlarge|8|32.0|72|1,728|15%|2|
-|ecs.t5-c1m1.4xlarge|16|16.0|144|1,728|15%|2|
-|ecs.t5-c1m2.4xlarge|16|32.0|144|1,728|15%|2|
+|ecs.t5-c1m1.4xlarge|16|16.0|144|3,456|15%|2|
+|ecs.t5-c1m2.4xlarge|16|32.0|144|3,456|15%|2|
 
-**Note:** For more information about t5, see [Burstable instances](intl.en-US/Product Introduction/Instances/Burstable instances.md#).
+**Note:** For more information about t5, see [Burstable instances](intl.en-US//Burstable instances.md#).
 
 Click [here](#) to view other instance type families.
 
