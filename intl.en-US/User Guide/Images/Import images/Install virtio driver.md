@@ -14,7 +14,7 @@ After you import images in [Import custom images](intl.en-US/User Guide/Images/I
 -   Debian 7/8/9
 -   SUSE 11/12
 
-You can skip to [recover the temporary root file system of initramfs or initrd](#RecoverTheInitramfs).
+You can skip to recover the temporary root file system of initramfs or initrd.
 
 ## Images requiring manual installation {#section_nqx_yqs_xdb .section}
 
@@ -24,54 +24,51 @@ For Linux images that are not included in the preceding list, you must install t
 
 1.  Run `grep -i virtio /boot/config-$(uname -r)` to inspect whether the  virtio driver is already built in the kernel of your server.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/4632_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15371772624632_en-US.png)
 
     **Note:** 
 
-    -   If VIRTIO\_BLK and VIRTIO\_NET do not exist in the output, the virtio driver  is not built in the kernel,  and you must install and configure the virtio driver on your server[To compile and install virtio driver](#compile).
-    -   If the values of parameter CONFIG\_VIRTIO\_BLK and and parameter CONFIG\_VIRTIO\_NET are y, the virtio driver is already built in the kernel.You can read Notes for importing custom images [EN-US\_TP\_9702.md\#](intl.en-US/User Guide/Images/Import images/Notes for importing custom images.md#) and import the image [Import custom images](intl.en-US/User Guide/Images/Import images/Import custom images.md#).
+    -   If VIRTIO\_BLK and VIRTIO\_NET do not exist in the output, the virtio driver  is not built in the kernel,  and you must install and configure the virtio driver on your server[to compile and install virtio driver](#compile).
+    -   If the values of parameter CONFIG\_VIRTIO\_BLK and and parameter CONFIG\_VIRTIO\_NET are y, the virtio driver is already built in the kernel.You can read Notes for importing custom images [Notes for importing custom images](intl.en-US/User Guide/Images/Import images/Notes for importing custom images.md#) and import the image [Import custom images](intl.en-US/User Guide/Images/Import images/Import custom images.md#).
     -   If the values of parameter CONFIG\_VIRTIO\_BLK and and parameter CONFIG\_VIRTIO\_NET are m, continue to step 2.
 2.  Run `lsinitrd /boot/initramfs-$(uname -r).img | grep virtio`to make sure  virtio driver has been complied in the temporary root file system of initramfs or initrd.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/4633_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15371772624633_en-US.png)
 
     **Note:** 
 
-    -   According to the preceding figure, the virtio\_blk driver, including its dependency virtio.ko, virtio\_pci.ko and  virtio\_ring.ko, has been compiled in the temporary root file system initramfs. After reading Notes for importing custom images [EN-US\_TP\_9702.md\#](intl.en-US/User Guide/Images/Import images/Notes for importing custom images.md#), you can directly import the image [Import custom images](intl.en-US/User Guide/Images/Import images/Import custom images.md#).
+    -   According to the preceding figure, the virtio\_blk driver, including its dependency virtio.ko, virtio\_pci.ko and  virtio\_ring.ko, has been compiled in the temporary root file system initramfs. After reading Notes for importing custom images [Notes for importing custom images](intl.en-US/User Guide/Images/Import images/Notes for importing custom images.md#), you can directly import the image [Import custom images](intl.en-US/User Guide/Images/Import images/Import custom images.md#).
     -   If virtio driver is unavailable in the initramfs, you must recover the temporary root file system of initramfs or initrd before importing images or migration.
 
 **To recover the temporary root file system**
 
-After [checking](#Check), if the virtio driver is supported by the kernel but not compiled in the temporary root file system,  you must recover the temporary root file system. Take CentOS as an example:
+After checking, if the virtio driver is supported by the kernel but not compiled in the temporary root file system,  you must recover the temporary root file system. Take CentOS as an example:
 
 -   CentOS/RedHat 5
 
     ```
-    
     mkinitrd -f --allow-missing \
-    --with=xen-vbd --preload=xen-vbd \
-    --with=xen-platform-pci --preload=xen-platform-pci \
-    --with=virtio_blk --preload=virtio_blk \
-    --with=virtio_pci --preload=virtio_pci \
-    --with=virtio_console --preload=virtio_console \
+                --with=xen-vbd  --preload=xen-vbd \
+                --with=xen-platform-pci --preload=xen-platform-pci \
+                --with=virtio_blk --preload=virtio_blk \
+                --with=virtio_pci --preload=virtio_pci \
+                --with=virtio_console --preload=virtio_console \
     ```
 
 -   CentOS/RedHat 6/7
 
     ```
-    
     mkinitrd -f --allow-missing \
-    --with=xen-blkfront --preload=xen-blkfront \
-    --with=virtio_blk --preload=virtio_blk \
-    --with=virtio_pci --preload=virtio_pci \
-    --with=virtio_console --preload=virtio_console \
-    /boot/initramfs-$(uname -r).img $(uname -r)
+                --with=xen-blkfront --preload=xen-blkfront \
+                --with=virtio_blk --preload=virtio_blk \
+                --with=virtio_pci --preload=virtio_pci \
+                --with=virtio_console --preload=virtio_console \
+                /boot/initramfs-$(uname -r).img $(uname -r)
     ```
 
 -   Debian/Ubuntu
 
     ```
-    
     echo -e 'xen-blkfront\nvirtio_blk\nvirtio_pci\nvirtio_console' >> \
     /etc/initramfs-tools/modules
     mkinitramfs -o /boot/initrd.img-$(uname -r)"
@@ -87,11 +84,11 @@ Take Redhat server as an example:
 1.  Run `yum install -y ncurses-devel gcc make wget` to install necessary components to compile the kernel.
 2.  Run `uname -r` to query the kernel version of your server, such as 4.4.24-2.a17.x86\_64.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/4634_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15371772624634_en-US.png)
 
 3.  Visit [published Linux Kernel Archives](https://www.kernel.org/pub/linux/kernel/) to download the source codes of kernel, for example, the download link of kernel version starting with 4.4.24 is [https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.24.tar.gz](https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.24.tar.gz).
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/4638_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15371772624638_en-US.png)
 
 4.  Run `cd /usr/src/` to change the directory.
 5.  Run `wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.24.tar.gz` to download the installation package.
@@ -104,12 +101,11 @@ Take Redhat server as an example:
 1.  Run the following commands to compile the driver into the kernel.
 
     ```
-    
     make mrproper
-    symvers_path=$(find /usr/src/ -name "Module.symvers")
-    test -f $symvers_path && cp $symvers_path .
-    cp /boot/config-$(uname -r) . /.config
-    make menuconfig
+     symvers_path=$(find /usr/src/ -name "Module.symvers")
+     test -f $symvers_path && cp $symvers_path .
+     cp /boot/config-$(uname -r) ./.config
+     make menuconfig
     ```
 
 2.  Configure the corresponding settings of virtio driver in the following windows:
@@ -118,39 +114,36 @@ Take Redhat server as an example:
 
     1.  Press the space bar to select Virtualization.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/4639_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15371772624639_en-US.png)
 
         Make sure that you have selected  the option of KVM \(Kernel-based Virtual Machine\).
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/4640_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15371772624640_en-US.png)
 
         ```
-        
-        Processor type and features --->
-        [*] Paravirtualized guest support --->
-        --- Paravirtualized guest support
-        (128) Maximum allowed size of a domain in gigabytes
-        [*] KVM paravirtualized clock
-        [*] KVM Guest support
+        Processor type and features  --->
+           [*] Paravirtualized guest support  --->
+             --- Paravirtualized guest support
+         (128)   Maximum allowed size of a domain in gigabytes
+         [*]   KVM paravirtualized clock
+         [*]   KVM Guest support
         ```
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/4641_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15371772624641_en-US.png)
 
         ```
-        
-        Device Drivers --->
-        [*] Block devices --->
-         Virtio block driver (EXPERIMENTAL)
-        -*- Network device support --->
-         Virtio network driver (EXPERIMENTAL)
+        Device Drivers  --->
+          [*] Block devices  --->
+         <M>   Virtio block driver (EXPERIMENTAL)
+         -*- Network device support  --->
+             <M>   Virtio network driver (EXPERIMENTAL)
         ```
 
     2.  Press the Esc key to exit the kernel configuration windows, and save changes to file .config according to the dialog box.
-    3.  [Inspect](#Check)whether all the corresponding settings of virtio driver  has been correctly configured or not.
-    4.  \(Optional\) If no configuration of virtio driver is settled after the [inspect](#Check), run the following commands to edit the file .config manually.
+    3.  Inspect whether all the corresponding settings of virtio driver  has been correctly configured or not.
+    4.  \(Optional\) If no configuration of virtio driver is settled after the inspect, run the following commands to edit the file .config manually.
 
         ```
-        
         make oldconfig
         make prepare
         make scripts
