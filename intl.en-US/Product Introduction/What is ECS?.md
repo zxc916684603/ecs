@@ -6,7 +6,7 @@ Elastic Compute Service \(ECS\) is a type of computing service that features ela
 
 The following figure illustrates the concept of an ECS instance. You can use the [ECS console](https://ecs.console.aliyun.com/#/home) to configure the instance type, disks, operating system, and other affiliated resources.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/15342290244795_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/15371782324795_en-US.png)
 
 ## Basic concepts {#section_jkn_4qj_ydb .section}
 
@@ -19,13 +19,13 @@ It is helpful to understand the following concepts before you use ECS:
 -   [Block storage](intl.en-US/Product Introduction/Block storage/What is block storage?.md#): Block level storage products for your ECS, including [Elastic block storage](intl.en-US/Product Introduction/Block storage/Elastic block storage.md#) based on the distributed storage architecture and [local disks](intl.en-US/Product Introduction/Block storage/Local disks.md#) located on the physical server that an ECS instance is hosted on.
 -   [Snapshots](intl.en-US/Product Introduction/Snapshots/What are ECS snapshots.md#): A copy of the data on an elastic block storage device as it was at a specific point in time.
 -   [Network types](intl.en-US/Product Introduction/Network and security/Network types.md#): Alibaba Cloud provides two network types, including
-    -   Virtual Private Cloud \(VPC\): A private network established in Alibaba Cloud. VPCs are logically isolated from other virtual networks in Alibaba Cloud. For more information, see [What is VPC](../../../../intl.en-US/VPC product introduction/What is VPC.md#).
+    -   Virtual Private Cloud \(VPC\): A private network established in Alibaba Cloud. VPCs are logically isolated from other virtual networks in Alibaba Cloud. For more information, see [What is VPC](../../../../intl.en-US/Product Introduction/What is VPC?.md#).
     -   Classic network: A network majorly deployed in the public infrastructure of Alibaba Cloud.
--   [Security groups](intl.en-US/Product Introduction/Network and security/Security groups.md#): A logical group of instances that are in the same region and have the same security requirements and mutual trust. A security group works as a virtual firewall for the ECS instances inside it.
+-   [Security group](intl.en-US/Product Introduction/Network and security/Security group.md#): A logical group of instances that are in the same region and have the same security requirements and mutual trust. A security group works as a virtual firewall for the ECS instances inside it.
 
 ## Related services {#section_ogy_tqj_ydb .section}
 
-[Alibaba Cloud marketplace](https://www.alibabacloud.com/marketplace) is an online market. You can purchase software infrastructure, developer tools, and business software provided by third-party partners. You can become a marketplace service provider.
+Alibaba Cloud marketplace is an online market. You can purchase software infrastructure, developer tools, and business software provided by third-party partners. You can become a marketplace service provider.
 
 Auto Scaling enables you to dynamically scale your computing capacity up or down to meet the workload of your ECS instances according to scaling policies you specify. It also reduces the need of manual provision. For more information, see [What is Auto Scaling](https://www.alibabacloud.com/help/product/25855.htm).
 
