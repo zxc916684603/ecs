@@ -17,7 +17,7 @@ When you use this operation, consider the following:
 -   After a successful request, the instances that are created by you start automatically. An instance is ready to use when it is in the `Running` status.
 -   Before creating a VPC-Connected instance, you must [Create a VPC](../../../../intl.en-US/Quick Start/Create a VPC.md#). We can create a default VPC and VSwitch for you if needed.
 -   Unlike [CreateInstance](intl.en-US/API Reference/Instances/CreateInstance.md#), instances created by calling the `RunInstances` method have Internet IPs allocated if you set the value of `InternetMaxBandwidthOut` greater than 0.
--   If invalid parameters or stock shortage happens, the RunInstances action fails. For troubleshooting, see [Error codes](#ErrorCode).
+-   If invalid parameters or stock shortage happens, the RunInstances action fails. For troubleshooting, see error codes.
 
 ## Request parameters {#RequestParameter .section}
 
@@ -142,7 +142,7 @@ If you specify a value for parameter `Password`, use HTTPS to call the API to av
 -   The username and password authentication method is disabled if a value is set for parameter KeyPairName for a **Linux instance**.
 
 |
-|RamRoleName|String|No|Instance RAM role name. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../intl.en-US//Role Management Interface/ListRoles.md#). For more information, see [CreateRole](../../../../intl.en-US//Role Management Interface/CreateRole.md#) and [ListRoles](../../../../intl.en-US//Role Management Interface/ListRoles.md#).|
+|RamRoleName|String|No|Instance RAM role name. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../intl.en-US/.md#). For more information, see [CreateRole](../../../../intl.en-US/.md#) and [ListRoles](../../../../intl.en-US/.md#).|
 |SecurityEnhancementStrategy|String|No|Whether or not to enable security enhancement. Options:-   Active: Enables the security enhancement feature and installs a free network security software. Only applicable to the Alibaba Cloud official images.
 -   Deactive: Disables the security enhancement feature. No network security software is installed. Applicable to all kinds of images.
 
@@ -163,7 +163,7 @@ Default value: NoSpot.|
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|InstanceIdSets|[InstanceIdSet](#InstanceIdSet)|The list of instance IDs.|
+|InstanceIdSets|InstanceIdSet|The list of instance IDs.|
 
 **InstanceIdSet**
 
@@ -218,7 +218,7 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 
 ## Error codes {#ErrorCode .section}
 
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
+Error codes specific to this interface are as follows.
 
 |Error code|Error message|HTTP status code|Description|
 |:---------|:------------|:---------------|:----------|
