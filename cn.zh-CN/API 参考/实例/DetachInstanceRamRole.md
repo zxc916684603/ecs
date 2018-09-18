@@ -1,13 +1,13 @@
 # DetachInstanceRamRole {#DetachInstanceRamRole .reference}
 
-收回一台或多台 ECS 实例的 [实例 RAM 角色](../../../../intl.zh-CN/用户指南/实例/实例RAM角色.md#)。
+收回一台或多台 ECS 实例的实例 RAM 角色。
 
 ## 请求参数 {#RequestParameter .section}
 
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DetachInstanceRamRole|
-|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |InstanceIds|String|是|指定收回的实例 ID 的集合。最多支持一次查询 100 台实例，格式为 \["instanceId1", "instanceId2", "instanceId3"…\]。|
 |RamRoleName|String|否|收回赋予了某一实例 RAM 角色的所有 ECS 实例。您可以使用 *RAM* API [ListRoles](../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#) 查询实例RAM角色名称。参考相关 API [CreateRole](../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/CreateRole.md#) 和 [ListRoles](../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#) 。|
 
