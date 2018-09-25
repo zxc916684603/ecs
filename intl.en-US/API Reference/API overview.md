@@ -31,7 +31,6 @@ For more information, see the [API Explorer](https://api.aliyun.com/).
 |[ModifyInstanceAutoReleaseTime](intl.en-US/API Reference/Instances/ModifyInstanceAutoReleaseTime.md#)|Sets the automatic release time for a specified instance.|
 |[ModifyInstanceAutoRenewAttribute](intl.en-US/API Reference/Instances/ModifyInstanceAutoRenewAttribute.md#)|Modifies the information of an Instance, such as the name, password, host name, and description of an instance.|
 |[ModifyInstanceSpec](intl.en-US/API Reference/Instances/ModifyInstanceSpec.md#)|Changes the instance type or modifies the Internet bandwidth of a Pay-As-You-Go instance.|
-|[Modifyprepayinstancespec](intl.en-US/API Reference/Instances/Modifyprepayinstancespec.md#)|Upgrade or downgrades the instance specification.|
 
 ## Launch templates {#section_fsy_hzw_d2b .section}
 
@@ -173,7 +172,7 @@ For more information about the APIs for Virtual Private Cloud \(VPC\), see [VPC 
 |[DeleteCommand](intl.en-US/API Reference/Cloud assistant/DeleteCommand.md#)|Deletes a created cloud assistant command.|
 |[DescribeCommands](intl.en-US/API Reference/Cloud assistant/DescribeCommands.md#)|Describes the cloud assistant commands that you have created.|
 |[DescribeInvocations](intl.en-US/API Reference/Cloud assistant/DescribeInvocations.md#)|Describes the cloud assistant command invocation list and status on your Instances.|
-|[DescribeInvocationResults](intl.en-US/API Reference/Cloud assistant/DescribeInvocationResultsDescribeinvocationresults.md#)|Describes the invocation result of a cloud assistant command. The actual output information of a specified instance is returned.|
+|[DescribeInvocationResults](intl.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#)|Describes the invocation result of a cloud assistant command. The actual output information of a specified instance is returned.|
 |[ModifyCommand](intl.en-US/API Reference/Cloud assistant/ModifyCommand.md#)|Modifies the parameters and content of a cloud assistant command.|
 
 ## Others {#section_other_t2h_vdb .section}
@@ -181,8 +180,6 @@ For more information about the APIs for Virtual Private Cloud \(VPC\), see [VPC 
 |Action|Description|
 |:-----|:----------|
 |[CancelTask](intl.en-US/API Reference/Others/CancelTask.md#)|Cancels a specified active task.|
-|[DescribeAvailableResource](intl.en-US/API Reference/Others/DescribeAvailableResource.md#)|Describes a list of the resources available in a certain zone.|
-|[DescribeResourcesModification](intl.en-US/API Reference/Others/DescribeResourcesModification.md#)|Describes a list of the resources available in a certain zone.|
 |[DescribeTasks](intl.en-US/API Reference/Others/DescribeTasks.md#)|Describes the progress of a specified asynchronous request.|
 |[DescribeTaskAttribute](intl.en-US/API Reference/Others/DescribeTaskAttribute.md#)|Describes the details about one or more tasks.  Currently, the tasks that can be queried are the importing image action [ImportImage](intl.en-US/API Reference/Images/ImportImage.md#) and the exporting image action [ExportImage](intl.en-US/API Reference/Images/ExportImage.md#).|
 
@@ -192,4 +189,6 @@ For more information about the APIs for Virtual Private Cloud \(VPC\), see [VPC 
 |:-----|:----------|
 |[DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#)|Describes the latest Alibaba Cloud regions that are available to you.|
 |[DescribeZones](intl.en-US/API Reference/Regions/DescribeZones.md#)|Describes the zones that are available to you in a specified region.|
+|[DescribeAvailableResource](intl.en-US/API Reference/Regions/DescribeAvailableResource.md#)|Describes a list of the resources available in a certain zone.|
+|[DescribeResourcesModification](intl.en-US/API Reference/Regions/DescribeResourcesModification.md#)|Describes a list of the resources available in a certain zone.|
 
