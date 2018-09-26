@@ -6,7 +6,7 @@ ECS disks in this article refer to **cloud disks** and **Shared Block Storage de
 
 The ECS disk encryption feature allows you to encrypt new ECS disks so that you can meet encryption needs for scenarios such as certification requirements and business security. The ECS disk encryption feature means you do not have to create, maintain, or protect your own key management infrastructure, nor change any of your existing applications or maintenance processes. In addition, no extra encryption or decryption operations are required, making ECS disk encryption operations invisible to your applications or other operations.
 
-Encryption and decryption processes do not detimentally degrade ECS disk performance. For information on the performance testing method, see [EN-US\_TP\_9557.md\#](reseller.en-US/Product Introduction/Block storage/Storage parameters and performance test.md#).
+Encryption and decryption processes hardly degrade ECS disk performance. For information on the performance testing method, see [EN-US\_TP\_9557.md\#](reseller.en-US/Product Introduction/Block storage/Storage parameters and performance test.md#).
 
 After an encrypted ECS disk is created and attached to an ECS instance, you can encrypt data that is:
 
