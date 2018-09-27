@@ -6,13 +6,17 @@
 
 调用该接口时，您需要注意：
 
--   达到一定等级的会员可以使用预付费转按量付费功能。
+-   达到一定信用等级的阿里云用户可以使用预付费转按量付费功能。
+
 -   目标实例的状态必须为**运行中**（`Running`）或者**已停止**（`Stopped`），并且无欠费的情况下才能修改计费方式。
+
 -   如果按量付费实例已经设置了释放时间，则不能调用该接口。
--   支持批量操作，单次最多支持修改20台实例的计费方式。
+
 -   支持将实例挂载的所有按量付费数据盘同时转换为包年包月数据盘。
+
 -   包年包月实例转按量实例的时候，新计费方式将覆盖实例的整个生命周期，您会收到修改前后的实例计费的价格差退款，退还到您的原付款渠道中，已使用的代金券将不退回。
--   更换计费方式后，默认自动扣费。您需要确保账户余额充足，否则会生成异常订单，此时只能作废订单。如果您的账户余额不足，可以将参数 `AutoPay` 置为 `false`，此时会生成正常的未支付订单，您可以登录 [ECS管理控制台](https://ecs.console.aliyun.com/) 支付。
+
+-   更换计费方式后，默认自动扣费。您需要确保账户余额充足，否则会生成异常订单，此时只能作废订单。如果您的账户余额不足，可以将参数`AutoPay`置为`false`，此时会生成正常的未支付订单，您可以登录[ECS管理控制台](https://ecs.console.aliyun.com/)支付。
 
 ## 请求参数 {#RequestParameter .section}
 
@@ -21,29 +25,26 @@
 |Action|String|是|系统规定参数。取值：ModifyInstanceChargeType|
 |RegionId|String|是|实例所属的地域ID。您可以调用[DescribeRegions](../cn.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
 |InstanceIds|String|是|实例ID。取值可以由多台实例ID组成一个JSON数组，格式为\["s-xxxxxxxxx", "s-yyyyyyyyy", … "s-zzzzzzzzz"\]，最多支持20个ID，ID之间用半角逗号（`,`）隔开。|
-|Period|Integer|是|购买实例的时长。|
-|PeriodUnit|String|是|时长周期单位。取值范围：-   Year
--   Month
--   Week
--   Day
+|Period|Integer|否|购买实例的时长。|
+|PeriodUnit|String|否|时长周期单位。取值范围：Year | Month | Week | Day目前只支持`Year`、`Week`和`Month`。
 
-目前只支持`Year`、`Week`和`Month`。|
+|
 |IncludeDataDisks|Boolean|否|是否将实例挂载的所有按量付费数据盘一起转换为包年包月数据盘。默认值：true|
-|InstanceChargeType|String|否|实例需要修改的目标计费方式。取值范围：-   PrePaid：预付费（包年包月），即按量付费实例转换为包年包月实例。
+|InstanceChargeType|String|否|实例需要修改的目标计费方式。取值范围：-   PrePaid（默认）：预付费（包年包月），即按量付费实例转换为包年包月实例。
 -   PostPaid：按量付费，即包年包月实例转换为按量付费实例。
 
-默认值：PrePaid|
-|AutoPay|Boolean|否|是否自动支付。取值范围：-   true：自动支付。您需要确保账户余额充足，如果账户余额不足会生成异常订单，只能作废订单。
--   false：只生成订单不扣费。如果您的账户余额不足，会生成正常的未支付订单，此订单可登录 [ECS 控制台](https://ecs.console.aliyun.com/) 支付。
+|
+|AutoPay|Boolean|否|是否自动支付。取值范围：-   true（默认）：自动支付。您需要确保账户余额充足，如果账户余额不足会生成异常订单，只能作废订单。
+-   false：只生成订单不扣费。如果您的账户余额不足，会生成正常的未支付订单，此订单可登录[ECS管理控制台](https://ecs.console.aliyun.com/) 支付。
 
-默认值：true|
-|DryRun|Boolean|否|是否只预检此次请求。-   true：发送检查请求，不会查询资源状况。检查项包括AccessKey是否有效、RAM用户的授权情况和是否填写了必需参数。如果检查不通过，则返回对应错误。如果检查通过，会返回错误码 `DryRunOperation`。
+|
+|DryRun|Boolean|否|是否只预检此次请求。-   true：发送检查请求，不会查询资源状况。检查项包括AccessKey是否有效、RAM用户的授权情况和是否填写了必需参数。如果检查不通过，则返回对应错误。如果检查通过，会返回错误码`DryRunOperation`。
 -   false：发送正常请求，通过检查后返回2XX HTTP状态码并直接查询资源状况。
 
 默认值：false
 
 |
-|ClientToken|String|否|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅 [如何保证幂等性](../cn.zh-CN/API 参考/附录/如何保证幂等性.md#)。
+|ClientToken|String|否|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅[如何保证幂等性](../cn.zh-CN/API 参考/附录/如何保证幂等性.md#)。
 
 |
 
@@ -91,7 +92,7 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceChargeType
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP状态码|说明|
 |:---|:---|:------|:-|
