@@ -6,7 +6,7 @@
 
 -   磁盘的全部状态信息包含磁盘生命周期（`Status`），磁盘健康状态（`HealthStatus`）和磁盘事件类型（`EventType`）。
 
--   由于磁盘相关 **事件的发布时间**、**事件的计划执行时间** 以及 **事件的实际执行时间** 相同，如果指定一段时间 \[`EventTime.Start`, `EventTime.End`\]，则可以查询这段时间中发生过的所有历史事件。目前，您最多可以查询最近一周的历史事件。
+-   由于磁盘相关**事件的发布时间**、**事件的计划执行时间**以及**事件的实际执行时间**相同，如果指定一段时间\[`EventTime.Start`, `EventTime.End`\]，则可以查询这段时间中发生过的所有历史事件。目前，您最多可以查询最近一周的历史事件。
 
 
 ## 请求参数 {#RequestParameter .section}
@@ -14,10 +14,10 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeDisksFullStatus|
-|RegionId|String|是|磁盘所在地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
-|DiskId.N|String|否|磁盘 ID，N 的取值范围：\[1, 100\]。|
-|EventId.N|String|否|事件 ID，N 的取值范围：\[1, 100\]。|
-|Status|String|否|指定磁盘的生命周期状态，参阅 [云盘状态表](cn.zh-CN/API参考/附录/普通云盘状态表.md#)。取值范围：-   In\_use：使用中
+|RegionId|String|是|磁盘所在地域ID。您可以调用[DescribeRegions](../intl.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
+|DiskId.N|String|否|磁盘ID，N的取值范围：\[1, 100\]。|
+|EventId.N|String|否|事件ID，N的取值范围：\[1, 100\]。|
+|Status|String|否|指定磁盘的生命周期状态，参阅[云盘状态表](intl.zh-CN/API 参考/附录/普通云盘状态表.md#)。取值范围：-   In\_use：使用中
 -   Available：待挂载
 -   Attaching：挂载中
 -   Detaching：卸载中
@@ -37,8 +37,8 @@
 -   Stalled：磁盘性能受到严重影响
 
 |
-|EventTime.Start|String|否|查询事件发生时间的开始时间。按照 [ISO8601](cn.zh-CN/API参考/附录/时间格式.md#) 标准表示，并需要使用 UTC 时间。格式为 YYYY-MM-DDTHH:mm:ssZ。|
-|EventTime.End|String|否|查询事件发生时间的结束时间。按照 [ISO8601](cn.zh-CN/API参考/附录/时间格式.md#) 标准表示，并需要使用 UTC 时间。格式为 YYYY-MM-DDTHH:mm:ssZ。结束时间必须晚于开始时间。|
+|EventTime.Start|String|否|查询事件发生时间的开始时间。按照[ISO8601](../intl.zh-CN/API 参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
+|EventTime.End|String|否|查询事件发生时间的结束时间。按照[ISO8601](../intl.zh-CN/API 参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
 |PageNumber|Integer|否|查询结果的页码。取值范围：正整数默认值：1
 
 |
@@ -50,35 +50,37 @@
 
 |名称|类型|描述|
 |:-|:-|:-|
-|TotalCount|Integer|ECS 实例状态总个数|
-|PageNumber|Integer|ECS 实例列表页码|
-|PageSize|Integer|每页大小|
-|DiskFullStatusSet|Array of [DiskFullStatusType](#DiskFullStatusType)|磁盘全状态数组|
+|TotalCount|Integer|ECS实例状态总个数。|
+|PageNumber|Integer|ECS实例列表页码。|
+|PageSize|Integer|每页大小。|
+|DiskFullStatusSet|Array of [DiskFullStatusType](#)|磁盘全状态数组。|
 
 **数据类型 DiskFullStatusType** 
 
 |名称|类型|描述|
 |:-|:-|:-|
-|DiskId|String|磁盘 ID|
-|DiskEventSet|Array of [DiskEventType](#DiskEventType)|磁盘事件数组|
-|Status.Code|Integer|磁盘生命周期状态代码|
-|Status.Name|String|磁盘生命周期状态名称|
-|HealthStatus.Code|Integer|磁盘健康状态代码|
-|HealthStatus.Name|String|磁盘健康状态名称|
+|DiskId|String|磁盘ID。|
+|InstanceId|String|实例ID。|
+|Device|String|磁盘挂载于实例上的设备名，例如 /dev/xvdb。只有在`Status`为`In_use`时才有值，其他状态为空。|
+|DiskEventSet|Array of [DiskEventType](#)|磁盘事件数组。|
+|Status.Code|Integer|磁盘生命周期状态代码。|
+|Status.Name|String|磁盘生命周期状态名称。|
+|HealthStatus.Code|Integer|磁盘健康状态代码。|
+|HealthStatus.Name|String|磁盘健康状态名称。|
 
 **数据类型 DiskEventType** 
 
 |名称|类型|描述|
 |:-|:-|:-|
-|EventId|String|磁盘事件 ID|
-|EventType.Code|Integer|事件类型代码|
-|EventType.Name|String|事件类型名称|
-|EventTime|String|事件发生时间。按照 [ISO8601](cn.zh-CN/API参考/附录/时间格式.md#) 标准表示，并使用 UTC 时间。格式为 YYYY-MM-DDTHH:mm:ssZ。|
-|EventEndTime|String|事件结束时间。按照 [ISO8601](cn.zh-CN/API参考/附录/时间格式.md#) 标准表示，并使用 UTC 时间。格式为 YYYY-MM-DDTHH:mm:ssZ。|
+|EventId|String|磁盘事件ID。|
+|EventType.Code|Integer|事件类型代码。|
+|EventType.Name|String|事件类型名称。|
+|EventTime|String|事件发生时间。您可以调用[DescribeRegions](../intl.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
+|EventEndTime|String|事件结束时间。您可以调用[DescribeRegions](../intl.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
 
 ## 示例 { .section}
 
-**请求示例** 
+**请求示例**
 
 ```
 https://ecs.aliyuncs.com/?Action=DescribeDisksFullStatus
@@ -86,9 +88,9 @@ https://ecs.aliyuncs.com/?Action=DescribeDisksFullStatus
 &<公共请求参数>
 ```
 
-**正常返回示例** 
+**正常返回示例**
 
-**XML 格式**
+**XML格式**
 
 ```
 <DescribeDisksFullStatusResponse>
@@ -105,6 +107,8 @@ https://ecs.aliyuncs.com/?Action=DescribeDisksFullStatus
                 </DiskEventType>
             </DiskEventSet>
             <DiskId>d-disk1</DiskId>
+            <InstanceId>i-instance1</InstanceId>
+            <Device>/dev/xvda</Device>
             <HealthStatus>
                 <Code>128</Code>
                 <Name>Impaired</Name>
@@ -127,6 +131,8 @@ https://ecs.aliyuncs.com/?Action=DescribeDisksFullStatus
                 </DiskEventType>
             </DiskEventSet>
             <DiskId>d-disk2</DiskId>
+            <InstanceId>i-instance2</InstanceId>
+            <Device>/dev/xvdb</Device>
             <HealthStatus>
                 <Code>64</Code>
                 <Name>Warning</Name>
@@ -144,7 +150,7 @@ https://ecs.aliyuncs.com/?Action=DescribeDisksFullStatus
 </DescribeDisksFullStatusResponse>
 ```
 
- **JSON 格式** 
+**JSON格式**
 
 ```
 {
@@ -164,6 +170,8 @@ https://ecs.aliyuncs.com/?Action=DescribeDisksFullStatus
                     ]
                 },
                 "DiskId": "d-disk1",
+                "InstanceId": "i-instance1",
+                "Device": "/dev/xvda",
                 "HealthStatus": {
                     "Code": 128,
                     "Name": "Impaired"
@@ -188,6 +196,8 @@ https://ecs.aliyuncs.com/?Action=DescribeDisksFullStatus
                     ]
                 },
                 "DiskId": "d-disk2",
+                "InstanceId": "i-instance2",
+                "Device": "/dev/xvdb",
                 "HealthStatus": {
                     "Code": 0,
                     "Name": "Ok"
@@ -206,9 +216,9 @@ https://ecs.aliyuncs.com/?Action=DescribeDisksFullStatus
 }
 ```
 
-**异常返回示例** 
+**异常返回示例**
 
-**XML 格式**
+**XML格式**
 
 ```
 <Error>
@@ -219,7 +229,7 @@ https://ecs.aliyuncs.com/?Action=DescribeDisksFullStatus
 </Error>
 ```
 
- **JSON 格式** 
+**JSON格式** 
 
 ```
 {
@@ -232,12 +242,12 @@ https://ecs.aliyuncs.com/?Action=DescribeDisksFullStatus
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
-|错误代码|错误信息|HTTP 状态码|说明|
-|:---|:---|:-------|:-|
+|错误代码|错误信息|HTTP状态码|说明|
+|:---|:---|:------|:-|
 |InvalidParameter|The Parameter provided is not valid.|403|请求参数不合法。|
-|InvalidParameter.LengthExceeded|The Parameter provided exceeds maximum length.|403|参数 `EventId.N` 中 N 的指定范围只能为 \[1, 100\]。|
+|InvalidParameter.LengthExceeded|The Parameter provided exceeds maximum length.|403|参数EventId.N中N的指定范围只能为\[1, 100\]。|
 |InvalidParameter.TooManyDiskId|The diskIds provided is out of bounds \[1,100\].|403|指定的参数值超出了合法范围。|
 |InvalidParameter.TimeEndBeforeStart|The event time end should be after event time start.|403|指定的事件时间筛选条件不合法，结束时间必须晚于开始时间。|
 |MissingParameter|The input parameter that is mandatory for processing this request is not supplied.|403|输入的参数缺少必填项。|
