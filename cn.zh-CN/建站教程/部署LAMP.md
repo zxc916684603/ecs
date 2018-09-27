@@ -76,7 +76,6 @@ yum install -y wget vim unzip
 2.  依次运行以下命令安装apr。
 
     ```
-    
     cd /usr/local/src/
     wget http://oss.aliyuncs.com/aliyunecs/onekey/apache/apr-1.5.0.tar.gz
     tar zxvf apr-1.5.0.tar.gz
@@ -88,7 +87,6 @@ yum install -y wget vim unzip
 3.  依次运行以下命令安装apr-util。
 
     ```
-    
     cd /usr/local/src/
     wget http://oss.aliyuncs.com/aliyunecs/onekey/apache/apr-util-1.5.3.tar.gz
     tar zxvf apr-util-1.5.3.tar.gz
@@ -100,7 +98,6 @@ yum install -y wget vim unzip
 4.  依次运行以下命令安装pcre。
 
     ```
-    
     cd /usr/local/src/
     wget http://zy-res.oss-cn-hangzhou.aliyuncs.com/pcre/pcre-8.38.tar.gz 
     tar zxvf pcre-8.38.tar.gz
@@ -112,7 +109,6 @@ yum install -y wget vim unzip
 5.  依次运行以下命令编译安装Apache。
 
     ```
-    
     cd /usr/local/src/
     wget http://zy-res.oss-cn-hangzhou.aliyuncs.com/apache/httpd-2.4.23.tar.gz 
     tar zxvf httpd-2.4.23.tar.gz
@@ -133,36 +129,35 @@ yum install -y wget vim unzip
     2.  运行 `vim httpd.conf` 打开httpd.conf文件，按 `i` 键进入编辑模式。
     3.  找到 `Directory` 参数，注释掉 `Require all denied`，并添加 `Require all granted`。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153796214012349_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153804720712349_zh-CN.png)
 
     4.  找到 `ServerName` 参数，添加 `ServerName localhost:80`。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153796214012350_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153804720812350_zh-CN.png)
 
     5.  设置 `PidFile` 路径：在文件最后添加 `PidFile "/var/run/httpd.pid"`。
     6.  按 `Esc` 键退出编辑模式，输入 `:wq` 保存并关闭 httpd.conf 文件。
 7.  依次执行以下命令启动Apache服务并验证。
 
     ```
-    
     cd /usr/local/apache/bin/
     ./apachectl start
-    netstat -tnlp #查看服务是否开启
+    netstat -tnlp                             #查看服务是否开启
     ```
 
     如果返回以下结果，说明Apache服务已经成功启动。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153796214012351_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153804720812351_zh-CN.png)
 
     在本地机器的浏览器中输入ECS实例公网IP地址，如果出现如图所示信息，说明Apache服务安装成功。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153796214012353_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153804720812353_zh-CN.png)
 
 8.  设置开机自启动。
     1.  运行 `vim /etc/rc.d/rc.local` 打开rc.local文件，按 `i` 进入编辑模式。
     2.  添加 `/usr/local/apache/bin/apachectl start`。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153796214012354_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153804720812354_zh-CN.png)
 
     3.  按 `Esc` 键退出编辑模式，输入 `:wq` 保存并关闭rc.local文件。
 9.  设置环境变量。
@@ -176,7 +171,6 @@ yum install -y wget vim unzip
 1.  依次执行以下命令检查系统中是否存在使用rpm安装的MySQL或者MariaDB。
 
     ```
-    
     rpm -qa | grep mysql
     rpm -qa | grep mariadb
     ```
@@ -184,9 +178,8 @@ yum install -y wget vim unzip
     如果已经安装，则运行以下任一个命令删除。
 
     ```
-    
-    rpm -e 软件名 #注意：这里的软件名必须包含软件的版本信息，如rpm -e mariadb-libs-5.5.52-1.el7.x86_64。一般使用此命令即可卸载成功。
-    rpm -e --nodeps 软件名 #卸载不成功时使用此命令强制卸载
+    rpm -e 软件名    #注意：这里的软件名必须包含软件的版本信息，如rpm -e mariadb-libs-5.5.52-1.el7.x86_64。一般使用此命令即可卸载成功。
+    rpm -e --nodeps 软件名   #卸载不成功时使用此命令强制卸载
     ```
 
     卸载后，再用 `rpm -qa|grep mariadb` 或者 `rpm -qa|grep mysql` 查看结果。
@@ -194,8 +187,7 @@ yum install -y wget vim unzip
 2.  依次运行以下命令安装 MySQL。
 
     ```
-    
-    yum install -y libaio-* #安装依赖
+    yum install -y libaio-*                         #安装依赖
     mkdir -p /usr/local/mysql
     cd /usr/local/src
     wget http://zy-res.oss-cn-hangzhou.aliyuncs.com/mysql/mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz 
@@ -206,7 +198,6 @@ yum install -y wget vim unzip
 3.  依次运行以下命令建立mysql组和用户，并将mysql用户添加到mysql组。
 
     ```
-    
     groupadd mysql
     useradd -g mysql -s /sbin/nologin mysql
     ```
@@ -221,10 +212,9 @@ yum install -y wget vim unzip
 6.  依次运行以下命令设置开机自启动。
 
     ```
-    
     cd /usr/local/mysql/support-files/
-    cp mysql.server /etc/init.d/mysqld
-    chmod +x /etc/init.d/mysqld # 添加执行权限
+    cp mysql.server  /etc/init.d/mysqld
+    chmod +x /etc/init.d/mysqld             # 添加执行权限
     vim /etc/rc.d/rc.local
     ```
 
@@ -246,7 +236,7 @@ yum install -y wget vim unzip
 
     出现如下截图所示信息，表示MySQL启动成功。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153796214012355_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153804720812355_zh-CN.png)
 
 9.  修改MySQL的root用户密码：初始化后MySQL为空密码可直接登录，为了保证安全性需要修改MySQL的root用户密码。运行以下命令，并按界面提示设置密码。
 
@@ -260,7 +250,7 @@ yum install -y wget vim unzip
     mysql -uroot -p #-p和密码之间无空格
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153796214112356_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153804720812356_zh-CN.png)
 
 11. 运行 `\q` 退出MySQL。
 
@@ -269,28 +259,27 @@ yum install -y wget vim unzip
 1.  依次运行以下命令安装依赖。
 
     ```
-    
-    yum install epel-release php-mcrypt libmcrypt libmcrypt-devel libxml2-devel openssl-devel libcurl-devel libjpeg.x86_64 libpng.x86_64 freetype.x86_64 libjpeg-devel.x86_64 libpng-devel.x86_64 freetype-devel.x86_64 libjpeg-turbo-devel libmcrypt-devel mysql-devel -y
-    wget http://zy-res.oss-cn-hangzhou.aliyuncs.com/php/php-7.0.12.tar.gz
-    tar zxvf php-7.0.12.tar.gz
-    cd php-7.0.12
-    ./configure \
-    --prefix=/usr/local/php \
-    --enable-mysqlnd \
-    --with-mysqli=mysqlnd --with-openssl \
-    --with-pdo-mysql=mysqlnd \
-    --enable-mbstring \
-    --with-freetype-dir \
-    --with-jpeg-dir \
-    --with-png-dir \
-    --with-zlib --with-libxml-dir=/usr \
-    --enable-xml --enable-sockets \
-    --with-apxs2=/usr/local/apache/bin/apxs \
-    --with-mcrypt --with-config-file-path=/etc \
-    --with-config-file-scan-dir=/etc/php.d \
-    --enable-maintainer-zts \
-    --disable-fileinfo
-    make && make install
+    yum install epel-release php-mcrypt libmcrypt libmcrypt-devel  libxml2-devel  openssl-devel  libcurl-devel libjpeg.x86_64 libpng.x86_64 freetype.x86_64 libjpeg-devel.x86_64 libpng-devel.x86_64 freetype-devel.x86_64  libjpeg-turbo-devel   libmcrypt-devel   mysql-devel  -y
+     wget http://zy-res.oss-cn-hangzhou.aliyuncs.com/php/php-7.0.12.tar.gz
+     tar zxvf php-7.0.12.tar.gz
+     cd php-7.0.12
+     ./configure \
+     --prefix=/usr/local/php \
+     --enable-mysqlnd \
+     --with-mysqli=mysqlnd --with-openssl \
+     --with-pdo-mysql=mysqlnd \
+     --enable-mbstring \
+     --with-freetype-dir \
+     --with-jpeg-dir \
+     --with-png-dir \
+     --with-zlib --with-libxml-dir=/usr \
+     --enable-xml  --enable-sockets \
+     --with-apxs2=/usr/local/apache/bin/apxs \
+     --with-mcrypt  --with-config-file-path=/etc \
+     --with-config-file-scan-dir=/etc/php.d \
+     --enable-maintainer-zts \
+     --disable-fileinfo
+     make && make install
     ```
 
 2.  运行命令复制配置文件。
@@ -304,9 +293,8 @@ yum install -y wget vim unzip
     2.  在配置文件最后添加如下二行代码。
 
         ```
-        
-        AddType application/x-httpd-php .php 
-        AddType application/x-httpd-php-source .phps
+        AddType application/x-httpd-php  .php 
+        AddType application/x-httpd-php-source  .phps
         ```
 
     3.  定位到 `DirectoryIndex index.html`，修改为 `DirectoryIndex index.php index.html`。
@@ -324,19 +312,16 @@ yum install -y wget vim unzip
     1.  依次运行以下命令，找开index.php文件。
 
         ```
-        
-        cd /usr/local/apache/htdocs/
+        cd  /usr/local/apache/htdocs/
         vim index.php
         ```
 
     2.  按 `i` 键进入编辑模式，并添加以下内容。
 
         ```
-        
         <?php
         phpinfo();
         ?>
-        
         ```
 
     3.  按 `Esc` 键退出编辑模式，并输入 `:wq` 保存并关闭文件。
@@ -350,7 +335,7 @@ yum install -y wget vim unzip
 
         如果出现以下页面表示PHP解析成功。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153796214112357_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153804720812357_zh-CN.png)
 
 
 **步骤4. 安装phpMyAdmin**
@@ -358,17 +343,16 @@ yum install -y wget vim unzip
 依次运行以下命令安装phpMyAdmin。
 
 ```
-
 mkdir -p /usr/local/apache/htdocs/phpmyadmin
 cd /usr/local/src/
 wget http://oss.aliyuncs.com/aliyunecs/onekey/phpMyAdmin-4.1.8-all-languages.zip
 unzip phpMyAdmin-4.1.8-all-languages.zip
-mv phpMyAdmin-4.1.8-all-languages/* /usr/local/apache/htdocs/phpmyadmin
+mv phpMyAdmin-4.1.8-all-languages/*  /usr/local/apache/htdocs/phpmyadmin
 ```
 
 在本地机器浏览器输入 `http://实例公网 IP/phpmyadmin` 访问phpMyAdmin登录页面。如果出现以下页面，说明phpMyAdmin安装成功。输入MySQL的用户名和密码即可登录。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153796214112358_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153804720812358_zh-CN.png)
 
 ## 相关链接 {#section_gm2_r5t_2fb .section}
 
