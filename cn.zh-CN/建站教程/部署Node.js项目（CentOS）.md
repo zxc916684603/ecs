@@ -63,7 +63,6 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，用来方�
     3.  创建软链接，使node和npm命令全局有效。通过创建软链接的方法，使得在任意目录下都可以直接使用node和npm命令：
 
         ```
-        
         ln -s /root/node-v6.9.5-linux-x64/bin/node /usr/local/bin/node
         ln -s /root/node-v6.9.5-linux-x64/bin/npm /usr/local/bin/npm
         ```
@@ -71,7 +70,6 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，用来方�
     4.  查看node、npm版本。
 
         ```
-        
         node -v
         npm -v
         ```
@@ -79,7 +77,6 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，用来方�
     5.  至此，Node.js环境已安装完毕。软件默认安装在/root/node-v6.9.5-linux-x64/目录下。如果需要将该软件安装到其他目录（如：/opt/node/）下，请进行如下操作：
 
         ```
-        
         mkdir -p /opt/node/
         mv /root/node-v6.9.5-linux-x64/* /opt/node/
         rm -f /usr/local/bin/node
@@ -97,7 +94,6 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，用来方�
     1.  直接使用git将源码克隆到本地的~/.nvm目录下，并检查最新版本。
 
         ```
-        
         yum install git
         git clone https://github.com/cnpm/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
         ```
@@ -105,7 +101,6 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，用来方�
     2.  激活NVM。
 
         ```
-        
         echo ". ~/.nvm/nvm.sh" >> /etc/profile
         source /etc/profile
         ```
@@ -119,7 +114,6 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，用来方�
     4.  安装多个Node.js版本。
 
         ```
-        
         nvm install v6.9.5
         nvm install v7.4.0
         ```
@@ -127,11 +121,10 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，用来方�
     5.  运行 `nvm ls` 查看已安装Node.js版本，当前使用的版本为v6.9.5。返回结果如下所示。
 
         ```
-        
         [root@iZXXXXZ .nvm]# nvm ls
-        v6.9.5
-        -> v7.4.0
-        system
+              v6.9.5
+        ->       v7.4.0
+              system
         stable -> 7.4 (-> v7.4.0) (default)
         unstable -> 6.9 (-> v6.9.5) (default)
         ```
@@ -139,7 +132,6 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，用来方�
     6.  运行 `nvm use v7.4.0` 切换Node.js版本至v7.4.0。返回结果如下所示。
 
         ```
-        
         [root@iZXXXXZ .nvm]# nvm use v7.4.0
         Now using node v7.4.0
         ```
@@ -156,7 +148,6 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，用来方�
 1.  新建项目文件example.js。
 
     ```
-    
     cd ~
     touch example.js
     ```
@@ -164,7 +155,6 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，用来方�
 2.  使用vim编辑器打开项目文件example.js。
 
     ```
-    
     yum install vim
     vim example.js
     ```
@@ -174,7 +164,6 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，用来方�
     项目文件内容：
 
     ```
-    
     const http = require('http');
     const hostname = '0.0.0.0';
     const port = 3000;
@@ -208,7 +197,7 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，用来方�
 6.  （可选）如果您的实例中开启了防火墙，必须添加端口的入站规则（如本示例中为TCP 3000端口）。
 7.  在本地机器的浏览器中输入 `http://实例公网IP地址:端口号` 访问项目。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9770/153796073712144_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9770/153804316012144_zh-CN.png)
 
 
 ## 相关链接 { .section}
