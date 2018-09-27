@@ -18,21 +18,20 @@ Linux 实例搭建 FTP 站点具体操作步骤如下：
     yum install -y vsftpd
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/153796371012597_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/153804699912597_zh-CN.png)
 
     出现下图表示安装成功。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/153796371012598_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/153804699912598_zh-CN.png)
 
 3.  运行以下命令打开及查看 `etc/vsftpd`。
 
     ```
-    
     cd /etc/vsftpd
     ls
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/153796371012599_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/153804699912599_zh-CN.png)
 
     **说明：** 
 
@@ -57,7 +56,7 @@ Linux 实例搭建 FTP 站点具体操作步骤如下：
     netstat -antup | grep ftp
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/153796371012600_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/153804699912600_zh-CN.png)
 
 
 ## 步骤二： 配置 vsftpd {#section_wpy_x23_ffb .section}
@@ -81,15 +80,16 @@ vsftpd 安装后默认开启了匿名 FTP 的功能，使用匿名 FTP，用户�
     4.  将匿名上传权限修改为 `anon_upload_enable=YES`。
     5.  按 **Esc** 键退出编辑模式，然后输入 `:wq` 保存并退出文件。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/153796371012602_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/153804700012602_zh-CN.png)
 
 2.  运行以下命令更改 `/var/ftp/pub` 目录的权限，为 FTP 用户添加写权限，并重新加载配置文件。
 
     ```
-    chmod o+w /var/ftp/pub/systemctl restart vsftpd.service
+    chmod o+w /var/ftp/pub/
+    systemctl restart vsftpd.service
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/153796371012603_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/153804700012603_zh-CN.png)
 
 
 **配置本地用户登录**
@@ -110,7 +110,7 @@ vsftpd 安装后默只支持匿名 FTP 登录，用户如果试图使用 Linux �
     passwd ftptest
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/153796371012604_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/153804700012604_zh-CN.png)
 
 3.  修改 `/etc/vsftpd/vsftpd.conf`：
     1.  运行 `vim /etc/vsftpd/vsftpd.conf`。
@@ -119,7 +119,7 @@ vsftpd 安装后默只支持匿名 FTP 登录，用户如果试图使用 Linux �
     4.  将是否允许本地用户登录 FTP 的参数修改为 `local_enable=YES`。
     5.  按键 **Esc** 退出编辑模式，然后按键 `：wq` 保存并退出文件。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/153796371012605_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/153804700012605_zh-CN.png)
 
 4.  运行以下命令重新加载配置文件。
 
@@ -164,7 +164,7 @@ vsftpd 安装后默只支持匿名 FTP 登录，用户如果试图使用 Linux �
 
 **说明：** 客户端使用此方法访问 FTP 站点时，需要对 IE 浏览器进行设置，才能打开 FTP 的文件夹。 打开 IE 浏览器，选择 **设置** \> **Internet 选项** \> **高级**。勾选 **启用 FTP 文件夹视图**，取消勾选 **使用被动 FTP**。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/153796371012606_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/153804700012606_zh-CN.png)
 
 ## 后续操作 {#section_lxz_dg3_ffb .section}
 
