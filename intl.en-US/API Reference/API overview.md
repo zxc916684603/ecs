@@ -8,7 +8,7 @@ For more information, see the [API Explorer](https://api.aliyun.com/).
 
 |Action|Description|
 |:-----|:----------|
-|[RunInstances](intl.en-US/API Reference/Instances/RunInstances.md#)|Creates a specified number of Pay-As-You-Go instances.|
+|[RunInstances](intl.en-US/API Reference/Instances/RunInstances.md#)|Creates a specified number of instances.|
 |[CreateInstance](intl.en-US/API Reference/Instances/CreateInstance.md#)|Creates an instance.|
 |[StartInstance](intl.en-US/API Reference/Instances/StartInstance.md#)|Starts a specified instance.|
 |[StopInstance](intl.en-US/API Reference/Instances/StopInstance.md#)|Stops a specified instance.|

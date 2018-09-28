@@ -8,8 +8,8 @@
 
 |接口|描述|
 |:-|:-|
-|[RunInstances](cn.zh-CN/API 参考/实例/RunInstances.md#)|创建一台或者多台按量付费（Pay-As-You-Go）实例。|
-|[CreateInstance](cn.zh-CN/API 参考/实例/CreateInstance.md#)|创建一台实例。|
+|[RunInstances](cn.zh-CN/API 参考/实例/RunInstances.md#)|创建一台或者多台预付费（包年包月）、按量付费或者抢占式实例。|
+|[CreateInstance](cn.zh-CN/API 参考/实例/CreateInstance.md#)|创建一台预付费（包年包月）、按量付费或者抢占式实例。|
 |[StartInstance](cn.zh-CN/API 参考/实例/StartInstance.md#)|启动一台指定的实例。|
 |[StopInstance](cn.zh-CN/API 参考/实例/StopInstance.md#)|停止运行一台指定的实例。|
 |[RebootInstance](cn.zh-CN/API 参考/实例/RebootInstance.md#)|重启指定的实例。|
@@ -162,6 +162,8 @@
 |接口|描述|
 |:-|:-|
 |[DescribeDisksFullStatus](cn.zh-CN/API 参考/运维与监控/DescribeDisksFullStatus.md#)|查询磁盘的全部状态信息。|
+|[CreateSimulatedSystemEvents](cn.zh-CN/API 参考/运维与监控/CreateSimulatedSystemEvents.md#)|为一台或多台ECS实例预约模拟系统事件。模拟系统事件相当于事件演习，不会真正执行事件，也不会对ECS实例产生影响。|
+|[CancelSimulatedSystemEvents](cn.zh-CN/API 参考/运维与监控/CancelSimulatedSystemEvents.md#)|取消一件或多件处于`Scheduled`或`Executing`状态的模拟系统事件。取消系统事件后，模拟事件变为`Canceled`状态。|
 |[DescribeDiskMonitorData](cn.zh-CN/API 参考/运维与监控/DescribeDiskMonitorData.md#)|查询一块磁盘指定时间内的使用信息。|
 |[DescribeInstancesFullStatus](cn.zh-CN/API 参考/运维与监控/DescribeInstancesFullStatus.md#)|查询实例的全状态信息。|
 |[DescribeInstanceHistoryEvents](cn.zh-CN/API 参考/SSH 密钥对/CreateKeyPair.md#)|查询指定实例的已经处于非活跃状态的历史事件，指定查询事件的最大时长必须小于等于 2 个月。|
