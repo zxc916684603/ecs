@@ -7,6 +7,8 @@
 -   Windows Server 2016 数据中心版 64 位
 -   Windows Server 2012 R2 数据中心版 64 位
 
+以上版本的镜像及其升级版本都会自动配置弹性网卡。
+
 如果您的实例使用的不是这几种镜像，但是又希望在实例上附加弹性网卡，您需要手工配置弹性网卡。本文以 CentOS 7.2 64 位系统为例介绍了如何配置附加在 Linux 实例上的弹性网卡，使其能被您的系统识别。
 
 ## 前提条件 {#section_oyn_hkk_zdb .section}
@@ -17,7 +19,7 @@
 
 您应该按以下步骤配置弹性网卡：
 
-1.  使用[DescribeNetworkInterfaces](../../../../dita-oss-bucket/SP_2/DNA0011860945/ZH-CN_TP_9954.dita)接口或者在 ECS 控制台上获取每个网卡的主私有 IP 地址、掩码地址、默认路由和 MAC 地址。以下为 ECS 控制台上的操作步骤：
+1.  使用 [DescribeNetworkInterfaces](../../../../dita-oss-bucket/SP_2/DNA0011860945/ZH-CN_TP_9954.dita) 接口或者在 ECS 控制台上获取每个网卡的主私有 IP 地址、掩码地址、默认路由和 MAC 地址。以下为 ECS 控制台上的操作步骤：
     1.  登录 [ECS管理控制台](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home)。
     2.  找到每个网卡的主私有 IP 地址、掩码地址、默认路由和 MAC 地址。示例如下：
 
@@ -27,7 +29,7 @@
         eth2 10.0.0.21/24 10.0.0.253 00:16:3e:12:16:ec
         ```
 
-2.  [远程登录 ECS 实例](../../../../intl.zh-CN/个人版快速入门/步骤 3：远程连接ECS实例.md)。
+2.  [远程登录 ECS 实例](../../../../intl.zh-CN/个人版快速入门/步骤 3：连接ECS实例.md)。
 3.  生成网卡配置文件：运行 `cat /etc/sysconfig/network-scripts/ifcfg-[网卡名]`。
 
     **说明：** 
@@ -99,7 +101,7 @@
         # ip -4 route add default via 10.0.0.253 dev eth2 metric 1002
         ```
 
-    2.  运行命令 `route -n`检查配置是否成功。
+    2.  运行命令 `route -n` 检查配置是否成功。
 
         ```
         
