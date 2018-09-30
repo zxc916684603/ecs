@@ -955,7 +955,7 @@ Click [here](#) to view other instance type families.
 
 \*\* The maximum bandwidth of inbound and outbound traffic.
 
-\*\*\* The maximum packet forwarding rate of inbound and outbound traffic. For more information about packet forwarding rate testing, see [Test network performance](https://partners-intl.aliyun.com/help/faq-detail/55757.htm) .
+\*\*\* The maximum packet forwarding rate of inbound and outbound traffic. For more information about packet forwarding rate testing, see [Test network performance](https://partners-intl.aliyun.com/help/faq-detail/55757.htm).
 
 \*\*\*\* The maximum number of NIC queues that an instance type supports. If your instance is running CentOS 7.3, the maximum number of NIC queues is used by default.
 
