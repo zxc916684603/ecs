@@ -38,13 +38,13 @@
 |RegionId|String|是|镜像所在的地域ID。您可以调用[DescribeRegions](../cn.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
 |InstanceId|String|否|实例ID。|
 |SnapshotId|String|否|根据指定的快照创建自定义镜像。|
+|Architecture|String|否|指定数据盘快照做镜像的系统盘后，需要通过Architecture确定系统盘的系统架构。取值范围：i386 | x86\_64（默认）|
+|Platform|String|否|指定数据盘快照做镜像的系统盘后，需要通过Platform确定系统盘的的操作系统发行版。取值范围：CentOS | Ubuntu | SUSE | OpenSUSE | RedHat | Debian | CoreOS | Aliyun | Windows Server 2003 | Windows Server 2008 | Windows Server 2012 | Windows 7 | Others Linux（默认） | Customized Linux|
 |DiskDeviceMapping.N.SnapshotId|String|否|`DiskDeviceMapping.N`磁盘的快照ID，N的取值范围为\[1, 17\]。|
 |DiskDeviceMapping.N.DiskType|String|否|指定`DiskDeviceMapping.N.`在新镜像中的磁盘类型。您可以通过该参数使用数据盘快照做为镜像的系统盘，如果不指定，默认为快照对应的磁盘类型。取值范围：-   system：系统盘
 -   data：数据盘
 
 |
-|Architecture|String|否|指定了`DiskDeviceMapping.N.DiskType=system`后，通过Architecture确定系统盘的系统架构。取值范围：i386 | x86\_64（默认）|
-|Platform|String|否|指定了`DiskDeviceMapping.N.DiskType=system`后，通过Platform确定系统盘的的操作系统发行版。取值范围：CentOS | Ubuntu | SUSE | OpenSUSE | RedHat | Debian | CoreOS | Aliyun | Windows Server 2003 | Windows Server 2008 | Windows Server 2012 | Windows 7 | Others Linux（默认） | Customized Linux|
 |DiskDeviceMapping.N.Size|String|否|`DiskDeviceMapping.N`磁盘的大小，单位为GiB。取值范围：\[5, 2000\]-   如果不指定磁盘大小，默认为快照（`DiskDeviceMapping.N.SnapshotId`）的大小。
 -   如果没有指定快照（`DiskDeviceMapping.N.SnapshotId`），默认磁盘大小为5 GiB。
 -   如果指定了磁盘大小，必须大于等于对应快照（`DiskDeviceMapping.N.SnapshotId`）的大小。
