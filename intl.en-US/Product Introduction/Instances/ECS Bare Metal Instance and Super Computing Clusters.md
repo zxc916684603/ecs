@@ -16,11 +16,11 @@ EBM Instances create value for customers through technological innovation. EBM I
 
 -   **Encrypted compute**
 
-    For security, the EBM Instances use a chip-level trusted execution environment \(Intel® SGX\) in addition to physical server isolation. This allows the instances to compute only the encrypted data in a safe and trusted environment, and provides improved security for the customer data on the cloud. This chip-level hardware security protection provides a safe box for the data of cloud users and allows users to control all the data encryption and key protection procedures.
+    For security, the EBM Instances use a chip-level trusted execution environment \(Intel® SGX\) in addition to physical server isolation. This allows the instances to compute only the encrypted data in a safe and trusted environment, and provides improved security for the customer data on the cloud. This chip-level hardware security protection provides a safe box for the data of cloud users and allows users to control all the data encryption and key protection procedures. For more information, see [Intel SGX](https://partners-intl.aliyun.com/help/faq-detail/89858.htm).
 
 -   **Any Stack on Alibaba Cloud**
 
-    EBM Instances combine the performance strengths and features of physical machines and [the ease-of-use and cost-effectiveness of cloud servers](intl.en-US/Product Introduction/Benefits of ECS.md#). They can effectively meet your demands for high-performance computing and help you build new hybrid clouds. Due to their flexibility, elasticity, and other strengths, EBM Instances allow you to deploy any stack on them, such as Xen, KVM, and VMWare. As a result, offline private clouds can be seamlessly migrated to Alibaba Cloud without the performance overhead issues that may arise because of nested virtualization. This facilitates a new approach for you to move businesses onto the cloud.
+    EBM Instances combine the performance strengths and features of physical machines and [the ease-of-use and cost-effectiveness of cloud servers](reseller.en-US/Product Introduction/Benefits of ECS.md#). They can effectively meet your demands for high-performance computing and help you build new hybrid clouds. Due to their flexibility, elasticity, and other strengths, EBM Instances allow you to deploy any stack on them, such as Xen, KVM, and VMWare. As a result, offline private clouds can be seamlessly migrated to Alibaba Cloud without the performance overhead issues that may arise because of nested virtualization. This facilitates a new approach for you to move businesses onto the cloud.
 
 -   **Heterogeneous instruction set processor support**
 
@@ -29,7 +29,7 @@ EBM Instances create value for customers through technological innovation. EBM I
 
 **SCC**
 
-SCCs are based on EBM Instance, and were released by Alibaba Cloud to meet the demands of applications such as high performance computing, artificial intelligence, machine learning, scientific or engineering computing, data analysis, and audio and video processing. In the clusters, nodes are connected by Remote Direct Memory Access \(RDMA\) networks featuring high bandwidth and low latency, guaranteeing the highly parallel efficiency demanded by applications that require high-performance computing. Meanwhile, the RoCE \(RDMA over Convergent Ethernet\) rivals an Infiniband network in terms of connection speed, and supports more extensive Ethernet-based applications. The combination of SCCs built on EBM Instance and other Alibaba Cloud computing products such as ECS and GPU servers provides [the Alibaba Cloud elastic high-performance computing \(E-HPC\) platform](https://www.alibabacloud.com/help/product/57664.htm) with ultimate high performance parallel computing resources, making supercomputing on the cloud a reality.
+SCCs are based on EBM Instance, and were released by Alibaba Cloud to meet the demands of applications such as high performance computing, artificial intelligence, machine learning, scientific or engineering computing, data analysis, and audio and video processing. In the clusters, nodes are connected by Remote Direct Memory Access \(RDMA\) networks featuring high bandwidth and low latency, guaranteeing the highly parallel efficiency demanded by applications that require high-performance computing. Meanwhile, the RoCE \(RDMA over Convergent Ethernet\) rivals an Infiniband network in terms of connection speed, and supports more extensive Ethernet-based applications. The combination of SCCs built on EBM Instance and other Alibaba Cloud computing products such as ECS and GPU servers provides the Alibaba Cloud elastic high-performance computing \(E-HPC\) platform with ultimate high performance parallel computing resources, making supercomputing on the cloud a reality.
 
 ## Features {#section_efq_x55_ydb .section}
 
@@ -89,15 +89,13 @@ The type families of SCC include:
 -   scch5, Super Computing Cluster \(SCC\) instance type family with high clock speed
 -   sccg5, geneneral-purpose Super Computing Cluster \(SCC\) instance type family
 
-For more information, see [EBM Instance type families](intl.en-US/Product Introduction/Instance type families.md#ebmg5) and [SCC Instance type families](intl.en-US/Product Introduction/Instance type families.md#sccg5).
+For more information, see [EBM Instance type families](reseller.en-US/Product Introduction/Instance type families.md#ebmg5) and [SCC Instance type families](reseller.en-US/Product Introduction/Instance type families.md#sccg5).
 
 ## Billing methods {#section_wfq_x55_ydb .section}
 
-EBM Instances and SCC instances support Subscription and Pay-As-You-Go. For more information about billing methods, see [Billing method comparison](../../../../intl.en-US/Pricing/Billing method comparison.md#).
+EBM Instances and SCC instances support Subscription and Pay-As-You-Go. For more information about billing methods, see [Billing method comparison](../../../../reseller.en-US/Pricing/Billing method comparison.md#).
 
 ## Related operations {#section_xfq_x55_ydb .section}
 
-You can [create an EBM instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create an EBM instance.md#) or [create an SCC server instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create an SCC server instance.md#) in the console.
-
-For more information, see [FAQs about EBM Instances](https://www.alibabacloud.com/help/faq-detail/66558.htm).
+You can [create an EBM instance](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create an EBM instance.md#) or [create an SCC server instance](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create an SCC server instance.md#) in the console.
 
