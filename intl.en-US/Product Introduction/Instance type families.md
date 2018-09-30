@@ -6,14 +6,14 @@ An ECS instance is the minimal unit that can provide computing capabilities and 
 
 ECS instances are categorized into specification types, which are called type families, based on the business scenarios they can be applied to. You may select multiple type families for one business scenario. Each type family contains multiple ECS instance types with different CPU and memory specifications, including the CPU model and clock speed. Besides the instance type, you must also define a block storage, an image, and the network service when you create an instance.
 
-**Note:** The availability of instance type families and their types varies from region to region. Go to the [purchase page](https://ecs-buy-intl.aliyun.com/#/prepay) to check the available instance types.
+**Note:** The availability of instance type families and their types varies from region to region. Go to the purchase page to check the available instance types.
 
-Alibaba Cloud ECS provides two kinds of instance type families: enterprise-level instance type families and entry-level instance type families. Type families for enterprise-level computing offer stable performance and dedicated resources, while entry-level type families are ideal for small and mid-sized websites, or individual customers. For the differences, see [Enterprise-level instances and entry-level instances FAQ](https://www.alibabacloud.com/help/faq-detail/44078.htm).
+Alibaba Cloud ECS provides two kinds of instance type families: enterprise-level instance type families and entry-level instance type families. Type families for enterprise-level computing offer stable performance and dedicated resources, while entry-level type families are ideal for small and mid-sized websites, or individual customers.
 
 **Note:** 
 
--   If you are using sn1, sn2, t1, s1, s2, s3, m1, m2, c1, c2, c4, cm4, n1, n2, or e3, see [Phased-out instance types](https://www.alibabacloud.com/help/faq-detail/55263.htm).
--   Upgrading instance types is supported within or between certain instance type families. For such families and corresponding upgrade rules, see [Instance type families that support upgrading instance types](../../../../intl.en-US/User Guide/Instances/Change configurations/Instance type families that support upgrading instance types.md#).
+-   If you are using sn1, sn2, t1, s1, s2, s3, m1, m2, c1, c2, c4, ce4, cm4, n1, n2, or e3, see [Phased-out instance types](https://www.alibabacloud.com/help/faq-detail/55263.htm).
+-   Upgrading instance types is supported within or between certain instance type families. For such families and corresponding upgrade rules, see [Instance type families that support upgrading instance types](../../../../reseller.en-US/User Guide/Instances/Change configurations/Instance type families that support upgrading instance types.md#).
 -   Upgrading instance types is not supported within or between the following instance type families: d1, d1ne, i1, i2, ga1, gn5, f1, f2, f3, ebmc4, ebmg5, sccg5, and scch5.
 
 Alibaba Cloud ECS instances are categorized into the following type families:
@@ -34,7 +34,6 @@ Alibaba Cloud ECS instances are categorized into the following type families:
     -   [i1, type family with local SSD disks](#)
     -   [hfc5, compute optimized type family with high clock speed](#)
     -   [hfg5, general-purpose type family with high clock speed](#)
-    -   [ce4, compute optimized type family with high clock speed](#)
 -   Type families for enterprise-level heterogeneous computing:
     -   [gn6v, compute optimized type family with GPU](#)
     -   [gn5, compute optimized type family with GPU](#)
@@ -72,8 +71,8 @@ Alibaba Cloud ECS instances are categorized into the following type families:
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#)|Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.g5.large|2|8.0|N/A|1.0|300|2|2|
 |ecs.g5.xlarge|4|16.0|N/A|1.5|500|2|3|
 |ecs.g5.2xlarge|8|32.0|N/A |2.5|800|2|4|
@@ -104,8 +103,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#)|Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.sn2ne.large|2|8.0|N/A|1.0|300|2|2|
 |ecs.sn2ne.xlarge|4|16.0|N/A|1.5|500|2|3|
 |ecs.sn2ne.2xlarge|8|32.0|N/A|2.0|1,000|4|4|
@@ -135,8 +134,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |Vcpu|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |Vcpu|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.ic5.large|2|2.0|N/A|1.0|300|2|2|
 |ecs.ic5.xlarge|4|4.0|N/A|1.5|500|2|3|
 |ecs.ic5.2xlarge|8|8.0|N/A|2.5|800|2|4|
@@ -164,8 +163,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#)|Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.c5.large|2|4.0|N/A|1.0|300|2|2|
 |ecs.c5.xlarge|4|8.0|N/A|1.5|500|2|3|
 |ecs.c5.2xlarge|8|16.0|N/A|2.5|800|2|4|
@@ -196,8 +195,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.sn1ne.large|2|4.0|N/A|1.0|300|2|2|
 |ecs.sn1ne.xlarge|4|8.0|N/A|1.5|500|2|3|
 |ecs.sn1ne.2xlarge|8|16.0|N/A|2.0|1,000|4|4|
@@ -225,8 +224,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\)|Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:-------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\)|Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:-------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.r5.large|2|16.0|N/A|1.0|300|2|2|
 |ecs.r5.xlarge|4|32.0|N/A|1.5|500|2|3|
 |ecs.r5.2xlarge|8|64.0|N/A|2.5|800|2|4|
@@ -255,8 +254,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.re4.20xlarge|80|960.0|N/A|15.0|2,000|16|8|
 |ecs.re4.40xlarge|160|1920.0|N/A|30.0|4,500|16|8|
 
@@ -280,8 +279,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.se1ne.large|2|16.0|N/A|1.0|300|2|2|
 |ecs.se1ne.xlarge|4|32.0|N/A|1.5|500|2|3|
 |ecs.se1ne.2xlarge|8|64.0|N/A|2.0|1,000|4|4|
@@ -309,8 +308,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.se1.large|2|16.0|N/A|0.5|100|1|2|
 |ecs.se1.xlarge|4|32.0|N/A|0.8|200|1|3|
 |ecs.se1.2xlarge|8|64.0|N/A|1.5|400|1|4|
@@ -338,18 +337,19 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.d1ne.2xlarge|8|32.0|4 \* 5500|6.0|1,000|4|4|
 |ecs.d1ne.4xlarge|16|64.0|8 \* 5500|12.0|1,600|4|8|
 |ecs.d1ne.6xlarge|24|96.0|12 \* 5500|16.0|2,000|6|8|
+|ecs.d1ne-c8d3.8xlarge|32|128.0|12 \* 5500|20.0|2,000|6|8|
 |ecs.d1ne.8xlarge|32|128.0|16 \* 5500|20.0|2,500|8|8|
+|ecs.d1ne-c14d3.14xlarge|56|160.0|12 \* 5500|35.0|4,500|14|8|
 |ecs.d1ne.14xlarge|56|224.0|28 \* 5500|35.0|4,500|14|8|
 
 **Note:** 
 
 -   You cannot change configurations of d1ne instances.
--   For more information about d1ne type families, see [FAQ on d1 and d1ne](https://www.alibabacloud.com/help/faq-detail/52993.htm).
 
 Click [here](#) to view other instance type families.
 
@@ -371,8 +371,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.d1.2xlarge|8|32.0|4 \* 5500|3.0|300|1|4|
 |ecs.d1.3xlarge|12|48.0|16 \* 5500|4.0|400|1|6|
 |ecs.d1.4xlarge|16|64.0|8 \* 5500|6.0|600|2|8|
@@ -403,8 +403,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.i2.xlarge|4|32.0|1 \* 894|1.0|500|2|3|
 |ecs.i2.2xlarge|8|64.0|1 \* 1788|2.0|1,000|2|4|
 |ecs.i2.4xlarge|16|128.0|2 \* 1788|3.0|1,500|4|8|
@@ -430,8 +430,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.i1.xlarge|4|16.0|2 \* 104|0.8|200|1|3|
 |ecs.i1.2xlarge|8|32.0|2 \* 208|1.5|400|1|4|
 |ecs.i1.3xlarge|12|48.0|2 \* 312|2.0|400|1|6|
@@ -461,8 +461,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.hfc5.large|2|4.0|N/A|1.0|300|2|2|
 |ecs.hfc5.xlarge|4|8.0|N/A|1.5|500|2|3|
 |ecs.hfc5.2xlarge|8|16.0|N/A|2.0|1,000|2|4|
@@ -490,8 +490,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.hfg5.large|2|8.0|N/A|1.0|300|2|2|
 |ecs.hfg5.xlarge|4|16.0|N/A|1.5|500|2|3|
 |ecs.hfg5.2xlarge|8|32.0|N/A|2.0|1,000|2|4.|
@@ -500,29 +500,6 @@ Click [here](#) to view other instance type families.
 |ecs.hfg5.6xlarge|24|96.0|N/A|4.5|2,000|6|8|
 |ecs.hfg5.8xlarge|32|128.0|N/A|6.0|2,500|8|8|
 |ecs.hfg5.14xlarge|56|160.0|N/A|10.0|4,000|14|8|
-
-Click [here](#) to view other instance type families.
-
-## ce4, compute optimized type family with high clock speed {#ce4 .section}
-
-**Features**
-
--   I/O-optimized
--   Supports SSD Cloud Disks and Ultra Cloud Disks
--   Stable performance
--   3.2 GHz Intel Xeon E5-2667 v4 \(Broadwell\) processors
--   Higher computing specifications matching higher network performance
--   Ideal for:
-    -   High performance Web front-end servers
-    -   High performance science and engineering applications
-    -   Massively Multiplayer Online \(MMO\) games and video coding
-
-**Instance types**
-
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
-|ecs.ce4.xlarge|4|32.0|N/A|1.5|200|1|3|
-|ecs.ce4.2xlarge|8|64.0|N/A|3.0|400|1|3|
 
 Click [here](#) to view other instance type families.
 
@@ -542,13 +519,13 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance types|vCPU|Memory \(GiB\)|Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\)|Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:-------------|:-------------------------|:--|:-------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance types|vCPU|Memory \(GiB\)|Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\)[\*\*](#)|Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:-------------|:-------------------------|:--|:----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.gn6v-c8g1.2xlarge|8|32.0|N/A|1 \* NVIDIA V100|2.5|800|4|4|
 |ecs.gn6v-c8g1.8xlarge|32|128.0|N/A|4 \* NVIDIA V100|10.0|2,000|8|8|
 |ecs.gn6v-c8g1.16xlarge|64|256.0|N/A|8 \* NVIDIA V100|20.0|2,500|16|8|
 
-**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
+**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -570,8 +547,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:--|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.gn5-c4g1.xlarge|4|30.0|440|1 \* NVIDIA P100|3.0|300|1|3|
 |ecs.gn5-c8g1.2xlarge|8|60.0|440|1 \* NVIDIA P100|3.0|400|1|4|
 |ecs.gn5-c4g1.2xlarge|8|60.0|880|2 \* NVIDIA P100|5.0|1,000|2|4|
@@ -581,7 +558,7 @@ Click [here](#) to view other instance type families.
 |ecs.gn5-c28g1.14xlarge|56|224.0|880|2 \* NVIDIA P100|10.0|2,000|14|8|
 |ecs.gn5-c8g1.14xlarge|54|480.0|3520|8 \* NVIDIA P100|25.0|4,000|14|8|
 
-**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
+**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -601,8 +578,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:--|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.gn5i-c2g1.large|2|8.0|N/A|1 \* NVIDIA P4|1.0|100|2|2|
 |ecs.gn5i-c4g1.xlarge|4|16.0|N/A|1 \* NVIDIA P4|1.5|200|2|3|
 |ecs.gn5i-c8g1.2xlarge|8|32.0|N/A|1 \* NVIDIA P4|2.0|400|4|4|
@@ -610,7 +587,7 @@ Click [here](#) to view other instance type families.
 |ecs.gn5i-c16g1.8xlarge|32|128.0|N/A|2 \* NVIDIA P4|6.0|1,200|8|8|
 |ecs.gn5i-c28g1.14xlarge|56|224.0|N/A|2 \* NVIDIA P4|10.0|2,000|14|8|
 
-**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
+**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -631,8 +608,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:--|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.gn4-c4g1.xlarge|4|30.0|N/A|1 \* NVIDIA M40|3.0|300|1|3|
 |ecs.gn4-c8g1.2xlarge|8|60.0|N/A|1 \* NVIDIA M40|3.0|400|1|4|
 |ecs.gn4.8xlarge|32|48.0|N/A|1 \* NVIDIA M40|6.0|800|3|8|
@@ -640,7 +617,7 @@ Click [here](#) to view other instance type families.
 |ecs.gn4-c8g1.4xlarge|16|60.0|N/A|2 \* NVIDIA M40|5.0|500|1|8|
 |ecs.gn4.14xlarge|56|96.0|N/A|2 \* NVIDIA M40|10.0|1,200|4|8|
 
-**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../intl.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
+**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -662,15 +639,15 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\)**[\*\*](#)** |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:--|:---------------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.ga1.xlarge|4|10.0|1 \* 87|0.25 \* AMD S7150|1.0|200|1|3|
 |ecs.ga1.2xlarge|8|20.0|1 \* 175|0.5 \* AMD S7150|1.5|300|1|4|
 |ecs.ga1.4xlarge|16|40.0|1 \* 350|1 \* AMD S7150|3.0|500|2|8|
 |ecs.ga1.8xlarge|32|80.0|1 \* 700|2 \* AMD S7150|6.0|800|3|8|
 |ecs.ga1.14xlarge|56|160.0|1 \* 1400|4 \* AMD S7150|10.0|1,200|4|8|
 
-**Note:** For more information, see [Create an instance of ga1](../../../../intl.en-US/User Guide/Instances/Create an instance/Create an instance of ga1.md#).
+**Note:** For more information, see [Create an instance of ga1](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create an instance of ga1.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -693,8 +670,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|FPGA|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:---|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|FPGA|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:---|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.f1-c8f1.2xlarge|8|60.0|N/A|Intel ARRIA 10 GX 1150|3.0|400|4|4|
 |ecs.f2-c8f1.4xlarge|16|120.0|N/A|2 \* Intel ARRIA 10 GX 1150|5.0|1,000|4|8|
 |ecs.f1-c28f1.7xlarge|28|112.0|N/A|Intel ARRIA 10 GX 1150|5.0|2,000|8|8|
@@ -721,8 +698,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|FPGA|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:---|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|FPGA|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:---|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.f2-c8f1.2xlarge|8|60.0|N/A|Xilinx Kintex UltraScale XCKU115|2.0|800|4|4|
 |ecs.f2-c8f1.4xlarge|16|120.0|N/A|2 \* Xilinx Kintex UltraScale XCKU115|5.0|1,000|4|8|
 |ecs.f2-c28f1.7xlarge|28|112.0|N/A|Xilinx Kintex UltraScale XCKU115|5.0|1,000|8|8|
@@ -750,11 +727,11 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENISs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:-----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENISs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:-------------------|
 |ecs.ebmhfg5.2xlarge|8|32.0|N/A|6.0|2,000|8|6|
 
-**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instances/ECS Bare Metal Instance and Super Computing Clusters.md#).
+**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](reseller.en-US/Product Introduction/Instances/ECS Bare Metal Instance and Super Computing Clusters.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -778,11 +755,11 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.ebmc4.8xlarge|32|64.0|N/A|10.0|4,000|8|12|
 
-**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instances/ECS Bare Metal Instance and Super Computing Clusters.md#).
+**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](reseller.en-US/Product Introduction/Instances/ECS Bare Metal Instance and Super Computing Clusters.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -794,7 +771,7 @@ Click [here](#) to view other instance type families.
 -   Supports SSD Cloud Disks and Ultra Cloud Disks
 -   vCPU to memory ratio = 1:4
 -   2.5 GHz Intel Xeon Platinum 8163 \(Skylake\) processors, 96-core vCPU, up to 2.7 GHz Turbo Boot
--   High network performance: 4.5 million pps packet forwarding rate
+-   High network performance: 4 million pps packet forwarding rate
 -   Supports VPC network only
 -   Provides dedicated hardware resources and physical isolation
 -   Ideal for:
@@ -806,11 +783,11 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
-|ecs.ebmg5.24xlarge|96|384.0|N/A|10.0|4,500|8|32|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
+|ecs.ebmg5.24xlarge|96|384.0|N/A|10.0|4,000|8|32|
 
-**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instances/ECS Bare Metal Instance and Super Computing Clusters.md#).
+**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](reseller.en-US/Product Introduction/Instances/ECS Bare Metal Instance and Super Computing Clusters.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -831,11 +808,11 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|RoCE \(Inbound/Outbound\) \(Gbit/s\) |NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:--|:--------------------|:-----------------------------------------------|:------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |GPU|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|RoCE \(Inbound/Outbound\) \(Gbit/s\) |NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:--|:-----------------------------|:-------------------------------------------------|:------------------------------------|:----------------------|:------------------|
 |ecs.scch5.16xlarge|64|192.0|N/A|10.0|4,500|46|8|32|
 
-**Note:** For more information about SCC, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instances/ECS Bare Metal Instance and Super Computing Clusters.md#).
+**Note:** For more information about SCC, see [ECS Bare Metal Instance and Super Computing Clusters](reseller.en-US/Product Introduction/Instances/ECS Bare Metal Instance and Super Computing Clusters.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -856,11 +833,11 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |GPU|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|RoCE \(Inbound/Outbound\) \(Gbit/s\) |NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:--|:--------------------|:-----------------------------------------------|:------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |GPU|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|RoCE \(Inbound/Outbound\) \(Gbit/s\) |NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:--|:-----------------------------|:-------------------------------------------------|:------------------------------------|:----------------------|:------------------|
 |ecs.sccg5.24xlarge|96|384.0|N/A|10.0|4,500|46|8|32|
 
-**Note:** For more information about SCC, see [ECS Bare Metal Instance and Super Computing Clusters](intl.en-US/Product Introduction/Instances/ECS Bare Metal Instance and Super Computing Clusters.md#).
+**Note:** For more information about SCC, see [ECS Bare Metal Instance and Super Computing Clusters](reseller.en-US/Product Introduction/Instances/ECS Bare Metal Instance and Super Computing Clusters.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -881,8 +858,8 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\) |CPU credits/hour |Max CPU credit balance |Avg baseline CPU performance|ENIs[\*\*\*\*](#)|
-|:------------|:---|:--------------|:----------------|:----------------------|:---------------------------|:----------------|
+|Instance type|vCPU|Memory \(GiB\) |CPU credits/hour |Max CPU credit balance |Avg baseline CPU performance|ENIs[\*\*\*\*\*](#)|
+|:------------|:---|:--------------|:----------------|:----------------------|:---------------------------|:------------------|
 |ecs.t5-lc2m1.nano|1|0.5|6|144|10%|1|
 |ecs.t5-lc1m1.small|1|1.0|6|144|10%|1|
 |ecs.t5-lc1m2.small|1|2.0|6|144|10%|1|
@@ -900,7 +877,7 @@ Click [here](#) to view other instance type families.
 |ecs.t5-c1m1.4xlarge|16|16.0|144|3,456|15%|2|
 |ecs.t5-c1m2.4xlarge|16|32.0|144|3,456|15%|2|
 
-**Note:** For more information about t5, see [Burstable instances](intl.en-US//Burstable instances.md#).
+**Note:** For more information about t5, see [Burstable instances](reseller.en-US//Burstable instances.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -936,14 +913,14 @@ Click [here](#) to view other instance type families.
 
 **xn4**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.xn4.small|1|1.0|N/A|0.5|50|1|1|
 
 **n4**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.n4.small|1|2.0|N/A|0.5|50|1|1|
 |ecs.n4.large|2|4.0|N/A|0.5|100|1|1|
 |ecs.n4.xlarge|4|8.0|N/A|0.8|150|1|2|
@@ -953,8 +930,8 @@ Click [here](#) to view other instance type families.
 
 **mn4**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.mn4.small|1|4.0|N/A|0.5|50|1|1|
 |ecs.mn4.large|2|8.0|N/A|0.5|100|1|1|
 |ecs.mn4.xlarge|4|16.0|N/A|0.8|150|1|2|
@@ -964,8 +941,8 @@ Click [here](#) to view other instance type families.
 
 **e4**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\) |Packet forwarding rate \(Thousand pps\)[\*\*](#)|NIC queues[\*\*\*](#)|ENIs[\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--------------------|:-----------------------------------------------|:--------------------|:----------------|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.e4.small|1|8.0|N/A|0.5|50|1|1|
 |ecs.ce4.xlarge|2|16.0|N/A|0.5|100|1|1|
 |ecs.ce4.xlarge|4|32.0|N/A|0.8|150|1|2|
@@ -974,11 +951,13 @@ Click [here](#) to view other instance type families.
 
 Click [here](#) to view other instance type families.
 
-\* Cache disks, or Local disks, are the disks located on the physical servers \(host machines\) that ECS instances are hosted on. They provide temporary block level storage for instances. In some cases, such as when the computing resources of an instance, including CPU and memory, are released, or an instance is inactive while migration occurs, data on the local disks is erased. For more information, see [Local disks](intl.en-US/Product Introduction/Block storage/Local disks.md#).
+\* Cache disks, or Local disks, are the disks located on the physical servers \(host machines\) that ECS instances are hosted on. They provide temporary block level storage for instances. In some cases, such as when the computing resources of an instance, including CPU and memory, are released, or an instance is inactive while migration occurs, data on the local disks is erased. For more information, see [Local disks](reseller.en-US/Product Introduction/Block storage/Local disks.md#).
 
-\*\* The maximum packet forwarding rate of inbound or outbound traffic. For more information about packet forwarding rate testing, see [Test network performance](https://www.alibabacloud.com/help/faq-detail/55757.htm).
+\*\* The maximum bandwidth of inbound and outbound traffic.
 
-\*\*\* The maximum number of NIC queues that an instance type supports. If your instance is running CentOS 7.3, the maximum number of NIC queues is used by default.
+\*\*\* The maximum packet forwarding rate of inbound and outbound traffic. For more information about packet forwarding rate testing, see [Test network performance](https://partners-intl.aliyun.com/help/faq-detail/55757.htm) .
 
-\*\*\*\* An enterprise-level instance with two or more vCPU cores supports elastic network interfaces. An entry-level instance with four or more vCPU cores supports elastic network interfaces. For more information about elastic network interfaces, see [Elastic network interfaces](intl.en-US/Product Introduction/Network and security/Elastic network interfaces.md#).
+\*\*\*\* The maximum number of NIC queues that an instance type supports. If your instance is running CentOS 7.3, the maximum number of NIC queues is used by default.
+
+\*\*\*\*\* An enterprise-level instance with two or more vCPU cores supports elastic network interfaces. An entry-level instance with four or more vCPU cores supports elastic network interfaces. For more information about elastic network interfaces, see [Elastic network interfaces](reseller.en-US/Product Introduction/Network and security/Elastic network interfaces.md#).
 
