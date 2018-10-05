@@ -7,8 +7,8 @@ After creating a cloud assistant command, you can run the command on one or more
 -   In one Alibaba Cloud region, you can run a maximum of 500 cloud assistant commands in a single day.
 -   You can run a command on a maximum of 50 instances at once.
 -   The status of the target instance must be **In Progress** \(`Running`\).
--   The target instance must have [cloud assistant client](../intl.en-US/Product Introduction/Cloud assistant/Cloud Assistant Client.md#) installed.
--   The target instance must be [VPC-Connected](../../../../../intl.en-US/Product Introduction/What is VPC?.md#).
+-   The target instance must have [cloud assistant client](../reseller.en-US/User Guide/Cloud Assistant Client.md#) installed.
+-   The target instance must be [VPC-Connected](../../../../../reseller.en-US/Product Introduction/What is VPC?.md#).
 -   The period for running cloud assistant commands cannot be less than 10 seconds.
 -   The scheduled time for periodic command execution is set to China Standard Time \(UTC +08:00\) based on the system time obtained from the ECS instances. Make sure that the time or time zone of your ECS instance is consistent with your own expectations.
 
@@ -16,27 +16,27 @@ After creating a cloud assistant command, you can run the command on one or more
 
 To execute a command on the ECS console, take the following steps:
 
-1.  Log on to the ECS console[ECS console](https://ecs.console.aliyun.com/) .
-2.  Select **Cloud Assistant** from the left-side navigation pane.
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+2.  In the left-side navigation pane, select **Cloud Assistant**.
 3.  Select a region.
 4.  Search for the Cloud Assistant command you want to run. Select **Execute** from the right-side **Actions**. In the right-side pop-up window:
     1.  Click **View Command Content** to confirm the command contents.
     2.  Click **Select Instance**. In the pop-up window:
         1.  Select one or more instances.
-        2.  Click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17010/15365689728440_en-US.png) to select an instance.
+        2.  Click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17010/15387098448440_en-US.png) to select an instance.
 
-            **Note:** Bat or PowerShell commands can only be selected for Windows instances, and Shell commands can only be selected for Linux instances. All instances must have the Cloud Assistant Client **installed**. Otherwise, the instance cannot be selected even after you click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17010/15365689728440_en-US.png) icon.
+            **Note:** Bat or PowerShell commands can only be selected for Windows instances, and Shell commands can only be selected for Linux instances. All instances must have the Cloud Assistant Client **installed**. Otherwise, the instance cannot be selected even after you click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17010/15387098448440_en-US.png) icon.
 
         3.  Click **OK**.
     3.  Select **Immediate Execution** or **Scheduled Execution**:
 
         -   **Immediate Execution**: The cloud assistant will run the command immediately on the instances once.
-        -   **Scheduled Execution**: Use the cron expression to run the command periodically. Fill in the **Execution Time**. For more information, see [Cron Expression Value Description](https://www.alibabacloud.com/help/faq-detail/64769.htm).
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17010/15365689728439_en-US.png)
+        -   **Scheduled Execution**: Use the cron expression to run the command periodically. Fill in the **Execution Time**. For more information, see .
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17010/15387098448439_en-US.png)
 
 5.  Click **Execute**.
 
-You can also use the ECS API [InvokeCommand](../intl.en-US/API Reference/Cloud assistant/InvokeCommand.md#) to execute a cloud assistant command.
+You can also use the ECS API [InvokeCommand](../reseller.en-US/API Reference/Cloud assistant/InvokeCommand.md#) to execute a cloud assistant command.
 
 ## Stop command execution {#StopCommand .section}
 
@@ -44,15 +44,15 @@ You can also use the ECS API [InvokeCommand](../intl.en-US/API Reference/Cloud a
 
 To stop a command on the management console, take the following steps:
 
-1.  Log on to the management console [ECS console](https://ecs.console.aliyun.com/) .
-2.  Select **Cloud Assistant** from the left-side navigation pane.
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+2.  In the left-side navigation pane, select **Cloud Assistant**.
 3.  Select a region.
 4.  In the **Execution Record** area, search for the command you need to stop, and select **Stop Command** from **Actions**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17010/15365689728527_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17010/15387098448527_en-US.png)
 
 
 ## Next step {#section_crb_4st_q2b .section}
 
-[Query execution results and status](intl.en-US/User Guide/Cloud assistant/Query execution results and status.md#)
+[Query execution results and status](reseller.en-US/User Guide/Cloud assistant/Query execution results and status.md#)
 
