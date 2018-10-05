@@ -77,13 +77,13 @@ Cloud assistant has the following limits:
 
 Cloud assistant features are free of charge.
 
-## Invocation status {#section_cyj_ydx_ydb .section}
+## Invocation status {#InvocationStatus .section}
 
 -   Specifically, the invocation status of a command consists of `Running`, `Stopped`, `Finished`, and `Failed`.
 
 -   Generally, the invocation status of a command includes **overall invocation status** , **instance invocation status** , and **invocation-record status**. The relationships among various levels are shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/15332008895245_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/15387087845245_en-US.png)
 
 
 **For one-time invocations**
@@ -98,7 +98,7 @@ Cloud assistant features are free of charge.
 
         Take three ECS instances as an example. The following picture shows the relationships between the overall invocation status and the instance invocation status during a one-time invocation on multiple instances.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/15332008895246_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/15387087845246_en-US.png)
 
 -   **Instance invocation status**: The command is invoked only once in a one-time invocation, so the instance invocation status and the invocation-record status are identical.
 -   **Invocation-record status**:
@@ -125,12 +125,12 @@ Currently the cloud assistant is not available on the console. You can use it by
 
 ## References {#section_jvp_5dx_ydb .section}
 
--   [Cloud Assistant Client](intl.en-US/Product Introduction/Cloud assistant/Cloud Assistant Client.md#)
+-   [Cloud Assistant Client](intl.en-US/User Guide/Cloud Assistant Client.md#)
 -   APIs:
     -   [CreateCommand](../../../../intl.en-US/API Reference/Cloud assistant/CreateCommand.md#)
     -   [InvokeCommand](../../../../intl.en-US/API Reference/Cloud assistant/InvokeCommand.md#)
     -   [DescribeInvocations](../../../../intl.en-US/API Reference/Cloud assistant/DescribeInvocations.md#)
-    -   [DescribeInvocationResults](../../../../intl.en-US/API Reference/Cloud assistant/DescribeInvocationResultsDescribeinvocationresults.md#)
+    -   [DescribeInvocationResults](../../../../intl.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#)
     -   [StopInvocation](../../../../intl.en-US/API Reference/Cloud assistant/StopInvocation.md#)
     -   [ModifyCommand](../../../../intl.en-US/API Reference/Cloud assistant/ModifyCommand.md#)
     -   [DescribeCommands](../../../../intl.en-US/API Reference/Cloud assistant/DescribeCommands.md#)
