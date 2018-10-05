@@ -6,7 +6,7 @@
 
 全是公共错误码。更多错误码，请访问[API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
-[ECS管理控制台](https://ecs.console.aliyun.com/) 
+[ECS管理控制台](https://ecs.console.aliyun.com/)
 
 [提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex)
 
