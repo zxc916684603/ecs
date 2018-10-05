@@ -12,7 +12,7 @@
 
 ## 内链 {#Internal .section}
 
-全是公共返回参数。参阅[公共返回参数](../../../../intl.zh-CN/API 参考/调用方式/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅[公共返回参数](../../../../intl.zh-CN/API 参考/快速入门/公共参数.md#commonResponseParameters)。
 
 被[安全控制](intl.zh-CN/API 参考/附录/安全锁定时的 API 行为.md#)的ECS实例的`OperationLocks`不能标记为`"LockReason" : "security"`。
 
