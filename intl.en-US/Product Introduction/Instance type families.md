@@ -8,13 +8,13 @@ ECS instances are categorized into specification types, which are called type fa
 
 **Note:** The availability of instance type families and their types varies from region to region. Go to the purchase page to check the available instance types.
 
-Alibaba Cloud ECS provides two kinds of instance type families: enterprise-level instance type families and entry-level instance type families. Type families for enterprise-level computing offer stable performance and dedicated resources, while entry-level type families are ideal for small and mid-sized websites, or individual customers.
+Alibaba Cloud ECS provides two kinds of instance type families: enterprise-level instance type families and entry-level instance type families. Type families for enterprise-level computing offer stable performance and dedicated resources, while entry-level type families are ideal for small and mid-sized websites, or individual customers. For the differences, see [Enterprise-level instances and entry-level instances FAQ](https://partners-intl.aliyun.com/help/faq-detail/44078.htm).
 
 **Note:** 
 
--   If you are using sn1, sn2, t1, s1, s2, s3, m1, m2, c1, c2, c4, ce4, cm4, n1, n2, or e3, see [Phased-out instance types](https://www.alibabacloud.com/help/faq-detail/55263.htm).
+-   If you are using sn1, sn2, t1, s1, s2, s3, m1, m2, c1, c2, c4, ce4, cm4, n1, n2, or e3, see [Phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm).
 -   Upgrading instance types is supported within or between certain instance type families. For such families and corresponding upgrade rules, see [Instance type families that support upgrading instance types](../../../../reseller.en-US/User Guide/Instances/Change configurations/Instance type families that support upgrading instance types.md#).
--   Upgrading instance types is not supported within or between the following instance type families: d1, d1ne, i1, i2, ga1, gn5, f1, f2, f3, ebmc4, ebmg5, sccg5, and scch5.
+-   Upgrading instance types is not supported within or between the following instance type families: d1, d1ne, i1, i2, i2g, ga1, gn5, f1, f2, f3, ebmc4, ebmg5, sccg5, and scch5.
 
 Alibaba Cloud ECS instances are categorized into the following type families:
 
@@ -31,6 +31,7 @@ Alibaba Cloud ECS instances are categorized into the following type families:
     -   [d1ne, big data type family with enhanced network performance](#)
     -   [d1, big data type family](#)
     -   [i2, type family with local SSD disks](#)
+    -   [i2g, type family with local SSD disks](#)
     -   [i1, type family with local SSD disks](#)
     -   [hfc5, compute optimized type family with high clock speed](#)
     -   [hfg5, general-purpose type family with high clock speed](#)
@@ -350,6 +351,7 @@ Click [here](#) to view other instance type families.
 **Note:** 
 
 -   You cannot change configurations of d1ne instances.
+-   For more information about d1ne type families, see [FAQ on d1 and d1ne](https://partners-intl.aliyun.com/help/faq-detail/52993.htm).
 
 Click [here](#) to view other instance type families.
 
@@ -382,7 +384,7 @@ Click [here](#) to view other instance type families.
 |ecs.d1-c14d3.14xlarge|56|160.0|12 \* 5500|17.0|1,800|6|8|
 |ecs.d1.14xlarge|56|224.0|28 \* 5500|17.0|1,800|6|8|
 
-**Note:** For more information about d1 type families, see [FAQ on d1 and d1ne](https://www.alibabacloud.com/help/faq-detail/52993.htm).
+**Note:** For more information about d1 type families, see [FAQ on d1 and d1ne](https://partners-intl.aliyun.com/help/faq-detail/52993.htm).
 
 Click [here](#) to view other instance type families.
 
@@ -410,6 +412,32 @@ Click [here](#) to view other instance type families.
 |ecs.i2.4xlarge|16|128.0|2 \* 1788|3.0|1,500|4|8|
 |ecs.i2.8xlarge|32|256.0|4 \* 1788|6.0|2,000|8|8|
 |ecs.i2.16xlarge|64|512.0|8 \* 1788|10.0|4,000|16|8|
+
+Click [here](#) to view other instance type families.
+
+## i2g, type family with local SSD disks {#i2g .section}
+
+**Features**
+
+-   I/O-optimized
+-   Supports SSD Cloud Disks and Ultra Cloud Disks
+-   High-performance local NVMe SSD disks with high IOPS, high I/O throughput, and low latency.
+-   vCPU to memory ratio = 1:4, designed for high performance databases
+-   2.5 GHz Intel Xeon Platinum 8163 \(Skylake\) processors
+-   Higher computing specifications matching higher network performance
+-   Ideal for:
+    -   OLTP and high performance relational databases
+    -   NoSQL databases, such as Cassandra and MongoDB
+    -   Search applications, such as Elasticsearch
+
+**Instance types**
+
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
+|ecs.i2g.2xlarge|8|32.0|1 \* 894|2.0|1,000|2|4|
+|ecs.i2g.4xlarge|16|64.0|1 \* 1788|3.0|1,500|4|8|
+|ecs.i2g.8xlarge|32|128.0|2 \* 1788|6.0|2,000|8|8|
+|ecs.i2g.16xlarge|64|256.0|4 \* 1788|10.0|4,000|16|8|
 
 Click [here](#) to view other instance type families.
 
