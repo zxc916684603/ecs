@@ -17,8 +17,8 @@ When you call this interface, consider the following:
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: AddTags.|
-|RegionId|String|Yes|The ID of the region to which the ECS resource belongs. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|ResourceType|String|Yes| The type of the ECS resource. Optional values:-   disk
+|RegionId|String|Yes|The ID of the region to which the ECS resource belongs. For more information, call [DescribeRegions](../intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|ResourceType|String|Yes|The type of the ECS resource. Optional values:-   disk
 -   instance
 -   image
 -   securitygroup
@@ -26,12 +26,12 @@ When you call this interface, consider the following:
 
 All values must be lowercase.|
 |ResourceId|String|Yes|The resource ID.  For example, if you set the `ResourceType` to `instance`, the ResourceId can be interpreted as InstanceId.|
-|Tag.n.Key|String|Yes|The tag key where `n` ranges from 1 to 20. Tag names can be up to 64 characters in length. Cannot begin with aliyun, acs:, http://, or https://. Cannot be a null string.|
-|Tag.n.Value|String|Yes|The tag value where `n` ranges from 1 to 20. Tag names can be up to 128 characters in length. Cannot begin with aliyun, http://, or https://. Can be a null string.|
+|Tag.n.Key|String|Yes|The key of a tag of which n is from 1 to 20. Once you use this parameter, it cannot be a null string. It can be up to 64 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
+|Tag.n.Value|String|Yes|The value of a tag of which n is a number from 1 to 20. Once you use this parameter, it can be a null string. It can be up to 128 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
 
 ## Response parameters {#section_f54_lk5_xdb .section}
 
-All are common parameters. See [Common parameters](intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
+All are common parameters. See [Common parameters](intl.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
 
 ## Examples { .section}
 
@@ -67,7 +67,7 @@ https://ecs.aliyuncs.com/?Action=AddTags
 
 ## Error codes {#ErrorCode .section}
 
-Error codes specific to this interface are as follows. For more error codes, visit the [API error center](https://error-center.alibabacloud.com/status/product/Ecs).
+Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error codes|Error message|HTTP status code|Description|
 |:----------|:------------|:---------------|:----------|
