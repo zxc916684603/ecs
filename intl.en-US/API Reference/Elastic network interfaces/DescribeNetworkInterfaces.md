@@ -1,6 +1,6 @@
 # DescribeNetworkInterfaces {#DescribeNetworkInterfaces .reference}
 
-View the list of flexible network cards \(ENI\).
+Describes the list of elastic network interfaces \(ENI\).
 
 ## Description {#section_l24_yj4_ydb .section}
 
@@ -13,10 +13,10 @@ View the list of flexible network cards \(ENI\).
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: DescribeNetworkInterfaces|
-|RegionId|String|Yes|Region ID. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|Region ID. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |VSwitchId|String|No|Virtual Switch ID for the VPC.|
 |PrimaryIpAddress|String|No|The primary private IP address of the ENI.|
-|SecurityGroupId|String|No| Security group ID.|
+|SecurityGroupId|String|No|Security group ID.|
 |NetworkInterfaceName|String|No|ENI name.|
 |Type|String|No|ENI type. Value range:-   Primary
 -   Secondary
@@ -27,20 +27,22 @@ View the list of flexible network cards \(ENI\).
 |PageNumber|Integer|No|Page number of the query result. The value is a positive integer.Default value: 1.
 
 |
-|PageSize|Integer|No| Page size of the query result.  Value range: \[1, 100\].Default value: 10.
+|PageSize|Integer|No|Page size of the query result.  Value range: \[1, 100\].Default value: 10.
 
 |
+|Tag.n.Key|String|Yes|The key of a tag of which n is from 1 to 20. Once you use this parameter, it cannot be a null string. It can be up to 64 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
+|Tag.n.Value|String|Yes|The value of a tag of which n is a number from 1 to 20. Once you use this parameter, it can be a null string. It can be up to 128 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
 
-## Return parameters {#ResponseParameter .section}
+## Response parameters {#ResponseParameter .section}
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|NetworkInterfaceSet|[NetworkInterfaceSet](intl.en-US/API Reference/Data type/NetworkInterfaceSet.md#)|Information about a network interface|
+|NetworkInterfaceSet|[NetworkInterfaceSet](reseller.en-US/API Reference/Data type/NetworkInterfaceSet.md#)|Information about a network interface|
 |TotalCount|Integer|Total number of instances|
 |PageNumber|Integer|Page number of the instance list|
 |PageSize|Integer|Number of lines per page set during input|
 
-## Example { .section}
+## Examples { .section}
 
 **Request example** 
 
@@ -50,7 +52,7 @@ https://ecs.aliyuncs.com/?Action=DescribeNetworkInterfaces
 &<Common Request Parameters>
 ```
 
-**Response sample** 
+**Response example** 
 
 **XML format**
 
@@ -134,11 +136,9 @@ https://ecs.aliyuncs.com/?Action=DescribeNetworkInterfaces
 
 ## Error codes {#ErrorCode .section}
 
-Error codes specific to this interface are as follows. For more error codes, visit the [API error center](https://error-center.alibabacloud.com/status/product/Ecs).
-
 |Error code|Error message|HTTP status code|Description|
 |:---------|:------------|:---------------|:----------|
-|Abs.InvalidAccount.NotFound|The Account is not found or ak is expired.|403|The specified Alibaba Cloud account does not exist. Alternatively, your AccessKey expired.|
+|Abs.InvalidAccount.NotFound|The Account is not found or AK is expired.|403|The specified Alibaba Cloud account does not exist. Alternatively, your AccessKey expired.|
 |UnsupportedParameter|The parameters is unsupported.|400|The specified parameter does not exist. Alternatively, the specified parameter is not supported.|
 |MissingParameter|The input parameter that is mandatory for processing this request is not supplied.|400|You must specify the required parameter.|
 |InvalidEcsId.NotFound|The specified EcsId is not found.|404|The specified instance ID does not exist.|
