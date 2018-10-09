@@ -1,20 +1,20 @@
 # DescribeSnapshots {#DescribeSnapshots .reference}
 
-Queries one or more of your available snapshots. `InstanceId`, `DiskId`, and  `SnapshotIds ` are not required. However, they act as a filter. Logically, they are in an `And` relation.
+Queries one or more of your available snapshots. `InstanceId`, `DiskId`, and  `SnapshotIds` are not required. However, they act as a filter. Logically, they are in an `And` relation.
 
 ## Request parameters {#RequestParameter .section}
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface.  Value: DescribeSnapshots.|
+|Action|String|Yes|The name of this interface. Value: DescribeSnapshots.|
 |RegionId|String|Yes|The Region ID of snapshot.|
 |InstanceId|String|No|The specified instance ID.|
 |DiskId|String|No|The specified instance ID.|
-|Encrypted|Boolean|No|Queries the encrypted snapshots.  Optional values:-   true: Encrypted snapshots.
+|Encrypted|Boolean|No|Queries the encrypted snapshots. Optional values:-   true: Encrypted snapshots.
 -   false: No encryption attribute limit.
 
 Default value: false.|
-|SnapshotIds|String|No|The Snapshot ID.  The value can contain arrays of up to 10 snapshot IDs. The IDs are displayed in the format of \["s-xxxxxxxxx", "s-yyyyyyyyy", … "s-zzzzzzzzz"\]  and separated by commas \(`,`\).|
+|SnapshotIds|String|No|The Snapshot ID. The value can contain arrays of up to 10 snapshot IDs. The IDs are displayed in the format of \["s-xxxxxxxxx", "s-yyyyyyyyy", … "s-zzzzzzzzz"\]  and separated by commas \(`,`\).|
 |SnapshotName|String|No|The snapshot name.|
 |Status|String|No|The snapshot status. Optional values:-   progressing: The snapshots are being created.
 -   accomplished: The snapshots are ready to use.
@@ -22,7 +22,7 @@ Default value: false.|
 -   all: All status.
 
 Default value: all.|
-|SnapshotType|String|No|The snapshot category.  Optional values:-   auto: Auto snapshots.
+|SnapshotType|String|No|The snapshot category. Optional values:-   auto: Auto snapshots.
 -   user: Manual snapshots.
 -   all: Auto and manual snapshots.
 
@@ -31,18 +31,18 @@ Default value: all.|
 -   Data: The snapshots are created for data disks.
 
 |
-|Usage|String|No|Whether the snapshots are used to create resources or not.  Optional values:-   image: The snapshots are used to  [create custom images](intl.en-US//CreateImage.md#).
--   disk: The snapshots are used to [CreateDisk](intl.en-US/API Reference/Disk/CreateDisk.md#).
+|Usage|String|No|Whether the snapshots are used to create resources or not. Optional values:-   image: The snapshots are used to [create custom images](reseller.en-US/API Reference/Images/CreateImage.md#).
+-   disk: The snapshots are used to [CreateDisk](reseller.en-US/API Reference/Disk/CreateDisk.md#).
 -   mage\_disk: The snapshots are used to create custom images and data disks.
 -   none: The snapshots are not used yet.
 
 |
-|Tag.n.Key|String|No|The tag key of the snapshots. The valid range of  `n` is \[1, 5\]. Once you use this parameter, it cannot be a null string.|
-|Tag.n.Value|String|No|The tag value of the snapshots. The valid range of `n` is \[1, 5\]. Once you use this parameter, it can be a null string.|
+|Tag.n.Key|String|Yes|The key of a tag of which n is from 1 to 20. Once you use this parameter, it cannot be a null string. It can be up to 64 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
+|Tag.n.Value|String|Yes|The value of a tag of which n is a number from 1 to 20. Once you use this parameter, it can be a null string. It can be up to 128 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
 |PageNumber|Integer|No|Displays the snapshots on several pages.  Start value: 1.  Default value: 1.
 
 |
-|PageSize|Integer|No| The maximum entries on a page.  Maximum value: 100.  Default value: 10.
+|PageSize|Integer|No|The maximum entries on a page.  Maximum value: 100.  Default value: 10.
 
 |
 
@@ -51,9 +51,9 @@ Default value: all.|
 |Name|Type|Description|
 |:---|:---|:----------|
 |TotalCount|Integer|The total number.|
-|PageNumber|Integer| The page number of the list.|
+|PageNumber|Integer|The page number of the list.|
 |PageSize|Integer|The number of lines per page set during input.|
-|Snapshots|[SnapshotType](intl.en-US/API Reference/Data type/SnapshotType.md#)|A collection composed of snapshot details SnapshotType.|
+|Snapshots|[SnapshotType](reseller.en-US/API Reference/Data type/SnapshotType.md#)|A collection composed of snapshot details SnapshotType.|
 
 ## Examples { .section}
 
@@ -67,7 +67,7 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshots
 
 **Response example** 
 
-**XML format**
+**XML format** 
 
 ```
 <DescribeSnapshotsResponse>
@@ -106,16 +106,16 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshots
 </DescribeSnapshotsResponse>
 ```
 
- **JSON format** 
+**JSON format** 
 
 ```
-
+{
   "PageNumber": 1,
   "PageSize": 2,
   "RequestId": "659F91C6-1949-43B0-90C4-B6342CA757D5",
   "Snapshots": {
     "Snapshot": [
-      
+      {
         "CreationTime": "2015-07-30T05:00:14Z",
         "Progress": "100%",
         "SnapshotId": "s-943ypfgic",
@@ -125,8 +125,8 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshots
         "SourceDiskType": "system",
         "Status": "accomplished",
         "Usage": "none"
-      
-      
+      },
+      {
         "CreationTime": "2015-07-30T05:00:14Z",
         "Progress": "100%",
         "SnapshotId": "s-94osg320e",
@@ -136,20 +136,18 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshots
         "SourceDiskType": "system",
         "Status": "accomplished",
         "Usage": "none"
-      
-    
-  
+      }
+    ]
+  },
   "TotalCount": 36
-
+}
 ```
 
 ## Error codes {#ErrorCode .section}
 
-The following error codes are specific to this interface. For more error codes, visit the [API error center](https://error-center.alibabacloud.com/status/product/Ecs).
-
 |Error code| Error message|HTTP status code|Meaning|
 |:---------|:-------------|:---------------|:------|
-|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|400|The specified `Tag.n.Key`  and `Tag.n.Value`  must be a matched key-value.|
+|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|400|The specified `Tag.n.Key` and `Tag.n.Value`  must be a matched key-value.|
 |InvalidTagCount|The specified tags are beyond the permitted range.|400|The maximum number of the Tag.n.Key and Tag.n.Value is 5.|
 |InvalidSnapshotIds.Malformed|The amount of specified specified snapshot Ids exceeds the limit.|403|The value of the specified `SnapshotIds` is incorrect.|
 |InvalidSnapshotType.NotFound|The specfied SnapshotType is not found.|404|The specified `SnapshotType` does not exist.|
