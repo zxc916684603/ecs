@@ -1,14 +1,14 @@
 # DescribeImages {#DescribeImages .reference}
 
-Queries your available image.
+Queries your available images.
 
 ## Description {#section_jgn_1fz_xdb .section}
 
 When you call this interface, consider the following:
 
--   The displayed image resource list contains your custom images, public images provided by Alibaba Cloud, available images from the marketplace, and shared images from the other Alibaba Cloud users.
+-   The displayed image resource list contains your custom images, official images provided by Alibaba Cloud, available images from the marketplace, and shared images from the other Alibaba Cloud users.
 
--   You can query images by pages. The result consists of the total number of available image resources and all the image resources on the current page. By default, 10 images are displayed per page.
+-   You can query images by pages. The result consists of the total number of available image resources and all the image resources on the current page. By default, 10 images are displayed on one page.
 
 
 ## Request parameters {#RequestParameter .section}
@@ -16,7 +16,7 @@ When you call this interface, consider the following:
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: DescribeImages.|
-|RegionId|String|Yes|ID of the region to which an instance belongs. You can call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|ID of the region to which an instance belongs. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |ImageId|String|No|The image ID. You can specify multiple image IDs and separate these IDs with commas \(`,`\).|
 |Status|String|No|The image status. Optional values:-   Creating: The image is being created.
 -   Available: Available images.
@@ -29,7 +29,6 @@ Default value: Available supports obtaining multiple values. These values are se
 |ImageOwnerAlias|String|No|The alias of the image owner. Optional value:-   system: Public images provided by Alibaba Cloud.
 -   self: Your custom images.
 -   others: Your images that are shared from other Alibaba Cloud users.
--   marketplace: Images provided by [marketplace vendors](https://market.aliyun.com/)[marketplace vendors](https://marketplace.alibabacloud.com/). You need to pay attention to the charging details of the cloud market image.
 
 Default value: null. Null indicates that results of `system`, `self` and `others` are returned.|
 |Usage|String|No|Queries whether the specified image is running on ECS instance or not. Optional values:-   instance: The image is running in an ECS instance.
@@ -37,10 +36,8 @@ Default value: null. Null indicates that results of `system`, `self` and `others
 
 |
 |Tag.n.Key|String|No|The key of a tag. The value range of `n` is \[1, 5\]. If you query the images according to tags, the value of Tag.n.Key cannot be a null string.|
-|Tag.n.Value|String|No|The value of a tag. The value range of `n` is \[1, 5\]. If you query the images according to tags, the value of Tag.n.Value can be a null string.|
-|PageNumber|Integer|No|Page number of the instance status list. Start value: 1.Default value: 1.
-
-|
+|Tag.n.Key|String|Yes|The key of a tag of which n is from 1 to 20. Once you use this parameter, it cannot be a null string. It can be up to 64 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
+|Tag.n.Value|String|Yes|The value of a tag of which n is a number from 1 to 20. Once you use this parameter, it can be a null string. It can be up to 128 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
 |PageSize|Integer|No|Sets the number of lines per page for queries per page. Maximum value: 50.Default value: 10.
 
 |
@@ -53,7 +50,7 @@ Default value: null. Null indicates that results of `system`, `self` and `others
 |TotalCount|Integer|The number of items on the list.|
 |PageNumber|Integer|The current page.|
 |PageSize|Integer|The number of items on the current page.|
-| Images|Array|A collection composed of image information [ImageType](intl.en-US/API Reference/Data type/ImageType.md#) .|
+|Images|Array|A collection composed of image information [ImageType](reseller.en-US/API Reference/Data type/ImageType.md#).|
 
 ## Examples { .section}
 
@@ -110,47 +107,45 @@ https://ecs.aliyuncs.com/?Action=DescribeImages
  **JSON format** 
 
 ```
-
+{
   "Images": {
     "Image": [
-      
+      {
         "Architecture": "x86_64",
         "CreationTime": "2015-05-06T09:01:32Z",
         "DiskDeviceMappings": {
           "DiskDeviceMapping": [
-            
+            {
               "Device": "/dev/xvda",
               "Size": "20"
-            
-          
-        
+            }
+          ]
+        },
         "ImageId": "suse11sp3_64_20G_aliaegis_20150428.vhd",
         "ImageName": "suse11sp3_64_20G_aliaegis_20150428.vhd",
         "ImageOwnerAlias": "system",
         "ImageVersion": "1",
         "IsCopied": false,
         "IsSubscribed": false,
-        "OSName": "SUSE Linux Enterprise Server 11 SP3 64bit",
+        "OSName": "SUSE Linux  Enterprise Server 11 SP3 64位",
         "OSType": "linux",
         "Platform": "SUSE",
-        Progress: 100 ",
+        "Progress": "100%",
         "Size": 20,
         "Status": "Available",
         "Usage": "instance"
-      
-    
-  
+      }
+    ]
+  }
   "PageNumber": 1,
   "PageSize": 1,
   "RegionId": "cn-hangzhou",
   "RequestId": "49CBCED4-C9B9-4851-BEB5-8FB5E5169E30",
   "TotalCount": 24
-
+}
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message |HTTP status code |Meaning|
 |:---------|:-------------|:----------------|:------|
