@@ -12,7 +12,7 @@
 
 -   弹性网卡重新附加到另一台实例时，其属性跟随该弹性网卡，网络流量也会重定向到新的实例。
 
--   一个账号在一个阿里云地域内默认最多可创建100个弹性网卡。如果需要更多，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm)申请。
+-   一个账号在一个阿里云地域内默认最多可创建100个弹性网卡。如果需要更多，请[提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex)申请。
 
 
 ## 请求参数 {#RequestParameter .section}
@@ -20,7 +20,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：CreateNetworkInterface|
-|RegionId|String|是|实例所在地域的ID。您可以调用[DescribeRegions](../cn.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
+|RegionId|String|是|实例所在地域的ID。您可以调用[DescribeRegions](../intl.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
 |VSwitchId|String|是|指定VPC的交换机ID。|
 |SecurityGroupId|String|是|所属的安全组ID必须是同一个VPC下的安全组。|
 |PrimaryIpAddress|String|否|弹性网卡的主私有IP地址。指定IP必须是在所属交换机的地址段内的空闲地址，不指定则默认随机分配该交换机中的空闲地址。|
@@ -31,8 +31,8 @@
 
 |
 |Tag.n.Key|String|否|弹性网卡的标签键。n的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http://或者https://开头。|
-|Tag.n.Value|String|否|弹性网卡的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、http://或者https://开头。|
-|ClientToken|String|否|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅 [如何保证幂等性](../cn.zh-CN/API 参考/附录/如何保证幂等性.md#)。
+|Tag.n.Value|String|否|弹性网卡的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http://或者https://开头。|
+|ClientToken|String|否|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅[如何保证幂等性](../intl.zh-CN/API 参考/附录/如何保证幂等性.md#)。
 
 |
 
@@ -76,7 +76,7 @@ https://ecs.aliyuncs.com/?Action=CreateNetworkInterface
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP状态码|说明|
 |:---|:---|:------|:-|
