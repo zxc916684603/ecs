@@ -4,9 +4,9 @@ Create an ECS instance.
 
 ## Description {#section_nnh_jcy_wdb .section}
 
-Before creating an instance, you can call [DescribeAvailableResource](intl.en-US/API Reference/Others/DescribeAvailableResource.md#) to view the available resources in a specified region.
+Before creating an instance, you can call [DescribeAvailableResource](reseller.en-US/API Reference/Regions/DescribeAvailableResource.md#) to view the available resources in a specified region.
 
-You are billed when you launch ECS services, so make sure that you understand the billing methods of ECS instances \(`InstanceChargeType`\). And, you must maintain a sufficient balance in your linked credit card or PayPal account to complete the payment or preauthorization. For more information, see [Subscription](../intl.en-US/Pricing/Subscription.md#) \(`PrePaid`\) and [Pay-As-You-Go](../intl.en-US/Pricing/Pay-As-You-Go.md#) \(`PostPaid`\). For a subscribed \(`PrePaid`\) instance, your available coupons are the first payment options by default.
+You are billed when you launch ECS services, so make sure that you understand the billing methods of ECS instances \(`InstanceChargeType`\). And, you must maintain a sufficient balance in your linked credit card or PayPal account to complete the payment or preauthorization. For more information, see [Subscription](../reseller.en-US/Pricing/Subscription.md#) \(`PrePaid`\) and [Pay-As-You-Go](../reseller.en-US/Pricing/Pay-As-You-Go.md#) \(`PostPaid`\). For a subscribed \(`PrePaid`\) instance, your available coupons are the first payment options by default.
 
 When you call this interface, consider the following:
 
@@ -34,7 +34,7 @@ When you create an ECS instance, you must select an image for the system disk co
 
 -   `PrivateIpAddress` depends on `VSwitchId` and you must specify the VSwitch when you modify the `PrivateIpAddress` of your instance.
 
--   You can call [AllocatePublicIpAddress](intl.en-US/API Reference/Networks/AllocatePublicIpAddress.md#) to assign a public IP address.
+-   You can call [AllocatePublicIpAddress](reseller.en-US/API Reference/Networks/AllocatePublicIpAddress.md#) to assign a public IP address.
 
 -   When you create an instance, `InternetChargeType` and `InternetMaxBandwidthOut` determine the bandwidth costs. `InternetMaxBandwidthIn` is not related to billing, and the inbound data traffic for the instance is free.
 
@@ -47,11 +47,11 @@ When you create an ECS instance, you must select an image for the system disk co
 
 **Security groups**
 
--   The security group must be created in advance by using the [CreateSecurityGroup](intl.en-US/API Reference/Security groups/CreateSecurityGroup.md#) interface.
+-   The security group must be created in advance by using the [CreateSecurityGroup](reseller.en-US/API Reference/Security groups/CreateSecurityGroup.md#) interface.
 
--   You can specify the security group when creating the instance and change the instance security group by using the [ModifyInstanceAttribute](intl.en-US/API Reference/Instances/ModifyInstanceAttribute.md#) interface.
+-   You can specify the security group when creating the instance and change the instance security group by using the [ModifyInstanceAttribute](reseller.en-US/API Reference/Instances/ModifyInstanceAttribute.md#) interface.
 
--   Mutual access is allowed between instances in the same security group in the intranet. By default, firewalls are deployed between security groups, and mutual access between security groups is disabled. However, security group firewall permissions can be set through security group authorization \(by using the interface for granting security group permissions\). For more information, see [AuthorizeSecurityGroup](intl.en-US/API Reference/Security groups/AuthorizeSecurityGroup.md#) and [AuthorizeSecurityGroupEgress](intl.en-US/API Reference/Security groups/AuthorizeSecurityGroupEgress.md#).
+-   Mutual access is allowed between instances in the same security group in the intranet. By default, firewalls are deployed between security groups, and mutual access between security groups is disabled. However, security group firewall permissions can be set through security group authorization \(by using the interface for granting security group permissions\). For more information, see [AuthorizeSecurityGroup](reseller.en-US/API Reference/Security groups/AuthorizeSecurityGroup.md#) and [AuthorizeSecurityGroupEgress](reseller.en-US/API Reference/Security groups/AuthorizeSecurityGroupEgress.md#).
 
 -   The maximum number of instances in one security group is 1,000. If the security group exceeds this limit, an error message is displayed.
 
@@ -76,27 +76,27 @@ When you create an ECS instance, you must select an image for the system disk co
 
 -   A maximum of 16 data disks can be added to one instance. By default, device names of data disks are allocated in order, starting from /dev/xvdb to /dev/xvdz. If you choose ephemeral SSD \(`ephemeral_ssd`\) as the data disks of an instance, the system disk must be ephemeral SSD also. The total ephemeral SSD capacity of an instance, excluding the system disk, cannot exceed 1 TiB \(1,024 GiB\).
 
--   ECS does not allow users to separately create or add an ephemeral SSD. Therefore, the ephemeral SSD must be specified during instance creation. For more information of disk category and size limits, see [Instance type families](../intl.en-US/Product Introduction/Instance type families.md#).
+-   ECS does not allow users to separately create or add an ephemeral SSD. Therefore, the ephemeral SSD must be specified during instance creation. For more information of disk category and size limits, see [Instance type families](../reseller.en-US/Product Introduction/Instance type families.md#).
 
 
 **User data**
 
-[User data](../intl.en-US/User Guide/Instances/User-defined data and metadata/User data.md#) is provided by ECS for you to customize the startup behaviors of an ECS instance and to pass data into an ECS instance. UserData is encoded in Base64 format. User data transmission is not encrypted. We recommend that you do not contain confidential information, such as passwords or private keys, in plaintext.
+[User data](../reseller.en-US/User Guide/Instances/User-defined data and metadata/User data.md#) is provided by ECS for you to customize the startup behaviors of an ECS instance and to pass data into an ECS instance. UserData is encoded in Base64 format. User data transmission is not encrypted. We recommend that you do not contain confidential information, such as passwords or private keys, in plaintext.
 
 **Others**
 
 When you call API in the Alibaba Cloud CLI and SDK, remove the period \(.\) from the request parameters that contain periods \(.\), such as `SystemDisk.Category`, `SystemDisk.Size`, `SystemDisk.Description`, `DataDisk.n.Size`, `DataDisk.n.Category`, `DataDisk.n.SnapshotId`, `DataDisk.n.DiskName`, `DataDisk.n.Description`, `DataDisk.n.DeleteWithInstance`.
 
-For example, [CLI](https://www.alibabacloud.com/help/doc-detail/29993.htm)  and [SDK](https://github.com/aliyun), use `SystemDiskCategory` instead of `SystemDisk.Category`.
+For example, [CLI](https://partners-intl.aliyun.com/help/doc-detail/29993.htm)  and [SDK](https://github.com/aliyun), use `SystemDiskCategory` instead of `SystemDisk.Category`.
 
 ## Request parameters {#section_cx1_3cy_wdb .section}
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: CreateInstance.|
-|RegionId|String|Yes|Region ID of an instance. For more information, call [DescribeRegions](../intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|Region ID of an instance. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |ImageId|String|Yes|ID of an image file. An image is a running environment template for ECS instances. If you want to select image from the Alibaba Cloud marketplace, you can view the ImageId on the related image details page.|
-|InstanceType|String|Yes|Instance type. For more information, see [Instance Type Family](../intl.en-US/Product Introduction/Instance type families.md#), or call [DescribeInstanceTypes](intl.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to view the latest instance type list.|
+|InstanceType|String|Yes|Instance type. For more information, see [Instance Type Family](../reseller.en-US/Product Introduction/Instance type families.md#), or call [DescribeInstanceTypes](reseller.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to view the latest instance type list.|
 |SecurityGroupId|String|Yes|ID of the security group to which an ECS instance belongs. A security group is a firewall group that manages instances in the same region with the same security requirements and mutual trust.|
 |ZoneId|String|No|ID of a zone to which an instance belongs. If it is null, a zone is selected by the system. Default value: null.|
 |InstanceName|String|No|Name of an ECS instance.-   It can contain \[2, 128\] characters in length, must begin with an English or Chinese character, and can contain digits, periods \(.\), colons \(:\), underscores \(\_\), and hyphens \(-\).
@@ -133,7 +133,7 @@ If you specify a value for parameter `Password`, use HTTPS to call the API to av
 |IoOptimized|String|No|Whether it is an I/O-optimized instance or not. Optional values:-   none
 -   optimized
 
-For [phased-out instance types](https://www.alibabacloud.com/help/faq-detail/55263.htm), the default value is none.For other instance types, the default value is optimized.
+For [phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm), the default value is none.For other instance types, the default value is optimized.
 
 |
 |SystemDisk.Category|String|No|The category of the system disk. Optional values:-   Cloud: Basic cloud disk.
@@ -141,7 +141,7 @@ For [phased-out instance types](https://www.alibabacloud.com/help/faq-detail/552
 -   cloud\_ssd: Cloud SSD.
 -   ephemeral\_ssd: Ephemeral SSD.
 
-For [phased-out instance types](https://www.alibabacloud.com/help/faq-detail/55263.htm) and non-I/O optimized instances, the default value is cloud.Otherwise, the default value is cloud\_efficiency.
+For [phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm) and non-I/O optimized instances, the default value is cloud.Otherwise, the default value is cloud\_efficiency.
 
 |
 |SystemDisk.Size|Integer|No|Size of the system disk, measured in GiB. Value range: \[20, 500\]. The specified value must be equal to or greater than max\{20, Imagesize\}. Default value: max\{40, ImageSize\}.|
@@ -230,7 +230,7 @@ Default value: false.|
 
 |
 |UserData|String|No|The user data for an instance must be encoded in Base64 format. The maximum size of the user-defined data is 16 KB.|
-|ClientToken|String|No|Guarantees the idempotence of the request.  The value is generated by a client and must be globally unique. Only ASCII characters are allowed. It can contain a maximum of 64 ASCII characters. For more information, see [How to ensure idempotence](../intl.en-US/API Reference/Appendix/How to ensure idempotence.md#).
+|ClientToken|String|No|Guarantees the idempotence of the request.  The value is generated by a client and must be globally unique. Only ASCII characters are allowed. It can contain a maximum of 64 ASCII characters. For more information, see [How to ensure idempotence](../reseller.en-US/API Reference/Appendix/How to ensure idempotence.md#).
 
 |
 |KeyPairName|String|No|The name of the key pair.-   This parameter is valid only for a Linux instance. For a Windows ECS instance, if a value is set for parameter KeyPairName, the password still takes effect. Default value: null. If a value is set for parameter KeyPairName, the `Password` still takes effect.
@@ -238,7 +238,7 @@ Default value: false.|
 
 |
 |DeploymentSetId|String|No|Deployment Set ID. If you do not enter the value, 1 is used.|
-|RamRoleName|String|No|The RAM role name of the instance. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../../intl.en-US//Role Management Interface/ListRoles.md#). For more information, see [CreateRole](../../../../../intl.en-US//Role Management Interface/CreateRole.md#) and [ListRoles](../../../../../intl.en-US//Role Management Interface/ListRoles.md#).|
+|RamRoleName|String|No|The RAM role name of the instance. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../../reseller.en-US/.md#). For more information, see [CreateRole](../../../../../reseller.en-US/.md#) and [ListRoles](../../../../../reseller.en-US/.md#).|
 |SecurityEnhancementStrategy|String|No|Whether or not to enable security enhancement. Optional values:-   Active: Enables the security enhancement feature and installs a free network security software. Only applicable to the Alibaba Cloud official images.
 -   Deactive: Disables the security enhancement feature. No network security software is installed. Applicable to all kinds of images.
 
@@ -285,8 +285,6 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 ```
 
 ## Error codes {#section_oxx_skm_xdb .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code |Description|
 |:---------|:------------|:----------------|:----------|
@@ -371,7 +369,7 @@ Error codes specific to this interface are as follows. For more information, see
 |InvalidSnapshotId.NotDataDiskSnapshot|The specified snapshot is system disk snapshot.|403|A data disk cannot be created from the system disk snapshot.|
 |InvalidSnapshotId.NotReady|The specified snapshot has not completed yet.|403|The snapshot has not been completed yet.|
 |InvalidSystemDiskCategory.ValueUnauthorized|The disk category is not authorized.|403|You are not allowed to create a disk of the specified category.|
-|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|A RAM user must be [granted](../../../../../intl.en-US/Quick Start/Attach policies to a RAM user.md#) with a pass role permission before he or she specify RamRoleName for a new ECS instance.|
+|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|A RAM user must be [granted](../../../../../reseller.en-US/Quick Start/Attach policies to a RAM user.md#) with a pass role permission before he or she specify RamRoleName for a new ECS instance.|
 |InvalidVSwitchId.NotFound|The VSwitchId provided does not exist in our records.|403|The specified `VSwitchId` does not exist.|
 |IoOptimized.NotSupported|The specified image is not support IoOptimized Instance.|403|The instances of the specified instance type are not I/O optimized.|
 |IoOptimized.NotSupported|Vpc is not support IoOptimized instance.|403|I/O optimized instances are not supported in VPC.|

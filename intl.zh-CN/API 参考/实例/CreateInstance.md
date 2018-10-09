@@ -4,11 +4,9 @@
 
 ## 描述 {#section_nnh_jcy_wdb .section}
 
-创建一台实例前，您可以调用 [DescribeAvailableResource](cn.zh-CN/API 参考/其他接口/DescribeAvailableResource.md#) 查看指定地域或者可用区内的实例资源供给情况。
+创建一台实例前，您可以调用 [DescribeAvailableResource](intl.zh-CN/API 参考/地域/DescribeAvailableResource.md#) 查看指定地域或者可用区内的实例资源供给情况。
 
-创建实例会涉及到资源计费，建议您提前了解云服务器ECS的计费方式。更多详情，请参阅 [计费概述](../cn.zh-CN/产品定价/计费概述.md#)。若实例付费类型为预付费的包年包月实例（`PrePaid`），则在付款时默认会使用您可用的优惠券。
-
-创建实例需要通过实名认证。您可以参阅 [账号实名认证相关文档](https://help.aliyun.com/knowledge_list/37170.html) 完成认证。
+创建实例会涉及到资源计费，建议您提前了解云服务器ECS的计费方式。更多详情，请参阅[计费概述](../intl.zh-CN/产品定价/计费概述.md#)。若实例付费类型为预付费的包年包月实例（`PrePaid`），则在付款时默认会使用您可用的优惠券。
 
 根据请求参数创建实例时，您需要注意以下几类请求参数的使用说明。
 
@@ -36,7 +34,7 @@
 
 -   `PrivateIpAddress` 依赖于 `VSwitchId`，不能单独指定 `PrivateIpAddress`。
 
--   使用本接口创建的实例将不会分配公网IP，您可以调用 [AllocatePublicIpAddress](cn.zh-CN/API 参考/网络/AllocatePublicIpAddress.md#) 分配公网IP。
+-   使用本接口创建的实例将不会分配公网IP，您可以调用 [AllocatePublicIpAddress](intl.zh-CN/API 参考/网络/AllocatePublicIpAddress.md#) 分配公网IP。
 
 -   在创建实例时，`InternetChargeType` 和 `InternetMaxBandwidthOut` 的设置决定可能发生的带宽费用。`InternetMaxBandwidthIn` 的值在任何情况下都与计费无关，实例的入数据流量是免费的。
 
@@ -44,17 +42,16 @@
 
     |参数|InternetChargeType|InternetMaxBandwidthOut|
     |:-|:-----------------|:----------------------|
-    |参数取值|`PayByBandwidth`|按固定带宽付费。为所选的固定带宽值。|
-    |`PayByTraffic`|按使用流量付费。带宽的上限设置，计费以实际使用的网络流量为依据。|
+    |参数取值|`PayByTraffic`|按使用流量付费。带宽的上限设置，计费以实际使用的网络流量为依据。|
 
 
 **安全组**
 
--   安全组需要预先创建，可通过 [CreateSecurityGroup](cn.zh-CN/API 参考/安全组/CreateSecurityGroup.md#) 创建。
+-   安全组需要预先创建，可通过 [CreateSecurityGroup](intl.zh-CN/API 参考/安全组/CreateSecurityGroup.md#) 创建。
 
--   可以在新创建实例时指定安全组，也可通过 [ModifyInstanceAttribute](cn.zh-CN/API 参考/实例/ModifyInstanceAttribute.md#) 的接口变更实例所属安全组。
+-   可以在新创建实例时指定安全组，也可通过 [ModifyInstanceAttribute](intl.zh-CN/API 参考/实例/ModifyInstanceAttribute.md#) 的接口变更实例所属安全组。
 
--   在同一个安全组内的实例内网可以相互访问。不同安全组之间默认隔离，不可相互访问，但是可以授权访问。更多详情，请参阅 [AuthorizeSecurityGroup](cn.zh-CN/API 参考/安全组/AuthorizeSecurityGroup.md#) 和 [AuthorizeSecurityGroupEgress](cn.zh-CN/API 参考/安全组/AuthorizeSecurityGroupEgress.md#)。
+-   在同一个安全组内的实例内网可以相互访问。不同安全组之间默认隔离，不可相互访问，但是可以授权访问。更多详情，请参阅 [AuthorizeSecurityGroup](intl.zh-CN/API 参考/安全组/AuthorizeSecurityGroup.md#) 和 [AuthorizeSecurityGroupEgress](intl.zh-CN/API 参考/安全组/AuthorizeSecurityGroupEgress.md#)。
 
 -   同一个安全组内的实例数量不能超过1000台。
 
@@ -79,29 +76,29 @@
 
 -   一个实例最多添加16块数据盘。数据盘挂载点由系统默认顺序分配，/dev/xvdb开始到/dev/xvdz。数据盘选择本地SSD盘 `ephemeral_ssd` 时，系统盘必须为本地SSD盘，同时一个实例的本地SSD盘总容量不超过1 TiB（1024 GiB，不包括系统盘）。
 
--   本地SSD盘 `ephemeral_ssd` 必须在创建实例时指定，实例创建完成后不能再添加。更多详情，请参阅 [实例规格族](../cn.zh-CN/产品简介/实例规格族.md#)。
+-   本地SSD盘 `ephemeral_ssd` 必须在创建实例时指定，实例创建完成后不能再添加。更多详情，请参阅 [实例规格族](../intl.zh-CN/产品简介/实例规格族.md#)。
 
 
 **自定义数据**
 
-若实例满足使用 [实例自定义数据](../cn.zh-CN/用户指南/实例/实例自定义数据和元数据/实例自定义数据.md#) 的限制，您可传入UserData信息。UserData以Base64的方式编码。UserData将以不加密的方式传入，不要以明文方式传入机密的信息，例如密码和私钥等。如果必须传入，建议加密后，然后以Base64的方式编码后再传入，在实例内部以同样的方式反解密。
+若实例满足使用 [实例自定义数据](../intl.zh-CN/用户指南/实例/实例自定义数据和元数据/实例自定义数据.md#) 的限制，您可传入UserData信息。UserData以Base64的方式编码。UserData将以不加密的方式传入，不要以明文方式传入机密的信息，例如密码和私钥等。如果必须传入，建议加密后，然后以Base64的方式编码后再传入，在实例内部以同样的方式反解密。
 
 **其他**
 
 在阿里云CLI及SDK中使用API时，部分带点号（.）的入参需要去掉点号（.）再使用，包括：`SystemDisk.Category`、`SystemDisk.Size`、`SystemDisk.Description`、`DataDisk.n.Size`、`DataDisk.n.Category`、`DataDisk.n.SnapshotId`、`DataDisk.n.DiskName`、`DataDisk.n.Description`、`DataDisk.n.DeleteWithInstance`。
 
-例如，在 阿里云[CLI](https://help.aliyun.com/document_detail/29993.html)  及 [SDK](https://github.com/aliyun) 中使用 `SystemDiskCategory` 表示入参 `SystemDisk.Category`。
+例如，在 阿里云[CLI](https://www.alibabacloud.com/help/doc-detail/29993.htm)  及 [SDK](https://github.com/aliyun) 中使用 `SystemDiskCategory` 表示入参 `SystemDisk.Category`。
 
 ## 请求参数 {#section_cx1_3cy_wdb .section}
 
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：CreateInstance|
-|RegionId|String|是|实例所属的地域ID。您可以调用[DescribeRegions](../cn.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
+|RegionId|String|是|实例所属的地域ID。您可以调用[DescribeRegions](../intl.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
 |ImageId|String|是|镜像文件ID，启动实例时选择的镜像资源。如需使用云市场镜像，您可以在云市场镜像商详情页查看ImageId。|
-|InstanceType|String|是|实例的资源规格。更多详情，请参阅 [实例规格族](../cn.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](cn.zh-CN/API 参考/实例/DescribeInstanceTypes.md#) 接口获得最新的规格表。|
+|InstanceType|String|是|实例的资源规格。更多详情，请参阅 [实例规格族](../intl.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](intl.zh-CN/API 参考/实例/DescribeInstanceTypes.md#) 接口获得最新的规格表。|
 |SecurityGroupId|String|是|指定新创建实例所属于的安全组代码，同一个安全组内的实例之间可以互相访问。|
-|ZoneId|String|否|实例所属的可用区编号。更多详情，请参阅 [DescribeZones](cn.zh-CN/API 参考/地域/DescribeZones.md#) 获取可用区列表。空表示由系统选择，默认值：空。
+|ZoneId|String|否|实例所属的可用区编号。更多详情，请参阅 [DescribeZones](intl.zh-CN/API 参考/地域/DescribeZones.md#) 获取可用区列表。空表示由系统选择，默认值：空。
 
 |
 |InstanceName|String|否|实例的名称。长度为\[2, 128\]个英文或中文字符。必须以大小字母或中文开头，不能以http://和https://开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。如果没有指定该参数，默认值为实例的InstanceId。
@@ -110,8 +107,7 @@
 |Description|String|否|实例的描述。长度为\[2, 256\]个英文或中文字符，不能以http://和https://开头。默认值：空。
 
 |
-|InternetChargeType|String|否|网络计费类型。取值范围：-   PayByBandwidth：按固定带宽计费
--   PayByTraffic：按使用流量计费
+|InternetChargeType|String|否|网络计费类型。取值范围：-   PayByTraffic：按使用流量计费
 
 默认值：PayByTraffic|
 |InternetMaxBandwidthIn|String|否|公网入带宽最大值，单位为Mbit/s。取值范围：\[1,200\] 默认值：200
@@ -125,14 +121,14 @@
 -   其他类型实例（Linux等）：字符长度为\[2, 64\]，支持多个点号（.），点之间为一段，每段允许大小写英文字母、数字和短横线（-）。
 
 |
-|Password|String|否|实例的密码。长度为8至30个字符，必须同时包含大小写英文字母、数字和特殊符号。特殊符号可以是\(\)\`~!@\#$%^&\*-+=|\{\}\[\]:;‘<\>,.?/**说明：** 如果传入`Password`参数，建议您使用HTTPS协议发送请求，避免密码泄露。
+|Password|String|否|实例的密码。长度为8至30个字符，必须同时包含大小写英文字母、数字和特殊符号。特殊符号可以是\(\)\` ~!@\#$%^&\*-+=|\{\}\[\]:;‘<\>,.?/**说明：** 如果传入`Password`参数，建议您使用HTTPS协议发送请求，避免密码泄露。
 
 |
 |PasswordInherit|Boolean|否|是否使用镜像预设的密码。使用该参数时，`Password`参数必须为空，同时您需要确保使用的镜像已经设置了密码。|
 |IoOptimized|String|否|是否为I/O优化实例。取值范围：-   none：非I/O优化
 -   optimized：I/O优化
 
-[已停售的实例规格](https://help.aliyun.com/document_detail/55263.html) 实例默认值：none其他实例规格默认值：optimized
+[已停售的实例规格](https://www.alibabacloud.com/help/faq-detail/55263.htm) 实例默认值：none其他实例规格默认值：optimized
 
 |
 |SystemDisk.Category|String|否|系统盘的磁盘种类。取值范围：-   cloud：普通云盘
@@ -140,7 +136,7 @@
 -   cloud\_ssd：SSD云盘
 -   ephemeral\_ssd：本地SSD盘
 
-[已停售的实例规格](https://help.aliyun.com/document_detail/55263.html)且非 I/O 优化实例默认值：cloud否则，默认值：cloud\_efficiency
+[已停售的实例规格](https://www.alibabacloud.com/help/faq-detail/55263.htm)且非 I/O 优化实例默认值：cloud否则，默认值：cloud\_efficiency
 
 |
 |SystemDisk.Size|Integer|否|系统盘大小，单位为GiB。取值范围：\[20, 500\]该参数的取值必须大于或者等于max\{20, ImageSize\}。
@@ -177,7 +173,7 @@
 |DataDisk.n.DeleteWithInstance|Boolean|否|表示数据盘是否随实例释放。默认值：true
 
 这个参数只对独立云盘有效，即，参数`DataDisk.n.Category` 取值为 `cloud`、`cloud_efficiency` 或 `cloud_ssd` 的云盘，否则会报错。|
-|HpcClusterId|String|否|实例所属的[HPC](https://help.aliyun.com/document_detail/57677.html)集群ID。|
+|HpcClusterId|String|否|实例所属的集群ID。|
 |VSwitchId|String|否|如果是创建VPC类型的实例，需要指定虚拟交换机ID。|
 |PrivateIpAddress|String|否|实例私网IP地址。该IP地址必须为 `VSwitchId` 网段的子集网址。|
 |InstanceChargeType|String|否|实例的付费方式。取值范围：-   PrePaid：预付费，包年包月。选择该类付费方式时，您必须确认自己的账号支持余额支付/信用支付，否则将返回 `InvalidPayMethod` 的错误提示。
@@ -219,7 +215,7 @@
 
 |
 |UserData|String|否|实例自定义数据，需要以Base64方式编码，原始数据最多为16KB。|
-|ClientToken|String|否| 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅 [如何保证幂等性](../cn.zh-CN/API 参考/附录/如何保证幂等性.md#)。
+|ClientToken|String|否| 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅[如何保证幂等性](../intl.zh-CN/API 参考/附录/如何保证幂等性.md#)。
 
  |
 |KeyPairName|String|否|密钥对名称。-   Windows实例，忽略该参数。默认为空。即使填写了该参数，仍旧只执行 `Password` 的内容。
@@ -227,7 +223,7 @@
 
 |
 |DeploymentSetId|String|否|部署集ID。|
-|RamRoleName|String|否|实例RAM角色名称。您可以使用 *RAM* API [ListRoles](../../../../../cn.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#) 查询实例RAM角色名称。参考相关 API [CreateRole](../../../../../cn.zh-CN/API参考/API 参考（RAM）/角色管理接口/CreateRole.md#) 和 [ListRoles](../../../../../cn.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#) 。|
+|RamRoleName|String|否|实例RAM角色名称。您可以使用 *RAM* API [ListRoles](../../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#) 查询实例RAM角色名称。参考相关 API [CreateRole](../../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/CreateRole.md#) 和 [ListRoles](../../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#) 。|
 |SecurityEnhancementStrategy|String|否|是否开启安全加固。取值范围：-   Active：启用安全加固，只对系统镜像生效。
 -   Deactive：不启用安全加固，对所有镜像类型生效。
 
@@ -281,7 +277,7 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 
 ## 错误码 {#section_oxx_skm_xdb .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP状态码|说明|
 |:---|:---|:------|:-|
@@ -303,7 +299,7 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |InvalidHostName.Malformed|The specified parameter HostName is not valid.|400|指定的`HostName`格式不合法。|
 |InvalidHpcClusterId.NotFound|The specified HpcClusterId is not found.|400|指定的`HpcClusterId`不存在。|
 |InvalidHpcClusterId.Creating|The specified HpcClusterId is creating.|400|指定的`HpcClusterId`正在创建中。|
-|InvalidHpcClusterId.Unnecessary|The specified HpcClusterId is unnecessary.|400|只有部分实例规格 `InstanceType` 支持指定[HPC](https://help.aliyun.com/document_detail/57677.html)集群ID。|
+|InvalidHpcClusterId.Unnecessary|The specified HpcClusterId is unnecessary.|400|只有部分实例规格 `InstanceType` 支持指定集群ID。|
 |InvalidVSwitchId.Necessary|The HpcClusterId is necessary.|400|该实例规格 `InstanceType` 需要指定E-HPC集群ID，您需要传入 `HpcClusterId`。|
 |InvalidInstanceName.Malformed|The specified parameter InstanceName is not valid.|400|指定的`InstanceName`格式不合法。|
 |InvalidInstanceType.ValueNotSupported|The specified InstanceType beyond the permitted range.|400|指定的`InstanceType`不合法（超出可选范围）。|
@@ -367,7 +363,7 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |InvalidSnapshotId.NotDataDiskSnapshot|The specified snapshot is system disk snapshot.|403|系统盘快照不能创建数据盘。|
 |InvalidSnapshotId.NotReady|The specified snapshot has not completed yet.|403|快照没有完成。|
 |InvalidSystemDiskCategory.ValueUnauthorized|The disk category is not authorized.|403|磁盘种类未被授权使用。|
-|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|您使用的RAM用户账号暂不具有 `PassRole` 的权限，请联系主账号拥有者[授权](../cn.zh-CN/快速入门/为 RAM 用户授权.md#)PassRole 权限。|
+|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|您使用的RAM用户账号暂不具有`PassRole`的权限，请联系主账号拥有者[授权](../intl.zh-CN/快速入门/为 RAM 用户授权.md#)PassRole权限。|
 |InvalidVSwitchId.NotFound|The VSwitchId provided does not exist in our records.|403|指定的`VSwitchId`不存在。|
 |IoOptimized.NotSupported|The specified image is not support IoOptimized Instance.|403|指定的镜像不支持I/O优化实例。|
 |IoOptimized.NotSupported|Vpc is not support IoOptimized instance.|403|指定的VPC中无法创建I/O优化实例。|
