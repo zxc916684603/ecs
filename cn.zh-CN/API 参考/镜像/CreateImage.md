@@ -1,6 +1,6 @@
 # CreateImage {#CreateImage .reference}
 
-创建一份自定义镜像。您可以使用创建的自定义镜像创建ECS实例（[RunInstances](cn.zh-CN/API 参考/实例/RunInstances.md#)）或者更换实例的系统盘（[ReplaceSystemDisk](cn.zh-CN/API 参考/磁盘/ReplaceSystemDisk.md#)）。
+创建一份自定义镜像。您可以使用创建的自定义镜像创建ECS实例（[RunInstances](intl.zh-CN/API 参考/实例/RunInstances.md#)）或者更换实例的系统盘（[ReplaceSystemDisk](intl.zh-CN/API 参考/磁盘/ReplaceSystemDisk.md#)）。
 
 ## 描述 {#section_yqm_y5y_xdb .section}
 
@@ -8,7 +8,7 @@
 
 -   您需要等待镜像状态变为**可用**（`Available`）后才能使用镜像资源。
 
--   被[安全控制](../cn.zh-CN/API 参考/附录/安全锁定时的 API 行为.md#)的ECS实例的`OperationLocks`不能标记为`"LockReason" : "security"`。
+-   被[安全控制](../intl.zh-CN/API 参考/附录/安全锁定时的 API 行为.md#)的ECS实例的`OperationLocks`不能标记为`"LockReason" : "security"`。
 
 
 **创建方法**
@@ -35,7 +35,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：CreateImage|
-|RegionId|String|是|镜像所在的地域ID。您可以调用[DescribeRegions](../cn.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
+|RegionId|String|是|镜像所在的地域ID。您可以调用[DescribeRegions](../intl.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
 |InstanceId|String|否|实例ID。|
 |SnapshotId|String|否|根据指定的快照创建自定义镜像。|
 |Architecture|String|否|指定数据盘快照做镜像的系统盘后，需要通过Architecture确定系统盘的系统架构。取值范围：i386 | x86\_64（默认）|
@@ -59,7 +59,7 @@
 |
 |Tag.n.Key|String|否|镜像的标签键。n的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http://或者https://开头。|
 |Tag.n.Value|String|否|镜像的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http://或者https://开头。|
-|ClientToken|String|否|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅[如何保证幂等性](../cn.zh-CN/API 参考/附录/如何保证幂等性.md#)。
+|ClientToken|String|否|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅[如何保证幂等性](../intl.zh-CN/API 参考/附录/如何保证幂等性.md#)。
 
 |
 
@@ -103,7 +103,7 @@ https://ecs.aliyuncs.com/?Action=CreateImage
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP状态码|说明|
 |:---|:---|:------|:-|
