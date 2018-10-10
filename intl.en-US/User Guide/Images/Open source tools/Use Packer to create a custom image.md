@@ -4,11 +4,11 @@
 
 ## Prerequisites {#section_qbp_xcm_xdb .section}
 
-You must have the AccessKey ready. For more information, see [Create AccessKey](https://help.aliyun.com/document_detail/53045.html) .
+You must have the AccessKey ready. For more information, see [Create AccessKey](../../../../intl.en-US/General Reference/Create an AccessKey.md#) .
 
 **Note:** 
 
-The AccessKey has a high level of account privileges. To avoid improper operations and data breach, we recommend that you [Create a RAM user](../../../../intl.en-US/Quick Start/Create a RAM user.md#), and act as a RAM user to [create your AccessKey](https://help.aliyun.com/document_detail/53045.html).
+The AccessKey has a high level of account privileges. To avoid improper operations and data breach, we recommend that you [Create a RAM user](../../../../intl.en-US/Quick Start/Create a RAM user.md#), and act as a RAM user to [create your AccessKey](../../../../intl.en-US/General Reference/Create an AccessKey.md#).
 
 ## Step 1.  Install Packer {#section_j5g_gdm_xdb .section}
 
@@ -16,7 +16,7 @@ Go to the official  [download page of Packer](https://www.packer.io/downloads.h
 
 **To install Packer on a Linux server**
 
-1.  Connect and log on to the Linux server. If the server you want to connect to is an ECS Linux instance, see [Connect to a Linux instance by using a password](intl.en-US/User Guide/Connect/Connect to a Linux instance by using a password.md#).
+1.  Connect and log on to the Linux server. If the server you want to connect to is an ECS Linux instance, see [Connect to a Linux instance by using a password](intl.en-US/User Guide/Connect to instances/Connect to a Linux instance by using a password.md#).
 2.  Run `cd /usr/local/bin` to go to the /usr/local/bin directory. 
 
     **Note:** The /usr/local/bin directory is an environment variable directory. ou can install Packer to this directory or another directory that has been added to the environment variable.
@@ -29,7 +29,7 @@ Go to the official  [download page of Packer](https://www.packer.io/downloads.h
 
 Take Windows Server 2012 64-bit as an example:
 
-1.  Connect and log on to the Windows server. If the server you want to connect to is an ECS Windows instance, see [Connect to a Windows instance](intl.en-US/User Guide/Connect/Connect to a Windows instance.md#).
+1.  Connect and log on to the Windows server. If the server you want to connect to is an ECS Windows instance, see [Connect to a Windows instance](intl.en-US/User Guide/Connect to instances/Connect to a Windows instance.md#).
 2.  Open the official [download page of Packer](https://www.packer.io/downloads.html)  and select an appropriate Packer installer for 64-bit Windows.
 3.  Unzip the package to a specified directory and install Packer.
 4.  Define the directory for Packer in the PATH environment variable.
@@ -49,31 +49,31 @@ To create a custom image by using Packer, firstly, create a JSON format template
 Create a JSON file named alicloud and paste the following content:
 
 ```
-
-
-"variables": {
-"access_key": "{{env `ALICLOUD_ACCESS_KEY`}}",
-"secret_key": "{{env `ALICLOUD_SECRET_KEY`}}"
-
-"builders": [{
-"type":"alicloud-ecs",
-"access_key":"{{user `access_key`}}",
-"secret_key":"{{user `secret_key`}}",
-"region":"cn-beijing",
-"image_name":"packer_basic",
-"source_image":"centos_7_02_64_20G_alibase_20170818.vhd",
-"ssh_username":"root",
-"instance_type":"ecs.n1.tiny",
-"internet_charge_type":"PayByTraffic",
-"io_optimized":"true"
-
-"provisioners": [{
-"type": "shell",
-"inline": [
-"sleep 30",
-"yum install redis.x86_64 -y"
-
-
+{
+     "variables": {
+       "access_key": "{{env `ALICLOUD_ACCESS_KEY`}}",
+       "secret_key": "{{env `ALICLOUD_SECRET_KEY`}}"
+     },
+     "builders": [{
+       "type":"alicloud-ecs",
+       "access_key":"{{user `access_key`}}",
+       "secret_key":"{{user `secret_key`}}",
+       "region":"cn-beijing",
+       "image_name":"packer_basic",
+       "source_image":"centos_7_02_64_20G_alibase_20170818.vhd",
+       "ssh_username":"root",
+       "instance_type":"ecs.n1.tiny",
+       "internet_charge_type":"PayByTraffic",
+       "io_optimized":"true"
+     }],
+     "provisioners": [{
+       "type": "shell",
+       "inline": [
+         "sleep 30",
+         "yum install redis.x86_64 -y"
+       ]
+     }]
+   }
 
 ```
 
@@ -81,7 +81,7 @@ Create a JSON file named alicloud and paste the following content:
 
 |Parameter| Description|
 |access\_key| Your AccessKey ID For more details, see creating an accesskey.|
-|secret\_key|Your AccessKey Secret For more information, see [Create AccessKey](https://help.aliyun.com/document_detail/53045.html).|
+|secret\_key|Your AccessKey Secret For more information, see [Create AccessKey](../../../../intl.en-US/General Reference/Create an AccessKey.md#).|
 |region|The region of the temporary instance used to create the custom image. |
 |image\_name| The custom image’s name|
 |source\_image|You can retrieve the basic image name from Alibaba Cloud public image list.|
@@ -100,19 +100,18 @@ Follow these step to specify the Packer template file and create a custom image:
 The sample runs like follows. The sample creates a custom image containing ApsaraDB for Redis and runs as follows:
 
 ```
-
 alicloud-ecs output will be in this color.
 ==> alicloud-ecs: Prevalidating alicloud image name...
 alicloud-ecs: Found image ID: centos_7_02_64_20G_alibase_20170818.vhd
 ==> alicloud-ecs: Start creating temporary keypair: packer_59e44f40-c8d6-0ee3-7fd8-b1ba08ea94b8
 ==> alicloud-ecs: Start creating alicloud vpc
-
+---------------------------
 ==> alicloud-ecs: Provisioning with shell script: /var/folders/3q/w38xx_js6cl6k5mwkrqsnw7w0000gn/T/packer-shell257466182
 alicloud-ecs: Loaded plugins: fastestmirror
-
-alicloud-ecs: Total 1.3 MB/s | 650 kB 00:00
+---------------------------
+alicloud-ecs: Total                                              1.3 MB/s | 650 kB 00:00
 alicloud-ecs: Running transaction check
-
+---------------------------
 ==> alicloud-ecs: Deleting temporary keypair...
 Build 'alicloud-ecs' finished.
 ==> Builds finished. The artifacts of successful builds are:
@@ -122,7 +121,7 @@ cn-beijing: m-2ze12578be1oa4ovs6r9
 
 ## Next steps {#section_chp_qdv_ydb .section}
 
-You can use this custom image to create an ECS instance. For more information, see [Create an instance from a custom Image](intl.en-US/User Guide/Instances/Create an instance/Create an instance from a custom Image.md#).
+You can use this custom image to create an ECS instance. For more information, see [Create an instance from a custom image](intl.en-US/User Guide/Instances/Create an instance/Create an instance from a custom image.md#).
 
 ## References {#section_ntx_rdv_ydb .section}
 
