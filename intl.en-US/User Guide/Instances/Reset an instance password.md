@@ -1,8 +1,8 @@
 # Reset an instance password {#concept_qct_gfl_xdb .concept}
 
-If you did not specify a logon password for an instance at the time of creation, or the password is lost, specify a new password in the ECS console. This article describes how to use the Reset Password feature to specify a new logon password.
+This article describes how to use the Reset Password feature to specify a new logon password for an instance.
 
-**Note:** You must restart an instance after its password is reset, which may impact the service. To reduce the impact, we recommend that you reset the password when the related service is not busy.
+**Note:** You must restart an instance after its password is reset, which may disrupt services. Exercise caution when performing this action.
 
 ## Prerequisite {#section_mg1_3fl_xdb .section}
 
@@ -14,14 +14,18 @@ To reset a password for one or multiple ECS instances, follow these steps:
 
 1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
 2.  In the left-side navigation pane, click **Instances**.
-3.  Select a region.
+3.  Select the target region.
 4.  According to the number of instances to be operated, do the following:
-    -   To reset the password for one instance, find the instance, and in the **Actions** column, select **More** \> **Reset Password**.
+    -   To reset the password for one instance, find the target instance and, in the **Actions** column, select **More** \> **Reset Password**.
 
-    -   To reset the passwords for multiple instances, select the instances, and under the instance list, click **Reset Password**.
+    -   To reset the passwords for multiple instances, select the target instances and, under the instance list, click **Reset Password**.
 
-5.  In the Reset Password dialog box, specify a new valid password, and click **Submit**.
-6.  Operate different actions to make the password effective according to the instance status:
+5.  Specify a new valid password, and click **Submit**.
+6.  To make the password change take effect, change the instance status to one of the following:
     -   **Running**: [Restart an instance](intl.en-US/User Guide/Instances/Restart an instance.md#) in the console.
     -   **Stopped**: Start the instance in the console.
+
+## Related operations {#section_sg1_3fl_xdb .section}
+
+To modify the password: follow [Step 3: Connect to an instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 3: Connect to an instance.md#), then .
 
