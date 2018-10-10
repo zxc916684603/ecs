@@ -23,7 +23,7 @@ You must have activated the RAM service. See [Activation method](../../../../int
     2.  Select **ECS \(Elastic Compute Service\)** for **Type**.
     3.  Enter the role name and description, for example, EcsRamRoleDocumentTesting.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/5501_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/15391709975501_en-US.png)
 
     4.  Click **Create** to create the instance RAM role.
 
@@ -38,7 +38,7 @@ You must have activated the RAM service. See [Activation method](../../../../int
 
         **Note:** For more information about how to write the authorization policy by using the JSON language, see [Policy syntax structure](../../../../intl.en-US/User Guide/Policy Language/Policy syntax structure.md#).
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/5502_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/15391709975502_en-US.png)
 
     3.  Click **Create Authorization Policy** to complete authorization.
 5.  On the left-side navigation pane, click **Roles**.
@@ -46,7 +46,7 @@ You must have activated the RAM service. See [Activation method](../../../../int
 7.  Enter the **authorization policy name** and click it, for example, EcsRamRoleDocumentTestingPolicy.
 8.  Click the icon **\>** to select the policy name, and click **OK**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/5503_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/15391709975503_en-US.png)
 
 
 ## 3. Attach an instance RAM role {#section_mpc_cdt_xdb .section}
@@ -65,7 +65,7 @@ You must have activated the RAM service. See [Activation method](../../../../int
 4.  Select an ECS instance, and select ** More \>** \> **Attach/Detach RAM Role**.
 5.  Select **Detach** for **Action**, and click **OK** to detach the instance RAM role.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/5506_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/15391709975506_en-US.png)
 
 
 ## 5. \(Optional\). Replace an instance RAM role {#section_wfl_2wt_xdb .section}
@@ -76,7 +76,7 @@ You must have activated the RAM service. See [Activation method](../../../../int
 4.  Select an ECS instance, and select ** More \>** \> **Attach/Detach RAM Role**.
 5.  Select **Attach** for **Action**, select another instance RAM role in the list of RAM Role, and click **OK** to replace the current RAM role.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/5507_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/15391709985507_en-US.png)
 
 
 ## 6. \(Optional\). Obtain the authorization credential {#Token .section}
