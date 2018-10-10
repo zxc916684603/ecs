@@ -20,8 +20,6 @@ A security group is a logical group that contains instances in the same region w
 -   Adjusting security groups will not affect the continuity of user service.
 -   Security groups are stateful. If an outbound packet is permitted, inbound packets corresponding to this connection will also be permitted.
 
-For more information, see [Security groups](https://help.aliyun.com/knowledge_detail/87018.html).
-
 ## Security group rules {#section_vsf_nqw_ydb .section}
 
 Security group rules can be set that permit or forbid ECS instances in a security group from accessing a public network or intranet in the inbound and outbound directions.
