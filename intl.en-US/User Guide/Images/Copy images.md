@@ -11,7 +11,7 @@ Copying images allows you to deploy an application across regions by running the
 
 To copy images in the ECS console, perform the following steps:
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/) .
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/).
 2.  Select a region.
 3.  In the left-side navigation pane, select **Snapshots and Images** \> **Images**.
 4.  Select the custom image you want to copy. Note that **Type** must be **Custom Images**. In the **Actions** column, click **Copy Image**.
@@ -26,7 +26,7 @@ To copy images in the ECS console, perform the following steps:
 
     **Note:** If **Progress** is not 100%, **Status** is **Creating**. In this case, you can click **Cancel Copy** to cancel the operation. After the operation is canceled, the image information is removed from the target region.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9699/15381870916780_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9699/15391774316780_en-US.png)
 
 
 You can also use the ECS APIs [CopyImage](intl.en-US/API Reference/Images/CopyImage.md#) and [CancelCopyImage](intl.en-US/API Reference/Images/CancelCopyImage.md#) to perform the operation.
