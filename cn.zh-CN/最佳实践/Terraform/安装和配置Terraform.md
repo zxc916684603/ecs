@@ -18,8 +18,8 @@
 
 4.  为提高权限管理的灵活性和安全性，建议您创建RAM用户，并为其授权。 
     1.  登录 [RAM控制台](https://ram.console.aliyun.com/#/overview)。
-    2.  创建名为Terraform的RAM用户，并为该用户创建AccessKey。具体步骤参见 [创建RAM用户](../../../../cn.zh-CN/快速入门/创建 RAM 用户.md#)。
-    3.  为RAM用户授权。在本示例中，给用户Terraform授予`AliyunECSFullAccess`和`AliyunVPCFullAccess`权限，具体步骤参见 [为RAM用户授权](../../../../cn.zh-CN/快速入门/为 RAM 用户授权.md#)。
+    2.  创建名为Terraform的RAM用户，并为该用户创建AccessKey。具体步骤参见 [创建RAM用户](../../../../intl.zh-CN/快速入门/创建 RAM 用户.md#)。
+    3.  为RAM用户授权。在本示例中，给用户Terraform授予`AliyunECSFullAccess`和`AliyunVPCFullAccess`权限，具体步骤参见 [为RAM用户授权](../../../../intl.zh-CN/快速入门/为 RAM 用户授权.md#)。
 5.  创建环境变量，用于存放身份认证信息。 
 
     ```
