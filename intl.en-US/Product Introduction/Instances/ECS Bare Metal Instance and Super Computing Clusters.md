@@ -99,3 +99,5 @@ EBM Instances and SCC instances support Subscription and Pay-As-You-Go. For more
 
 You can [create an EBM instance](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create an EBM instance.md#) or [create an SCC server instance](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create an SCC server instance.md#) in the console.
 
+For more information, see [FAQs about EBM Instances](https://partners-intl.aliyun.com/help/faq-detail/66558.htm) and [SCC FAQ](https://partners-intl.aliyun.com/help/faq-detail/89878.htm).
+
