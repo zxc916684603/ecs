@@ -38,13 +38,13 @@
 
         **说明：** **Number of bits in a generated key** 的值不需要设置，软件会根据导入的私钥信息自动更新。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15392381735187_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15392387505187_zh-CN.png)
 
     3.  单击 **Load**，选择显示所有类型的文件，找到您的 .pem 文件。
 
         **说明：** PuTTYgen默认仅显示扩展名为 .ppk 的文件。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15392381735188_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15392387505188_zh-CN.png)
 
     4.  选择您从阿里云下载的.pem格式的私钥文件，然后单击 **打开**。
     5.  单击 **OK**（确定）关闭确认对话框。
@@ -53,14 +53,14 @@
 2.  启动PuTTY。
 3.  选择 **Connection** \> **SSH** \> **Auth**，再单击 **Browse…**，选择前面所生成的.ppk文件。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15392381735191_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15392387505191_zh-CN.png)
 
 4.  单击 **Session**。
     -   在 Host Name \(or IP address\) 里输入账号和需要连接的实例公网IP地址，格式为 root@IP 地址。
     -   在 Port 里输入端口号 22。
     -   Connection type 选择 SSH。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15392381735192_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15392387505192_zh-CN.png)
 
 5.  单击 **Open**，开始连接您的Linux实例。
 
@@ -98,11 +98,11 @@
     1.  进入根目录下的ssh目录，按照如下方式修改config文件。
 
         ```
-        Host ecs    // 设置ECS实例的名称
-        HostName 192.*.*.* //输入 ECS实例的公网IP地址
-        Port 22   /输入/ 端口号，默认为22
-        User root   // 登录账号
-        IdentityFile ~/.ssh/ecs.pem // .p文件em私钥在本机的地址
+        Host ecs    // 输入ECS实例的名称
+        HostName 192.*.*.*   // 输入ECS实例的公网IP地址
+        Port 22   // 输入端口号，默认为22
+        User root   // 输入登录账号
+        IdentityFile ~/.ssh/ecs.pem // 输入.pem私钥文件在本机的地址
         ```
 
     2.  保存config文件。
