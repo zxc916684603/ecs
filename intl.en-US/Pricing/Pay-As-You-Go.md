@@ -20,7 +20,7 @@ You can make following changes after activating Pay-As-You-Go resources:
 
 -   Billing method change:
 
-    Instances, system disks, and data disks support switching from Pay-As-You-Go billing to Subscription billing. For more information, see [Switch from Pay-As-You-Go to subscription](intl.en-US/Pricing/Limits.md#).
+    Instances, system disks, and data disks support switching from Pay-As-You-Go billing to Subscription billing. For more information, see [Switch from Pay-As-You-Go to Subscription billing](intl.en-US/Pricing/Limits.md#).
 
 
 ## Payment methods {#section_igl_wcg_c2b .section}
