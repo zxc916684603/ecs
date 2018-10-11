@@ -103,7 +103,7 @@ Data is users’ core asset. Many users establish websites and databases \(MYSQL
 
         You log on to the ECS console to change the attributes of the disks to **enable snapshot release with the disk**. Disable snapshot release with the disk if you want to retain the snapshots.
 
-        For more information, see [FAQ about automatic snapshots](https://www.alibabacloud.com/help/zh/faq-detail/40552.htm).
+        For more information, see [FAQ about automatic snapshots](https://www.alibabacloud.com/help/faq-detail/40552.htm).
 
     -   **Create manual snapshots**
 
