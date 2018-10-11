@@ -37,7 +37,7 @@ To downgrade the configuration of a Subscription instance during renewal, follow
     -   Set the bandwidth value.
     -   Set the renewal duration.
 7.  Click **Pay**, and follow the prompts to complete the process.
-8.  \(Optional\) If you have changed instance specifications, or changed the public network bandwidth of an instance in a classic network from 0 Mbit/s to a non-zero value for the first time, you must restart the instance [in the console](../../../../intl.en-US/User Guide/Instances/Restart an instance.md#) or by using the [RebootInstance](../../../../intl.en-US/API Reference/Instances/RebootInstance.md#) API within the first seven days of the next billing period. This step is necessary for the new configurations to be effective.
+8.  \(Optional\) If you have changed instance specifications, or changed the public network bandwidth of an instance in a classic network from 0 Mbit/s to a non-zero value for the first time, you must [restart the instance](../../../../intl.en-US/User Guide/Instances/Restart an instance.md#) in the console or by using the [RebootInstance](../../../../intl.en-US/API Reference/Instances/RebootInstance.md#) API within the first seven days of the next billing period. This step is necessary for the new configurations to be effective.
 
     **Note:** For a VPC instance, the instance does not need to be restarted.
 
