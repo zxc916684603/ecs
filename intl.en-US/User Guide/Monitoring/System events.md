@@ -51,7 +51,7 @@ System events observe the following two periods:
 -   **User operation period**: The period between initiation and scheduled time of system events. Normally, you receive a notification from 24 to 48 hours before a system failure event is fixed, from 7 to 15 days before a Subscription instances is stopped, and 1 hour before a Pay-As-You-Go instance is stopped. During this period, you can choose the recommended methods to handle system events in advance. You can also wait until the default actions are triggered.
 -   System action period: Generally, if you wait until we take the default action, system events are automatically fixed within 6 hours after the system action period begins at a scheduled time, instances are released 15 days later if no renewal or recharge are made. Later you receive the report of system events.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9748/15380492973942_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9748/15392215563942_en-US.png)
 
     **Note:** Only scheduled system events have user operation period. Unexpected system events that are caused by emergency failures or invalid operations do not have user operation periods. Once unexpected system events occur, you will receive notifications, but you cannot take any action. However, you can query the system events history for fault diagnosis, cause analysis, or data recovery.
 
@@ -60,7 +60,7 @@ System events observe the following two periods:
 
 If a system event is scheduled, the **Unsettled events** button in the ECS console shows a highlighted tag to remind you to check the event.
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/) .
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/).
 2.  In the left-side navigation pane, select **Overview**.
 3.  Select **Unsettled events** from the navigation pane on the right-side of the Overview page.
 4.  On the **Unsettled events** page, you can see the list of instance IDs, regions, and running status, system events, recommended user operations, and buttons for operations. Optionally, you can choose recommended user operations under the Actions column to handle the system events.
@@ -97,7 +97,11 @@ We recommend that you [Create snapshots](intl.en-US/User Guide/Snapshots/Create 
 
 |
 |A Subscription instance stops due to expiration.|InstanceExpiration.Stop|You can either [renew the instances](../intl.en-US/Pricing/Renew instances/Renewal overview.md#) or wait for the instances to stop.|
-|A Pay-As-You-Go instance stops due to overdue payment.|AccountUnbalanced.Stop|You can either [recharge your account](https://expense.console.aliyun.com/#/account/recharge/alipay) or wait for the instances to stop.|
+|A Pay-As-You-Go instance stops due to overdue payment.|AccountUnbalanced.Stop| You can either [recharge your account](https://expense.console.aliyun.com/#/account/recharge/alipay) or wait for the instances to stop.
+
+ |
 |A Subscription instance is released due to expiration.|InstanceExpiration.Delete|You can either [renew the instances](../intl.en-US/Pricing/Renew instances/Renewal overview.md#) or wait for the instances to be released.|
-|A Pay-As-You-Go instance is released due to overdue payment.|AccountUnbalanced.Delete|You can either [recharge your account](https://expense.console.aliyun.com/#/account/recharge/alipay) or wait for the instances to be released.|
+|A Pay-As-You-Go instance is released due to overdue payment.|AccountUnbalanced.Delete| You can either [recharge your account](https://expense.console.aliyun.com/#/account/recharge/alipay) or wait for the instances to be released.
+
+ |
 
