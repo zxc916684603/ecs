@@ -29,7 +29,7 @@ The ECS instance you want to switch the billing method for must meet the followi
 
 ## Procedure {#section_s3c_51f_zdb .section}
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/).
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/#/home).
 2.  In the left-side navigation pane, click **Instances**.
 3.  Select a region.
 4.  Select one or more Pay-As-You-Go instances, and under the instance list, click **Switch to Subscription**.
