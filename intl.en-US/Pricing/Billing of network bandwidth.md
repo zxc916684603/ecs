@@ -13,7 +13,9 @@ The following table lists Internet bandwidth types and related information for E
 |Outbound bandwidth|The bandwidth for outbound traffic from ECS instances. For example, your ECS instances provide external access or you want to download internal resources from the ECS instances by using an FTP client.| -   For Subscription instances, the maximum speed is 200 Mbit/s.
 -   For Pay-As-You-Go instances, the maximum speed is 100 Mbit/s.
 
- |[Open a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to increase the bandwidth limit to 200 Mbit/s for a Pay-As-You-Go instance.|
+ | [Open a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to increase the bandwidth limit to 200 Mbit/s for a Pay-As-You-Go instance.
+
+ |
 |Inbound bandwidth|The bandwidth for inbound traffic to ECS instances. For example, you want to download resources for external networks from inside the ECS instance, or upload resources to ECS instances by using an FTP client.|The maximum speed is 200 Mbit/s.|The limit cannot be increased.|
 
 Alibaba Cloud only charges fees for outbound traffic usage. The fee is calculated on an hourly basis and the billing unit is USD/GB. To prevent high charges because of sudden traffic spikes, you can set a peak value for outbound bandwidth while creating an instance.
@@ -28,7 +30,7 @@ You can use different methods to purchase Internet bandwidth for different Inter
 
     **How to purchase**: When [creating an ECS instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#), in the **Network Billing Method** section, select **Assign public IP**.
 
--   If your ECS instance is in a VPC network and you want to use an EIP \(Elastic IP address\) to access the Internet, you only need to purchase the EIP service. For more information about the EIP service, see [EIP address related documentation](https://www.alibabacloud.com/help/doc-detail/32321.htm).
+-   If your ECS instance is in a VPC network and you want to use an EIP \(Elastic IP address\) to access the Internet, you only need to purchase the EIP service. For more information about the EIP service, see [EIP address related documentation](../../../../intl.en-US/Product Introduction/What is Elastic IP Address?.md#).
 
     **Note:** If your ECS instances access the Internet by using an EIP address, you must not select **Assign public IP** when you create an instance.
 
