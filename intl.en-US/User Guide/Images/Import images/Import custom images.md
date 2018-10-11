@@ -11,7 +11,7 @@ You can import on-premise image files to the ECS environment for deploying your 
 
 Before importing an image, you should have done the following:
 
--   Learn about the limitations and requirements of importing custom images by referring to [Notes for importing images](intl.en-US/User Guide/Images/Import images/Notes for importing custom images.md#), [Customize Linux images](intl.en-US/User Guide/Images/Import images/Configure Customized Linux images.md#), and [Convert image format](intl.en-US/User Guide/Images/Import images/Convert image file format.md#).
+-   Learn about the limitations and requirements of importing custom images by referring to [Notes for importing images](intl.en-US/User Guide/Images/Import images/Notes for importing images.md#), [Customize Linux images](intl.en-US/User Guide/Images/Import images/Customize Linux images.md#), and [Convert image format](intl.en-US/User Guide/Images/Import images/Convert image file format.md#).
 -   [Sign up for OSS](../../../../../intl.en-US/Quick Start/Sign up for OSS.md#).
 -   \(Optional\) If you are using a RAM sub-account, you need to contact the master account in advance to obtain the permission for the [`AliyunECSImageImportDefaultRole`](https://ram.console.aliyun.com/#/role/detail/AliyunECSImageImportDefaultRole/info) role.
 
@@ -20,10 +20,10 @@ Before importing an image, you should have done the following:
 To import custom images in the ECS console, perform these steps:
 
 1.  You can use an OSS third-party client, OSS API or OSS SDK to upload the prepared custom image. For how to upload a file larger than 5 GiB, see *OSS* [Multipart upload](../../../../../intl.en-US/Developer Guide/Upload files/Multipart upload.md#).
-2.  Log on to [ECS console](https://ecs.console.aliyun.com/) .
+2.  Log on to [ECS console](https://ecs.console.aliyun.com/).
 3.  In the left-side navigation pane, choose **Snapshots and Images** \> **Images**.
 4.  On the Images page, click **Import Image**.
-5.  In the Import Image dialog box, click **Confirm Address** as shown below.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9706/15381249177027_en-US.png)
+5.  In the Import Image dialog box, click **Confirm Address** as shown below.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9706/15392222447027_en-US.png)
 6.  In the Cloud Resource Access Authorization window, select `AliyunECSImageImportDefaultRole` and `AliyunECSExportDefaultRole`, then click **Confirm Authorization Policy** to allow the ECS service to access your OSS resources.
 7.  On the Images page, click **Import Image** again.
 8.  In the Import Image dialog box, enter the following information:
