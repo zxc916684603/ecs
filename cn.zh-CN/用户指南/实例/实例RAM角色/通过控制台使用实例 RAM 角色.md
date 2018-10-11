@@ -6,8 +6,8 @@
 
 -   只有专有网络 （VPC） 网络类型的 ECS 实例才能使用实例 RAM 角色。
 -   一个 ECS 实例一次只能授予一个实例 RAM 角色。
--   当您给 ECS 实例授予了实例 RAM 角色后，并希望在 ECS 实例内部部署的应用程序中访问云产品的 API 时，您需要通过 [实例元数据](intl.zh-CN/用户指南/实例/实例自定义数据和元数据/实例元数据.md#) 获取实例 RAM 角色的临时授权 Token。参阅 [6. （可选）获取临时授权 Token](#Token)。
--   如果您是通过 RAM 用户子账号使用实例 RAM 角色，您需要通过云账号 [7. （可选）授权 RAM 用户使用实例 RAM 角色](#Authorize)。
+-   当您给 ECS 实例授予了实例 RAM 角色后，并希望在 ECS 实例内部部署的应用程序中访问云产品的 API 时，您需要通过 [实例元数据](intl.zh-CN/用户指南/实例/实例自定义数据和元数据/实例元数据.md#) 获取实例 RAM 角色的临时授权 Token。参阅 [获取临时授权 Token](#)。
+-   如果您是通过 RAM 用户子账号使用实例 RAM 角色，您需要通过云账号 [授权 RAM 用户使用实例 RAM 角色](#)。
 
 ## 前提条件 {#section_z4c_cdt_xdb .section}
 
@@ -23,7 +23,7 @@
     2.  **类型信息** 选择 **ECS 云服务器**。
     3.  输入角色名称及备注，如 EcsRamRoleDocumentTesting。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/15391709915501_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/15392393545501_zh-CN.png)
 
     4.  单击 **确认** 完成新建。
 
@@ -38,7 +38,7 @@
 
         **说明：** 关于如何编写策略内容，您可以参阅 RAM 文档 [Policy 语法结构](../../../../intl.zh-CN/用户指南/授权策略语言/Policy 语法结构.md#)。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/15391709925502_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/15392393545502_zh-CN.png)
 
     3.  单击 **新建授权策略** 完成授权。
 5.  在导航窗格中，单击 **角色管理**。
@@ -46,7 +46,7 @@
 7.  输入创建的 **授权策略名称**，如 EcsRamRoleDocumentTestingPolicy。
 8.  单击符号 **\>** 选中策略名，单击 **确认**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/15391709925503_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/15392393545503_zh-CN.png)
 
 
 ## 3. 授予实例 RAM 角色 {#section_mpc_cdt_xdb .section}
@@ -65,7 +65,7 @@
 4.  选择一个已经授予 RAM 角色的 ECS 实例，选择 **更多** \> **实例设置** \> **授予/收回 RAM 角色**。
 5.  **操作类型** 选择 **收回**，单击 **确定** 即可收回实例 RAM 角色。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/15391709925506_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/15392393545506_zh-CN.png)
 
 
 ## 5. （可选）更换实例 RAM 角色 {#section_wfl_2wt_xdb .section}
@@ -76,7 +76,7 @@
 4.  选择一个已经授予 RAM 角色的 ECS 实例，选择 **更多** \> **实例设置** \> **授予/收回 RAM 角色**。
 5.  **操作类型** 选择 **授予**，在已有 **RAM 角色** 中选择其他实例 RAM 角色，单击 **确定** 即可更换当前 RAM 角色。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/15391709925507_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9665/15392393545507_zh-CN.png)
 
 
 ## 6. （可选）获取临时授权 Token {#Token .section}
