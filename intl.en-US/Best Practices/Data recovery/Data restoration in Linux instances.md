@@ -1,6 +1,6 @@
 # Data restoration in Linux instances {#concept_52046_zh .concept}
 
-<p data-spm-anchor-id="a2762.11472859.0.i3.c216203b3VaERZ"\>When solving problems related to disks, you may frequently encounter the loss of data disk partitions. This article describes common data partition loss problems and corresponding solutions in Linux, and provides common mistakes and best practices for cloud disks to avoid possible risks of data loss.
+When solving problems related to disks, you may frequently encounter the loss of data disk partitions. This article describes common data partition loss problems and corresponding solutions in Linux, and provides common mistakes and best practices for cloud disks to avoid possible risks of data loss.
 
 Before restoring data, you must create snapshots for data disks that lose partitions. If problems occur during the restoration process, you can roll back data disks to the status before restoration.
 
@@ -109,7 +109,7 @@ Data is users’ core asset. Many users establish websites and databases \(MYSQL
 
         You log on to the ECS console to change the attributes of the disks to enable **snapshot release with the disk**. Disable snapshot release with the disk if you want to retain the snapshots.
 
-        For more information, see [FAQ about automatic snapshots](https://www.alibabacloud.com/help/zh/faq-detail/40552.htm).
+        For more information, see [FAQ about automatic snapshots](https://www.alibabacloud.com/help/faq-detail/40552.htm).
 
     -   **Create manual snapshots**
 
