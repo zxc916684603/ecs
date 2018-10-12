@@ -13,7 +13,7 @@ This article introduces how to use Open Computing Language \(OpenCL\) to create 
 
     **Note:** The F2 instance can only use the FAAS F2 base mirror that mirrors the market. For more information, see [Create an F2 instance](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create an f2 instance.md) .
 
--   [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+-   Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 -   Sign up for OSS and [Create a bucket](../../../../reseller.en-US/Quick Start/Create a bucket.md). The bucket and F2 instances must belong to the same account and region.
 -   To operate FPGA as a RAM user, do the following in advance:
     -    [Create a RAM](../../../../reseller.en-US/Quick Start/Create a RAM user.md) and [grant permissions](../../../../reseller.en-US/Quick Start/Attach policies to a RAM user.md).
@@ -31,7 +31,7 @@ To set up the environment on an f2 instance, follow these steps.
 1.   [Connect to an f2 instance](../../../../reseller.en-US/User Guide/Connect to instances/Connect to a Linux instance by using a password.md).
 2.  Run `vim` to modify /root/xbinst\_oem/setup.sh: add a `#`at the beginning of line 5 , and comment out `unset XILINX_SDX`. Then save and exit.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9829/153931447612093_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9829/153931465412093_en-US.png)
 
 3.  Run the command to install Screen to keep the terminal session persistent.
 
@@ -100,7 +100,7 @@ To compile a binary file, follow these steps.
 
     If the following information is displayed, it means the compilation of the binary file is in progress. The process may take several hours. Please be patient.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9829/153931447612094_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9829/153931465412094_en-US.png)
 
 
 ## Step 3. Check the packaging script { .section}
@@ -134,7 +134,7 @@ To create an image, follow these steps.
 
 2.  Run `ls` to get the file name.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9829/153931447612095_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9829/153931465412095_en-US.png)
 
 3.  Package binary files.
 
@@ -145,7 +145,7 @@ To create an image, follow these steps.
 
     After the packaging is completed, you have a packaged file in the same directory, such as `17_10_28-021904_SDAccel_Kernel.tar.gz` in this example.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9829/153931447612096_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9829/153931465412096_en-US.png)
 
 4.  Run the command to upload the packaged file to your own OSS bucket.
 
@@ -165,7 +165,7 @@ To create an image, follow these steps.
 
     The example returned result is displayed as follows. If `"State":"queued"`appears, this task is already in the queue, begin mirroring.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9829/153931447612097_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9829/153931465412097_en-US.png)
 
     **Note:** It is time consuming to create a mirror. After a while, run the following command to view the mirror status.
 
@@ -176,7 +176,7 @@ To create an image, follow these steps.
 
     In the returned result, if `"State":"success"` displays, it means the image is created successfully.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9829/153931447612098_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9829/153931465512098_en-US.png)
 
     Record the FpgaImageUUID.
 
@@ -195,7 +195,7 @@ To download the image to an FPGA chip, follow these steps.
 
     The following figure shows the predicted result.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9829/153931447612099_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9829/153931465512099_en-US.png)
 
     **Note:** Record the FpgaUUID.
 
@@ -209,7 +209,7 @@ To download the image to an FPGA chip, follow these steps.
 
     The example returned result is displayed as follows. The `"State":"committed"`means the image is downloaded successfully.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9829/153931447712100_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9829/153931465512100_en-US.png)
 
     **Note:** You can run the command to check whether the image is downloaded successfully or not.
 
@@ -221,7 +221,7 @@ To download the image to an FPGA chip, follow these steps.
 
     The example returned result is displayed as follows. If `"TaskStatus":"valid"`exists and the displayed FpgaImageUUID is your image FpgaImageUUID, the image is downloaded successfully.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9829/153931447712102_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9829/153931465512102_en-US.png)
 
 
 ## Step 6. Run the Host program { .section}
