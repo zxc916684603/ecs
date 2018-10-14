@@ -4,14 +4,14 @@ vsftpd is a light, safe, and easy-to-use FTP server for Linux. It is the most po
 
 To build an FTP site on a Linux ECS instance, follow these steps:
 
--   [Step 1. Install vsftpd](https://www.alibabacloud.com/#Step1)
--   [Step 2. Configure vsftpd](https://www.alibabacloud.com/#Step2)
--   [Step 3. Configure a security group](https://www.alibabacloud.com/#Step3)
--   [Step 4. Test](https://www.alibabacloud.com/#Step4)
+-   Step 1. Install vsftpd
+-   Step 2. Configure vsftpd
+-   Step 3. Configure a security group
+-   Step 4. Test
 
 ## Step 1. Install vsftpd {#section_d55_c23_ffb .section}
 
-1.  [Connect to a Linux instance](https://www.alibabacloud.com/help/zh/doc-detail/25434.htm).
+1.  [Connect to a Linux instance by using a password](../../../../reseller.en-US/User Guide/Connect to instances/Connect to a Linux instance by using a password.md#).
 2.  Run the following command to install vsftpd.
 
     ```
@@ -23,7 +23,6 @@ To build an FTP site on a Linux ECS instance, follow these steps:
 3.  to open and view `etc/vsftpd`.
 
     ```
-    
     cd /etc/vsftpd
     ls
     ```
@@ -58,9 +57,9 @@ After vsftpd is installed, the anonymous FTP function is enabled by default. Usi
 
 This section describes the following vsftpd configuration methods and the corresponding parameter descriptions for your reference.
 
--   [Grant the file upload permission to anonymous users](https://www.alibabacloud.com/#anonymous)
--   [Configure local user logon](https://www.alibabacloud.com/#localuser)
--   [Introduction to vsftpd.conf parameters](https://www.alibabacloud.com/#parameter)
+-   Grant the file upload permission to anonymous users
+-   Configure local user logon
+-   Introduction to vsftpd.conf parameters
 
 **Grant the file upload permission to anonymous users**
 
@@ -118,27 +117,27 @@ The following table lists all the parameters related to user logon control.
 
 |Parameter|Description|
 |:--------|:----------|
-|anonymous\_enable=YES|Allows anonymous logon|
-|no\_anon\_password=YES|Anonymous users are not prompted for a password when logging on|
-|anon\_root=\(none\)|Root directory for anonymous users|
-|local\_enable=YES|Allows local user logon|
-|local\_root=\(none\)|Root directory for local user|
+|anonymous\_enable=YES|Allows anonymous logon.|
+|no\_anon\_password=YES|Anonymous users are not prompted for a password when logging on.|
+|anon\_root=\(none\)|Root directory for anonymous users.|
+|local\_enable=YES|Allows local user logon.|
+|local\_root=\(none\)|Root directory for local user.|
 
 The following table lists all the parameters related to user permission control.
 
 |Parameter|Description|
 |:--------|:----------|
-|write\_enable=YES|Allows file upload \(global control\)|
-|local\_umask=022|Umask for the local user to upload files|
-|file\_open\_mode=0666|Uses umask for file upload permission|
-|anon\_upload\_enable=NO|Allows anonymous users to upload files|
-|anon\_mkdir\_write\_enable=NO|Allows anonymous users to create directories|
-|anon\_other\_write\_enable=NO|Allows anonymous users to modify and delete files and directories|
-|chown\_username=lightwiter|Anonymous Upload File belongs User Name|
+|write\_enable=YES|Allows file upload \(global control\).|
+|local\_umask=022|Umask for the local user to upload files.|
+|file\_open\_mode=0666|Uses umask for file upload permission.|
+|anon\_upload\_enable=NO|Allows anonymous users to upload files.|
+|anon\_mkdir\_write\_enable=NO|Allows anonymous users to create directories.|
+|anon\_other\_write\_enable=NO|Allows anonymous users to modify and delete files and directories.|
+|chown\_username=lightwiter|Anonymous Upload File belongs User Name.|
 
 ## User name for anonymously uploaded files {#section_unb_wf3_ffb .section}
 
-After building the FTP site, you must add a rule to open the FTP port. For more information, see [add a security group rule](https://www.alibabacloud.com/help/zh/doc-detail/25471.htm).
+After building the FTP site, you must add a rule to open the FTP port. For more information, see [add a security group rule](../../../../reseller.en-US/User Guide/Security groups/Add security group rules.md#).
 
 ## Step 4. Test {#section_cn2_xf3_ffb .section}
 
@@ -148,5 +147,5 @@ On your **local computer**, access the FTP site by using `ftp://public IP addres
 
 ## What to do next {#section_lxz_dg3_ffb .section}
 
-You can take actions to improve your FTP service security. For more information, see [FTP anonymous logon and weak password vulnerabilities](https://www.alibabacloud.com/help/zh/doc-detail/37452.htm).
+You can take actions to improve your FTP service security. For more information, see [FTP anonymous logon and weak password vulnerabilities](https://www.alibabacloud.com/help/faq-detail/37452.htm).
 
