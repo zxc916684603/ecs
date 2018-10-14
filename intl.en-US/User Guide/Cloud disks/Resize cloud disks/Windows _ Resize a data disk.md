@@ -41,36 +41,36 @@ Once the data disk resizing completes, you can do the following:
 
 -   If the data disk is attached to an instance, [Step 2. Log on to the instance to enable the extended storage space](#ResizeInInstance).
 -   If the data disk is not attached to an instance, attach the disk to an instance in the console \(x id="1"/\>\) first, and then proceed depending on the data disk:
-    -   If it is not formatted or partitioned, format and mount the data disk. For more information, see [Windows \_ Format a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4: Format a data disk/Windows _ Format a data disk.md#).
+    -   If it is not formatted or partitioned, format and mount the data disk. For more information, see [Format a data disk for Windows instances](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Windows instances.md#).
     -   If it is formatted and partitioned, [Step 2. Log on to the instance to enable the extended storage space](#ResizeInInstance).
 
 ## Step 2. Log on to the instance to enable the extended storage space {#ResizeInInstance .section}
 
 To resize a data disk within the instance, follow these steps:
 
-1.  [Connect to a Windows instance](intl.en-US/User Guide/Connect/Connect to a Windows instance.md#).
-2.  On the Windows Server desktop, click the Server Manager icon ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/5356_en-US.png).
+1.  [Connect to a Windows instance](intl.en-US/User Guide/Connect to instances/Connect to a Windows instance.md#).
+2.  On the Windows Server desktop, click the Server Manager icon ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15395073565356_en-US.png).
 3.  In the left-side navigation pane of **Server Manager**, choose **Storage** \> **Disk Management**. In the disk management area, you can see the relationship between the new and the original data disk spaces. In this example, **Disk 1**  is the resized data disk. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/5358_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15395073565358_en-US.png)
 
 4.  Right click **Disk 1**, select **Convert to Dynamic Disk**, and follow the wizard to convert a basic disk to a dynamic disk. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/5360_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15395073565360_en-US.png)
 
     **Note:** Converting a basic disk into a dynamic disk unmounts the disk from the system.  Applications installed on the data disk, if any, are temporarily unavailable during the conversion process. The conversion process does not cause any data loss.
 
     After the conversion, the **Disk 1** information shows in the Disk Manager as follows.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/5362_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15395073565362_en-US.png)
 
 5.  Right click an empty area of the simple volume of Disk 1, and select **Extend Volume**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/5363_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15395073565363_en-US.png)
 
 6.  Follow the Extend Volume Wizard to extend the volume. When the wizard is complete, the new data disk space is automatically merged into the original volume and the **Disk 1** information showed in the Disk Manager as follows. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/5364_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15395073565364_en-US.png)
 
     **Note:** On Windows Server 2003, the extended storage space is added to the data disk but it is displayed as a separate volume in Disk Manager. On Windows Server 2003, one separate volume is created for each expansion and is not merged into the original volume, which does not affect the availability of the extended storage space.
 
