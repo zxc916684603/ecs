@@ -43,7 +43,7 @@
 4.  运行 `python setup.py install` 安装cloud-init的安装文件setup.py。
 5.  运行 `vi /etc/cloud/cloud.cfg` 修改配置文件cloud.cfg。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9704/15381284574621_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9704/15394858254621_zh-CN.png)
 
     将 `cloud_init_modules` 之前的配置修改成如下：
 

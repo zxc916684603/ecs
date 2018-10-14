@@ -43,7 +43,7 @@ Do as follows to install cloud-init:
 4.  Run `python setup.py install` to install setup.py, which is the cloud-init installation file.
 5.  Run `vi /etc/cloud/cloud.cfg` to modify the cloud.cfg configuration file.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9704/15381284604621_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9704/15394858294621_en-US.png)
 
     Modify `cloud_init_modules` configurations to the following:
 
@@ -107,7 +107,7 @@ You can run `pip install -r requirements.txt` to install all dependency librarie
 
 ## Next step {#section_bf1_mpm_xdb .section}
 
-You can [import the image to ECS](intl.en-US/User Guide/Images/Import images/Import custom images.md#).
+You can [import the image to ECS](reseller.en-US/User Guide/Images/Import images/Import custom images.md#).
 
 ## Reference {#section_qsb_npm_xdb .section}
 
