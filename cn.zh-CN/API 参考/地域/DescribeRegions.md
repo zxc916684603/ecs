@@ -1,6 +1,6 @@
 # DescribeRegions {#DescribeRegions .reference}
 
-查询您可以使用的阿里云地域。更多详情，请参阅 [地域与可用区](https://help.aliyun.com/document_detail/40654.html)。
+查询您可以使用的阿里云地域。更多详情，请参阅 [地域与可用区](https://www.alibabacloud.com/help/doc-detail/40654.htm)。
 
 ## 请求参数 {#RequestParameter .section}
 
@@ -19,7 +19,7 @@
 
 |名称|类型|描述|
 |:-|:-|:-|
-|Regions|[RegionType](cn.zh-CN/API 参考/数据类型/RegionType.md#)|地域信息集合|
+|Regions|[RegionType](intl.zh-CN/API 参考/数据类型/RegionType.md#)|地域信息集合|
 
 ## 示例 { .section}
 
@@ -36,13 +36,17 @@ https://ecs.aliyuncs.com/?Action=DescribeRegions
 
 ```
 <DescribeRegionsResponse>
-    <RequestId>611CB80C-B6A9-43DB-9E38-0B0AC3D9B58F</RequestId>
+    <RequestId>38EC7366-F5A9-46B1-BDB1-0FDC2E296397</RequestId>
     <Regions>
         <Region>
-            <RegionId>cn-hangzhou </RegionId>
+            <RegionId>cn-shanghai-et2-bo1</RegionId>
+            <RegionEndpoint>ecs.aliyuncs.com</RegionEndpoint>
+            <LocalName>弹内生产环境-上海</LocalName>
         </Region>
         <Region>
-            <RegionId>cn-qingdao</RegionId>
+            <RegionId>cn-qingdao-nebula</RegionId>
+            <RegionEndpoint>ecs.cn-qingdao-nebula.aliyuncs.com</RegionEndpoint>
+            <LocalName>cn-qingdao-nebula</LocalName>
         </Region>
     </Regions>
 </DescribeRegionsResponse>
@@ -52,19 +56,25 @@ https://ecs.aliyuncs.com/?Action=DescribeRegions
 
 ```
 {
-    "RequestId": "611CB80C-B6A9-43DB-9E38-0B0AC3D9B58F",
-    "Regions": {
-        "Region": [{
-            "RegionId": "cn-hangzhou "
-        },
-        {
-            "RegionId": "cn-qingdao"
-        }]
+    "RequestId":"38EC7366-F5A9-46B1-BDB1-0FDC2E296397",
+    "Regions":{
+        "Region":[
+            {
+                "RegionId":"cn-shanghai-et2-b01",
+                "RegionEndpoint":"ecs.aliyuncs.com",
+                "LocalName":"弹内生产环境-上海"
+            },
+            {
+                "RegionId":"cn-qingdao-nebula",
+                "RegionEndpoint":"ecs.cn-qingdao-nebula.aliyuncs.com",
+                "LocalName":"cn-qingdao-nebula"
+            }
+        ]
     }
 }
 ```
 
 ## 错误码 {#ErrorCode .section}
 
-全是公共错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+全是公共错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
