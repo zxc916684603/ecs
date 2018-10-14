@@ -28,7 +28,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：ImportKeyPair|
-|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |PublicKeyBody|String|是|密钥对的公钥内容。|
 |KeyPairName|String|是|密钥对名称。必须保持名称唯一性。-   长度为 \[2, 128\] 个字符。
 -   必须以大小字母或中文开头，可包含数字、小数点（.）、下划线（\_）或者短横线（-）。

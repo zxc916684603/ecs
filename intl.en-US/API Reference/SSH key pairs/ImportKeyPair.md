@@ -27,8 +27,8 @@ When you call this interface, consider the following:
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: ImportKeyPair|
-|RegionId|String|Yes|Regional ID. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|Action|String|Yes|The name of this interface. Value: ImportKeyPair.|
+|RegionId|String|Yes|Regional ID. For more information, call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |PublicKeyBody|String|Yes|The public key of the SSH key pair.|
 |KeyPairName|String|Yes|The name of the key pair. The name must be unique.-   Can be \[2, 128\] characters in length.
 -   Must begin with an uppercase or lowercase English letter. Can contain digits, underscores \(\_\), colons \(:\), or hyphens \(-\).
@@ -42,9 +42,9 @@ When you call this interface, consider the following:
 |Name|Type|Description|
 |:---|:---|:----------|
 |KeyPairName|String|Key pair name.|
-|KeyPairFingerPrint|String| Fingerprint of the key pair The public key fingerprint format is defined in RFC4716 and uses the MD5 message digest algorithm. For more information, see [RFC4716](http://tools.ietf.org/html/rfc4716).|
+|KeyPairFingerPrint|String| Fingerprint of the key pair. The public key fingerprint format is defined in RFC4716 and uses the MD5 message digest algorithm. For more information, see [RFC4716](http://tools.ietf.org/html/rfc4716).|
 
-## Example { .section}
+## Examples { .section}
 
 **Request example** 
 
@@ -58,17 +58,17 @@ https://ecs.aliyuncs.com/?Action=ImportKeyPair
 
 **Response example** 
 
-**XML format**
+**XML format** 
 
 ```
 <ImportKeyPairResponse>
     <RequestId>473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E</RequestId>
     <KeyPairName>test</KeyPairName>
-    <KeyPairFingerPrint> 89:f0:ba:62:ac:b8:aa:e1:61:5e:fd:81:69:86:6d:6b:f0:c0:5a:d7</KeyPairFingerPrint>
+    <KeyPairFingerPrint>89:f0:ba:62:ac:b8:aa:e1:61:5e:fd:81:69:86:6d:6b:f0:c0:5a:d7</KeyPairFingerPrint>
 </ImportKeyPairResponse>
 ```
 
- **JSON format** 
+**JSON format** 
 
 ```
 {
@@ -79,8 +79,6 @@ https://ecs.aliyuncs.com/?Action=ImportKeyPair
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more error codes, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code |Meaning|
 |:---------|:------------|:----------------|:------|
