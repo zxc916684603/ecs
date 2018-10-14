@@ -1,6 +1,6 @@
 # IpRangeSetType {#IpRangeSetType .reference}
 
-IP段集合的类型。
+IP 段集合的类型。
 
 ## 节点名 {#section_tk1_fmp_ydb .section}
 
@@ -10,6 +10,6 @@ IpRanges
 
 |名称|类型|描述|
 |:-|:-|:-|
-|IpAddress|String|采用CIDR格式指定IP地址范围。|
+|IpAddress|String|采用CIDR格式指定IP地址范围|
 |NicType|String|网络类型 internet | intranet的一种|
 
