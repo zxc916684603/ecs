@@ -2,7 +2,7 @@
 
 By default, all operation permissions are granted, and you can use all the ECS APIs to operate on your resources. If a RAM user is unauthorized, however, then they cannot operate on the resources of an Alibaba Cloud account. In this case, you can authorize a RAM user by granting them permission to operate on the resources. Skip this section if you do not need to grant a RAM user access to the ECS instance resources of an Alibaba Cloud Account. Skipping this section does not affect your understanding and usage of the ECS API.
 
-Make sure that you have read the [RAM documentation](../../../../intl.en-US/Product Introduction/What is RAM.md#) and [API reference](../../../../intl.en-US//API overview.md#) carefully before you use RAM to authorize access to ECS instances.
+Make sure that you have read the [RAM documentation](../../../../reseller.en-US/Product Introduction/What is RAM.md#) and [API reference](../../../../reseller.en-US//API overview.md#) carefully before you use RAM to authorize access to ECS instances.
 
 When a RAM user requests access to ECS resources owned by an Alibaba Cloud user by using ECS APIs, ECS sends a request to the RAM service to check access permission and make sure that the resource owner allows the caller to access the resources. Each ECS API requires different authentication rules for the requested resources. The required rules depend on the resources specification and the definition of the API. See the following table for specific authentication rules.
 
