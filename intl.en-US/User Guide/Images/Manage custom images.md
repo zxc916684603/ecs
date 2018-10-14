@@ -4,44 +4,42 @@ After creating custom images, you can delete custom images that are no longer re
 
 ## Modify the name and description of a custom image {#section_tdr_l33_m2b .section}
 
-To modify the name and description of a custom image in the ECS console:
+To modify the name and description of a custom image, follow these steps:
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/#/home).
-2.  In the left-side navigation pane, select **Snapshots & Images** \> **Images**.
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+2.  In the left-side navigation pane, select **Snapshots and Images** \> **Images**.
 3.  Select a region.
-4.  Locate the ****custom image that needs to be edited.
-5.  Tap the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9709/7167_en-US.png) icon, and enter the image name.
+4.  Find the custom image to be edited.
+5.  Click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9709/15394854887167_en-US.png) icon, and enter the image name.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9709/7166_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9709/15394854887166_en-US.png)
 
-6.  Click **Modify Image Description**, in the prompted dialog box:
-    -   **Image Description**: Edit the new image description.
-    -   \(Optional\) **Tag**: Assign tags to the custom image and add your own metadata in the form of tags.
+6.  Click **Modify Description**, and in the dialog box, edit the new **Custom Image Description**.
 7.  Click **Save** to complete the description modification.
 
-Alternatively, you can modify the name and description of a custom image by calling the ECS API [ModifyImageAttribute](../../../../intl.en-US/API Reference/Images/ModifyImageAttribute.md#).
+Alternatively, you can modify the name and description of a custom image by calling the ECS API [ModifyImageAttribute](../../../../reseller.en-US/API Reference/Images/ModifyImageAttribute.md#).
 
 ## Delete custom images {#section_w3n_c43_m2b .section}
 
-To delete one or more custom images in the ECS console:
+To delete one or more custom images, follow these steps:
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/#/home).
-2.  In the left-side navigation pane, select **Snapshots & Images** \> **Images**.
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+2.  In the left-side navigation pane, select **Snapshots and Images** \> **Images**.
 3.  Select a region.
-4.  Select one or more ****custom images that you want to delete, then click **Delete**.
+4.  Select one or more custom images that you want to delete, and then click **Delete**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9709/7168_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9709/15394854897168_en-US.png)
 
 5.  In the dialog box that appears, select the method for deleting the custom images:
 
     -   **Delete**: The custom images are deleted normally.
-    -   **Force Delete**: The custom images are force deleted, then select **Sure to force Delete** to confirm.
+    -   **Force Delete**: The custom images are deleted forcibly. Check **I confirm to forcibly Delete the selected instances**.
 
-        **Note:** After you force delete the custom images, instances that you have created from the images cannot be [Reinitialize a cloud disk](intl.en-US/User Guide/Cloud disks/Reinitialize a cloud disk.md#).
+        **Note:** After you forcibly delete the custom images, [cloud disk reinitialization](reseller.en-US/User Guide/Cloud disks/Reinitialize a cloud disk.md#) of the instances that you have created from the images cannot be performed.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9709/7169_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9709/15394854897169_en-US.png)
 
 6.  Click **OK** to confirm.
 
-Alternatively, you can delete custom images by calling the ECS API [DeleteImage](../../../../intl.en-US/API Reference/Images/Deleteimage.md#).
+Alternatively, you can delete custom images by calling the ECS API [DeleteImage](../../../../reseller.en-US/API Reference/Images/Deleteimage.md#).
 
