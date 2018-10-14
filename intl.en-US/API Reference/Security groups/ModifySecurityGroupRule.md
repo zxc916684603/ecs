@@ -1,6 +1,6 @@
 # ModifySecurityGroupRule {#ModifySecurityGroupRule .reference}
 
-Modify the inbound rules of the security group. You can only modify the description information of the security group rules. If you have not added a security group rule, you can call  [AuthorizeSecurityGroup](intl.en-US/API Reference/Security groups/AuthorizeSecurityGroup.md#).
+Modify the inbound rules of the security group. You can only modify the description information of the security group rules. If you have not added a security group rule, you can call  [AuthorizeSecurityGroup](reseller.en-US/API Reference/Security groups/AuthorizeSecurityGroup.md#).
 
 ## Description {#section_vqh_lhn_ydb .section}
 
@@ -16,7 +16,7 @@ Any of the following sets of parameters can determine a Security Group Entry dir
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|Required parameter. Value: ModifySecurityGroupRule|
-|RegionId|String|Yes.|Region ID of the destination security group.  See Regions and zones or [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to query the RegionId list.|
+|RegionId|String|Yes.|Region ID of the destination security group.  See Regions and zones or [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to query the RegionId list.|
 |SecurityGroupId|String|Yes.|Source security group ID.|
 |Description|String|Yes.|Either the SourceGroupId or SourceCidrIp must be specified. If both SourceGroupId and SourceCidrIp are set, SourceCidrIp is authenticated by default.|
 |IpProtocol|String|Yes.| IP protocol. Not case sensitive. Optional values:-   icmp
@@ -61,7 +61,7 @@ Default value: accept|
 
 ## Response parameters {#section_f54_lk5_xdb .section}
 
-All are common response parameters. For more information, see [Common Request Parameters](intl.en-US/API Reference/Call methods/Common parameters.md#).
+All are common response parameters. For more information, see [Common Request Parameters](reseller.en-US/API Reference/Getting started/Common parameters.md#).
 
 ## Examples { .section}
 
@@ -98,8 +98,6 @@ https://ecs.aliyuncs.com/?Action=ModifySecurityGroupRule
 ```
 
 ## Error codes {#ErrorCode .section}
-
-The following error codes are specific to this interface. For more error codes, visit the [API API error center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error information|HTTP status code|Description|
 |:---------|:----------------|:---------------|:----------|
