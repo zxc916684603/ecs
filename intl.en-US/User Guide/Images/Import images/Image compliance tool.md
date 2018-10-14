@@ -1,6 +1,6 @@
 # Image compliance tool {#StandardImageFacilitator .concept}
 
-ECS allows you to create instances from imported custom images. The imported custom images can be created based on your offline server, virtual machine, or a cloud host on any cloud platform. The images you import must meet certain requirements. For more information, see [Notes for importing images](intl.en-US/User Guide/Images/Import images/Notes for importing custom images.md#). To reduce the time required for creating images and instances, we recommend that you use the **image compliance tool** of ECS \(hereinafter referred to as **compliance tool**\) to create images that comply with the relevant standards. The compliance tool can detect non-compliance of various configuration indicators and locations based on a given server environment, generate TXT and JSON detection reports, and offer possible solutions.
+ECS allows you to create instances from imported custom images. The imported custom images can be created based on your offline server, virtual machine, or a cloud host on any cloud platform. The images you import must meet certain requirements. For more information, see [Notes for importing images](reseller.en-US/User Guide/Images/Import images/Notes for importing images.md#). To reduce the time required for creating images and instances, we recommend that you use the **image compliance tool** of ECS \(hereinafter referred to as **compliance tool**\) to create images that comply with the relevant standards. The compliance tool can detect non-compliance of various configuration indicators and locations based on a given server environment, generate TXT and JSON detection reports, and offer possible solutions.
 
 ## Limits {#section_o54_lr1_b2b .section}
 
@@ -67,14 +67,14 @@ The compliance tool detects the following server configuration items to ensure t
 
 |Detection item|Non-compliance|Suggestion|
 |:-------------|:-------------|:---------|
-|driver|The ECS instance cannot start normally.|Install a virtualization driver. For example, [install a virtio driver](intl.en-US/User Guide/Images/Import images/Install virtio driver.md#)|
+|driver|The ECS instance cannot start normally.|Install a virtualization driver. For example, [install a virtio driver](reseller.en-US/User Guide/Images/Import images/Install virtio driver.md#)|
 |/etc/shadow|You cannot modify the password file, so you cannot create an ECS instance from the custom image.|Do not use the `chattr` command to lock the /etc/shadow file.|
 |SElinux|The ECS instance cannot start normally.|Do not modify /etc/selinux/config to start SELinux.|
 |qemu-ga|Some of the services required by ECS are unavailable, and the instance is not fully functional.|Uninstall qemu-ga.|
 |network|Network functions of the ECS instance are unstable.|Disable or delete the Network Manager and enable the network service. For the latest Linux versions, we recommend that you use the Network Manager and run the nmcli command to configure the network.|
-|ssh|You cannot [connect](intl.en-US/User Guide/Connect to instances/Overview.md#) to the ECS instance from the console.|Enable the SSH service and do not set PermitRootLogin.|
+|ssh|You cannot [connect](reseller.en-US/User Guide/Connect to instances/Overview.md#) to the ECS instance from the console.|Enable the SSH service and do not set PermitRootLogin.|
 |firewall|The system does not automatically configure your ECS instance environment.|Disable the firewall iptables, firewalld, IPFilter \(IPF\), IPFireWall \(IPFW\), or PacketFilter \(PF\).|
-|file system|You cannot [resize the disk](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Overview.md#).|The XFS, Ext3, and Ext4 file systems are used, and the Ext2, UFS, and UDF file systems are allowed. The Ext4 file system does not support 64-bit features.|
+|file system|You cannot [resize the disk](reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Overview.md#).|The XFS, Ext3, and Ext4 file systems are used, and the Ext2, UFS, and UDF file systems are allowed. The Ext4 file system does not support 64-bit features.|
 |root|You cannot use your username and password to remotely connect to the ECS instance.|Reserve the root account.|
 |passwd|You cannot add users for the ECS instance.|Retain or reinstall the passwd command.|
 |Partition table|The ECS instance cannot start normally.|Use MBR partitioning.|
@@ -131,9 +131,9 @@ The compliance tool provides detection reports in both TXT and JSON formats afte
 
 ## Next steps {#section_mb3_ct1_b2b .section}
 
-1.  View [Notes for importing images](intl.en-US/User Guide/Images/Import images/Notes for importing custom images.md#).
-2.  [Install the virtio driver.](intl.en-US/User Guide/Images/Import images/Install virtio driver.md#)
-3.  \(Optional\) [Convert the image file format.](intl.en-US/User Guide/Images/Import images/Convert image file format.md#)
-4.  [Import custom images.](intl.en-US/User Guide/Images/Import images/Import custom images.md#)
-5.  [Create an instance from a custom image.](intl.en-US/User Guide/Instances/Create an instance/Create an instance from a custom Image.md#)
+1.  View [Notes for importing images](reseller.en-US/User Guide/Images/Import images/Notes for importing images.md#).
+2.  [Install the virtio driver.](reseller.en-US/User Guide/Images/Import images/Install virtio driver.md#)
+3.  \(Optional\) [Convert the image file format.](reseller.en-US/User Guide/Images/Import images/Convert image file format.md#)
+4.  [Import custom images.](reseller.en-US/User Guide/Images/Import images/Import custom images.md#)
+5.  [Create an instance from a custom image.](reseller.en-US/User Guide/Instances/Create an instance/Create an instance from a custom image.md#)
 
