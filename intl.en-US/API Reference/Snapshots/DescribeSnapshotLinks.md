@@ -8,17 +8,17 @@ When you call this interface, consider the following:
 
 -   Request parameters, such as `RegionId`, `DiskIds` and `InstanceId`, act as a filter. A logical AND relation exists among parameters.
 
--   If no parameter is specified, the filter does not take effect.  When `DiskIds` and  `SnapshotLinkIds` are empty, i.e., `[]`, the filter still takes effect, but a null result is returned.
+-   If no parameter is specified, the filter does not take effect. When `DiskIds` and `SnapshotLinkIds` are empty array \(`[]`\), the filter still takes effect, but a null result is returned.
 
 
 ## Request parameters {#RequestParameter .section}
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DescribeSnapshotLinks|
-|RegionId|String|Yes|Region ID of the instance.  For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|Action|String|Yes|The name of this interface. Value: DescribeSnapshotLinks.|
+|RegionId|String|Yes|Region ID of the instance. For more information, call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |InstanceId|String|No|The instance ID.|
-|Diskids|String|No|Disk ID. The disk ID. You can specify a maximum of 100 disk IDs each time.  The value of `DiskIds` is a JSON array of which the format is displayed as  \["d-xxxxxxxxx", "d-yyyyyyyyy", … "d-zzzzzzzzz"\]，IDs are separated by commas \(,\).|
+|Diskids|String|No|Disk ID. The disk ID. You can specify a maximum of 100 disk IDs each time. The value of `DiskIds` is a JSON array of which the format is displayed as  \["d-xxxxxxxxx", "d-yyyyyyyyy", … "d-zzzzzzzzz"\], IDs are separated by commas \(,\).|
 |SnapshotLinkIds|String|No|The snapshot chain ID. The snapshot chain ID. You can specify a maximum of 100 snapshot chain IDs each time. The value of `SnapshotLinkIds` is a JSON array of which the format is displayed as \["p-xxxxxxxxx", "p-yyyyyyyyy", … "p-zzzzzzzzz"\], IDs are separated by a half-angle comma.|
 |PageNumber|Integer|No|Page number of a disk status list. Initial value: 1.Default value: 1.
 
@@ -31,13 +31,13 @@ When you call this interface, consider the following:
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|RegionId|String|Region ID of the snapshot chain|
-|TotalCount|Integer|Total number of snapshot chains|
-|PageNumber|Integer|Page number of the snapshot chain list|
-|PageSize|Integer|Number of lines per page set during input|
-|SnapshotLinks|[SnapshotLinkType](intl.en-US/API Reference/Data type/SnapshotLinkType.md#)|A set that consists of snapshot chain information|
+|RegionId|String|Region ID of the snapshot chain.|
+|TotalCount|Integer|Total number of snapshot chains.|
+|PageNumber|Integer|Page number of the snapshot chain list.|
+|PageSize|Integer|Number of lines per page set during input.|
+|SnapshotLinks|[SnapshotLinkType](reseller.en-US/API Reference/Data type/SnapshotLinkType.md#)|A set that consists of snapshot chain information.|
 
-## Example { .section}
+## Examples { .section}
 
 **Request example** 
 
@@ -49,9 +49,9 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshotLinks
 &<Common parameter request>
 ```
 
-**Response sample** 
+**Response example** 
 
-**XML format**
+**XML format** 
 
 ```
 <DescribeSnapshotLinksResponse>
@@ -117,12 +117,10 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshotLinks
 
 ## Error codes {#ErrorCode .section}
 
-Error codes specific to this interface are as follows. For more error codes, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
-
 |Error code|Error message|HTTP status code|Note|
 |:---------|:------------|:---------------|:---|
 |InvalidDiskIds|The specified diskIds is invalid.|400|The specified `DiskIds` is invalid.|
 |InvalidRegionId|The specified regionId is invalid.|400|The specified `RegionId`  parameter is invalid.|
-|InvalidSnapshotLinkIds|The specified snapshotLinkIds is invalid.|400|The specified  `SnapshotLinkIds`  is invalid|
-|InternalError |The request processing has failed due to some unknown error.| 500| Internal error.|
+|InvalidSnapshotLinkIds|The specified snapshotLinkIds is invalid.|400|The specified  `SnapshotLinkIds` is invalid.|
+|InternalError |The request processing has failed due to some unknown error.| 500|Internal error.|
 
