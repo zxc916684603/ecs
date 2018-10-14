@@ -6,7 +6,7 @@ ECS 实例 RAM（Resource Access Management） 角色（以下简称 **实例 RA
 
 ## 设计背景 {#section_rsm_x1t_xdb .section}
 
-一般情况下，ECS 实例的应用程序是通过 **用户账号** 或者 [用户](../../../../intl.zh-CN/用户指南/身份管理/用户.md#) 的 AccessKey （AccessKeyId + AccessKeySecret）访问阿里云各产品的 API。
+一般情况下，ECS 实例的应用程序是通过 **用户账号** 或者 [RAM 用户](../../../../intl.zh-CN/用户指南/身份管理/用户.md#) 的 AccessKey （AccessKeyId + AccessKeySecret）访问阿里云各产品的 API。
 
 为了满足调用需求，需要直接把 AccessKey 固化在实例中，如写在配置文件中。但是这种方式存在权限过大、泄露信息和难以维护等问题。因此，我们设计了实例 RAM 角色解决这些问题。
 
@@ -49,6 +49,6 @@ ECS 实例 RAM（Resource Access Management） 角色（以下简称 **实例 RA
 
 -   您可以参阅文档 [支持 RAM 的云服务](../../../../intl.zh-CN/产品简介/支持 RAM 的云服务.md#) 查看支持 STS 临时凭证的云服务。
 
--   您可以参阅文档 [借助实例 RAM 角色访问其它云产品 API](https://www.alibabacloud.com/help/doc-detail/54579.htm) 查看如何访问其他云产品的 API 。
+-   您可以参阅 [借助于实例 RAM 角色访问其他云产品](../../../../intl.zh-CN/最佳实践/借助于实例 RAM 角色访问其他云产品.md#) 查看如何访问其他云产品的 API 。
 
 
