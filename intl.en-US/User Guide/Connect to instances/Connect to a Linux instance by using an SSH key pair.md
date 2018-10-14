@@ -17,7 +17,7 @@ In this section, it is demonstrated how to use a key pair to log on to a Linux i
 
     -   [PuTTY](https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe)
     -   [PuTTYgen](https://the.earth.li/~sgtatham/putty/latest/w64/puttygen.exe)
--   You must have a Linux instance that has been bound to an instance. You can allocate an SSH key pair when creating an instance or  [bind an SSH key pair to an instance](intl.en-US/User Guide/Key pairs/Bind or unbind a SSH key pair.md#).
+-   You must have a Linux instance that has been bound to an instance. You can allocate an SSH key pair when creating an instance or  [bind an SSH key pair to an instance](intl.en-US/User Guide/Key pairs/Bind or unbind an SSH key pair.md#).
 
 -   Add the following rule in the security group to enable the access to the TCP Port 22 of the instance. For more information, see [Add security group rules](intl.en-US/User Guide/Security groups/Add security group rules.md#).
 
@@ -38,13 +38,13 @@ In this section, it is demonstrated how to use a key pair to log on to a Linux i
 
         **Note:** **The value of Number of bits in a generated key** can be left as is. The software automatically update the value based on the imported private key information.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15338899155187_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15395087265187_en-US.png)
 
     3.  Click **Load** to find your .pem file.
 
         **Note:** By default, PuTTYgen only displays files with an extension of .ppk.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15338899155188_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15395087265188_en-US.png)
 
     4.  Select the downloaded private key file from Alibaba Cloud, or the ready private key file, and click **Open**.
     5.  Click **OK** to close the confirmation dialog box.
@@ -53,14 +53,14 @@ In this section, it is demonstrated how to use a key pair to log on to a Linux i
 2.  Start PuTTY.
 3.  Select **Connection \>** \> **SSH \>** \> **Auth.**Click **Browse…** and select the .ppk file generated in Step 1.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15338899165191_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15395087265191_en-US.png)
 
 4.  Click **Session**.
     -   In Host Name \(or IP address\), enter your account and the public IP address of the instance to be connected to. The format is root@IP address.
     -   In Port enter the port number 22.
     -   For Connection type, select SSH.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15338899165192_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15395087265192_en-US.png)
 
 5.  Click **Open** to start accessing your Linux instance.
 
@@ -72,7 +72,7 @@ In this section, it is demonstrated how to use a key pair to log on to a Linux i
 
 **Prerequisites**
 
-You must have a Linux instance that has been bound to an SSH key pair. You can [allocate an SSH key pair when creating an instance ](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#), or [bind an SSH key pair to an instance](intl.en-US/User Guide/Key pairs/Bind or unbind a SSH key pair.md#).
+You must have a Linux instance that has been bound to an SSH key pair. You can [allocate an SSH key pair when creating an instance ](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#), or [bind an SSH key pair to an instance](intl.en-US/User Guide/Key pairs/Bind or unbind an SSH key pair.md#).
 
 Add the following rule in the security group to enable the access to the TCP Port 22 of the instance. For more information, see [Add security group rules](intl.en-US/User Guide/Security groups/Add security group rules.md#).
 

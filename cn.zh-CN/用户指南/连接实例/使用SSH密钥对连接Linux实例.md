@@ -2,8 +2,8 @@
 
 本文介绍了在以下环境中您如何使用SSH密钥对登录Linux实例。
 
--   [本地为Windows环境](#windows)
--   [本地为Linux或支持SSH命令的环境](#linux)
+-   [本地为Windows环境](#)
+-   [本地为Linux或支持SSH命令的环境](#)
 
 **说明：** 您也可以使用用户名密码验证连接Linux实例。具体操作，请参见 [使用用户名密码验证连接Linux实例](intl.zh-CN/用户指南/连接实例/使用用户名密码验证连接Linux实例.md#) 和 [使用管理终端连接ECS实例](intl.zh-CN/用户指南/连接实例/使用管理终端连接ECS实例.md#)。
 
@@ -38,13 +38,13 @@
 
         **说明：** **Number of bits in a generated key** 的值不需要设置，软件会根据导入的私钥信息自动更新。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15392387505187_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15395087225187_zh-CN.png)
 
     3.  单击 **Load**，选择显示所有类型的文件，找到您的 .pem 文件。
 
         **说明：** PuTTYgen默认仅显示扩展名为 .ppk 的文件。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15392387505188_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15395087235188_zh-CN.png)
 
     4.  选择您从阿里云下载的.pem格式的私钥文件，然后单击 **打开**。
     5.  单击 **OK**（确定）关闭确认对话框。
@@ -53,14 +53,14 @@
 2.  启动PuTTY。
 3.  选择 **Connection** \> **SSH** \> **Auth**，再单击 **Browse…**，选择前面所生成的.ppk文件。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15392387505191_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15395087235191_zh-CN.png)
 
 4.  单击 **Session**。
     -   在 Host Name \(or IP address\) 里输入账号和需要连接的实例公网IP地址，格式为 root@IP 地址。
     -   在 Port 里输入端口号 22。
     -   Connection type 选择 SSH。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15392387505192_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15395087235192_zh-CN.png)
 
 5.  单击 **Open**，开始连接您的Linux实例。
 
