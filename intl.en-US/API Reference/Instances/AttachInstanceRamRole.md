@@ -1,19 +1,19 @@
 # AttachInstanceRamRole {#AttachInstanceRamRole .reference}
 
-Attaches an [instance RAM role](../../../../intl.en-US/User Guide/Instances/Instance RAM roles/What is the RAM role of an instance.md#) to your ECS instance. You can only assign one RAM role to an instance at any time. If the instance already has a RAM role, an error code returns when you attach another RAM role to the same instance.
+Attaches an [instance RAM role](../../../../reseller.en-US/User Guide/Instances/Instance RAM roles/What is the RAM role of an instance.md#) to your ECS instance. You can only assign one RAM role to an instance at any time. If the instance already has a RAM role, an error code returns when you attach another RAM role to the same instance.
 
 ## Request parameters {#RequestParameter .section}
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: AttachInstanceRamRole.|
-|RegionId|String|Yes|Region ID. You can call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|Region ID. You can call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |InstanceIds|Array|Yes|Instance ID set. A maximum of 100 instances are supported, in the format of \["instanceId1", "instanceId2",  "instanceId3"…\].|
-|RamRoleName|String|Yes|Instance RAM role name. The name is provided and maintained by *RAM*. You can call [ListRoles](../../../../intl.en-US//Role Management Interface/ListRoles.md#) to view the ram role list. For more information, see API [CreateRole](../../../../intl.en-US//Role Management Interface/CreateRole.md#) and [ListRoles](../../../../intl.en-US//Role Management Interface/ListRoles.md#).|
+|RamRoleName|String|Yes|Instance RAM role name. The name is provided and maintained by *RAM*. You can call [ListRoles](../../../../reseller.en-US/.md#) to view the ram role list. For more information, see API [CreateRole](../../../../reseller.en-US/.md#) and [ListRoles](../../../../reseller.en-US/.md#).|
 
 ## Response parameters {#ResponseParameter .section}
 
-All are common response parameters. For more information, see [Common parameters](intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
+All are common response parameters. For more information, see [Common parameters](reseller.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
 
 ## Examples { .section}
 
@@ -68,8 +68,6 @@ https://ecs.aliyuncs.com/?Action=AttachInstanceRamRole
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message |HTTP status code|Meaning|
 |:---------|:-------------|:---------------|:------|
