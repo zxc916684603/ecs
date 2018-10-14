@@ -1,6 +1,6 @@
 # DescribeInstanceRamRole {#DescribeInstanceRamRole .reference}
 
-查询一台或者多台 ECS 实例上的已赋予的 [实例 RAM 角色](../../../../intl.zh-CN/用户指南/实例/实例RAM角色/什么是实例 RAM 角色.md#)。
+查询一台或者多台 ECS 实例上的已赋予的 [实例 RAM 角色](../intl.zh-CN/用户指南/实例/实例RAM角色/什么是实例 RAM 角色.md#)。
 
 ## 请求参数 {#RequestParameter .section}
 
@@ -8,13 +8,19 @@
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeInstanceRamRole|
 |InstanceIds|String|是|指定查询的实例 ID 的集合。最多支持一次查询 100 台实例，格式为 \["instanceId1", "instanceId2", "instanceId3"…\]。|
-|RamRoleName|String|否|查询赋予了某一实例 RAM 角色的所有 ECS 实例。您可以使用 *RAM* API [ListRoles](../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#) 查询您已创建的实例 RAM 角色。|
+|RamRoleName|String|否|查询赋予了某一实例 RAM 角色的所有 ECS 实例。您可以使用 *RAM* API [ListRoles](../../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#) 查询您已创建的实例 RAM 角色。|
+|PageNumber|Integer|否|当前页码，起始值：1默认值：1
+
+|
+|PageSize|Integer|否|分页查询时设置的每页行数，最大值：50默认值：10
+
+|
 
 ## 返回参数 {#ResponseParameter .section}
 
 |名称|类型|描述|
 |:-|:-|:-|
-|InstanceRamRoleSets|Array|由实例 RAM 角色类型（[InstanceRamRoleSetType](intl.zh-CN/API参考/数据类型/InstanceRamRoleSetType.md#)）组成的信息集|
+|InstanceRamRoleSets|Array|由实例 RAM 角色类型（[InstanceRamRoleSetType](intl.zh-CN/API 参考/数据类型/InstanceRamRoleSetType.md#)）组成的信息集|
 
 ## 示例 { .section}
 

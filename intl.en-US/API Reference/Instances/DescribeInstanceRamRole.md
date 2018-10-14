@@ -1,6 +1,6 @@
 # DescribeInstanceRamRole {#DescribeInstanceRamRole .reference}
 
-Query information related to the [instance RAM role](../../../../intl.en-US/User Guide/Instances/Instance RAM roles/What is the RAM role of an instance.md#).
+Queries information related to the [instance RAM role](../../../../reseller.en-US/User Guide/Instances/Instance RAM roles/What is the RAM role of an instance.md#).
 
 ## Request parameters {#RequestParameter .section}
 
@@ -8,13 +8,13 @@ Query information related to the [instance RAM role](../../../../intl.en-US/User
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: DescribeInstanceRamRole|
 |InstanceIds|String|Yes|Instance ID set. A maximum of 100 instances are supported, in the format of \["instanceId1", "instanceId2",  "instanceId3"…\].|
-|RamRoleName|String|No|Queries all the ECS instances to which the specified RAM role is attached. You can use *RAM* API [ListRoles](../../../../intl.en-US//Role Management Interface/ListRoles.md#) to query your available instance RAM role.|
+|RamRoleName|String|No|Queries all the ECS instances to which the specified RAM role is attached. You can use *RAM* API [ListRoles](../../../../reseller.en-US/.md#) to query your available instance RAM roles.|
 
 ## Return parameters {#ResponseParameter .section}
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|InstanceRamRoleSets|Array|Information set of Instance RAM role \([InstanceRamRoleSetType](intl.en-US/API Reference/Data type/InstanceRamRoleSetType.md#)\)|
+|InstanceRamRoleSets|Array|Information set of Instance RAM role \([InstanceRamRoleSetType](reseller.en-US/API Reference/Data type/InstanceRamRoleSetType.md#)\)|
 
 ## Example { .section}
 
@@ -24,7 +24,7 @@ Query information related to the [instance RAM role](../../../../intl.en-US/User
 https://ecs.aliyuncs.com/?Action=DescribeInstanceRamRole
 &RegionId=cn-hangzhou
 &InstanceIds=["i-instance1"]
-&<Common request parameters>
+&<Common Request Parameters>
 
 ```
 
@@ -63,8 +63,6 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceRamRole
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more error codes, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Note|
 |:---------|:------------|:---------------|:---|
