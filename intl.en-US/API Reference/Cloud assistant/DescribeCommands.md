@@ -7,7 +7,7 @@ Queries the cloud assistant commands that you have created. If you only specify 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: DescribeCommands.|
-|RegionId|String|Yes|The region ID. You can call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|The region ID. You can call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |CommandId|String|No|Command ID.|
 |Type|String|No|Command type. Optional values:-   RunBatScript: The command process is a Bat script for Windows instances.
 -   RunPowerShellScript: The command process is a PowerShell script for Windows instances.
@@ -27,28 +27,28 @@ Queries the cloud assistant commands that you have created. If you only specify 
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|TotalCount|Integer|Total number of commands|
-|Pagenumber|Integer|Command list page number|
-|Pagesize|Integer|The number of rows per page|
-|Commands|Array|Type of command data set \([`CommandSetType`](#CommandSetType)\)|
+|TotalCount|Integer|Total number of commands.|
+|Pagenumber|Integer|Command list page number.|
+|Pagesize|Integer|The number of rows per page.|
+|Commands|Array|Type of command data set \([`CommandSetType`](#CommandSetType)\).|
 
  **CommandSetType** 
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|Command|Array|Command type \([`CommandType`](#CommandType)\)|
+|Command|Array|Command type \([`CommandType`](#CommandType)\).|
 
  **CommandType** 
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|CommandId|String|Command ID|
-|Name|String|Command name|
-|Description|String|Command description|
-|Type|String|Command type|
-|Commandcontent|String|Command content, transmitted in the Base64-encoded format|
-|WorkingDir|String|Invocation path|
-|TimeOut|Integer|Timeout|
+|CommandId|String|Command ID.|
+|Name|String|Command name.|
+|Description|String|Command description.|
+|Type|String|Command type.|
+|Commandcontent|String|Command content, transmitted in the Base64-encoded format.|
+|WorkingDir|String|Invocation path.|
+|TimeOut|Integer|Timeout.|
 
 ## Examples { .section}
 
@@ -116,17 +116,17 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
     <PageNumber>1</PageNumber>
     <RequestId>36443468-4AE5-44DB-A6FE-A528xxxxxxxx</RequestId>
     <PageSize>10</PageSize>
-
+</DescribeCommandsResponse>
 ```
 
  **JSON format** 
 
 ```
-
+{
     "TotalCount": 5,
     "Commands": {
         "Command": [
-            
+            {
                 "Name": "Test",
                 "WorkingDir": "",
                 "CommandContent": "ZWNobyAxMjM=",
@@ -134,8 +134,8 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
                 "Type": "RunShellScript",
                 "CommandId": "c-05946950bc63441dab0a72b8xxxxxxxx",
                 "Description": "test"
-            
-            
+            },
+            {
                 "Name": "Test1",
                 "WorkingDir": "",
                 "CommandContent": "Y2QgL3Jvb3Q=",
@@ -143,8 +143,8 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
                 "Type": "RunShellScript",
                 "CommandId": "c-53253cb556d74cb7b7f7309fxxxxxxxx",
                 "Description": "test1"
-            
-            
+            },
+            {
                 "Name": "Test2",
                 "WorkingDir": "",
                 "CommandContent": "eXVtIHVwZGF0ZQ==",
@@ -152,8 +152,8 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
                 "Type": "RunShellScript",
                 "CommandId": "c-57881b01e5ec4403916f8685xxxxxxxx",
                 "Description": "test2"
-            
-            
+            },
+            {
                 "Name": "Test3",
                 "WorkingDir": "",
                 "CommandContent": "c2VydmljZSBuZ2lueCByZWxvYWQ=",
@@ -161,8 +161,8 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
                 "Type": "RunShellScript",
                 "CommandId": "c-742eea007af14043b07c4978xxxxxxxx",
                 "Description": "test3"
-            
-            
+            },
+            {
                 "Name": "Test4",
                 "WorkingDir": "",
                 "CommandContent": "bHM=",
@@ -170,13 +170,13 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
                 "Type": "RunShellScript",
                 "CommandId": "c-cec3ded3bc434c22aabcfeaaxxxxxxxx",
                 "Description": "test4"
-            
-        
-    
+            },
+        ]
+    },
     "PageNumber": 1,
     "RequestId": "36443468-4AE5-44DB-A6FE-A528xxxxxxxx",
     "PageSize": 10
-
+}
 ```
 
 **Error response example** 
@@ -195,17 +195,15 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
  **JSON format** 
 
 ```
-
+{
     "RequestId": "540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx",
     "HostId": "ecs.aliyuncs.com"
     "Code": "MissingParameter.RegionId"
     "Message": "The input parameter “RegionId” that is mandatory for processing this request is not supplied."
-
+}
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message |HTTP status code|Meaning|
 |:---------|:-------------|:---------------|:------|

@@ -7,7 +7,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeCommands|
-|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |CommandId|String|否|命令 ID。|
 |Type|String|否|命令的类型。取值范围：-   RunBatScript：命令为在 Windows 实例中运行的 Bat 脚本
 -   RunPowerShellScript：命令为在 Windows 实例中运行的 PowerShell 脚本
@@ -15,7 +15,6 @@
 
 |
 |Name|String|否|命令的名称，暂不支持模糊查询。|
-|Description|String|否|命令的描述，暂不支持模糊查询。|
 |PageNumber|Integer|否|当前页码，起始值：1默认值：1
 
 |
@@ -74,7 +73,7 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
                 <CommandContent>ZWNobyAxMjM=</CommandContent>
                 <Timeout>3600</Timeout>
                 <Type>RunShellScript</Type>
-                <CommandId>c-05946950bc63441dab0a72b8xxxxxxxx</CommandId>
+                <CommandId>c-7d2a745b412b4601b2d47f6a768d3a14</CommandId>
                 <Description>test</Description>
         </Command>
         <Command>
@@ -83,7 +82,7 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
                 <CommandContent>Y2QgL3Jvb3Q=</CommandContent>
                 <Timeout>3600</Timeout>
                 <Type>RunShellScript</Type>
-                <CommandId>c-53253cb556d74cb7b7f7309fdxxxxxxxx</CommandId>
+                <CommandId>c-7d2a745b412b4601b2d47f6a768d3a15</CommandId>
                 <Description>test1</Description>
         </Command>
         <Command>
@@ -92,7 +91,7 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
                 <CommandContent>eXVtIHVwZGF0ZQ==</CommandContent>
                 <Timeout>3600</Timeout>
                 <Type>RunShellScript</Type>
-                <CommandId>c-57881b01e5ec4403916f8685xxxxxxxx</CommandId>
+                <CommandId>c-7d2a745b412b4601b2d47f6a768d3a16</CommandId>
                 <Description>test2</Description>
         </Command>
         <Command>
@@ -101,7 +100,7 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
                 <CommandContent>c2VydmljZSBuZ2lueCByZWxvYWQ=</CommandContent>
                 <Timeout>3600</Timeout>
                 <Type>RunShellScript</Type>
-                <CommandId>c-742eea007af14043b07c4978xxxxxxxx</CommandId>
+                <CommandId>c-7d2a745b412b4601b2d47f6a768d3a17</CommandId>
                 <Description>test3</Description>
         </Command>
         <Command>
@@ -110,13 +109,13 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
                 <CommandContent>bHM=</CommandContent>
                 <Timeout>120</Timeout>
                 <Type>RunShellScript</Type>
-                <CommandId>c-cec3ded3bc434c22aabcfeaaxxxxxxxx</CommandId>
+                <CommandId>c-7d2a745b412b4601b2d47f6a768d3a18</CommandId>
                 <Description>test4</Description>
         </Command>
     <PageNumber>1</PageNumber>
-    <RequestId>36443468-4AE5-44DB-A6FE-A528xxxxxxxx</RequestId>
+    <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
     <PageSize>10</PageSize>
-}
+</DescribeCommandsResponse>
 ```
 
  **JSON 格式** 
@@ -132,7 +131,7 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
                 "CommandContent": "ZWNobyAxMjM=",
                 "Timeout": 3600,
                 "Type": "RunShellScript",
-                "CommandId": "c-05946950bc63441dab0a72b8xxxxxxxx",
+                "CommandId": "c-7d2a745b412b4601b2d47f6a768d3a14",
                 "Description": "test"
             },
             {
@@ -141,7 +140,7 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
                 "CommandContent": "Y2QgL3Jvb3Q=",
                 "Timeout": 3600,
                 "Type": "RunShellScript",
-                "CommandId": "c-53253cb556d74cb7b7f7309fxxxxxxxx",
+                "CommandId": "c-7d2a745b412b4601b2d47f6a768d3a15",
                 "Description": "test1"
             },
             {
@@ -150,7 +149,7 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
                 "CommandContent": "eXVtIHVwZGF0ZQ==",
                 "Timeout": 3600,
                 "Type": "RunShellScript",
-                "CommandId": "c-57881b01e5ec4403916f8685xxxxxxxx",
+                "CommandId": "c-7d2a745b412b4601b2d47f6a768d3a16",
                 "Description": "test2"
             },
             {
@@ -159,7 +158,7 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
                 "CommandContent": "c2VydmljZSBuZ2lueCByZWxvYWQ=",
                 "Timeout": 3600,
                 "Type": "RunShellScript",
-                "CommandId": "c-742eea007af14043b07c4978xxxxxxxx",
+                "CommandId": "c-7d2a745b412b4601b2d47f6a768d3a17",
                 "Description": "test3"
             },
             {
@@ -168,13 +167,13 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
                 "CommandContent": "bHM=",
                 "Timeout": 3600,
                 "Type": "RunShellScript",
-                "CommandId": "c-cec3ded3bc434c22aabcfeaaxxxxxxxx",
+                "CommandId": "c-7d2a745b412b4601b2d47f6a768d3a18",
                 "Description": "test4"
             },
         ]
     },
     "PageNumber": 1,
-    "RequestId": "36443468-4AE5-44DB-A6FE-A528xxxxxxxx",
+    "RequestId": "E69EF3CC-94CD-42E7-8926-F133B86387C0",
     "PageSize": 10
 }
 ```
@@ -185,18 +184,18 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
 
 ```
 <Error>
-    <RequestId>540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx</RequestId>
+    <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
     <HostId>ecs.aliyuncs.com</HostId>
     <Code>MissingParameter.RegionId</Code>
     <Message>The input parameter “RegionId” that is mandatory for processing this request is not supplied.</Message>
 </Error>
 ```
 
- **JSON 格式** 
+**JSON 格式** 
 
 ```
 {
-    "RequestId": "540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx",
+    "RequestId": "E69EF3CC-94CD-42E7-8926-F133B86387C0",
     "HostId": "ecs.aliyuncs.com"
     "Code": "MissingParameter.RegionId"
     "Message": "The input parameter “RegionId” that is mandatory for processing this request is not supplied."
@@ -205,11 +204,13 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
 |MissingParameter.RegionId|The input parameter “RegionId” that is mandatory for processing this request is not supplied.|400|您必须指定必需参数 `RegionId`，或者您暂时不能使用指定 `RegionId` 里的资源。|
+|InvalidParam.pageNumber|The specified parameter is invalid.|403|指定的页码不合法。|
+|InvalidParam.PageSize|The specified parameter is invalid.|403|指定的页面大小不合法。|
 |InvalidRegionId.NotFound|The RegionId provided does not exist in our items.|404|指定的参数 `RegionId`不存在。|
 |InternalError.Dispatch|An internal error occurred when dispath the request|500|内部错误，请稍后尝试。|
 
