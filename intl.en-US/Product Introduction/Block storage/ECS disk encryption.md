@@ -22,7 +22,7 @@ ECS disk encryption supports all available instance types and is supported in al
 
 ## ECS disk encryption dependencies {#dependencies .section}
 
-ECS disk encryption is dependent on the [Key Management Service \(KMS\)](https://help.aliyun.com/document_detail/28935.html), which must be in the same region. However, you do not need to perform any additional operations in the KMS console to activate ECS disk encryption.
+ECS disk encryption is dependent on the Key Management Service \(KMS\), which must be in the same region. However, you do not need to perform any additional operations in the KMS console to activate ECS disk encryption.
 
 The first time you use the ECS disk encryption function \(such as when you are creating ECS instances or ECS disks\), you must first authorize and activate KMS. Otherwise, you cannot create encrypted ECS disks or instances with encrypted disks.
 
