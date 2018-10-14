@@ -4,24 +4,24 @@ This article describes how to create an f1 instance.
 
 ## Prerequisites {#section_plv_1j1_ydb .section}
 
-You need an image pre-installed with the development environment of Intel to create an f1 instance. We can share the image with you. This is the only method to get the image. To apply for the image, [open a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+You must use an image that is pre-installed with the Intel development environment to create an f1 instance. To obtain the image, [open a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
 
 ## Procedure {#section_m1m_s31_ydb .section}
 
-Follow the steps described in [create an ECS instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#), but before doing so, consider the following:
+Follow the steps described in [create an ECS instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#), However, the following configurations must be selected:
 
 -   **Region**: Select **China East 1 \(Hangzhou\)** \> **China East 1 Zone F**.
--   **Instance Type**: Select **Heterogeneous Computing** \> **FPGA ** \> **Compute**. And select the appropriate F1 instance type.
+-   **Instance Type**: Select **Heterogeneous Computing** \> **FPGA ** \> **Compute**, and then select the appropriate f1 instance type.
 -   **Image**: Select **Shared Image**, and then select the shared image.
 
-    **Note:** You need an image preinstalled with the development environment of Intel to create an f1 instance. We can share the image with you. This is the only method to get the image. You can find quartus17.0, vcs2017.3,  dcp sdk in the opt directory.
+    **Note:** You must use an image that is pre-installed with the Intel development environment to create an f1 instance. This image is not available in the Alibaba Cloud Marketplace directly. To obtain the image, please find quartus17.0, vcs2017.3,  dcp sdk in the opt directory.
 
 -   **Network**: Select **VPC**, and select a created VPC and VSwitch.
 
-After an f1 instance is created, [connect to the instance](intl.en-US/User Guide/Connect to instances/Overview.md#), and run the following command to check whether the License is configured.
+After an f1 instance is created, [connect to the instance](intl.en-US/User Guide/Connect to instances/Overview.md#) and run the following command to check whether the licence is configured.
 
 ```
-echo $LM_LICENSE_FILE #To check whether the variable is set.
+echo $LM_LICENSE_FILE #Check whether the variable is set.
 ```
 
 ## Best practices {#section_q1m_s31_ydb .section}
