@@ -24,7 +24,7 @@
 
 1.  运行`grep -i virtio /boot/config-$(uname -r)`检查当前操作系统的内核是否支持virtio驱动。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15381326364632_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15394858674632_zh-CN.png)
 
     **说明：** 
 
@@ -33,7 +33,7 @@
     -   如果参数**CONFIG\_VIRTIO\_BLK**及**CONFIG\_VIRTIO\_NET**取值为m，需要进入第2步。
 2.  执行命令`lsinitrd /boot/initramfs-$(uname -r).img | grep virtio`确认virtio驱动是否包含在临时文件系统initramfs或者initrd中。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15381326364633_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15394858674633_zh-CN.png)
 
     **说明：** 
 
@@ -84,11 +84,11 @@
 1.  运行`yum install -y ncurses-devel gcc make wget`安装编译内核的必要组件。
 2.  运行`uname -r`查询当前系统使用的内核版本，如示例中的4.4.24-2.a17.x86\_64。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15381326364634_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15394858684634_zh-CN.png)
 
 3.  前往[Linux内核列表页面](https://www.kernel.org/pub/linux/kernel/)下载对应的内核版本源码，如示例中的4.4.24开头的linux-4.4.24.tar.gz的网址为[https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.24.tar.gz](https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.24.tar.gz)。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15381326374638_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15394858684638_zh-CN.png)
 
 4.  运行`cd /usr/src/`切换目录。
 5.  运行`wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.24.tar.gz`下载安装包。
@@ -114,11 +114,11 @@
 
     1.  使用空格勾选Virtualization项。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15381326374639_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15394858684639_zh-CN.png)
 
         确认是否勾选了KVM（Kernel-based Virtual Machine）选项。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15381326374640_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15394858684640_zh-CN.png)
 
         ```
         Processor type and features  --->
@@ -129,7 +129,7 @@
          [*]   KVM Guest support
         ```
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15381326374641_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15394858684641_zh-CN.png)
 
         ```
         Device Drivers  --->
