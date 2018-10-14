@@ -4,16 +4,16 @@ Queries the cloud assistant command invocation list and status on your ECS insta
 
 ## Description {#section_n1g_w44_ydb .section}
 
-When the `InvokeStatus` value is `Finished`, it indicates that the command process is Finished, but not necessarily is as effective as expected. You can check the specific invocation result by calling [DescribeInvocationResults](intl.en-US/API Reference/Cloud assistant/DescribeInvocationResultsDescribeinvocationresults.md#).
+When the `InvokeStatus` value is `Finished`, it indicates that the command process is Finished, but not necessarily is as effective as expected. You can check the specific invocation result by calling [DescribeInvocationResults](reseller.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#).
 
 ## Request parameters {#RequestParameter .section}
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: DescribeInvocations.|
-|RegionId|String|Yes|The region ID. For more information, call [DescribeRegions](../intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|The region ID. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |InvokeId|String|No|Invocation ID of a command process.|
-|CommandId|String|No|Command ID. You can query all the available `CommandId` by calling the [DescribeCommands](intl.en-US/API Reference/Cloud assistant/DescribeCommands.md#).|
+|CommandId|String|No|Command ID. You can query all the available `CommandId` by calling the [DescribeCommands](reseller.en-US/API Reference/Cloud assistant/DescribeCommands.md#).|
 |CommandName|String|No|Name of the command.|
 |Type|String|No|Type of the command. Optional values:-   RunBatScript: A Bat script for Windows instances.
 -   RunPowerShellScript: A PowerShell script for Windows instances.
@@ -92,9 +92,7 @@ Or when you manually stop the invocation of command processes on some target ins
 |
 |CommandType|String|Command type|
 |Timed|Boolean|Whether the command is periodically performed or not.|
-|Frequency|String|The interval of a periodical task. For more information about the value specifications, see [Cron expression](https://www.alibabacloud.com/help/faq-detail/64769.htm).
-
-|
+|Frequency|String|The interval of a periodical task. |
 |InvokeInstances|Array of [`InvokeInstanceSetType`](#)|Type of the target instance set for invocation.|
 
  **Type of the target instance set for invocation \(InvokeInstanceSetType\)** 
@@ -370,8 +368,6 @@ https://ecs.aliyuncs.com/?Action=DescribeInvocations
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message| HTTP status code| Meaning|
 |:---------|:------------|:----------------|:-------|

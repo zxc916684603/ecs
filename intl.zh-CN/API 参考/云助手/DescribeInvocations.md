@@ -7,9 +7,9 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeInvocations|
-|RegionId|String|是|ECS 实例所在的地域 ID。您可以调用[DescribeRegions](../intl.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
+|RegionId|String|是|ECS 实例所在的地域 ID。您可以调用[DescribeRegions](../cn.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
 |InvokeId|String|否|命令进程执行 ID。|
-|CommandId|String|否|命令 ID。您可以通过接口 [DescribeCommands](intl.zh-CN/API 参考/云助手/DescribeCommands.md#) 查询所有可用的 `CommandId`。|
+|CommandId|String|否|命令 ID。您可以通过接口 [DescribeCommands](cn.zh-CN/API 参考/云助手/DescribeCommands.md#) 查询所有可用的 `CommandId`。|
 |CommandName|String|否|命令名称。|
 |Type|String|否|命令类型。取值范围：-   RunBatScript：查询的命令进程为是一个在 Windows 实例中运行的 Bat 脚本
 -   RunPowerShellScript：查询的命令进程为是一个在 Windows 实例中运行的 PowerShell 脚本
@@ -85,7 +85,7 @@
 |
 |CommandType|String|命令类型。|
 |Timed|Boolean|是否为周期执行。|
-|Frequency|String|周期任务的执行周期。该参数值结构以 [Cron 表达式](https://www.alibabacloud.com/help/faq-detail/64769.htm) 为准。
+|Frequency|String|周期任务的执行周期。该参数值结构以 [Cron 表达式](https://help.aliyun.com/document_detail/64769.html) 为准。
 
 |
 |InvokeInstances|Array|执行目标实例集类型（[`InvokeInstanceSetType`](#)）。|
@@ -259,7 +259,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInvocations
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
