@@ -6,8 +6,8 @@
 
 -   只有专有网络 （VPC） 网络类型的 ECS 实例才能使用实例 RAM 角色。
 -   一个 ECS 实例一次只能授予一个实例 RAM 角色。
--   当您给 ECS 实例授予了实例 RAM 角色后，并希望在 ECS 实例内部部署的应用程序中访问云产品的 API 时，您需要通过 [实例元数据](intl.zh-CN/用户指南/实例/实例自定义数据和元数据/实例元数据.md#) 获取实例 RAM 角色的临时授权 Token。参阅 [5. （可选）获取临时授权 Token](#Token)。
--   如果您是通过 RAM 用户子账号使用实例 RAM 角色，您需要通过云账号 [6. （可选）授权 RAM 用户使用实例 RAM 角色](#Authorize)。
+-   当您给 ECS 实例授予了实例 RAM 角色后，并希望在 ECS 实例内部部署的应用程序中访问云产品的 API 时，您需要通过 [实例元数据](intl.zh-CN/用户指南/实例/实例自定义数据和元数据/实例元数据.md#) 获取实例 RAM 角色的临时授权 Token。参阅 [5. （可选）获取临时授权 Token](#)。
+-   如果您是通过 RAM 用户子账号使用实例 RAM 角色，您需要通过云账号 [6. （可选）授权 RAM 用户使用实例 RAM 角色](#)。
 
 ## 前提条件 {#section_h2w_td5_xdb .section}
 
@@ -20,7 +20,6 @@
 3.  按如下策略设置 AssumeRolePolicyDocument：
 
     ```
-    
     {
     "Statement": [
     {
@@ -45,7 +44,6 @@
 3.  按如下策略设置 PolicyDocument：
 
     ```
-    
     {
     "Statement": [
     {
@@ -88,7 +86,6 @@
 2.  获得临时授权 Token。返回示例如下：
 
     ```
-    
     {
     "AccessKeyId" : "XXXXXXXXX",
     "AccessKeySecret" : "XXXXXXXXX",
@@ -109,7 +106,6 @@
 登录 RAM 控制台，参阅文档 [为 RAM 用户授权](../../../../intl.zh-CN/快速入门/为 RAM 用户授权.md#) 完成授权，如下所示：
 
 ```
-
 {
 "Version": "2016-10-17",
 "Statement": [
@@ -137,7 +133,7 @@
 ## 参考链接 {#section_bgl_kf5_xdb .section}
 
 -   您也可以 [通过控制台使用实例 RAM 角色](intl.zh-CN/用户指南/实例/实例RAM角色/通过控制台使用实例 RAM 角色.md#)。
--   您也许想 [借助实例 RAM 角色访问其它云产品 API](https://www.alibabacloud.com/help/doc-detail/54579.htm)。
+-   您也许想 [借助于实例 RAM 角色访问其他云产品](../../../../intl.zh-CN/最佳实践/借助于实例 RAM 角色访问其他云产品.md#)。
 -   实例 RAM 角色相关的 API 接口包括：
     -   创建 RAM 角色：[CreateRole](../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/CreateRole.md#)
     -   查询 RAM 角色列表：[ListRoles](../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#)
