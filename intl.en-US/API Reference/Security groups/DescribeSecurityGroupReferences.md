@@ -1,6 +1,6 @@
 # DescribeSecurityGroupReferences {#DescribeSecurityGroupReferences .reference}
 
-Queries whether a specified security group has been authorized by other security group or not.
+Queries whether a specified security group has access permission to other security group or not.
 
 ## Description {#section_dcn_yyr_zdb .section}
 
@@ -10,7 +10,7 @@ When you call this interface, consider the following:
 
 -   A maximum 100 entries of authorization record can be queried per invocation.
 
--   When you fail to delete one security group \([DeleteSecurityGroup](intl.en-US/API Reference/Security groups/DeleteSecurityGroup.md#)\), you can call this interface to make sure whether a specified security group has been authorized by other security group or not. If the security group to be deleted is authorized by another security groups, you must withdraw the authorization before the deletion action.
+-   When you fail to delete one security group \([DeleteSecurityGroup](reseller.en-US/API Reference/Security groups/DeleteSecurityGroup.md#)\), you can call this interface to make sure whether a specified security group has been authorized by other security group or not. If the security group to be deleted is authorized by another security groups, you must withdraw the authorization before the deletion action.
 
 
 ## Request parameters {#RequestParameter .section}
@@ -19,13 +19,13 @@ When you call this interface, consider the following:
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: DescribeSecurityGroupReferences.|
 |SecurityGroupId.n|String|Yes|The ID of a security group. The value range of n is \[1, 10\].|
-|RegionId|String|Yes|The region to where the security group belongs. You can call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|The region to where the security group belongs. You can call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 
 ## Response parameters {#ResponseParameter .section}
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|SecurityGroupReferences|[SecurityGroupReference](intl.en-US/API Reference/Data type/SecurityGroupReference.md#)|Information of the security group authorization.|
+|SecurityGroupReferences|[SecurityGroupReference](reseller.en-US/API Reference/Data type/SecurityGroupReference.md#)|Information of the security group authorization.|
 
 ## Examples { .section}
 
@@ -34,7 +34,7 @@ When you call this interface, consider the following:
 ```
 https://ecs.aliyuncs.com/?Action=DescribeSecurityGroupReferences
 &RegionId=cn-hangzhou
-&SecurityGroupId. 1=sg-1133aa
+&SecurityGroupId.1=sg-1133aa
 &<Common Request Parameters>
 ```
 
@@ -66,29 +66,27 @@ https://ecs.aliyuncs.com/?Action=DescribeSecurityGroupReferences
  **JSON format** 
 
 ```
-
+{
     "RequestId": "CEF72CEB-54B6-4AE8-B225-F876FF7BA984"
     "SecurityGroupReferences":[
-        
+        {
             "SecurityGroupId":"sg-1133aa",
             "SecurityReferencingGroups":[
-                
+                {
                     "AliUid":123,
                     "SecurityGroupId":"sg-2255cc"
-                
-                
+                },
+                {
                     "AliUid":123,
                     "SecurityGroupId":"sg-2255dd"
-                
-            
-        
-    
-
+                }
+            ]
+        }
+    ]
+}
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message |HTTP status code |Meaning|
 |:---------|:-------------|:----------------|:------|
