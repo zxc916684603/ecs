@@ -12,13 +12,13 @@ Stops cloud assistant command processes that are in **Running** \(`Running`\) st
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: StopInvocation.|
-|RegionId|String|Yes|The region ID. For more information, call [DescribeRegions](../intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|InvokeId|String|Yes|Invocation ID of a command process. You can call [DescribeInvocations](intl.en-US/API Reference/Cloud assistant/DescribeInvocations.md#) to obtain the latest `InvokeId`.|
+|RegionId|String|Yes|The region ID. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|InvokeId|String|Yes|Invocation ID of a command process. You can call [DescribeInvocations](reseller.en-US/API Reference/Cloud assistant/DescribeInvocations.md#) to obtain the latest `InvokeId`.|
 |InstanceIds|Array|No|List of instances for stopping command invocation. The parameter value is a formatted JSON array in the format of \[`InstanceId1`, `InstanceId2`, …\]. You can specify a maximum of 100 instance IDs separated by commas \(,\).|
 
 ## Response parameters {#section_f54_lk5_xdb .section}
 
-All are common response parameters. See [Common response parameters](../intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
+All are common response parameters. See [Common response parameters](../reseller.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
 
 ## Examples { .section}
 
@@ -74,8 +74,6 @@ https://ecs.aliyuncs.com/?Action=StopInvocation
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Description|
 |:---------|:------------|:---------------|:----------|
