@@ -15,7 +15,7 @@ However, using this tool may change some attributes of the ECS instance. For exa
     -   Ubuntu Instance: Run `apt-get install rsync –y`.
     -   Debian Instance: Run `apt-get install rsync –y`.
     -   Other distributions: Please visit the official website to find the relevant installation documents.
--   You must [create an AccessKey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#) in the console first, which is used to output it into the configuration file [user\_config.json](#step04).
+-   You must [create an AccessKey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#) in the console first, which is used to output it into the configuration file [user\_config.json](reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Migrate to Alibaba Cloud by using Cloud Migration tool.md#).
 
     **Note:** To prevent data leakage due to excessive permissions for AccessKey, we recommend that you [create a RAM sub-account](../../../../reseller.en-US/Quick Start/Create a RAM user.md#) and use this account to [create an AccessKey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#).
 
@@ -30,7 +30,7 @@ However, using this tool may change some attributes of the ECS instance. For exa
 
     See the following figure for the configuration file in a Linux instance.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9835/153949597711775_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9835/153950831111775_en-US.png)
 
     The most important parameters to configure for shrinking a disk volume are as follows:
 
