@@ -1,18 +1,18 @@
 # Create a template version {#concept_nhb_3y5_xdb .concept}
 
-One template can have multiple versions. The default version number of a newly created template is 1. You can create additional versions based on this template. The version number automatically increments as you create a new version. You cannot customize the version number. You can set any of the template versions as the default version.
+One template can have multiple versions. The default version number of a newly created template is 1, and you can create additional versions based on this template. The version number increments automatically as you create a new version. You cannot customize the version number, but you can set any of the template versions as the default version.
 
 **Note:** 
 
 -   Each template can have a maximum of 30 versions.
 -   All parameters are optional when you create a template version.
--   The version cannot be modified once you have created it.
+-   A template version cannot be modified once you have created it.
 
-You can create a version using the following methods:
+You can create a template version using the following methods:
 
 -   [Create an instance using the ECS console](#console) to create versions of a template for future use.
 
--   If you want to create an instance and save the configuration information, you can [create an instance on the ECS buy page](#commonbuy) to create versions of a template.
+-   [Create an instance on the ECS buy page](#commonbuy) to create an instance, save its configurations, and create versions of a template.
 
 
 ## Prerequisite {#section_s44_z1v_xdb .section}
@@ -25,7 +25,7 @@ You have already [created a template](intl.en-US/User Guide/Instances/Launch tem
 2.  In the left-side navigation pane, select **Launch Template**.
 3.  Select a template ID to view its configurations, and then click **New Version**. You can also click **New Version** in the **Actions** column.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13806/15367330635351_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13806/15395013975351_en-US.png)
 
 4.  On the Launch Template page, set the parameters.
 
@@ -48,6 +48,6 @@ You have already [created a template](intl.en-US/User Guide/Instances/Launch tem
 1.  In the ECS console, select a template ID that has multiple versions.
 2.  Locate the version you want to set as default, and then click **Set as Default** in the **Actions** column.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13806/15367330645352_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13806/15395013975352_en-US.png)
 
 
