@@ -4,15 +4,15 @@
 
 ## 描述 {#section_nlv_qq4_ydb .section}
 
-当您执行命令后，不代表命令一定成功运行，并且一定有预期的命令效果。您需要通过[DescribeInvocationResults](intl.zh-CN/API 参考/云助手/DescribeInvocationResults.md#)查看实际的具体执行结果，以实际输出结果为准。
+当您执行命令后，不代表命令一定成功运行，并且一定有预期的命令效果。您需要通过[DescribeInvocationResults](cn.zh-CN/API 参考/云助手/DescribeInvocationResults.md#)查看实际的具体执行结果，以实际输出结果为准。
 
 ## 请求参数 {#RequestParameter .section}
 
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeInvocationResults|
-|RegionId|String|是|地域ID。您可以调用[DescribeRegions](../intl.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
-|InvokeId|String|是|命令执行ID。命令进程执行ID。您可以通过接口[DescribeInvocations](intl.zh-CN/API 参考/云助手/DescribeInvocations.md#)查询`InvokeId`。|
+|RegionId|String|是|地域ID。您可以调用[DescribeRegions](../cn.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
+|InvokeId|String|是|命令执行ID。命令进程执行ID。您可以通过接口[DescribeInvocations](cn.zh-CN/API 参考/云助手/DescribeInvocations.md#)查询`InvokeId`。|
 |InstanceId|String|否|实例ID。|
 |PageNumber|Integer|否|当前页码，起始值：1默认值：1
 
@@ -42,7 +42,7 @@
 |:-|:-|:-|
 |InvokeId|String|执行ID|
 |InstanceId|String|实例ID|
-|FinishedTime|String|命令进程的完成时间。如果命令进程出现超时情况，命令进程的完成时间以[CreateCommand](intl.zh-CN/API 参考/云助手/CreateCommand.md#)中指定的参数`TimedOut`为准|
+|FinishedTime|String|命令进程的完成时间。如果命令进程出现超时情况，命令进程的完成时间以[CreateCommand](cn.zh-CN/API 参考/云助手/CreateCommand.md#)中指定的参数`TimedOut`为准|
 |Output|String|命令进程完成后的实际结果，输出内容以Base64编码的形式传输|
 |ExitCode|Integer|命令进程的退出码：-   Linux实例为Shell进程的退出码
 -   Windows实例为Bat或者PowerShell进程的退出码
@@ -183,7 +183,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInvocationResults
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP状态码|说明|
 |:---|:---|:------|:-|

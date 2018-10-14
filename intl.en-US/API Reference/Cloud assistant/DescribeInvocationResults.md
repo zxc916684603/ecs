@@ -4,17 +4,17 @@ Queries the invocation result of a cloud assistant command, that is, the actual 
 
 ## Description {#section_nlv_qq4_ydb .section}
 
-After you use the [DescribeInvocations](intl.en-US/API Reference/Cloud assistant/DescribeInvocations.md#) interface to check the command invocation status and the returned `InvokeStatus` is `Finished`, it indicates that the command process is Finished, but not necessarily is as effective as expected. You need to check the `Output` parameter in [DescribeInvocationResults](intl.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#) to get the specific invocation result. The actual output result is the valid version.
+After you use the [DescribeInvocations](reseller.en-US/API Reference/Cloud assistant/DescribeInvocations.md#) interface to check the command invocation status and the returned `InvokeStatus` is `Finished`, it indicates that the command process is Finished, but not necessarily is as effective as expected. You need to check the `Output` parameter in [DescribeInvocationResults](reseller.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#) to get the specific invocation result. The actual output result is the valid version.
 
 ## Request parameters {#RequestParameter .section}
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: DescribeInvocationResults.|
-|RegionId|String|Yes|The regional ID. For more information, see [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#).|
-|CommandId|String|No|Command ID. For more information, call [DescribeRegions](../DNA0011839416/../DNA0011860945/intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|The regional ID. For more information, see [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#).|
+|CommandId|String|No|Command ID. For more information, call [DescribeRegions](../DNA0011839416/../DNA0011860945/reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |InstanceId|String|No|Instance ID.|
-|InvokeId|String|No|Invocation ID of a command process. You can use the [DescribeInvocations](intl.en-US/API Reference/Cloud assistant/DescribeInvocations.md#) API to check all the `InvokeId`.|
+|InvokeId|String|No|Invocation ID of a command process. You can use the [DescribeInvocations](reseller.en-US/API Reference/Cloud assistant/DescribeInvocations.md#) API to check all the `InvokeId`.|
 |InvokeRecordStatus|String|No|The status of the command process you want to query. Optional values:-   Running: The command process is running.
 -   Failed: The command process invocation failed, the command process timed out, or encountered exceptions.
 -   Finished: The invocation of the command process is completed.
@@ -50,7 +50,7 @@ After you use the [DescribeInvocations](intl.en-US/API Reference/Cloud assistant
 |CommandId|String|Command ID.|
 |InvokeId|String|Invocation ID.|
 |InstanceId|String|Instance ID.|
-|FinishedTime|String|Time of command process completion. If a command process times out, the time of completion for the command process is based on [CreateCommand](intl.en-US/API Reference/Cloud assistant/CreateCommand.md#) `TimedOut`.|
+|FinishedTime|String|Time of command process completion. If a command process times out, the time of completion for the command process is based on [CreateCommand](reseller.en-US/API Reference/Cloud assistant/CreateCommand.md#) `TimedOut`.|
 |Invokerecordstatus|String|Invocation status of the command process. Optional values:-   Running: The command process is running.
 -   Failed: The command process invocation failed, the command process timed out, or encountered exceptions.
 -   Finished: The invocation of the command process is completed.
@@ -220,8 +220,6 @@ https://ecs.aliyuncs.com/?Action=DescribeInvocationResults
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code |Meaning|
 |:---------|:------------|:----------------|:------|
