@@ -15,27 +15,27 @@ However, using this tool may change some attributes of the ECS instance. For exa
     -   Ubuntu Instance: Run `apt-get install rsync –y`.
     -   Debian Instance: Run `apt-get install rsync –y`.
     -   Other distributions: Please visit the official website to find the relevant installation documents.
--   You must [create an AccessKey](https://help.aliyun.com/document_detail/53045.html?spm=a2c4g.11186623.2.20.4b8e16f2nDULTx) in the console first, which is used to output it into the configuration file [user\_config.json](#step04).
+-   You must [create an AccessKey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#) in the console first, which is used to output it into the configuration file [user\_config.json](#step04).
 
-    **Note:** To prevent data leakage due to excessive permissions for AccessKey, we recommend that you [create a RAM sub-account](https://help.aliyun.com/document_detail/28637.html?spm=a2c4g.11186623.2.22.58e616f24NQeIh) and use this account to [create an AccessKey](https://help.aliyun.com/document_detail/53045.html?spm=a2c4g.11186623.2.23.58e616f2wkk2Rt).
+    **Note:** To prevent data leakage due to excessive permissions for AccessKey, we recommend that you [create a RAM sub-account](../../../../reseller.en-US/Quick Start/Create a RAM user.md#) and use this account to [create an AccessKey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#).
 
--   For other prerequisites and limitations, see [migrate to Alibaba Cloud by using Cloud Migration Tool](https://help.aliyun.com/document_detail/62394.html?spm=a2c4g.11186623.2.24.58e616f2xAieKQ).
+-   For other prerequisites and limitations, see [migrate to Alibaba Cloud by using Cloud Migration Tool](reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Migrate to Alibaba Cloud by using Cloud Migration tool.md#).
 
 ## Procedure { .section}
 
 1.  [Connect](../../../../reseller.en-US/User Guide/Connect to instances/Connect to a Linux instance by using a password.md#) to the target ECS instance by using the administrator/root account.
 2.  [Download](http://p2v-tools.oss-cn-hangzhou.aliyuncs.com/Alibaba_Cloud_Migration_Tool.zip?spm=5176.7765564.2.3.6SzsdG&file=Alibaba_Cloud_Migration_Tool.zip) the Alibaba Cloud Migration Tool zip file.
 3.  Unzip the Cloud Migration Tool. Enter the corresponding operating system and version of the client file directory to find the configuration file user\_config.json.
-4.  See [customize user\_config.json](https://help.aliyun.com/document_detail/62394.html?spm=a2c4g.11186623.2.27.58e616f2BpOqvq#user_config) to complete the configuration.
+4.  See customize [user\_config.json](reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Migrate to Alibaba Cloud by using Cloud Migration tool.md#) to complete the configuration.
 
     See the following figure for the configuration file in a Linux instance.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9835/153949444411775_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9835/153949597711775_en-US.png)
 
     The most important parameters to configure for shrinking a disk volume are as follows:
 
-    -   [`system_disk_size`](https://help.aliyun.com/document_detail/62394.html?spm=a2c4g.11186623.2.29.58e616f2BCnBNC#SystemDiskSize): Set this parameter to the expected system disk size in GB. The value cannot be less than the actual size of the system disk.
-    -   [`data_disks`](https://help.aliyun.com/document_detail/62394.html?spm=a2c4g.11186623.2.30.58e616f2u3F27y#SystemDiskSize): Set this parameter to the expected data disk size in GB. The value cannot be less than the actual size of the data disk.
+    -   [`system_disk_size`](reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Migrate to Alibaba Cloud by using Cloud Migration tool.md#SystemDiskSize): Set this parameter to the expected system disk size in GB. The value cannot be less than the actual size of the system disk.
+    -   [`data_disks`](reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Migrate to Alibaba Cloud by using Cloud Migration tool.md#SystemDiskSize): Set this parameter to the expected data disk size in GB. The value cannot be less than the actual size of the data disk.
     **Note:** 
 
     -   When a Linux instance comes with a data disk, the `data_disks` parameter is required even if you do not want to shrink the data disk volume. If it is not configured, Cloud Migration Tool copies data from the data disk to the system disk by default.
@@ -46,11 +46,11 @@ However, using this tool may change some attributes of the ECS instance. For exa
         1.  Run `chmod +x go2aliyun_client` to give the client executable permissions.
         2.  Run `./ go2aliyun_client` to run the client.
 6.  Wait for the running results:
-    -   If `Goto Aliyun Finished!` is displayed, go to the [ECS console](https://ecs.console.aliyun.com/#/image/region/cn-hangzhou/imageList) and check the custom image after shrinking. If the custom image has been generated, you can release the original instance and use the custom image to [create an ECS instance](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create an instance from a custom image.md#). After you create a new instance, the disk volume shrinking process is complete.
-    -   If `Goto Aliyun Not Finished!` is displayed, check the log files in the same directory for [troubleshooting](https://help.aliyun.com/knowledge_detail/66373.html). After fixing any problems, run Cloud Migration Tool again to resume volume shrinking. The tool continues the most recent migration progress and does not start over.
+    -   If `Goto Aliyun Finished!` is displayed, go to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs) and check the custom image after shrinking. If the custom image has been generated, you can release the original instance and use the custom image to [create an ECS instance](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create an instance from a custom image.md#). After you create a new instance, the disk volume shrinking process is complete.
+    -   If `Goto Aliyun Not Finished!` is displayed, check the log files in the same directory for [troubleshooting](reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Troubleshooting.md#). After fixing any problems, run Cloud Migration Tool again to resume volume shrinking. The tool continues the most recent migration progress and does not start over.
 
 ## References { .section}
 
--   For a detailed introduction to Cloud Migration Tool, see [what is Alibaba Cloud Migration Tool](https://help.aliyun.com/document_detail/62349.html?spm=a2c4g.11186623.2.35.58e616f2nUUBzw).
--   For instructions on how to use Cloud Migration Tool, see [migrate to Alibaba Cloud by using Cloud Migration Tool](https://help.aliyun.com/document_detail/62394.html?spm=a2c4g.11186623.2.36.412916f2GwkBYG).
+-   For a detailed introduction to Cloud Migration Tool, see [what is Alibaba Cloud Migration Tool](reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Cloud Migration tool for P2V and V2V.md#).
+-   For instructions on how to use Cloud Migration Tool, see [migrate to Alibaba Cloud by using Cloud Migration Tool](reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Migrate to Alibaba Cloud by using Cloud Migration tool.md#).
 
