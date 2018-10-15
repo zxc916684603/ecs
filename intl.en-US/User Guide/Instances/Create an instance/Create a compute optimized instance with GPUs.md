@@ -4,7 +4,7 @@ Compute optimized instances with GPUs \(or GPU instances for short\) are availab
 
 ## Create an instance {#section_v1b_nxz_xdb .section}
 
-To create a GPU instance, you must configure the following settings. For detailed steps, see [create an ECS instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#).
+To create a GPU instance, you must configure the following settings. For detailed steps, see [create an ECS instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#).
 
 -   **Region**: Each instance type family is available only in certain regions:
 
@@ -15,7 +15,7 @@ To create a GPU instance, you must configure the following settings. For detaile
 
     -   gn5i: North China 2 \(Zone C, E and A\), East China 1 \(Zone B\), East China 2 \(Zone D and B\), and South China 1 \(Zone A\)
     -   gn6v: East China 2 \(Zone F\)
-    The preceding regions and zones are for reference purpose only. Go to the purchase page to check the availability of instance types.
+    The preceding regions and zones are for reference purpose only. Please check the purchase page for the latest information about the availability of instance types.
 
 -   **Image**:
     -   To install a GPU driver and a CUDA library, select one of the following options:
@@ -24,7 +24,7 @@ To create a GPU instance, you must configure the following settings. For detaile
             **Note:** 
 
             -   You can select a GPU driver based on your business needs. For a new business system, we recommend that you select the latest GPU driver.
-            -   If **Auto-install GPU Driver** is selected, **UserData** will be generated automatically. It is a shell script to install the CUDA library and the GPU driver automatically. You can view it when setting up the **Advanced** options in **System Configurations**. After the instance is created and started successfully for the first time, the cloud-init runs the script to install the GPU driver. For more information, see the [note for the GPU installation script](#).
+            -   If **Auto-install GPU Driver** is selected, **UserData** will be generated automatically. It is a shell script to install the CUDA library and the GPU driver automatically. You can view it when setting up the **Advanced** options in **System Configurations**. After the instance is created and started successfully for the first time, the cloud-init runs the script to install the GPU driver. For more information, see the note for the GPU installation script.
         -   Select **Marketplace Image**, search for NVIDIA, and select an image from the results. Currently, only CentOS 7.3 and Ubuntu 16.04 are supported.
     -   To use a GPU instance for deep learning, you can select an image pre-installed with the deep learning framework. Select **Marketplace Image**, search for Deep Learning, then select the desired image from the results. Currently, only CentOS 7.3 and Ubuntu 16.04 are supported.
     -   For other images, you must [download and install a GPU driver](#) after the instance is created.
@@ -32,7 +32,7 @@ To create a GPU instance, you must configure the following settings. For detaile
 -   **Network**: Select **VPC**.
 -   **Network Billing Method**: Select a bandwidth based on your needs.
 
-    **Note:** If Windows 2008 R2 or earlier is running on the instance, you cannot use the[Management Terminal](intl.en-US/User Guide/Connect to instances/Connect to an instance by using the Management Terminal.md#) in the ECS console to connect to the GPU instance after the GPU driver is effective. Therefore, you must select **Assign Public IP**, or [Bind EIP](../../../../intl.en-US/User Guide/Bind an EIP.md#) after creating the instance.
+    **Note:** If Windows 2008 R2 or earlier is running on the instance, you cannot use the [Management Terminal](reseller.en-US/User Guide/Connect to instances/Connect to an instance by using the Management Terminal.md#) in the ECS console to connect to the GPU instance after the GPU driver is effective. Therefore, you must select **Assign Public IP**, or [bind EIP](../../../../reseller.en-US/User Guide/Bind EIP to cloud resources.md#) after creating the instance.
 
 -   **Log on Credentials**: Set a credential to log on to the instance.
 
@@ -42,7 +42,7 @@ To create a GPU instance, you must configure the following settings. For detaile
 
 ## Check the installation progress {#section_gbb_nxz_xdb .section}
 
-If **Auto-install GPU Driver** is enabled, after the instance is created, you can [connect to the instance](intl.en-US/User Guide/Connect to instances/Overview.md#), and read the log file `/root/nvidia_install.log` to check the installation progress.
+If **Auto-install GPU Driver** is enabled, after the instance is created, you can [connect to the instance](reseller.en-US/User Guide/Connect to instances/Overview.md#), and read the log file `/root/nvidia_install.log` to check the installation progress.
 
 **Note:** To avoid installation failure, do not operate GPU or install any other GPU-related software before the GPU driver is installed successfully.
 
@@ -59,7 +59,7 @@ If the image is not pre-installed with a GPU driver, you must install one for th
         |Product Type|Tesla|Tesla|Tesla|Tesla|
         |Product Series|M-Class|P-Series|P-Series|V-Series|
         |Product|M40|Tesla P100|Tesla P4|Tesla V100|
-        |Operating System|Select an OS version according to the image of your instance. If the server operating system is not displayed in the drop-down list, click **Show all Operating Systems** at the bottom of the drop-down list.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15362483705114_en-US.png)
+        |Operating System|Select an OS version according to the image of your instance. If the server operating system is not displayed in the drop-down list, click **Show all Operating Systems** at the bottom of the drop-down list.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15395932605114_en-US.png)
 
 |
 
@@ -85,22 +85,22 @@ If the image is not pre-installed with a GPU driver, you must install one for th
             kernel-tools-3.10.0-514.26.2.el7.x86_64
             ```
 
-        3.  Go to the download page of the driver on the NVIDIA website, click the **ADDITIONAL INFORMATION**tab, and follow the tips to install the driver.
+        3.  Go to the download page of the driver on the NVIDIA website, click the **ADDITIONAL INFORMATION** tab, and follow the tips to install the driver.
 
             Take Linux 64-bit Ubuntu 14.04 as an example.
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15362483705117_en-US.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15395932605117_en-US.png)
 
 
 ## Install a GRID driver {#section_ubb_nxz_xdb .section}
 
-If your gn5, gn5i or gn6v instance requires OpenGL, you must install a GRID driver. For more information, see [install GRID driver on a gn5 instance](https://help.aliyun.com/document_detail/66441.html).
+If your gn5, gn5i or gn6v instance requires OpenGL, you must install a GRID driver. For more information, see [install a GRID driver on a gn5/gn5i/gn6v instance](../../../../reseller.en-US/Best Practices/GPU instances/Install a GRID driver on a gn5__gn5i__gn6v instance.md#).
 
 ## Note {#section_urs_qd1_ydb .section}
 
 **For remote access**
 
-For Windows 2008 R2 or earlier, if you want to connect to your instance by using the [Management Terminal](intl.en-US/User Guide/Connect to instances/Connect to an instance by using the Management Terminal.md#) on the ECS console after the GPU driver is effective, the Management Terminal is non-operational. It shows either a black screen or the startup interface. If the instance can access the Internet, connect to the instance remotely by using other protocols, such as the Remote Desktop Protocol \(RDP\) developed by Microsoft.
+For Windows 2008 R2 or earlier, if you want to connect to your instance by using the [Management Terminal](reseller.en-US/User Guide/Connect to instances/Connect to an instance by using the Management Terminal.md#) on the ECS console after the GPU driver is effective, the Management Terminal is non-operational. It shows either a black screen or the startup interface. If the instance can access the Internet, connect to the instance remotely by using other protocols, such as the Remote Desktop Protocol \(RDP\) developed by Microsoft.
 
 RDP does not support DirectX, OpenGL, and other related applications. Therefore, you must install the VNC server and client, or other protocols that support these applications, such as PCOIP or XenDesktop HDX 3D.
 
@@ -112,7 +112,7 @@ For the GPU auto installation script, note the following:
 -   The installation takes 4.5 to 10 minutes, depending on the intranet bandwidth and the quantity of vCPU cores of the instance. To avoid installation failure, do not operate the GPU or install any GPU-related software until the GPU driver is installed successfully.
 -   After the GPU is installed successfully, the instance restarts automatically to bring the driver into effect.
 -   The script turns on the **Persistence Mode** of the driver and add this setup to the automatic startup script of the instance to make sure that this mode is turned on automatically when the instance is restarted. The GPU driver works in a more stabilized manner in this mode.
--   When [changing the operating system](intl.en-US/User Guide/Instances/Change the operating system.md#), note the following:
+-   When [changing the operating system](reseller.en-US/User Guide/Instances/Change the operating system.md#), note the following:
     -   Replacing Ubuntu 16.04 64-bit or SUSE Linux Enterprise Server 12 SP2 64-bit with other distributions or versions causes failure of automatic installation of the GPU driver.
     -   Replacing one version of CentOS with another version does not cause installation failure of the GPU driver.
     -   Replacing the image with another image that does not support the automatic installation script causes failure of automatic installation of the GPU driver.
