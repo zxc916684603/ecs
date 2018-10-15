@@ -11,7 +11,7 @@ The size limits of cloud disks for resizing vary between system disks and data d
 
 ## System disks {#section_xhc_q4g_ydb .section}
 
-By using the **Change system disk** feature, you can keep the system disk size unchanged or increase the size only, but not reduce the size. For example, before changing, the system disk of a CentOS instance is of 35 GiB, so it must be equal to or greater than 35 GiB **after changing**.  The size limit for changing is determined by the image and the current size of the system disk, as displayed in the following table.
+By using the **Change system disk** feature, you can keep the system disk size unchanged or increase the size only, but not reduce the size. For example, before changing, the system disk of a CentOS instance is of 35 GiB, so it must be equal to or greater than 35 GiB after changing. The size limit for changing is determined by the image and the current size of the system disk, as displayed in the following table.
 
 |Image|Size limit \(GiB\)|
 |:----|:-----------------|
@@ -25,15 +25,16 @@ By using the **Resize Disk** feature, you can keep the data disk size unchanged 
 
 |Cloud disk type|Current capacity|Capacity after resizing|
 |:--------------|:---------------|:----------------------|
-|Basic Cloud Disk |Any|2000 GiB|
-|SSD Cloud Disk or Ultra Cloud Disk|equal or less than 2048 GiB|2048 GiB|
-|SSD Cloud Disk or Ultra Cloud Disk|\> 2048 GiB|Cannot be resized|
+|Basic Cloud Disk |Any|2,000 GiB|
+|SSD Cloud Disk or Ultra Cloud Disk|equal or less than 2,048 GiB|2,048 GiB|
+|SSD Cloud Disk or Ultra Cloud Disk|\> 2,048 GiB|Cannot be resized|
+|ESSD Cloud Disk|Any|32,768 GiB|
 
 ## Operations {#section_d3c_q4g_ydb .section}
 
 You can perform the following tasks:
 
--   To increase the size of the system disk of an ECS instance, see [Increase system disk size](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Increase system disk size.md#).
--   To resize a data disk attached to a Windows instance, see [Windows \_ Resize a data disk](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Windows _ Resize a data disk.md#).
--   To resize a data disk attached to a Linux instance, see [Linux \_ Resize a data disk](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md#).
+-   To increase the size of the system disk of an ECS instance, see [increase system disk size](reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Increase system disk size.md#).
+-   To resize a data disk attached to a Windows instance, see [Windows \_ Resize a data disk](reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Windows _ Resize a data disk.md#).
+-   To resize a data disk attached to a Linux instance, see [Linux \_ Resize a data disk](reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md#).
 
