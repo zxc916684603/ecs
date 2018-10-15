@@ -13,8 +13,8 @@ In addition to the preceding limitations, the following table details further li
 
 ## ECS instances {#section_tbg_zdx_wdb .section}
 
-|Item|Limitation|Can I open a ticket to supply for higher configuration or unlock configuration rights?|
-|:---|:---------|:-------------------------------------------------------------------------------------|
+|Item|Limitation|Can I open a ticket to raise the limitation?|
+|:---|:---------|:-------------------------------------------|
 |Instance types for which you can create Pay-As-You-Go instances|Instance types with less than 16 vCPUs|Yes|
 |Default quota of launch templates in each region for one account|30|No|
 |Default quota of versions of one launch template|30|No|
@@ -22,8 +22,9 @@ In addition to the preceding limitations, the following table details further li
 
 ## Block storage {#section_xlb_32x_wdb .section}
 
-|Item|Limitation|Can I open a ticket to supply for higher configuration or unlock configuration rights?|
-|:---|:---------|:-------------------------------------------------------------------------------------|
+|Item|Limitation|Can I open a ticket to raise the limitation?|
+|:---|:---------|:-------------------------------------------|
+|Create Pay-As-You-Go cloud disks|Complete real-name registration before creating cloud disks in any mainland China regions|No|
 |Default quota of Pay-As-You-Go cloud disks in all regions for one account|Number of Pay-As-You-Go instances in all regions under the user account × 5|Yes|
 |Quota of system disks for one instance|1|No|
 |Quota of data disks for one instance|16 \(including cloud disks and Shared Block Storage\) |No|
@@ -60,37 +61,37 @@ In addition to the preceding limitations, the following table details further li
 
 ## Snapshots {#section_bxk_n2x_wdb .section}
 
-|Item|Limitation|Can I open a ticket to supply for higher configuration or unlock configuration rights?|
-|:---|:---------|:-------------------------------------------------------------------------------------|
+|Item|Limitation|Can I open a ticket to raise the limitation?|
+|:---|:---------|:-------------------------------------------|
 |Quota of snapshots|Number of elastic block storage devices × 64|No|
 
 ## Images {#section_jnw_r2x_wdb .section}
 
-|Item|Limitation|Can I open a ticket to supply for higher configuration or unlock configuration rights?|
-|:---|:---------|:-------------------------------------------------------------------------------------|
+|Item|Limitation|Can I open a ticket to raise the limitation?|
+|:---|:---------|:-------------------------------------------|
 |Quota of custom images in all regions for one account|100 \(increases with membership levels\)|Yes|
 |Maximum number of users with whom a single image can be shared|50|Yes|
 |Usage of images on instance types|32-bit images are not supported on an instance with 4 GiB or more RAM.|No|
 
 ## Key pairs {#section_dxw_s2x_wdb .section}
 
-|Item|Limitation|Can I open a ticket to supply for higher configuration or unlock configuration rights?|
-|:---|:---------|:-------------------------------------------------------------------------------------|
+|Item|Limitation|Can I open a ticket to raise the limitation?|
+|:---|:---------|:-------------------------------------------|
 |Quota of key pairs in all regions for one account|500|No|
 |Instance types supporting key pairs|All instance types except for non-I/O optimized instance types in Generation I|No|
 |Images supporting key pairs|Linux images only|No|
 
 ## Internet bandwidth {#section_og5_t2x_wdb .section}
 
-|Item|Limitation|Can I open a ticket to supply for higher configuration or unlock configuration rights?|
-|:---|:---------|:-------------------------------------------------------------------------------------|
+|Item|Limitation|Can I open a ticket to raise the limitation?|
+|:---|:---------|:-------------------------------------------|
 |Maximum inbound Internet bandwidth|200 Mbit/s|No|
 |Change the assigned public IP address for one instance|The instance has existed for less than six hours. You can change the public IP address of an instance three times.|No|
 
 ## Security group {#section_mzr_52x_wdb .section}
 
-|Item|Limitation|Can I open a ticket to supply for higher configuration or unlock configuration rights?|
-|:---|:---------|:-------------------------------------------------------------------------------------|
+|Item|Limitation|Can I open a ticket to raise the limitation?|
+|:---|:---------|:-------------------------------------------|
 |Quota of instances/IP for one security group| -   Security groups for classic network instances: 1,000 classic network instances
 -   Security groups for VPC instances: 2,000 private IP \(shared by primary and secondary network cards\)
 
@@ -104,22 +105,22 @@ In addition to the preceding limitations, the following table details further li
 
 ## ENI {#section_gfq_v2x_wdb .section}
 
-|Item|Limitation|Can I open a ticket to supply for higher configuration or unlock configuration rights?|
-|:---|:---------|:-------------------------------------------------------------------------------------|
+|Item|Limitation|Can I open a ticket to raise the limitation?|
+|:---|:---------|:-------------------------------------------|
 |Quota of ENIs in one region for one account| 100 \(increases with membership levels\)
 
  |Yes|
 
 ## Label {#section_npm_w2x_wdb .section}
 
-|Item|Limitation|Can I open a ticket to supply for higher configuration or unlock configuration rights?|
-|:---|:---------|:-------------------------------------------------------------------------------------|
+|Item|Limitation|Can I open a ticket to raise the limitation?|
+|:---|:---------|:-------------------------------------------|
 |Quota of tags that can be bound to one instance|20|No|
 
 ## API {#section_glg_x2x_wdb .section}
 
-|Item|Limitation|Can I open a ticket to supply for higher configuration or unlock configuration rights?|
-|:---|:---------|:-------------------------------------------------------------------------------------|
+|Item|Limitation|Can I open a ticket to raise the limitation?|
+|:---|:---------|:-------------------------------------------|
 |Quota of CreateInstance calls|200 times per minute|Yes|
 
 **Note:** For more information about limitations of VPC products, see [Limits](../../../../reseller.en-US/Product Introduction/Limits.md#).
