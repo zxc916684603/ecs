@@ -53,7 +53,7 @@ For access to technical support and additional server migration support, choose 
 
 -   In the Alibaba Cloud console, open a ticket.
 
--   Business hours access to cloud support via email of server-migration@alibabacloud.com.
+-   Business hours access to cloud support via email of [server-migration@alibabacloud.com](mailto:server-migration@alibabacloud.com).
 
 
 ## Update history {#section_fjj_v5z_jfb .section}

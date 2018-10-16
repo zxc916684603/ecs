@@ -44,6 +44,7 @@
 
 -   如果您有数据库迁云需求，请访问 [数据迁移](https://www.alibabacloud.com/help/doc-detail/26594.htm)。
 
+-    [迁云工具操作视频示例](https://help.aliyun.com/video_detail/67824.html)。
 
 ## 反馈与支持 {#section_lmt_rtg_mfb .section}
 
@@ -53,7 +54,7 @@
 
 -   [提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex)
 
--   发送邮件至 server-migration@alibabacloud.com
+-   发送邮件至 [server-migration@alibabacloud.com](mailto:server-migration@alibabacloud.com)
 
 
 ## 更新历史 {#section_fjj_v5z_jfb .section}
