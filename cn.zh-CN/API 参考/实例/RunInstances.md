@@ -53,15 +53,20 @@ RunInstances可以执行批量创建任务，为便于管理与检索，建议�
 
 |
 |VSwitchId|String|否|虚拟交换机ID。如果您创建的是VPC类型ECS实例，需要指定虚拟交换机ID。|
+|DedicatedHostId|String|否| 是否在专有宿主机上创建 ECS 实例。您可以通过[DescribeDedicatedHosts](cn.zh-CN/API 参考/专有宿主机/DescribeDedicatedHosts.md#) 查询专有宿主机 ID 列表。
+
+ 由于专有宿主机不支持创建抢占式实例，指定 DedicatedHostId 参数后，会自动忽略请求中的 SpotStrategy 和 SpotPriceLimit 设置。
+
+ |
 |InstanceChargeType|String|否|实例的计费方式，更多详情，请参阅[计费概述](../cn.zh-CN/产品定价/计费概述.md#)。取值范围：-   PrePaid：预付费，即包年包月。此时，您必须确认自己的账号支持余额支付或者信用支付，否则将报错`InvalidPayMethod`。
 -   PostPaid：按量付费。
 
 默认值：PostPaid|
 |PeriodUnit|String|否|购买资源的时长单位。取值范围：-   Week
--   Month
+-   Month（默认）
 
-默认值：Month|
-|Period|Integer|否|购买资源的时长。当参数`InstanceChargeType`取值为`PrePaid`时才生效且为必选值。取值范围：-   `PeriodUnit=Week`时，Period取值：\{“1”, “2”, “3”, “4”\}
+|
+|Period|Integer|否|购买资源的时长。当参数`InstanceChargeType`取值为`PrePaid`时才生效且为必选值。一旦指定了 DedicatedHostId，则取值范围不能超过专有宿主机的订阅时长。取值范围：-   `PeriodUnit=Week`时，Period取值：\{“1”, “2”, “3”, “4”\}
 -   `PeriodUnit=Month`时，Period取值：\{ “1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “12”, “24”, “36”,”48”,”60”\}
 
 |
@@ -293,6 +298,16 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |InvalidSpotPriceLimit|The specified SpotPriceLimitis not valid.|400|指定的`SpotPriceLimit`不合法。|
 |InvalidSpotPriceLimit.LowerThanPublicPrice|The specified parameter spotPriceLimit can’t be lower than current public price.|400|指定的`SpotPriceLimit`不能低于我们设定的最低市场价格。|
 |InvalidSpotStrategy|The specified SpotStrategy is not valid.|400|指定的`SpotStrategy`不合法。|
+|InvalidDeploymentOnHost|deployment on host is not valid|400|不能同时指定 DedicatedHostId 和 DeploymentSetId。|
+|InvalidInstanceChargeType.NotSupport|The Dedicated host not support the specified Instance charge type.|400|专有宿主机上无法创建抢占式实例。|
+|InvalidNetworkType.NotSupported|The classic networkType not support create ECS on dedicatedHost|400|专有宿主机上无法创建经典网络类型实例。|
+|InvalidDedicatedHostId.NotFound|The specified DedicatedHostId does not exist.|400|指定的 DedicatedHostId 不存在。|
+|InvalidDedicatedHostStatus.NotSupport|Operation denied due to dedicated host status.|400|指定的专有宿主机已经过期或者您的账号已欠费。|
+|IncorrectDedicatedHostStatus|The current status of the resource does not support this operation.|400|指定的专有宿主机已经过期或者您的账号已欠费。|
+|InvalidPeriod.ExceededDedidactedHost|Instance expired date can't exceed dedicated host expired date.|400|实例生命周期不能长于专有宿主机生命周期。|
+|InvalidInstanceType.ValueUnauthorized|The specified InstanceType is not authorize.|400|指定的专有宿主机规格无效。|
+|DedicatedHostType.Unmatched|The specified DedicatedHostType doesn’t match the instance type.|400|指定的专有宿主机不支持该 ECS 实例规格。|
+|LackResource|There's no enough resource on the specified dedicated host.|400|指定专有宿主机已满负荷。|
 |InvalidSystemDiskCategory.ValueNotSupported|The specified parameter SystemDisk.Category is not valid.|400|指定的`SystemDisk.Category`不合法。|
 |InvalidUserData.NotSupported|The specified parameter UserData only support the vpc and IoOptimized Instance.|400|实力自定义数据`UserData`只能使用在VPC类型和I/O优化实例上。|
 |InvalidUserData.SizeExceeded|The specified parameter UserData exceeds the size.|400|指定的`UserData`在Base64编码前不能超过64KB。|
