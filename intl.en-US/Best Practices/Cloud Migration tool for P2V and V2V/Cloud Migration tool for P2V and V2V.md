@@ -51,7 +51,7 @@ For access to technical support and additional server migration support, choose 
 
 -   [Join the dedicated DingTalk Migration Tool group chat](https://h5.dingtalk.com/invite-page/index.html?code=ca190154ff). [DingTalk](https://www.dingtalk.com/en) is an enterprise communication and collaboration platform Developed by Alibaba Group.
 
--   open a ticket.
+-   In the Alibaba Cloud console, open a ticket.
 
 -   Business hours access to cloud support via email of server-migration@alibabacloud.com.
 
