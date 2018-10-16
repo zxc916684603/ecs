@@ -19,26 +19,21 @@
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数，取值：RenewInstance。|
 |InstanceId|String|是|指定的需要实例规格的实例 ID。|
-|Period|Integer|是|预付费续费时长。取值范围：-   \[1, 9\]
--   12
--   24
--   36
--   48
--   60
+|Period|Integer|是|预付费续费时长。当参数`InstanceChargeType`取值为`PrePaid`时才生效且为必选值。一旦指定了 DedicatedHostId，则取值范围不能超过专有宿主机的订阅时长。取值范围：-   `PeriodUnit=Week`时，Period取值：\{“1”, “2”, “3”, “4”\}
+-   `PeriodUnit=Month`时，Period取值：\{ “1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “12”, “24”, “36”,”48”,”60”\}
 
 |
 |PeriodUnit|String|否|预付费参数 `Period` 的单位。取值范围：-   Week
--   Month
-
-默认值：Month-   取值为 `Week` 时，参数 `Period` 的取值范围为 \{1, 2, 3, 4\}。
--   取值为 `Month` 时，参数 `Period` 的取值范围为 \{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, 60\}。
+-   Month（默认）
 
 |
-|ClientToken|String|否|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一。只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](cn.zh-CN/API参考/附录/如何保证幂等性.md#)。|
+|ClientToken|String|否|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅[如何保证幂等性](../cn.zh-CN/API 参考/附录/如何保证幂等性.md#)。
+
+|
 
 ## 返回参数 {#section_f54_lk5_xdb .section}
 
-全是公共返回参数。参阅 [公共参数](cn.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)
+全是公共返回参数。参阅[公共返回参数](../cn.zh-CN/API 参考/快速入门/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -71,7 +66,7 @@ https://ecs.aliyuncs.com/?Action=RenewInstance
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
@@ -89,6 +84,9 @@ https://ecs.aliyuncs.com/?Action=RenewInstance
 |InvalidRebootTime.Malformed|The specified RebootTime is not valid.|400|指定的 RebootTime 不合法。|
 |InvalidRebootTime.ValueNotSupported|The specified RebootTime is out of the permitted range.|400|指定的 RebootTime 超出范围。|
 |OperationDenied|Specified instance is in VPC.|400|指定实例在 VPC 中。|
+|InvalidPeriod.ExceededDedidactedHost|Instance expired date can't exceed dedicated host expired date.|400|实例生命周期不能长于专有宿主机生命周期。|
+|IncorrectDedicatedHostStatus|The current status of the resource does not support this operation.|400|专有宿主机处于不可用状态。|
+|InvalidDedicatedHostStatus.NotSupport|Operation denied due to dedicated host status.|400|指定的专有宿主机已经过期或者您的账号已欠费。|
 |CategoryViolation|The specified instance does not support this operation because of its disk category.|403|磁盘类型不支持该操作。|
 |ChargeTypeViolation|The operation is not permitted due to charge type of the instance.|403|付费方式不支持这个操作。|
 |Diskcategory.Mismatch|The disk specified to convert to portable is not allowed due to the disk category does not support.|403|指定的磁盘类型不支持转换为可卸载磁盘。|
