@@ -33,16 +33,27 @@ Cloud Migration tool is free of charge. However, you may be charged for the foll
 
 -   During the migration, an ECS instance is created by default under your Alibaba Cloud account to act as an intermediate station. Billing method of the intermediate ECS instance is Pay-As-You-Go. In case you have put a limit on your credit card, you must delimit your credit card before the payment is attempted..
 
-    **Note:** - If the P2V migration fails, the instance is retained on your ECS console for next migration attempt. If the migration fails, the intermediate instance is retained in ECS for the next migration attempt. You can log on to the ECS console and manually [release the instance](../../../../reseller.en-US/User Guide/Instances/Release an instance.md#) to avoid unnecessary charges.
+    **Note:** - If the P2V migration fails, the instance is retained on your ECS console for next migration attempt. If the migration fails, the intermediate instance is retained in ECS for the next migration attempt. You can log on to the ECS console and manually [release the instance](../reseller.en-US/User Guide/Instances/Release an instance.md#) to avoid unnecessary charges.
 
 
 ## References {#section_htg_nvz_jfb .section}
 
 -   Alternatively, Cloud Migration tool can be used for cloud disk size shrinkage. For more information, see [Shrink disk](reseller.en-US/Best Practices/Shrink disk.md#).
 
--   Except for Cloud Migration tool, you can also [import custom images](../../../../reseller.en-US/User Guide/Images/Import images/Notes for importing images.md#) to ECS for server migration.
+-   Except for Cloud Migration tool, you can also [import custom images](../reseller.en-US/User Guide/Images/Import images/Notes for importing images.md#) to ECS for server migration.
 
 -   For on-premises databases to cloud migration, see [Data migration](https://partners-intl.aliyun.com/help/doc-detail/26594.htm).
+
+
+## Feedback and support {#section_lmt_rtg_mfb .section}
+
+For access to technical support and additional server migration support, choose any of the following options:
+
+-   [Join the dedicated DingTalk Migration Tool group chat](https://h5.dingtalk.com/invite-page/index.html?code=ca190154ff). [DingTalk](https://www.dingtalk.com/en) is an enterprise communication and collaboration platform Developed by Alibaba Group.
+
+-   open a ticket.
+
+-   Business hours access to cloud support via email of server-migration@alibabacloud.com.
 
 
 ## Update history {#section_fjj_v5z_jfb .section}
