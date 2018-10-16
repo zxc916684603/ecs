@@ -378,8 +378,8 @@ For access to technical support and additional server migration support, choose 
 
 -   In the Alibaba Cloud console, open a ticket.
 
--   Business hours access to cloud support via email of server-migration@alibabacloud.com.
+-   Business hours access to cloud support via email of [server-migration@alibabacloud.com](mailto:server-migration@alibabacloud.com).
 
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9833/153966911413339_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9833/153967145113339_en-US.png)
 
