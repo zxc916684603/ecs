@@ -7,7 +7,7 @@ When purchasing and using Elastic Compute Service \(ECS\) instances, as an enter
 -   [Select configurations](reseller.en-US/Quick Start for Enterprise-Level Users/Select configuration.md#).
 -   [Estimate costs](reseller.en-US/Quick Start for Enterprise-Level Users/Estimate costs.md#).
 -   [Plan networks](reseller.en-US/Quick Start for Enterprise-Level Users/Plan networks.md#).
--   [EN-US\_TP\_9610.md\#](reseller.en-US/Quick Start for Enterprise-Level Users/配置安全组.md#)
+-   [Configure a security group](reseller.en-US/Quick Start for Enterprise-Level Users/配置安全组.md#).
 -   [Automatic snapshot policies](reseller.en-US/Quick Start for Enterprise-Level Users/Automatic snapshot policies.md#).
 -   [Image migration](reseller.en-US/Quick Start for Enterprise-Level Users/Image migration.md#).
 -   [Implement high availability by using Server Load Balancer](reseller.en-US/Quick Start for Enterprise-Level Users/Implement high availability by using Server Load Balancer.md#).
