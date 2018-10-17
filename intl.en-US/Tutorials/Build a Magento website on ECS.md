@@ -10,11 +10,12 @@ In this tutorial,we will install the following tools:
 
 ## Prerequisites {#section_nln_zrl_2fb .section}
 
-[Create an ECS instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#). Make sure the instance meets the following requirements: Operating system: CentOS 7.2 64bit. Minimum specifications include 2 Core CPU, 4 GiB RAM, and a 40 GiB Ultra Cloud Disk as the system disk. VPC-connected. If you do not have a VPC network, one will be created when you create an ECS instance. A public IP address is assigned to the instance.
+[Create an ECS instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#). Make sure the instance meets the following requirements: Operating system: CentOS 7.2 64bit. Minimum specifications include 2 Core CPU, 4 GiB RAM, and a 40 GiB Ultra Cloud Disk as the system disk. VPC-connected. If you do not have a VPC network, one will be created when you create an ECS instance. A public IP address is assigned to the instance.
 
-Inbound Internet traffic to the TCP Port 80 of the ECS instance is allowed. For more information, see [create an ECS instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#) and [add a security group rule](../../../../intl.en-US/User Guide/Security groups/Add security group rules.md#).
+Inbound Internet traffic to the TCP Port 80 of the ECS instance is allowed. For more information, see [create an ECS instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#) and [add a security group rule](../../../../reseller.en-US/User Guide/Security groups/Add security group rules.md#).
 
 |Service|Rule Direction|Authorization Policy|Protocol Type|Port Range|Authorization Type|Authorization Object|Priority|
+|:------|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
 |HTTP|Inbound|Allow|User-defined TCP|80/80|Address Field Access|0.0.0.0/0|1|
 |MySQL|Inbound|Allow|User-defined TCP|3306/3306|Address Field Access|0.0.0.0/0|1|
 
@@ -32,14 +33,13 @@ Step 4: Install and configure Magento.
 
 Step 5: Test the installation.
 
-**Step 1. Install LAMP \(Linux, Apache, MySQL, and PHP\) on ECS**
+**Step 1: Install LAMP \(Linux, Apache, MySQL, and PHP\) on ECS**
 
-This section describes how to manually install the LAMP platform. You can also start the ECS instance directly from the [cloud market](https://marketplace.alibabacloud.com/)by purchasing LAMP images so that you can quickly build a website.
+This section describes how to manually install the LAMP platform. You can also start the ECS instance directly from the [cloud market](https://partners-intl.aliyun.com/marketplace/vodafone/) by purchasing LAMP images so that you can quickly build a website.
 
 1.  Connect to the ECS instance and install Apache and MySQL.
 
     ```
-    
     # yum -y update
     # yum -y install httpd
     # rpm -Uvh http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm
@@ -49,7 +49,6 @@ This section describes how to manually install the LAMP platform. You can also s
 2.  Start Apache and MySQL service and enable them at startup.
 
     ```
-    
     # systemctl start httpd
     # systemctl enable httpd
     # systemctl start mysqld
@@ -59,26 +58,22 @@ This section describes how to manually install the LAMP platform. You can also s
 3.  Configure the Apache configuration file: /etc/httpd/conf/httpd.conf.
     1.  Run `vim /etc/httpd/conf/httpd.conf`.
     2.  Press the `i` key.
-    3.  Add the
-        -   `LoadModule rewrite_module modules/mod_rewrite.so` line below `Include conf.modules.d/*.conf`,
-        -   and replace `AllowOverride None` with `AllowOverride all` in the following section.
+    3.  Add the `LoadModule rewrite_module modules/mod_rewrite.so` line below `Include conf.modules.d/*.conf`, and replace `AllowOverride None` with `AllowOverride all` in the following section.
 
-            ```
-            
-            Options Indexes FollowSymLinks
-            #
-            # AllowOverride controls what directives may be placed in .htaccess files.
-            # It can be "All", "None", or any combination of the keywords:
-            # Options FileInfo AuthConfig Limit
-            #
-            AllowOverride None
-            ```
+        ```
+        Options Indexes FollowSymLinks
+        #
+        # AllowOverride controls what directives may be placed in .htaccess files.
+        # It can be "All", "None", or any combination of the keywords:
+        # Options FileInfo AuthConfig Limit
+        #
+        AllowOverride None
+        ```
 
     4.  Press the `Esc` key and type `:wq` to save and exit the file.
-4.  Obtain the temporary password of the root account at the installation of MySQL by running
+4.  Obtain the temporary password of the root account at the installation of MySQL by running the following.
 
     ```
-    
     # grep 'temporary password' /var/log/mysqld.log.
     2016-12-13T14:57:47.535748Z 1 [Note] A temporary password is generated for root@localhost: p0/G28g>lsHD
     ```
@@ -86,14 +81,13 @@ This section describes how to manually install the LAMP platform. You can also s
 5.  Finish the MySQL security configuration, including:
 
     -   Resetting the root account password
-    -   Disabling remote root login
+    -   Disabling remote root logon
     -   Removing anonymous users
     -   Removing test database and test database access
 
         For more information, see the [official documentation](http://dev.mysql.com/doc/refman/5.7/en/mysql-secure-installation.html).
 
     ```
-    
     # mysql_secure_installation
     Securing the MySQL server deployment.
     Enter password for user root:  # Enter your temporary root password that is recorded in the previous step
@@ -102,7 +96,7 @@ This section describes how to manually install the LAMP platform. You can also s
     Using existing password for root.
     Estimated strength of the password: 100 
     Change the password for root? (Press y|Y for Yes, any other key for No): Y
-    New password: # Enter a new strong password, which must be a minimum of 8 characters in length and must include a special character
+    New password: # Enter a new strong password. The password can be [8, 30] characters in length. It must contain uppercase letters, lowercase letters, and numbers. The following special characters are allowed: ()`~! @#$%^&amp;*-+=|{}[]:;‘&lt;>,.? /
     Re-enter new password: # Repeat the new password to confirm it
     Estimated strength of the password: 100 
     Do you wish to continue with the password provided?( Press y|Y for Yes, any other key for No) : Y
@@ -131,7 +125,6 @@ This section describes how to manually install the LAMP platform. You can also s
 6.  Install PHP 7.
 
     ```
-    
     # yum install -y http://dl.iuscommunity.org/pub/ius/stable/CentOS/7/x86_64/ius-release-1.0-14.ius.centos7.noarch.rpm
     # yum -y update
     # yum -y install php70u php70u-pdo php70u-mysqlnd php70u-opcache php70u-xml php70u-gd php70u-mcrypt php70u-devel php70u-intl php70u-mbstring php70u-bcmath php70u-json php70u-iconv
@@ -140,7 +133,6 @@ This section describes how to manually install the LAMP platform. You can also s
 7.  Validate PHP installation.
 
     ```
-    
     # php -v
     PHP 7.0.13 (cli) (built: Nov 10 2016 08:44:18) ( NTS )
     Copyright (c) 1997-2016 The PHP Group
@@ -154,26 +146,24 @@ This section describes how to manually install the LAMP platform. You can also s
     3.  Find the line starting with date.timezone.
 
         ```
-        
         which is commented out by default, and add the correct time zone.
         If your site is in China, add date.timezone = Asia/Shanghai.
         ```
 
-9.  Restart httpb by running
+9.  Restart httpb by running the following.
 
     ```
     systemctl restart httpd.
     ```
 
 
-**Step 2. Configure the database**
+**Step 2: Configure the database**
 
 Follow these steps to configure a database:
 
 1.  Create a database and a user. Run the following commands, including those typed in the mysql\> prompt.
 
     ```
-    
     # mysql -u root -p
     Enter password: 
     mysql> CREATE DATABASE magento;
@@ -188,7 +178,6 @@ Follow these steps to configure a database:
 3.  Test the new user.
 
     ```
-    
     # mysql -u YourUser -p
     mysql> show databases;
     +--------------------+
@@ -202,14 +191,11 @@ Follow these steps to configure a database:
     ```
 
 
-**Step 3. Install and configure Composer**
+**Step 3: Install and configure Composer**
 
-Install Composer
-
-1.  .
+1.  Install Composer.
 
     ```
-    
     # curl -sS https://getcomposer.org/installer | php
     All settings correct for using Composer
     Downloading 1.2.4...
@@ -226,7 +212,6 @@ Install Composer
 3.  Test Composer.
 
     ```
-    
     # composer -v
     ______
     / ____/___ ____ ___ ____ ____ ________ _____
@@ -238,27 +223,19 @@ Install Composer
     ```
 
 
-**Step 4. Install and configure Magento**
+**Step 4: Install and configure Magento**
 
-Download Magento From
-
-github
-
-1.  using the following commands through `git clone`.
+1.  Download Magento From github using the following commands through `git clone`.
 
     ```
-    
     # yum -y install git
     # cd /var/www/html/
     # git clone https://github.com/magento/magento2.git
     ```
 
-2.  Switch the version
-
-    of Magento to the stable production version.
+2.  Switch the version of Magento to the stable production version.
 
     ```
-    
     # cd magento2 && git checkout tags/2.1.0 -b 2.1.0
     Switched to a new branch '2.1.0'
     ```
@@ -272,7 +249,6 @@ github
 4.  Set Magento file permissions.
 
     ```
-    
     # chown -R :apache /var/www/html
     # find /var/www/html -type f -print0 | xargs -r0 chmod 640
     # find /var/www/html -type d -print0 | xargs -r0 chmod 750
@@ -284,20 +260,19 @@ github
 5.  Run `composer install` to install Magento.
 6.  Use your browser to access your server at `http://public IP address of your ECS instance`. You will see a welcome screen like this one.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9769/153924130112984_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9769/153976763012984_en-US.png)
 
 7.  Click **Agree and Setup Magento** and fill in the database information, web configuration, and accounts as follows. When you get a page like this, the installation is successful.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9769/153924130112990_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9769/153976763012990_en-US.png)
 
 
-**Step 5. Configure the cron job**
+**Step 5: Configure the cron job**
 
 1.  Run `crontab -u apache -e`.
 2.  Add the following in the /etc/crontab file.
 
     ```
-    
     */10 * * * * php -c /etc /var/www/html/bin/magento cron:run
     */10 * * * * php -c /etc /var/www/html/update/cron.php
     */10 * * * * php -c /etc /var/www/html/bin/magento setup:cron:run
