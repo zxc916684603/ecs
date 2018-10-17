@@ -2,7 +2,7 @@
 
 This article describes how to partition and format a large data disk in different operating systems using the GPT format. Note that a large data disk indicates a disk greater than 2 TiB, while a disk size smaller than 2 TiB indicates a small data disk.
 
-**Note:** If you want to partition and format a data disk less than 2 TiB, please see [Format a data disk for Linux instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#) and [Format a data disk for Windows instances](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Windows instances.md#).
+**Note:** If you want to partition and format a data disk less than 2 TiB, please see [format a data disk for Linux instances](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#) and [format a data disk for Windows instances](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Windows instances.md#).
 
 ## Note {#section_xmm_psc_ydb .section}
 
@@ -44,19 +44,19 @@ The data disk has been attached to an instance. For more information, see [attac
 To partition and format a large data disk, follow these steps:
 
 1.  [Connect to a Windows instance](reseller.en-US/User Guide/Connect to instances/Overview.md#).
-2.  Click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/15397703274424_en-US.png) icon in the task bar.
-3.  In the left-side navigation pane select **Storage \> ** \> **Disk Management**.
+2.  Click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/15397707244424_en-US.png) icon in the task bar.
+3.  In the left-side navigation pane select **Storage** \> **Disk Management**.
 4.  Find the disk that is to be partitioned and formatted \(in this example, **Disk 4**\). The disk status should be shown as **Offline**.
 5.  Right click the blank area around Disk 4, and then click **Online**.
 
     After going online, Disk 4 enters the **Not Initialized** status.
 
 6.  Right click the blank area around Disk 4, and then select **Initialize Disk** in the context menu.
-7.  In the Initialize Disk  dialog box, select **Disk 4** and select **GPT** as the disk partitioning method.
-8.  In the Disk Management window, right click the **Unallocated** area of Disk 4, and then select  **New Simple Volume** to create a 4 TiB volume in the NTFS format.
+7.  In the Initialize Disk dialog box, select **Disk 4** and select **GPT** as the disk partitioning method.
+8.  In the Disk Management window, right click the **Unallocated** area of Disk 4, and then select **New Simple Volume** to create a 4 TiB volume in the NTFS format.
 9.  In the New Simple Volume Wizard, follow these steps:
     1.  Click **Next**.
-    2.  Choose a volume size: designate size of simple volume. If you want to create a master area only, use the default value. Click **Next**. You can also partition  **Disk 4**  into several partitions.
+    2.  Choose a volume size: designate size of simple volume. If you want to create a master area only, use the default value. Click **Next**. You can also partition **Disk 4**  into several partitions.
 
         **Note:** The maximum NTFS volume is, theoretically, the maximum volume of NTFS containing 264-1 clusters. However, in Windows XP  Pro, the maximum volume of NTFS is 232-1 clusters. For example, for a 64 KiB cluster, the maximum NTFS volume is approximately 256 TiB. If you select a 4 KiB cluster, the maximum NTFS volume is 16  TiB. NTFS selects the size of a cluster automatically based on the disk capacity.
 
@@ -86,12 +86,12 @@ To partition and format a large data disk, follow these steps:
     The data disk \(Disk 2, in this example\) that has not been formatted or partitioned is in the  **Offline** status.
 
 3.  Right click the blank area around Disk 2, and then select **Offline** in the context menu.
-4.  Right click a simple volume, and then select  **Delete Volume** in the context menu.
+4.  Right click a simple volume, and then select **Delete Volume** in the context menu.
 5.  Right click the blank area around Disk 2, and then select **Convert to GPT Disk** in the context menu.
-6.  In the  Disk Management window, right click **Unallocated** area of Disk 2, and then select **New Simple Volume** to create a 3 TiB volume in the NTFS format.
+6.  In the Disk Management window, right click **Unallocated** area of Disk 2, and then select **New Simple Volume** to create a 3 TiB volume in the NTFS format.
 7.  In the New Simple Volume Wizard, follow these steps:
     1.  Click **Next**.
-    2.  Specify Volume Size: Specify the size of the simple volume.  If you need only one primary partition, use the default value,  and then click **Next**. You can also partition  **Disk 2**  into several partitions.
+    2.  Specify Volume Size: Specify the size of the simple volume.  If you need only one primary partition, use the default value,  and then click **Next**. You can also partition **Disk 2** into several partitions.
 
         **Note:** The maximum NTFS volume is, theoretically, the maximum volume of NTFS containing 264-1 clusters.  Howver, in Windows XP Pro,  the maximum volume of NTFS is 232-1 clusters.  For example, for a 64 KiB cluster,  the maximum NTFS volume is approximately 256 TiB. If you select a 4 KiB cluster, the maximum NTFS volume is 16  TiB. NTFS selects the size of a cluster automatically based on the disk capacity.
 
@@ -105,7 +105,7 @@ After the formatted partition is completed, in **Disk Management**, the status o
 
 To partition and format a large data disk that is attached to a Linux instance, use the GPT format.  In Linux system, large data disks normally uses xfs or ext4 file system. 
 
-The following example uses a CentOS 7.4 64-bit operating system.This section describes how to use **parted** and  **e2fsprogs** tools to partition and format a large data disk on a Linux instance.  Assume the data disk to be processed is an empty 3 TiB new disk, and the device name is  /dev/vdd.
+The following example uses a CentOS 7.4 64-bit operating system.This section describes how to use **parted** and **e2fsprogs** tools to partition and format a large data disk on a Linux instance.  Assume the data disk to be processed is an empty 3 TiB new disk, and the device name is  /dev/vdd.
 
 **Prerequisites**
 
@@ -204,7 +204,7 @@ mkfs.ext4: Size of device /dev/vdd too big to be expressed in 32 bits using a bl
 
 To install e2fsprogs of later version, such as 1.42.8 in this example, follow these steps:
 
-1.  Run `rpm -qa | grep e2fsprogs` to check the current version of e2fsprogs.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/15397703274439_en-US.png)
+1.  Run `rpm -qa | grep e2fsprogs` to check the current version of e2fsprogs.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/15397707244439_en-US.png)
 
     If the current version is earlier than 1.42, update the software by following these steps.
 
@@ -231,7 +231,7 @@ To install e2fsprogs of later version, such as 1.42.8 in this example, follow th
 
 **Appendix 2: Disable lazy init function**
 
-The lazy init function of ext4 file system is enabled by default.  While the function is enabled, it will run in the system background and initiate a thread to initialize metadata of ext4 file system continuously to delay metadata initialization. Therefore, immediately after formatting a data disk, IOPS can be affected.
+The lazy init function of ext4 file system is enabled by default. While the function is enabled, it will run in the system background and initiate a thread to initialize metadata of ext4 file system continuously to delay metadata initialization. Therefore, immediately after formatting a data disk, IOPS can be affected.
 
 If you need to test performance of data disk immediately after formatting, run the following commands to disable lazy init function while formatting the file system.
 
