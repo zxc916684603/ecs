@@ -44,7 +44,7 @@ The data disk has been attached to an instance. For more information, see [attac
 To partition and format a large data disk, follow these steps:
 
 1.  [Connect to a Windows instance](reseller.en-US/User Guide/Connect to instances/Overview.md#).
-2.  Click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/15397707244424_en-US.png) icon in the task bar.
+2.  Click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/15398572184424_en-US.png) icon in the task bar.
 3.  In the left-side navigation pane select **Storage** \> **Disk Management**.
 4.  Find the disk that is to be partitioned and formatted \(in this example, **Disk 4**\). The disk status should be shown as **Offline**.
 5.  Right click the blank area around Disk 4, and then click **Online**.
@@ -61,7 +61,7 @@ To partition and format a large data disk, follow these steps:
         **Note:** The maximum NTFS volume is, theoretically, the maximum volume of NTFS containing 264-1 clusters. However, in Windows XP  Pro, the maximum volume of NTFS is 232-1 clusters. For example, for a 64 KiB cluster, the maximum NTFS volume is approximately 256 TiB. If you select a 4 KiB cluster, the maximum NTFS volume is 16  TiB. NTFS selects the size of a cluster automatically based on the disk capacity.
 
     3.  Assign drive letter and path: select a drive letter, then select G in this instance. Click **Next**.
-    4.  Format Partition: Select the formatting settings, including file system, distributed unit size, and volume label, and then confirm whether to **Perform a quick format**  and **Enable file and folder compression**. Select **Perform a quick format** here only. Click **Next**.
+    4.  Format Partition: Select the formatting settings, including file system, distributed unit size, and volume label, and then confirm whether to **Perform a quick format** and **Enable file and folder compression**. Select **Perform a quick format** here only. Click **Next**.
     5.  Start creating a new simple volume by following the prompts displayed by the wizard. Then, click **Finish**.
 
 After the formatted partition is completed, in **Disk Management**, the status of **Disk 4** is shown in the following screenshot.
@@ -83,7 +83,7 @@ To partition and format a large data disk, follow these steps:
 1.  [Connect to a Windows instance](reseller.en-US/User Guide/Connect to instances/Overview.md#).
 2.  On the Windows Server desktop, right click the **Start** icon, and select **Disk Management**.
 
-    The data disk \(Disk 2, in this example\) that has not been formatted or partitioned is in the  **Offline** status.
+    The data disk \(Disk 2, in this example\) that has not been formatted or partitioned is in the **Offline** status.
 
 3.  Right click the blank area around Disk 2, and then select **Offline** in the context menu.
 4.  Right click a simple volume, and then select **Delete Volume** in the context menu.
@@ -97,7 +97,7 @@ To partition and format a large data disk, follow these steps:
 
     3.  Assign Drive Letter or Path: Select a drive letter, and then click **Next**.
     4.  Format Partition: Select the formatting settings, including file system, distributed unit size and volume label, and then confirm whether to **Perform a quick format** and **Enable file and folder compression**. Select **Perform a quick format** here only. Click **Next**.
-    5.  Start creating a new simple volume by following the prompts displayed by the wizard. Then, click**Finish**.
+    5.  Start creating a new simple volume by following the prompts displayed by the wizard. Then, click **Finish**.
 
 After the formatted partition is completed, in **Disk Management**, the status of **Disk 4** is shown in the following screenshot.
 
@@ -105,7 +105,7 @@ After the formatted partition is completed, in **Disk Management**, the status o
 
 To partition and format a large data disk that is attached to a Linux instance, use the GPT format.  In Linux system, large data disks normally uses xfs or ext4 file system. 
 
-The following example uses a CentOS 7.4 64-bit operating system.This section describes how to use **parted** and **e2fsprogs** tools to partition and format a large data disk on a Linux instance.  Assume the data disk to be processed is an empty 3 TiB new disk, and the device name is  /dev/vdd.
+The following example uses a CentOS 7.4 64-bit operating system.This section describes how to use **parted** and **e2fsprogs** tools to partition and format a large data disk on a Linux instance. Assume the data disk to be processed is an empty 3 TiB new disk, and the device name is  /dev/vdd.
 
 **Prerequisites**
 
@@ -122,7 +122,6 @@ To partition and format a large data disk and mount the file system, follow thes
 1.  Run `fdisk -l` to check whether the data disk exists. If the data disk is successfully mounted, the following result is returned
 
     ```
-    
     Disk /dev/vdd: 3221.2 GB, 3221225472000 bytes, 6291456000 sectors
     Units = sectors of 1 * 512 = 512 bytes
     Sector size (logical/physical): 512 bytes / 512 bytes
@@ -131,14 +130,13 @@ To partition and format a large data disk and mount the file system, follow thes
 
 2.  Run `parted /dev/vdd` to start partitioning:
     1.  Run `mklabel gpt`, to convert partitioning format from MBR to GPT.
-    2.  Run  `mkpart primary ext4 <StartSector> <EndSector>` to partition a primary partition by using the ext4 file system, and specify a start sector and end sector for the partition.  If a data disk is partitioned into one partition only, run `mkpart primary ext4 0 -1`.
+    2.  Run  `mkpart primary ext4 <StartSector> <EndSector>` to partition a primary partition by using the ext4 file system, and specify a start sector and end sector for the partition. If a data disk is partitioned into one partition only, run `mkpart primary ext4 0 -1`.
 
         **Note:** You can also use xfs file system.
 
     3.  Run  `print` to check partition table.
 
         ```
-        
         (parted) mkpart primary ext4 0 -1
         Warning: The resulting partition is not properly aligned for best performance.
         Ignore/Cancel? ignore
@@ -172,7 +170,6 @@ To partition and format a large data disk and mount the file system, follow thes
     If the returned result shows the newly created file system information, the mount operation was successful, and you can use the new file system directly \(that is, you do not need to restart the instance\).
 
     ```
-    
     [root@izXXXXz ~]# df -h
     Filesystem Size Used Avail Use% Mounted on
     /dev/vda1 40G 6.4G 31G 18% /
@@ -197,21 +194,19 @@ To partition and format a large data disk and mount the file system, follow thes
 If the disk capacity is 16  TiB, you must use e2fsprogs of version 1.42 or later to format its partitions to ext4 file system.  If e2fsprogs version is too low \(for example, e2fsprogs  1.41.11\), the following error occurs.
 
 ```
-
 mkfs.ext4: Size of device /dev/vdd too big to be expressed in 32 bits using a blocksize of 4096.
 
 ```
 
 To install e2fsprogs of later version, such as 1.42.8 in this example, follow these steps:
 
-1.  Run `rpm -qa | grep e2fsprogs` to check the current version of e2fsprogs.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/15397707244439_en-US.png)
+1.  Run `rpm -qa | grep e2fsprogs` to check the current version of e2fsprogs.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/15398572184439_en-US.png)
 
     If the current version is earlier than 1.42, update the software by following these steps.
 
 2.  Run the following command to download e2fsprogs in version1.42.8. Go to [e2fsprogs](https://www.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v1.42.8/?spm=a2c4g.11186623.2.14.Pb5baW) to find the latest software package.
 
     ```
-    
     wget https://www.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v1.42.8/e2fsprogs-1.42.8.tar.gz
     
     ```
@@ -219,7 +214,6 @@ To install e2fsprogs of later version, such as 1.42.8 in this example, follow th
 3.  Run the following commands in turn to compile tools in later versions.
 
     ```
-    
     tar xvzf e2fsprogs-1.42.8.tar.gz
     cd e2fsprogs-1.42.8
     ./configure
