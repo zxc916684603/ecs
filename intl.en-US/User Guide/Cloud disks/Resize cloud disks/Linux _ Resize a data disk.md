@@ -7,7 +7,7 @@ As your business grows, the current capacity of your data disks may not be able 
 -   Resize the data disks that are attached to an instance only when the instance is in the **Running** or **Stopped** status. You must restart the instance in the ECS console to apply the changes. This action causes your instance to stop working and may cause your business to be interrupted, so please proceed with caution.
 -   We recommend that you manually create a snapshot to back up your data before resizing your data disk.
 -   You can resize a data disk when the data disk is either in the **Available** status or in the **In Use** status.
--   If you have renewed a Subscription ECS instance for configration downgrade \([renew for configuration downgrade](../../../../reseller.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#) \), during its current billing cycle, you cannot resize the attached Subscription cloud disks, including its data or system disks.
+-   If you have renewed a Subscription ECS instance for configration downgrade \([renew for configuration downgrade](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#) \), during its current billing cycle, you cannot resize the attached Subscription cloud disks, including its data or system disks.
 -   If a snapshot is being created for a data disk, you cannot resize the data disk.
 -   You can resize data disks, but not system disks or local disks.
 
@@ -15,15 +15,15 @@ This example uses a data disk of the ultra cloud disk type and an ECS instance r
 
 To resize a data disk, follow these steps:
 
-[Step 1. Increase the size of a data disk in the ECS console](#ResizeInConsole)
+[Step 1. Increase the size of a data disk in the ECS console](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md#ResizeInConsole)
 
-[Step 2. Log on to the instance to resize the file system](#ResizeInInstance)
+[Step 2. Log on to the instance to resize the file system](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md#ResizeInInstance)
 
 ## Step 1. Increase the size of a data disk in the ECS console {#ResizeInConsole .section}
 
 To increase the size of a data disk in the ECS console, follow these steps:
 
-1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/#/home).
 2.  In the left-side navigation pane, select **Block Storage** \> **Cloud Disks**.
 
     **Note:** If the data disk you want to resize has been attached to an instance, in the left-side navigation pane, click **Instances**, find the corresponding instance, go to the instance details page, and click **Instance Disks**.
@@ -33,15 +33,15 @@ To increase the size of a data disk in the ECS console, follow these steps:
 5.  On the Resize Disk page, set **Capacity after resizing** \(in this example, 30 GiB\). The capacity after resizing must be larger than the current capacity.
 6.  When the cost is calculated, click **Confirm to resize**.
 
-    **Note:** After the resizing, you can view the new disk size in the console. However, if the data disk is attached to an ECS instance, you must [restart the instance](reseller.en-US/User Guide/Instances/Restart an instance.md#) in the ECS console to view the new disk size when you log on to the instance.
+    **Note:** After the resizing, you can view the new disk size in the console. However, if the data disk is attached to an ECS instance, you must [restart the instance](intl.en-US/User Guide/Instances/Restart an instance.md#) in the ECS console to view the new disk size when you log on to the instance.
 
 
 After the disk size is increased,
 
--   If the data disk is attached to an instance, [log on to the instance to resize the file system](#ResizeInInstance).
--   If the data disk is not attached to an instance, attach the disk to an instance in the console \([attach a cloud disk](reseller.en-US/User Guide/Cloud disks/Attach a cloud disk.md#)\) first, and then proceed depending on the data disk:
-    -   If it is a new data disk, which has not been formatted, format it.  For more information, see [Format a data disk for Linux instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#).
-    -   If it has been formatted and partitioned, [log on to the instance to resize the file system](#ResizeInInstance).
+-   If the data disk is attached to an instance, [log on to the instance to resize the file system](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md#ResizeInInstance).
+-   If the data disk is not attached to an instance, attach the disk to an instance in the console \([attach a cloud disk](intl.en-US/User Guide/Cloud disks/Attach a cloud disk.md#)\) first, and then proceed depending on the data disk:
+    -   If it is a new data disk, which has not been formatted, format it. For more information, see [format a data disk for Linux instances](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#).
+    -   If it has been formatted and partitioned, [log on to the instance to resize the file system](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md#ResizeInInstance).
 
 ## Step 2. Log on to the instance to resize the file system {#ResizeInInstance .section}
 
@@ -49,7 +49,7 @@ After the disk size is increased, you must log on to the instance to resize the 
 
 In this example, the data disk is attached to a Linux instance running the 64-bit CentOS 7.3. The data disk before resizing has only one primary partition \(/dev/vdb1, ext4 file system\), the mount point of the file system is /resizetest, and after resizing is completed, the data disk still has only one primary partition.
 
-1.  [Connect to a Linux instance by using a password](reseller.en-US/User Guide/Connect to instances/Connect to a Linux instance by using a password.md#).
+1.  [Connect to a Linux instance by using a password](intl.en-US/User Guide/Connect to instances/Connect to a Linux instance by using a password.md#).
 2.  Run the `umount [file system name]` command to unmount the primary partition.
 
     ```
@@ -120,7 +120,7 @@ In this example, the data disk is attached to a Linux instance running the 64-bi
 
         **Note:** If you are using the `parted` tool, type `p` in the `parted` window to list the current partition details. If any partition is displayed, use rm + serial number to delete the original partition table, then run the `unit s` command to specify the start unit, calculated by the number of sectors, and finally run the `mkpart` command to create it, as shown in the following figure.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9677/15398556445353_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9677/15398559035353_en-US.png)
 
 4.  For some operating systems, the file system may be automatically mounted to the mount point after partitioning. We recommend that you run the `df -h` command to check the file system space and usage. Run the `umount [file system name]` to unmount the file system again.
 5.  Check the file system and resize the file system.
