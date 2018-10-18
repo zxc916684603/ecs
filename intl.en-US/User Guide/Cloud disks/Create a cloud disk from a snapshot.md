@@ -49,11 +49,11 @@ If a cloud disk is created from a snapshot, the initial disk performance decreas
 
 After you complete the payment, return to the Cloud Disks page and refresh it. The new **cloud disk** will be displayed and its status will be **Available**.
 
-## Additional operations {#section_pbc_ybb_ydb .section}
+## Additional operation {#section_pbc_ybb_ydb .section}
 
 [Attach a cloud disk](reseller.en-US/User Guide/Cloud disks/Attach a cloud disk.md#).
 
-## Related APIs {#section_qbc_ybb_ydb .section}
+## Related API {#section_qbc_ybb_ydb .section}
 
 Create a cloud disk: [CreateDisk](../../../../reseller.en-US/API Reference/Disk/CreateDisk.md#)
 
