@@ -1,15 +1,19 @@
 # DescribeLaunchTemplates {#DescribeLaunchTemplates .reference}
 
-Queries available instance launch templates.
+Queries one or more available instance launch templates.
 
 ## Request parameters {#RequestParameter .section}
 
 |Name|Type|Required |Description |
 |:---|:---|:--------|:-----------|
 |Action |String |Yes |The name of this interface Value: DescribeLaunchTemplates.|
-|RegionId|String |Yes|Region ID of an instance launch template. To view the latest list of Alibaba Cloud regions, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#).|
-|LaunchTemplateId|String|No|Instance launch template ID. You must specify the `LaunchTemplateId`   or `LaunchTemplateName` to determine the template.|
-|LaunchTemplateName|String |No |Instance launch template name.|
+|RegionId|String |Yes|Region ID of an instance launch template. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|LaunchTemplateId|List|No|One or more instance launch template ID, 100 IDs can be specified at most. You must specify the `LaunchTemplateId`   or `LaunchTemplateName` to determine the template.|
+|LaunchTemplateName|List |No |One or more instance launch template name, 100 names can be specified at most.|
+|Tag.n.Key|String |No |This tag applies to instance, disk, security group, or image. The key of a tag of which n is from 1 to 20. Once you use this parameter, it cannot be a null string. It can be up to 64 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
+|Tag.n.Value|String |No |This tag applies to instance, disk, security group, or image. The value of a tag of which n is a number from 1 to 20. Once you use this parameter, it can be a null string. It can be up to 128 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
+|TemplateTag.n.Key|String |No |This tag applies to launch template. The key of a tag of which n is from 1 to 20. Once you use this parameter, it cannot be a null string. It can be up to 64 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
+|TemplateTag.n.Value|String |No |This tag applies to launch template. The value of a tag of which n is a number from 1 to 20. Once you use this parameter, it can be a null string. It can be up to 128 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
 |PageNumber |Integer |No |Page number of the instance launch template list. Start value: 1.Default value: 1.
 
 |
@@ -24,7 +28,7 @@ Queries available instance launch templates.
 |TotalCount|Integer |Total number of instance launch templates.|
 |PageNumber|Integer |Current page number. |
 |PageSize |Integer  |Number of rows per page when querying by page.|
-|LaunchTemplateSet|[LaunchTemplateSet](#LaunchTemplateSet)|The instance launch template information set.|
+|LaunchTemplateSet|[LaunchTemplateSet](#)|The instance launch template information set.|
 
 **LaunchTemplateSet** 
 
@@ -95,8 +99,6 @@ https://ecs.aliyuncs.com/?Action=DescribeLaunchTemplates
 ```
 
 ## Error codes {#ErrorCode .section}
-
-The following error codes are specific to this interface. For more error codes, visit the [API error center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code |Error message|HTTP status code |Description |
 |:----------|:------------|:----------------|:-----------|
