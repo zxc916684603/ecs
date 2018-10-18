@@ -17,13 +17,13 @@ When releasing a cloud disk, consider the following:
 
 ## Procedure {#section_hdx_mrh_ydb .section}
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/#/home).
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, select **Block Storage** \> **Cloud Disks**.
 3.  Select a region.
 4.  Select the disk that you want to release \(in the **Available** status\), and in the **Actions** column, select **More** \> **Release**.
 5.  In the Release dialog box, read the note and click **Confirm Release**.
 
-## Related APIs {#section_pyx_lrh_ydb .section}
+## Related API {#section_pyx_lrh_ydb .section}
 
-[../DNA0011860945/EN-US\_TP\_9884.md\#](../intl.en-US/API Reference/Disk/DeleteDisk.md#)
+[DeleteDisk](../../../../reseller.en-US/API Reference/Disk/DeleteDisk.md#)
 
