@@ -1,6 +1,6 @@
 # Detach a cloud disk {#concept_i1f_kgg_ydb .concept}
 
-If a Pay-As-You-Go cloud disk is attached to an ECS instance as a data disk, you can detach it from the instance and release it.  However, if the disk is used as a system disk, you cannot detach it.
+If a Pay-As-You-Go cloud disk is attached to an ECS instance as a data disk, you can detach it from the instance and release it. However, if the disk is used as a system disk, you cannot detach it.
 
 When detaching a cloud disk, consider the following:
 
@@ -8,11 +8,11 @@ When detaching a cloud disk, consider the following:
 -   You cannot detach a local disk.
 -   For a Windows instance:
     -   To guarantee data integrity, we recommend that you stop writing or reading the files on the cloud disk. Otherwise, data may be lost.
-    -   Before detaching a cloud disk in the ECS console, you must [connect to the instance](reseller.en-US/User Guide/Connect to instances/Connect to a Windows instance.md#) and set its status as **Offline** in **Disk Management** .
+    -   Before detaching a cloud disk in the ECS console, you must [connect to the instance](reseller.en-US/User Guide/Connect to instances/Connect to a Windows instance.md#) and set its status as **Offline** in **Disk Management**.
 -   For a Linux instance:
 
     -   Before detaching a cloud disk in the ECS console, you must [connect to the instance](reseller.en-US/User Guide/Connect to instances/Overview.md#) and run `umount` to unmount the partitions.
-    -   If you have configured the /etc/fstab file to automatically mount the partitions at the startup of the instance, before detaching it, you must delete the configurations from the /etc/fstab file.  Otherwise, you cannot connect to the instance after the instance is restarted.
+    -   If you have configured the /etc/fstab file to automatically mount the partitions at the startup of the instance, before detaching it, you must delete the configurations from the /etc/fstab file. Otherwise, you cannot connect to the instance after the instance is restarted.
 
 The following table describes the actions available for you to detach a cloud disk in the ECS console.
 
@@ -23,7 +23,7 @@ The following table describes the actions available for you to detach a cloud di
 
 ## Detach cloud disks on the Instance Disk page {#InstanceCloud .section}
 
-On the Instance Disk page, you can delete one or more cloud disks that are attached to the instance.
+On the Instance Disks page, you can delete one or more cloud disks that are attached to the instance.
 
 **Prerequisites**
 
