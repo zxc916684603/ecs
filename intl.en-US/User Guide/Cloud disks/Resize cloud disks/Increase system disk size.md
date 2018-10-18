@@ -1,6 +1,6 @@
 # Increase system disk size {#concept_kj1_mqg_ydb .concept}
 
-You can increase the size of the system disk of your ECS instance by using **Change System Disk**  feature. This article describes how to increase the size of a system disk while keeping the operating system and environment intact.
+You can increase the size of the system disk of your ECS instance by using **Change System Disk** feature. This article describes how to increase the size of a system disk while keeping the operating system and environment intact.
 
 **Note:** You can change the operating system while increasing the size of a system disk. For more information, see [change the operating system](reseller.en-US/User Guide/Instances/Change the operating system.md#).
 
@@ -44,24 +44,24 @@ If you want to increase the size of the system disk while keeping the operating 
 4.  Find the instance for which to change the system disk and click its instance ID to go to the Instance Details page.
 5.  Follow these steps to create a snapshot of the system disk:
     1.  In the left-side navigation pane, click **Instance Disks**.
-    2.  Locate the required system disk and then, in the **Actions** column, click  **Create Snapshot**.
+    2.  Locate the required system disk and then, in the **Actions** column, click **Create Snapshot**.
 
         **Note:** For more information about the limits or note for creating a snapshot, see [create snapshots](reseller.en-US/User Guide/Snapshots/Create snapshots.md#).
 
 6.  Follow these steps to create a custom image by using the snapshot:
-    1.  In the left-side navigation pane, click **Instance Snapshots** to check the creation status and progress. When the progress is 100% and the status is  **Success**, go to the **Actions** column and click **Create Custom Image**.
+    1.  In the left-side navigation pane, click **Instance Snapshots** to check the creation status and progress. When the progress is 100% and the status is **Success**, go to the **Actions** column and click **Create Custom Image**.
 
         **Note:** 
 
         -   For more information about the limitations of creating a custom image, see [create a custom mirror using a snapshot](reseller.en-US/User Guide/Images/Create custom image/Create a custom image by using a snapshot.md#).
         -   The custom image is displayed in the dropdown ist of the **Custom Image** l on the Replace System Disk page.
     2.  Go back to the  Instances page and then, in the left-side navigation pane, select **Snapshots & Images** \> **Image**to check the creation status and progress of the custom image.
-7.  When the progress is 100% and the status is **Available**, in the left-side navigation pane, click  **Instances**.
+7.  When the progress is 100% and the status is **Available**, in the left-side navigation pane, click **Instances**.
 8.  In the Instance List, find the instance, and in the **Actions** column, select **More** \> **Stop**.
 
-    **Note:** For a Pay-As-You-Go VPC-Connected ECS instance, if the [No fees for stopped instances \(VPC-Connected\)](../../../../reseller.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) feature is enabled, in the Notice dialog box, click **OK**. Then, in the Stop dialog box, select **Keep Instance with Fees**, and click **OK******. If you use the **No fees for stopped instances \(VPC-Connected\)** you may not be able to start the instance successfully after changing the system disk.
+    **Note:** For a Pay-As-You-Go VPC-Connected ECS instance, if the [No fees for stopped instances \(VPC-Connected\)](../../../../reseller.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) feature is enabled, in the Notice dialog box, click **OK**. Then, in the Stop dialog box, select **Keep Instance with Fees**, and click **OK**. If you use the **No fees for stopped instances \(VPC-Connected\)** you may not be able to start the instance successfully after changing the system disk.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9676/15398544095328_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9676/15398545895328_en-US.png)
 
 9.  When the instance is in the **Stopped** status, go to the Actions column and select **Actions** \> **More** \> **Replacing the system tray**.
 10. In the pop-up dialog box, read and confirm you agree to the notice by clicking **OK, replace the system disk**.
