@@ -4,7 +4,7 @@ Creates an instance launch template, or launch template for short. An instance l
 
 ## Description {#section_whw_2sn_12b .section}
 
-Instance launch templates contain configurations used to create instances, such as the instance region, image ID, instance type, security group ID, and internet bandwidth settings. If you do not specify a certain instance configuration in the template, you must specify this configuration when creating an instance. When creating templates \(CreateLaunchTemplate\), the template version numbers start from 1. After creating one template, you can create multiple versions based on this template \(CreateLaunchTemplateVersion\). Version numbers start from 1 and increase sequentially. If you do not specify a template version number when creating an instance \([RunInstances](intl.en-US/API Reference/Instances/RunInstances.md#)\), default version is used.
+Instance launch templates contain configurations used to create instances, such as the instance region, image ID, instance type, security group ID, and internet bandwidth settings. If you do not specify a certain instance configuration in the template, you must specify this configuration when creating an instance. When creating templates \(CreateLaunchTemplate\), the template version numbers start from 1. After creating one template, you can create multiple versions based on this template \(CreateLaunchTemplateVersion\). Version numbers start from 1 and increase sequentially. If you do not specify a template version number when creating an instance \([RunInstances](reseller.en-US/API Reference/Instances/RunInstances.md#)\), default version is used.
 
 When you call this interface, consider the following:
 
@@ -12,7 +12,7 @@ When you call this interface, consider the following:
 
 -   Most instance launch template parameters are optional. When you create a template, ECS does not verify the existence or validity of its parameter values. The validity of parameter values is only verified when you create instances.
 
--   If you set a certain configuration in an instance launch template, you cannot filter out this configuration when creating an instance \([RunInstances](intl.en-US/API Reference/Instances/RunInstances.md#)\). For example, if you set `HostName=LocalHost` in the template and in RunInstances the value of `HostName` is null, the `LocalHost` still takes effect. If you want to overwrite the `HostName=LocalHost` configuration, set `HostName=MyHost` in RunInstances or other parameter values if you want.
+-   If you set a certain configuration in an instance launch template, you cannot filter out this configuration when creating an instance \([RunInstances](reseller.en-US/API Reference/Instances/RunInstances.md#)\). For example, if you set `HostName=LocalHost` in the template and in RunInstances the value of `HostName` is null, the `LocalHost` still takes effect. If you want to overwrite the `HostName=LocalHost` configuration, set `HostName=MyHost` in RunInstances or other parameter values if you want.
 
 
 ## Request parameters {#RequestParameter .section}
@@ -20,36 +20,36 @@ When you call this interface, consider the following:
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: CreateLaunchTemplate.|
-|RegionId|String|Yes|Region ID of an instance. You can call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|Region ID of an instance. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |LaunchTemplateName|String|Yes|Instance launch template name. Can contain \[2, 128\] characters in length. It must start with an English letter \(uppercase or lowercase\) and can contain numbers, periods \(.\), colons \(:\), underscores \(\_\), and hyphens \(-\). It cannot start with "http://" or "https://".|
 |VersionDescription|String|No|Description of instance launch template version 1. It can be \[2, 256\] characters in length. It cannot start with "http://" or "https://". The default value is null.|
 |ImageId|String|No|Image ID.|
-|InstanceType|String|No|Instance type. For more information, call [DescribeInstanceTypes](intl.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to obtain the latest instance type list.|
+|InstanceType|String|No|Instance type. For more information, call [DescribeInstanceTypes](reseller.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to obtain the latest instance type list.|
 |SecurityGroupId|String|No|The security group ID.|
 |NetworkType|String|No|Network type of the instance. Value options: Classic | VPC.|
 |VSwitchId|String|No|When creating a VPC-Connected instance, you must specify its VSwitch ID.|
-|InstanceName|String|No|The name of the instance. The instance name is a string of 2 to 128 English or Chinese characters starting with an English letter. It can contain numbers, periods \(.\), underscores \(\_\), and hyphens \(-\). It cannot start with "http://" or "https://".|
+|InstanceName|String|No|The name of the instance. The name is a string of 2 to 128 characters. It must begin with an English or a Chinese character. It can contain A-Z, a-z, Chinese characters, numbers, periods \(.\), colons \(:\), underscores \(\_\), and hyphens \(-\).|
 |Description|String|No|Instance description.|
 |InternetMaxBandwidthIn|String|No|The maximum inbound bandwidth from the internet network, measured in Mbit/s. Value range: \[1, 200\].|
 |InternetMaxBandwidthOut|String|No|Maximum outbound bandwidth from the Internet, its unit of measurement is Mbit/s. Value range: \[0, 100\].|
-|HostName|String|No|Instance host name.-   It cannot start or end with a period \(.\) or hyphen \(-\), or contain consecutive periods \(.\) or hyphens \(-\).
--   Windows instances: The HostName is the string of 2 to 15 characters that can contain English letters, numbers, and hyphens \(-\). It must not contain periods \(.\) or only numbers.
--   In other operating systems, such as Linux, the HostName can be a string of 2 to 128 characters. It can be separated into segments by periods \(.\). Each segment can contain uppercase/lowercase letters, numbers, and hyphens \(-\).
+|HostName|String|No|Instance host name.-   It cannot start or end with a period \(.\) or a hyphen \(-\) and it cannot have two or more consecutive periods \(.\) or hyphens \(-\).
+-   For Windows: The host name can be \[2, 15\] characters in length. It can contain A-Z, a-z, numbers, periods \(.\), and hyphens \(-\). It cannot only contain numbers.
+-   For other operating systems: The host name can be \[2, 64\] characters in length. It can be segments separated by periods \(.\). It can contain A-Z, a-z, numbers, and hyphens \(-\).
 
 |
 |ZoneId|String|No|The zone ID of the instance.|
-|SystemDisk.Category|String|No|The category of the system disk. System disk type. Optional values:-   cloud: Basic cloud disk.
+|SystemDisk.Category|String|No|The category of the system disk. System disk type. Optional values:-   Cloud: Basic cloud disk.
 -   cloud\_efficiency: Ultra cloud disk.
--   cloud\_ssd: SSD cloud disk.
+-   cloud\_ssd: SSD Cloud Disks.
 -   ephemeral\_ssd: Ephemeral SSD.
 
 |
 |SystemDisk.Size|Integer|No|Size of the system disk, measured in GB. Value range: \[20, 500\].|
-|SystemDisk.DiskName|String|No|System disk name. The system disk name is a string of 2 to 128 English starting with an English letter. It can contain numbers, semicolons \(;\), periods \(.\), underscores \(\_\), and hyphens \(-\). It cannot start with "http://" or "https://".|
-|SystemDisk.Description|String|No|System disk description. Length: \[2, 256\] characters. It cannot start with "http://" or "https://".|
-|DataDisk.n.Category|String|No|The data disk type. Value range of `n`: \[1, 16\]. Optional values-   cloud: Basic cloud disk.
+|SystemDisk.DiskName|String|No|System disk name. The name is a string of 2 to 128 characters. It must begin with an English or a Chinese character. It can contain A-Z, a-z, Chinese characters, numbers, periods \(.\), colons \(:\), underscores \(\_\), and hyphens \(-\).|
+|SystemDisk.Description|String|No|System disk description. It cannot begin with http:// or https://.|
+|DataDisk.n.Category|String|No|The data disk type. Value range of `n`: \[1, 16\]. Optional values-   Cloud: Basic cloud disk.
 -   cloud\_efficiency: Ultra cloud disk.
--   cloud\_ssd: SSD cloud disk.
+-   cloud\_ssd: SSD Cloud Disks.
 -   ephemeral\_ssd: Ephemeral SSD.
 
 |
@@ -68,28 +68,30 @@ When you call this interface, consider the following:
 -   optimized
 
 |
-|NetworkInterface.n.PrimaryIpAddress|String|No|The primary private IP address of the ENI.|
-|NetworkInterface.n.VSwitchId|String|No|The VSwitch ID for number`n` ENI. The instance must be in the same zone of the same VPC network as the ENI, but they may belong to different VSwitches. For the value range of `n` , see Instance type families.|
-|NetworkInterface.n.SecurityGroupId|String|No|The security group ID must be one in the same VPC. For the value range of `n`, see Instance type families.|
-|NetworkInterface.n.NetworkInterfaceName|String|No|ENI name. For the value range of `n`, see Instance type families.|
-|NetworkInterface.n.Description|String|No|The ENI description.|
+|NetworkInterface.1.PrimaryIpAddress|String|No|The primary private IP address of the ENI.|
+|NetworkInterface.1.VSwitchId|String|No|The VSwitch ID for ENI. The instance must be in the same zone of the same VPC network as the ENI, but they may belong to different VSwitches.|
+|NetworkInterface.1.SecurityGroupId|String|No|The security group ID must be one in the same VPC.|
+|NetworkInterface.1.NetworkInterfaceName|String|No|ENI name.|
+|NetworkInterface.1.Description|String|No|The ENI description.|
 |InternetChargeType|String|No|Internet bandwidth billing method. Optional values: PayByTraffic|
 |UserData|String|No|User data of the instance, which is Base64-encoded. Size of the raw data cannot exceed 16 KB.|
 |KeyPairName|String|No|The name of the key pair.-   Ignore this parameter for Windows instances. It is null by default. Even if you enter this parameter, only the  `Password` content is used.
 -   The password logon method for Linux instances is set to forbidden upon initialization.
 
 |
-|RamRoleName|String|No|The RAM role name of the instance. You can use the *RAM* API [ListRoles](../../../../intl.en-US//Role Management Interface/ListRoles.md#) to query instance RAM role names.|
-|AutoReleaseTime|String|No|Instance auto release time. The time is presented using the [ISO8601](intl.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard and in UTC time. The format is  YYYY-MM-DDTHH:MM:SSZ. |
-|SpotStrategy|String|No|The preemption strategy for a Pay-As-You-Go instance. This parameter is valid and mandatory only when `InstanceChargeType` is set to `PostPaid`. Value range:-   NoSpot: Normal Pay-As-You-Go instance.
+|RamRoleName|String|No|The RAM role name of the instance. You can use the *RAM* API [ListRoles](../../../../../reseller.en-US/Developer Guide/API reference (RAM)/Role Management Interface/ListRoles.md#) to query instance RAM role names.|
+|AutoReleaseTime|String|No|Instance auto release time. The time is presented using the [ISO8601](reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard and in UTC time. The format is  YYYY-MM-DDTHH:MM:SSZ. |
+|SpotStrategy|String|No|The spot strategy for a Pay-As-You-Go instance. This parameter is valid and mandatory only when `InstanceChargeType` is set to `PostPaid`. Value range:-   NoSpot: Normal Pay-As-You-Go instance.
 -   SpotWithPriceLimit: Sets the maximum price for a spot instance.
 -   SpotAsPriceGo: The system automatically calculates the price. The maximum value is the Pay-As-You-Go price.
 
 |
 |SpotPriceLimit|Float|No|Sets the maximum hourly instance price. Supports up to three decimal places.|
 |SecurityEnhancementStrategy|String|No|Whether or not to activate the security enhancement feature and install network security software free of charge. Optional values: Active | Deactive.|
-|Tag.n.Key|String|No|The key of a tag. Value range of n: \[1, 5\]. It can be up to 64 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
-|Tag.n.Value|Float |No|The value of a tag. Value range of n: \[1, 5\]. It can be up to 128 characters in length and cannot begin with "aliyun", "http://", or "https://".|
+|Tag.n.Key|String |No |This tag applies to instance, disk, security group, or image. The key of a tag of which n is from 1 to 20. Once you use this parameter, it cannot be a null string. It can be up to 64 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
+|Tag.n.Value|String |No |This tag applies to instance, disk, security group, or image. The value of a tag of which n is a number from 1 to 20. Once you use this parameter, it can be a null string. It can be up to 128 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
+|TemplateTag.n.Key|String |No |This tag applies to launch template. The key of a tag of which n is from 1 to 20. Once you use this parameter, it cannot be a null string. It can be up to 64 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
+|TemplateTag.n.Value|String |No |This tag applies to launch template. The value of a tag of which n is a number from 1 to 20. Once you use this parameter, it can be a null string. It can be up to 128 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
 
 ## Response parameters {#ResponseParameter .section}
 
@@ -131,8 +133,6 @@ https://ecs.aliyuncs.com/?Action=CreateLaunchTemplate
 ```
 
 ## Error codes {#ErrorCode .section}
-
-The following error codes are specific to this interface. For more error codes, visit the [API error center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error messages|HTTP status code |Description|
 |:---------|:-------------|:----------------|:----------|
