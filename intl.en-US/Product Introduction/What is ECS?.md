@@ -6,7 +6,7 @@ Elastic Compute Service \(ECS\) is a type of computing service that features ela
 
 The following figure illustrates the concept of an ECS instance. You can use the [ECS console](https://partners-intl.console.aliyun.com/#/ecs) to configure the instance type, disks, operating system, and other affiliated resources.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/15390482444795_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/15402884994795_en-US.png)
 
 ## Basic concepts {#section_jkn_4qj_ydb .section}
 
@@ -25,21 +25,24 @@ It is helpful to understand the following concepts before you use ECS:
 
 ## Related services {#section_cxf_5sg_kfb .section}
 
-[Alibaba Cloud marketplace](https://partners-intl.aliyun.com/marketplace/vodafone/) is an online market. You can purchase software infrastructure, developer tools, and business software provided by third-party partners. You can become a marketplace service provider. For more information, see [What is Alibaba Cloud Marketplace](https://partners-intl.aliyun.com/help/product/30488.htm).
+The following services are frequently used together with ECS:
 
-Auto Scaling enables you to dynamically scale your computing capacity up or down to meet the workload of your ECS instances according to scaling policies you specify. It also reduces the need for manual provision. For more information, see [What is Auto Scaling](https://partners-intl.aliyun.com/help/product/25855.htm).
+-   [Alibaba Cloud marketplace](https://partners-intl.aliyun.com/marketplace/vodafone/) is an online market. You can purchase software infrastructure, developer tools, and business software provided by third-party partners. If you have software you want to sell, you can become a marketplace service provider. For more information, see [What is Alibaba Cloud Marketplace](https://partners-intl.aliyun.com/help/product/30488.htm).
 
-Container Service enables you to manage the lifecycle of containerized applications by using Docker and Kubernetes. For more information, see [What is Container Service](https://partners-intl.aliyun.com/help/product/25972.htm).
+    Auto Scaling enables you to dynamically scale your computing capacity up or down to meet the workload of your ECS instances according to scaling policies you specify. It also reduces the need for manual provision. For more information, see [What is Auto Scaling](https://partners-intl.aliyun.com/help/product/25855.htm).
 
-Server Load Balancer distributes the incoming traffic among multiple ECS instances according to the configured forwarding rules. For more information, see [What is Server Load Balancer](https://partners-intl.aliyun.com/help/product/27537.htm).
+-   Container Service enables you to manage the lifecycle of containerized applications by using Docker and Kubernetes. For more information, see [What is Container Service](https://partners-intl.aliyun.com/help/product/25972.htm).
 
-CloudMonitor manages ECS instances, system disks, Internet bandwidth, and other resources. For more information, see [What is CloudMonitor](https://partners-intl.aliyun.com/help/product/28572.htm).
+-   Server Load Balancer distributes the incoming traffic among multiple ECS instances according to the configured forwarding rules. For more information, see [What is Server Load Balancer](https://partners-intl.aliyun.com/help/product/27537.htm).
 
-Server Guard \(Server Security\) provides real-time awareness and defense against intrusion events, which safeguards the security of your ECS instances. For more information, see [What is Server Guard](https://partners-intl.aliyun.com/help/product/28449.htm).
+-   CloudMonitor manages ECS instances, system disks, Internet bandwidth, and other resources. For more information, see [What is CloudMonitor](https://partners-intl.aliyun.com/help/product/28572.htm).
 
-Anti-DDoS Basic prevents and mitigates DDoS attacks by routing traffic away from your infrastructure. Alibaba Cloud Anti-DDoS Pro safeguards your ECS instances under high-volume DDoS attacks. For more information, see [What is Anti-DDoS Basic](https://partners-intl.aliyun.com/help/doc-detail/28399.htm) and [What is Anti-DDoS Pro](https://partners-intl.aliyun.com/help/doc-detail/28464.htm).
+-   Server Guard \(Server Security\) provides real-time awareness and defense against intrusion events, which safeguards the security of your ECS instances. For more information, see [What is Server Guard](https://partners-intl.aliyun.com/help/product/28449.htm).
 
-Alibaba Cloud SDK enables you to access Alibaba Cloud services and to manage your applications by using the programming language of your choice. For more information, see [Developer Resources](https://partners-intl.aliyun.com/vodafone/support/developer-resources). You can use [OpenAPI Explorer](https://api.aliyun.com/) to debug ECS API and generate the SDK Demo.
+-   Anti-DDoS Basic prevents and mitigates DDoS attacks by routing traffic away from your infrastructure. Alibaba Cloud Anti-DDoS Pro safeguards your ECS instances under high-volume DDoS attacks. For more information, see [What is Anti-DDoS Basic](https://partners-intl.aliyun.com/help/doc-detail/28399.htm) and [What is Anti-DDoS Pro](https://partners-intl.aliyun.com/help/doc-detail/28464.htm).
+
+-   Alibaba Cloud SDK enables you to access Alibaba Cloud services and to manage your applications by using the programming language of your choice. For more information, see [Developer Resources](https://partners-intl.aliyun.com/vodafone/support/developer-resources). You can use [OpenAPI Explorer](https://api.aliyun.com/) to debug ECS API and generate the SDK Demo.
+
 
 ## Operations {#section_lsd_yqj_ydb .section}
 
