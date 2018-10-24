@@ -13,7 +13,7 @@ Alibaba Cloud ECS provides two kinds of instance type families: enterprise-level
 **Note:** 
 
 -   If you are using sn1, sn2, t1, s1, s2, s3, m1, m2, c1, c2, c4, ce4, cm4, n1, n2, or e3, see [Phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm).
--   Upgrading instance types is supported within or between certain instance type families. For such families and corresponding upgrade rules, see [Instance type families that support upgrading instance types](../../../../reseller.en-US/User Guide/Instances/Change configurations/Instance type families that support upgrading instance types.md#).
+-   Upgrading instance types is supported within or between certain instance type families. For such families and corresponding upgrade rules, see [Instance type families that support upgrading instance types](../../../../reseller.en-US/User Guide/Instances/Change configurations/Instance type families that support instance type upgrades.md#).
 -   Upgrading instance types is not supported within or between the following instance type families: d1, d1ne, i1, i2, i2g, ga1, gn5, f1, f2, f3, ebmc4, ebmg5, sccg5, and scch5.
 
 Alibaba Cloud ECS instances are categorized into the following type families:
@@ -43,6 +43,7 @@ Alibaba Cloud ECS instances are categorized into the following type families:
     -   [ga1, visualization compute optimized type family with GPU](#)
     -   [f1, compute optimized type family with FPGA](#)
     -   [f2, compute optimized type family with FPGA](#)
+    -   [f3, compute optimized type family with FPGA](#)
 -   ECS Bare Metal Instance type families and Super Computing Cluster \(SCC\) instance type families:
     -   [ebmhfg5, ECS Bare Metal Instance type family with high clock speed](#)
     -   [ebmc4, computing ECS Bare Metal Instance type family](#)
@@ -64,7 +65,7 @@ Alibaba Cloud ECS instances are categorized into the following type families:
 -   2.5 GHz Intel Xeon Platinum 8163 \(Skylake\) processors
 -   Higher computing specifications matching higher network performance
 -   Ideal for:
-    -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication services
+    -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication information
     -   Enterprise-level applications of various types and sizes
     -   Medium and small database systems, cache, and search clusters
     -   Data analysis and computing
@@ -96,7 +97,7 @@ Click [here](#) to view other instance type families.
 -   2.5 GHz Intel Xeon E5-2682 v4 \(Broadwell\) or Platinum 8163 \(Skylake\) processors
 -   Higher computing specifications matching higher network performance
 -   Ideal for:
-    -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication services
+    -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication information
     -   Enterprise-level applications of various types and sizes
     -   Medium and small database systems, cache, and search clusters
     -   Data analysis and computing
@@ -130,7 +131,7 @@ Click [here](#) to view other instance type families.
 -   Ideal for:
     -   Web front-end servers
     -   Data analysis, batch compute, and video coding
-    -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication services
+    -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication information
     -   Massively Multiplayer Online \(MMO\) game front-ends
 
 **Instance types**
@@ -156,11 +157,11 @@ Click [here](#) to view other instance type families.
 -   2.5 GHz Intel Xeon Platinum 8163 \(Skylake\) processors
 -   Higher computing specifications matching higher network performance
 -   Ideal for:
-    -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication services
+    -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication information
     -   Web front-end servers
     -   Massively Multiplayer Online \(MMO\) game front-ends
     -   Data analysis, batch compute, and video coding
-    -   High performance science and engineering applications
+    -   High-performance science and engineering applications
 
 **Instance types**
 
@@ -188,11 +189,11 @@ Click [here](#) to view other instance type families.
 -   2.5 GHz Intel Xeon E5-2682 v4 \(Broadwell\) or Platinum 8163 \(Skylake\) processors
 -   Higher computing specifications matching higher network performance
 -   Ideal for:
-    -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication services
+    -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication information
     -   Web front-end servers
     -   Massively Multiplayer Online \(MMO\) game front-ends
     -   Data analysis, batch compute, and video coding
-    -   High performance science and engineering applications
+    -   High-performance science and engineering applications
 
 **Instance types**
 
@@ -218,8 +219,8 @@ Click [here](#) to view other instance type families.
 -   2.5 GHz Intel Xeon Platinum 8163 \(Skylake\) processors
 -   Higher computing specifications matching higher network performance
 -   Ideal for:
-    -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication services
-    -   High performance databases and high memory databases
+    -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication information
+    -   High-performance databases and high memory databases
     -   Data analysis and mining, and distributed memory cache
     -   Hadoop, Spark, and other enterprise-level applications with large memory requirements
 
@@ -244,12 +245,12 @@ Click [here](#) to view other instance type families.
 
 -   Supports SSD Cloud Disks and Ultra Cloud Disks
 -   I/O-optimized
--   Optimized for high performance databases, high memory databases, and other memory-intensive enterprise applications
+-   Optimized for high-performance databases, high memory databases, and other memory-intensive enterprise applications
 -   2.2 GHz Intel Xeon E7 8880 v4 \(Broadwell\) processors, up to 2.4 GHz Turbo Boot
 -   vCPU to memory ratio = 1:12, up to 1920.0 GiB memory
 -   ecs.re4.20xlarge and ecs.re4.40xlarge have been certified by SAP HANA
 -   Ideal for:
-    -   High performance databases and high memory databases \(for example, SAP HANA\)
+    -   High-performance databases and high memory databases \(for example, SAP HANA\)
     -   Memory intensive applications
     -   Big Data processing engines, such as Apache spark or Presto
 
@@ -273,8 +274,8 @@ Click [here](#) to view other instance type families.
 -   2.5 GHz Intel Xeon E5-2682 v4 \(Broadwell\) or Platinum 8163 \(Skylake\) processors
 -   Higher computing specifications matching higher network performance
 -   Ideal for:
-    -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication services
-    -   High performance databases and large memory databases
+    -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication information
+    -   High-performance databases and large memory databases
     -   Data analysis and mining, and distributed memory cache
     -   Hadoop, Spark, and other enterprise-level applications with large memory requirements
 
@@ -303,7 +304,7 @@ Click [here](#) to view other instance type families.
 -   2.5 GHz Intel Xeon E5-2682 v4 \(Broadwell\) processors
 -   Higher computing specifications matching higher network performance
 -   Ideal for:
-    -   High performance databases and large memory databases
+    -   High-performance databases and large memory databases
     -   Data analysis and mining, and distributed memory cache
     -   Hadoop, Spark, and other enterprise-level applications with large memory requirements
 
@@ -366,10 +367,10 @@ Click [here](#) to view other instance type families.
 -   2.5 GHz Intel Xeon E5-2682 v4 \(Broadwell\) processors
 -   Higher computing specifications matching higher network performance
 -   Ideal for:
-    -   Hadoop MapReduce, HDFS, Hive, HBase, and so on
-    -   Spark in-memory computing, MLlib, and so on
+    -   Hadoop MapReduce, HDFS, Hive, and HBase
+    -   Spark in-memory computing and MLlib
     -   Enterprises that require big data computing and storage analysis, such as those in the Internet and finance industries, to store and compute massive volumes of data
-    -   Elasticsearch, logs, and so on
+    -   Elasticsearch and logs
 
 **Instance types**
 
@@ -395,11 +396,11 @@ Click [here](#) to view other instance type families.
 -   I/O-optimized
 -   Supports SSD Cloud Disks and Ultra Cloud Disks
 -   High-performance local NVMe SSD disks with high IOPS, high I/O throughput, and low latency.
--   vCPU to memory ratio = 1:8, designed for high performance databases
+-   vCPU to memory ratio = 1:8, designed for high-performance databases
 -   2.5 GHz Intel Xeon Platinum 8163 \(Skylake\) processors
 -   Higher computing specifications matching higher network performance
 -   Ideal for:
-    -   OLTP and high performance relational databases
+    -   OLTP and high-performance relational databases
     -   NoSQL databases, such as Cassandra and MongoDB
     -   Search applications, such as Elasticsearch
 
@@ -422,11 +423,11 @@ Click [here](#) to view other instance type families.
 -   I/O-optimized
 -   Supports SSD Cloud Disks and Ultra Cloud Disks
 -   High-performance local NVMe SSD disks with high IOPS, high I/O throughput, and low latency.
--   vCPU to memory ratio = 1:4, designed for high performance databases
+-   vCPU to memory ratio = 1:4, designed for high-performance databases
 -   2.5 GHz Intel Xeon Platinum 8163 \(Skylake\) processors
 -   Higher computing specifications matching higher network performance
 -   Ideal for:
-    -   OLTP and high performance relational databases
+    -   OLTP and high-performance relational databases
     -   NoSQL databases, such as Cassandra and MongoDB
     -   Search applications, such as Elasticsearch
 
@@ -452,7 +453,7 @@ Click [here](#) to view other instance type families.
 -   2.5 GHz Intel Xeon E5-2682 v4 \(Broadwell\) processors
 -   Higher computing specifications matching higher network performance
 -   Ideal for:
-    -   OLTP and high performance relational databases
+    -   OLTP and high-performance relational databases
     -   NoSQL databases, such as Cassandra and MongoDB
     -   Search applications, such as Elasticsearch
 
@@ -483,8 +484,8 @@ Click [here](#) to view other instance type families.
 -   vCPU to memory ratio = 1:2
 -   Higher computing specifications matching higher network performance
 -   Ideal for:
-    -   High performance Web front-end servers
-    -   High performance science and engineering applications
+    -   High-performance Web front-end servers
+    -   High-performance science and engineering applications
     -   Massively Multiplayer Online \(MMO\) games and video coding
 
 **Instance types**
@@ -512,8 +513,8 @@ Click [here](#) to view other instance type families.
 -   vCPU to memory ratio = 1:4, except for the 56 vCPU instance type
 -   Higher computing specifications matching higher network performance
 -   Ideal for:
-    -   High performance Web front-end servers
-    -   High performance science and engineering applications
+    -   High-performance Web front-end servers
+    -   High-performance science and engineering applications
     -   Massively Multiplayer Online \(MMO\) games and video coding
 
 **Instance types**
@@ -565,13 +566,13 @@ Click [here](#) to view other instance type families.
 -   Supports SSD Cloud Disks and Ultra Cloud Disks
 -   NVIDIA P100 GPU processors
 -   No fixed ratio of vCPU to memory
--   High performance local NVMe SSD disks
+-   High-performance local NVMe SSD disks
 -   2.5 GHz Intel Xeon E5-2682 v4 \(Broadwell\) processors
 -   Higher computing specifications matching higher network performance
 -   Ideal for:
     -   Deep learning
     -   Scientific computing, such as computational fluid dynamics, computational finance, genomics, and environmental analysis
-    -   High performance computing, rendering, multi-media coding and decoding, and other server-side GPU compute workloads
+    -   High-performance computing, rendering, multi-media coding and decoding, and other server-side GPU compute workloads
 
 **Instance types**
 
@@ -632,14 +633,14 @@ Click [here](#) to view other instance type families.
 -   Ideal for:
     -   Deep learning
     -   Scientific computing, such as computational fluid dynamics, computational finance, genomics, and environmental analysis
-    -   High performance computing, rendering, multi-media coding and decoding, and other server-side GPU compute workloads
+    -   High-performance computing, rendering, multi-media coding and decoding, and other server-side GPU compute workloads
 
 **Instance types**
 
 |Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
 |:-------------|:---|:--------------|:-------------------------|:--|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.gn4-c4g1.xlarge|4|30.0|N/A|1 \* NVIDIA M40|3.0|300|1|3|
-|ecs.gn4-c8g1.2xlarge|8|60.0|N/A|1 \* NVIDIA M40|3.0|400|1|4|
+|ecs.gn4-c8g1.2xlarge|8|30.0|N/A|1 \* NVIDIA M40|3.0|400|1|4|
 |ecs.gn4.8xlarge|32|48.0|N/A|1 \* NVIDIA M40|6.0|800|3|8|
 |ecs.gn4-c4g1.2xlarge|8|60.0|N/A|2 \* NVIDIA M40|5.0|500|1|4|
 |ecs.gn4-c8g1.4xlarge|16|60.0|N/A|2 \* NVIDIA M40|5.0|500|1|8|
@@ -658,11 +659,11 @@ Click [here](#) to view other instance type families.
 -   AMD S7150 GPU processors
 -   vCPU to memory ratio = 1:2.5
 -   2.5 GHz Intel Xeon E5-2682 v4 \(Broadwell\) processors
--   High performance local NVMe SSD disks
+-   High-performance local NVMe SSD disks
 -   Higher computing specifications matching higher network performance
 -   Ideal for:
     -   Rendering, multimedia coding and decoding
-    -   Machine learning, high-performance computing, and high performance databases
+    -   Machine learning, high-performance computing, and high-performance databases
     -   Other server-end business scenarios that require powerful concurrent floating-point compute capabilities
 
 **Instance types**
@@ -735,6 +736,33 @@ Click [here](#) to view other instance type families.
 
 Click [here](#) to view other instance type families.
 
+## f3, compute optimized type family with FPGA {#f3 .section}
+
+**Features**
+
+-   I/O-optimized
+-   Supports SSD Cloud Disks and Ultra Cloud Disks
+-   Xilinx 16nm Virtex UltraScale + VU9P
+-   vCPU to memory ratio = 1:4
+-   2.5 GHz Intel Xeon Platinum 8163 \(Skylake\) processors
+-   Higher computing specifications matching higher network performance
+-   Ideal for:
+    -   Deep learning and reasoning
+    -   Genomics research
+    -   Speeding up database access
+    -   Picture transcoding, such as converting JPEG to WebP
+    -   Real-time video processing, such as H.265 video compression
+
+**Instance types**
+
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[\*](#)|FPGA|Bandwidth \(Gbit/s\)[\*\*](#)|Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:------------|:---|:-------------|:-------------------------|:---|:----------------------------|:-------------------------------------------------|:----------------------|:------------------|
+|ecs.f3-c16f1.4xlarge|16|64.0|N/A|1 \* Xilinx VU9P|5.0|1,000|4|8|
+|ecs.f3-c16f1.8xlarge|32|128.0|N/A|2 \* Xilinx VU9P|10.0|2,000|8|8|
+|ecs.f3-c16f1.16xlarge|64|256.0|N/A|4 \* Xilinx VU9P|20.0|2,500|16|8|
+
+Click [here](#) to view other instance type families.
+
 ## ebmhfg5, ECS Bare Metal Instance type family with high clock speed {#ebmhfg5 .section}
 
 **Features**
@@ -750,8 +778,8 @@ Click [here](#) to view other instance type families.
 -   Ideal for:
     -   Workloads that require direct access to physical resources, or scenarios where binding a license to the hardware is required
     -   Gaming or financial applications featuring high performance
-    -   High performance Web servers
-    -   Enterprise-level applications, such as high performance databases
+    -   High-performance Web servers
+    -   Enterprise-level applications, such as high-performance databases
 
 **Instance types**
 
@@ -775,7 +803,7 @@ Click [here](#) to view other instance type families.
 -   Supports VPC network only
 -   Provides dedicated hardware resources and physical isolation
 -   Ideal for:
-    -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication services
+    -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication information
     -   Third-party virtualization \(includes but is not limited to Xen and KVM\), and AnyStack \(includes but is not limited to OpenStack and ZStack\)
     -   Containers \(includes but is not limited to Docker, Clear Container, and Pouch\)
     -   Enterprise-level applications, such as medium and large databases
@@ -905,7 +933,7 @@ Click [here](#) to view other instance type families.
 |ecs.t5-c1m1.4xlarge|16|16.0|144|3,456|15%|2|
 |ecs.t5-c1m2.4xlarge|16|32.0|144|3,456|15%|2|
 
-**Note:** For more information about t5, see [Burstable instances](reseller.en-US//Burstable instances.md#).
+**Note:** For more information about t5, see [Basic concepts](reseller.en-US/Product Introduction/Instances/Burstable instances/Basic concepts.md#).
 
 Click [here](#) to view other instance type families.
 
