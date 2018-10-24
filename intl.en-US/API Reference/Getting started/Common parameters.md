@@ -9,8 +9,8 @@ The following table describes the common parameters that comprise of a URL for a
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The target API. For more information about the optional values, see [API overview](reseller.en-US/API Reference/API overview.md#).|
-|AccessKeyId|String|Yes|Equivalent to a logon password.  However, an AccessKey is used to call APIs, while logon password is used to log on to the  .  [ECS console](https://partners-intl.console.aliyun.com/#/ecs). For more information, see [Create an AccessKey](../../../../../reseller.en-US/General Reference/Create an AccessKey.md#).|
-|Signature|String|Yes|Your signature.  For more information, see [Signature](reseller.en-US/API Reference/Getting started/Signature.md#).|
+|AccessKeyId|String|Yes|Equivalent to a logon password.  However, an AccessKey is used to call APIs, while logon password is used to log on to the  [ECS console](https://partners-intl.console.aliyun.com/#/ecs). For more information, see [Create an AccessKey](../../../../../reseller.en-US/General Reference/Create an AccessKey.md#).|
+|Signature|String|Yes|Your signature.  For more information, see [Signature](reseller.en-US/API Reference/Getting started/Digital signature.md#).|
 |SignatureMethod|String|Yes|Signature method. Value: HMAC-SHA1.|
 |SignatureVersion|String|Yes|Signature algorithm version.  Value: 1.0.|
 |SignatureNonce|String|Yes|Unique random number, which is used to prevent network replay attacks. Different random numbers must be used for different requests.|
