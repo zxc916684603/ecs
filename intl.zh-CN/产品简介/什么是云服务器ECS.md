@@ -8,22 +8,32 @@
 
 下图列出了ECS涉及的所有资源，包括实例规格、块存储、镜像、快照、带宽和安全组。您可以通过 [云服务器管理控制台](https://ecs.console.aliyun.com/#/home) 配置您的ECS资源。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/15402839274795_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/15404527794795_zh-CN.png)
 
 ## 相关概念 {#section_jkn_4qj_ydb .section}
 
 在使用ECS之前，您需要了解以下概念：
 
 -   [地域和可用区](https://www.alibabacloud.com/help/doc-detail/40654.htm)：指ECS实例所在的物理位置。
+
 -   [实例](intl.zh-CN/产品简介/实例/实例概述.md#)：等同于一台虚拟机，包含CPU、内存、操作系统、网络、磁盘等最基础的计算组件。
+
 -   [实例规格](intl.zh-CN/产品简介/实例规格族.md#)：指实例的配置，包括vCPU核数、内存、网络性能等。实例规格决定了ECS实例的计算和存储能力。
+
 -   [镜像](intl.zh-CN/产品简介/镜像.md#)：指ECS实例运行环境的模板，一般包括操作系统和预装的软件。操作系统支持多种Linux发行版本和不同的Windows版本。
+
 -   [块存储](intl.zh-CN/产品简介/块存储/什么是块存储.md#)：包括基于分布式存储架构的 [云盘和共享块存储](intl.zh-CN/产品简介/块存储/云盘和共享块存储.md#)，以及基于物理机本地硬盘的 [本地存储](intl.zh-CN/产品简介/块存储/本地盘.md#)。
+
 -   [快照](intl.zh-CN/产品简介/快照/快照概述.md#)：指某一个时间点上一块弹性块存储的数据备份。
+
 -   [网络类型](intl.zh-CN/产品简介/网络和安全性/网络类型.md#)：
+
     -   专有网络：基于阿里云构建的一个隔离的网络环境，也称为VPC，VPC之间逻辑上彻底隔离。更多信息，请参考 [专有网络VPC](../../../../intl.zh-CN/产品简介/什么是专有网络.md#)。
+
     -   经典网络：统一部署在阿里云公共基础设施内，规划和管理由阿里云负责。
+
 -   [安全组](intl.zh-CN/产品简介/网络和安全性/安全组.md#)：由同一地域内具有相同保护需求并相互信任的实例组成，是一种虚拟防火墙，用于设置实例的网络访问控制。
+
 
 ## 使用ECS {#section_lsd_yqj_ydb .section}
 
