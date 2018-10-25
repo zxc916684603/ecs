@@ -14,7 +14,7 @@
 -   Debian 7/8/9
 -   SUSE 11/12
 
-以上列表的镜像，默认已安装virtio驱动的系统，需要注意[修复临时文件系统](#RecoverTheInitramfs)。
+以上列表的镜像，默认已安装virtio驱动的系统，需要注意[修复临时文件系统](#)。
 
 ## 需要安装virtio驱动的镜像 {#section_eyr_jb4_r2b .section}
 
@@ -22,22 +22,22 @@
 
 **检查服务器内核是否支持virtio驱动**
 
-1.  运行`grep -i virtio /boot/config-$(uname -r)`检查当前操作系统的内核是否支持virtio驱动。
+1.  运行 `grep -i virtio /boot/config-$(uname -r)` 检查当前操作系统的内核是否支持virtio驱动。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15394858674632_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15404580764632_zh-CN.png)
 
     **说明：** 
 
     -   如果在输出信息中没有找到VIRTIO\_BLK 及 VIRTIO\_NET的信息，表示该操作系统没有安装virtio相关驱动，暂时不能直接导入阿里云云平台。您需要为您的服务器编译安装virtio驱动。
-    -   如果参数**CONFIG\_VIRTIO\_BLK**及**CONFIG\_VIRTIO\_NET**取值为y，表示包含了virtio驱动，您可以参阅[导入镜像必读](intl.zh-CN/用户指南/镜像/导入镜像/导入镜像必读.md#)直接[导入自定义镜像](intl.zh-CN/用户指南/镜像/导入镜像/导入自定义镜像.md#)到阿里云。
-    -   如果参数**CONFIG\_VIRTIO\_BLK**及**CONFIG\_VIRTIO\_NET**取值为m，需要进入第2步。
-2.  执行命令`lsinitrd /boot/initramfs-$(uname -r).img | grep virtio`确认virtio驱动是否包含在临时文件系统initramfs或者initrd中。
+    -   如果参数 CONFIG\_VIRTIO\_BLK 及 CONFIG\_VIRTIO\_NET 取值为y，表示包含了virtio驱动，您可以参阅 [导入镜像必读](intl.zh-CN/用户指南/镜像/导入镜像/导入镜像必读.md#) 直接 [导入自定义镜像](intl.zh-CN/用户指南/镜像/导入镜像/导入自定义镜像.md#) 到阿里云。
+    -   如果参数 CONFIG\_VIRTIO\_BLK 及 CONFIG\_VIRTIO\_NET 取值为m，需要进入第2步。
+2.  执行命令 `lsinitrd /boot/initramfs-$(uname -r).img | grep virtio` 确认virtio驱动是否包含在临时文件系统initramfs或者initrd中。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15394858674633_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15404580764633_zh-CN.png)
 
     **说明：** 
 
-    -   截图表明，initramfs已经包含了virtio\_blk驱动，以及其所依赖的virtio.ko、virtio\_pci.ko和virtio\_ring.ko，您可以参阅[导入镜像必读](intl.zh-CN/用户指南/镜像/导入镜像/导入镜像必读.md#)直接[导入自定义镜像](intl.zh-CN/用户指南/镜像/导入镜像/导入自定义镜像.md#)到阿里云。
+    -   截图表明，initramfs已经包含了virtio\_blk驱动，以及其所依赖的virtio.ko、virtio\_pci.ko和virtio\_ring.ko，您可以参阅 [导入镜像必读](intl.zh-CN/用户指南/镜像/导入镜像/导入镜像必读.md#) 直接 [导入自定义镜像](intl.zh-CN/用户指南/镜像/导入镜像/导入自定义镜像.md#) 到阿里云。
     -   如果临时文件系统initramfs没有包含virtio驱动，则需要修复临时文件系统。
 
 ## 修复临时文件系统 {#RecoverTheInitramfs .section}
@@ -81,20 +81,20 @@
 
 **下载内核安装包**
 
-1.  运行`yum install -y ncurses-devel gcc make wget`安装编译内核的必要组件。
-2.  运行`uname -r`查询当前系统使用的内核版本，如示例中的4.4.24-2.a17.x86\_64。
+1.  运行 `yum install -y ncurses-devel gcc make wget` 安装编译内核的必要组件。
+2.  运行 `uname -r` 查询当前系统使用的内核版本，如示例中的4.4.24-2.a17.x86\_64。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15394858684634_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15404580774634_zh-CN.png)
 
-3.  前往[Linux内核列表页面](https://www.kernel.org/pub/linux/kernel/)下载对应的内核版本源码，如示例中的4.4.24开头的linux-4.4.24.tar.gz的网址为[https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.24.tar.gz](https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.24.tar.gz)。
+3.  前往 [Linux内核列表页面](https://www.kernel.org/pub/linux/kernel/) 下载对应的内核版本源码，如示例中的4.4.24开头的linux-4.4.24.tar.gz的网址为 [https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.24.tar.gz](https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.24.tar.gz)。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15394858684638_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15404580774638_zh-CN.png)
 
-4.  运行`cd /usr/src/`切换目录。
-5.  运行`wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.24.tar.gz`下载安装包。
-6.  运行`tar -xzf linux-4.4.24.tar.gz`解压安装包。
-7.  运行`ln -s linux-4.4.24 linux`建立链接。
-8.  运行`cd /usr/src/linux`切换目录。
+4.  运行 `cd /usr/src/` 切换目录。
+5.  运行 `wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.24.tar.gz` 下载安装包。
+6.  运行 `tar -xzf linux-4.4.24.tar.gz` 解压安装包。
+7.  运行 `ln -s linux-4.4.24 linux` 建立链接。
+8.  运行 `cd /usr/src/linux` 切换目录。
 
 **编译内核**
 
@@ -110,15 +110,15 @@
 
 2.  出现以下界面时，开始打开virtio相关配置：
 
-    **说明：** 选\*配置表示编译到内核，选m配置表示编译为模块。
+    **说明：** 选 \* 配置表示编译到内核，选 m 配置表示编译为模块。
 
     1.  使用空格勾选Virtualization项。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15394858684639_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15404580774639_zh-CN.png)
 
         确认是否勾选了KVM（Kernel-based Virtual Machine）选项。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15394858684640_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15404580774640_zh-CN.png)
 
         ```
         Processor type and features  --->
@@ -129,7 +129,7 @@
          [*]   KVM Guest support
         ```
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15394858684641_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15404580774641_zh-CN.png)
 
         ```
         Device Drivers  --->
@@ -140,7 +140,7 @@
         ```
 
     2.  按下Esc键退出内核配置界面并根据弹窗提示保存.config文件。
-    3.  [检查](#Check)virtio相关配置是否已经正确配置。
+    3.  [检查](#) virtio相关配置是否已经正确配置。
     4.  若检查后发现暂未设置virtio相关配置，运行以下命令手动编辑.config文件。
 
         ```
