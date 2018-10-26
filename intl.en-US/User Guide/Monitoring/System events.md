@@ -10,16 +10,11 @@ Once system events occur, you are notified about the default actions and the tim
 
 ## Limits {#section_nnp_5yz_xdb .section}
 
-Phased-out instance types including c1, c2, m1, m2, s1, s2, s3, and t1 do not support system events. For more information, see [Instance type families](../intl.en-US/Product Introduction/Instance type families.md#).
+Phased-out instance types including c1, c2, m1, m2, s1, s2, s3, and t1 do not support system events. For more information, see [Instance type families](../reseller.en-US/Product Introduction/Instance type families.md#).
 
 ## Event types {#section_onp_5yz_xdb .section}
 
 The following table describes the types of ECS system events.
-
-|Category|Event type|Parameter|
-|Scheduled system event|An instance restarts after planned system maintenance or security update.|`SystemMaintenance.Reboot`|
-|Unexpected system event|An instance restarts after unexpected system failures.|`SystemFailure.Reboot`|
-|An instance restarts after unexpected instance failures.|`InstanceFailure.Reboot`|
 
 |Category|Event type|Parameter|
 |:-------|:---------|:--------|
@@ -38,7 +33,7 @@ The following table describes the status of a system event during its lifecycle.
 |Status|Status attribute|Description|
 |:-----|:---------------|:----------|
 |Scheduled|Intermediate status|The system event is scheduled but not performed.|
-|Avoided|Stable status|You have taken the actions in advance within the [user operation period](intl.en-US/User Guide/Monitoring/System events.md#ul_ynp_5yz_xdb).|
+|Avoided|Stable status|You have taken the actions in advance within the [user operation period](reseller.en-US/User Guide/Monitoring/System events.md#ul_ynp_5yz_xdb).|
 |Executing|Intermediate state|The response plan of the system event is being performed.|
 |Executed|Stable status|The system event has been fixed.|
 |Canceled|Stable status|ECS cancels the scheduled system event.|
@@ -48,10 +43,10 @@ The following table describes the status of a system event during its lifecycle.
 
 System events observe the following two periods:
 
--   **User operation period**: The period between initiation and scheduled time of system events. Normally, you receive a notification from 24 to 48 hours before a system failure event is fixed, from 7 to 15 days before a Subscription instances is stopped, and 1 hour before a Pay-As-You-Go instance is stopped. During this period, you can choose the recommended methods to handle system events in advance. You can also wait until the default actions are triggered.
--   System action period: Generally, if you wait until we take the default action, system events are automatically fixed within 6 hours after the system action period begins at a scheduled time, instances are released 15 days later if no renewal or recharge are made. Later you receive the report of system events.
+-   **User operation period**: The period between initiation and scheduled time of system events. Normally, you receive a notification from 24 to 48 hours before a system failure event is fixed, from 3 days before a Subscription instances is stopped, and 1 hour before a Pay-As-You-Go instance is stopped. Instances are released 15 days later if no renewal or recharge are made. During this period, you can choose the recommended methods to handle system events in advance. You can also wait until the default actions are triggered.
+-   System action period: Generally, if you wait until we take the default action, system events are automatically fixed within 6 hours after the system action period begins at a scheduled time. Later you receive the report of system events.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9748/15392215563942_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9748/15405406093942_en-US.png)
 
     **Note:** Only scheduled system events have user operation period. Unexpected system events that are caused by emergency failures or invalid operations do not have user operation periods. Once unexpected system events occur, you will receive notifications, but you cannot take any action. However, you can query the system events history for fault diagnosis, cause analysis, or data recovery.
 
@@ -60,23 +55,23 @@ System events observe the following two periods:
 
 If a system event is scheduled, the **Unsettled events** button in the ECS console shows a highlighted tag to remind you to check the event.
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/).
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, select **Overview**.
 3.  Select **Unsettled events** from the navigation pane on the right-side of the Overview page.
 4.  On the **Unsettled events** page, you can see the list of instance IDs, regions, and running status, system events, recommended user operations, and buttons for operations. Optionally, you can choose recommended user operations under the Actions column to handle the system events.
 
-**API operation**: Call [DescribeInstancesFullStatus](../intl.en-US/API Reference/Operations and monitoring/DescribeInstancesFullStatus.md) to view system events.
+**API operation**: Call [DescribeInstancesFullStatus](../reseller.en-US/API Reference/Operations and monitoring/DescribeInstancesFullStatus.md) to view system events.
 
 ## View system events history {#SystemAlertHistory .section}
 
 On the All events page, you can query the system events history within the last week for faulty diagnosis and faulty replay.
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  On the left-side navigation pane, select **Overview**.
 3.  Select **Unsettled events** from the navigation pane on the right-side of the **Overview** page.
 4.  Click **All events**, and on the All events page, click**Scheduled system event \>** \> **Instances.**You can see the list of instance IDs, event types, and regions, and event status.
 
-**API operation**: Call [../DNA0011860945/EN-US\_TP\_9969.md\#](../intl.en-US/API Reference/Operations and monitoring/DescribeInstanceHistoryEvents.md#) to view system events history.
+**API operation**: Call [DescribeInstanceHistoryEvents](../reseller.en-US/API Reference/Operations and monitoring/DescribeInstanceHistoryEvents.md#) to view system events history.
 
 ## System event suggestions {#section_e2q_3zz_xdb .section}
 
@@ -84,23 +79,23 @@ System events make you perceptible to underlying components of Alibaba Cloud ECS
 
 |Event type|Parameter|Recommended|
 |:---------|:--------|:----------|
-|An instance restarts after pending system maintenance.|SystemMaintenance.Reboot|Use either of the following methods at a convenient time within the user operation period:-   [Restart the instance](intl.en-US/User Guide/Instances/Restart an instance.md#) in the ECS console.
--   Call API [RebootInstance](../intl.en-US/API Reference/Instances/RebootInstance.md).
+|An instance restarts after pending system maintenance.|SystemMaintenance.Reboot|Use either of the following methods at a convenient time within the user operation period:-   [Restart the instance](reseller.en-US/User Guide/Instances/Restart an instance.md#) in the ECS console.
+-   Call API [RebootInstance](../reseller.en-US/API Reference/Instances/RebootInstance.md).
 
 **Note:** Instance restart performed in the instance or from the instance list has no effect on this type of system events.
 
 
-We recommend that you [Create snapshots](intl.en-US/User Guide/Snapshots/Create snapshots.md#) \([CreateSnapshot](../intl.en-US/API Reference/Snapshots/CreateSnapshot.md)\) for the attached disks to back up your data.|
+We recommend that you [Create snapshots](reseller.en-US/User Guide/Snapshots/Create snapshots.md#) \([CreateSnapshot](../reseller.en-US/API Reference/Snapshots/CreateSnapshot.md)\) for the attached disks to back up your data.|
 |An instance restarts after unexpected system failures.|SystemFailure.Reboot|When you receive the notification, your instances are being restarted. We recommend that you verify the recovery of instances and applications after the event.|
 |An instance restarts after unexpected instance failures.|InstanceFailure.Reboot|When you receive the notification, your instances are being restarted. We recommend that you:-   Verify the recovery of instances and applications.
 -   Analyze the cause of instance crashes to prevent potential events.
 
 |
-|A Subscription instance stops due to expiration.|InstanceExpiration.Stop|You can either [renew the instances](../intl.en-US/Pricing/Renew instances/Renewal overview.md#) or wait for the instances to stop.|
-|A Pay-As-You-Go instance stops due to overdue payment.|AccountUnbalanced.Stop| You can either [recharge your account](https://expense.console.aliyun.com/#/account/recharge/alipay) or wait for the instances to stop.
+|A Subscription instance stops due to expiration.|InstanceExpiration.Stop|You can either [renew the instances](../reseller.en-US/Pricing/Renew instances/Renewal overview.md#) or wait for the instances to stop.|
+|A Pay-As-You-Go instance stops due to overdue payment.|AccountUnbalanced.Stop| You can either recharge your account or wait for the instances to stop.
 
  |
-|A Subscription instance is released due to expiration.|InstanceExpiration.Delete|You can either [renew the instances](../intl.en-US/Pricing/Renew instances/Renewal overview.md#) or wait for the instances to be released.|
+|A Subscription instance is released due to expiration.|InstanceExpiration.Delete|You can either [renew the instances](../reseller.en-US/Pricing/Renew instances/Renewal overview.md#) or wait for the instances to be released.|
 |A Pay-As-You-Go instance is released due to overdue payment.|AccountUnbalanced.Delete| You can either [recharge your account](https://expense.console.aliyun.com/#/account/recharge/alipay) or wait for the instances to be released.
 
  |
