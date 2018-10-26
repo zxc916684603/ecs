@@ -28,7 +28,7 @@ Every successful response has a request ID in the RequestId element and other AP
 
 Every error response consists of a request ID in the RequestId element and access endpoint in the HostId element, the error code, and the error message. The HTTP status code for an error response is 4xx or 5xx.
 
-You can fix the exception according to the API-specific error codes or [common error codes](#section_a2m_tjx_wdb) and try the request again. Alternatively, you can open a ticket and provide additional inputs such as the `HostId` and `RequestId` to get technical support from us.
+You can fix the exception according to the API-specific error codes or [common error codes](#) and try the request again. Alternatively, you can open a ticket and provide additional inputs such as the `HostId` and `RequestId` to get technical support from us.
 
 -   XML format
 
