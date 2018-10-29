@@ -51,7 +51,7 @@ Take CentOS 7.4 as an example to use the instance identity.
 2.  Run `curl http://100.100.100.200/latest/dynamic/instance-identity/document` to query the file of instance identity document.
 3.  Run `curl http://100.100.100.200/latest/dynamic/instance-identity/pkcs7` or `curl http://100.100.100.200/latest/dynamic/instance-identity/pkcs7?audience=XXXX` to get the instance identity signature.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9662/15395061355497_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9662/15408046325497_en-US.png)
 
 4.  Verify the instance identity by using OpenSSL.
 
@@ -100,7 +100,7 @@ DoJeqU7qZjyCaUBkPimsz/1eRod6d4P5qxTj
 Assume that you have published an image in the image market. The following example shows you how to grant access to the instances of your customers.
 
 1.  Connect to the target instance.
-2.  Verify whether the image used by the instance is from the [Alibaba Cloud Marketplace](https://marketplace.alibabacloud.com/products/56732001), or from another source, by calling the metadata items of product-code and charge-type For more information, see  [Metadata](reseller.en-US/User Guide/Instances/User-defined data and metadata/Metadata.md#).
+2.  Verify whether the image used by the instance is from the [Alibaba Cloud Marketplace](https://partners-intl.aliyun.com/marketplace/vodafone/), or from another source, by calling the metadata items of product-code and charge-type For more information, see  [Metadata](reseller.en-US/User Guide/Instances/User-defined data and metadata/Metadata.md#).
 
     ```
     
