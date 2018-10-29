@@ -6,7 +6,7 @@ ECS disks in this article refer to **cloud disks** and **Shared Block Storage de
 
 The ECS disk encryption feature allows you to encrypt new ECS disks so that you can meet encryption needs for scenarios such as certification requirements and business security. The ECS disk encryption feature means you do not have to create, maintain, or protect your own key management infrastructure, nor change any of your existing applications or maintenance processes. In addition, no extra encryption or decryption operations are required, making ECS disk encryption operations invisible to your applications or other operations.
 
-Encryption and decryption processes hardly degrade ECS disk performance. For information on the performance testing method, see [EN-US\_TP\_9557.md\#](reseller.en-US/Product Introduction/Block storage/Storage parameters and performance test.md#).
+Encryption and decryption processes hardly degrade ECS disk performance. For information on the performance testing method, see [storage parameters and performance test](reseller.en-US/Product Introduction/Block storage/Storage parameters and performance test.md#).
 
 After an encrypted ECS disk is created and attached to an ECS instance, you can encrypt data that is:
 
@@ -26,7 +26,7 @@ ECS disk encryption is dependent on the Key Management Service \(KMS\), which mu
 
 The first time you use the ECS disk encryption function \(such as when you are creating ECS instances or ECS disks\), you must first authorize and activate KMS. Otherwise, you cannot create encrypted ECS disks or instances with encrypted disks.
 
-If you use an API or the CLI to use the ECS disk encryption function, such as [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9857.md\#](../../../../reseller.en-US/API Reference/Instances/CreateInstance.md#) or [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9883.md\#](../../../../reseller.en-US/API Reference/Disk/CreateDisk.md#), you must first activate KMS on the Alibaba Cloud console.
+If you use an API or the CLI to use the ECS disk encryption function, such as [CreateInstance](../../../../reseller.en-US/API Reference/Instances/CreateInstance.md#) or [CreateDisk](../../../../reseller.en-US/API Reference/Disk/CreateDisk.md#), you must first activate KMS on the Alibaba Cloud console.
 
 The first time you encrypt a disk in a target region, Alibaba Cloud automatically creates a Customer Master Key \(CMK\) in the KMS region, exclusively for ECS. The CMK cannot be deleted. You can query the CMK in the KMS console.
 
@@ -50,12 +50,12 @@ The CMK that ECS creates for you in each region is a service key. It does not co
 
 These operations include:
 
--   Creating encrypted disks by calling [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9857.md\#](../../../../reseller.en-US/API Reference/Instances/CreateInstance.md#) or [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9883.md\#](../../../../reseller.en-US/API Reference/Disk/CreateDisk.md#).
--   Attaching an encrypted disk to an instance by calling [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9886.md\#](../../../../reseller.en-US/API Reference/Disk/AttachDisk.md#).
--   Detaching an encrypted disk from an instance by calling [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9887.md\#](../../../../reseller.en-US/API Reference/Disk/DetachDisk.md#).
--   Creating a snapshot by calling [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9905.md\#](../../../../reseller.en-US/API Reference/Snapshots/CreateSnapshot.md#).
--   Restoring a disk by calling [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9891.md\#](../../../../reseller.en-US/API Reference/Disk/ResetDisk.md#).
--   Re-initializing a disk by calling [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9890.md\#](../../../../reseller.en-US/API Reference/Disk/ReInitDisk.md#).
+-   Creating encrypted disks by calling [CreateInstance](../../../../reseller.en-US/API Reference/Instances/CreateInstance.md#) or [CreateDisk](../../../../reseller.en-US/API Reference/Disk/CreateDisk.md#).
+-   Attaching an encrypted disk to an instance by calling [AttachDisk](../../../../reseller.en-US/API Reference/Disk/AttachDisk.md#).
+-   Detaching an encrypted disk from an instance by calling [DetachDisk](../../../../reseller.en-US/API Reference/Disk/DetachDisk.md#).
+-   Creating a snapshot by calling [CreateSnapshot](../../../../reseller.en-US/API Reference/Snapshots/CreateSnapshot.md#).
+-   Restoring a disk by calling [ResetDisk](../../../../reseller.en-US/API Reference/Disk/ResetDisk.md#).
+-   Re-initializing a disk by calling [ReInitDisk](../../../../reseller.en-US/API Reference/Disk/ReInitDisk.md#).
 
 ## Create an encrypted ECS disk {#howtocreate .section}
 
@@ -67,14 +67,14 @@ Currently, only cloud disks can be encrypted. You can create an encrypted cloud 
     -   Select an encrypted screenshot to create a cloud disk.
 -   When using APIs or the CLI:
 
-    -   Set the parameter `DataDisk.n.Encrypted` \([../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9857.md\#](../../../../reseller.en-US/API Reference/Instances/CreateInstance.md#)\) or `Encrypted` \([../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9883.md\#](../../../../reseller.en-US/API Reference/Disk/CreateDisk.md#)\) to `true`.
+    -   Set the parameter `DataDisk.n.Encrypted` \([CreateInstance](../../../../reseller.en-US/API Reference/Instances/CreateInstance.md#)\) or `Encrypted` \([CreateDisk](../../../../reseller.en-US/API Reference/Disk/CreateDisk.md#)\) to `true`.
     -   Specify the `SnapshotId` parameter of the encrypted snapshot in CreateInstance or CreateDisk.
 
 ## Convert unencrypted data to encrypted data {#convert .section}
 
-You cannot directly convert an **unencrypted disk** to an **encrypted disk**, or perform the converse operation.**** ****
+You cannot directly convert an **unencrypted disk** to an **encrypted disk**, or perform the converse operation.
 
-You cannot convert a snapshot created from an **unencrypted disk** to an **encrypted snapshot**, or perform the converse operation.********
+You cannot convert a snapshot created from an **unencrypted disk** to an **encrypted snapshot**, or perform the converse operation.
 
 Therefore, if you must switch the existing data from status **unencrypted** to **encrypted**, we recommend that you use the `rsync` command in a Linux instance or the `robocopy` command in a Windows instance to copy data from an **unencrypted** disk to a \(new\) **encrypted** disk.
 
