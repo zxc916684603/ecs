@@ -16,8 +16,6 @@ To convert a public IP address to an EIP address, consider the following limits:
 
 -   Only a VPC instance that is not within the last 24 hours of its life cycle is supported.
 
--   .
-
 
 **Note:** 
 
@@ -41,17 +39,17 @@ To convert a public IP address to an elastic public IP \(EIP\) address, follow t
 
 After the public IP address is converted to an EIP address, the IP address is followed by **\(Elastic IP Address\)**. 
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9657/15394965045473_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9657/15408035955473_en-US.png)
 
 Click the IP address to go to the EIP console to manage the EIP address. 
 
 ## Follow-up operations {#section_jsc_kgn_xdb .section}
 
-After the public IP address is converted to an EIP address, you can unbind the EIP address from the instance and bind it to another instance. You can also release the EIP address. For more information, see [EIP User Guide](https://www.alibabacloud.com/help/doc-detail/65203.htm).
+After the public IP address is converted to an EIP address, you can unbind the EIP address from the instance and bind it to another instance. You can also release the EIP address. For more information, see [Unbind and release an EIP](../../../../reseller.en-US/User Guide/Unbind and release an EIP.md#).
 
 ## Related API {#section_lsc_kgn_xdb .section}
 
 You can use the [ConvertNatPublicIpToEip](../../../../reseller.en-US/API Reference/Networks/ConvertNatPublicIpToEip.md#) interface to convert a public IP address to an EIP address. Currently, only SDK 4.3.0 or a later version supports this interface.
 
-the latest SDK.
+[Download](https://partners-intl.aliyun.com/help/doc-detail/25699.htm) the latest SDK.
 
