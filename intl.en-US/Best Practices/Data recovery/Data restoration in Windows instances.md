@@ -17,37 +17,25 @@ In Windows instances, you can select either of the following tools for restoring
 
 In the Disk Management of Windows, the disk is in the **Foreign** status and displays no partitions.
 
-![](images/13067_en-US_source.png)
-
 Solution:
 
 Right click the **Foreign** disk, select **Import Foreign Disks**, and then click **OK**.
-
-![](images/13068_en-US_source.png)
 
 ## Status of the disk is Offline and no partitions are displayed {#section_knl_ryf_hfb .section}
 
 In the Disk Management of Windows, the disk is in the **Offline** status and displays no partitions.
 
-![](images/13069_en-US_source.png)
-
 Solution:
 
 Right click the **Offline** disk \(for example, **Disk 1**\), select **Online**, and then click **OK**.
-
-![](images/13070_en-US_source.png)
 
 ## No drive letter assigned {#section_nnl_ryf_hfb .section}
 
 In the Disk Management of Windows, you can view data disk information, but no drive letter is allocated to the data disk.
 
-![](images/13071_en-US_source.png)
-
 Solution:
 
 Right click primary partition of the disk \(for example, **Disk 1**\), click **Change drive letter and paths**, and then complete operations by prompt.
-
-![](images/13072_en-US_source.png)
 
 ## Error occurred during storage enumeration {#section_qnl_ryf_hfb .section}
 
@@ -55,19 +43,15 @@ In the Disk Management of Windows, you cannot view data disks. An error occurred
 
 **Note:** Some versions may report Error occurred during enumeration of volumes. They are the same.
 
-![](images/13073_en-US_source.png)
-
 Solution:
 
 1.  Start Windows PowerShell.
 2.  Run winrm quickconfig for restoring. When “Make these changes \[y/n\]?” is displayed on the interface, you must type y to run the command.
 
-    ![](images/13074_en-US_source.png)
+     
 
 
 After the restoration, you can have the data disks in the Disk Management.
-
-![](images/13075_en-US_source.png)
 
 ## Data disk is in RAW format {#section_vnl_ryf_hfb .section}
 
@@ -91,7 +75,7 @@ Data is users’ core asset. Many users establish websites and databases \(MYSQL
 
 -   **Common mistakes**
 
-    The bottom layer of Alibaba Cloud block-level storage is based on [triplicate technology](../../../../intl.en-US/Product Introduction/Block storage/Triplicate technology.md#). Therefore, some users consider that no risk of data loss in the operating system exists. It is actually a misunderstanding. The three copies of data stored in the bottom layer provide physical layer protection for data disks. However, if problems occur to the cloud disk logic in the system, such as viruses, accidental data deletion, and file system damage, the data may still be lost. To guarantee data security, you have to use technologies such as Snapshot and backup.
+    The bottom layer of Alibaba Cloud block-level storage is based on [triplicate technology](../../../../reseller.en-US/Product Introduction/Block storage/Triplicate technology.md#). Therefore, some users consider that no risk of data loss in the operating system exists. It is actually a misunderstanding. The three copies of data stored in the bottom layer provide physical layer protection for data disks. However, if problems occur to the cloud disk logic in the system, such as viruses, accidental data deletion, and file system damage, the data may still be lost. To guarantee data security, you have to use technologies such as Snapshot and backup.
 
 -   **Best practices**
 
@@ -103,7 +87,7 @@ Data is users’ core asset. Many users establish websites and databases \(MYSQL
 
         You log on to the ECS console to change the attributes of the disks to **enable snapshot release with the disk**. Disable snapshot release with the disk if you want to retain the snapshots.
 
-        For more information, see [FAQ about automatic snapshots](https://www.alibabacloud.com/help/faq-detail/40552.htm).
+        For more information, see [FAQ about automatic snapshots](https://partners-intl.aliyun.com/help/faq-detail/40552.htm).
 
     -   **Create manual snapshots**
 
