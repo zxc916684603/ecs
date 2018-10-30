@@ -30,7 +30,7 @@ Based on the operating system of your local machine, use one of the following me
 -   [Linux or Mac OS X](#)
 -   [Android or iOS](#)
 
-**Windows OS**
+## Windows OS {#section_izn_vbg_qfb .section}
 
 If your local machine is running Windows OS, you can use a remote connection tool, such as PuTTY, to connect to a Linux instance. In this article, we use PuTTY as an example to describe how to connect to a Linux instance by using the password authentication method. Before you start, download [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/).
 
@@ -49,7 +49,7 @@ Follow these steps to connect to a Linux instance:
 
     **Note:** For the first connection to an ECS instance, you have the PuTTY Security Alert as follows, which means PuTTY cannot guarantee the instance is the one that you think it is, so it can only provide the public key fingerprint of the instance for you to decide to trust the instance or not. If you select **Yes**, the public key will be added to the PuTTY’s cache and you will not be alerted again during your next connection. If you select Yes but are alerted again, a [man-in-the-middle attack \(MITM\)](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) may occur. For more information, see [PuTTY User Manual](https://the.earth.li/~sgtatham/putty/0.70/htmldoc/Chapter2.html#gs-hostkey).
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9621/15395096875251_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9621/15408934445251_en-US.png)
 
 4.  Enter the user name and password for the Linux instance, and then press **Enter**.
 
@@ -62,7 +62,7 @@ If you are successfully connected to the instance, the following message is disp
 Welcome to Alibaba Cloud Elastic Compute Service !
 ```
 
-**Linux or Mac OS X**
+## Linux or Mac OS X {#section_rpv_vbg_qfb .section}
 
 If your local machine is running Linux OS or Mac OS X, follow these steps:
 
@@ -75,7 +75,7 @@ If you are successfully connected to the instance, the following message is disp
 Welcome to Alibaba Cloud Elastic Compute Service !
 ```
 
-**Android or iOS**
+## Android or iOS {#section_tqb_wbg_qfb .section}
 
 If your local machine is running Android OS or iOS, see [Connect to an instance on a mobile device](reseller.en-US/User Guide/Connect to instances/Connect to an instance on a mobile device.md#).
 
