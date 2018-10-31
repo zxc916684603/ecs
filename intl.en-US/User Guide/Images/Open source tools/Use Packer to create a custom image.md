@@ -4,7 +4,7 @@ Packer is a convenient open-source tool to create custom images. It runs on majo
 
 ## Prerequisites {#section_qbp_xcm_xdb .section}
 
-You must have the AccessKey ready. For more information, see [Create AccessKey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#) .
+You must have the AccessKey ready. For more information, see [Create an AccessKey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#) .
 
 **Note:** 
 
@@ -80,8 +80,8 @@ Create a JSON file named alicloud and paste the following content:
 **Note:** You must customize the values of the following parameters.
 
 |Parameter| Description|
-|access\_key| Your AccessKey ID. For more details, see [Create Accesskey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#).|
-|secret\_key|Your AccessKey Secret. For more information, see [Create AccessKey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#).|
+|access\_key| Your AccessKey ID. For more details, see [Create an Accesskey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#).|
+|secret\_key|Your AccessKey Secret. For more information, see [Create an AccessKey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#).|
 |region|The region of the temporary instance used to create the custom image. |
 |image\_name| The custom image’s name|
 |source\_image|You can retrieve the basic image name from Alibaba Cloud public image list.|
