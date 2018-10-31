@@ -10,7 +10,7 @@ You can create a t5 instance by referring to [Create an instance by using the wi
 
 -   Image: 512 MiB is the minimum memory size for a t5 instance, and you can select only the Linux or Windows Server 1709 operating system. Operating systems that require a minimum memory of 1 GiB, such as Windows Server 2016, are not supported. For more information about selecting images, see [How to select a system image](https://partners-intl.aliyun.com/help/faq-detail/40651.htm).
 
--   No performance constraints mode: Select the **t5 unlimited** check box to create a t5 instance without performance constraints. You can convert the mode after creating a t5 instance.
+-   No performance constraints mode: Select the **Enable Unlimited Mode for T5 Instances** check box to create a t5 instance without performance constraints. You can convert the mode after creating a t5 instance.
 
 
 ## Change the t5 instance type {#section_okz_ny4_cfb .section}
@@ -23,7 +23,7 @@ Within the lifecycle of an instance, you can do the following to convert a t5 in
 4.  In the list of instances, find the instance, and click the instance ID.
 5.  In the **Basic Information** part of the Instance details page, click **More**, then select **Switch credit specification mode** from the drop-down list.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21272/153935069612028_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21272/154099895712028_en-US.png)
 
 
 You can also change the type of a t5 instance through the API [ModifyInstanceAttribute](../../../../reseller.en-US/API Reference/Instances/ModifyInstanceAttribute.md#).
@@ -52,5 +52,5 @@ You can change the instance type based on the billing method:
 -   Subscription instances: You can change the instance type by [upgrading or downgrading instance configurations](../../../../reseller.en-US/User Guide/Instances/Change configurations/Overview of configuration changes.md#).
 -   Pay-As-You-Go instances: You can change the configurations by [changing the instance type](../../../../reseller.en-US/User Guide/Instances/Change configurations/Change configurations of Pay-As-You-Go instances.md#).
 
-For the target instance type families, see [Instance type families that support upgrading instance types](../../../../reseller.en-US/User Guide/Instances/Change configurations/Instance type families that support upgrading instance types.md#).
+For the target instance type families, see [Instance type families that support upgrading instance types](../../../../reseller.en-US/User Guide/Instances/Change configurations/Instance type families that support instance type upgrades.md#).
 
