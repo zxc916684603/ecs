@@ -1,8 +1,6 @@
 # Create an ENI {#concept_gjc_4lj_zdb .concept}
 
-You can create an ENI in two ways.
-
-You can create an elastic network card individually. You can create an ENI in the ECS console, and then [attach it to an instance](intl.en-US/User Guide/Elastic Network Interfaces/Attach an ENI to an instance.md).
+You can create an elastic network card individually. You can create an ENI in the ECS console, and then [attach it to an instance](reseller.en-US/User Guide/Elastic Network Interfaces/Attach an ENI to an instance.md).
 
 This document describes how to create an ENI in the ECS console.
 
@@ -24,7 +22,7 @@ Before you create an ENI, finish the following operations:
 
 To create an ENI, follow these steps:
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, select**Networks & Security** \> **Network Interfaces**.
 3.  Select a region.
 4.  Click **Create**.
@@ -49,7 +47,7 @@ In the Network Interfaces page, refresh the table. When the new ENI is in the Av
 
 After you create an ENI, perform the following operations:
 
--   [Attaching an ENI to an instance](intl.en-US/User Guide/Elastic Network Interfaces/Attach an ENI to an instance.md).
--   [Modifying attributes of the ENI](intl.en-US/User Guide/Elastic Network Interfaces/Modify attributes of an ENI.md).
--   [Deleting the ENI](intl.en-US/User Guide/Elastic Network Interfaces/Delete an ENI.md).
+-   [Attaching an ENI to an instance](reseller.en-US/User Guide/Elastic Network Interfaces/Attach an ENI to an instance.md).
+-   [Modifying attributes of the ENI](reseller.en-US/User Guide/Elastic Network Interfaces/Modify attributes of an ENI.md).
+-   [Deleting the ENI](reseller.en-US/User Guide/Elastic Network Interfaces/Delete an ENI.md).
 
