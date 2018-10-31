@@ -1,14 +1,14 @@
 # Use Packer to create a custom image {#concept_idd_4cm_xdb .concept}
 
-[Packer](https://www.packer.io/) is a convenient open-source tool to create custom images. It runs on major operating systems. This document provides information about how to install and use Packer. With Packer, you can easily create a custom image by using only one or two lines of commands.
+Packer is a convenient open-source tool to create custom images. It runs on major operating systems. This document provides information about how to install and use Packer. With Packer, you can easily create a custom image by using only one or two lines of commands.
 
 ## Prerequisites {#section_qbp_xcm_xdb .section}
 
-You must have the AccessKey ready. For more information, see [Create AccessKey](../../../../intl.en-US/General Reference/Create an AccessKey.md#) .
+You must have the AccessKey ready. For more information, see [Create AccessKey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#) .
 
 **Note:** 
 
-The AccessKey has a high level of account privileges. To avoid improper operations and data breach, we recommend that you [Create a RAM user](../../../../intl.en-US/Quick Start/Create a RAM user.md#), and act as a RAM user to [create your AccessKey](../../../../intl.en-US/General Reference/Create an AccessKey.md#).
+The AccessKey has a high level of account privileges. To avoid improper operations and data breach, we recommend that you [Create a RAM user](../../../../reseller.en-US/Quick Start/Create a RAM user.md#), and act as a RAM user to [create your AccessKey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#).
 
 ## Step 1.  Install Packer {#section_j5g_gdm_xdb .section}
 
@@ -16,7 +16,7 @@ Go to the official  [download page of Packer](https://www.packer.io/downloads.h
 
 **To install Packer on a Linux server**
 
-1.  Connect and log on to the Linux server. If the server you want to connect to is an ECS Linux instance, see [Connect to a Linux instance by using a password](intl.en-US/User Guide/Connect to instances/Connect to a Linux instance by using a password.md#).
+1.  Connect and log on to the Linux server. If the server you want to connect to is an ECS Linux instance, see [Connect to a Linux instance by using a password](reseller.en-US/User Guide/Connect to instances/Connect to a Linux instance by using a password.md#).
 2.  Run `cd /usr/local/bin` to go to the /usr/local/bin directory. 
 
     **Note:** The /usr/local/bin directory is an environment variable directory. ou can install Packer to this directory or another directory that has been added to the environment variable.
@@ -29,7 +29,7 @@ Go to the official  [download page of Packer](https://www.packer.io/downloads.h
 
 Take Windows Server 2012 64-bit as an example:
 
-1.  Connect and log on to the Windows server. If the server you want to connect to is an ECS Windows instance, see [Connect to a Windows instance](intl.en-US/User Guide/Connect to instances/Connect to a Windows instance.md#).
+1.  Connect and log on to the Windows server. If the server you want to connect to is an ECS Windows instance, see [Connect to a Windows instance](reseller.en-US/User Guide/Connect to instances/Connect to a Windows instance.md#).
 2.  Open the official [download page of Packer](https://www.packer.io/downloads.html)  and select an appropriate Packer installer for 64-bit Windows.
 3.  Unzip the package to a specified directory and install Packer.
 4.  Define the directory for Packer in the PATH environment variable.
@@ -80,8 +80,8 @@ Create a JSON file named alicloud and paste the following content:
 **Note:** You must customize the values of the following parameters.
 
 |Parameter| Description|
-|access\_key| Your AccessKey ID For more details, see creating an accesskey.|
-|secret\_key|Your AccessKey Secret For more information, see [Create AccessKey](../../../../intl.en-US/General Reference/Create an AccessKey.md#).|
+|access\_key| Your AccessKey ID. For more details, see [Create Accesskey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#).|
+|secret\_key|Your AccessKey Secret. For more information, see [Create AccessKey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#).|
 |region|The region of the temporary instance used to create the custom image. |
 |image\_name| The custom image’s name|
 |source\_image|You can retrieve the basic image name from Alibaba Cloud public image list.|
@@ -121,7 +121,7 @@ cn-beijing: m-2ze12578be1oa4ovs6r9
 
 ## Next steps {#section_chp_qdv_ydb .section}
 
-You can use this custom image to create an ECS instance. For more information, see [Create an instance from a custom image](intl.en-US/User Guide/Instances/Create an instance/Create an instance from a custom image.md#).
+You can use this custom image to create an ECS instance. For more information, see [Create an instance from a custom image](reseller.en-US/User Guide/Instances/Create an instance/Create an instance from a custom image.md#).
 
 ## References {#section_ntx_rdv_ydb .section}
 
