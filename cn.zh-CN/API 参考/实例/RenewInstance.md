@@ -1,14 +1,14 @@
 # RenewInstance {#RenewInstance .reference}
 
-续费一台预付费实例。
+续费一台预付费 ECS 实例。
 
 ## 描述 {#section_ut4_lk5_xdb .section}
 
 调用该接口时，您需要注意：
 
--   该接口仅支持续费包年包月 ECS 实例。
+-   仅支持续费预付费 ECS 实例。
 
--   除 0 折账号外，付款时，默认优先使用您的账号下可用的优惠券。
+-   除折扣账号之外，支付续费产生的账单时，默认优先使用您的账号下的代金券。
 
 -   您的账号必须支持账号余额支付或信用支付。
 
@@ -17,13 +17,13 @@
 
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
-|Action|String|是|系统规定参数，取值：RenewInstance。|
-|InstanceId|String|是|指定的需要实例规格的实例 ID。|
-|Period|Integer|是|预付费续费时长。当参数`InstanceChargeType`取值为`PrePaid`时才生效且为必选值。一旦指定了 DedicatedHostId，则取值范围不能超过专有宿主机的订阅时长。取值范围：-   `PeriodUnit=Week`时，Period取值：\{“1”, “2”, “3”, “4”\}
--   `PeriodUnit=Month`时，Period取值：\{ “1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “12”, “24”, “36”,”48”,”60”\}
+|Action|String|是|系统规定参数。取值：RenewInstance|
+|InstanceId|String|是|需要续费的实例 ID。|
+|Period|Integer|是|预付费续费时长。一旦指定了 DedicatedHostId，则取值范围不能超过专有宿主机的订阅时长。取值范围：-   `PeriodUnit=Week`时，Period 取值：\{“1”, “2”, “3”, “4”\}
+-   `PeriodUnit=Month`时，Period 取值：\{ “1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “12”, “24”, “36”,”48”,”60”\}
 
 |
-|PeriodUnit|String|否|预付费参数 `Period` 的单位。取值范围：-   Week
+|PeriodUnit|String|否|续费时长的时间单位，即参数 `Period` 的单位。取值范围：-   Week
 -   Month（默认）
 
 |
@@ -70,32 +70,16 @@ https://ecs.aliyuncs.com/?Action=RenewInstance
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
-|IdempotenceParamNotMatch|Request uses a client token in a previous request but is not identical to that request.|400|与相同 ClientToken 的请求参数不符合。|
-|InvalidClientToken.ValueNotSupported|The ClientToken provided is invalid.|400|ClientToken 参数值不合法，不能包含 ASCII 以外的字符。|
-|InvalidInstanceChargeType.NotFound|The InstanceChargeType does not exist in our records.|400|指定的 InstanceChargeType 不存在。|
-|InvalidInstanceType.codeUnauthorized|The specified InstanceType is not authorized.|400|指定的 InstanceType 未授权使用。|
-|InvalidInstanceType.NotSupported|The specified InstanceType is not Supported.|400|指定的 InstanceType 不支持。|
-|InvalidInstanceType.ValueNotSupported|The specified InstanceType beyond the permitted range.|400|指定的 InstanceType 不合法（超出可选范围）。|
-|InvalidInstanceType.ValueUnauthorized|The specified InstanceType is not authorized.|400|指定的 InstanceType 未授权使用。|
-|InvalidInternetChargeType.InstanceNotSupported|The specified instance which is in vpc is not support the parameter InternetChargeType.|400|VPC 实例不支持 InternetChargeType。|
-|InvalidInternetChargeType.ValueNotSupported|The specified InternetChargeType is not valid.|400|指定的 InternetChargeType 不存在。|
-|InvalidParameter|The specified parameter “InternetMaxBandwidthOut” is not valid.|400|指定的 InternetMaxBandwidthOut 不合法（不是数字或超出范围）。|
-|InvalidPeriod|The specified period is not valid.|400|指定的 period 参数格式不合法（不是数字或超出范围）。|
-|InvalidRebootTime.Malformed|The specified RebootTime is not valid.|400|指定的 RebootTime 不合法。|
-|InvalidRebootTime.ValueNotSupported|The specified RebootTime is out of the permitted range.|400|指定的 RebootTime 超出范围。|
-|OperationDenied|Specified instance is in VPC.|400|指定实例在 VPC 中。|
+|IdempotenceParamNotMatch|Request uses a client token in a previous request but is not identical to that request.|400|您重用了 `ClientToken` 参数，但其他请求参数有变化。|
+|InvalidClientToken.ValueNotSupported|The ClientToken provided is invalid.|400|`ClientToken`参数取值不能包含 ASCII 以外的字符。|
+|InvalidPeriod|The specified period is not valid.|400|指定的 `Period` 参数取值格式无效，取值必须为数字并且在允许范围内。|
 |InvalidPeriod.ExceededDedidactedHost|Instance expired date can't exceed dedicated host expired date.|400|实例生命周期不能长于专有宿主机生命周期。|
 |IncorrectDedicatedHostStatus|The current status of the resource does not support this operation.|400|专有宿主机处于不可用状态。|
 |InvalidDedicatedHostStatus.NotSupport|Operation denied due to dedicated host status.|400|指定的专有宿主机已经过期或者您的账号已欠费。|
-|CategoryViolation|The specified instance does not support this operation because of its disk category.|403|磁盘类型不支持该操作。|
-|ChargeTypeViolation|The operation is not permitted due to charge type of the instance.|403|付费方式不支持这个操作。|
-|Diskcategory.Mismatch|The disk specified to convert to portable is not allowed due to the disk category does not support.|403|指定的磁盘类型不支持转换为可卸载磁盘。|
-|IncorrectInstanceStatus|The current status of the resource does not support this operation.|403|该资源目前的状态不支持此操作。|
-|Instance.UnPaidOrder|The specified instance has unpaid order.|403|该实例下还有未付费的订单。|
-|InstanceLockedForSecurity|The specified operation is denied as your instance is locked for security reasons.|403|该资源目前被安全锁定被拒绝操作。|
-|InstanceTypeNotSupported|The specified zone does not offer the specified instancetype.|403|指定 zone 不支持指定的实例类型。|
-|InvalidDisk.NotAllowed|The specified disk is not allowed to be converted to portable.|403|指定的磁盘不允许转换为可卸载磁盘。|
-|LastTokenProcessing|The last token request is processing.|403|上一次请求还在处理中。|
-|InvalidDiskId.NotFound|The specified disk does not exist.|404|指定的磁盘不存在。|
-|InvalidInstanceId.NotFound|The specified InstanceId does not exist.|404|指定的 InstanceId 不存在。|
+|ChargeTypeViolation|The operation is not permitted due to charge type of the instance.|403|仅支持续费预付费实例。|
+|IncorrectInstanceStatus|The current status of the resource does not support this operation.|403|实例的当前状态不支持续费。|
+|Instance.UnPaidOrder|The specified instance has unpaid order.|403|您的账号下有未付费的订单。|
+|InstanceLockedForSecurity|The specified operation is denied as your instance is locked for security reasons.|403|实例已被安全锁定，无法续费。|
+|LastTokenProcessing|The last token request is processing.|403|正在处理上一次请求，请稍后再试。|
+|InvalidInstanceId.NotFound|The specified InstanceId does not exist.|404|指定的 `InstanceId` 不存在。|
 
