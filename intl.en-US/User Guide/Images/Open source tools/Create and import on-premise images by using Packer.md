@@ -1,14 +1,14 @@
 # Create and import on-premise images by using Packer {#concept_l1r_hws_xdb .concept}
 
-[Packer](https://www.packer.io/) is a convenient open-source tool to create on-premises image files. It runs on the most major operating systems.
+Packer is a convenient open-source tool to create on-premises image files. It runs on the most major operating systems.
 
-To create an on-premises image by yourself and then upload it on a cloud platform is a complex process. However, by using Packer, you can create identical on-premises images for multiple platforms from a single source configuration. Follow these steps to create an on-premises image for CentOS 6.9 on an Ubuntu 16.04 server and to upload it to Alibaba Cloud. To create on-premises images for other operating systems, you can **customize your Packer templates** as necessary.
+To create an on-premises image by yourself and then upload it on a cloud platform is a complex process. However, by using Packer, you can create identical on-premises images for multiple platforms from a single source configuration. Follow these steps to create an on-premises image for CentOS 6.9 on an Ubuntu 16.04 server and to upload it to Alibaba Cloud. To create on-premises images for other operating systems, you can customize your Packer templates as necessary.
 
 ## Prerequisites {#section_fss_xws_xdb .section}
 
--   You must have the [AccessKey](https://partners-intl.aliyun.com/help/doc-detail/53045.htm) ready to fill out the configuration file. .
+-   You must have the [AccessKey](../../../../../reseller.en-US/General Reference/Create an AccessKey.md#) ready to fill out the configuration file. .
 
-    **Note:** The AccessKey has a high level of account privileges. We recommend that you [create a RAM user](../../../../../reseller.en-US/Quick Start/Create a RAM user.md#) and use the RAM account to create [AccessKey](https://partners-intl.aliyun.com/help/doc-detail/53045.htm) to prevent data breach.
+    **Note:** The AccessKey has a high level of account privileges. We recommend that you [create a RAM user](../../../../../reseller.en-US/Quick Start/Create a RAM user.md#) and use the RAM account to create [AccessKey](../../../../../reseller.en-US/General Reference/Create an AccessKey.md#) to prevent data breach.
 
 -   Before uploading your on-premises images to Alibaba Cloud, you must [sign up for OSS](../../../../../reseller.en-US/Quick Start/Sign up for OSS.md#).
 
@@ -178,9 +178,9 @@ The provisioner in the preceding [sample](#) contains a Post-Processor module th
 |:--------|:---|:----------|
 |access\_key|String|Your AccessKeyID. The AccessKey has a high privilege. We recommend that you first [create a RAM user](../../../../../reseller.en-US/Quick Start/Create a RAM user.md#) and use the RAM account to create an AccessKey to prevent data breach.|
 |secret\_key|String |Your AccessKeySecret. The AccessKey has a high privilege. We recommend that you first [create a RAM user](../../../../../reseller.en-US/Quick Start/Create a RAM user.md#) and use the RAM account to create an AccessKey to prevent data breach.|
-|region|String |Select the region where you want to upload your on-premises image. In the sample, the region is cn-beijing. For more information, see [regions and zones](https://partners-intl.aliyun.com/help/doc-detail/40654.htm).|
+|region|String |Select the region where you want to upload your on-premises image. In the sample, the region is cn-beijing. For more information, see [regions and zones](../../../../../reseller.en-US/General Reference/Regions and zones.md#).|
 |image\_name|String |The name of your on-premises image. The name is a string of 2 to 128 characters. It must begin with an English or a Chinese character. It can contain A-Z, a-z, Chinese characters, numbers, periods \(.\), colons \(:\), underscores \(\_\), and hyphens \(-\).|
-|oss\_bucket\_name|String |Your OSS bucket name. If you specify a bucket name that does not exist, Packer creates a bucket automatically with the specified oss\_bucket\_name when uploading the image.|
+|oss\_bucket\_name|String |Your OSS bucket name. If you specify a bucket name that does not exist, Packer creates a bucket automatically with the specified oss bucket name when uploading the image.|
 |image\_os\_type|String|Image type. Optional values:-   linux
 -   windows
 
