@@ -44,7 +44,7 @@ The data disk has been attached to an instance. For more information, see [attac
 To partition and format a large data disk, follow these steps:
 
 1.  [Connect to a Windows instance](reseller.en-US/User Guide/Connect to instances/Overview.md#).
-2.  Click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/15398572184424_en-US.png) icon in the task bar.
+2.  Click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/15409558564424_en-US.png) icon in the task bar.
 3.  In the left-side navigation pane select **Storage** \> **Disk Management**.
 4.  Find the disk that is to be partitioned and formatted \(in this example, **Disk 4**\). The disk status should be shown as **Offline**.
 5.  Right click the blank area around Disk 4, and then click **Online**.
@@ -200,7 +200,7 @@ mkfs.ext4: Size of device /dev/vdd too big to be expressed in 32 bits using a bl
 
 To install e2fsprogs of later version, such as 1.42.8 in this example, follow these steps:
 
-1.  Run `rpm -qa | grep e2fsprogs` to check the current version of e2fsprogs.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/15398572184439_en-US.png)
+1.  Run `rpm -qa | grep e2fsprogs` to check the current version of e2fsprogs.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/15409558564439_en-US.png)
 
     If the current version is earlier than 1.42, update the software by following these steps.
 
