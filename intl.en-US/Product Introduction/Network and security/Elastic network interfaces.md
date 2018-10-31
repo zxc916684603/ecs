@@ -25,7 +25,7 @@ ENIs are classified into two types:
 
 -   **Primary ENI**
 
-    The ENI created by default upon the creation of an instance in a VPC is called the **primary ENI**. The lifecycle of the primary ENI is the same as that of the instance and you are not allowed to remove the primary ENI from the instance.
+    The ENI created by default upon the creation of an instance in a VPC is called the primary ENI. The life cycle of the primary ENI is the same as that of the instance and you are not allowed to remove the primary ENI from the instance.
 
 -   **Secondary ENI**
 
@@ -39,7 +39,6 @@ The following table displays ENI attributes.
 |Attribute|Quantity|
 |:--------|:-------|
 |Primary private IP addresses|1|
-|Secondary private IP addresses|Depends on the instance type.|
 |MAC address|1|
 |Security group|Min. 1, and Max. 5|
 |Description|1|
