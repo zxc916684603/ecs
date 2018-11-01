@@ -129,11 +129,11 @@ yum install -y wget vim unzip
     2.  运行 `vim httpd.conf` 打开httpd.conf文件，按 `i` 键进入编辑模式。
     3.  找到 `Directory` 参数，注释掉 `Require all denied`，并添加 `Require all granted`。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153804720712349_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154105661112349_zh-CN.png)
 
     4.  找到 `ServerName` 参数，添加 `ServerName localhost:80`。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153804720812350_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154105661112350_zh-CN.png)
 
     5.  设置 `PidFile` 路径：在文件最后添加 `PidFile "/var/run/httpd.pid"`。
     6.  按 `Esc` 键退出编辑模式，输入 `:wq` 保存并关闭 httpd.conf 文件。
@@ -147,17 +147,17 @@ yum install -y wget vim unzip
 
     如果返回以下结果，说明Apache服务已经成功启动。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153804720812351_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154105661112351_zh-CN.png)
 
     在本地机器的浏览器中输入ECS实例公网IP地址，如果出现如图所示信息，说明Apache服务安装成功。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153804720812353_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154105661112353_zh-CN.png)
 
 8.  设置开机自启动。
     1.  运行 `vim /etc/rc.d/rc.local` 打开rc.local文件，按 `i` 进入编辑模式。
     2.  添加 `/usr/local/apache/bin/apachectl start`。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153804720812354_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154105661112354_zh-CN.png)
 
     3.  按 `Esc` 键退出编辑模式，输入 `:wq` 保存并关闭rc.local文件。
 9.  设置环境变量。
@@ -175,14 +175,16 @@ yum install -y wget vim unzip
     rpm -qa | grep mariadb
     ```
 
-    如果已经安装，则运行以下任一个命令删除。
+    如果已经安装，则运行下面第一个命令卸载。若第一个命令卸载不成功，则运行下面第二个命令强制卸载。
 
     ```
     rpm -e 软件名    #注意：这里的软件名必须包含软件的版本信息，如rpm -e mariadb-libs-5.5.52-1.el7.x86_64。一般使用此命令即可卸载成功。
-    rpm -e --nodeps 软件名   #卸载不成功时使用此命令强制卸载
+    rpm -e --nodeps 软件名   #注意：这里的软件名必须包含软件的版本信息，如rpm -e --nodeps mariadb-libs-5.5.52-1.el7.x86_64。
     ```
 
-    卸载后，再用 `rpm -qa|grep mariadb` 或者 `rpm -qa|grep mysql` 查看结果。
+    卸载后，再用 `rpm -qa|grep mariadb` 和 `rpm -qa|grep mysql` 查看结果。如下图所示。
+
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154105661121379_zh-CN.png)
 
 2.  依次运行以下命令安装 MySQL。
 
@@ -236,7 +238,7 @@ yum install -y wget vim unzip
 
     出现如下截图所示信息，表示MySQL启动成功。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153804720812355_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154105661112355_zh-CN.png)
 
 9.  修改MySQL的root用户密码：初始化后MySQL为空密码可直接登录，为了保证安全性需要修改MySQL的root用户密码。运行以下命令，并按界面提示设置密码。
 
@@ -250,7 +252,7 @@ yum install -y wget vim unzip
     mysql -uroot -p #-p和密码之间无空格
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153804720812356_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154105661112356_zh-CN.png)
 
 11. 运行 `\q` 退出MySQL。
 
@@ -335,7 +337,7 @@ yum install -y wget vim unzip
 
         如果出现以下页面表示PHP解析成功。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153804720812357_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154105661212357_zh-CN.png)
 
 
 **步骤4. 安装phpMyAdmin**
@@ -352,7 +354,7 @@ mv phpMyAdmin-4.1.8-all-languages/*  /usr/local/apache/htdocs/phpmyadmin
 
 在本地机器浏览器输入 `http://实例公网 IP/phpmyadmin` 访问phpMyAdmin登录页面。如果出现以下页面，说明phpMyAdmin安装成功。输入MySQL的用户名和密码即可登录。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/153804720812358_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154105661212358_zh-CN.png)
 
 ## 相关链接 {#section_gm2_r5t_2fb .section}
 
