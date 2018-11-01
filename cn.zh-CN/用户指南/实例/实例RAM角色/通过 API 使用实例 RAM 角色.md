@@ -6,8 +6,8 @@
 
 -   只有专有网络 （VPC） 网络类型的 ECS 实例才能使用实例 RAM 角色。
 -   一个 ECS 实例一次只能授予一个实例 RAM 角色。
--   当您给 ECS 实例授予了实例 RAM 角色后，并希望在 ECS 实例内部部署的应用程序中访问云产品的 API 时，您需要通过 [实例元数据](intl.zh-CN/用户指南/实例/实例自定义数据和元数据/实例元数据.md#) 获取实例 RAM 角色的临时授权 Token。参阅 [5. （可选）获取临时授权 Token](#)。
--   如果您是通过 RAM 用户子账号使用实例 RAM 角色，您需要通过云账号 [6. （可选）授权 RAM 用户使用实例 RAM 角色](#)。
+-   当您给 ECS 实例授予了实例 RAM 角色后，并希望在 ECS 实例内部部署的应用程序中访问云产品的 API 时，您需要通过 [实例元数据](intl.zh-CN/用户指南/实例/实例自定义数据和元数据/实例元数据.md#) 获取实例 RAM 角色的临时授权 Token。参阅 [获取临时授权 Token](#)。
+-   如果您是通过 RAM 用户子账号使用实例 RAM 角色，您需要通过云账号 [授权 RAM 用户使用实例 RAM 角色](#)。
 
 ## 前提条件 {#section_h2w_td5_xdb .section}
 
@@ -21,19 +21,19 @@
 
     ```
     {
-    "Statement": [
-    {
-    "Action": "sts:AssumeRole",
-    "Effect": "Allow",
-    "Principal": {
-    "Service": [
-    "ecs.aliyuncs.com"
-    ]
-    }
-    }
-    ],
-    "Version": "1"
-    }
+         "Statement": [
+         {
+             "Action": "sts:AssumeRole",
+             "Effect": "Allow",
+             "Principal": {
+             "Service": [
+             "ecs.aliyuncs.com"
+             ]
+             }
+         }
+         ],
+         "Version": "1"
+     }
     ```
 
 
@@ -45,18 +45,18 @@
 
     ```
     {
-    "Statement": [
-    {
-    "Action": [
-    "oss:Get*",
-    "oss:List*"
-    ],
-    "Effect": "Allow",
-    "Resource": "*"
-    }
-    ],
-    "Version": "1"
-    }
+         "Statement": [
+             {
+             "Action": [
+                 "oss:Get*",
+                 "oss:List*"
+             ],
+             "Effect": "Allow",
+             "Resource": "*"
+             }
+         ],
+         "Version": "1"
+     }
     ```
 
 4.  调用接口 [AttachPolicyToRole](../../../../intl.zh-CN/API参考/API 参考（RAM）/授权策略管理接口/AttachPolicyToRole.md#) 授权角色策略。
@@ -107,24 +107,24 @@
 
 ```
 {
-"Version": "2016-10-17",
-"Statement": [
-{
-"Effect": "Allow",
-"Action": [
-"ecs: [ECS RAM Action]",
-"ecs: CreateInstance",
-"ecs: AttachInstanceRamRole",
-"ecs: DetachInstanceRAMRole"
-],
-"Resource": "*"
-},
-{
-"Effect": "Allow",
-"Action": "ram:PassRole",
-"Resource": "*"
-}
-]
+        "Version": "2016-10-17",
+        "Statement": [
+            {
+            "Effect": "Allow",
+            "Action": [
+                "ecs: [ECS RAM Action]",
+                "ecs: CreateInstance",
+                "ecs: AttachInstanceRamRole",
+                "ecs: DetachInstanceRAMRole"
+            ],
+            "Resource": "*"
+            },
+            {
+        "Effect": "Allow",
+        "Action": "ram:PassRole",
+        "Resource": "*"
+            }
+        ]
 }
 ```
 
