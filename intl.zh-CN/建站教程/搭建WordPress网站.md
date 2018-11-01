@@ -24,7 +24,7 @@ WordPress是使用PHP语言开发的博客平台，在支持PHP和MySQL数据库
 
 第6步：解析域名
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/153950598812060_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154105893212060_zh-CN.png)
 
 **第1步：购买WordPress镜像**
 
@@ -35,7 +35,7 @@ WordPress是使用PHP语言开发的博客平台，在支持PHP和MySQL数据库
 3.  在云服务器ECS 自定义购买 页面，完成如下 **基础配置**：
     1.  选择 **计费方式**：如果您需要备案网站，必须选择 **包年包月**，并在页面底部设置 **购买时长** 不少于3个月。如果不需要备案，您可以根据自己的需求选择计费方式。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/153950598812061_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154105893212061_zh-CN.png)
 
     2.  选择 **地域**：目前支持该镜像的地域包括华北1、华北2、华北3、华北5、华东1、华东2、华南1。请根据网站用户的分布和您自己的地理位置选择合适的地域。如何选择地域与可用区，请参见 [地域与可用区](http://help.aliyun.com/document_detail/40654.html)。
 
@@ -53,26 +53,26 @@ WordPress是使用PHP语言开发的博客平台，在支持PHP和MySQL数据库
 
         **Note:** 如果您已经创建过经典网络类型的ECS实例，而且选择的实例类型也支持经典网络，那么，您可以选择 **经典网络**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/153950598812062_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154105893212062_zh-CN.png)
 
     2.  设置 **公网带宽**：因为创建的实例需要访问公网，所以，您需要选择 **分配公网IP地址**，并根据预期的网站出网流量，选择 **按固定带宽** 或 **按使用流量** 计费，并设置带宽。建议选择 **固定带宽**，而且带宽值建议不低于2 Mbps。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/153950598812063_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154105893212063_zh-CN.png)
 
     3.  选择 **安全组**：如果在当前地域内未创建过安全组，您可以使用默认安全组，并选择 **HTTP 80 端口**。
 
         **Note:** 如果您已经创建了安全组，必须在安全组中添加规则，放行入方向允许对HTTP 80端口的访问。详细信息，请参见 [添加安全组规则](http://help.aliyun.com/document_detail/25471.html)。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/153950598812064_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154105893212064_zh-CN.png)
 
 5.  单击 **下一步：系统配置**，完成系统配置：
     1.  设置 **登录凭证**：建议您在这里直接设置实例的登录密码。请务必牢记登录名和密码。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/153950598812065_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154105893312065_zh-CN.png)
 
     2.  设置 **实例名称**、**描述** 和 **主机名**，为了便于以后管理。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/153950598812066_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154105893312066_zh-CN.png)
 
 6.  略过 **下一步：分组设置**，单击 **确认订单**：
     -   确认 **所选配置**。如果需要修改配置，单击 ![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/44543/cn_zh/1527648165582/edit_icon.png) 图标，重新选择配置。
@@ -95,7 +95,7 @@ WordPress是使用PHP语言开发的博客平台，在支持PHP和MySQL数据库
 
     **Note:** 登录后，建议您在 **编辑我的个人资料** 的 **账户管理** 中修改密码。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/153950598812070_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154105893312070_zh-CN.png)
 
 
 **第3步：修改主题元素**
