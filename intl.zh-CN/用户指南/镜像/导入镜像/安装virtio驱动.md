@@ -24,16 +24,16 @@
 
 1.  运行 `grep -i virtio /boot/config-$(uname -r)` 检查当前操作系统的内核是否支持virtio驱动。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15404580764632_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15410649414632_zh-CN.png)
 
     **说明：** 
 
-    -   如果在输出信息中没有找到VIRTIO\_BLK 及 VIRTIO\_NET的信息，表示该操作系统没有安装virtio相关驱动，暂时不能直接导入阿里云云平台。您需要为您的服务器编译安装virtio驱动。
-    -   如果参数 CONFIG\_VIRTIO\_BLK 及 CONFIG\_VIRTIO\_NET 取值为y，表示包含了virtio驱动，您可以参阅 [导入镜像必读](intl.zh-CN/用户指南/镜像/导入镜像/导入镜像必读.md#) 直接 [导入自定义镜像](intl.zh-CN/用户指南/镜像/导入镜像/导入自定义镜像.md#) 到阿里云。
-    -   如果参数 CONFIG\_VIRTIO\_BLK 及 CONFIG\_VIRTIO\_NET 取值为m，需要进入第2步。
+    -   如果在输出信息中没有找到 `VIRTIO_BLK` 及 `VIRTIO_NET` 的信息，表示该操作系统没有安装virtio相关驱动，暂时不能直接导入阿里云云平台。您需要为您的服务器编译安装virtio驱动。
+    -   如果参数 CONFIG\_VIRTIO\_BLK 及 CONFIG\_VIRTIO\_NET 取值为 y，表示包含了virtio驱动，您可以参阅 [导入镜像必读](intl.zh-CN/用户指南/镜像/导入镜像/导入镜像必读.md#) 直接 [导入自定义镜像](intl.zh-CN/用户指南/镜像/导入镜像/导入自定义镜像.md#) 到阿里云。
+    -   如果参数 CONFIG\_VIRTIO\_BLK 及 CONFIG\_VIRTIO\_NET 取值为 m，需要进入第2步。
 2.  执行命令 `lsinitrd /boot/initramfs-$(uname -r).img | grep virtio` 确认virtio驱动是否包含在临时文件系统initramfs或者initrd中。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15404580764633_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15410649414633_zh-CN.png)
 
     **说明：** 
 
@@ -84,11 +84,11 @@
 1.  运行 `yum install -y ncurses-devel gcc make wget` 安装编译内核的必要组件。
 2.  运行 `uname -r` 查询当前系统使用的内核版本，如示例中的4.4.24-2.a17.x86\_64。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15404580774634_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15410649414634_zh-CN.png)
 
 3.  前往 [Linux内核列表页面](https://www.kernel.org/pub/linux/kernel/) 下载对应的内核版本源码，如示例中的4.4.24开头的linux-4.4.24.tar.gz的网址为 [https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.24.tar.gz](https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.24.tar.gz)。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15404580774638_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15410649414638_zh-CN.png)
 
 4.  运行 `cd /usr/src/` 切换目录。
 5.  运行 `wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.24.tar.gz` 下载安装包。
@@ -114,11 +114,11 @@
 
     1.  使用空格勾选Virtualization项。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15404580774639_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15410649424639_zh-CN.png)
 
         确认是否勾选了KVM（Kernel-based Virtual Machine）选项。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15404580774640_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15410649424640_zh-CN.png)
 
         ```
         Processor type and features  --->
@@ -129,7 +129,7 @@
          [*]   KVM Guest support
         ```
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15404580774641_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15410649424641_zh-CN.png)
 
         ```
         Device Drivers  --->
@@ -162,4 +162,9 @@
 
 
 ## 下一步 {#section_e12_gws_xdb .section}
+
+检查virtio驱动后，您可以：
+
+-   [使用迁云工具迁移服务器至阿里云](../../../../intl.zh-CN/最佳实践/P2V 迁云实践/使用迁云工具迁移服务器至阿里云.md#)。
+-   [导入自定义镜像](intl.zh-CN/用户指南/镜像/导入镜像/导入自定义镜像.md#)。
 
