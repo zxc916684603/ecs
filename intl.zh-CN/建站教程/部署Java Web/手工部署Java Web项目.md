@@ -2,9 +2,9 @@
 
 本文档介绍如何使用一台基本配置的云服务器 ECS 实例部署 Java web 项目。适用于刚开始使用阿里云进行建站的个人用户。
 
-## 配置要求 { .section}
+## 项目配置 { .section}
 
-这里列出的软件版本仅代表写作本文档使用的版本。操作时，请您以实际软件版本为准。
+此处列出验证本文档操作时使用的软件版本。操作时，请您以实际软件版本为准。
 
 -   操作系统：CentOS 7.4
 -   Tomcat 版本：Tomcat 8.5.23
@@ -13,7 +13,6 @@
 ## 安装前准备 { .section}
 
 -   CentOS 7.4 系统默认开启了防火墙。您可以关闭防火墙，也可以参考官网文档在防火墙里添加规则，放行 80、443 或 8080 端口入方向规则。
-
     -   关闭防火墙：
 
         ```language-bash
@@ -22,10 +21,11 @@
         ```
 
     -   关闭防火墙开机自启动功能：
-    ```language-bash
-    systemctl disable firewalld.service
-    
-    ```
+
+        ```language-bash
+        systemctl disable firewalld.service
+        
+        ```
 
 -   创建一般用户 www，运行 tomcat：
 
@@ -52,12 +52,16 @@
 
 ## 下载源代码 { .section}
 
+**下载 Apache**
+
 ```language-bash
 wget https://mirrors.aliyun.com/apache/tomcat/tomcat-8/v8.5.23/bin/apache-tomcat-8.5.23.tar.gz
 
 ```
 
 源代码版本会不断升级。您可以在 https://mirrors.aliyun.com/apache/tomcat/tomcat-8/ 目录下获取合适的安装包地址。
+
+**下载 JDK**
 
 ```language-bash
 wget http://mirrors.linuxeye.com/jdk/jdk-8u141-linux-x64.tar.gz
@@ -85,7 +89,7 @@ wget http://mirrors.linuxeye.com/jdk/jdk-8u141-linux-x64.tar.gz
     ```
 
 3.  设置环境变量：
-    1.  编辑 /etc/profile：`vi /etc/profile`。
+    1.  打开 /etc/profile：`vi /etc/profile`。
     2.  按 `i` 键进入编辑模式。
     3.  在 /etc/profile 文件中添加以下信息：
 
@@ -127,7 +131,7 @@ wget http://mirrors.linuxeye.com/jdk/jdk-8u141-linux-x64.tar.gz
 
     **说明：** 在 /usr/local/tomcat/ 目录里：
 
-    -   bin 目录中存放 Tomcat 的一些脚本文件，包含启动和关闭 Tomcat 服务脚本。
+    -   bin：存放 Tomcat 的一些脚本文件，包含启动和关闭 Tomcat 服务脚本。
     -   conf：存放 Tomcat 服务器的各种全局配置文件，其中最重要的是 server.xml 和 web.xml。
     -   webapps：Tomcat 的主要 Web 发布目录，默认情况下把 Web 应用文件放于此目录。
     -   logs：存放 Tomcat 执行时的日志文件。
@@ -188,7 +192,7 @@ wget http://mirrors.linuxeye.com/jdk/jdk-8u141-linux-x64.tar.gz
     3.  添加以下内容：
 
         ```language-bash
-        	JAVA_OPTS='-Djava.security.egd=file:/dev/./urandom -server -Xms256m -Xmx496m -Dfile.encoding=UTF-8'
+        JAVA_OPTS='-Djava.security.egd=file:/dev/./urandom -server -Xms256m -Xmx496m -Dfile.encoding=UTF-8'
         
         ```
 
@@ -220,6 +224,6 @@ wget http://mirrors.linuxeye.com/jdk/jdk-8u141-linux-x64.tar.gz
 
 7.  在浏览器地址栏中输入 http://ip:8080 进行访问。出现如图所示页面时表示安装成功。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9766/153804282512137_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9766/154106581412137_zh-CN.png)
 
 
