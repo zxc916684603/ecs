@@ -24,17 +24,17 @@
     |经典网络|公网|
 
 
-## 操作步骤 {#section_czv_dwx_wdb .section}
+## 操作方式 {#section_czv_dwx_wdb .section}
 
-根据本地设备的操作系统不同，您可以用不同的方式使用 SSH 协议远程连接 Linux 实例：
+根据本地设备的操作系统，您可以用不同的方式使用 SSH 协议远程连接 Linux 实例：
 
--   [本地设备使用 Windows 操作系统](#)
--   [本地设备使用 Linux 或 Mac OS X 系统](#)
--   [本地设备使用 Android 或 iOS 系统](#)
+-   [本地设备使用 Windows 操作系统](#windows)
+-   [本地设备使用 Linux 或 Mac OS X 系统](#linux)
+-   [本地设备使用 Android 或 iOS 系统](#mobile)
 
-**本地设备使用 Windows 操作系统**
+## 本地设备使用 Windows 操作系统 {#section_pkl_vyf_qfb .section}
 
-如果本地设备使用 Windows 操作系统，您可以使用远程连接软（如 PuTTY）连接 Linux 实例。本文档以 PuTTY 为例说明如何远程连接 Linux 实例。执行以下操作前，请先 [下载 PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)。
+如果本地设备使用 Windows 操作系统，您可以使用远程连接软件（如 PuTTY）连接 Linux 实例。本文档以 PuTTY 为例说明如何远程连接 Linux 实例。执行以下操作前，请先 [下载 PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)。
 
 按以下步骤连接 Linux 实例。
 
@@ -51,7 +51,7 @@
 
     **说明：** 首次连接时会出现以下警告，表示PuTTY无法确认远程服务器（实例）的真实性，只能提供服务器的公钥指纹，需要您确认是否信任该服务器，并将其公钥指纹加入到本地机器的注册表中。一般选择 **是**，之后，如果您登录时再次弹出这个警告，表示您的实例可能发生了 [中间人攻击](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)。关于这个警告更详细的信息，请参考 [PuTTY官网文档](https://the.earth.li/~sgtatham/putty/0.70/htmldoc/Chapter2.html#gs-hostkey)。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9621/15395096795251_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9621/15410647385251_zh-CN.png)
 
 4.  根据提示，分别输入您 ECS 实例的用户名（默认为 root）和密码，并回车确认。
 
@@ -66,7 +66,7 @@ Welcome to Alibaba Cloud Elastic Compute Service !
 
 至此，您可以开始操作您的实例了。
 
-**本地设备使用 Linux 或 Mac OS X 系统**
+## 本地设备使用 Linux 或 Mac OS X 系统 {#section_b22_pyf_qfb .section}
 
 如果本地设备使用 Linux 或 Mac OS X 系统，按以下步骤远程连接实例。
 
@@ -81,7 +81,7 @@ Welcome to Alibaba Cloud Elastic Compute Service !
 
 至此，您可以开始操作您的实例了。
 
-**本地设备使用 Android 或 iOS 系统**
+## 本地设备使用 Android 或 iOS 系统 {#section_njv_pyf_qfb .section}
 
 如果您需要从移动设备上远程连接 Linux 实例，您可以使用 app 连接。根据移动设备的操作系统不同，您可以有不同的选择。具体的操作描述，请参考 [在移动设备上连接实例](intl.zh-CN/用户指南/连接实例/在移动设备上连接实例.md#)。
 
