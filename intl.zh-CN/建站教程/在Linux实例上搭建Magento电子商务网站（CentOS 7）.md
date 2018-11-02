@@ -20,9 +20,9 @@ Magento是一款开源电商网站框架，其丰富的模块化架构体系及�
 
 ## 前提条件 {#section_nln_zrl_2fb .section}
 
-您已经创建了一台VPC网络类型的Linux ECS实例，详细操作，请参见 [步骤 2：创建ECS实例](../../../../intl.zh-CN/个人版快速入门/步骤 2：创建ECS实例.md#)。配置包括：2 vCPU、4 GiB内存、Cent OS 7.2 64位操作系统、VPC网络、分配公网IP地址。
+您已经创建了一台VPC网络类型的Linux ECS实例，详细操作，请参见 [使用向导创建实例](../../../../intl.zh-CN/用户指南/实例/创建实例/使用向导创建实例.md#)。配置包括：2 vCPU、4 GiB内存、Cent OS 7.2 64位操作系统、VPC网络、分配公网IP地址。
 
-ECS实例所在安全组中已经添加了如下表所示的安全组规则。详细操作，请参见 [步骤 2：创建ECS实例](../../../../intl.zh-CN/个人版快速入门/步骤 2：创建ECS实例.md#) 和 [添加安全组规则](../../../../intl.zh-CN/用户指南/安全组/添加安全组规则.md#)。
+ECS实例所在安全组中已经添加了如下表所示的安全组规则。详细操作，请参见 [使用向导创建实例](../../../../intl.zh-CN/用户指南/实例/创建实例/使用向导创建实例.md#) 和 [添加安全组规则](../../../../intl.zh-CN/用户指南/安全组/添加安全组规则.md#)。
 
 |服务|规则方向|授权策略|协议类型|端口范围|授权类型|授权对象|优先级|
 |HTTP|入方向|允许|自定义TCP|80/80|地址段访问|0.0.0.0/0|1|
@@ -30,7 +30,7 @@ ECS实例所在安全组中已经添加了如下表所示的安全组规则。�
 
 ## 步骤1：安装配置LAMP平台 { .section}
 
-本部分内容说明如何手动安装LAMP平台。您也可以在 [云市场](https://market.aliyun.com/software) 购买LAMP镜像直接启动ECS实例，以便快速建站。
+本部分内容说明如何手动安装LAMP平台。您也可以在 [云市场](https://marketplace.alibabacloud.com/) 购买LAMP镜像直接启动ECS实例，以便快速建站。
 
 1.  依次运行以下命令更新包和存储库，并安装Apache Web服务器和MySQL服务器。
 
@@ -265,11 +265,11 @@ Composer是PHP一个包管理和包依赖管理的工具。按以下步骤安装
 5.  运行 `composer install` 安装Magento。
 6.  测试：在浏览器中访问 `http://[ECS实例公网IP地址]`，如果出现以下页面，说明Magento安装成功。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9769/153976762312145_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9769/154113585012145_zh-CN.png)
 
 7.  单击 **Agree and Setup Magento** 开始配置Magento：按实际情况填写连接数据库信息、Web访问设置、定制商店、创建管理员账号。出现如下图所示的界面时，说明Magento配置完成。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9769/153976762312146_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9769/154113585012146_zh-CN.png)
 
 
 ## 步骤5：添加cron作业 { .section}
@@ -290,11 +290,11 @@ Composer是PHP一个包管理和包依赖管理的工具。按以下步骤安装
 
 访问 `http://[ECS实例公网IP]` 可以看到如下图所示的默认主页。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9769/153976762412147_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9769/154113585012147_zh-CN.png)
 
 访问 `http://[ECS实例公网IP]/admin`，使用您在安装过程中设置的用户名和密码，成功登录管理面板后可看到如下界面。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9769/153976762412148_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9769/154113585012148_zh-CN.png)
 
 更多Magento配置信息，请参见 [Magento官方文档](http://devdocs.magento.com/guides/v2.1/)。
 
