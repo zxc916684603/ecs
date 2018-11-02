@@ -13,8 +13,8 @@
 |
 |DeploymentSetName|String|否|部署集名称。长度为\[2, 128\]个英文或中文字符。必须以大小字母或中文开头，不能以http://和https://开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。|
 |Description|String|否|部署集描述信息。长度为\[2, 256\]个英文或中文字符，不能以http://和https://开头。|
-|OnUnableToRedeployFailedInstance|String|否|部署集内实例宕机迁移后，缺乏可供打散的实例库存的紧急处理方案。取值范围：-   CancelMembershipAndStart（默认）：允许将实例移出部署集，宕机迁移后即刻启动实例。
--   KeepStopped：不允许将实例移出部署集，保持异常状态等待补货充足后再启动实例。
+|OnUnableToRedeployFailedInstance|String|否|部署集内实例宕机迁移后，缺乏可供打散的实例库存的紧急处理方案。取值范围：-   CancelMembershipAndStart（默认）：将实例移出部署集，宕机迁移后即刻启动实例。
+-   KeepStopped：保持异常状态等待补货充足后再启动实例。
 
 |
 |ClientToken|String|否|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅[如何保证幂等性](../cn.zh-CN/API 参考/附录/如何保证幂等性.md#)。
