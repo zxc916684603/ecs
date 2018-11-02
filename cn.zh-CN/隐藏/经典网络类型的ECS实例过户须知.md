@@ -32,6 +32,8 @@
 -   实例挂载了[加密盘](../../../../cn.zh-CN/产品简介/块存储/ECS 云盘加密.md#)。
 -   实例挂载了[共享块存储](../../../../cn.zh-CN/产品简介/块存储/云盘和共享块存储.md#)。
 -   实例是抢占式实例。
+-   实例中有未支付的订单，取消订单后，可以正常过户。
+-   实例中存在预约的物理机迁移升级任务，必须等待迁移升级任务结束后才能过户。
 
 ## 账号限制 {#section_obs_tgb_kfb .section}
 
@@ -42,7 +44,13 @@
 
 使用源账号[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm)，并在工单中注明源账号、目标账号、需要过户的实例ID列表和目标安全组ID。
 
-**说明：** 如果过户时出现问题或者过户失败，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm)联系阿里云。
+**说明：** 
+
+以下情况请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm)：
+
+-   实例的镜像不支持使用DHCP分配IP地址，或者在系统中设置了静态IP地址，过户后，可能会导致实例无法正常访问网络。
+-   实例承载了其他阿里云云服务时，例如数据同步服务（DTS）等，请取消云服务授权信息后再过户。
+-   过户时出现其它问题或者过户失败。
 
 ## 过户后确认 { .section}
 
