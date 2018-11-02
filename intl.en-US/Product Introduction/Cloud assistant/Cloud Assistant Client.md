@@ -6,7 +6,7 @@ The cloud assistant client is an agent facilitating cloud assistant command invo
 
 **Windows instance**
 
-1.  [Connect to a Windows instance](../../../../intl.en-US/User Guide/Connect/Connect to a Windows instance.md#).
+1.  [Connect to a Windows instance](../../../../reseller.en-US/User Guide/Connect to instances/Connect to a Windows instance.md#).
 2.  [Download](https://repo-aliyun-assist.oss-cn-beijing.aliyuncs.com/download/aliyun_agent_setup.exe) the cloud assistant client.
 3.  Double-click the client file and follow the instructions to install the client.
 
@@ -16,7 +16,7 @@ Based on the distribution of Linux, to install cloud assistant client, select th
 
 -   Install the RPM package:
 
-    1.  [Connect to a Linux instance by using a password](../../../../intl.en-US/User Guide/Connect/Connect to a Linux instance by using a password.md#).
+    1.  [Connect to a Linux instance by using a password](../../../../reseller.en-US/User Guide/Connect to instances/Connect to a Linux instance by using a password.md#).
     2.  Run  `wget https://repo-aliyun-assist.oss-cn-beijing.aliyuncs.com/download/aliyun_assist.rpm` to download the RPM package of the cloud assistant client.
     3.  Run `rpm -ivh aliyun_assist.rpm`  to install the cloud assistant client.
 -   Install the DEB package:
@@ -55,16 +55,16 @@ Generally, the update process is one of the startup items in the instance. Howev
 
 **Windows instance**
 
-1.  [Connect to a Windows instance](../../../../intl.en-US/User Guide/Connect/Connect to a Windows instance.md#).
+1.  [Connect to a Windows instance](../../../../reseller.en-US/User Guide/Connect to instances/Connect to a Windows instance.md#).
 2.  Select **Computer Management** \> **Services and Applications** \> **Services****AliyunService**
 3.  Click **Stop the service**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9582/5250_en-US.png)
+    ![](images/5250_en-US_source.png)
 
 
 **Linux instance**
 
-1.  [Connect to a Linux instance by using a password](../../../../intl.en-US/User Guide/Connect/Connect to a Linux instance by using a password.md#).
+1.  [Connect to a Linux instance by using a password](../../../../reseller.en-US/User Guide/Connect to instances/Connect to a Linux instance by using a password.md#).
 2.  Run the following commands to disable the cloud assistant client service.
 
     ```
@@ -80,7 +80,7 @@ Visit the [GitHub aliyun\_assist\_client](https://github.com/aliyun/aliyun_assis
 
 You can use the cloud assistant client for the following:
 
--   [Cloud assistant](intl.en-US/Product Introduction/Cloud assistant/Cloud assistant.md#)
--   [InvokeCommand](../../../../intl.en-US/API Reference/Cloud assistant/InvokeCommand.md#)
--   [Automatically manage instances](https://www.alibabacloud.com/help/doc-detail/64741.htm?spm=a2c63.p38356.a3.10.700077faN54qqY)
+-   [Cloud assistant](reseller.en-US/Product Introduction/Cloud assistant/Cloud assistant.md#)
+-   [InvokeCommand](../../../../reseller.en-US/API Reference/Cloud assistant/InvokeCommand.md#)
+-   [Automatically manage instances](../../../../reseller.en-US/Best Practices/Monitor/Automatically manage instances.md#)
 
