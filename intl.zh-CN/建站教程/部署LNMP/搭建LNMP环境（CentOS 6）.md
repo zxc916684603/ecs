@@ -23,37 +23,63 @@
 
 **步骤一：准备编译环境**
 
-本文主要说明手动安装LNMP平台的操作步骤，您也可以在 [云市场](https://market.aliyun.com/software) 购买LNMP镜像直接启动ECS，以便快速建站。
+本文主要说明手动安装LNMP平台的操作步骤，您也可以在 [云市场](https://marketplace.alibabacloud.com/) 购买LNMP镜像直接启动ECS，以便快速建站。
 
-1.  系统版本说明
+1.  [使用向导创建实例](../intl.zh-CN/用户指南/实例/创建实例/使用向导创建实例.md#)。
 
-    ```
-    # cat /etc/redhat-release 
-    CentOS release 6.5 (Final)
-    ```
+    **说明：** 本篇教程选用了使用专有网络的ECS实例来示范操作步骤。
+
+2.  [使用管理终端连接ECS实例](../intl.zh-CN/用户指南/连接实例/使用管理终端连接ECS实例.md#)。
+3.  在Linux命令行界面，查看系统版本可以输入命令`# cat /etc/redhat-release`
+
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154138912421103_zh-CN.png)
 
     **说明：** 这是本文档实施时参考的系统版本。您的实际使用版本可能与此不同，下文中的nginx，mysql，及php版本，您也可以根据实际情况选择相应版本。
 
-2.  关闭SELINUX
+4.  关闭SELinux
 
-    修改配置文件，重启服务后永久生效。
+    输入`# getenforce`命令查看当前SELinux的状态。
 
-    ```
-    # sed -i 's/SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config
-    ```
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154138912421065_zh-CN.png)
 
-    命令行设置立即生效。
+    如果SELinux状态参数是Enforcing, 则SELinux为开启状态。如果SELinux状态参数是Disabled, 则SELinux为关闭状态。如上图所示，此处SELinux为开启状态，需要运行如下命令关闭SELinux:
 
-    ```
-    # setenforce 0
-    ```
+    -   如果您想临时关闭SELinux，输入命令`# setenforce 0`。
 
-3.  安全组设置
+        **说明：** 这只是暂时关闭SELinux,下次重启Linux后，SELinux还会开启。
 
-    在ECS安全组放行需访问的端口和访问白名单，下面的示例表示允许所有IP访问服务器的80端口。您可以根据实际情况放行允许访问的客户端IP。
+    -   如果您想永久关闭SELinux,输入命令`# vi /etc/selinux/config`编辑SELinux配置文件。回车后，把光标移动到SELINUX=enforcing这一行，输入i进入编辑模式，修改为SELINUX=disabled, 按`Esc`键，然后输入`:wq`并回车以保存并关闭SELinux配置文件。
+    重启系统使设置生效。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/153804252512084_zh-CN.png)
+5.  安全组设置
 
+    为ECS实例进行安全组设置，您可以参照以下步骤：
+
+    1.  登录[ECS管理控制台](https://ecs.console.aliyun.com/)。
+    2.  点击左侧导航栏中的**实例**。
+
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154138912421095_zh-CN.png)
+
+    3.  在**实例列表**中找到要设置安全组的实例并点击实例的ID。
+    4.  点击左侧导航栏中的**本实例安全组**。
+
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154138912421096_zh-CN.png)
+
+    5.  点击**配置规则**。
+
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154138912421144_zh-CN.png)
+
+    6.  点击**添加安全组规则**。
+
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154138912421145_zh-CN.png)
+
+    7.  [添加安全组规则](../intl.zh-CN/用户指南/安全组/添加安全组规则.md#)。
+
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154138912421146_zh-CN.png)
+
+        **说明：** 设置ECS安全组时放行需访问的端口和访问白名单，上图的示例表示允许所有IP访问服务器的80端口。您可以根据实际情况放行允许访问的客户端IP。
+
+    8.  点击**确定**，即成功地为指定安全组添加了一条安全组规则。
 
 **步骤二：安装nginx**
 
@@ -118,8 +144,10 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件，是由 Igor Syso
 
 3.  添加SysV启动脚本。
 
+    输入命令`# vim /etc/init.d/nginx`打开SysV启动脚本文件，然后在脚本文件中写下如下内容：
+
     ```
-    # vim /etc/init.d/nginx
+    
     #!/bin/sh 
     # 
     # nginx - this script starts and stops the nginx daemon 
@@ -217,6 +245,8 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件，是由 Igor Syso
     esac
     ```
 
+    按下`Esc`键，然后输入`:wq`并回车以保存并关闭SysV启动脚本文件。
+
 4.  赋予脚本执行权限。
 
     ```
@@ -236,12 +266,12 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件，是由 Igor Syso
     # service nginx start
     ```
 
-7.  浏览器访问可看到默认欢迎页面。
+7.  登录 [ECS管理控制台](https://ecs.console.aliyun.com/)，点击左侧导航栏中的**实例**，在**实例列表**中找到正在部署环境的实例，从这个实例的**IP地址**项中复制它的公网IP，用浏览器访问这个IP地址可看到默认欢迎页面。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/153804252612085_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154138912421168_zh-CN.png)
 
 
-**步骤三：安装mysql**
+**步骤三：安装MySQL**
 
 1.  准备编译环境。
 
@@ -250,7 +280,7 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件，是由 Igor Syso
     # yum install cmake -y
     ```
 
-2.  准备mysql数据存放目录。
+2.  准备MySQL数据存放目录。
 
     ```
     # mkdir /mnt/data
@@ -266,9 +296,10 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件，是由 Igor Syso
     # chown -R mysql:mysql /mnt/data
     ```
 
-4.  解压编译在 [MySQL官网](https://www.mysql.com/) 下载的稳定版源码包，这里使用的是5.6.24版本。
+4.  下载稳定版源码包解压编译，这里使用的是5.6.24版本。
 
     ```
+    # wget https://downloads.mysql.com/archives/get/file/mysql-5.6.24.tar.gz
     # tar xvf mysql-5.6.24.tar.gz -C  /usr/local/src
     # cd /usr/local/src/mysql-5.6.24
     # cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \
@@ -297,10 +328,11 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件，是由 Igor Syso
 6.  初始化数据库。
 
     ```
+    # cd /usr/local/mysql
     # /usr/local/mysql/scripts/mysql_install_db --user=mysql --datadir=/mnt/data/
     ```
 
-    **说明：** 在CentOS 6.5版操作系统的最小安装完成后，在/etc目录下会存在一个my.cnf，需要将此文件更名为其他的名字，如：/etc/my.cnf.bak，否则，该文件会干扰源码安装的MySQL的正确配置，造成无法启动。
+    **说明：** 在CentOS 6.8版操作系统的最小安装完成后，在/etc目录下会存在一个my.cnf，需要将此文件更名为其他的名字，如：/etc/my.cnf.bak，否则，该文件会干扰源码安装的MySQL的正确配置，造成无法启动。
 
 7.  拷贝配置文件和启动脚本。
 
@@ -313,6 +345,7 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件，是由 Igor Syso
 8.  设置开机自动启动。
 
     ```
+    # cd
     # chkconfig mysqld  on 
     # chkconfig --add mysqld
     ```
@@ -348,9 +381,11 @@ Nginx本身不能处理PHP，作为web服务器，当它接收到请求后，不
     # yum install libmcrypt libmcrypt-devel mhash mhash-devel libxml2 libxml2-devel bzip2 bzip2-devel
     ```
 
-2.  解压官网下载的源码包，编译安装。
+2.  下载稳定版源码包解压编译，这里使用的是5.6.23版本。
 
     ```
+    # wget http://cn2.php.net/get/php-5.6.23.tar.bz2/from/this/mirror
+    # cp mirror php-5.6.23.tar.bz2
     # tar xvf php-5.6.23.tar.bz2 -C /usr/local/src
     # cd /usr/local/src/php-5.6.23
     # ./configure --prefix=/usr/local/php \
@@ -410,7 +445,7 @@ Nginx本身不能处理PHP，作为web服务器，当它接收到请求后，不
     # cp /etc/nginx/nginx.conf.default /etc/nginx/nginx.conf
     ```
 
-    编辑/etc/nginx/nginx.conf，在所支持的主页面格式中添加php格式的主页，类似如下：
+    输入命令`# vim /etc/nginx/nginx.conf`编辑Nginx的配置文件，在所支持的主页面格式中添加php格式的主页，类似如下
 
     ```
     location / {
@@ -423,24 +458,26 @@ Nginx本身不能处理PHP，作为web服务器，当它接收到请求后，不
 
     ```
     location ~ \.php$ {
-      root           /usr/local/nginx/html;
-      fastcgi_pass    127.0.0.1:9000;
-      fastcgi_index   index.php;
-      fastcgi_param  SCRIPT_FILENAME  /usr/local/nginx/html/$fastcgi_script_name;
-      include        fastcgi_params;
+     root html;
+     fastcgi_pass 127.0.0.1:9000;
+     fastcgi_index index.php;
+     fastcgi_param SCRIPT_FILENAME /scripts$fastcgi_script_name;
+     include fastcgi_params;
     }
     ```
 
-    重新载入nginx的配置文件。
+    将`root html;`改成`root /usr/local/nginx/html;`。
 
-    ```
-    # service nginx reload
-    ```
+    将`fastcgi_param SCRIPT_FILENAME /scripts$fastcgi_script_name;`改成`fastcgi_param SCRIPT_FILENAME /usr/local/nginx/html/$fastcgi_script_name;`。
+
+    按下`Esc`键，然后输入`:wq`并回车以保存并关闭nginx配置文件。
+
+    输入命令`# service nginx reload`重新载入nginx的配置文件。
 
     在/usr/local/nginx/html/新建index.php的测试页面，内容如下。
 
     ```
-    # cat index.php 
+    # touch index.php 
     <?php
     $conn=mysql_connect('127.0.0.1','root','');
     if ($conn){
@@ -452,8 +489,8 @@ Nginx本身不能处理PHP，作为web服务器，当它接收到请求后，不
     ?>
     ```
 
-    浏览器访问测试，如看到以下内容则表示LNMP平台构建完成。
+    保存并关闭index.php文件。登录 [ECS管理控制台](https://ecs.console.aliyun.com/)，点击左侧导航栏中的**实例**，在**实例列表**中复制正在部署环境的实例的公网IP地址。试，如看到这个公网IP地址，容则表示LNMP平台构建完成。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/153804252612092_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154138912421386_zh-CN.png)
 
 
