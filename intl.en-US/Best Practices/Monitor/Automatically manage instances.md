@@ -12,27 +12,17 @@ Cloud assistant supports the following three command types.
 
 Prerequisites
 
--   You must make sure that the network type of the target ECS instances is [VPC](../../../../reseller.en-US/Product Introduction/What is VPC?.md#).
+-   You must make sure that the network type of the target ECS instances is [VPC](../../../../intl.en-US/Product Introduction/What is VPC?.md#).
 -   The target ECS instances must be in the **Running** \(`Running`\) status.
--   The target ECS instances must have the Cloud Assistant client installed in advance. For more information, see [Cloud Assistant Client](../../../../reseller.en-US/User Guide/Cloud Assistant Client.md#).
+-   The target ECS instances must have the Cloud Assistant client installed in advance. For more information, see [Cloud Assistant Client](../../../../intl.en-US/Product Introduction/Cloud assistant/Cloud Assistant Client.md#).
 -   To perform a PowerShell command, you must make sure that the target Windows instances has the PowerShell feature configured.
--   The following example is completed in the command line tool. You must make sure that you have installed Alibaba Cloud CLI \(Command-Line Interface\).
-    -   See [online installation of](https://help.aliyun.com/document_detail/43011.html) for Windows instances.
-    -   See for Linux instances.
-
+-   You can get Alibaba Cloud CLI from [GitHub](https://github.com/aliyun/aliyun-cli/releases) .
+-   The following example is completed in the command line tool. You must make sure that you have installed [Alibaba Cloud CLI \(Command-Line Interface\)](https://www.alibabacloud.com/help/doc-detail/66653.htm) .
 -   You must [have your SDK upgraded](https://develop.aliyun.com/tools/sdk).
--   You must modify the CLI configuration:
-    1.  Download the file [aliyunOpenApiData.py](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/64741/cn_zh/1531883459918/aliyunOpenApiData.py).
-    2.  Replace the aliyunOpenApiData.py file in the %python\_install\_path%\\Lib\\site-packages\\aliyuncli path with the downloaded file.
-
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9821/154097241611588_en-US.png)
-
-
-For more information about how to configure Alibaba Cloud CLI, see .
 
 The following example illustrates how to use APIs in Alibaba Cloud CLI to use Cloud Assistant. For example, we want to run the `echo 123` command on Linux instances.
 
-1.  In the CMD, PowerShell, or Shell of a local computer, run `aliyuncli ecs CreateCommand --CommandContent ZWNobyAxMjM= --Type RunShellScript --Name test --Description test` to [create a shell script](../../../../reseller.en-US/API Reference/Cloud assistant/CreateCommand.md#) \(`CreateCommand`\). The Command ID information is returned after successful creation. 
+1.  In the CMD, PowerShell, or Shell of a local computer, run `aliyuncli ecs CreateCommand --CommandContent ZWNobyAxMjM= --Type RunShellScript --Name test --Description test` to [create a shell script](../../../../intl.en-US/API Reference/Cloud assistant/CreateCommand.md#) \(`CreateCommand`\). The Command ID information is returned after successful creation. 
 
     **Note:** 
 
@@ -40,26 +30,26 @@ The following example illustrates how to use APIs in Alibaba Cloud CLI to use Cl
     -   If the operating system of the target ECS instances are Windows, change `type` to `RunBatScript` or `RunPowershellScript`.
     -   After the script is created, `CommandId` is returned.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9821/154097241611647_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9821/154149526511647_en-US.png)
 
-2.  Run `aliyuncli ecs InvokeCommand --InstanceIds your-vm-instance-id1 instance-id2 --CommandId your-command-id --Timed false` to [run the command](../../../../reseller.en-US/API Reference/Cloud assistant/InvokeCommand.md#) \(`InvokeCommand`\). 
+2.  Run `aliyuncli ecs InvokeCommand --InstanceId.1 your-vm-instance-id1 --InstanceId.2 your-vm-instance-id2 --CommandId your-command-id --Timed false` to [run the command](../../../../intl.en-US/API Reference/Cloud assistant/InvokeCommand.md#) \(`InvokeCommand`\). 
 
     **Note:** 
 
     -   The `InstanceIds` indicates your ECS instances IDs. Up to 100 ECS instances are supported each time.
     -   The `Timed` indicates whether the task is a periodical one or not. `--Timed True` indicates that the task is a periodical one, while `--Timed False` indicates the opposite.
-    -   When your task is a periodical one and the `Timed` parameter value is `True`, you must specify the interval value in the `Frequency` parameter. For example, `0 */20 * * * *` indicates that the interval value is 20 minutes. For more information, see .
+    -   When your task is a periodical one and the `Timed` parameter value is `True`, you must specify the interval value in the `Frequency` parameter. For example, `0 */20 * * * *` indicates that the interval value is 20 minutes. For more information, see [expressions](https://www.alibabacloud.com/help/doc-detail/64769.html).
     -   A shared `InvokeId` is returned for all target ECS instances. You can use the `InvokeId` to check the invocation status of the command.
-3.  Optional. Run `aliyuncli ecs DescribeInvocations --InstanceId your-vm-instance-id --InvokeId your-invoke-id` to [query the invocation status](../../../../reseller.en-US/API Reference/Cloud assistant/DescribeInvocations.md#) \(`DescribeInvocations`\). Specifically, the `InvokeId` is the invocation ID returned in [step 2](#) during command invocation on the ECS instances. 
+3.  Optional. Run `aliyuncli ecs DescribeInvocations --InstanceId your-vm-instance-id --InvokeId your-invoke-id` to [query the invocation status](../../../../intl.en-US/API Reference/Cloud assistant/DescribeInvocations.md#) \(`DescribeInvocations`\). Specifically, the `InvokeId` is the invocation ID returned in [step 2](#) during command invocation on the ECS instances. 
 
-    When the returned `InvokeStatus` value is `Finished`, it indicates that the command process is complete, but not necessarily as effective as expected. You must check the `Output` parameter in [DescribeInvocationResults](../../../../reseller.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#) to get the specific invocation result.
+    When the returned `InvokeStatus` value is `Finished`, it indicates that the command process is complete, but not necessarily as effective as expected. You must check the `Output` parameter in [DescribeInvocationResults](../../../../intl.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#) to get the specific invocation result.
 
 4.     
 
-    \(Optional\). Run `aliyuncli ecs DescribeInvocationResults --InstanceId your-vm-instance-id --InvokeId your-invoke-id` to [check the results of the invocation](../../../../reseller.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#) \(`DescribeInvocationResults`\). Specifically, the `InvokeId` is the invocation ID returned in [step 2](#) during command invocation on the ECS instances.
+    \(Optional\). Run `aliyuncli ecs DescribeInvocationResults --InstanceId your-vm-instance-id --InvokeId your-invoke-id` to [check the results of the invocation](../../../../intl.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#) \(`DescribeInvocationResults`\). Specifically, the `InvokeId` is the invocation ID returned in [step 2](#) during command invocation on the ECS instances.
 
 
-When [creating a command](../../../../reseller.en-US/API Reference/Cloud assistant/CreateCommand.md#) \(`CreateCommand`\), you can set the following request parameters for the command.
+When [creating a command](../../../../intl.en-US/API Reference/Cloud assistant/CreateCommand.md#) \(`CreateCommand`\), you can set the following request parameters for the command.
 
 |Command Property|Parameter|Description|
 |----------------|---------|-----------|
@@ -76,17 +66,17 @@ When [creating a command](../../../../reseller.en-US/API Reference/Cloud assista
  Default value: 3600
 
  -   **One-time invocation**:
-    -   After invocation timeout, the command invocation status \([DescribeInvocationResults](../../../../reseller.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#)\) for the specified ECS instances becomes Failed.
+    -   After invocation timeout, the command invocation status \([DescribeInvocationResults](../../../../intl.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#)\) for the specified ECS instances becomes Failed.
 -   **Periodical invocation**:
     -   The timeout value of periodical invocation is effective for every invocation record.
-    -   After one invocation operation timed out, the status for the invocation record \([DescribeInvocationResults](../../../../reseller.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#)\) becomes Failed.
+    -   After one invocation operation timed out, the status for the invocation record \([DescribeInvocationResults](../../../../intl.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#)\) becomes Failed.
     -   The timeout status of last invocation does not affect the next invocation.
 
  |
 
 Sample of Python SDK to use cloud assistant
 
-You can also use the cloud assistant by using the [Alibaba Cloud SDK](https://develop.aliyun.com/tools/sdk#/python). For more information about how to configure Alibaba Cloud SDK, see . The following is the Python SDK code to use cloud assistant.
+You can also use the cloud assistant by using the [Alibaba Cloud SDK](https://develop.aliyun.com/tools/sdk#/python). For more information about how to configure Alibaba Cloud SDK, see [for Alibaba Cloud users](https://www.alibabacloud.com/help/doc-detail/43039.html). The following is the Python SDK code to use cloud assistant.
 
 ```language-shell
 # coding=utf-8
@@ -200,10 +190,10 @@ if __name__ == '__main__':
 
 References
 
-The preceding examples demonstrate how to auto manage ECS instances maintenance by using Alibaba Cloud CLI and cloud assistant APIs [CreateCommand](../../../../reseller.en-US/API Reference/Cloud assistant/CreateCommand.md#), [InvokeCommand](../../../../reseller.en-US/API Reference/Cloud assistant/InvokeCommand.md#), [DescribeInvocations](../../../../reseller.en-US/API Reference/Cloud assistant/DescribeInvocations.md#), and [DescribeInvocationResults](../../../../reseller.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#). You can also use other APIs of the cloud assistant:
+The preceding examples demonstrate how to auto manage ECS instances maintenance by using Alibaba Cloud CLI and cloud assistant APIs [CreateCommand](../../../../intl.en-US/API Reference/Cloud assistant/CreateCommand.md#), [InvokeCommand](../../../../intl.en-US/API Reference/Cloud assistant/InvokeCommand.md#), [DescribeInvocations](../../../../intl.en-US/API Reference/Cloud assistant/DescribeInvocations.md#), and [DescribeInvocationResults](../../../../intl.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#). You can also use other APIs of the cloud assistant:
 
--    [StopInvocation](../../../../reseller.en-US/API Reference/Cloud assistant/StopInvocation.md#): Stops a scheduled command process.
--    [ModifyCommand](../../../../reseller.en-US/API Reference/Cloud assistant/ModifyCommand.md#): Modifies the content of a command.
--    [DescribeCommands](../../../../reseller.en-US/API Reference/Cloud assistant/DescribeCommands.md#): Queries the available commands.
--    [DeleteCommand](../../../../reseller.en-US/API Reference/Cloud assistant/DeleteCommand.md#): Deletes a command.
+-    [StopInvocation](../../../../intl.en-US/API Reference/Cloud assistant/StopInvocation.md#): Stops a scheduled command process.
+-    [ModifyCommand](../../../../intl.en-US/API Reference/Cloud assistant/ModifyCommand.md#): Modifies the content of a command.
+-    [DescribeCommands](../../../../intl.en-US/API Reference/Cloud assistant/DescribeCommands.md#): Queries the available commands.
+-    [DeleteCommand](../../../../intl.en-US/API Reference/Cloud assistant/DeleteCommand.md#): Deletes a command.
 
