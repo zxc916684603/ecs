@@ -34,7 +34,7 @@ To configure the environment of FPGA Server Example, follow these steps.
 Run the following script to install the base environment.
 
 ```language-shell
-source /opt/dcp1_0/script/f1_env_set.sh
+source /opt/dcp1_1/script/f1_env_set.sh
 
 ```
 
@@ -52,7 +52,7 @@ Follow these steps to download the official opencl example.
 
     Now, you are at the /opt/tmp directory.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9827/153932547911994_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9827/154149391411994_en-US.png)
 
 2.  Run the commands one by one to download and decompress the OpenCL Example file.
 
@@ -64,7 +64,7 @@ Follow these steps to download the official opencl example.
 
     The following figure displays the directory after decompression.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9827/153932547911995_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9827/154149391411995_en-US.png)
 
 3.  Change the current directory to the matrix\_mult directory and run the command for compilation.
 
@@ -85,11 +85,11 @@ Follow these steps to upload the configuration file.
 
     ```language-shell
     # If needed, add the environment variable and grant the permission to run the commands
-    export PATH=$PATH:/opt/dcp1_0/script/
-    chmod +x /opt/dcp1_0/script/faascmd
-    # Replace hereIsMySecretId with your AccessKey ID. Replace hereIsMySecretKey with your AccessKey Secret
+    export PATH=$PATH:/opt/dcp1_1/script/
+    chmod +x /opt/dcp1_1/script/faascmd
+    # Replace hereIsYourSecretId with your AccessKey ID. Replace hereIsYourSecretKey with your AccessKey Secret
     faascmd config --id=hereIsYourSecretId --key=hereIsYourSecretKey
-    # Replace hereIsMyBucket with the bucket name of your OSS in the Region China East 1.
+    # Replace hereIsYourBucket with the bucket name of your OSS in the Region China East 1.
     faascmd auth --bucket=hereIsYourBucket
     
     ```
@@ -105,14 +105,14 @@ Follow these steps to upload the configuration file.
 3.  Use gbs to create an FPGA image.
 
     ```language-shell
-    # Replace hereIsFPGAImageName with your image name. Replace hereIsFPGAImageTag with the tag of your image.
-    faascmd create_image --object=afu_fit.gbs --fpgatype=intel --name=hereIsFPGAImageName  --tags=hereIsFPGAImageTag --encrypted=false --shell=V0.11  
+    # Replace hereIsYourImageName with your image name. Replace hereIsYourImageTag with your image tag.
+    faascmd create_image --object=dma_afu.gbs --fpgatype=intel --name=hereIsYourImageName --tags=hereIsYourImageTag --encrypted=false --shell=V1.1  
     
     ```
 
 4.  Run the `faascmd list_images` command to check whether the image is created. In the returned result, if `"State":"success"` is displayed, it means the image is created. Record the **FpgaImageUUID**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9827/153932547911996_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9827/154149391411996_en-US.png)
 
 
 ## Step 5. Download the image to your f1 instance { .section}
@@ -129,12 +129,12 @@ To download the image to your f1 instance, follow these steps:
 
     Returned results sample: Record FpgaUUID in the returned result.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9827/153932547911997_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9827/154149391411997_en-US.png)
 
 2.  Run the command to download the image to your f1 instance.
 
     ```language-shell
-    # Replace hereIsYourInstanceID with your f1 instance ID. Replace hereIsFpgaUUID with your FpgaUUID. Replace hereIsImageUUID with your FpgaImageUUID.
+    # Replace hereIsYourInstanceID with your f1 instance ID. Replace hereIsFpgaUUID with your FPGA UUID. Replace hereIsImageUUID with your image UUID.
     faascmd download_image  --instanceId=hereIsYourInstanceID --fpgauuid=hereIsFpgaUUID --fpgatype=intel --imageuuid=hereIsImageUUID --imagetype=afu --shell=V0.11
     
     ```
@@ -142,14 +142,14 @@ To download the image to your f1 instance, follow these steps:
 3.  Run the command to check whether the image is downloaded.
 
     ```language-shell
-    # Replace hereIsYourInstanceID with your f1 instance ID. Replace hereIsFpgaUUID with your FpgaUUID.
+    # Replace hereIsYourInstanceID with your f1 instance ID. Replace hereIsFpgaUUID with your FPGA UUID.
     faascmd fpga_status --fpgauuid=hereIsFpgaUUID --instanceId=hereIsYourInstanceID
     
     ```
 
     If "TaskStatus": "operating" exists in the returned result, it means the image is downloaded.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9827/153932547911998_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9827/154149391411998_en-US.png)
 
 
 ## Step 6. Download the FPGA image to an FPGA chip { .section}
@@ -160,7 +160,7 @@ To download the FPGA image to an FPGA chip, follow these steps:
 2.  Run the following command to configure the runtime environment for OpenCL.
 
     ```language-shell
-    sh /opt/dcp1_0/opencl/opencl_bsp/linux64/libexec/setup_permissions.sh
+    sh /opt/dcp1_1/opencl/opencl_bsp/linux64/libexec/setup_permissions.sh
     
     ```
 
