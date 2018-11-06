@@ -15,7 +15,7 @@
 
 -   您已经在 [云服务器ECS管理控制台](https://ecs.console.aliyun.com/#/home) f1实例的详情页上获取实例ID。
 -   您必须先开通OSS服务，并 [创建一个OSS Bucket](../../../../intl.zh-CN/快速入门/创建存储空间.md) 用于上传您的文件。Bucket与f1实例必须属于同一个账号、同一个地域。
--   如果需要加密服务，您还需要 [开通密钥管理服务（KMS）](https://help.aliyun.com/document_detail/28943.html)。
+-   如果需要加密服务，您还需要 [开通密钥管理服务（KMS）](../../../../intl.zh-CN/快速入门/使用步骤.md#)。
 -   使用RAM用户操作FPGA，必须完成以下操作：
     -    [创建RAM用户](../../../../intl.zh-CN/快速入门/创建 RAM 用户.md) 并 [授权](../../../../intl.zh-CN/快速入门/为 RAM 用户授权.md)。
     -    [创建RAM角色](../../../../intl.zh-CN/用户指南/身份管理/角色.md) 并 [授权](../../../../intl.zh-CN/用户指南/授权管理/授权.md)。
@@ -34,7 +34,7 @@
 运行以下脚本配置基础环境。
 
 ```
-source /opt/dcp1_0/script/f1_env_set.sh
+source /opt/dcp1_1/script/f1_env_set.sh
 ```
 
 ## 第 3 步. 编译工程 {#section_fcx_f53_dfb .section}
@@ -42,7 +42,9 @@ source /opt/dcp1_0/script/f1_env_set.sh
 运行以下命令：
 
 ```
-cd /opt/dcp1_0/hw/samples/dma_afu
+cd /opt/dcp1_1/hw/samples/dma_afu
+afu_synth_setup --source hw/rtl/filelist.txt build_synth
+cd build_synth/
 run.sh
 ```
 
@@ -56,15 +58,15 @@ run.sh
 
     ```
     #如果需要，添加环境变量及运行权限
-    export PATH=$PATH:/opt/dcp1_0/script/
-    chmod +x /opt/dcp1_0/script/faascmd
+    export PATH=$PATH:/opt/dcp1_1/script/
+    chmod +x /opt/dcp1_1/script/faascmd
     # 将hereIsYourSecretId替换为您的AccessKey ID，hereIsYourSecretKey替换为您的AccessKey Secret
     faascmd config --id=hereIsYourSecretId --key=hereIsYourSecretKey
     # 将hereIsYourBucket换为华东1地域里OSS Bucket名称
     faascmd auth --bucket=hereIsYourBucket
     ```
 
-2.  确认在/opt/dcp1\_0/hw/samples/dma\_afu目录下，运行以下命令上传gbs文件。
+2.  确认在/opt/dcp1\_1/hw/samples/dma\_afu目录下，运行以下命令上传gbs文件。
 
     ```
     faascmd upload_object --object=dma_afu.gbs --file=dma_afu.gbs
@@ -74,7 +76,7 @@ run.sh
 
     ```
     # 将hereIsYourImageName替换为您的镜像名称
-    faascmd create_image --object=dma_afu.gbs --fpgatype=intel --name=hereIsYourImageName --tags=hereIsYourImageTag --encrypted=false --shell=V0.11
+    faascmd create_image --object=dma_afu.gbs --fpgatype=intel --name=hereIsYourImageName --tags=hereIsYourImageTag --encrypted=false --shell=V1.1
     ```
 
 
@@ -86,7 +88,7 @@ run.sh
 
     返回结果里，如果出现`"State":"success"`，表示镜像制作成功。请记录返回结果里显示的**FpgaImageUUID**，稍后会用到。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/154140849412086_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/154149206412086_zh-CN.png)
 
 2.  运行命令获取FPGA ID。
 
@@ -97,7 +99,7 @@ run.sh
 
     以下为返回结果。请记录FpgaUUID。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/154140849412087_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/154149206412087_zh-CN.png)
 
 3.  运行命令下载FPGA镜像到f1实例。
 
@@ -115,7 +117,7 @@ run.sh
 
     如果返回结果里出现`"TaskStatus":"operating"`时，且FpgaImageUUID和下载镜像时的FpgaImageUUID一致，说明下载成功。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/154140849412088_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/154149206412088_zh-CN.png)
 
 
 ## 第 6 步. 测试 {#section_xcx_f53_dfb .section}
@@ -123,14 +125,14 @@ run.sh
 依次运行以下命令。
 
 ```
-cd /opt/dcp1_0/hw/samples/dma_afu/sw
+cd /opt/dcp1_1/hw/samples/dma_afu/sw
 make
-sudo LD_LIBRARY_PATH=/opt/dcp1_0/hw/samples/dma_afu/sw:$LD_LIBRARY_PATH ./fpga_dma_test 0
+sudo LD_LIBRARY_PATH=/opt/dcp1_1/hw/samples/dma_afu/sw:$LD_LIBRARY_PATH ./fpga_dma_test 0
 ```
 
 如果您看到如图所示的输出结果，说明测试完成。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/154140849412089_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/154149206412089_zh-CN.png)
 
 **说明：** 如果没有开启Huge pages，运行以下命令启用Huge pages。
 
