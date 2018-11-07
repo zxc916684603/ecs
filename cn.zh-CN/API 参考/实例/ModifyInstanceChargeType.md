@@ -18,7 +18,7 @@
 
 -   **退款规则**：您在一个月内能自由操作的退款额度有限且不累计，消耗完退款额度后，只能等待次月转换计费方式。一次转换计费消耗的退款额度公式为**vCPU数\*\(退款天数\*24±浮动小时数\)**。下图以计算网络增强型实例规格ecs.sn1ne.xlarge（4vCPU）为例，讲述消耗退款额度的规则：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9878/153802796612954_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9878/154157763412954_zh-CN.png)
 
 
 **按量付费转预付费**
@@ -33,7 +33,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：ModifyInstanceChargeType|
-|RegionId|String|是|实例所属的地域ID。您可以调用[DescribeRegions](../cn.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
+|RegionId|String|是|实例所属的地域ID。您可以调用[DescribeRegions](../intl.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
 |InstanceIds|String|是|实例ID。取值可以由多台实例ID组成一个JSON数组，格式为\["s-xxxxxxxxx", "s-yyyyyyyyy", … "s-zzzzzzzzz"\]，最多支持20个ID，ID之间用半角逗号（`,`）隔开。|
 |Period|Integer|否|购买实例的时长。|
 |PeriodUnit|String|否|时长周期单位。取值范围：Year | Month | Week | Day目前只支持`Year`、`Week`和`Month`。
@@ -45,7 +45,7 @@
 
 |
 |AutoPay|Boolean|否|是否自动支付。取值范围：-   true（默认）：自动支付。您需要确保账户余额充足，如果账户余额不足会生成异常订单，只能作废订单。
--   false：只生成订单不扣费。如果您的账户余额不足，会生成正常的未支付订单，此订单可登录[ECS管理控制台](https://ecs.console.aliyun.com/) 支付。
+-   false：只生成订单不扣费。如果您的账户余额不足，会生成正常的未支付订单，此订单可登录[ECS管理控制台](https://ecs.console.aliyun.com/)支付。
 
 |
 |DryRun|Boolean|否|是否只预检此次请求。-   true：发送检查请求，不会查询资源状况。检查项包括AccessKey是否有效、RAM用户的授权情况和是否填写了必需参数。如果检查不通过，则返回对应错误。如果检查通过，会返回错误码`DryRunOperation`。
@@ -54,7 +54,7 @@
 默认值：false
 
 |
-|ClientToken|String|否|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅[如何保证幂等性](../cn.zh-CN/API 参考/附录/如何保证幂等性.md#)。
+|ClientToken|String|否|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅[如何保证幂等性](../intl.zh-CN/API 参考/附录/如何保证幂等性.md#)。
 
 |
 
@@ -102,7 +102,7 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceChargeType
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP状态码|说明|
 |:---|:---|:------|:-|
@@ -114,6 +114,7 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceChargeType
 |InvalidStatus.ValueNotSupported|The instance cannot be modified in the specified status.|400|实例必须处于**运行中**（`Running`）或者**已停止**（`Stopped`）状态。|
 |ReleaseTimeHaveBeenSet|The specified instance has been set released time.|400|您的请求中存在已设置了释放时间的实例。|
 |Throttling|You have made too many requests within a short time; your request is denied due to request throttling.|400|您的操作过于频繁，请稍后再试。|
+|InvalidPeriod.ExceededDedidactedHost|Instance expired date can't exceed dedicated host expired date.|400|实例生命周期不能长于专有宿主机生命周期。|
 |InvalidAccountStatus.NotEnoughBalance|Your account does not have enough balance.|403|您的账户余额不足。|
 |InvalidInstanceId.NotFound|The specified InstanceId does not exist.|404|指定的实例不存在。|
 |InternalError|The request processing has failed due to some unknown error, exception or failure.|500|内部错误。|
