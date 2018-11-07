@@ -29,7 +29,7 @@ The tool can migrate data from physical servers, virtual machines, and other clo
 
  **2. What is the migration process of the Cloud Migration tool?** 
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22635/154088307013350_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22635/154155547313350_en-US.png)
 
 -   Checks whether the source server meets the requirements for migration or not.
 -   Creates an intermediate instance with a name INSTANCE\_FOR\_GO\_TOALIYUN. The files and the data of source server system are transferred to the intermediate instance.
@@ -131,11 +131,20 @@ The Cloud Migration tool must use the account AccessKeyID and AccessKeySecret to
 
 When you first start an instance of Windows after migration:
 
--   Check whether the system disk data is complete or not.
--   Go to the disc manager to check whether the disk is missing.
--   Check whether the network service is normal.
--   If you are using Windows Server 2008 or a later system, you must run [ResetFilePermission](http://ecs-image-p2vs-hd1.oss-cn-hangzhou.aliyuncs.com/tools/ResetFilePermissions.zip) within the ECS instance with administrative permission, reset the file properties and restart the instance.
--   Check that other system application services are operating normally.
+1.  Check whether the system disk data is complete or not.
+
+2.  Go to the disc manager to check whether the disk is missing.
+
+3.  If you are using Windows Server 2008 or a later system, wait for a moment while the automatic recovery of the file system access permission is processing.
+
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22635/154155547313956_en-US.png)
+
+    **Note:** If the Goto Aliyun Restore Tool is not started at the first startup attempt, you can run the C:\\go2aliyun\_prepare\\go2aliyun\_restore.exe to manually invoke the automatic recovery process. However, make sure that your ECS instance have mounted the same number of disks as the source server does.
+
+4.  Check whether the network service is normal.
+
+5.  Check that other system application services are operating normally.
+
 
  **20. Which Windows server licenses can Alibaba Cloud support activation for?** 
 
