@@ -29,7 +29,7 @@
 
  **2. 迁云工具的迁移过程是什么？** 
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22635/154155546313350_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22635/154155605213350_zh-CN.png)
 
 -   检查源服务器是否满足迁移条件。
 -   在您的云账号下创建一台临时中转实例，将源服务器系统数据传输到中转实例。
@@ -137,7 +137,7 @@ client\_data文件记录了迁云过程数据，包含中转实例信息、迁�
 
 3.  等待文件系统权限修复过程完成后，选择是否重启实例：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22635/154155546313956_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22635/154155605213956_zh-CN.png)
 
     **说明：** 初次启动ECS实例后，如果文件系统权限修复程序未自启动，您可以运行C:\\go2aliyun\_prepare\\go2aliyun\_restore.exe手动修复。执行前要确保实例上的磁盘数量和盘符路径跟源系统保持一致。
 
@@ -165,16 +165,5 @@ client\_data文件记录了迁云过程数据，包含中转实例信息、迁�
 3.  检查网络服务是否正常。
 
 4.  然后检查其他系统服务是否正常。
-
-
-## 反馈与支持 {#section_kkj_nzd_nfb .section}
-
-您可以通过以下渠道咨询数据上云和获取技术支持：
-
--   [添加迁云工具客户反馈钉钉群](https://h5.dingtalk.com/invite-page/index.html?code=ca190154ff)
-
--   [提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex)
-
--   发送邮件至 [server-migration@alibabacloud.com](mailto:server-migration@alibabacloud.com)
 
 
