@@ -17,7 +17,7 @@ Prerequisites
 -   The target ECS instances must have the Cloud Assistant client installed in advance. For more information, see [Cloud Assistant Client](../../../../intl.en-US/Product Introduction/Cloud assistant/Cloud Assistant Client.md#).
 -   To perform a PowerShell command, you must make sure that the target Windows instances has the PowerShell feature configured.
 -   You can get the latest version of Alibaba Cloud CLI from [GitHub](https://github.com/aliyun/aliyun-cli/releases) .
--   The following example is completed in the command line tool. You must make sure that you have installed [Alibaba Cloud CLI \(Command-Line Interface\)](https://www.alibabacloud.com/help/doc-detail/66653.htm) .
+-   You must make sure that you have installed [Alibaba Cloud CLI \(Command-Line Interface\)](https://www.alibabacloud.com/help/doc-detail/66653.htm) .
 -   You must [have your SDK upgraded](https://develop.aliyun.com/tools/sdk).
 
 The following example illustrates how to use APIs in Alibaba Cloud CLI to use Cloud Assistant. For example, we want to run the `echo 123` command on Linux instances.
@@ -30,7 +30,7 @@ The following example illustrates how to use APIs in Alibaba Cloud CLI to use Cl
     -   If the operating system of the target ECS instances are Windows, change `type` to `RunBatScript` or `RunPowershellScript`.
     -   After the script is created, `CommandId` is returned.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9821/154149588211647_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9821/154155354111647_en-US.png)
 
 2.  Run `aliyuncli ecs InvokeCommand --InstanceId.1 your-vm-instance-id1 --InstanceId.2 your-vm-instance-id2 --CommandId your-command-id --Timed false` to [run the command](../../../../intl.en-US/API Reference/Cloud assistant/InvokeCommand.md#) \(`InvokeCommand`\). 
 
