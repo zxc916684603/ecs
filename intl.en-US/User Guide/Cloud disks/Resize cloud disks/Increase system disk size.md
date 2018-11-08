@@ -43,10 +43,10 @@ If you want to increase the size of the system disk while keeping the operating 
 3.  Select the target region.
 4.  Find the instance for which to change the system disk and click its instance ID to go to the Instance Details page.
 5.  Follow these steps to create a snapshot of the system disk:
-    1.  In the left-side navigation pane, click **Instance Disks**.
+    1.  In the left-side navigation pane, click **Disks**.
     2.  Locate the required system disk and then, in the **Actions** column, click **Create Snapshot**.
 
-        **Note:** For more information about the limits or note for creating a snapshot, see [create snapshots](reseller.en-US/User Guide/Snapshots/Create snapshots.md#).
+        **Note:** For more information about the limits or note for creating a snapshot, see [create snapshots](reseller.en-US/User Guide/Snapshots/Create a snapshot.md#).
 
 6.  Follow these steps to create a custom image by using the snapshot:
     1.  In the left-side navigation pane, click **Instance Snapshots** to check the creation status and progress. When the progress is 100% and the status is **Success**, go to the **Actions** column and click **Create Custom Image**.
@@ -55,19 +55,19 @@ If you want to increase the size of the system disk while keeping the operating 
 
         -   For more information about the limitations of creating a custom image, see [create a custom mirror using a snapshot](reseller.en-US/User Guide/Images/Create custom image/Create a custom image by using a snapshot.md#).
         -   The custom image is displayed in the dropdown ist of the **Custom Image** l on the Replace System Disk page.
-    2.  Go back to the  Instances page and then, in the left-side navigation pane, select **Snapshots & Images** \> **Image**to check the creation status and progress of the custom image.
+    2.  Go back to the  Instances page and then, in the left-side navigation pane, select **Snapshots and Images** \> **Image**to check the creation status and progress of the custom image.
 7.  When the progress is 100% and the status is **Available**, in the left-side navigation pane, click **Instances**.
-8.  In the Instance List, find the instance, and in the **Actions** column, select **More** \> **Stop**.
+8.  In the Instance List, find the instance, and in the **Actions** column, select **More** \> **Instance Status** \> **Stop**.
 
-    **Note:** For a Pay-As-You-Go VPC-Connected ECS instance, if the [No fees for stopped instances \(VPC-Connected\)](../../../../reseller.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) feature is enabled, in the Notice dialog box, click **OK**. Then, in the Stop dialog box, select **Keep Instance with Fees**, and click **OK**. If you use the **No fees for stopped instances \(VPC-Connected\)** you may not be able to start the instance successfully after changing the system disk.
+    **Note:** For a Pay-As-You-Go VPC-Connected ECS instance, if the [No fees for stopped instances \(VPC-Connected\)](../../../../reseller.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) feature is enabled, in the Notes dialog box, click **OK**. Then, in the Stop dialog box, select **Keep Stopped Instances and Continue Billing**, and click **OK**. If you use the **No Fees for Stopped Instances \(VPC-Connected\)**, you may not be able to start the instance successfully after changing the system disk.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9676/15398545895328_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9676/15416884475328_en-US.png)
 
-9.  When the instance is in the **Stopped** status, go to the Actions column and select **Actions** \> **More** \> **Replacing the system tray**.
-10. In the pop-up dialog box, read and confirm you agree to the notice by clicking **OK, replace the system disk**.
-11. On the Change System Disk page, complete the configurations as follows:
-    1.  **Image type**: Click the **Custom Image** tab and select the created custom image in the drop-down list.
-    2.  **System disk**: Specify a new size for the system disk according to your business needs. The maximum size is 500 GiB. The size limit for changing is determined by the image and the current size of the system disk, as displayed in the following table.
+9.  When the instance is in the **Stopped** status, go to the **Actions** column and select **More** \> **Disk and Image** \> **Replace System Disk**.
+10. In the pop-up dialog box, read and confirm you agree to the notice by clicking **OK**.
+11. On the Replace System Disk page, complete the configurations as follows:
+    1.  **Image Type**: Click the **Custom Image** tab and select the created custom image in the drop-down list.
+    2.  **System Disk**: Specify a new size for the system disk according to your business needs. The maximum size is 500 GiB. The size limit for changing is determined by the image and the current size of the system disk, as displayed in the following table.
 
         |Image|Limit for capacity expansion \(GiB\)|
         |:----|:-----------------------------------|
@@ -80,8 +80,8 @@ If you want to increase the size of the system disk while keeping the operating 
     3.  **Security**:
         -   If a Windows image is used, set a logon password.
         -   If a Linux image is used and the instance is I/O optimized,  you can choose to set a password or bind an SSH key pair for logon.
-    4.  Confirm the **configuration cost**, which includes the price of the mirror and the price of the system disk.
-    5.  Click ECS Service Terms and Product Terms of Service and then click **Confirm to change**.
+    4.  Confirm the **Instance Cost**, which includes the price of the mirror and the price of the system disk.
+    5.  Read and confirm you agree to the ECS Service Terms and Product Terms of Service, check the box, and then click **Confirm to change**.
 
 Go back to the ECS console to check the status of the process. It may take a few minutes to process the change. After the system disk is changed, the instance starts automatically.
 
