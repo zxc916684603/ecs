@@ -2,7 +2,7 @@
 
 An image is a running environment template for ECS instances. It generally includes an operating system and preinstalled software. You can use an image to create an ECS instance or change the system disk of an ECS instance. It works as a file copy that includes data from one more multiple disks. These disks can be a single system disk, or the combination of the system disk and data disks.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9572/15366468935238_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9572/15416586395238_en-US.png)
 
 ## Image types {#section_nyg_r5w_ydb .section}
 
@@ -15,14 +15,14 @@ ECS provides a diverse types of images for you to easily access image resources.
 -   You can also import one from the on-premises environment into the corresponding region.
 
  |
-|Cloud Marketplace|Provided by third-party service providers \(ISV, independent software\) Vendor\). The image of the Marketplace includes not only the operating system required for the application, but also the configuration environment. It saves you complicated deployment process and deploy the environment with one-click.| [Alibaba Cloud Marketplace](https://marketplace.alibabacloud.com/)
+|Cloud Marketplace|Provided by third-party service providers \(ISV, independent software\) Vendor\). The image of the Marketplace includes not only the operating system required for the application, but also the configuration environment. It saves you complicated deployment process and deploy the environment with one-click.| Alibaba Cloud Marketplace
 
  |
 |Shared image|Shared by other Alibaba Cloud users.|A custom image shared by other Alibaba Cloud users.|
 
 ## Public images {#PublicImage .section}
 
-Alibaba Cloud provides authorized and certificated public images, which cover nearly all the trending and popular platforms. Note that the available public images are different when you select different instances. The following images are offered by Alibaba Cloud ECS for public use:
+Alibaba Cloud provides authorized and certificated public images, which cover nearly all the trending and popular platforms. Note that the available public images are different when you select different instances. For the built-in service contained in the various public image releases, please go to the official website of the operating system provider for reference. The following images are offered by Alibaba Cloud ECS for public use:
 
 |Platform|Version of public images|
 |:-------|:-----------------------|
@@ -100,39 +100,39 @@ Currently, snapshot is commercialized.
 |Alibaba Cloud Marketplace|Subject to ISV policies.|
 |Shared image|If the origin of the shared image is from the Marketplace, it is subject to the ISV policies.|
 
-For more information, see [Pricing overview](../../../../intl.en-US/Pricing/Pricing overview.md#).
+For more information, see [Pricing overview](../../../../reseller.en-US/Pricing/Pricing overview.md#).
 
 ## Limits {#section_zyg_r5w_ydb .section}
 
-Custom images, marketplace images, and shared images vary depending on the region. For more information about regions and zones, see General Reference [Regions and zones](https://www.alibabacloud.com/help/doc-detail/40654.htm).
+Custom images, marketplace images, and shared images vary depending on the region. For more information about regions and zones, see General Reference [Regions and zones](https://partners-intl.aliyun.com/help/doc-detail/40654.htm).
 
 ## Related operations {#section_u2t_hvw_ydb .section}
 
 **Console operations**
 
--   You can [create instances by using existing images](../../../../intl.en-US/User Guide/Instances/Create an instance/Create an instance from a custom image.md#).
+-   You can [create instances by using existing images](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create an instance from a custom image.md#).
 
 -   You can change the system disk in any of the following ways:
-    -   [By using a public image](../../../../intl.en-US/User Guide/Cloud disks/Change a system disk (public image).md#).
+    -   [By using a public image](../../../../reseller.en-US/User Guide/Cloud disks/Replace the system disk (public image).md#).
 
-    -   [By using other images other than public ones](../../../../intl.en-US/User Guide/Cloud disks/Change the system disk (custom image).md#).
+    -   [By using other images other than public ones](../../../../reseller.en-US/User Guide/Cloud disks/Replace the system disk (non-public image).md#).
 
 -   You can obtain custom images in the following ways:
-    -   [By creating a custom image by using a snapshot](../../../../intl.en-US/User Guide/Images/Create custom image/Create a custom image by using a snapshot.md#).
+    -   [By creating a custom image by using a snapshot](../../../../reseller.en-US/User Guide/Images/Create custom image/Create a custom image by using a snapshot.md#).
 
-    -   [By creating a custom image by using a an instance](../../../../intl.en-US/User Guide/Images/Create custom image/Create a custom image by using an instance.md#).
+    -   [By creating a custom image by using a an instance](../../../../reseller.en-US/User Guide/Images/Create custom image/Create a custom image by using an instance.md#).
 
-    -   [By importing a custom image](../../../../intl.en-US/User Guide/Images/Import images/Notes for importing custom images.md#).
+    -   [By importing a custom image](../../../../reseller.en-US/User Guide/Images/Import images/Notes for importing images.md#).
 
 -   After creating custom images, you can perform the following operations:
-    -   [Copy your custom images to other regions](../../../../intl.en-US/User Guide/Images/Copy custom images.md#).
+    -   [Copy your custom images to other regions](../../../../reseller.en-US/User Guide/Images/Copy images.md#).
 
-    -   [Share your custom images with other Alibaba Cloud users](../../../../intl.en-US/User Guide/Images/Share images.md#).
+    -   [Share your custom images with other Alibaba Cloud users](../../../../reseller.en-US/User Guide/Images/Share images.md#).
 
-    -   [Export custom images](../../../../intl.en-US/User Guide/Images/Export custom images.md#) to local testing environments or your private cloud environments.
+    -   [Export custom images](../../../../reseller.en-US/User Guide/Images/Export custom images.md#) to local testing environments or your private cloud environments.
 
 
 **API operations**
 
-You can view the [APIs about images](../../../../intl.en-US/API Reference/API overview.md#section_image_t2h_vdb) in the Developer Guide.
+You can view the [APIs about images](../../../../reseller.en-US/API Reference/API overview.md#section_image_t2h_vdb) in the Developer Guide.
 
