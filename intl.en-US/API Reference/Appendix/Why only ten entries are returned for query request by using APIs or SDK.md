@@ -4,7 +4,7 @@ For some APIs query request, where returns a large amount of information, the re
 
 ## Cause analysis {#section_izy_qrg_ydb .section}
 
-For example, when you query the available official public images in the region of Asia Pacific SE 1 \(Singapore\) by [DescribeImages](reseller.en-US/API Reference/Images/DescribeImages.md#), if 39 entries of data is returned, the result in TotalCount is split into four pages by default. You can add the parameter PageSize in your request, and set it to a value greater than 39. If Java SDK is used, PageSize can be set to a value greater than 39 by the setPageSize method in the Request object. Then the data about 39 images is returned once.
+For example, when you query the available official public images in the region of Asia Pacific SE 1 \(Singapore\) by [DescribeImages](intl.en-US/API Reference/Images/DescribeImages.md#), if 39 entries of data is returned, the result in TotalCount is split into four pages by default. You can add the parameter PageSize in your request, and set it to a value greater than 39. If Java SDK is used, PageSize can be set to a value greater than 39 by the setPageSize method in the Request object. Then the data about 39 images is returned once.
 
 To display more data, you can add the PageSize and PageNumber parameters in your query request according to the following table.
 
@@ -58,5 +58,5 @@ DescribeImagesRequest describe = new DescribeImagesRequest();
 
 ```
 
-**Note:** The maximum value of PageSize is 100. If the query result includes more than 100 entries of data, the data on the last few pages must be obtained by  PageNumber, namely, multiple requests are submitted to obtain all the returned data, with PageNumber setting to 1, 2, 3…respectively. You can also specify the value of PageNumber in your request by setPageNumber\(\).
+**Note:** The maximum value of PageSize is 100. If the query result includes more than 100 entries of data, the data on the last few pages must be obtained by PageNumber, namely, multiple requests are submitted to obtain all the returned data, with PageNumber setting to 1, 2, 3…respectively. You can also specify the value of PageNumber in your request by setPageNumber\(\).
 
