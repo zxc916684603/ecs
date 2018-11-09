@@ -107,6 +107,11 @@
 |Description|String|否|实例的描述。长度为\[2, 256\]个英文或中文字符，不能以http://和https://开头。默认值：空。
 
 |
+|DedicatedHostId|String|否| 是否在专有宿主机上创建 ECS 实例。您可以通过[DescribeDedicatedHosts](intl.zh-CN/API 参考/专有宿主机/DescribeDedicatedHosts.md#) 查询专有宿主机 ID 列表。
+
+ 由于专有宿主机不支持创建抢占式实例，指定 DedicatedHostId 参数后，会自动忽略请求中的 SpotStrategy 和 SpotPriceLimit 设置。
+
+ |
 |InternetChargeType|String|否|网络计费类型。取值范围：-   PayByTraffic：按使用流量计费
 
 默认值：PayByTraffic|
@@ -177,24 +182,20 @@
 |VSwitchId|String|否|如果是创建VPC类型的实例，需要指定虚拟交换机ID。|
 |PrivateIpAddress|String|否|实例私网IP地址。该IP地址必须为 `VSwitchId` 网段的子集网址。|
 |InstanceChargeType|String|否|实例的付费方式。取值范围：-   PrePaid：预付费，包年包月。选择该类付费方式时，您必须确认自己的账号支持余额支付/信用支付，否则将返回 `InvalidPayMethod` 的错误提示。
--   PostPaid：按量付费。
+-   PostPaid（默认）：按量付费。
 
-默认值：PostPaid|
-|SpotStrategy|String|否|后付费实例的抢占策略。当参数 `InstanceChargeType` 取值为 `PostPaid` 时生效。取值范围：-   NoSpot：正常按量付费实例。
+|
+|SpotStrategy|String|否|后付费实例的抢占策略。当参数 `InstanceChargeType` 取值为 `PostPaid` 时生效。取值范围：-   NoSpot（默认）：正常按量付费实例。
 -   SpotWithPriceLimit：设置上限价格的抢占式实例。
 -   SpotAsPriceGo：系统自动出价，跟随当前市场实际价格。
 
-默认值：NoSpot|
+|
 |SpotPriceLimit|Float|否|设置实例的每小时最高价格。支持最大3位小数，参数 `SpotStrategy` 取值为 `SpotWithPriceLimit` 时生效。|
-|Period|Integer|否|购买资源的时长，单位为：月。当参数 `InstanceChargeType` 取值为 `PrePaid` 时才生效且为必选值。取值范围：-   1 - 9
--   12
--   24
--   36
--   48
--   60
+|Period|Integer|否|购买资源的时长，单位为：月。当参数 `InstanceChargeType` 取值为 `PrePaid` 时才生效且为必选值。一旦指定了 DedicatedHostId，则取值范围不能超过专有宿主机的订阅时长。取值范围：-   `PeriodUnit=Week`时，Period取值：\{“1”, “2”, “3”, “4”\}
+-   `PeriodUnit=Month`时，Period取值：\{ “1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “12”, “24”, “36”,”48”,”60”\}
 
 |
-|PeriodUnit|String|否|购买资源的时长。可选值Week | Month。`PeriodUnit` 为 `Week` 时：
+|PeriodUnit|String|否|购买资源的时长。可选值：Week | Month。`PeriodUnit` 为 `Week` 时：
 
 -   Period 取值 \{“1”, “2”, “3”, “4”\}
 -   AutoRenewPeriod 取值 \{“1”, “2”, “3”\}
@@ -204,16 +205,10 @@
 
 默认值：Month|
 |AutoRenew|Boolean|否|是否要自动续费。当参数 `InstanceChargeType` 取值 `PrePaid` 时才生效。取值范围：-   True：自动续费。
--   False：不自动续费。
-
-默认值：False|
-|AutoRenewPeriod|Integer|否|每次自动续费的时长，当参数`AutoRenew`取值`True`时为必填。取值范围：-   1
--   2
--   3
--   6
--   12
+-   False（默认）：不自动续费。
 
 |
+|AutoRenewPeriod|Integer|否|每次自动续费的时长，当参数`AutoRenew`取值`True`时为必填。取值范围：1 | 2 | 3 | 6 |12|
 |UserData|String|否|实例自定义数据，需要以Base64方式编码，原始数据最多为16KB。|
 |ClientToken|String|否| 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅[如何保证幂等性](../intl.zh-CN/API 参考/附录/如何保证幂等性.md#)。
 
@@ -228,8 +223,8 @@
 -   Deactive：不启用安全加固，对所有镜像类型生效。
 
 |
-|Tag.n.Key|String|否|实例、安全组、磁盘和主网卡的标签键。n的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http://或者https://开头。|
-|Tag.n.Value|String|否|实例、安全组、磁盘和主网卡的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http://或者https://开头。|
+|Tag.n.Key|String|否|实例、磁盘和主网卡的标签键。n的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http://或者https://开头。|
+|Tag.n.Value|String|否|实例、磁盘和主网卡的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http://或者https://开头。|
 |DryRun|Boolean|否|是否只预检此次请求。-   true：发送检查请求，不会创建实例。检查项包括是否填写了必需参数、请求格式、业务限制和ECS库存。如果检查不通过，则返回对应错误。如果检查通过，则返回错误码`DryRunOperation`。
 -   false：发送正常请求，通过检查后直接创建实例。
 
