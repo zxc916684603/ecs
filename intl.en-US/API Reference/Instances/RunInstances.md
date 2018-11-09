@@ -4,19 +4,19 @@ Creates a specified number of Pay-As-You-Go instances.
 
 ## Description {#BestPractice .section}
 
-You can call [DescribeAvailableResource](intl.en-US/API Reference/Others/DescribeAvailableResource.md#) to view the available resources in a specified region.
+You can call [DescribeAvailableResource](reseller.en-US/API Reference/Regions/DescribeAvailableResource.md#) to view the available resources in a specified region.
 
-We recommend that you maintain a sufficient balance in the linked credit card or PayPal account to complete the payment or preauthorization. For more information, see [Pricing overview](../../../../intl.en-US/Pricing/Pricing overview.md#).
+We recommend that you maintain a sufficient balance in the linked credit card or PayPal account to complete the payment or preauthorization. For more information, see [Pricing overview](../../../../reseller.en-US/Pricing/Pricing overview.md#).
 
 When you use this operation, consider the following:
 
 -   You can create a maximum number of 100 instances each time.
 -   You can set the release time for the instances by specifying the parameter `AutoReleaseTime` in your request.
--   You can call [DescribeInstances](intl.en-US/API Reference/Instances/DescribeInstances.md#) to check the status of your instance.
--   Make sure you have created a security group. For more information, see [CreateSecurityGroup](intl.en-US/API Reference/Security groups/CreateSecurityGroup.md#).
+-   You can call [DescribeInstances](reseller.en-US/API Reference/Instances/DescribeInstances.md#) to check the status of your instance.
+-   Make sure you have created a security group. For more information, see [CreateSecurityGroup](reseller.en-US/API Reference/Security groups/CreateSecurityGroup.md#).
 -   After a successful request, the instances that are created by you start automatically. An instance is ready to use when it is in the `Running` status.
--   Before creating a VPC-Connected instance, you must [Create a VPC](../../../../intl.en-US/Quick Start/Create a VPC.md#). We can create a default VPC and VSwitch for you if needed.
--   Unlike [CreateInstance](intl.en-US/API Reference/Instances/CreateInstance.md#), instances created by calling the `RunInstances` method have Internet IPs allocated if you set the value of `InternetMaxBandwidthOut` greater than 0.
+-   Before creating a VPC-Connected instance, you must [Create a VPC](../../../../reseller.en-US/Quick Start/Create a VPC.md#). We can create a default VPC and VSwitch for you if needed.
+-   Unlike [CreateInstance](reseller.en-US/API Reference/Instances/CreateInstance.md#), instances created by calling the `RunInstances` method have Internet IPs allocated if you set the value of `InternetMaxBandwidthOut` greater than 0.
 -   If invalid parameters or stock shortage happens, the RunInstances action fails. For troubleshooting, see error codes.
 
 ## Request parameters {#RequestParameter .section}
@@ -24,22 +24,24 @@ When you use this operation, consider the following:
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: RunInstances.|
-|RegionId|String|Yes|The region ID. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|ZoneId|String|No|The zone ID that is available in the specified region. You can call [DescribeZones](intl.en-US/API Reference/Regions/DescribeZones.md#) to obtain the latest zone list.Default value: null.
+|RegionId|String|Yes|The region ID. For more information, call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|ZoneId|String|No|The zone ID that is available in the specified region. You can call [DescribeZones](reseller.en-US/API Reference/Regions/DescribeZones.md#) to obtain the latest zone list.Default value: null.
 
 Null indicates it is randomly chosen by Alibaba Cloud ECS.
 
 |
-|ImageId|String|No|The image ID. You can call [DescribeImages](intl.en-US/API Reference/Images/DescribeImages.md#) Describes your available image.`ImageId` is necessary and required when neither `LaunchTemplateId` nor `LaunchTemplateName` are specified.
+|ImageId|String|No|The image ID. You can call [DescribeImages](reseller.en-US/API Reference/Images/DescribeImages.md#) Describes your available image.`ImageId` is necessary and required when neither `LaunchTemplateId` nor `LaunchTemplateName` are specified.
 
 |
-|InstanceType|String|No|Instance type. For more information about available value, see [Instance type families](../../../../intl.en-US/Product Introduction/Instance type families.md#) or call [DescribeInstanceTypes](intl.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to query the latest instance type list.When neither `LaunchTemplateId` nor `LaunchTemplateName` are specifeid to choose a launch template, the `InstanceType` is required.
+|InstanceType|String|No|Instance type. For more information about available value, see [Instance type families](../../../../reseller.en-US/Product Introduction/Instance type families.md#) or call [DescribeInstanceTypes](reseller.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to query the latest instance type list.When neither `LaunchTemplateId` nor `LaunchTemplateName` are specified to choose a launch template, the `InstanceType` is required.
 
 |
-|SecurityGroupId|String|No|The security group to which the instances belongs. Mutual access is allowed between instances in the same security group in the intranet. The maximum number of instances in one security group is 1,000.When neither `LaunchTemplateId` nor `LaunchTemplateName` are specifeid to choose a launch template, the `SecurityGroupId` is required.
+|SecurityGroupId|String|No|The security group to which the instances belongs. Mutual access is allowed between instances in the same security group in the intranet. The maximum number of instances in one security group is 1,000.**Note:** SecurityGroupId determines the network type of the instance. For example, if the security group is VPC-Connected, your instances are VPC-Connected also, consequently, VSwitch is required.
+
+When neither `LaunchTemplateId` nor `LaunchTemplateName` are specified to choose a launch template, the `SecurityGroupId` is required.
 
 |
-|LaunchTemplateId|String|No|The launch template ID. For more information, call [`DescribeLaunchTemplates`](https://help.aliyun.com/document_detail/72102.html). Either the `LaunchTemplateId` or `LaunchTemplateName` must be specified to choose a launch template.|
+|LaunchTemplateId|String|No|The launch template ID. For more information, call [`DescribeLaunchTemplates`](reseller.en-US/API Reference/Launch templates/DescribeLaunchTemplates.md#). Either the `LaunchTemplateId` or `LaunchTemplateName` must be specified to choose a launch template.|
 |LaunchTemplateName|String|No|The launch template name. Either the `LaunchTemplateId` or `LaunchTemplateName` must be specified to determine the template.|
 |LaunchTemplateVersion|String|No|The launch template version. If you specify `LaunchTemplateId` or `LaunchTemplateName` but no template version number is specified, default version is used.|
 |InternetChargeType|String|No|The billing method of the network bandwidth. Optional values:-   PayByTraffic: You are billed based on the traffic usage.
@@ -48,7 +50,7 @@ Default value: PayByTraffic|
 |IoOptimized|String|No|Whether it is an I/O-optimized instance or not. Options:-   none
 -   optimized
 
-If you set `InstanceType` as one of the [Phased-out instance types](https://www.alibabacloud.com/help/faq-detail/55263.htm), the default value is none.
+If you set `InstanceType` as one of the [Phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm), the default value is none.
 
 Otherwise, the default value is `optimized`.
 
@@ -58,7 +60,7 @@ Otherwise, the default value is `optimized`.
 -   cloud\_ssd: Cloud SSD.
 -   ephemeral\_ssd: Ephemeral SSD.
 
-If you set `InstanceType` as one of the [phased out instance types](https://www.alibabacloud.com/help/faq-detail/55263.htm) and set the `IoOptimized` to `none`, the default value is cloud.
+If you set `InstanceType` as one of the [phased out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm) and set the `IoOptimized` to `none`, the default value is cloud.
 
 Otherwise, the default value is cloud\_efficiency.
 
@@ -132,7 +134,7 @@ If this parameter is not specified, the default value is the InstanceId of the i
 If you specify a value for parameter `Password`, use HTTPS to call the API to avoid data breach.|
 |PasswordInherit|Boolean|No|Whether to use the password pre-configured in the image you select or not. When PasswordInherit is specified, the `Password` must be null. For a secure access, make sure that the selected image has password configured.|
 |Amount|String|No|The specified number of instances you want to create. Value range: \[1, 100\]. Default value: 1.|
-|AutoReleaseTime|String|No|The automatic release time for the specified instances. The time is presented using the [ISO8601](intl.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard and in UTC time. The format is YYYY-MM-DDTHH:mm:ssZ.-   If the seconds \(ss\) place is not 00, it is automatically set to start from the current minute \(mm\).
+|AutoReleaseTime|String|No|The automatic release time for the specified instances. The time is presented using the [ISO8601](reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard and in UTC time. The format is YYYY-MM-DDTHH:mm:ssZ.-   If the seconds \(ss\) place is not 00, it is automatically set to start from the current minute \(mm\).
 -   It must be at least half an hour later than the current time.
 -   It must be less than three years from the current time.
 
@@ -142,7 +144,7 @@ If you specify a value for parameter `Password`, use HTTPS to call the API to av
 -   The username and password authentication method is disabled if a value is set for parameter KeyPairName for a **Linux instance**.
 
 |
-|RamRoleName|String|No|Instance RAM role name. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../intl.en-US/.md#). For more information, see [CreateRole](../../../../intl.en-US/.md#) and [ListRoles](../../../../intl.en-US/.md#).|
+|RamRoleName|String|No|Instance RAM role name. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../reseller.en-US/API reference/API reference (RAM)/Role Management Interface/ListRoles.md#). For more information, see [CreateRole](../../../../reseller.en-US/API reference/API reference (RAM)/Role Management Interface/CreateRole.md#) and [ListRoles](../../../../reseller.en-US/API reference/API reference (RAM)/Role Management Interface/ListRoles.md#).|
 |SecurityEnhancementStrategy|String|No|Whether or not to enable security enhancement. Options:-   Active: Enables the security enhancement feature and installs a free network security software. Only applicable to the Alibaba Cloud official images.
 -   Deactive: Disables the security enhancement feature. No network security software is installed. Applicable to all kinds of images.
 
@@ -155,7 +157,7 @@ If you specify a value for parameter `Password`, use HTTPS to call the API to av
 
 Default value: NoSpot.|
 |SpotPriceLimit|Float|No|The hourly price threshold for a preemptible instance, and it takes effect only when parameter `SpotStrategy` is `SpotWithPriceLimit`. Three decimal places are allowed at most.|
-|ClientToken|String|No| Guarantees the idempotence of the request. The value is generated by a client and must be globally unique. Only ASCII characters are allowed. It can contain a maximum of 64 ASCII characters. For more information, see [How to ensure idempotence](intl.en-US/API Reference/Appendix/How to ensure idempotence.md#).
+|ClientToken|String|No| Guarantees the idempotence of the request. The value is generated by a client and must be globally unique. Only ASCII characters are allowed. It can contain a maximum of 64 ASCII characters. For more information, see [How to ensure idempotence](reseller.en-US/API Reference/Appendix/How to ensure idempotence.md#).
 
  |
 
@@ -184,7 +186,7 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 &<Common Request Parameters> 
 ```
 
-**Response sample** 
+**Response example** 
 
 **XML format**
 
@@ -217,8 +219,6 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows.
 
 |Error code|Error message|HTTP status code|Description|
 |:---------|:------------|:---------------|:----------|
@@ -269,7 +269,7 @@ Error codes specific to this interface are as follows.
 |InvalidHpcClusterId.Unnecessary|The specified HpcClusterId is unnecessary.|400|You can specify the ClusterId only for some `InstanceType`.|
 |InvalidVSwitchId.Necessary|The HpcClusterId is necessary.|400|To choose cluster for the specified `InstanceType`, you must specify the `HpcClusterId`.|
 |MissingParameter|The input parameter VSwitchId that is mandatory for processing this request is not supplied.|400|The `VSwitchId` parameter is required.|
-|QuotaExceed.AfterpayInstance|The maximum number of Pay-As-You-Go instances is exceeded.|400|You have exceeded the maximum number of Pay-As-You-Go instances. For more information, see [Limits](../../../../intl.en-US/User Guide/Limits.md#).|
+|QuotaExceed.AfterpayInstance|The maximum number of Pay-As-You-Go instances is exceeded.|400|You have exceeded the maximum number of Pay-As-You-Go instances. For more information, see [Limits](../../../../reseller.en-US/User Guide/Limits.md#).|
 |QuotaExceeded|Living instances quota exceeded in this VPC.|400|The number of instances in the specified VPC has reached the upper limit.|
 |ResourceNotAvailable|Resource you requested is not available in this region or zone.|400|The resource you requested is unavailable in the specified RegionId or ZoneId. Please try again in other regions or zones.|
 |CategoryNotSupported|The specified zone does not offer the specified disk category.|403|You cannot create a disk of the specified disk category in the specified zone.|
@@ -292,7 +292,7 @@ Error codes specific to this interface are as follows.
 |InvalidSnapshotId.NotDataDiskSnapshot|The specified snapshot is system disk snapshot.|403|A data disk cannot be created from the system disk snapshot.|
 |InvalidSnapshotId.NotReady|The specified snapshot has not completed yet.|403|The snapshot has not been completed yet.|
 |InvalidSystemDiskCategory.ValueUnauthorized|The disk category is not authorized.|403|You are not authorized to create a disk of the specified category.|
-|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|A RAM user must be [granted](../../../../intl.en-US/Quick Start/Attach policies to a RAM user.md#) with a pass role permission before he or she specify RamRoleName for new ECS instances.|
+|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|A RAM user must be [granted](../../../../reseller.en-US/Quick Start/Attach policies to a RAM user.md#) with a pass role permission before he or she specify RamRoleName for new ECS instances.|
 |InvalidUserData.Forbidden|User not authorized to input the parameter UserData, please apply for permission UserData.|403|You are not authorized to configure the user data.|
 |InvalidVSwitchId.NotFound|The VSwitchId provided does not exist in our records.|403|The specified `VSwitchId` does not exist.|
 |IoOptimized.NotSupported|The specified image is not support IoOptimized Instance.|403|The specified image does not support the I/O optimized instances.|
@@ -304,7 +304,7 @@ Error codes specific to this interface are as follows.
 |OperationDenied|The capacity of snapshot exceeds the size limit of the specified disk category or the specified category is not authorized.|403|The specified `DataDisk.n.Size` is invalid. Or the maximum capacity of the specified DataDisk.n.Size has exceeded. Or you are not allowed to create a disk of the specified category.|
 |OperationDenied|The type of the disk does not support the operation.|403|The specified disk type does not support this operation.|
 |OperationDenied.NoStock|Sales of this resource are temporarily suspended in the specified region; please try again later.|403|The specified instance type is out of stock. Please try other instance types in the region or try other regions and zones.|
-|QuotaExceed.BuyImage|The specified image is from the image market, You have not bought it or your quota has been exceeded.|403|The specified image is from the marketplace. You must purchase it in advance. Or the image is out of stock in the specified region. For more information, see [Limits](../../../../intl.en-US/User Guide/Limits.md#).|
+|QuotaExceed.BuyImage|The specified image is from the image market, You have not bought it or your quota has been exceeded.|403|The specified image is from the marketplace. You must purchase it in advance. Or the image is out of stock in the specified region. For more information, see [Limits](../../../../reseller.en-US/User Guide/Limits.md#).|
 |QuotaExceed.PortableCloudDisk|The quota of portable cloud disk exceeds.|403|The number of disks that can be attached to an instance has exceeded 16.|
 |RegionUnauthorized|There is no authority to create instance in the specified region.|403|You are not authorized to use the specified region.|
 |SecurityGroupInstanceLimitExceed|The maximum number of instances in a security group is exceeded.|403|The maximum number of instances in the specified security group has exceeded.|

@@ -4,9 +4,9 @@
 
 ## 描述 {#BestPractice .section}
 
-创建实例前，您可以调用[DescribeAvailableResource](intl.zh-CN/API 参考/其他接口/DescribeAvailableResource.md#)查看指定地域或者可用区内的资源供给情况。
+创建实例前，您可以调用[DescribeAvailableResource](intl.zh-CN/API 参考/地域/DescribeAvailableResource.md#)查看指定地域或者可用区内的资源供给情况。
 
-创建实例会涉及到资源计费，建议您提前了解云服务器ECS的计费方式。更多详情，请参阅 [计费概述](../intl.zh-CN/产品定价/计费概述.md#)。
+创建实例会涉及到资源计费，建议您提前了解云服务器ECS的计费方式。更多详情，请参阅[计费概述](../intl.zh-CN/产品定价/计费概述.md#)。
 
 调用该接口时，您需要注意：
 
@@ -19,6 +19,12 @@
 -   与[CreateInstance](intl.zh-CN/API 参考/实例/CreateInstance.md#)相比，通过`RunInstances`创建的实例如果参数`InternetMaxBandwidthOut`的值大于0，则自动为实例分配公网IP。
 -   提交创建任务后，参数不合法或者库存不足的情况下会报错，具体的报错原因参阅[错误码](#ErrorCode)。
 
+**最佳实践**
+
+RunInstances可以执行批量创建任务，为便于管理与检索，建议您为每批次启动的实例指定标签（Tag.n.Key和Tag.n.Value），并且为主机名（HostName）和实例名称（InstanceName）添加有序后缀（**UniqueSuffix**）。
+
+实例启动模板能免除您每次创建实例时都需要填入大量配置参数，您可以创建实例启动模板（[CreateLaunchTemplate](intl.zh-CN/API 参考/启动模板/CreateLaunchTemplate.md#)）后，在RunInstances请求中指定LaunchTemplateId和LaunchTemplateVersion使用启动模板。
+
 ## 请求参数 {#RequestParameter .section}
 
 |名称|类型|是否必需|描述|
@@ -30,19 +36,22 @@
 空表示由系统选择。
 
 |
+|LaunchTemplateId|String|否|启动模板ID。更多详情，请调用[`DescribeLaunchTemplates`](intl.zh-CN/API 参考/启动模板/DescribeLaunchTemplates.md#)。您必须指定`LaunchTemplateId`或`LaunchTemplateName`以确定启动模板。|
+|LaunchTemplateName|String|否|启动模板名称。您必须指定`LaunchTemplateId`或`LaunchTemplateName`以确定启动模板。|
+|LaunchTemplateVersion|String|否|启动模板版本。如果您指定了`LaunchTemplateId`或`LaunchTemplateName`而不指定启动模板版本号，则采用默认版本。|
 |ImageId|String|否|镜像ID，启动实例时选择的镜像资源。您可以通过[DescribeImages](intl.zh-CN/API 参考/镜像/DescribeImages.md#)查询您可以使用的镜像资源。如果您不指定`LaunchTemplateId`或`LaunchTemplateName`以确定启动模板，`ImageId`为必需参数。
 
 |
 |InstanceType|String|否|实例的资源规格。更多详情，请参阅[实例规格族](../intl.zh-CN/产品简介/实例规格族.md#)，也可以调用[DescribeInstanceTypes](intl.zh-CN/API 参考/实例/DescribeInstanceTypes.md#)获得最新的规格列表。如果您不指定`LaunchTemplateId`或`LaunchTemplateName`以确定启动模板，`InstanceType`为必需参数。
 
 |
-|SecurityGroupId|String|否|指定新创建实例所属于的安全组ID。同一个安全组内的实例之间可以互相访问，一个安全组最多能管理1000台实例。如果您不指定`LaunchTemplateId`或`LaunchTemplateName`以确定启动模板，`SecurityGroupId`为必需参数。
+|SecurityGroupId|String|否|指定新创建实例所属于的安全组ID。同一个安全组内的实例之间可以互相访问，一个安全组最多能管理1000台实例。**说明：** SecurityGroupId决定了实例的网络类型，例如，如果指定安全组的网络类型为专有网络VPC，实例则为VPC类型，并同时需要指定参数VSwitchId。
+
+如果您不指定`LaunchTemplateId`或`LaunchTemplateName`以确定启动模板，`SecurityGroupId`为必需参数。
 
 |
-|LaunchTemplateId|String|否|启动模板ID。更多详情，请调用[`DescribeLaunchTemplates`](https://help.aliyun.com/document_detail/72102.html)。您必须指定`LaunchTemplateId`或`LaunchTemplateName`以确定启动模板。|
-|LaunchTemplateName|String|否|启动模板名称。您必须指定`LaunchTemplateId`或`LaunchTemplateName`以确定启动模板。|
-|LaunchTemplateVersion|String|否|启动模板版本。如果您指定了`LaunchTemplateId`或`LaunchTemplateName`而不指定启动模板版本号，则采用默认版本。|
-|Period|Integer|否|购买资源的时长。当参数`InstanceChargeType`取值为`PrePaid`时才生效且为必选值。取值范围：-   `PeriodUnit=Week`时，Period取值：\{“1”, “2”, “3”, “4”\}
+|VSwitchId|String|否|虚拟交换机ID。如果您创建的是VPC类型ECS实例，需要指定虚拟交换机ID。|
+|Period|Integer|否|购买资源的时长。当参数`InstanceChargeType`取值为`PrePaid`时才生效且为必选值。一旦指定了 DedicatedHostId，则取值范围不能超过专有宿主机的订阅时长。取值范围：-   `PeriodUnit=Week`时，Period取值：\{“1”, “2”, “3”, “4”\}
 -   `PeriodUnit=Month`时，Period取值：\{ “1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “12”, “24”, “36”,”48”,”60”\}
 
 |
@@ -97,7 +106,6 @@
 
 |
 |HpcClusterId|String|否|实例所属的集群ID。|
-|VSwitchId|String|否|虚拟交换机ID。如果您创建的是VPC类型ECS实例，需要指定虚拟交换机ID。|
 |PrivateIpAddress|String|否|实例私网IP地址。该IP地址必须为VSwitchId网段的子集网址。**说明：** 设置PrivateIpAddress时，Amount参数取值只能为1。
 
 |
@@ -123,7 +131,7 @@
 
 |
 |Description|String|否|实例的描述。长度为\[2, 256\]个英文或中文字符，不能以http://和https://开头。|
-|Password|String|否|实例的密码。长度为8至30个字符，必须同时包含大小写英文字母、数字和特殊符号。特殊符号可以是\(\)\`~!@\#$%^&\*-+=|\{\}\[\]:;‘<\>,.?/**说明：** 如果传入参数`Password`，建议您使用HTTPS协议调用API，避免密码泄露。
+|Password|String|否|实例的密码。长度为8至30个字符，必须同时包含大小写英文字母、数字和特殊符号。特殊符号可以是\(\)\` ~!@\#$%^&\*-+=|\{\}\[\]:;‘<\>,.?/**说明：** 如果传入参数`Password`，建议您使用HTTPS协议调用API，避免密码泄露。
 
 |
 |PasswordInherit|Boolean|否|是否使用镜像预设的密码。使用该参数时，`Password`参数必须为空，同时您需要确保使用的镜像已经设置了密码。|
@@ -140,13 +148,14 @@
 -   Linux实例：如果指定该参数，默认禁用密码登录方式。
 
 |
+|DeploymentSetId|String|否|部署集ID。|
 |RamRoleName|String|否|实例RAM角色名称。您可以使用 *RAM* API [ListRoles](../../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#)查询实例RAM角色名称。参考相关API [CreateRole](../../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/CreateRole.md#)和[ListRoles](../../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#)。|
 |SecurityEnhancementStrategy|String|否|是否开启安全加固。取值范围：-   Active：启用安全加固，只对系统镜像生效。
 -   Deactive：不启用安全加固，对所有镜像类型生效。
 
 |
-|Tag.n.Key|String|否|实例、安全组、磁盘和主网卡的标签键。n的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http://或者https://开头。|
-|Tag.n.Value|String|否|实例、安全组、磁盘和主网卡的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http://或者https://开头。|
+|Tag.n.Key|String|否|实例、磁盘和主网卡的标签键。n的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http://或者https://开头。|
+|Tag.n.Value|String|否|实例、磁盘和主网卡的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http://或者https://开头。|
 |SpotStrategy|String|否|后付费实例的抢占策略。当参数`InstanceChargeType`取值为`PostPaid`时生效。取值范围：-   NoSpot：正常按量付费实例。
 -   SpotWithPriceLimit：设置上限价格的抢占式实例。
 -   SpotAsPriceGo：系统自动出价，跟随当前市场实际价格。
@@ -299,7 +308,7 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |InvalidSnapshotId.NotDataDiskSnapshot|The specified snapshot is system disk snapshot.|403|系统盘快照不能创建数据盘。|
 |InvalidSnapshotId.NotReady|The specified snapshot has not completed yet.|403|指定的快照正在创建中，请稍后再试。|
 |InvalidSystemDiskCategory.ValueUnauthorized|The disk category is not authorized.|403|您暂时无法使用指定的磁盘类型。|
-|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|您使用的RAM用户账号暂不具有 `PassRole` 的权限，请联系主账号拥有者[授权](../intl.zh-CN/快速入门/为 RAM 用户授权.md#)PassRole 权限。|
+|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|您使用的RAM用户账号暂不具有`PassRole`的权限，请联系主账号拥有者[授权](../intl.zh-CN/快速入门/为 RAM 用户授权.md#)PassRole权限。|
 |InvalidUserData.Forbidden|User not authorized to input the parameter UserData, please apply for permission UserData.|403|您暂时无法设置实例自定义数据。|
 |InvalidVSwitchId.NotFound|The VSwitchId provided does not exist in our records.|403|指定的`VSwitchId`不存在。|
 |IoOptimized.NotSupported|The specified image is not support IoOptimized Instance.|403|指定的镜像不支持I/O优化实例。|
