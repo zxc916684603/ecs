@@ -27,13 +27,13 @@
 -   Month（默认）
 
 |
-|ClientToken|String|否|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅[如何保证幂等性](../cn.zh-CN/API 参考/附录/如何保证幂等性.md#)。
+|ClientToken|String|否| 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅[如何保证幂等性](../intl.zh-CN/API 参考/附录/如何保证幂等性.md#)。
 
-|
+ |
 
 ## 返回参数 {#section_f54_lk5_xdb .section}
 
-全是公共返回参数。参阅[公共返回参数](../cn.zh-CN/API 参考/快速入门/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅[公共返回参数](../intl.zh-CN/API 参考/快速入门/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -66,16 +66,13 @@ https://ecs.aliyuncs.com/?Action=RenewInstance
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
 |IdempotenceParamNotMatch|Request uses a client token in a previous request but is not identical to that request.|400|您重用了 `ClientToken` 参数，但其他请求参数有变化。|
 |InvalidClientToken.ValueNotSupported|The ClientToken provided is invalid.|400|`ClientToken`参数取值不能包含 ASCII 以外的字符。|
 |InvalidPeriod|The specified period is not valid.|400|指定的 `Period` 参数取值格式无效，取值必须为数字并且在允许范围内。|
-|InvalidPeriod.ExceededDedidactedHost|Instance expired date can't exceed dedicated host expired date.|400|实例生命周期不能长于专有宿主机生命周期。|
-|IncorrectDedicatedHostStatus|The current status of the resource does not support this operation.|400|专有宿主机处于不可用状态。|
-|InvalidDedicatedHostStatus.NotSupport|Operation denied due to dedicated host status.|400|指定的专有宿主机已经过期或者您的账号已欠费。|
 |ChargeTypeViolation|The operation is not permitted due to charge type of the instance.|403|仅支持续费预付费实例。|
 |IncorrectInstanceStatus|The current status of the resource does not support this operation.|403|实例的当前状态不支持续费。|
 |Instance.UnPaidOrder|The specified instance has unpaid order.|403|您的账号下有未付费的订单。|
