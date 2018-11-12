@@ -51,7 +51,7 @@
 
     **说明：** 首次连接时会出现以下警告，表示PuTTY无法确认远程服务器（实例）的真实性，只能提供服务器的公钥指纹，需要您确认是否信任该服务器，并将其公钥指纹加入到本地机器的注册表中。一般选择 **是**，之后，如果您登录时再次弹出这个警告，表示您的实例可能发生了 [中间人攻击](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)。关于这个警告更详细的信息，请参考 [PuTTY官网文档](https://the.earth.li/~sgtatham/putty/0.70/htmldoc/Chapter2.html#gs-hostkey)。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9621/15410647385251_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9621/15420350835251_zh-CN.png)
 
 4.  根据提示，分别输入您 ECS 实例的用户名（默认为 root）和密码，并回车确认。
 
