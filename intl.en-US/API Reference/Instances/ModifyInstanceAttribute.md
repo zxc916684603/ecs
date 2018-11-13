@@ -7,9 +7,9 @@ Modifies the information such as the name, password, host name, and description 
 When you call this interface, consider the following:
 
 -   You cannot reset the password for an instance when it is in the `Starting` status.
--   If the specified instance is [locked](intl.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#), and the `OperationLocks` of the instance indicates `"LockReason" : "security"`, you cannot reset its password.
--   The new password takes effect only after the instance is [restarted](../../../../intl.en-US/User Guide/Instances/Restart an instance.md#) in the console or by calling the interface [RebootInstance](intl.en-US/API Reference/Instances/RebootInstance.md#). 
--   When an instance is in the **Stopped** status and is not limited to pass a [user data](../../../../intl.en-US/User Guide/Instances/User-defined data and metadata/User data.md) script, you can modify its user data.
+-   If the specified instance is [locked](reseller.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#), and the `OperationLocks` of the instance indicates `"LockReason" : "security"`, you cannot reset its password.
+-   The new password takes effect only after the instance is [restarted](../reseller.en-US/User Guide/Instances/Restart an instance.md#) in the console or by calling the interface [RebootInstance](reseller.en-US/API Reference/Instances/RebootInstance.md#). 
+-   When an instance is in the **Stopped** status and is not limited to pass a [user data](../reseller.en-US/User Guide/Instances/User-defined data and metadata/User data.md) script, you can modify its user data.
 
 ## Request parameters {#RequestParameter .section}
 
@@ -19,7 +19,7 @@ When you call this interface, consider the following:
 |InstanceId|String|Yes|The specified instance ID.|
 |InstanceName|String|No|The name of the instance can be 2 to 128 characters in length. It must begin with an uppercase or lowercase English letter, or Chinese character. It can contain digits, periods \(.\), colons \(:\), underscores \(\_\), and hyphens \(-\). It cannot begin with "http://" or "https://".|
 |Description|String|No|The description of the instance is null by default. It can be 2 to 256 characters in length, but cannot begin with "http://" or "https://". The instance description is displayed on the Alibaba Cloud console.|
-|Password|String|No|Resets the administrative password of the instance. The password can be 6 to 30 characters in length and can only contain  digits, and/or alphabets.|
+|Password|String|No|Resets the administrative password of the instance. The password can be \[8, 30\] characters in length. It must contain uppercase letters, lowercase letters, and numbers. The following special characters are allowed: \(\)\`~! @\#$%^&amp;\*-+=|\{\}\[\]:;‘&lt;\>,.? /|
 |HostName|String|No|Name of the instance. It cannot start or end with period \(.\) or hyphens \(-\) and it cannot have two or more consecutive periods \(.\) or hyphens \(-\).-   **For a Windows instance**: the host name can be \[2, 15\] characters in length. It can contain uppercase or lowercase letters. It can contain digits, periods \(.\), and hyphens \(-\). It cannot contain only numeric characters.
 -   **For a Linux instance**, the host name can be up to \[2, 128\] characters in length. It can be segments concatenateed by periods \(.\). Segments can contain uppercase or lowercase letters, digits, or underscores \(\_\).
 
@@ -28,7 +28,7 @@ When you call this interface, consider the following:
 
 ## Response parameters {#ResponseParameter .section}
 
-All are common response parameters. For more information, see [Common parameters](intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
+All are common response parameters. For more information, see [Common parameters](reseller.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
 
 ## Examples { .section}
 
@@ -61,7 +61,7 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceAttribute
 
 ## Error codes {#ErrorCode .section}
 
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
+All are common error codes. For more information, see [Common error codes](../reseller.en-US/API Reference/Getting started/Response results.md#commonErrorCodes).
 
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|
