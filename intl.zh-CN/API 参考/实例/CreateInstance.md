@@ -101,10 +101,10 @@
 |ZoneId|String|否|实例所属的可用区编号。更多详情，请参阅 [DescribeZones](intl.zh-CN/API 参考/地域/DescribeZones.md#) 获取可用区列表。空表示由系统选择，默认值：空。
 
 |
-|InstanceName|String|否|实例的名称。长度为\[2, 128\]个英文或中文字符。必须以大小字母或中文开头，不能以http://和https://开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。如果没有指定该参数，默认值为实例的InstanceId。
+|InstanceName|String|否|实例的名称。长度为 \[2, 128\] 个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。如果没有指定该参数，默认值为实例的InstanceId。
 
 |
-|Description|String|否|实例的描述。长度为\[2, 256\]个英文或中文字符，不能以http://和https://开头。默认值：空。
+|Description|String|否|实例的描述。长度为 \[2, 256\] 个英文或中文字符，不能以 http:// 和 https:// 开头。默认值：空。
 
 |
 |DedicatedHostId|String|否| 是否在专有宿主机上创建 ECS 实例。您可以通过[DescribeDedicatedHosts](intl.zh-CN/API 参考/专有宿主机/DescribeDedicatedHosts.md#) 查询专有宿主机 ID 列表。
@@ -122,11 +122,11 @@
 
 |
 |HostName|String|否|云服务器的主机名。-   点号（.）和短横线（-）不能作为首尾字符，更不能连续使用。
--   Windows实例：字符长度为\[2, 15\]，不支持点号（.），不能全是数字。允许大小写英文字母、数字和短横线（-）。
--   其他类型实例（Linux等）：字符长度为\[2, 64\]，支持多个点号（.），点之间为一段，每段允许大小写英文字母、数字和短横线（-）。
+-   Windows 实例：字符长度为 \[2, 15\]，不支持点号（.），不能全是数字。允许大小写英文字母、数字和短横线（-）。
+-   其他类型实例（Linux 等）：字符长度为 \[2, 64\]，支持多个点号（.），点之间为一段，每段允许大小写英文字母、数字和短横线（-）。
 
 |
-|Password|String|否|实例的密码。长度为8至30个字符，必须同时包含大小写英文字母、数字和特殊符号。特殊符号可以是\(\)\` ~!@\#$%^&\*-+=|\{\}\[\]:;‘<\>,.?/**说明：** 如果传入`Password`参数，建议您使用HTTPS协议发送请求，避免密码泄露。
+|Password|String|否|实例的密码。长度为 8 至 30 个字符，必须同时包含大小写英文字母、数字和特殊符号。特殊符号可以是\(\)\` ~!@\#$%^&\*-+=|\{\}\[\]:;‘<\>,.?/。其中，Windows 实例不能以斜线号（/）为密码首字符。**说明：** 如果传入`Password`参数，建议您使用HTTPS协议发送请求，避免密码泄露。
 
 |
 |PasswordInherit|Boolean|否|是否使用镜像预设的密码。使用该参数时，`Password`参数必须为空，同时您需要确保使用的镜像已经设置了密码。|
@@ -138,8 +138,8 @@
 |
 |SystemDisk.Category|String|否|系统盘的磁盘种类。取值范围：-   cloud：普通云盘
 -   cloud\_efficiency：高效云盘
--   cloud\_ssd：SSD云盘
--   ephemeral\_ssd：本地SSD盘
+-   cloud\_ssd：SSD 云盘
+-   ephemeral\_ssd：本地 SSD 盘
 
 [已停售的实例规格](https://www.alibabacloud.com/help/faq-detail/55263.htm)且非 I/O 优化实例默认值：cloud否则，默认值：cloud\_efficiency
 
@@ -149,10 +149,10 @@
 默认值：max\{40, ImageSize\}
 
 |
-|SystemDisk.DiskName|String|否|系统盘名称。长度为\[2, 128\]个英文或中文字符。必须以大小字母或中文开头，不能以http://和https://开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值：空。
+|SystemDisk.DiskName|String|否|系统盘名称。长度为 \[2, 128\] 个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值：空。
 
 |
-|SystemDisk.Description|String|否|系统盘描述。长度为\[2, 256\]个英文或中文字符，不能以http://和https://开头。默认值：空。
+|SystemDisk.Description|String|否|系统盘描述。长度为 \[2, 256\] 个英文或中文字符，不能以 http:// 和 https:// 开头。默认值：空。
 
 |
 |DataDisk.n.Size|Integer|否|第n个数据盘的容量大小，n的取值范围为\[1, 16\]，内存单位为 GiB。取值范围：-   cloud：\[5, 2000\]
@@ -163,16 +163,16 @@
 该参数的取值必须大于等于参数 `SnapshotId` 指定的快照的大小。|
 |DataDisk.n.Category|String|否|数据盘n的磁盘种类。取值范围：-   cloud：普通云盘
 -   cloud\_efficiency：高效云盘
--   cloud\_ssd：SSD云盘
--   ephemeral\_ssd：本地SSD盘
+-   cloud\_ssd：SSD 云盘
+-   ephemeral\_ssd：本地 SSD 盘
 
 默认值：cloud|
 |DataDisk.n.Encrypted|Boolean|否|数据盘n是否加密。默认值：false|
 |DataDisk.n.SnapshotId|String|否|创建数据盘n使用的快照。 指定参数`DataDisk.n.SnapshotId`后，参数`DataDisk.n.Size`会被忽略，实际创建的磁盘大小为参数 `SnapshotId` 的大小。若 `SnapshotId` 的创建时间早于2013年7月15日（含），该次请求会被拒绝，且返回错误 `InvalidSnapshot.TooOld`。|
-|DataDisk.n.DiskName|String|否|数据盘名称。长度为\[2, 128\]个英文或中文字符。必须以大小字母或中文开头，不能以http://和https://开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值：空。
+|DataDisk.n.DiskName|String|否|数据盘名称。长度为 \[2, 128\] 个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值：空。
 
 |
-|DataDisk.n.Description|String|否|数据盘描述。长度为\[2, 256\]个英文或中文字符，不能以http://和https://开头。默认值：空。
+|DataDisk.n.Description|String|否|数据盘描述。长度为 \[2, 256\] 个英文或中文字符，不能以 http:// 和 https:// 开头。默认值：空。
 
 |
 |DataDisk.n.DeleteWithInstance|Boolean|否|表示数据盘是否随实例释放。默认值：true
@@ -223,8 +223,8 @@
 -   Deactive：不启用安全加固，对所有镜像类型生效。
 
 |
-|Tag.n.Key|String|否|实例、磁盘和主网卡的标签键。n的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http://或者https://开头。|
-|Tag.n.Value|String|否|实例、磁盘和主网卡的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http://或者https://开头。|
+|Tag.n.Key|String|否|实例、磁盘和主网卡的标签键。n 的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。|
+|Tag.n.Value|String|否|实例、磁盘和主网卡的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。|
 |DryRun|Boolean|否|是否只预检此次请求。-   true：发送检查请求，不会创建实例。检查项包括是否填写了必需参数、请求格式、业务限制和ECS库存。如果检查不通过，则返回对应错误。如果检查通过，则返回错误码`DryRunOperation`。
 -   false：发送正常请求，通过检查后直接创建实例。
 
