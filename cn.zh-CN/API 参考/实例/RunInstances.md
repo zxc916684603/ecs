@@ -68,8 +68,8 @@ RunInstances可以执行批量创建任务，为便于管理与检索，建议�
 |
 |SystemDisk.Category|String|否|系统盘的磁盘种类。取值范围：-   cloud：普通云盘
 -   cloud\_efficiency：高效云盘
--   cloud\_ssd：SSD云盘
--   ephemeral\_ssd：本地SSD盘
+-   cloud\_ssd：SSD 云盘
+-   ephemeral\_ssd：本地 SSD 盘
 
 `InstanceType`为[已停售的实例规格](https://www.alibabacloud.com/help/faq-detail/55263.htm) 的规格且参数`IoOptimized`取值为`none`时，默认值：cloud
 
@@ -79,12 +79,12 @@ RunInstances可以执行批量创建任务，为便于管理与检索，建议�
 |SystemDisk.Size|String|否|系统盘大小，单位为GiB。取值范围：\[20, 500\]该参数的取值必须大于或者等于max\{20, ImageSize\}。默认值：max\{40, 参数ImageId对应的镜像大小\}
 
 |
-|SystemDisk.DiskName|String|否|系统盘名称。长度为\[2, 128\]个英文或中文字符。必须以大小字母或中文开头，不能以http://和https://开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。|
-|SystemDisk.Description|String|否|系统盘描述。长度为\[2, 256\]个英文或中文字符，不能以http://和https://开头。|
+|SystemDisk.DiskName|String|否|系统盘名称。长度为 \[2, 128\] 个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。|
+|SystemDisk.Description|String|否|系统盘描述。长度为 \[2, 256\] 个英文或中文字符，不能以 http:// 和 https:// 开头。|
 |DataDisk.n.Category|String|否|数据盘n的磁盘种类，`n`的取值范围为\[1, 16\]。取值范围：-   cloud：普通云盘
 -   cloud\_efficiency：高效云盘
--   cloud\_ssd：SSD云盘
--   ephemeral\_ssd：本地SSD盘
+-   cloud\_ssd：SSD 云盘
+-   ephemeral\_ssd：本地 SSD 盘
 
 默认值：cloud|
 |DataDisk.n.Size|Integer|否|第n个数据盘的容量大小，`n`的取值范围为 \[1, 16\]，内存单位为GiB。取值范围：-   cloud：\[5, 2000\]
@@ -97,8 +97,8 @@ RunInstances可以执行批量创建任务，为便于管理与检索，建议�
 |DataDisk.n.Encrypted|Boolean|否|数据盘n是否加密，`n`的取值范围为\[1, 16\]。默认值：false
 
 |
-|DataDisk.n.DiskName|String|否|数据盘名称，`n`的取值范围为\[1, 16\]。长度为\[2, 128\]个英文或中文字符。必须以大小字母或中文开头，不能以http://和https://开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。|
-|DataDisk.n.Description|String|否|数据盘描述，`n`的取值范围为\[1, 16\]。长度为\[2, 256\]个英文或中文字符，不能以http://和https://开头。|
+|DataDisk.n.DiskName|String|否|数据盘名称，`n`的取值范围为\[1, 16\]。长度为 \[2, 128\] 个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。|
+|DataDisk.n.Description|String|否|数据盘描述，`n`的取值范围为\[1, 16\]。长度为 \[2, 256\] 个英文或中文字符，不能以 http:// 和 https:// 开头。|
 |DataDisk.n.DeleteWithInstance|Boolean|否|表示数据盘是否随实例释放，`n`的取值范围为\[1, 16\]。取值范围：-   true：实例释放时，这块磁盘随实例一起释放。
 -   false：实例释放时，这块磁盘保留不释放。
 
@@ -115,14 +115,14 @@ RunInstances可以执行批量创建任务，为便于管理与检索，建议�
 |InternetMaxBandwidthOut|Integer|否|公网出带宽最大值，单位为Mbit/s。取值范围：\[0, 100\]默认值：0
 
 |
-|InstanceName|String|否|实例名称。长度为\[2, 128\]个英文或中文字符。必须以大小字母或中文开头，不能以http://和https://开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值为实例的`InstanceId`。
+|InstanceName|String|否|实例名称。长度为 \[2, 128\] 个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值为实例的`InstanceId`。
 
 **说明：** 创建多台实例时，您可以使用[`UniqueSuffix`](#UniqueSuffix)为这些实例设置不同的`InstanceName`。
 
 |
 |HostName|String|否|云服务器的主机名。-   点号（.）和短横线（-）不能作为首尾字符，更不能连续使用。
--   Windows实例：字符长度为\[2, 15\]，不支持点号（.），不能全是数字。允许大小写英文字母、数字和短横线（-）。
--   其他类型实例（Linux等）：字符长度为\[2, 64\]，支持多个点号（.），点之间为一段，每段允许大小写英文字母、数字和短横线（-）。
+-   Windows 实例：字符长度为 \[2, 15\]，不支持点号（.），不能全是数字。允许大小写英文字母、数字和短横线（-）。
+-   其他类型实例（Linux 等）：字符长度为 \[2, 64\]，支持多个点号（.），点之间为一段，每段允许大小写英文字母、数字和短横线（-）。
 
 **说明：** 创建多台实例时，您可以使用[`UniqueSuffix`](#UniqueSuffix)为这些实例设置不同的`HostName`。
 
@@ -130,8 +130,8 @@ RunInstances可以执行批量创建任务，为便于管理与检索，建议�
 |UniqueSuffix|Boolean|否|是否为`HostName`和`InstanceName`添加有序后缀，有序后缀从001开始递增，最大不能超过999。例如：`LocalHost001`，`LocalHost002`和`MyInstance001`，`MyInstance002`。默认值：false
 
 |
-|Description|String|否|实例的描述。长度为\[2, 256\]个英文或中文字符，不能以http://和https://开头。|
-|Password|String|否|实例的密码。长度为8至30个字符，必须同时包含大小写英文字母、数字和特殊符号。特殊符号可以是\(\)\` ~!@\#$%^&\*-+=|\{\}\[\]:;‘<\>,.?/**说明：** 如果传入参数`Password`，建议您使用HTTPS协议调用API，避免密码泄露。
+|Description|String|否|实例的描述。长度为 \[2, 256\] 个英文或中文字符，不能以 http:// 和 https:// 开头。|
+|Password|String|否|实例的密码。长度为 8 至 30 个字符，必须同时包含大小写英文字母、数字和特殊符号。特殊符号可以是\(\)\` ~!@\#$%^&\*-+=|\{\}\[\]:;‘<\>,.?/。其中，Windows 实例不能以斜线号（/）为密码首字符。**说明：** 如果传入参数`Password`，建议您使用HTTPS协议调用API，避免密码泄露。
 
 |
 |PasswordInherit|Boolean|否|是否使用镜像预设的密码。使用该参数时，`Password`参数必须为空，同时您需要确保使用的镜像已经设置了密码。|
@@ -154,8 +154,8 @@ RunInstances可以执行批量创建任务，为便于管理与检索，建议�
 -   Deactive：不启用安全加固，对所有镜像类型生效。
 
 |
-|Tag.n.Key|String|否|实例、磁盘和主网卡的标签键。n的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http://或者https://开头。|
-|Tag.n.Value|String|否|实例、磁盘和主网卡的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http://或者https://开头。|
+|Tag.n.Key|String|否|实例、磁盘和主网卡的标签键。n 的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。|
+|Tag.n.Value|String|否|实例、磁盘和主网卡的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。|
 |SpotStrategy|String|否|后付费实例的抢占策略。当参数`InstanceChargeType`取值为`PostPaid`时生效。取值范围：-   NoSpot：正常按量付费实例。
 -   SpotWithPriceLimit：设置上限价格的抢占式实例。
 -   SpotAsPriceGo：系统自动出价，跟随当前市场实际价格。
