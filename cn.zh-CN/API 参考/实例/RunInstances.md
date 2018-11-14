@@ -45,6 +45,14 @@ RunInstances可以执行批量创建任务，为便于管理与检索，建议�
 |InstanceType|String|否|实例的资源规格。更多详情，请参阅[实例规格族](../intl.zh-CN/产品简介/实例规格族.md#)，也可以调用[DescribeInstanceTypes](intl.zh-CN/API 参考/实例/DescribeInstanceTypes.md#)获得最新的规格列表。如果您不指定`LaunchTemplateId`或`LaunchTemplateName`以确定启动模板，`InstanceType`为必需参数。
 
 |
+|CreditSpecification|String|否| 修改突发性能 t5 实例的运行模式。取值范围：
+
+ -   Standard：标准模式，实例性能请参阅 [t5性能约束实例](../intl.zh-CN/产品简介/实例/突发性能实例/t5性能约束实例.md#)。
+-   Unlimited：无性能约束模式，实例性能请参阅 [t5无性能约束实例](../intl.zh-CN/产品简介/实例/突发性能实例/t5无性能约束实例.md#)。
+
+ 默认值：无。
+
+ |
 |SecurityGroupId|String|否|指定新创建实例所属于的安全组ID。同一个安全组内的实例之间可以互相访问，一个安全组最多能管理1000台实例。**说明：** SecurityGroupId决定了实例的网络类型，例如，如果指定安全组的网络类型为专有网络VPC，实例则为VPC类型，并同时需要指定参数VSwitchId。
 
 如果您不指定`LaunchTemplateId`或`LaunchTemplateName`以确定启动模板，`SecurityGroupId`为必需参数。

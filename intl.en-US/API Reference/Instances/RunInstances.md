@@ -36,6 +36,14 @@ Null indicates it is randomly chosen by Alibaba Cloud ECS.
 |InstanceType|String|No|Instance type. For more information about available value, see [Instance type families](../../../../reseller.en-US/Product Introduction/Instance type families.md#) or call [DescribeInstanceTypes](reseller.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to query the latest instance type list.When neither `LaunchTemplateId` nor `LaunchTemplateName` are specified to choose a launch template, the `InstanceType` is required.
 
 |
+|CreditSpecification|String|No| Modifies the running mode of an unlimited credit enabled t5 instance. Optional values:
+
+ -   Standard: The standard running mode. For more information, see [t5 standard instances](../../../../reseller.en-US/Product Introduction/Instances/Burstable instances/t5 standard instances.md#).
+-   Unlimited: The unlimited running mode. For more information, see [t5 unlimited instances](../../../../reseller.en-US/Product Introduction/Instances/Burstable instances/t5 unlimited instances.md#).
+
+ Default value: null.
+
+ |
 |SecurityGroupId|String|No|The security group to which the instances belongs. Mutual access is allowed between instances in the same security group in the intranet. The maximum number of instances in one security group is 1,000.**Note:** SecurityGroupId determines the network type of the instance. For example, if the security group is VPC-Connected, your instances are VPC-Connected also, consequently, VSwitch is required.
 
 When neither `LaunchTemplateId` nor `LaunchTemplateName` are specified to choose a launch template, the `SecurityGroupId` is required.
@@ -292,7 +300,7 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |InvalidSnapshotId.NotDataDiskSnapshot|The specified snapshot is system disk snapshot.|403|A data disk cannot be created from the system disk snapshot.|
 |InvalidSnapshotId.NotReady|The specified snapshot has not completed yet.|403|The snapshot has not been completed yet.|
 |InvalidSystemDiskCategory.ValueUnauthorized|The disk category is not authorized.|403|You are not authorized to create a disk of the specified category.|
-|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|A RAM user must be [granted](../../../../reseller.en-US/Quick Start/Attach policies to a RAM user.md#) with a pass role permission before he or she specify RamRoleName for new ECS instances.|
+|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|A RAM user must be [granted](../../../../reseller.en-US/Quick Start/Authorize RAM users.md#) with a pass role permission before he or she specify RamRoleName for new ECS instances.|
 |InvalidUserData.Forbidden|User not authorized to input the parameter UserData, please apply for permission UserData.|403|You are not authorized to configure the user data.|
 |InvalidVSwitchId.NotFound|The VSwitchId provided does not exist in our records.|403|The specified `VSwitchId` does not exist.|
 |IoOptimized.NotSupported|The specified image is not support IoOptimized Instance.|403|The specified image does not support the I/O optimized instances.|
