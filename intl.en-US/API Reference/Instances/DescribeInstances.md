@@ -11,12 +11,20 @@ The request parameters are filters used for describing a specific list of result
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: Description instances.|
-|RegionId|String|No|Regional ID. For more information, call [DescribeRegions](../intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|No|Regional ID. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |VpcId|String|No|VPC ID. |
 |VSwitchId|String|No|VSwitch ID.|
 |ZoneId|String|No|The default value is blank, which indicates a query of disks in all zones.|
 |InstanceIds|String|No|Instance ID. The value can contain an array of up to 100 instance IDs. The IDs are displayed in the format of \["i-xxxxxxxxx", "i-yyyyyyyyy", … "i-zzzzzzzzz"\] and are separated by commas \(`,`\).|
 |InstanceType|String|No|Instance type.|
+|CreditSpecification|String|No| The running mode of an unlimited credit enabled t5 instance. Optional values:
+
+ -   Standard: The standard running mode. For more information, see [t5 standard instances](../reseller.en-US/Product Introduction/Instances/Burstable instances/t5 standard instances.md#).
+-   Unlimited: The unlimited running mode. For more information, see [t5 unlimited instances](../reseller.en-US/Product Introduction/Instances/Burstable instances/t5 unlimited instances.md#)。
+
+ Default value: null.
+
+ |
 |InstanceTypeFamily|String|No|Instance type family.|
 |InstanceNetworkType|String|No|Network type of the instance. Optional values:-   classic: Classic network.
 -   vpc: Private network.
@@ -67,7 +75,7 @@ Default value: NoSpot.|
 |TotalCount|Integer|Total number of instances.|
 |PageNumber|Integer|Page number of the instance list.|
 |PageSize|Integer|Number of lines per page set during input.|
-|Instances|[InstanceAttributesType](intl.en-US/API Reference/Data type/InstanceAttributesType.md#)|Array format composed of InstanceAttributesType, which returns instance information.|
+|Instances|[InstanceAttributesType](reseller.en-US/API Reference/Data type/InstanceAttributesType.md#)|Array format composed of InstanceAttributesType, which returns instance information.|
 
 ## Examples { .section}
 
@@ -233,8 +241,6 @@ https://ecs.aliyuncs.com/?Action=DescribeInstances
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error messages|HTTP status code |Description|
 |:---------|:-------------|:----------------|:----------|

@@ -17,6 +17,12 @@
 |ZoneId|String|否|可用区ID。|
 |InstanceIds|String|否|实例ID。取值可以由多个实例ID组成一个JSON数组，格式为\["i-xxxxxxxxx", "i-yyyyyyyyy", … "i-zzzzzzzzz"\]，最多支持100个ID，ID之间用半角逗号（`,`）隔开。|
 |InstanceType|String|否|实例的规格。|
+|CreditSpecification|String|否|突发性能 t5 实例的运行模式。-   Standard：标准模式，实例性能请参阅 [t5性能约束实例](../intl.zh-CN/产品简介/实例/突发性能实例/t5性能约束实例.md#)。
+-   Unlimited：无性能约束模式，实例性能请参阅 [t5无性能约束实例](../intl.zh-CN/产品简介/实例/突发性能实例/t5无性能约束实例.md#)。
+
+默认值：无。
+
+|
 |InstanceTypeFamily|String|否|实例的规格族。|
 |InstanceNetworkType|String|否|实例网络类型。取值范围：-   classic：经典网络
 -   vpc：VPC
@@ -49,15 +55,15 @@
 
 |
 |IoOptimized|Boolean|否|是否是I/O优化型实例。|
-|Tag.n.Key|String|否|实例的标签键。n的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http://或者https://开头。|
-|Tag.n.Value|String|否|实例的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http://或者https://开头。|
+|Tag.n.Key|String|否|实例的标签键。n 的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。|
+|Tag.n.Value|String|否|实例的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。|
 |PageNumber|Integer|否|实例状态列表的页码。起始值：1默认值：1
 
 |
 |PageSize|Integer|否|分页查询时设置的每页行数。最大值：100默认值：10
 
 |
-|DryRun|Boolean|否|是否只预检此次请求。-   true：发送检查请求，不会查询资源状况。检查项包括AccessKey是否有效、RAM用户的授权情况和是否填写了必需参数。如果检查不通过，则返回对应错误。如果检查通过，会返回错误码 `DryRunOperation`。
+|DryRun|Boolean|否|是否只预检此次请求。-   true：发送检查请求，不会查询资源状况。检查项包括AccessKey是否有效、RAM用户的授权情况和是否填写了必需参数。如果检查不通过，则返回对应错误。如果检查通过，会返回错误码`DryRunOperation`。
 -   false：发送正常请求，通过检查后返回2XX HTTP状态码并直接查询资源状况。
 
 默认值：false
@@ -238,7 +244,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInstances
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP状态码|说明|
 |:---|:---|:------|:-|
