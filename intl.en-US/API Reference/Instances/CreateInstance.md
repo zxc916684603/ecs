@@ -97,6 +97,14 @@ For example, [CLI](https://partners-intl.aliyun.com/help/doc-detail/29993.htm)  
 |RegionId|String|Yes|Region ID of an instance. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |ImageId|String|Yes|ID of an image file. An image is a running environment template for ECS instances. If you want to select image from the Alibaba Cloud marketplace, you can view the ImageId on the related image details page.|
 |InstanceType|String|Yes|Instance type. For more information, see [Instance Type Family](../reseller.en-US/Product Introduction/Instance type families.md#), or call [DescribeInstanceTypes](reseller.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to view the latest instance type list.|
+|CreditSpecification|String|No| Modifies the running mode of an unlimited credit enabled t5 instance. Optional values:
+
+ -   Standard: The standard running mode. For more information, see [t5 standard instances](../reseller.en-US/Product Introduction/Instances/Burstable instances/t5 standard instances.md#).
+-   Unlimited: The unlimited running mode. For more information, see [t5 unlimited instances](../reseller.en-US/Product Introduction/Instances/Burstable instances/t5 unlimited instances.md#)。
+
+ Default value: null.
+
+ |
 |SecurityGroupId|String|Yes|ID of the security group to which an ECS instance belongs. A security group is a firewall group that manages instances in the same region with the same security requirements and mutual trust.|
 |ZoneId|String|No|ID of a zone to which an instance belongs. If it is null, a zone is selected by the system. Default value: null.|
 |InstanceName|String|No|Name of an ECS instance.-   It can contain \[2, 128\] characters in length, must begin with an English or Chinese character, and can contain digits, periods \(.\), colons \(:\), underscores \(\_\), and hyphens \(-\).
@@ -369,7 +377,7 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |InvalidSnapshotId.NotDataDiskSnapshot|The specified snapshot is system disk snapshot.|403|A data disk cannot be created from the system disk snapshot.|
 |InvalidSnapshotId.NotReady|The specified snapshot has not completed yet.|403|The snapshot has not been completed yet.|
 |InvalidSystemDiskCategory.ValueUnauthorized|The disk category is not authorized.|403|You are not allowed to create a disk of the specified category.|
-|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|A RAM user must be [granted](../../../../../reseller.en-US/Quick Start/Attach policies to a RAM user.md#) with a pass role permission before he or she specify RamRoleName for a new ECS instance.|
+|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|A RAM user must be [granted](../../../../../reseller.en-US/Quick Start/Authorize RAM users.md#) with a pass role permission before he or she specify RamRoleName for a new ECS instance.|
 |InvalidVSwitchId.NotFound|The VSwitchId provided does not exist in our records.|403|The specified `VSwitchId` does not exist.|
 |IoOptimized.NotSupported|The specified image is not support IoOptimized Instance.|403|The instances of the specified instance type are not I/O optimized.|
 |IoOptimized.NotSupported|Vpc is not support IoOptimized instance.|403|I/O optimized instances are not supported in VPC.|

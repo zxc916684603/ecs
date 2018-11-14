@@ -97,6 +97,14 @@
 |RegionId|String|是|实例所属的地域ID。您可以调用[DescribeRegions](../intl.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
 |ImageId|String|是|镜像文件ID，启动实例时选择的镜像资源。如需使用云市场镜像，您可以在云市场镜像商详情页查看ImageId。|
 |InstanceType|String|是|实例的资源规格。更多详情，请参阅 [实例规格族](../intl.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](intl.zh-CN/API 参考/实例/DescribeInstanceTypes.md#) 接口获得最新的规格表。|
+|CreditSpecification|String|否| 修改突发性能 t5 实例的运行模式。取值范围：
+
+ -   Standard：标准模式，实例性能请参阅 [t5性能约束实例](../intl.zh-CN/产品简介/实例/突发性能实例/t5性能约束实例.md#)。
+-   Unlimited：无性能约束模式，实例性能请参阅 [t5无性能约束实例](../intl.zh-CN/产品简介/实例/突发性能实例/t5无性能约束实例.md#)。
+
+ 默认值：无。
+
+ |
 |SecurityGroupId|String|是|指定新创建实例所属于的安全组代码，同一个安全组内的实例之间可以互相访问。|
 |ZoneId|String|否|实例所属的可用区编号。更多详情，请参阅 [DescribeZones](intl.zh-CN/API 参考/地域/DescribeZones.md#) 获取可用区列表。空表示由系统选择，默认值：空。
 
