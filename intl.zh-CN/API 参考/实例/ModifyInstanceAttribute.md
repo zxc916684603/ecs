@@ -36,10 +36,14 @@
 
 |
 |UserData|String|否|实例自定义数据，需要以 Base64 编码。编码前，原始数据不能超过 16 KB。建议不要明文传入敏感信息，例如密码和私钥等。如果必须传入敏感信息，建议您加密后再以 Base64 编码传入，在实例内部以同样的方式反解密。|
-|CreditSpecification|String|否|修改突发性能 t5 实例的运行模式。取值范围：-   Standard：标准模式，实例性能请参阅 [t5性能约束实例](../intl.zh-CN/产品简介/实例/突发性能实例/t5性能约束实例.md#)。
+|CreditSpecification|String|否| 修改突发性能 t5 实例的运行模式。取值范围：
+
+ -   Standard：标准模式，实例性能请参阅 [t5性能约束实例](../intl.zh-CN/产品简介/实例/突发性能实例/t5性能约束实例.md#)。
 -   Unlimited：无性能约束模式，实例性能请参阅 [t5无性能约束实例](../intl.zh-CN/产品简介/实例/突发性能实例/t5无性能约束实例.md#)。
 
-默认值：无。|
+ 默认值：无。
+
+ |
 
 ## 返回参数 {#ResponseParameter .section}
 

@@ -17,14 +17,23 @@ When you call this interface, consider the following:
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: ModifyInstanceAttribute.|
 |InstanceId|String|Yes|The specified instance ID.|
-|InstanceName|String|No|The name of the instance can be 2 to 128 characters in length. It must begin with an uppercase or lowercase English letter, or Chinese character. It can contain digits, periods \(.\), colons \(:\), underscores \(\_\), and hyphens \(-\). It cannot begin with "http://" or "https://".|
-|Description|String|No|The description of the instance is null by default. It can be 2 to 256 characters in length, but cannot begin with "http://" or "https://". The instance description is displayed on the Alibaba Cloud console.|
+|InstanceName|String|No|The name of the instance.The name is a string of 2 to 128 characters. It must begin with an English or a Chinese character. It can contain A-Z, a-z, Chinese characters, numbers, periods \(.\), colons \(:\), underscores \(\_\), and hyphens \(-\).|
+|Description|String|No|The description of the instance is null by default. It cannot begin with http:// or https://.|
 |Password|String|No|Resets the administrative password of the instance. The password can be \[8, 30\] characters in length. It must contain uppercase letters, lowercase letters, and numbers. The following special characters are allowed: \(\)\`~! @\#$%^&amp;\*-+=|\{\}\[\]:;‘&lt;\>,.? /|
-|HostName|String|No|Name of the instance. It cannot start or end with period \(.\) or hyphens \(-\) and it cannot have two or more consecutive periods \(.\) or hyphens \(-\).-   **For a Windows instance**: the host name can be \[2, 15\] characters in length. It can contain uppercase or lowercase letters. It can contain digits, periods \(.\), and hyphens \(-\). It cannot contain only numeric characters.
--   **For a Linux instance**, the host name can be up to \[2, 128\] characters in length. It can be segments concatenateed by periods \(.\). Segments can contain uppercase or lowercase letters, digits, or underscores \(\_\).
+|HostName|String|No|Host name of the instance.-   It cannot start or end with a period \(.\) or a hyphen \(-\) and it cannot have two or more consecutive periods \(.\) or hyphens \(-\).
+-   For Windows: The host name can be \[2, 15\] characters in length. It can contain A-Z, a-z, numbers, periods \(.\), and hyphens \(-\). It cannot only contain numbers.
+-   For other operating systems: The host name can be \[2, 64\] characters in length. It can be segments separated by periods \(.\). It can contain A-Z, a-z, numbers, and hyphens \(-\).
 
 |
 |UserData|String|No|The user-defined data of your ECS instance. The size of your UserData must be less than 16 KB before the Base64 encodement. Refrain from entering confidential information, such as SSH key pair and AccessKey, in your request. If you do so, make sure the confidential information is encrypted before Base64 encoding. Also, do not forget to decrypt the information after it passes into your ECS instance.|
+|CreditSpecification|String|No| Modifies the running mode of an unlimited credit enabled t5 instance. Optional values:
+
+ -   Standard: The standard running mode. For more information, see [t5 standard instances](../reseller.en-US/Product Introduction/Instances/Burstable instances/t5 standard instances.md#).
+-   Unlimited: The unlimited running mode. For more information, see [t5 unlimited instances](../reseller.en-US/Product Introduction/Instances/Burstable instances/t5 unlimited instances.md#).
+
+ Default value: null.
+
+ |
 
 ## Response parameters {#ResponseParameter .section}
 
