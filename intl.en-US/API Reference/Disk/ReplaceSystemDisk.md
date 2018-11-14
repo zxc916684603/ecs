@@ -26,7 +26,7 @@ When you call this interface, consider the following:
 |Action|String|Yes|The name of this interface. Value: ReplaceSystemDisk.|
 |InstanceId|String|Yes|The ID of the specified instance.|
 |ImageId|String|Yes|The ID of the image used when you replace the system disk.|
-|Password|String|No|Password of your ECS instance. The password can be \[8, 30\] characters in length. It must contain uppercase letters, lowercase letters, and numbers. The following special characters are allowed: \(\)\`~! @\#$%^&amp;\*-+=|\{\}\[\]:;‘&lt;\>,.? /**Note:** If you specify the `Password` parameter, use HTTPS to call the API to avoid password breach.
+|Password|String|No|Password of your ECS instance. The password can be \[8, 30\] characters in length. It must contain uppercase letters, lowercase letters, and numbers. The following special characters are allowed: \(\)\`~! @\#$%^&amp;\*-+=|\{\}\[\]:;‘&lt;\>,.? /. A slash \(/\) cannot be the first character of Windows instances administrative password.**Note:** If you specify the `Password` parameter, use HTTPS to call the API to avoid password breach.
 
 |
 |PasswordInherit|Boolean|No|Whether or not to use the password pre-configured in the image you select. PasswordInherit is specified, the `Password` must be null. For a secured access, make sure that the selected image has password configured.|
