@@ -10,6 +10,6 @@ InstanceStatus
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|InstanceId|String|Instance ID|
-|Status|String|Instance status|
+|InstanceId|String|Instance ID.|
+|Status|String|Instance status.|
 

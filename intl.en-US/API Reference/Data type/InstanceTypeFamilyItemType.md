@@ -11,5 +11,5 @@ InstanceTypeFamily
 |Name|Type|Description|
 |:---|:---|:----------|
 |InstanceTypeFamilyId|String|The instance type family ID.|
-|Generation|String|The generation of the instance type familyspecification|
+|Generation|String|The generation of the instance type familyspecification.|
 

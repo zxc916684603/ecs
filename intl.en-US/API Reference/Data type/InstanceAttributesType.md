@@ -25,19 +25,19 @@ Depends on the interface.
 |HostName|String|Instance host name.|
 |SerialNumber|String|Instance serial number.|
 |Status|String|Instance status.|
-|SecurityGroupIds|[SecurityGroupIdSetType](intl.en-US/API Reference/Data type/SecurityGroupIdSetType.md#)|Security groups that manage the specified instance.|
-|PublicIpAddress|[IpAddressSetType](intl.en-US/API Reference/Data type/IpAddressSetType.md#)|Public IP address of the instance.|
+|SecurityGroupIds|[SecurityGroupIdSetType](reseller.en-US/API Reference/Data type/SecurityGroupIdSetType.md#)|Security groups that manage the specified instance.|
+|PublicIpAddress|[IpAddressSetType](reseller.en-US/API Reference/Data type/IpAddressSetType.md#)|Public IP address of the instance.|
 |InternetMaxBandwidthIn|Integer|Maximum incoming bandwidth from the internet network.|
 |InternetMaxBandwidthOut|Integer|Maximum outgoing bandwidth to the internet network.|
 |InternetChargeType|String|The billing method of the network bandwidth. Possible values:-   PayByTraffic: You are billed based on the traffic.
 
 |
-|CreationTime|String|Instance creation time. The time format follows the [ISO8601](../intl.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.|
+|CreationTime|String|Instance creation time. The time format follows the [ISO8601](../reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.|
 |InstanceNetworkType|String|Network type of the instance. Possible values: Classic | Vpc|
-|VpcAttributes |[VpcAttributesType](intl.en-US/API Reference/Data type/VpcAttributesType.md#)|VPC related attributes of an ECS instance.|
-|EipAddress|[EipAddressAssociateType](intl.en-US/API Reference/Data type/EipAddressAssociateType.md#)|EIP binding information.|
-|InnerIpAddress|[IpAddressSetType](intl.en-US/API Reference/Data type/IpAddressSetType.md#)|Intranet IP address.|
-|OperationLocks|[OperationLocksType](intl.en-US/API Reference/Data type/OperationLocksType.md#)|Reason why an instance is locked.|
+|VpcAttributes |[VpcAttributesType](reseller.en-US/API Reference/Data type/VpcAttributesType.md#)|VPC related attributes of an ECS instance.|
+|EipAddress|[EipAddressAssociateType](reseller.en-US/API Reference/Data type/EipAddressAssociateType.md#)|EIP binding information.|
+|InnerIpAddress|[IpAddressSetType](reseller.en-US/API Reference/Data type/IpAddressSetType.md#)|Intranet IP address.|
+|OperationLocks|[OperationLocksType](reseller.en-US/API Reference/Data type/OperationLocksType.md#)|Reason why an instance is locked.|
 |InstanceChargeType |String|Instance billing method. Possible values:-   PrePaid: Subscription.
 -   PostPaid: Pay-As-You-Go.
 
@@ -56,8 +56,8 @@ Default value: NoSpot.|
 
 |
 |DeploymentSetId|String|Deployment set ID.|
-|NetworkInterfaces|[NetworkInterfaceType](intl.en-US/API Reference/Data type/NetworkInterfaceType.md#)|The ENI related information.|
+|NetworkInterfaces|[NetworkInterfaceType](reseller.en-US/API Reference/Data type/NetworkInterfaceType.md#)|The ENI related information.|
 |IoOptimized|Boolean |Whether an instance is I/O optimized or not.|
-|ExpiredTime|String|Time of expiration. The time format follows the [ISO8601](../intl.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.|
+|ExpiredTime|String|Time of expiration. The time format follows the [ISO8601](../reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.|
 |KeyPairName|String|SSH key pair name.|
 

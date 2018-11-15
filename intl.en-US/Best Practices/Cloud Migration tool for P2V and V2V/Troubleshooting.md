@@ -2,7 +2,7 @@
 
 After you fix the error, run go2aliyun\_client of the Cloud Migration Tool again. The migration resumes from where it was suspended.
 
-After the migration job is finished for an on-premises server running Windows Server 2008 and later version of Windows Server, you must download and run the [Reset File Permission](http://ecs-image-p2vs-hd1.oss-cn-hangzhou.aliyuncs.com/tools/ResetFilePermissions.zip) tool at the first instance startup attempt. The Reset File Permission rectifies the default access permission of the file system to avoid abnormal service and component crashes.
+After the migration job is finished for an on-premises server running Windows Server 2008 and later version of Windows Server, please wait for the automatic recovery of file system access permission at the first instance startup attempt. For more information, see FAQ 19[How can I check my system after migrating a Windows server](reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Cloud Migration tool FAQ.md#AfterWindows).
 
 -   [Keyword “IllegalTimestamp” appears in the migration logs.](#)
 -   [Keyword “UnKnownError” appears in the migration logs.](#)
@@ -10,6 +10,7 @@ After the migration job is finished for an on-premises server running Windows Se
 -   [Keyword “InvalidAccountStatus.NotEnoughBalance” appears in the migration logs.](#)
 -   [Keyword “Forbidden.RAM” appears in the migration logs.](#)
 -   [Keyword “InvalidImageName.Duplicated” appears in the migration logs.](#)
+-   [日志错误提示 InvalidAccountStatus.SnapshotServiceUnavailable](#)
 -   [Keyword “Connect to Server Failed” appears in the migration logs.](#)
 -   [Keyword “” appears in the migration logs.](#)
 -   [Winodws server migration stops at the "Prepare For Rsync Disk 0" stage.](#)
@@ -37,17 +38,21 @@ If `rsync: send_files failed to open "…": Permission denied (13)` is displayed
 
  **Keyword “InvalidAccountStatus.NotEnoughBalance” appears in the migration logs.** 
 
-The default billing method of the intermediate instance is [Pay-As-You-Go](../intl.en-US/Pricing/Pay-As-You-Go.md#). You must make sure that no credit limit is set to your credit card and it allows the payment to go through.
+The default billing method of the intermediate instance is [Pay-As-You-Go](../reseller.en-US/Pricing/Pay-As-You-Go.md#). You must make sure that no credit limit is set to your credit card and it allows the payment to go through.
 
  **Keyword “Forbidden.RAM” appears in the migration logs.** 
 
 The RAM user are not granted with operation permission and cannot access the APIs.
 
-If the AccessKey that you create belongs to a RAM user, you must make sure that the specified RAM user is authorized the permission of `AliyunECSFullAccess` and `AliyunVPCFullAccess` to operate the ECS and VPC resources. For more information, see *RAM* document [Authorization policies](../../../../../intl.en-US/User Guide/Authorization/Authorization Policy Management.md#).
+If the AccessKey that you create belongs to a RAM user, you must make sure that the specified RAM user is authorized the permission of `AliyunECSFullAccess` and `AliyunVPCFullAccess` to operate the ECS and VPC resources. For more information, see *RAM* document [Authorization policies](../../../../../reseller.en-US/User Guide/Authorization/Authorization Policy Management.md#).
 
  **Keyword “InvalidImageName.Duplicated” appears in the migration logs.** 
 
 The specified parameter `image_name` cannot be the same as an existing image name.
+
+**Keyword InvalidAccountStatus.SnapshotServiceUnavailable appears in the migration logs.**
+
+It indicates that you have not signed up for the ECS snapshot services. You can go to the[ECS console](https://partners-intl.console.aliyun.com/#/ecs) to sign up the ECS snapshot service and try cloud migration again.
 
  **Keyword “Connect to Server Failed” appears in the migration logs.** 
 
@@ -136,7 +141,7 @@ Check whether the rsync component is installed or not.
 
  **The keyword "check virtio failed" appears in the migration logs.** 
 
-Check whether the [virtio driver](../intl.en-US/User Guide/Images/Import images/Install virtio driver.md#) is installed or not.
+Check whether the [virtio driver](../reseller.en-US/User Guide/Images/Import images/Install virtio driver.md#) is installed or not.
 
  **The keyword "check selinux failed" appears in the migration logs.** 
 
@@ -146,7 +151,7 @@ You can temporarily deactivate SELinux by running `setenforce 0`.
 
  **Keyword “Do Grub Failed” appears in the migration logs of a Linux server.** 
 
-Check whether the on-premises server has correctly installed the GRUB \(GRand Unified Bootloader\) or not when `Do Grub Failed` is received. You can [install a GRUB with the version newer than 1.9 and try again](https://www.alibabacloud.com/help/faq-detail/62807.htm) and try again.
+Check whether the on-premises server has correctly installed the GRUB \(GRand Unified Bootloader\) or not when `Do Grub Failed` is received. You can [install a GRUB with the version newer than 1.9 and try again](https://partners-intl.aliyun.com/help/doc-detail/62807.html) and try again.
 
  **Why no data is found in the original data disk directory in the started Linux ECS instances?** 
 
@@ -154,22 +159,22 @@ After you migrate an on-premises Linux server, the data disks are not mounted by
 
 **Why cannot I start the created ECS instances after Linux server migration?** 
 
--   Check the driver. Before creating the I/O optimized instances, make sure that the [virtio driver](../intl.en-US/User Guide/Images/Import images/Install virtio driver.md#) is installed on the on-premises server.
+-   Check the driver. Before creating the I/O optimized instances, make sure that the [virtio driver](../reseller.en-US/User Guide/Images/Import images/Install virtio driver.md#) is installed on the on-premises server.
 
 -   Check whether the boot configurations of the on-premises server are normal.
 
--   Connect to the ECS instance by using the [Management Terminal](../intl.en-US/User Guide/Connect to instances/Connect to an instance by using the Management Terminal.md#) in the ECS console, if the following output appears:
+-   Connect to the ECS instance by using the [Management Terminal](../reseller.en-US/User Guide/Connect to instances/Connect to an instance by using the Management Terminal.md#) in the ECS console, if the following output appears:
 
     ![](images/13375_en-US.png)
 
-    Perhaps the kernel of your on-premises Linux servers is the earlier version, and the version of GRUB \(GRand Unified Bootloader\) is earlier than 1.9. You may [update the boot loader GRUB to a version later than 1.9](https://www.alibabacloud.com/help/faq-detail/62807.htm).
+    Perhaps the kernel of your on-premises Linux servers is the earlier version, and the version of GRUB \(GRand Unified Bootloader\) is earlier than 1.9. You may [update the boot loader GRUB to a version later than 1.9](https://partners-intl.aliyun.com/help/doc-detail/62807.html).
 
 
  **What can I do if network service is abnormal when I start the migrated Others Linux instances?** 
 
 When an image of Others Linux type is imported, Alibaba Cloud performs no configuration, including network configuration and SSH configuration, on ECS instances created by custom images. You can manually modify the network service configurations.
 
-After the migration job is finished, we provide the created instance a single virtual network interface that uses DHCP to assign addresses. If network configuration still fails, [open a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to contact Alibaba Cloud.
+After the migration job is finished, we provide the created instance a single virtual network interface that uses DHCP to assign addresses. If network configuration still fails, open a ticket to contact Alibaba Cloud.
 
-If the problem persists, scan the following QR code to [join the dedicated DingTalk Migration Tool group chat](https://h5.dingtalk.com/invite-page/index.html?code=ca190154ff) or [open a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to contact Alibaba Cloud.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9833/153923722713339_en-US.png)
+If the problem persists, scan the following QR code to [join the dedicated DingTalk Migration Tool group chat](https://h5.dingtalk.com/invite-page/index.html?code=ca190154ff) or open a ticket to contact Alibaba Cloud.
 

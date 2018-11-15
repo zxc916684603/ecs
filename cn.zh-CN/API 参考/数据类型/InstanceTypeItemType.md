@@ -18,7 +18,7 @@ InstanceType
 |GPUSpec|String|实例规格附带 GPU 类型|
 |InstanceFamilyLevel|String|实例规格级别。可能值：-   EntryLevel：入门级
 -   EnterpriseLevel：企业级
--   CreditEntryLevel：积分入门级，特指 [突发性能实例](../../../../cn.zh-CN/产品简介/实例/突发性能实例.md#)
+-   CreditEntryLevel：积分入门级，特指 [基本概念](../../../../intl.zh-CN/产品简介/实例/突发性能实例/基本概念.md#)
 
 |
 |BaselineCredit|Integer|突发性能实例基准 vCPU 计算性能（多核和）|

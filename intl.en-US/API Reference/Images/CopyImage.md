@@ -1,6 +1,6 @@
 # CopyImage {#CopyImage .reference}
 
-Copies a custom image from one region to other regions. You can use the destination image to create instances \([RunInstances](intl.en-US/API Reference/Instances/RunInstances.md#)\) or replace system disks \([ReplaceSystemDisk](intl.en-US/API Reference/Disk/ReplaceSystemDisk.md#)\). 
+Copies a custom image from one region to other regions. You can use the destination image to create instances \([RunInstances](reseller.en-US/API Reference/Instances/RunInstances.md#)\) or replace system disks \([ReplaceSystemDisk](reseller.en-US/API Reference/Disk/ReplaceSystemDisk.md#)\). 
 
 ## Description {#section_mv5_ndz_xdb .section}
 
@@ -10,7 +10,7 @@ When you call this interface, consider the following:
 
 -   You can only copy the image within your Alibaba Cloud account. Coping an image cross accounts is not allowed.
 
--   You cannot delete an image \([DeleteImage](intl.en-US/API Reference/Images/Deleteimage.md#)\) when copying is in progress. However, you can cancel the copying process \([CancelCopyImage](intl.en-US/API Reference/Images/CancelCopyImage.md#)\).
+-   You cannot delete an image \([DeleteImage](reseller.en-US/API Reference/Images/Deleteimage.md#)\) when copying is in progress. However, you can cancel the copying process \([CancelCopyImage](reseller.en-US/API Reference/Images/CancelCopyImage.md#)\).
 
 
 ## Request parameters {#RequestParameter .section}
@@ -18,7 +18,7 @@ When you call this interface, consider the following:
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: CopyImage.|
-|RegionId|String|Yes|ID of the region to which the source custom image belongs. For more information, call [DescribeRegions](../intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|ID of the region to which the source custom image belongs. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |ImageId|String|Yes|ID of the source custom image.|
 |DestinationRegionId|String|Yes|ID of the region to where the destination custom image belongs.|
 |DestinationImageName|String|No|Name of the destination custom image.The name is a string of 2 to 128 characters. It must begin with an English or a Chinese character. It can contain A-Z, a-z, Chinese characters, numbers, periods \(.\), colons \(:\), underscores \(\_\), and hyphens \(-\). Default value: null.|
@@ -63,8 +63,6 @@ https://ecs.aliyuncs.com/?Action=CopyImage
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Note|
 |:---------|:------------|:---------------|:---|

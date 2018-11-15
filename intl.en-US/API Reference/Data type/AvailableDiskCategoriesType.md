@@ -10,7 +10,7 @@ Depends on the methods.
 
 |Name |Type |Description |
 |:----|:----|:-----------|
-|DiskCategories|String |Type of Disk.-   cloud: Basic cloud disks and independent basic cloud disks.
+|DiskCategories|String |Type of Disk.-   cloud: Basic cloud disks and independent cloud disks.
 -   cloud\_ssd: Cloud SSD disks.
 -   ephemeral: Ephemeral disks.
 -   ephemeral\_ssd: Ephemeral SSDs.

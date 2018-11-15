@@ -28,19 +28,19 @@ To create a snapshot on the ECS console, do the following:
 3.  In the left navigation pane, click **Instances**.
 4.  Locate the instance which you want to create a snapshot for and click **Manage**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9687/15414008739505_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9687/15420248949505_en-US.png)
 
 5.  In the left navigation pane, click **Disks**. In the refreshed right pane, locate the target disk and click **Create Snapshot**. You can select only one disk at a time. **Type** can be either system disk or data disk.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9687/15414008734530_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9687/15420248944530_en-US.png)
 
 6.  Enter the snapshot name and click **OK**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9687/15414008734550_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9687/15420248944550_en-US.png)
 
 7.  In the left navigation pane, click **Instance Snapshots**. You can see the progress, estimated remaining time, and status of the snapshot.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9687/15414008744552_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9687/15420248944552_en-US.png)
 
 
 Alternatively, you can use the ECS API [CreateSnapshot](../reseller.en-US/API Reference/Snapshots/CreateSnapshot.md#) to create a snapshot.

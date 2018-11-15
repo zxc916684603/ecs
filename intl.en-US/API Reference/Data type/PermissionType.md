@@ -4,14 +4,14 @@ Type of a security group rule.
 
 ## Node Name {#section_gq4_b4p_ydb .section}
 
- Permission
+Permission
 
 ## Subnode {#ResponseParameter .section}
 
 |Name|Type|Description|
 |:---|:---|:----------|
 |IpProtocol|String|IP protocol.|
-|PortRange|String| Port range.|
+|PortRange|String|Port range.|
 |SourceCidrIp|String|Source IP address segment for inbound authorization.|
 |Sourcegroupid| tring|Source security group for inbound authorization.|
 |SourceGroupOwnerAccount| String|Alibaba Cloud account of the source security group.|

@@ -10,7 +10,9 @@ To use Cloud Migration tool, consider the following:
 
 -   The on-premises server can access the Internet to transfer the data to Alibaba Cloud ECS, uninterruptedly. The Cloud Migration tool accesses the Alibaba Cloud services from the following endpoints:
 
-    -   Access ECS and VPC via HTTP 80 port: `http://ecs-cn-hangzhou.aliyuncs.com` and `http://vpc.aliyuncs.com`
+    -   Access ECS via HTTP 80 port: `http://ecs.aliyuncs.com`. For more information about detailed endpoints, see [Request structure](../reseller.en-US/API Reference/Getting started/Request structure.md#).
+
+    -   Access VPC via HTTP 80 port: `http://vpc.aliyuncs.com`
 
     -   Access STS service through HTTPS 443 port: `https://sts.aliyuncs.com`
 
@@ -21,6 +23,18 @@ To use Cloud Migration tool, consider the following:
 -   During migration, an ECS instance named INSTANCE\_FOR\_GOTOALIYUN is created by default under your Alibaba Cloud account. It acts as an intermediate station. To avoid migration failure, do not stop, restart, or release the intermediate ECS instance. The intermediate ECS instance is automatically released once the migration completes.
 
 -   If the AccessKey that you create belongs to a RAM user, you must make sure that the specified RAM user is granted with `AliyunECSFullAccess` and `AliyunVPCFullAccess` role to operate the Alibaba Cloud resources. For more information, see *RAM* document [Authorization policies](../../../../../reseller.en-US/User Guide/Authorization/Authorization Policy Management.md#).
+
+-   If shared memory is used in your on-premises server:
+
+    -   **Default action**:
+        -   For Windows servers: By default, Cloud Migration tool recognizes and uploads the data on a shared memory that is attached to the C drive as one part of the system disk.
+
+        -   For Linux servers: By default, Cloud Migration tool recognizes and uploads the data on a shared memory as one part of the system disk.
+
+    -   **Custom action**:
+        -   You can set the mount point directory of the shared memory as a data disk, and migrate it as an independent data disk.
+
+        -   Alternatively, you can filter out the directory of the shared memory from migration and the data on the shared memory will not be migrated.
 
 
 ## For on-premises servers running Linux OS {#section_pwq_sxz_jfb .section}
@@ -43,6 +57,10 @@ When your source server runs a Linux operation system, additional requirements i
 
 -   For server such as CentOS 5, Red Hat 5, or Debian that has a too old kernel, and the version of GRUB \(GRand Unified Bootloader\) is earlier than 1.9. You may [update the boot loader GRUB to a version later than 1.9](https://partners-intl.aliyun.com/help/doc-detail/62807.html).
 
+
+## Prerequisite {#section_jvk_ghd_nfb .section}
+
+You must have signed up for ECS snapshot service in the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 
 ## Step 1: Download and install the Cloud Migration tool {#section_twq_sxz_jfb .section}
 
@@ -366,20 +384,7 @@ If `Goto Aliyun Not Finished!` is displayed, check the log files in the logs fol
 
 ## What to do next {#section_g1r_sxz_jfb .section}
 
-You can [create a Pay-As-You-Go instance by using the custom image](../reseller.en-US/User Guide/Instances/Create an instance/Create an instance from a custom image.md#) or [change the system disk by using the custom image](../reseller.en-US/User Guide/Cloud disks/Change the system disk (custom image).md#) to test whether the custom image works or not.
+You can [create a Pay-As-You-Go instance by using the custom image](../reseller.en-US/User Guide/Instances/Create an instance/Create an instance from a custom image.md#) or [change the system disk by using the custom image](../reseller.en-US/User Guide/Cloud disks/Replace the system disk (non-public image).md#) to test whether the custom image works or not.
 
-After you migrate an on-premises Linux server, the data disks are not mounted by default. You may run `ls /dev/vd*` in the instances to mount the data disks manually as needed, and edit configuration file `/etc/fstab` to configure the mounting file systems. For more information, see [Linux\_Format and mount a data disk](../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format and mount data disks for Linux instances.md#).
-
-## Feedback and support {#section_kcl_3bh_mfb .section}
-
-For access to technical support and additional server migration support, choose any of the following options:
-
--   [Join the dedicated DingTalk Migration Tool group chat](https://h5.dingtalk.com/invite-page/index.html?code=ca190154ff). [DingTalk](https://www.dingtalk.com/en) is an enterprise communication and collaboration platform Developed by Alibaba Group.
-
--   In the Alibaba Cloud console, open a ticket.
-
--   Business hours access to cloud support via email of [server-migration@alibabacloud.com](mailto:server-migration@alibabacloud.com).
-
-
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9833/153967145113339_en-US.png)
+After you migrate an on-premises Linux server, the data disks are not mounted by default. You may run `ls /dev/vd*` in the instances to mount the data disks manually as needed, and edit configuration file `/etc/fstab` to configure the mounting file systems. For more information, see [Linux\_Format and mount a data disk](../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#).
 

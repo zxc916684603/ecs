@@ -1,6 +1,6 @@
 # DescribeInstanceStatus {#DescribeInstanceStatus .reference}
 
-Obtain the list of all your instances in batches with status information.
+Obtains the list of all your instances in batches with status information.
 
 ## Description {#section_yfq_yps_xdb .section}
 

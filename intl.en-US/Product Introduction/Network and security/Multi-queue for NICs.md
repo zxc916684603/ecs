@@ -1,10 +1,10 @@
 # Multi-queue for NICs {#concept_xwg_mjw_ydb .concept}
 
-A single CPU is not sufficient for handling network interruptions. Therefore, you should route NIC interruptions in the ECS instances to different CPUs. In the network PPS and bandwidth tests, a solution that uses two queues instead of one queue can enhance the performance by 50% to 100%. A solution that uses four queues can bring a significant increase in the performance.
+A single CPU is not sufficient for handling network interruptions. Therefore, you should route NIC interruptions in the ECS instances to different CPUs. Results of network PPS and bandwidth tests show that a solution that uses two queues instead of one queue can enhance network performance by 50% to 100%. A solution that uses four queues can bring further significant increases in network performance.
 
 ## ECS instance types supporting multi-queue {#section_bgd_bkw_ydb .section}
 
-See [Instance type families](intl.en-US/Product Introduction/Instance type families.md#) to find instance types supporting multi-queue and the number of queues that are supported.
+See [Instance type families](reseller.en-US/Product Introduction/Instance type families.md#) to find instance types supporting multi-queue and the number of queues that are supported.
 
 ## Images supporting multi-queue {#section_cgd_bkw_ydb .section}
 
@@ -76,19 +76,19 @@ Here we take CentOS 7.2 as an example to illustrate how to configure multi-queue
 
 ## Configure multi-queue support for NICs on a Windows ECS instance {#section_qgd_bkw_ydb .section}
 
-**Note:** We are inviting Windows users to test the performance improvement. Windows systems see improved network performance after using multi-queue for NICs, but the improvement is not as good as seen in Linux systems.
+**Note:** We are inviting Windows users to test the performance improvement. Windows systems see improved network performance after using multi-queue for NICs, but the improvement is not as much as for Linux systems.
 
 If you are using a Windows instance, you must install the driver to use the multi-queue feature for NICs.
 
 To install the driver for Windows systems, follow these steps:
 
-1.  [Open a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to request and download the driver installation package.
+1.  Open a ticket to request and download the driver installation package.
 2.  Unzip the driver installation package. For Windows 2012/2016 systems, use the driver in the Win8/amd64 folder.
 3.  Upgrade the NIC driver:
     1.  Select **Device Manager** \> **Network adapters**.
     2.  Right click **Red Hat VirtIO Ethernet Adapter** and select **Update Driver**.
     3.  Select the Win8/admin64 directory of the driver directory that you have unzipped, and update the driver.
-4.  After the driver is upgraded, we recommend that you restart the Windows system.
+4.  Recommended: Restart the Windows system after the driver is upgraded.
 
 The multi-queue feature for NICs is now ready to use.
 

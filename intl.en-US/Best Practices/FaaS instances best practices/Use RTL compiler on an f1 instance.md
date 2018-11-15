@@ -15,7 +15,7 @@ This article describes how to use Register Transfer Level \(RTL\) compiler on an
 
 -   Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs) to obtain the instance ID.
 -   Activate OSS and [create an OSS bucket](../../../../reseller.en-US/Quick Start/Create a bucket.md) to upload your files. The OSS bucket and the f1 instance must be owned by one account and operated in the same region.
--   For encryption, activate [Key Management Service \(KMS\)](https://help.aliyun.com/document_detail/28943.html).
+-   For encryption, activate [Key Management Service \(KMS\)](../../../../reseller.en-US/Quick Start/Quick start.md#).
 -   To operate FPGA as a RAM user, do the following in advance:
     -    [Create a RAM](../../../../reseller.en-US/Quick Start/Create a RAM user.md) and [grant permissions](../../../../reseller.en-US/Quick Start/Attach policies to a RAM user.md).
     -    [Create a RAM](../../../../reseller.en-US/User Guide/Identities/Role.md) and [grant permissions](../../../../reseller.en-US/User Guide/Authorization/Authorization.md).
@@ -34,7 +34,7 @@ To use RTL compiler on an f1 instance, follow these steps.
 Run the script to configure the basic environment.
 
 ```
-source /opt/dcp1_0/script/f1_env_set.sh
+source /opt/dcp1_1/script/f1_env_set.sh
 ```
 
 ## Step 3. Compile the project {#section_fcx_f53_dfb .section}
@@ -42,8 +42,9 @@ source /opt/dcp1_0/script/f1_env_set.sh
 Run the following commands to compile the project.
 
 ```
-
-cd /opt/dcp1_0/hw/samples/dma_afu
+cd /opt/dcp1_1/hw/samples/dma_afu
+afu_synth_setup --source hw/rtl/filelist.txt build_synth
+cd build_synth/
 run.sh
 ```
 
@@ -58,16 +59,16 @@ To create an image, follow these steps:
     ```
     
     # If needed, add the environment variable and grant permission to run the commands.
-    export PATH=$PATH:/opt/dcp1_0/script/
-    chmod +x /opt/dcp1_0/script/faascmd
+    export PATH=$PATH:/opt/dcp1_1/script/
+    chmod +x /opt/dcp1_1/script/faascmd
     # Replace hereIsMySecretId with your AccessKey ID. Replace hereIsMySecretKey with your AccessKey Secret. 
 faascmd config --id=hereIsMySecretId --key=hereIsMySecretKey
     faascmd config --id=hereIsYourSecretId --key=hereIsYourSecretKey
-    # Replace hereIsMyBucket with the OSS bucket name in the China East 1 region.
+    # Replace hereIsYourBucket with the OSS bucket name in the China East 1 region.
     faascmd auth --bucket=hereIsYourBucket
     ```
 
-2.  Make sure you are at the /opt/dcp1\_0/hw/samples/dma\_afu directory, and run the command to upload the gbs file.
+2.  Make sure you are at the /opt/dcp1\_1/hw/samples/dma\_afu directory, and run the command to upload the gbs file.
 
     ```
     faascmd upload_object --object=dma_afu.gbs --file=dma_afu.gbs
@@ -78,7 +79,7 @@ faascmd config --id=hereIsMySecretId --key=hereIsMySecretKey
     ```
     
     #  Replace hereIsYourImageName with your image name.
-    faascmd create_image --object=dma_afu.gbs --fpgatype=intel --name=hereIsYourImageName --tags=hereIsYourImageTag --encrypted=false --shell=V0.11
+    faascmd create_image --object=dma_afu.gbs --fpgatype=intel --name=hereIsYourImageName --tags=hereIsYourImageTag --encrypted=false --shell=V1.1
     ```
 
 
@@ -90,7 +91,7 @@ To download the image, follow these steps:
 
     If `"State":"success"` exists in the returned result, it means the image is created. Record the FpgaImageUUID. Record the **FpgaImageUUID**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/153933862012086_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/154149389412086_en-US.png)
 
 2.  Run the command to obtain FPGA ID.
 
@@ -102,7 +103,7 @@ To download the image, follow these steps:
 
     Record FpgaUUID in the returned result.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/153933862012087_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/154149389412087_en-US.png)
 
 3.  Run the command to download the image to your f1 instance.
 
@@ -122,7 +123,7 @@ To download the image, follow these steps:
 
     If `"TaskStatus":"operating"` exists in the returned result, and the displayed FpgaImageUUID is identical with your recorded FpgaImageUUID, the image is downloaded.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/153933862012088_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/154149389412088_en-US.png)
 
 
 ## Step 6. Test {#section_xcx_f53_dfb .section}
@@ -131,14 +132,14 @@ Run the commands one by one for test.
 
 ```
 
-cd /opt/dcp1_0/hw/samples/dma_afu/sw
+cd /opt/dcp1_1/hw/samples/dma_afu/sw
 make
-sudo LD_LIBRARY_PATH=/opt/dcp1_0/hw/samples/dma_afu/sw:$LD_LIBRARY_PATH ./fpga_dma_test 0
+sudo LD_LIBRARY_PATH=/opt/dcp1_1/hw/samples/dma_afu/sw:$LD_LIBRARY_PATH ./fpga_dma_test 0
 ```
 
 If the following result is returned, the test is completed.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/153933862012089_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/154149389412089_en-US.png)
 
 **Note:** If the Huge pages feature is not enabled, run the following command to enable it.
 

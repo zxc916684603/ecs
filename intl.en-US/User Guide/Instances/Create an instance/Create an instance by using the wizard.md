@@ -1,24 +1,24 @@
 # Create an instance by using the wizard {#task_vwq_5g4_r2b .task}
 
-This article describes how to create an instance using the console wizard. If you want to create a custom image from a snapshot of a system disk, and then use the custom image to create an ECS instance.
+This article describes how to create an instance using the console wizard.
 
--   Before creating the ECS instance, you have completed the [preparation work](../../../../intl.en-US/Quick Start for Entry-Level Users/Preparations.md#).
--   To bind an SSH key pair when creating a Linux instance, you need to [create an SSH key pair](intl.en-US/User Guide/Key pairs/Create an SSH key pair.md#) in the target region.
--   To set the user-defined data, you need to prepare the [user data](intl.en-US/User Guide/Instances/User-defined data and metadata/User data.md#).
--   To authorize an instance to play a role, you need to [create an instance RAM role and grant it permissions](https://help.aliyun.com/document_detail/61175.html?spm=a2c4g.11186623.2.12.CscUFl).
+-   Before creating an ECS instance, you must complete the [preparation work](../../../../intl.en-US/Quick Start for Entry-Level Users/Preparations.md#).
+-   To bind an SSH key pair when creating a Linux instance, you must [create an SSH key pair](intl.en-US/User Guide/Key pairs/Create an SSH key pair.md#) in the target region.
+-   To set the user-defined data, you must prepare the [user data](intl.en-US/User Guide/Instances/User-defined data and metadata/User data.md#).
+-   To authorize an instance to play a role, you must [create an instance RAM role and grant it permissions](https://help.aliyun.com/document_detail/61175.html?spm=a2c4g.11186623.2.12.CscUFl).
 
 1.  Log on to the [ECS console](https://ecs.console.aliyun.com/#/home). 
 2.  In the left-side navigation pane, click **Instances**. 
-3.  On the Instances page, click **Create Instance**. 
-4.  Follow these steps to finish Basic Configurations: 
+3.  Click **Create Instance**. 
+4.  Complete the Basic Configurations as follows: 
     1.  Select a **Billing Method**: **Subscription** or **Pay-As-You-Go**. 
-    2.  Select a region and zone. By default, a zone is assigned randomly. You can also select an applicable one. For more information about regions and zones, see [regions and zones](https://www.alibabacloud.com/help/doc-detail/40654.htm?spm=a2c63.p38356.a3.13.4c3b587a2IQHFX). 
+    2.  Select a region and zone. By default, a zone is assigned randomly. You can also select an applicable one. For more information about regions and zones, see [regions and zones](../../../../intl.en-US/General Reference/Regions and zones.md#). 
 
         **Note:** 
 
         -   After an instance is created, you cannot change its region and zone.
-        -   Some instance type families are not supported in all regions. For more information, see [create a compute optimized instance with GPUs](intl.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#), [create an f1 instance](intl.en-US/User Guide/Instances/Create an instance/Create an f1 instance.md#), [create an f2 instance](intl.en-US/User Guide/Instances/Create an instance/Create an f2 instance.md#), [create an SCC server instance](intl.en-US/User Guide/Instances/Create an instance/Create an SCC server instance.md#), and [create an EBM instance](intl.en-US/User Guide/Instances/Create an instance/Create an EBM instance.md#).
-    3.  Select an instance type and specify the quantity of instances. The available instance type families are determined by the selected region. For the application scenarios of each instance type, see [instance type families](../../../../intl.en-US/Product Introduction/Instance type families.md#). 
+        -   Some instance type families are not supported in all regions. For more information, see [Create a compute optimized instance with GPUs](intl.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#), [Create an f1 instance](intl.en-US/User Guide/Instances/Create an instance/Create an f1 instance.md#), [Create an f2 instance](intl.en-US/User Guide/Instances/Create an instance/Create an f2 instance.md#), [Create an SCC server instance](intl.en-US/User Guide/Instances/Create an instance/Create an SCC server instance.md#), and [Create an EBM instance](intl.en-US/User Guide/Instances/Create an instance/Create an EBM instance.md#).
+    3.  Select an instance type and specify the quantity of instances. The availability of an instance type family is determined by the selected region. For the application scenarios of each instance type, see [instance type families](../../../../intl.en-US/Product Introduction/Instance type families.md#). 
 
         **Note:** 
 

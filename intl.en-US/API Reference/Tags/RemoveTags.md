@@ -7,7 +7,7 @@ Removes one or more tags from the specified ECS resource, such as instances, dis
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: RemoveTags.|
-|RegionId|String|Yes|The ID of the region to which the ECS resource belongs. For more information, see Regions and zones, or call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|The ID of the region to which the ECS resource belongs. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |ResourceType|String|Yes|Indicates the type of resource when you bind a tag to it. Optional values:-   disk
 -   instance
 -   image
@@ -17,7 +17,7 @@ Removes one or more tags from the specified ECS resource, such as instances, dis
 All values are in lowercase.|
 |ResourceId|String|Yes|Resource ID. For example, if you set the `ResourceType` to `instance`, the resource ID can be interpreted as the instance ID.|
 |Tag.n.Key|String|No|The tag key where `n` ranges from 1 to 5. You can call [DescribeTags](intl.en-US/API Reference/Tags/DescribeTags.md#) to view your available tags.|
-|Tag.n.Value|String|No|The tag value where `n`  ranges from 1 to 5. If you do not use this parameter, the tag that is specified by the `Tag.n.Key` is removed from the specified resource.|
+|Tag.n.Value|String|No|The tag value where `n` ranges from 1 to 5. If you do not use this parameter, the tag that is specified by the `Tag.n.Key` is removed from the specified resource.|
 
 ## Response parameters {#section_f54_lk5_xdb .section}
 
@@ -32,8 +32,8 @@ https://ecs.aliyuncs.com/?Action=RemoveTags
 &ResourceId=s-946ntx4wr
 &ResourceType=snapshot
 &RegionId=cn-shenzhen
-&Tag. 1. Key=test
-&Tag. 1. Value=api
+&Tag.1.Key=test
+&Tag.1.Value=api
 &<Common Request Parameters>
 ```
 
@@ -50,9 +50,9 @@ https://ecs.aliyuncs.com/?Action=RemoveTags
  **JSON format** 
 
 ```
-
+{
   "RequestId": "6A2C8AB5-E15D-478C-B56A-CF3DAF060028"
-
+}
 ```
 
 ## Error codes {#ErrorCode .section}

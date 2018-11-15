@@ -13,7 +13,7 @@ Alibaba Cloud ECS provides two kinds of instance type families: enterprise-level
 **Note:** 
 
 -   If you are using sn1, sn2, t1, s1, s2, s3, m1, m2, c1, c2, c4, ce4, cm4, n1, n2, or e3, see [Phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm).
--   Upgrading instance types is supported within or between certain instance type families. For such families and corresponding upgrade rules, see [Instance type families that support upgrading instance types](../../../../reseller.en-US/User Guide/Instances/Change configurations/Instance type families that support instance type upgrades.md#).
+-   Upgrading instance types is supported within or between certain instance type families. For such families and corresponding upgrade rules, see [Instance type families that support upgrading instance types](../../../../reseller.en-US/User Guide/Change configurations/Instance type families that support instance type upgrades.md#).
 -   Upgrading instance types is not supported within or between the following instance type families: d1, d1ne, i1, i2, i2g, ga1, gn5, f1, f2, f3, ebmc4, ebmg5, sccg5, and scch5.
 
 Alibaba Cloud ECS instances are categorized into the following type families:
@@ -676,7 +676,7 @@ Click [here](#) to view other instance type families.
 |ecs.ga1.8xlarge|32|80.0|1 \* 700|2 \* AMD S7150|6.0|800|3|8|
 |ecs.ga1.14xlarge|56|160.0|1 \* 1400|4 \* AMD S7150|10.0|1,200|4|8|
 
-**Note:** For more information, see [Create an instance of ga1](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create an instance of ga1.md#).
+**Note:** For more information, see [Create an instance of ga1](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a ga1 instance.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -1007,7 +1007,7 @@ Click [here](#) to view other instance type families.
 
 Click [here](#) to view other instance type families.
 
-\* Cache disks, or Local disks, are the disks located on the physical servers \(host machines\) that ECS instances are hosted on. They provide temporary block level storage for instances. In some cases, such as when the computing resources of an instance, including CPU and memory, are released, or an instance is inactive while migration occurs, data on the local disks is erased. For more information, see [Local disks](reseller.en-US/Product Introduction/Block storage/Local disks.md#).
+\* Cache disks, or Local disks, are the disks located on the physical servers \(host machines\) that ECS instances are hosted on. They provide temporary block level storage for instances. Block storage capacity is measured in binary units. In some cases, such as when the computing resources of an instance, including CPU and memory, are released, or an instance is inactive while migration occurs, data on the local disks is erased. For more information, see [Local disks](reseller.en-US/Product Introduction/Block storage/Local disks.md#).
 
 \*\* The maximum bandwidth of inbound and outbound traffic.
 

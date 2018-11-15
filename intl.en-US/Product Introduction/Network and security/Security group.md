@@ -6,8 +6,8 @@ A security group is a logical group that contains instances in the same region w
 
 ## Security group restrictions {#section_njr_v5m_v2b .section}
 
--   There is a maximum limit for the number of security groups you can have for a region. The limit depends on your level of experience with Alibaba Cloud. For new users, the limit is 100 security groups. For more experienced users, the limit is higher. To raise the upper limit, you can [open a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex).
--   Each Elastic Network Interface \(ENI\) of an instance can join to up to five security groups by default. You can [open a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex) to raise the upper limit to a maximum of 16.
+-   There is a maximum limit for the number of security groups you can have for a region. The limit depends on your level of experience with Alibaba Cloud. For new users, the limit is 100 security groups. For more experienced users, the limit is higher. To raise the upper limit, you can open a ticket.
+-   Each Elastic Network Interface \(ENI\) of an instance can join to up to five security groups by default. You can open a ticket to raise the upper limit to a maximum of 16.
 -   Security groups have two network types: classic network and Virtual Private Cloud \(VPC\).
     -   Classic network instances can join security groups on classic networks in the same region.
 

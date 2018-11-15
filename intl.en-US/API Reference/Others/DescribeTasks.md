@@ -7,9 +7,9 @@ Queries the progress of a specified asynchronous task.
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: DescribeTasks.|
-|RegionId|String|Yes|Region ID. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|TaskAction|String|Yes|The specified action to be queried. Optional values:-   ImportImage: Query the task of \([ImportImage](intl.en-US/API Reference/Images/ImportImage.md#)\).
--   ExportImage: Query the task of \([ExportImage](intl.en-US/API Reference/Images/ExportImage.md#)\).
+|RegionId|String|Yes|Region ID. For more information, call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|TaskAction|String|Yes|The specified action to be queried. Optional values:-   ImportImage: Query the task of \([ImportImage](reseller.en-US/API Reference/Images/ImportImage.md#)\).
+-   ExportImage: Query the task of \([ExportImage](reseller.en-US/API Reference/Images/ExportImage.md#)\).
 
 |
 |TaskIds|String|No|Task ID. Up to 100 task IDs are supported, and they are separated by comma \(`,`\).|
@@ -31,7 +31,7 @@ Default value: null.Currently, you can query the task in the `Finished` and `Pro
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|TaskSet|[TaskType](intl.en-US/API Reference/Data type/TaskType.md#)|TaskSet|
+|TaskSet|[TaskType](reseller.en-US/API Reference/Data type/TaskType.md#)|TaskSet|
 |RegionId|String|Regional ID.|
 |TotalCount|Integer|Number of items in the list.|
 |PageNumber|Integer|Current page number.|
@@ -114,8 +114,6 @@ https://ecs.aliyuncs.com/?Action=DescribeTasks
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more error codes, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|

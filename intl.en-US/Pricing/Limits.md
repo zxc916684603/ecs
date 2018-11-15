@@ -18,7 +18,7 @@ The ECS instance you want to switch the billing method for must meet the followi
 
     If an order to switch the billing method has been placed successfully when the ECS instance is in a **running** or **stopped**status, but the instance status changes so it no longer meets the preceding requirement when payment is attempted for the order, the order fails and the billing method is unchanged. You can go to the billing center and pay for the order when the instance is in a running or stopped status again.
 
--   [No timed release is set for the instance](../../../../intl.en-US/User Guide/Instances/Release an instance.md#).
+-   [No timed release is set for the instance](../../../../reseller.en-US/User Guide/Instances/Release an instance.md#).
 
     If the release time has been set for an instance, you need disable the timed release configuration and then switch the billing method.
 
@@ -29,7 +29,7 @@ The ECS instance you want to switch the billing method for must meet the followi
 
 ## Procedure {#section_s3c_51f_zdb .section}
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/#/home).
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, click **Instances**.
 3.  Select a region.
 4.  Select one or more Pay-As-You-Go instances, and under the instance list, click **Switch to Subscription**.

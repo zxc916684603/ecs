@@ -6,7 +6,7 @@ Shares a custom image to other Alibaba Cloud users. Alternatively, withdraws the
 
 When you call this interface, consider the following:
 
--   You can only share your custom images to other Alibaba Cloud users.
+-   You can only share custom images to other Alibaba Cloud users.
 
 -   One image can be shared to a maximum of 10 Alibaba Cloud accounts at a time. Or up to 10 accounts to whom a custom image is shared can be removed at a time.  If more than 10 account IDs are specified in the parameter `AddAccount.n` or `RemoveAccount.n`, the parameter takes no effect.
 
@@ -58,9 +58,9 @@ https://ecs.aliyuncs.com/?Action=ModifyImageSharePermission
  **JSON format** 
 
 ```
-
+{
     "RequestId": "C8B26B44-0189-443E-9816-D951F59623A9"
-
+}
 ```
 
 ## Error codes {#ErrorCode .section}

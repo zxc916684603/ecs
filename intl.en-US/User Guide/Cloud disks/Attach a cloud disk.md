@@ -44,8 +44,8 @@ To attach one or multiple cloud disks to a specified ECS instance, follow these 
 
     |Disk content|Operating system of the ECS instance|Follow-up operations|
     |:-----------|:-----------------------------------|:-------------------|
-    |A new empty cloud disk|Linux|[Format a data disk for Linux instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#). If the cloud disk is larger than 2 TiB, see [partition and format data disk more than 2 TB](reseller.en-US/User Guide/Cloud disks/Note.md#).|
-    |Windows|[Format a data disk for Windows instances](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Windows instances.md#). If the cloud disk is larger than 2 TiB, see [partition and format data disk more than 2 TB](reseller.en-US/User Guide/Cloud disks/Note.md#).|
+    |A new empty cloud disk|Linux|[Format a data disk for Linux instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#). If the cloud disk is larger than 2 TiB, see [Partition and format data disk more than 2 TiB](reseller.en-US/User Guide/Cloud disks/Partition and format data disk more than 2 TiB.md#).|
+    |Windows|[Format a data disk for Windows instances](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Windows instances.md#). If the cloud disk is larger than 2 TiB, see [Partition and format data disk more than 2 TiB](reseller.en-US/User Guide/Cloud disks/Partition and format data disk more than 2 TiB.md#).|
     |A cloud disk from a snapshot|Linux|Connect to the Linux instance and run the `mount` command to mount the partitions to make the disk ready for use.|
     |Windows|No follow-up operations are required. The cloud disk is ready for use.|
 
@@ -73,8 +73,8 @@ To attach a cloud disks to an ECS instances, follow these steps:
 
     |Disk content|Operating system of the ECS instance|Follow-up operations|
     |:-----------|:-----------------------------------|:-------------------|
-    |A new empty cloud disk|Linux|[Format a data disk for Linux instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#). If the cloud disk is larger than 2 TiB, see [partition and format data disk more than 2 TB](reseller.en-US/User Guide/Cloud disks/Note.md#).|
-    |Windows|[Format a data disk for Windows instances](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Windows instances.md#). If the cloud disk is larger than 2 TiB, see [partition and format data disk more than 2 TB](reseller.en-US/User Guide/Cloud disks/Note.md#).|
+    |A new empty cloud disk|Linux|[Format a data disk for Linux instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#). If the cloud disk is larger than 2 TiB, see [Partition and format data disk more than 2 TiB](reseller.en-US/User Guide/Cloud disks/Partition and format data disk more than 2 TiB.md#).|
+    |Windows|[Format a data disk for Windows instances](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Windows instances.md#). If the cloud disk is larger than 2 TiB, see [Partition and format data disk more than 2 TiB](reseller.en-US/User Guide/Cloud disks/Partition and format data disk more than 2 TiB.md#).|
     |A cloud disk from a snapshot|Linux|Connect to the Linux instance and run the `mount` command to mount the partitions to make the disk ready for use.|
     |Windows|No follow-up operations are required. The cloud disk is ready for use.|
 
@@ -85,7 +85,7 @@ After a cloud disk is attached to an ECS instance, you can perform any of the fo
 
 -   You can [reinitialize a cloud disk](reseller.en-US/User Guide/Cloud disks/Reinitialize a cloud disk.md#) to restore it to the initial status after it is created.
 -   You can increase the size of the cloud disk by resizing it. For more information, see [Linux \_ Resize a data disk](reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md#) or [Windows \_ Resize a data disk](reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Windows _ Resize a data disk.md#).
--   You can [create snapshots](reseller.en-US/User Guide/Snapshots/Create snapshots.md#) of the cloud disk to back up data. Alternatively, you can [apply automatic snapshot policies to disks](reseller.en-US/User Guide/Snapshots/Apply automatic snapshot policies to disks.md#).
+-   You can [create snapshots](reseller.en-US/User Guide/Snapshots/Create a snapshot.md#) of the cloud disk to back up data. Alternatively, you can [apply automatic snapshot policies to disks](reseller.en-US/User Guide/Snapshots/Apply automatic snapshot policies to disks.md#).
 -   You can use a snapshot to [roll back a cloud disk](reseller.en-US/User Guide/Cloud disks/Roll back a cloud disk.md#) to restore the cloud disk to a previous state.
 -   You can [detach a cloud disk](reseller.en-US/User Guide/Cloud disks/Detach a cloud disk.md#) and [release a cloud disk](reseller.en-US/User Guide/Cloud disks/Release a cloud disk.md#) when you no longer require a cloud disk to reduce costs.
 

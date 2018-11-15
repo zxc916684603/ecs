@@ -4,7 +4,7 @@ Available resource types.
 
 ## Node {#section_qyr_mfp_ydb .section}
 
-It depends on the interface.
+Depends on the methods.
 
 ## Subnode {#ResponseParameter .section}
 

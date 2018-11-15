@@ -10,5 +10,5 @@ Permissions
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|Permision|[PermissionType](intl.en-US/API Reference/Data type/PermissionType.md#)|Security group `PermissionType`|
+|Permision|[PermissionType](intl.en-US/API Reference/Data type/PermissionType.md#)|Security group `PermissionType`.|
 

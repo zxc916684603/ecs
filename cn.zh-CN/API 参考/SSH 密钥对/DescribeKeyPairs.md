@@ -7,7 +7,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeKeyPairs|
-|RegionId|String|是|密钥对所在的地域ID。您可以调用[DescribeRegions](../cn.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
+|RegionId|String|是|密钥对所在的地域ID。您可以调用[DescribeRegions](../intl.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
 |KeyPairFingerPrint|String|否|密钥对的指纹。根据RFC4716定义的公钥指纹格式，采用MD5信息摘要算法。更多详情，请参阅[RFC4716](http://tools.ietf.org/html/rfc4716)。|
 |KeyPairName|String|否|密钥对名称。支持正则表达式模糊搜索，使用`*`匹配子表达式，示例：-   `*SshKey`：查询以*SshKey*结尾的密钥对名称，包括*SshKey*。
 -   `SshKey*`：查询以*SshKey*开头的密钥对名称，包括*SshKey*。
@@ -22,7 +22,7 @@
 
 |
 |Tag.n.Key|String|否|密钥对的标签键。n的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http://或者https://开头。|
-|Tag.n.Value|String|否|密钥对的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、http://或者https://开头。|
+|Tag.n.Value|String|否|密钥对的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http://或者https://开头。|
 
 ## 返回参数 {#ResponseParameter .section}
 
@@ -32,7 +32,7 @@
 |PageNumber|Integer|当前页码。|
 |PageSize|Integer|每页行数。|
 |RegionId|String|密钥对所属地域ID。|
-|KeyPairs|[KeyPairItemType](cn.zh-CN/API 参考/数据类型/KeyPairItemType.md#)|密钥对信息集合。|
+|KeyPairs|[KeyPairItemType](intl.zh-CN/API 参考/数据类型/KeyPairItemType.md#)|密钥对信息集合。|
 
 ## 示例 { .section}
 
@@ -86,7 +86,7 @@ https://ecs.aliyuncs.com/?Action=DescribeKeyPairs
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP状态码|说明|
 |:---|:---|:------|:-|

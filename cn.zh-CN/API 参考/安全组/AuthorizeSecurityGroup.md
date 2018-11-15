@@ -6,7 +6,7 @@
 
 我们定义入方向流量的发起端为源端（Source），数据传输的接收端为目的端（Destination），如下图所示。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9917/3982_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9917/15395031993982_zh-CN.png)
 
 调用该接口时，您需要了解：
 
@@ -32,7 +32,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：AuthorizeSecurityGroup|
-|RegionId|String|是|安全组所属地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|安全组所属地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |SecurityGroupId|String|是|目的端安全组 ID。|
 |IpProtocol|String|是|传输层协议。取值大小写敏感。取值范围：-   tcp
 -   udp
@@ -44,7 +44,7 @@
 |PortRange|String|是|`SecurityGroupId` 方开放的传输层协议相关的端口范围。取值范围：-   TCP/UDP 协议：取值范围为 \[1, 65535\] 。使用斜线（/）隔开起始端口和终止端口。正确示范：`1/200`；错误示范：`200/1`。
 -   ICMP 协议：-1/-1
 -   GRE 协议：-1/-1
--    `IpProtocol` 取值为 `all`：-1/-1
+-   `IpProtocol` 取值为 `all`：-1/-1
 
 |
 |SourcePortRange|String|否|源端安全组开放的传输层协议相关的端口范围。取值范围：-   TCP/UDP 协议：取值范围为 \[1, 65535\] 。使用斜线（/）隔开起始端口和终止端口。正确示范：`1/200`；错误示范：`200/1`。
@@ -61,8 +61,12 @@
 -   drop：拒绝访问，不发回拒绝信息。
 
 默认值：accept|
-|DestCidrIp|String|否|目的端 IP 地址范围。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。默认值：0.0.0.0/0|
-|SourceCidrIp|String|否|源端 IP 地址范围。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。默认值：0.0.0.0/0|
+|DestCidrIp|String|否|目的端 IP 地址范围。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。默认值：0.0.0.0/0
+
+|
+|SourceCidrIp|String|否|源端 IP 地址范围。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。默认值：0.0.0.0/0
+
+|
 |SourceGroupId|String|否|需要设置访问权限的源端安全组 ID。至少设置一项 `SourceGroupId` 或者 `SourceCidrIp` 参数。如果指定了 `SourceGroupId` 没有指定参数 `SourceCidrIp`，则参数 `NicType` 取值只能为 `intranet`。
 
 如果同时指定了 `SourceGroupId` 和 `SourceCidrIp`，则默认以 `SourceCidrIp` 为准。
@@ -83,13 +87,15 @@
 
 ## 返回参数 {#section_px3_2g1_ydb .section}
 
-全是公共返回参数。参阅 [公共参数](intl.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅 [公共返回参数](cn.zh-CN/API 参考/快速入门/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
+更多关于安全组规则的设置示例，请参阅 [应用案例](../cn.zh-CN/用户指南/安全组/应用案例.md#)、[安全组规则的典型应用](../cn.zh-CN/用户指南/安全组/安全组规则的典型应用.md#) 和 [安全组五元组规则介绍](https://yq.aliyun.com/articles/272107)。
+
 **请求示例一** 
 
-设置指定 IP 地址段的访问权限。此时，经典网络类型安全组的网卡类型（`NicType`）可设置公网（`internet`）和 [内网](../../../../intl.zh-CN/产品简介/网络和安全性/内网.md#)（`intranet`）。VPC 类型安全组的网卡类型（`NicType`）只可设置内网（`intranet`）。
+设置指定 IP 地址段的访问权限。此时，经典网络类型安全组的网卡类型（`NicType`）可设置公网（`internet`）和 [内网](../cn.zh-CN/产品简介/网络和安全性/内网.md#)（`intranet`）。VPC 类型安全组的网卡类型（`NicType`）只可设置内网（`intranet`）。
 
 ```
 https://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
@@ -98,11 +104,11 @@ https://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
 &IpProtocol=tcp
 &PortRange=1/65535
 &NicType=intranet
-&Policy=Allow
+&Policy=accept
 &<公共请求参数>
 ```
 
-**请求示例二**
+ **请求示例二** 
 
 设置其他安全组的访问权限。此时，网卡类型（`NicType`）只能为内网（`intranet`）。经典网络类型安全组之间互访时，可以设置同一地域中其他安全组对您的安全组的访问权限。这个安全组可以是您的也可以是其他阿里云账户（`SourceGroupOwnerAccount`）的。VPC 类型安全组之间互访时，可以设置同一 VPC 内其他安全组访问该安全组的访问权限。
 
@@ -114,7 +120,7 @@ https://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
 &IpProtocol=tcp
 &PortRange=1/65535
 &NicType=intranet
-&Policy=Drop
+&Policy=drop
 &<公共请求参数>
 ```
 
@@ -128,7 +134,7 @@ https://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
 </AuthorizeSecurityGroupResponse>
 ```
 
- **JSON 格式** 
+**JSON 格式** 
 
 ```
 {
@@ -138,7 +144,7 @@ https://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|

@@ -11,5 +11,5 @@ IpRanges
 |Name|Type|Description|
 |:---|:---|:----------|
 |IpAddress|String| IP address range specified in CIDR format.|
-|NicType|String|Network type, which can be Internet and Intranet.|
+|NicType|String|Network type, which can be Internet or Intranet.|
 

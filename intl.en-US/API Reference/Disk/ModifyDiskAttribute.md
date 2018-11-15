@@ -1,10 +1,10 @@
 # ModifyDiskAttribute {#ModifyDiskAttribute .reference}
 
-Modifies the attribute of your cloud disk.
+Modifies the attribute of a cloud disk.
 
 ## Description {#section_ntk_xp5_xdb .section}
 
-In this interface, when the **DeleteWithInstance** \(`DeleteWithInstance=false`\) attribute is set to false, once the ECS instance on which the disk is attached is  [locked](intl.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#) and the `OperationLocks` of instance indicates `"LockReason" : "security"`, the `DeleteWithInstance` attribute of disk is ignored and the disk is released along with the instance.
+In this interface, when the **DeleteWithInstance** \(`DeleteWithInstance=false`\) attribute is set to false, once the ECS instance on which the disk is attached is [locked](reseller.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#) and the `OperationLocks` of instance indicates `"LockReason" : "security"`, the `DeleteWithInstance` attribute of disk is ignored and the disk is released along with the instance.
 
 ## Request parameters {#RequestParameter .section}
 
@@ -12,12 +12,12 @@ In this interface, when the **DeleteWithInstance** \(`DeleteWithInstance=false`\
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: ModifyDiskAttribute.|
 |DiskId|String|Yes|ID of the target disk.|
-|DiskName|String|No|The disk name.-   Can contain \[2, 128\] English letters. Must begin with an uppercase or lowercase letter. Can contain digits, colons\(:\), periods \(.\), underscores \(\_\), and hyphens \(-\).
--   Cannot begin with http:// or https://.
+|DiskName|String|No|The disk name.-   It can contain \[2, 128\] English letters an must begin with an uppercase or lowercase letter. Can contain digits, colons \(:\), periods \(.\), underscores \(\_\), and hyphens \(-\).
+-   It cannot begin with http:// or https://.
 -   If it is left empty, the original value is used. The default value is null.
 
 |
-|Description|String|No|The description of a disk.-   Can contain \[2, 256\] letters. Must begin with an uppercase or lowercase letter. Can contain digits, colons\(:\), periods \(.\), underscores \(\_\), and hyphens \(-\).
+|Description|String|No|The description of a disk.-   It can contain \[2, 256\] letters and must begin with an uppercase or lowercase letter. Can contain digits, colons \(:\), periods \(.\), underscores \(\_\), and hyphens \(-\).
 -   Cannot begin with http:// or https://.
 -   If it is left empty, the original value is used. The default value is null.
 
@@ -40,7 +40,7 @@ Default value: None.|
 
 ## Response parameters {#section_b5k_xp5_xdb .section}
 
-All are common return parameters. For more information, see [Common parameters](intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
+All are common return parameters. For more information, see [Common parameters](reseller.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
 
 ## Examples { .section}
 
@@ -66,21 +66,19 @@ https://ecs.aliyuncs.com/?Action=ModifyDiskAttribute
  **JSON format** 
 
 ```
-
+{
     "RequestId": "473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E"
-
+}
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|
 |InvalidDiskName.Malformed|The specified disk name is wrongly formed.|400|The format of the specified DiskName is incorrect.|
 |NoAttributeToModify|No attribute to be modified in this request.|400|Duplicate requests.|
 |DiskNotPortable|The specified disk is not a portable disk.|403|When you set the `DeleteWithInstance=false` attribute, you cannot set the attribute `Portable` of the specified cloud disk to `false`.|
-|IncorrectDiskStatus|The operation is not supported in this status.|403|The status of the cloud disk is incorrect. For more information, see [Basic cloud disk status table](intl.en-US/API Reference/Appendix/Basic cloud disk status table.md#).|
+|IncorrectDiskStatus|The operation is not supported in this status.|403|The status of the cloud disk is incorrect. For more information, see [Basic cloud disk status](reseller.en-US/API Reference/Appendix/Basic cloud disk status table.md#).|
 |InvalidDescription.Malformed|The specified description is wrongly formed.|404|The format of specified Description is incorrect.|
 |InvalidDiskId.NotFound|The specified disk does not exist.|404|The specified DiskId does not exist.|
 

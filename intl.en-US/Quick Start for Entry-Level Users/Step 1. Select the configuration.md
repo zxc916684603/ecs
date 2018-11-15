@@ -11,13 +11,13 @@ This article is applicable to entry-level users. The recommended configurations 
 |General|2 vCPU + 4 GiB memory \(ecs.n4.large\)|40 GiB Ultra Cloud Disks|2 Mbps|It can meet the needs of 90% of entry-level users, and is applicable to enterprise operations, parallel computing and common data processing.|
 |Ideal|4 vCPU + 16 GiB memory \(ecs.sn2ne.xlarge\)|40 GiB Ultra Cloud Disks|5 Mbps|It is applicable to large and medium-sized websites, distributed analytics and computing, and Web applications.|
 
-For more information, see [xn4 type family](../../../../intl.en-US/Product Introduction/Instance type families.md#xn4), [n4 type family](../../../../intl.en-US/Product Introduction/Instance type families.md#n4), and [sn2ne type family](../../../../intl.en-US/Product Introduction/Instance type families.md#sn2ne).
+For more information, see [xn4 type family](../../../../reseller.en-US/Product Introduction/Instance type families.md#xn4), [n4 type family](../../../../reseller.en-US/Product Introduction/Instance type families.md#n4), and [sn2ne type family](../../../../reseller.en-US/Product Introduction/Instance type families.md#sn2ne).
 
-Alibaba Cloud provides a flexible and editable way to modify your configuration. For subscription users, if the configuration is found to be excessively high or low in practice, you can [upgrade or downgrade instance configurations](../../../../intl.en-US/User Guide/Instances/Change configurations/Overview of configuration changes.md#).
+Alibaba Cloud provides a flexible and editable way to modify your configuration. For subscription users, if the configuration is found to be excessively high or low in practice, you can [upgrade or downgrade instance configurations](../../../../reseller.en-US/User Guide/Instances/Change configurations/Overview of configuration changes.md#).
 
-For more instance types, see [Instance type families](../../../../intl.en-US/Product Introduction/Instance type families.md#).
+For more instance types, see [Instance type families](../../../../reseller.en-US/Product Introduction/Instance type families.md#).
 
-For more information about web hosting, see [Web Application Hosting](https://www.alibabacloud.com/solutions/hosting).
+For more information about web hosting, see [Web Application Hosting](https://partners-intl.aliyun.com/vodafone/solutions/hosting).
 
 After confirming the configuration scheme, you can start to create an ECS instance.
 

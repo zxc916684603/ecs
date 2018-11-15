@@ -7,7 +7,7 @@ Installs the cloud assistant client on one or more instances. After you call Ins
 |Name |Type|Required|Description|
 |:----|:---|:-------|:----------|
 |Action|String|Yes|The operation that you want to perform. Value: InstallCloudAssistant.|
-|RegionId|String|Yes|The ID of the region where the ECS instance is located. You can call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to view the latest region list.|
+|RegionId|String|Yes|The ID of the region where the ECS instance is located. You can call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to view the latest region list.|
 |InstanceIds|Array|Yes|The list of instance IDs. For example, if Python SDK is used, you can set the value to \[InstanceID1, InstanceID2, InstanceID3…\]. A single request supports up to 100 instances.|
 
 ## Response parameters {#ResponseParameter .section}
@@ -42,8 +42,6 @@ https://ecs.aliyuncs.com/?Action=InstallCloudAssistant
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Description|
 |:---------|:------------|:---------------|:----------|

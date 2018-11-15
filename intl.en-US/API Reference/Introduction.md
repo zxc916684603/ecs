@@ -4,7 +4,7 @@ This topic provides the API reference of Alibaba Cloud Elastic Compute Service 
 
 ## Limits {#section_un5_qbh_vdb .section}
 
-We set limits on the number and specification for the ECS instance, disk, security group, snapshot, and network bandwidth that you can create. For more information, see [Limits](../../../../reseller.en-US/User Guide/Limitations.md#). Whenever the API description, optional parameter values, and available specifications conflict with the resource or specification limits described in the [Limits](../../../../reseller.en-US/User Guide/Limitations.md#), the **Limits** topic always takes the precedence.
+We set limits on the number and specification for the ECS instance, disk, security group, snapshot, and network bandwidth that you can create. For more information, see [Limits](../../../../reseller.en-US/User Guide/Limits.md#). Whenever the API description, optional parameter values, and available specifications conflict with the resource or specification limits described in the [Limits](../../../../reseller.en-US/User Guide/Limits.md#), the Limits topic always takes the precedence.
 
 ## Methods {#section_vn5_qbh_vdb .section}
 
@@ -12,7 +12,7 @@ We allow HTTP or HTTPS requests, and so are the methods GET or POST. You can mak
 
 -   \(Recommended\) Programming language-specific ECS [SDK](https://github.com/aliyun)
 
--   Alibaba Cloud [CLI](https://partners-intl.aliyun.com/help/doc-detail/29993.htm)
+-   Alibaba Cloud CLI
 
 -   Alibaba Cloud [API Explorer](https://api.aliyun.com/)
 
@@ -23,7 +23,7 @@ In particular, you can skip the authentication process by using the SDK, CLI, an
 
 **Note:** When you call API in the Alibaba Cloud CLI and SDK, remove the period \(.\) from the request parameters. For example, use `SystemDiskCategory` instead of `SystemDisk.Category`.
 
-However, you must complete the authentication process for every request if you make an API URL request over the HTTP or HTTPS protocol. For more information, see [Signature](reseller.en-US/API Reference/Getting started/Signature.md#) and [Create an AccessKey](https://partners-intl.aliyun.com/help/doc-detail/53045.htm).
+However, you must complete the authentication process for every request if you make an API URL request over the HTTP or HTTPS protocol. For more information, see [Digital signature](reseller.en-US/API Reference/Getting started/Digital signature.md#) and [Create an AccessKey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#).
 
 ## Glossary { .section}
 

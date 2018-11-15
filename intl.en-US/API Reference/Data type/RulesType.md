@@ -6,12 +6,12 @@ The information of the ECS product promotion details.
 
 ## Node {#section_bcn_hw5_ydb .section}
 
-Rules.Rule
+Rule.
 
 ## Subnode {#ResponseParameter .section}
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|RuleId|Long| The ID of the promotion.|
+|RuleId|Long|The ID of the promotion.|
 |Description|String|The description of the promotion.|
 

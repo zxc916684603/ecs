@@ -8,13 +8,13 @@ Modifies the attribute of the specified security group, including the security g
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: ModifySecurityGroupAttribute.|
 |RegionId|String|Yes| The region ID. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|SecurityGroupId|String|Yes| The ID of the security group.|
-|SecurityGroupName|String|No| The security group name.-   Can contain \[2, 128\] characters in length. Must begin with an English letter. Can contain digits, periods \(.\), underscores \(\_\), and hyphens \(-\).
+|SecurityGroupId|String|Yes|The ID of the security group.|
+|SecurityGroupName|String|No|The security group name.-   Can contain \[2, 128\] characters in length. Must begin with an English letter. Can contain digits, periods \(.\), underscores \(\_\), colons \(:\), and hyphens \(-\).
 -   The security group name is displayed in the console.
 -   Cannot begin with http:// or https://.
 
 |
-|Description|String|No| The description of the security group.-   Can contain \[2, 256\] characters in length.
+|Description|String|No|The description of the security group.-   Can contain \[2, 256\] characters in length.
 -   Cannot begin with http:// or https://.
 -   Cannot be a null string, otherwise, the `Description` is ignored in the request.
 
@@ -56,7 +56,7 @@ https://ecs.aliyuncs.com/?Action=ModifySecurityGroupAttribute
 
 ## Error codes {#ErrorCode .section}
 
-The following error codes are restricted to this interface. For more error codes, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
+The following error codes are specific to this interface. For more error codes, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|

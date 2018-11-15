@@ -1,19 +1,19 @@
 # Anti-DDoS Basic {#concept_j1h_3rw_ydb .concept}
 
-Anti-DDoS Basic is a free Distributed Denial of Service \(DDoS\) protection service that safeguards data and application on your ECS instance. As a global service from Alibaba Cloud Security, Anti-DDoS Basic functions with 5 Gbit/s capacity of DDoS mitigation against common DDoS attacks. When the inbound traffic to an ECS instance exceeds its limits, which is determined by the ECS instance type, Alibaba Cloud Security enables throttling to keep the ECS instance stable.
+[Anti-DDoS Basic](https://www.alibabacloud.com/help/doc-detail/28399.htm?spm=a2c63.p38356.b99.10.3d4b55d3Gc07X3) is a free Distributed Denial of Service \(DDoS\) protection service that safeguards data and applications on your ECS instance. As a global service from Alibaba Cloud Security, Anti-DDoS Basic offers a mitigation capacity of 5 Gbit/s against common DDoS attacks. When the inbound traffic of an ECS instance exceeds its limits, which is determined by the ECS instance type, Alibaba Cloud Security enables throttling to maintain stable performance.
 
 ## How Anti-DDoS Basic works {#section_qxq_3rw_ydb .section}
 
-When the Anti-DDoS Basic is enabled, Alibaba Cloud Security monitors the inbound traffic in real time. When massive traffic or abnormal traffic involving DDoS attacks is monitored, Alibaba Cloud Security redirects the traffic, drops malicious traffic, and passes clean traffic back to the ECS instance. This process is called **flow cleaning**. For more information, see How Anti-DDoS Basic works in the Anti-DDoS Basic documentation.
+When Anti-DDoS Basic is enabled, Alibaba Cloud Security monitors the inbound traffic in real time. When massive or abnormal traffic involving DDoS attacks is monitored, Alibaba Cloud Security redirects the traffic, drops malicious traffic, and passes clean traffic back to the ECS instance. This process is called **flow cleaning**. For more information, see [How Anti-DDoS Basic works](https://www.alibabacloud.com/help/doc-detail/28404.htm?spm=a2c63.p38356.b99.11.7ed8ce4b5vXGG1).
 
-**Note:** If Anti-DDoS Basic is enabled for an ECS instance, when the inbound traffic from Internet is higher than 5 Gbit/s, to secure the global cluster, Alibaba Cloud Security triggers a black hole to receive such traffic. For more information, see Alibaba Cloud black hole policies.
+**Note:** If Anti-DDoS Basic is enabled for an ECS instance, when the inbound traffic from Internet is higher than 5 Gbit/s, to secure the global cluster, Alibaba Cloud Security triggers a black hole to receive such traffic. For more information, see [Alibaba Cloud black hole policies](https://www.alibabacloud.com/help/faq-detail/40032.htm).
 
-Factors that can trigger flow cleaning include:
+Flow cleaning is triggered in the following situations:
 
--   Attack types. When specified attacks are identified in the inbound traffic, flow cleaning is triggered.
--   Traffic size. Generally, traffic involving DDoS attacks is measured in Gbit/s. When the inbound traffic to an ECS instance exceeds the specified threshold, flow cleaning is triggered to clean traffic, including normal business traffic.
+-   When specified attacks are identified in the inbound traffic.
+-   When the inbound traffic to an ECS instance exceeds the specified threshold.
 
-Methods to clean the flow include filtering ICMP packets, limiting bit rate, and limiting packet forwarding rate.
+Methods to clean the flow include filtering ICMP packets, limiting bit rate, and limiting the packet forwarding rate.
 
 Therefore, when using Anti-DDoS Basic, you must set the following thresholds:
 
@@ -22,7 +22,7 @@ Therefore, when using Anti-DDoS Basic, you must set the following thresholds:
 
 ## Cleaning thresholds of each instance type {#section_uxq_3rw_ydb .section}
 
-The configuration of each instance type determines its maximum flow cleaning threshold. The following table lists the cleaning thresholds of some available and phased-out instance types.
+The configuration of each instance type determines its maximum flow cleaning threshold. The following table lists the cleaning thresholds of some [available](reseller.en-US/Product Introduction/Instance type families.md) and [phased-out](https://www.alibabacloud.com/help/faq-detail/55263.htm) instance types.
 
 |Instance type|Maximum BPS threshold \(Mbit/s\)|Maximum PPS threshold \(PPS\)|
 |:------------|:-------------------------------|:----------------------------|
@@ -192,9 +192,9 @@ The configuration of each instance type determines its maximum flow cleaning thr
 
 By default, Anti-DDoS Basic is enabled for an ECS instance after it is created. You can do the following:
 
--   Set a threshold for flow cleaning. After an ECS instance is created, the maximum threshold for the instance type is used for Anti-DDoS Basic by default. However, the maximum BPS threshold for some instance types is excessive for security. Therefore, you must set a threshold according to your business needs. For more information, see DDoS basic protection configuration in the Anti-DDoS Basic documentation.
+-   Set a threshold for flow cleaning. After an ECS instance is created, the maximum threshold for the instance type is used for Anti-DDoS Basic by default. However, the maximum BPS threshold for some instance types is excessive for security. Therefore, you must set a threshold according to your business needs. For more information, see [DDoS basic protection configuration](https://www.alibabacloud.com/help/doc-detail/28411.htm) in the Anti-DDoS Basic documentation.
 
--   Cancel flow cleaning, which is not recommended. When the inbound traffic to an ECS instance exceeds the cleaning threshold, the traffic, including normal business traffic, is cleaned. To avoid business interruptions, you can cancel flow cleaning. For more information, see How to cancel flow cleaning.
+-   Cancel flow cleaning, which is not recommended. When the inbound traffic to an ECS instance exceeds the cleaning threshold, the traffic, including normal business traffic, is cleaned. To avoid business interruptions, you can cancel flow cleaning. For more information, see [How to cancel flow cleaning](https://www.alibabacloud.com/help/doc-detail/50965.htm?spm=a2c63.p38356.b99.19.72893afdWKoH22).
 
     **Warning:** If you cancel flow cleaning, when the inbound traffic to an ECS instance exceeds 5 Gbit/s, all traffic is routed to a black hole.
 

@@ -10,5 +10,5 @@ Account
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|AliyunId|String|ID of an Alibaba Cloud account|
+|AliyunId|String|ID of an Alibaba Cloud account.|
 

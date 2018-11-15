@@ -12,7 +12,7 @@ SecurityGroups
 |:---|:---|:----------|
 |SecurityGroupId|String| ID of the security group.|
 |SecurityGroupName|String| Name of the security group.|
-|Description|String|Description|
+|Description|String|Description.|
 |VpcId|String|ID of the VPC to which the security group belongs.|
-|CreationTime|String|Time of creation.  It is represented according to [ISO8601](intl.en-US/API Reference/Appendix/ISO 8601 time format.md#) , and UTC time is used. Format: YYYY-MM-DDThh:mmZ|
+|CreationTime|String|Time of creation.  It is represented according to [ISO8601](intl.en-US/API Reference/Appendix/ISO 8601 Time Format.md#), and UTC time is used. Format: YYYY-MM-DDThh:mmZ.|
 

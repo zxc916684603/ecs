@@ -8,7 +8,7 @@ When you call this interface, consider the following:
 
 -   The target instance must be in the **Running** \(`Running`\) or **Stopped** \(`Stopped`\).
 -   The target cloud disk must be in the **Available** \(`Available`\) status.
--   The `OperationLocks` of the [locked](../intl.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#) instance cannot be `"LockReason" : "security"`.
+-   The `OperationLocks` of the [locked](../reseller.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#) instance cannot be `"LockReason" : "security"`.
 -   Even if you set the `DeleteWithInstance` to `false` when attaching the cloud disk, once the instance is locked and the `OperationLocks` of the instance indicates `"LockReason": "security"`, when you release the instance, the `DeleteWithInstance` attribute of the cloud disk is ignored and the disk is released along with the instance.
 
 ## Request parameters {#RequestParameter .section}
@@ -22,7 +22,7 @@ When you call this interface, consider the following:
 
 ## Response parameters {#ResponseParameter .section}
 
-All are common response parameters. See [Common response parameters](../intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
+All are common response parameters. See [Common response parameters](../reseller.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
 
 ## Examples { .section}
 
@@ -54,8 +54,6 @@ https://ecs.aliyuncs.com/?Action=AttachDisk
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|

@@ -103,5 +103,5 @@ https://ecs.aliyuncs.com/?Action=DescribeSecurityGroups
 
 ## Error codes {#ErrorCode .section}
 
-All are common response parameters. See [Common response parameters](../intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
+All are common response parameters. See [Common response parameters](../intl.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
 

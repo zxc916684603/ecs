@@ -22,7 +22,7 @@ ECS 云盘加密支持所有在售的实例规格。所有地域都支持云盘�
 
 ## ECS 云盘加密的依赖 {#dependencies .section}
 
-ECS 云盘加密功能依赖于同一地域的 [密钥管理服务（Key Management Service，KMS\)](https://help.aliyun.com/document_detail/28935.html)，但是您无需到密钥管理服务控制台做额外的操作，除非您有单独的 KMS 操作需求。
+ECS 云盘加密功能依赖于同一地域的密钥管理服务（Key Management Service，KMS\)，但是您无需到密钥管理服务控制台做额外的操作，除非您有单独的 KMS 操作需求。
 
 首次使用 ECS 云盘加密功能（在 ECS 实例售卖页或者独立云盘售卖页）时，需要根据页面提示授权开通密钥管理服务（KMS），否则将无法购买带有加密云盘的实例或者加密的独立云盘。
 

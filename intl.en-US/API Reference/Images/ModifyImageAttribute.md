@@ -14,7 +14,7 @@ Modifies the name and description of a custom image.
 -   Cannot begin with http:// or https://.
 
 |
-|Description|String|No|This parameter indicates the description of a custom image.-   Can be \[0, 256\] characters in length.
+|Description|String|No|The Description of a custom image.-   Can be \[0, 256\] characters in length.
 -   Cannot begin with http:// or https://.
 -   Default value: null.
 

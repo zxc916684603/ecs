@@ -9,20 +9,20 @@ This article describes how to use the Register Transfer Level \(RTL\) compiler o
 
 ## Prerequisites {#section_agy_vy3_dfb .section}
 
--   [Create an f3 instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create an f3 instance.md) and add a security group rule to allow the Internet access to SSH Port 22 of the instance.
--   Log on to the [ECS console](https://ecs.console.aliyun.com/#/home) to obtain the instance ID on the details page of the f3 instance.
--   [Create an OSS bucket](../../../../intl.en-US/Quick Start/Create a bucket.md) in China East 2 \(Shanghai\) for the FaaS service.
+-   [Create an f3 instance](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create an f3 instance.md) and add a security group rule to allow the Internet access to SSH Port 22 of the instance.
+-   Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs) to obtain the instance ID on the details page of the f3 instance.
+-   [Create an OSS bucket](../../../../reseller.en-US/Quick Start/Create a bucket.md) in China East 2 \(Shanghai\) for the FaaS service.
 
     **Note:** The bucket will provide read and write access to the FaaS administrative account. We recommend that you do not store objects that are not related to FaaS.
 
 -   To operate an f3 instance as a RAM user, do the following:
-    -    [Create a RAM user](../../../../intl.en-US/Quick Start/Create a RAM user.md) and [grant permissions](../../../../intl.en-US/Quick Start/Attach policies to a RAM user.md).
-    -    [Create a RAM user](../../../../intl.en-US/User Guide/Identities/Role.md) and [grant permissions](../../../../intl.en-US/User Guide/Authorization/Authorization.md).
+    -    [Create a RAM user](../../../../reseller.en-US/Quick Start/Create a RAM user.md) and [grant permissions](../../../../reseller.en-US/Quick Start/Attach policies to a RAM user.md).
+    -    [Create a RAM user](../../../../reseller.en-US/User Guide/Identities/Role.md) and [grant permissions](../../../../reseller.en-US/User Guide/Authorization/Authorization.md).
     -   Create an AccessKey.
 
 ## Procedure { .section}
 
-1.   [Connect to your f3 instance](../../../../intl.en-US/User Guide/Connect to instances/Connect to a Linux instance by using a password.md).
+1.   [Connect to your f3 instance](../../../../reseller.en-US/User Guide/Connect to instances/Connect to a Linux instance by using a password.md).
 
     **Note:** It takes two or three hours to compile the project. We recommend that you use nohup or VNC to connect the instance so as to avoid unexpected disconnection.
 
@@ -64,7 +64,7 @@ This article describes how to use the Register Transfer Level \(RTL\) compiler o
             sh  /root/xbinst_oem/tool/faas_upload_and_create_image.sh <bit.tar.gz - the package to upload>
             ```
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/153924385612110_en-US.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/153924401712110_en-US.png)
 
         2.  Download the image file.
 
@@ -91,9 +91,9 @@ This article describes how to use the Register Transfer Level \(RTL\) compiler o
             
             ```
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/153924385612112_en-US.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/153924401712112_en-US.png)
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/153924385612113_en-US.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/153924401712113_en-US.png)
 
         2.  Run the following command to check if the FPGA image is ready for downloading.
 
@@ -103,7 +103,7 @@ This article describes how to use the Register Transfer Level \(RTL\) compiler o
 
             If the returned message shows `"State":"success"`, the FPGA image is ready for downloading. Find the FpgaImageUUID and note it down.
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/153924385612115_en-US.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/153924401812115_en-US.png)
 
         3.  Run the following command and then note down the FpgaUUID in the returned message.
 
@@ -119,7 +119,7 @@ This article describes how to use the Register Transfer Level \(RTL\) compiler o
             # Replace hereIsYourInstanceId with f3 instance ID, hereIsFpgaUUID with the obtained FpgaUUID, and hereIsImageUUID with the obtained FpgaImageUUID
             ```
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/153924385612116_en-US.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/153924401812116_en-US.png)
 
         5.  Run the following command to check whether the image has been successfully downloaded.
 
@@ -129,7 +129,7 @@ This article describes how to use the Register Transfer Level \(RTL\) compiler o
 
             Below is an example of the returned message. If the FPGA image UUID in the message is identical with the FPGA image UUID you note down, and the message shows `"TaskStatus":"valid"`, the image has been successfully downloaded.
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/153924385612117_en-US.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/153924401812117_en-US.png)
 
 
 ## FAQ { .section}

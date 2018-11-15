@@ -12,7 +12,7 @@ Terraform是一个高度可扩展的工具，通过 Provider 来支持新的基�
 
 -   **将基础结构部署到多个云**
 
-    Terraform适用于多云方案，将相类似的基础结构部署到阿里云、其他云提供商或者本地数据中心。开发人员能够使用相同的工具和配置文件同时管理不同云提供商的资源。
+    Terraform适用于多云方案，将相类似的基础结构部署到阿里云、其他云提供商或者本地数据中心。开发人员能够使用相同的工具和相似的配置文件同时管理不同云提供商的资源。
 
 -   **自动化管理基础结构**
 
@@ -28,8 +28,6 @@ Terraform是一个高度可扩展的工具，通过 Provider 来支持新的基�
 
 
 ## 应用场景 {#section_j4f_wmz_dfb .section}
-
-Terraform是成熟、开源的自动化运维工具，可以实现云上的基础设施管理和镜像制作，并支持多云的业务场景。
 
 Terraform的应用场景请参见 [Terraform详情页](https://www.alibabacloud.com/solutions/devops/terraform)。
 

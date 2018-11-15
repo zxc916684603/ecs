@@ -6,7 +6,7 @@
 
 使用该接口时，请注意：
 
--   解绑 SSH 密钥对后，您需要重启实例（[RebootInstance](intl.zh-CN/API参考/实例/RebootInstance.md#)）使更改生效。
+-   解绑 SSH 密钥对后，您需要重启实例（[RebootInstance](intl.zh-CN/API 参考/实例/RebootInstance.md#)）使更改生效。
 
 -   解绑 SSH 密钥对后，实例默认使用用户名和密码的验证方式。
 
@@ -16,13 +16,13 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DetachKeyPair|
-|RegionId|String|是|SSH 密钥对所在的地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|SSH 密钥对所在的地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |KeyPairName|String|是|SSH 密钥对名称。|
 |InstanceIds|String|否|解绑 SSH 密钥对的实例 ID。取值可以由多台实例 ID 组成一个 JSON 数组，格式为 \["i-xxxxxxxxx", "i-yyyyyyyyy", … "i-zzzzzzzzz"\]，最多支持 50 个 ID，ID 之间用半角逗号（,）隔开。|
 
 ## 返回参数 {#section_f54_lk5_xdb .section}
 
-全是公共返回参数。参阅 [公共参数](intl.zh-CN/API参考/调用方式/公共参数.md#)。
+全是公共返回参数。参阅 [公共参数](intl.zh-CN/API 参考/快速入门/公共参数.md#)。
 
 ## 示例 { .section}
 

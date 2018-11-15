@@ -67,28 +67,28 @@ https://ecs.aliyuncs.com/?Action=DescribeImageSharePermission
  **JSON format** 
 
 ```
-
+{
     "ShareGroups": {
         "ShareGroup": [
-            
+            {
                 "Group": "all"
-            
-        
-    
+            }
+        ]
+    },
     "Accounts": {
         "Account": [
-            
+            {
                 "AliyunId": "1886508529898586"
-            
-        
-    
+            }
+        ]
+    },
     "ImageId": "m-282dzntc7",
     "PageNumber": 1,
     "PageSize": 10,
     "RegionId": "cn-qingdao",
     "TotalCount": 1,
     "RequestId": "9AD96F49-0BE5-4868-A66A-224352549CEC"
-
+}
 ```
 
 ## Error codes {#ErrorCode .section}

@@ -27,7 +27,7 @@ https://ecs.aliyuncs.com/?Action=DeleteSecurityGroup
 
 **Response example** 
 
-**XML format**
+**XML format** 
 
 ```
 <DeleteSecurityGroupResponse>
@@ -45,11 +45,11 @@ https://ecs.aliyuncs.com/?Action=DeleteSecurityGroup
 
 ## Error codes {#ErrorCode .section}
 
-The following error codes are restricted to this interface. For more error codes, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
+The following error codes are specific to this interface. For more error codes, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|
 |DependencyViolation|There is still instance\(s\) in the specified security group.|403|The specified security group is managing instances.|
-|DependencyViolation|The specified security group has been authorized in another one.|403| The specified security group is authorized by other security groups.|
+|DependencyViolation|The specified security group has been authorized in another one.|403|The specified security group is authorized by other security groups.|
 |InvalidRegionId.NotFound|The specified RegionId does not exist.|404|The specified `RegionId` does not exist.|
 

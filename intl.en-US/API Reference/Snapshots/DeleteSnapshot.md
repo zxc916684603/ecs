@@ -1,6 +1,6 @@
 # DeleteSnapshot {#DeleteSnapshot .reference}
 
- Deletes a specified snapshot. Deletes a specified snapshot. If you want to cancel a snapshot creating task, you can call this interface. 
+Deletes a specified snapshot. Alternatively, it can cancels a snapshot creating task.
 
 ## Description {#section_j3f_mxz_xdb .section}
 
@@ -8,21 +8,21 @@ When you call this interface, consider the following:
 
 -   If the specified SnapshotId does not exist, the request is ignored.
 
--   You cannot delete the snapshot if it has been used to create a custom image \(CreateImage\).  However, you can delete the appropriate custom image \([DeleteImage](intl.en-US/API Reference/Images/Deleteimage.md#)\) before you try the DeleteSnapshot action again.
+-   You cannot delete the snapshot if it has been used to create a custom image \(CreateImage\). However, you can delete the appropriate custom image \([DeleteImage](intl.en-US/API Reference/Images/Deleteimage.md#)\) before you try the DeleteSnapshot action again.
 
 
 ## Request parameters {#RequestParameter .section}
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DeleteSnapshot|
+|Action|String|Yes|The name of this interface. Value: DeleteSnapshot.|
 |SnapshotId|String|Yes|The snapshot ID.|
 
 ## Return parameters {#section_o3f_mxz_xdb .section}
 
 All are common parameters. See [Common parameters](intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
 
-## Example { .section}
+## Examples { .section}
 
 **Request example** 
 
@@ -32,9 +32,9 @@ https://ecs.aliyuncs.com/?Action=DeleteSnapshot
 &<Common request parameters>
 ```
 
-**Response sample** 
+**Response example** 
 
-**XML format**
+**XML format** 
 
 ```
 <DeleteSnapshotResponse>

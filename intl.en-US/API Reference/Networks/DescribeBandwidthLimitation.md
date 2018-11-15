@@ -6,43 +6,43 @@ Describes a list of bandwidth resources.
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DescribeBandwidthLimitation|
-|RegionId|String|Yes|ID of the target region. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|InstanceType|String|Yes|Instance type. For more information, see [Instance type families](../../../../intl.en-US/Product Introduction/Instance type families.md#), or call [DescribeInstanceTypes](intl.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to obtain the latest type list.|
-|InstanceChargeType|String|No|Billing method of the instances. Optional values: [Subscription](../../../../intl.en-US/Pricing/Pricing overview.md#). Value range:-   PrePaid: Subscription
--   PostPaid: Pay-As-You-Go
+|Action|String|Yes|The name of this interface. Value: DescribeBandwidthLimitation.|
+|RegionId|String|Yes|ID of the target region. For more information, call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|InstanceType|String|Yes|Instance type. For more information, see [Instance type families](../../../../reseller.en-US/Product Introduction/Instance type families.md#), or call [DescribeInstanceTypes](reseller.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to obtain the latest type list.|
+|InstanceChargeType|String|No|Billing method of the instances. For more information, see [Pricing overview](../../../../reseller.en-US/Pricing/Pricing overview.md#). Optional values: -   PrePaid: Subscription.
+-   PostPaid: Pay-As-You-Go.
 
 Default value: PostPaid.|
-|SpotStrategy|String|No|Specifies whether a Pay-As-You-Go instance is a spot instance or not. Value range:-   NoSpot: The instance is not a spot instance.
--   SpotWithPriceLimit: The instance is a spot instance and its price is a spot price.
--   SpotAsPriceGo: The instance is a spot instance and its price is the market price.
+|SpotStrategy|String|No|Specifies whether a Pay-As-You-Go instance is a preemptible instance or not. Value range:-   NoSpot: The instance is a Pay-As-You-Go preemptible instance.
+-   SpotWithPriceLimit: The instance is a preemptible instance and its price is a spot price.
+-   SpotAsPriceGo: The instance is a preemptible instance and its price is the market price.
 
-Default: NoSpot. If `InstanceChargeType` is set to `PostPaid`, `SpotStrategy` can be valid.|
-|OperationType|String|No|Specifies operation limits of the bandwidth.  Optional values:-   Upgrade: Upgrade bandwidth
--   Downgrade: Downgrade bandwidth
--   Create: Create bandwidth
+Default: NoSpot. Only if `InstanceChargeType` is set to `PostPaid`, `SpotStrategy` can be valid.|
+|OperationType|String|No|Specifies operation limits of the bandwidth. Optional values:-   Upgrade: Upgrade bandwidth.
+-   Downgrade: Downgrade bandwidth.
+-   Create: Create bandwidth.
 
 Default: Create.|
-|ResourceId|String|No| Resource ID.  If you set `OperationType`  to  `Upgrade` or `Downgrade` ,  you must specify the ResourceId.|
+|ResourceId|String|No| Resource ID.  If you set `OperationType`  to  `Upgrade` or `Downgrade`, you must specify the ResourceId.|
 
-## Return parameters {#ResponseParameter .section}
+## Response parameters {#ResponseParameter .section}
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|Bandwidths|Array of [`BandwidthType`](#BandwidthType)|A collection of bandwidth types|
+|Bandwidths|Array of [`BandwidthType`](#BandwidthType)|A collection of bandwidth types.|
 
  **BandwidthType** 
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|InternetChargeType|String|Network billing method. Values: Value range-   Paybytraffic: The bandwidth fees is charged on an hourly basis according to actual traffic usage. 
+|InternetChargeType|String|Network billing method. Possible values:-   Paybytraffic: The bandwidth fees is charged on an hourly basis according to actual traffic usage. 
 
 |
 |Min|Integer|Minimum limit of the bandwidth. No value is returned if the parameter is null.|
 |Max|Integer|Maximum limit of the bandwidth. No value is returned if the parameter is null.|
 |Unit|Integer|Resource type unit. No value is returned if the parameter is null.|
 
-## Example { .section}
+## Examples { .section}
 
 **Request example** 
 
@@ -52,7 +52,7 @@ https://ecs.aliyuncs.com/?Action=DescribeBandwidthLimitation
 &<Common Request Parameters>
 ```
 
-**Response sample** 
+**Response example** 
 
 **XML format**
 
@@ -100,8 +100,6 @@ https://ecs.aliyuncs.com/?Action=DescribeBandwidthLimitation
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more error codes, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code |Description|
 |:---------|:------------|:----------------|:----------|

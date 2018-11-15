@@ -18,13 +18,13 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：AttachClassicLinkVpc|
-|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
-|InstanceId|String|是|经典网络类型实例 ID。您可以调用 [DescribeInstances](cn.zh-CN/API参考/实例/DescribeInstances.md#) 查看您可用的实例。|
+|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|InstanceId|String|是|经典网络类型实例 ID。您可以调用 [DescribeInstances](cn.zh-CN/API 参考/实例/DescribeInstances.md#) 查看您可用的实例。|
 |VpcId|String|是|开启 ClassicLink 的 VPC ID。您可以调用 [DescribeVpcs](../../../../cn.zh-CN/API 参考/专有网络（VPC）/DescribeVpcs.md#) 查看您可用的 VPC。|
 
 ## 返回参数 {#section_f54_lk5_xdb .section}
 
-全是公共返回参数。参阅 [公共参数](cn.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅 [公共参数](cn.zh-CN/API 参考/快速入门/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 

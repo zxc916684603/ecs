@@ -1,6 +1,6 @@
 # DescribeInstanceMonitorData {#DescribeInstanceMonitorData .reference}
 
-Queries all the ECS-related monitoring data. The monitoring data includes the CPU usage of the ECS, data traffic received by the ECS, data traffic sent by the ECS, ECS network traffic, and ECS average bandwidth. You can only query the monitoring data of an ECS that is not in the `Stopped` status.
+Queries all the ECS-related monitoring data. The monitoring data includes the CPU usage of the ECS, data traffic received by the ECS, data traffic sent by the ECS, ECS network traffic, and ECS average bandwidth. You can only query the monitoring data of an ECS that is not in the **Stopped** \(`Stopped`\) status.
 
 ## Description {#section_dwp_4w4_ydb .section}
 
@@ -17,9 +17,9 @@ When you call this interface, consider the following:
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: DescribeInstanceMonitorData.|
 |InstanceId|String|Yes|ID of the target instance.|
-|StartTime|String|Yes|The start time of the monitoring data, which is represented according to [ISO8601](intl.en-US/API Reference/Appendix/ISO 8601 time format.md#), and UTC is required. Valid format: YYYY-MM-DDThh:mm:ssZ. If the specified `ss` is not 00, it is auto set to start of the next minute.|
+|StartTime|String|Yes|The start time of the monitoring data, which is represented according to [ISO8601](intl.en-US/API Reference/Appendix/ISO 8601 Time Format.md#), and UTC is required. Valid format: YYYY-MM-DDThh:mm:ssZ. If the specified `ss` is not 00, it is auto set to start of the next minute.|
 |EndTime|String|Yes|The end time of the retrieved data, which is represented according to ISO8601, and UTC is required. Valid format: YYYY-MM-DDThh:mm:ssZ.  If the specified `ss` is not 00, it is auto set to start of the next minute.|
-|Period|Integer|No|The interval of the retrieved monitoring data, unit: second.  Optional values:-   60
+|Period|Integer|No|The interval of the retrieved monitoring data, unit: second. Optional values:-   60
 -   600
 -   3600
 
@@ -75,9 +75,9 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceMonitorData
  **JSON format** 
 
 ```
-
+{
     "RequestId": "C8B26B44-0189-443E-9816-D951F59623A9",
-    "Monitoring Data ":{
+    "MonitorData": {
         "InstanceMonitorData": [{
             "InstanceId": "Bc0102-23xYm09",
             "CPU": 0,
@@ -94,9 +94,9 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceMonitorData
             "BPSRead": 1000,
             "BPSWrite": 200,
             "TimeStamp": "2010-01-21T09:50:23Z"
-        
+        }]
     }
-
+}
 ```
 
 ## Error codes {#ErrorCode .section}

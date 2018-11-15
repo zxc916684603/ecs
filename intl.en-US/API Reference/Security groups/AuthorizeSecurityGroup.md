@@ -34,14 +34,14 @@ When you call this interface, consider the following:
 |Action|String|Yes| The name of this interface. Value: AuthorizeSecurityGroup.|
 |RegionId|String|Yes|The region ID. For more information, see Regions and zones, or call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |SecurityGroupId|String|Yes|The ID of the destination security group.|
-|IpProtocol|String|Yes| The transport layer protocol. These values are case-insensitive. Optional values:-   tcp
+|IpProtocol|String|Yes|The transport layer protocol. These values are case-insensitive. Optional values:-   tcp
 -   udp
 -   icmp
 -   gre
 -   all
 
 |
-|PortRange|String|Yes|The range of destination port relevant to the transport layer protocol.  Optional values:-   For TCP/UDP protocol, \[1, 65535\] . You can use a forward slash \(/\) to separate the port range, expected sample: `1/200`, incorrect sample: `200/1`.
+|PortRange|String|Yes|The range of destination port relevant to the transport layer protocol. Optional values:-   For TCP/UDP protocol, \[1, 65535\]. You can use a forward slash \(/\) to separate the port range, expected sample: `1/200`, incorrect sample: `200/1`.
 -   For ICMP protocol, -1/-1.
 -   For GRE protocol, -1/-1.
 -   If the `IpProtocol` is set to `all`, the value is -1/-1.
@@ -53,10 +53,10 @@ When you call this interface, consider the following:
 -   If the `IpProtocol` is set to `all`, the value is -1/-1.
 
 |
-|NicType|String|No|The network type.  Optional values:-   internet
--   intranet
+|NicType|String|No|The network interface type. Optional values:-   internet: Internet network interface.
+-   intranet: Internet network interface.
 
-In mutual security group authorization, `SourceGroupId` is specified, while `SourceCidrIp` is not specified, you must specify `NicType` as `intranet`. Default value: internet.|
+In mutual security group authorization, while `SourceGroupId` is specified and `SourceCidrIp` is not specified, you must specify `NicType` as `intranet`. Default value: internet.|
 |Policy|String|No|The access permission. Optional values:-   accept: Allows the access.
 -   drop: Declines the access, and sends no response to the source device.
 
@@ -68,7 +68,7 @@ Default value: accept.|
 If both the `SourceGroupId` and `SourceCidrIp` parameters are set, `SourceCidrIp` is authorized by default.
 
 |
-|SourceGroupOwnerAccount|String|No|The Alibaba Cloud account of the source security group.-   If the `SourceGroupOwnerAccount` and `SourceGroupOwnerID` are not set, authorization is performed for security groups of the same account.
+|SourceGroupOwnerAccount|String|No|The Alibaba Cloud account of the source security group.-   If the `SourceGroupOwnerAccount` and `SourceGroupOwnerID` are not set, authorization is performed for your other security groups.
 -   If the `SourceCidrIp` is already set, the `SourceGroupOwnerAccount` is invalid.
 
 |
@@ -155,7 +155,7 @@ The following error codes are restricted to this interface. For more error codes
 |InvalidSecurityGroupDiscription.Malformed|The specified security group rule description is not valid.|400|The specified `Description` is invalid.|
 |OperationDenied|The specified IpProtocol does not exist or IpProtocol and PortRange do not match.|400|The specified `IpProtocol` does not exist. Or the specified IP protocol and port range do not match.|
 |AuthorizationLimitExceed|The maximum number of authorization rules in the security group is exceeded.|403|You cannot add more than 100 authorization rules to one security group.|
-|InvalidSourceGroupId.Mismatch|NicType is required or NicType expects intranet.|403|You must specify `NicType` . Or the `NicType` must be set to `intranet`.|
+|InvalidSourceGroupId.Mismatch|NicType is required or NicType expects intranet.|403|You must specify `NicType`. Or the `NicType` must be set to `intranet`.|
 |InvalidNetworkType.Mismatch|The specified SecurityGroup network type should be same with SourceGroup network type \(vpc or classic\).|403|The network type of the security group must be the same.|
 |InvalidParamter.Conflict|The specified SecurityGroupId should be different from the SourceGroupId.|403|The `SecurityGroupId` and `SourceGroupId` cannot be the same security group.|
 |MissingParameter|The input parameter “SourceGroupId” or “SourceCidrIp” cannot be both blank.|403|You must specify `SourceGroupId` or `SourceCidrIp`.|

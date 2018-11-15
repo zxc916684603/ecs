@@ -16,8 +16,8 @@ The queriable traffic data on the secondary ENI traffic data includes intranet i
 |Action|String|Yes|The operation that you want to perform. Value: DescribeEniMonitorData.|
 |InstanceId|String |Yes|Instance ID that is bound to the secondary ENI.|
 |Enild|String|No|Secondary ENI ID. All secondary ENIs that are bound to the instance are queried by default.|
-|StartTime|String|Required|The start time of the monitoring data to be retrieved. The time format follows the [ISO8601](../intl.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.If the specified number of seconds \(`ss`\) is not `00`, the time will be automatically rounded up to the next minute.|
-|EndTime|String|Yes|The end time of the monitoring data. The time format follows the [ISO8601](../intl.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.If the specified number of seconds \(`ss`\) is not `00`, the time will be automatically rounded up to the next minute.|
+|StartTime|String|Required|The start time of the monitoring data to be retrieved. The time format follows the [ISO8601](../reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.If the specified number of seconds \(`ss`\) is not `00`, the time will be automatically rounded up to the next minute.|
+|EndTime|String|Yes|The end time of the monitoring data. The time format follows the [ISO8601](../reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.If the specified number of seconds \(`ss`\) is not `00`, the time will be automatically rounded up to the next minute.|
 |Period|Integer|Optional|Period of the retrieved monitoring data. Unit: second. Value range: 60 | 600 | 3600Default value: 60.
 
 |
@@ -33,7 +33,7 @@ The queriable traffic data on the secondary ENI traffic data includes intranet i
 |Name|Type|Description|
 |:---|:---|:----------|
 |Enild|String|Secondary ENI ID.|
-|TimeStamp|String|Traffic query timestamp.The time format follows the [ISO8601](../intl.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.|
+|TimeStamp|String|Traffic query timestamp.The time format follows the [ISO8601](../reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.|
 |PacketTX|String|Number of intranet data packets sent by the secondary ENI.|
 |PacketRX|String|Number of intranet data packets received by the secondary ENI.|
 |IntranetTX|String|Intranet data traffic sent by the secondary ENI, in kbits.|
@@ -160,8 +160,6 @@ https://ecs.aliyuncs.com/?Action=DescribeEniMonitorData
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message |HTTP status code|Description|
 |:---------|:-------------|:---------------|:----------|

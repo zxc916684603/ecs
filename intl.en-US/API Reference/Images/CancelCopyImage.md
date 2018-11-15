@@ -1,6 +1,6 @@
 # CancelCopyImage {#CancelCopyImage .reference}
 
-Cancels a pending image copy \(CopyImage\) operation.
+Cancels a pending image copy \([CopyImage](intl.en-US/API Reference/Images/CopyImage.md#)\) operation.
 
 ## Description {#section_qxx_22z_xdb .section}
 

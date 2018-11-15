@@ -14,7 +14,7 @@ The instance must be in the **Stopped** status.
 
 To start an instance, follow these steps:
 
-1.  Log on to the [ECS Management Console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
+1.  Log on to the [ECS Management Console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, click **Instances**.
 3.  Select the target region.
 4.  Find the instance to be started and, in the **Actions** column, select **More** \> **Start**. If you want to start multiple **Stopped** instances, select the required instances and then, under the instance list, click **Start**.
@@ -32,8 +32,8 @@ If you stop a \(Subscription\) instance before its billing cycle is completed, t
 
 For a Pay-As-You-Go instance, its network type and the No Fees for Stopped Instances \(VPC-Connected\) feature determine billing:
 
--   VPC: If the **No Fees for Stopped Instances \(VPC-Connected\)** feature is enabled, you can decide whether to continue being billed for the instance. However, you are still billed for other ECS-related resources. For more information, see [no fees for stopped instances \(VPC-Connected\)](../../../../intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#). If this feature is not enabled, billing continues after the instance is stopped.
--   Classic network: A stopped instance still incurs fees. Billing stops only after you [release the instance](intl.en-US/User Guide/Instances/Release an instance.md#).
+-   VPC: If the **No Fees for Stopped Instances \(VPC-Connected\)** feature is enabled, you can decide whether to continue being billed for the instance. However, you are still billed for other ECS-related resources. For more information, see [no fees for stopped instances \(VPC-Connected\)](../../../../reseller.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#). If this feature is not enabled, billing continues after the instance is stopped.
+-   Classic network: A stopped instance still incurs fees. Billing stops only after you [release the instance](reseller.en-US/User Guide/Instances/Release an instance.md#).
 
 **Prerequisite**
 
@@ -43,7 +43,7 @@ The instance is in the **Running** status.
 
 To stop an instance, follow these steps:
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
+1.  Log on to the [ECS Management Console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, click **Instances**.
 3.  Select the target region.
 4.  Find the instance to be stopped and, in the **Actions** column, select **More** \> **Stop**. If you want to stop multiple **Running** instances, select the required instances and then, under the instance list, click **Stop**.
@@ -53,18 +53,18 @@ To stop an instance, follow these steps:
 
         -   If the **No Fees for Stopped Instances \(VPC-Connected\)** feature is enabled, read the Notice, select **Stop** or **Force Stop** in the Stop Instance dialog box, select a mode \(whether to keep the instance after stopping and continue charging\), and then click **OK**.
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9648/15391767455448_en-US.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9648/15395046175448_en-US.png)
 
         -   If the **No Fees for Stopped Instances \(VPC-Connected\)** feature is disabled, in the Stop Instance dialog box, select **Stop** or **Force Stop**.
 
-            **Note:** To disable the **No Fees for Stopped Instances \(VPC-Connected\)** feature, see [no fees for stopped instances](../../../../intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#disable).
+            **Note:** To disable the **No Fees for Stopped Instances \(VPC-Connected\)** feature, see [no fees for stopped instances](../../../../reseller.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#disable).
 
 
 Once the instance is successfully stopped, the instance enters the **Stopped** status. For a VPC-Connected Pay-As-You-Go instance, if you select not to keep the instance, **Stop Instance, No Fees** is shown in the instance list. Otherwise, **Keep Instance, Fees Apply** is shown. For other ECS instances, no information is shown.
 
 ## Related APIs {#section_pdq_nsl_xdb .section}
 
-Start instance: [StartInstance](../../../../intl.en-US/API Reference/Instances/StartInstance.md#)
+Start instance: [StartInstance](../../../../reseller.en-US/API Reference/Instances/StartInstance.md#)
 
-Stop instance: [StopInstance](../../../../intl.en-US/API Reference/Instances/StopInstance.md#)
+Stop instance: [StopInstance](../../../../reseller.en-US/API Reference/Instances/StopInstance.md#)
 

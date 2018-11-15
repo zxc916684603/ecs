@@ -9,7 +9,7 @@
 迁云工具适用于以下操作系统（32 位或 64 位均可）的物理机服务器、虚拟机和其他云平台云主机。
 
 |Windows|Linux|
-|-------|-----|
+|:------|:----|
 | -   Windows Server 2003
 -   Windows Server 2008
 -   Windows Server 2012
@@ -33,27 +33,16 @@
 
 -   迁云时，系统默认在您的阿里云账号下创建一个默认名为 INSTANCE\_FOR\_GOTOALIYUN 的 ECS 实例做中转站。该中转实例付费类型为按量付费，您需要确保您的账号关联的信用卡信用额度充足。
 
-    **说明：** 迁云失败后，该实例保留在 ECS 控制台，便于重新迁云。如果您不再需要该实例，请自行 [释放实例](../intl.zh-CN/用户指南/实例/释放实例.md#) 以免造成不必要的扣费。
+    **说明：** 迁云失败后，该实例保留在 ECS 控制台，便于重新迁云。如果您不再需要该实例，请自行 [释放实例](../../../../intl.zh-CN/用户指南/实例/释放实例.md#) 以免造成不必要的扣费。
 
 
 ## 参考链接 {#section_htg_nvz_jfb .section}
 
 -   迁云工具不仅能实现在线迁移物理机服务器、虚拟机以及其他云平台云主机，还可以为 ECS 用户提供缩容磁盘的功能。更多详情，请参阅 [磁盘缩容](intl.zh-CN/最佳实践/磁盘缩容.md#)。
 
--   目前，ECS 支持的 P2V 或 V2V 迁云的方式除迁云工具外，还可以 [导入镜像](../intl.zh-CN/用户指南/镜像/导入镜像/导入镜像必读.md#)。
+-   目前，ECS 支持的 P2V 或 V2V 迁云的方式除迁云工具外，还可以 [导入镜像](../../../../intl.zh-CN/用户指南/镜像/导入镜像/导入镜像必读.md#)。
 
 -   如果您有数据库迁云需求，请访问 [数据迁移](https://www.alibabacloud.com/help/doc-detail/26594.htm)。
-
-
-## 反馈与支持 {#section_lmt_rtg_mfb .section}
-
-您可以通过以下渠道咨询数据上云和获取技术支持：
-
--   [添加迁云工具客户反馈钉钉群](https://h5.dingtalk.com/invite-page/index.html?code=ca190154ff)
-
--   [提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex)
-
--   发送邮件至 [server-migration@alibabacloud.com](mailto:server-migration@alibabacloud.com)
 
 
 ## 更新历史 {#section_fjj_v5z_jfb .section}
@@ -61,7 +50,7 @@
 下表为迁云工具的版本更新信息。
 
 |更新时间|版本|描述|
-|----|--|--|
+|:---|:-|:-|
 |2018/08/29|1.3.0| -   提速迁云进程并优化一些已知问题
 -   增加 Windows 服务器修复环节，您无需手动运行文件权限重置工具
 

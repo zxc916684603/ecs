@@ -14,7 +14,7 @@ This No fees for stopped instances \(VPC-Connected\) feature is not applicable t
 
 -   All instances with local disks, including but not limited to d1ne, d1, i2, i1, gn5, and ga1 instances.
 
--   Cloud disks attached to the instances \(including system disks and data disks\), Internet bandwidth, elastic IP \(EIP\) addresses, and images. After the **No fees for stopped instances \(VPC-Connected\)** feature is enabled, billing of these resources continues when the instance is stopped. For more information about billing, see [Pay-As-You-Go](intl.en-US/Pricing/Pay-As-You-Go.md#), [Cloud disk pricing](https://www.alibabacloud.com/product/ecs), [Billing of network bandwidth](intl.en-US/Pricing/Billing of network bandwidth.md#), [Bandwidth pricing](https://www.alibabacloud.com/product/ecs), and [EIP pricing](https://www.alibabacloud.com/help/doc-detail/72142.htm).
+-   Cloud disks attached to the instances \(including system disks and data disks\), Internet bandwidth, elastic IP \(EIP\) addresses, and images. After the **No fees for stopped instances \(VPC-Connected\)** feature is enabled, billing of these resources continues when the instance is stopped. For more information about billing, see [Pay-As-You-Go](intl.en-US/Pricing/Pay-As-You-Go.md#), [Cloud disk pricing](https://www.alibabacloud.com/product/ecs), [Billing of network bandwidth](intl.en-US/Pricing/Billing of network bandwidth.md#), [Bandwidth pricing](https://www.alibabacloud.com/product/ecs), and [EIP pricing](../../../../intl.en-US/.md#).
 
 -   New VPC-Connected Pay-As-You-Go instances that are in a **Stopped** status after they are created, but before they enter a **Running** status.
 
@@ -29,14 +29,14 @@ The **No fees for stopped instances \(VPC-Connected\)** feature has the followin
 
 -   The CPU and RAM are released, so you may be unable to start your instance next time. If this happens, try again after some time.
 
--   If the instance has been assigned a public IP address, the address is released. After you start your instance in the [ECS console](../../../../intl.en-US/User Guide/Instances/Start or stop an instance.md#) or by using the [StartInstance](../../../../intl.en-US/API Reference/Instances/StartInstance.md#) interface, your instance is assigned a new public IP address. However, its private IP address remains unchanged.
+-   If the instance has been assigned a public IP address, the address is released. After you [start your instance](../../../../intl.en-US/User Guide/Instances/Start or stop an instance.md#) in the ECS console or by using the [StartInstance](../../../../intl.en-US/API Reference/Instances/StartInstance.md#) interface, your instance is assigned a new public IP address. However, its private IP address remains unchanged.
 
 -   When a t5 instance is stopped, the existing CPU credits are valid but credit accumulation stops. When it starts, CPU credits continue to accumulate.
 
 
 When you perform the following operations, the instance must be in a stopped status until the operation is complete:
 
--   [Replace the system disk](../../../../intl.en-US/User Guide/Cloud disks/Change a system disk (public image).md#) \([ReplaceSystemDisk](../../../../intl.en-US/API Reference/Disk/ReplaceSystemDisk.md#)\)
+-   [Replace the system disk](../../../../intl.en-US/User Guide/Cloud disks/Replace the system disk (public image).md#) \([ReplaceSystemDisk](../../../../intl.en-US/API Reference/Disk/ReplaceSystemDisk.md#)\)
 -   [Roll back a disk](../../../../intl.en-US/User Guide/Cloud disks/Roll back a cloud disk.md#) \([ResetDisk](../../../../intl.en-US/API Reference/Disk/ResetDisk.md#)\)
 -   [Reinitialize a disk](../../../../intl.en-US/User Guide/Cloud disks/Reinitialize a cloud disk.md#) \([ReInitDisk](../../../../intl.en-US/API Reference/Disk/ReInitDisk.md#)\)
 -   Other O&M operations
@@ -64,7 +64,7 @@ To enable the feature, follow these steps:
 4.  Toggle **Enable "No Fees for Stopped Instances" for VPC-Connected Instances in All Regions**, read the note in the dialog box, and then click **No Fees for stopped instances \(VPC-Connected\)**.
 5.  Click **OK**.
 
-After the feature is enabled, you can disable it as needed. For more information, see [Disable the feature](#disable).
+After the feature is enabled, you can disable it as needed. For more information, see [Disable the feature](#).
 
 ## Disable the feature {#disable .section}
 

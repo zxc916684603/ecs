@@ -2,8 +2,8 @@
 
 本文将介绍安全组的以下几个内容：
 
--    [授权](../../../../cn.zh-CN/API 参考/安全组/AuthorizeSecurityGroup.md#) 和 [撤销](../../../../cn.zh-CN/API 参考/安全组/RevokeSecurityGroup.md#) 安全组规则。
--    [加入安全组](../../../../cn.zh-CN/API 参考/安全组/JoinSecurityGroup.md#) 和 [离开安全组](../../../../cn.zh-CN/API 参考/安全组/LeaveSecurityGroup.md#)。
+-    [授权](../../../../intl.zh-CN/API 参考/安全组/AuthorizeSecurityGroup.md#) 和 [撤销](../../../../intl.zh-CN/API 参考/安全组/RevokeSecurityGroup.md#) 安全组规则。
+-    [加入安全组](../../../../intl.zh-CN/API 参考/安全组/JoinSecurityGroup.md#) 和 [离开安全组](../../../../intl.zh-CN/API 参考/安全组/LeaveSecurityGroup.md#)。
 
 阿里云的网络类型分为 **经典网络** 和 **VPC**，它们对安全组支持不同的设置规则：
 
@@ -91,9 +91,9 @@
 
 这里也不建议您将所有的 ECS 实例都加入一个安全组，这将会使得您的安全组规则设置变成梦魇。对于一个中大型应用来说，每个服务器编组的角色不同，合理地规划每个服务器的入方向请求和出方向请求是非常有必要的。
 
-在控制台上，您可以根据文档 [加入安全组](../../../../cn.zh-CN/用户指南/实例/加入、移出安全组.md#) 的描述将一个实例加入安全组。
+在控制台上，您可以根据文档 [加入安全组](../../../../intl.zh-CN/用户指南/实例/加入、移出安全组.md#) 的描述将一个实例加入安全组。
 
-如果您对阿里云的 OpenAPI 非常熟悉，您可以参考 [使用 OpenAPI 弹性管理 ECS 实例](https://help.aliyun.com/document_detail/51173.html)，通过 OpenAPI 进行批量操作。对应的 Python 片段如下。
+如果您对阿里云的 OpenAPI 非常熟悉，您可以参考 [使用 OpenAPI 弹性管理 ECS 实例](https://www.alibabacloud.com/help/zh/doc-detail/51173.htm)，通过 OpenAPI 进行批量操作。对应的 Python 片段如下。
 
 ```
 def join_sg(sg_id, instance_id):
@@ -145,7 +145,7 @@ def _send_request(request):
 
 合理的安全组名称和描述有助于您快速识别当前复杂的规则组合。您可以通过修改名称和描述来帮助自己识别安全组。
 
-您也可以通过为安全组设置标签分组管理自己的安全组。您可以在控制台直接 [设置标签](../../../../cn.zh-CN/用户指南/标签/绑定标签.md#)，也通过 API 设置标签。
+您也可以通过为安全组设置标签分组管理自己的安全组。您可以在控制台直接 [设置标签](../../../../intl.zh-CN/用户指南/标签/绑定标签.md#)，也通过 API 设置标签。
 
 ## 删除不需要的安全组 {#section_f3r_tq2_2fb .section}
 

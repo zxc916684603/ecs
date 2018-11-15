@@ -1,8 +1,8 @@
 # Step 2. Create an instance {#task_zjx_p1f_5db .task}
 
-This article introduces how to quickly create an instance using the console by taking the entry-level instance type family for example. For more information, see [Create an instance](../../../../intl.en-US/User Guide/Instances/Create an instance/Create an instance of the same configuration.md#). To use the API for instance creation, see [RunInstances](../../../../intl.en-US/API Reference/Instances/RunInstances.md#).
+This article introduces how to quickly create an instance using the console by taking the entry-level instance type family for example. For more information, see [Create an instance](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create an instance of the same configuration.md#). To use the API for instance creation, see [RunInstances](../../../../reseller.en-US/API Reference/Instances/RunInstances.md#).
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/#/home). 
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs). 
 2.  In the left-side navigation pane, click **Instances**. 
 3.  On the Instances page, click **Create Instance** to enter the Custom purchase page. 
 4.  Follow these steps to finish Basic Configurations. 
@@ -11,7 +11,7 @@ This article introduces how to quickly create an instance using the console by t
 
         **Note:** After an instance is created, you cannot change its region and zone.
 
-    3.  Select an instance type and specify the quantity of instances. The available [Instance type families](../../../../intl.en-US/Product Introduction/Instance type families.md#) are determined by the region selected. In this example, select **All Generations** \> **x86-Architecture** \> **Entry-Level \(Shared\)** \> **Compact Type xn4**.
+    3.  Select an instance type and specify the quantity of instances. The available [Instance type families](../../../../reseller.en-US/Product Introduction/Instance type families.md#) are determined by the region selected. In this example, select **All Generations** \> **x86-Architecture** \> **Entry-Level \(Shared\)** \> **Compact Type xn4**.
     4.  Select an image. In this example, the Public Image is selected. 
     5.  Select a storage space. In this example, only a system disk is used, and the 40 GiB Ultra Cloud Disk is selected, which is the default. 
 5.  Click **Next: Networking** to finish the networking and security group configuration. 

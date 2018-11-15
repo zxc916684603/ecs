@@ -4,7 +4,7 @@ The VPC link information about a classic network instance.
 
 ## Node {#section_mqs_ptp_ydb .section}
 
-Links 
+Links
 
 ## Subnodes {#ResponseParameter .section}
 

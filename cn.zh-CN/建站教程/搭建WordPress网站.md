@@ -2,7 +2,7 @@
 
 WordPress是使用PHP语言开发的博客平台，在支持PHP和MySQL数据库的服务器上，您可以用WordPress架设自己的网站，也可以用作内容管理系统（CMS）。建站时需要准备域名、空间和程序。使用WordPress镜像创建ECS实例，不需要部署Web环境，解决了空间和程序的问题，只要注册域名，完成备案，网站就可以直接上线，降低了建站的门槛，即买即用。
 
-本文档介绍如何使用阿里云云市场的[WordPress商用主题镜像](https://market.aliyun.com/products/53616009/cmjj028448.html) 创建实例，并上线网站。
+本文档介绍如何使用阿里云云市场的 [WordPress纯净版免费镜像](https://market.aliyun.com/products/52738005/cmjj027560.html) 或者 [WordPress商用主题镜像](https://market.aliyun.com/products/53616009/cmjj028448.html) 创建实例，并上线网站。
 
 ## 适用对象 {#section_ex5_zh2_2fb .section}
 
@@ -10,7 +10,7 @@ WordPress是使用PHP语言开发的博客平台，在支持PHP和MySQL数据库
 
 ## 基本流程 {#section_stw_132_2fb .section}
 
-使用[WordPress商用主题镜像](https://market.aliyun.com/products/53616009/cmjj028448.html) 在ECS实例上搭建网站的步骤如下：
+使用 [WordPress纯净版免费镜像](https://market.aliyun.com/products/52738005/cmjj027560.html) 或者 [WordPress商用主题镜像](https://market.aliyun.com/products/53616009/cmjj028448.html) 在ECS实例上搭建网站的步骤如下：
 
 第1步：购买WordPress镜像
 
@@ -24,63 +24,55 @@ WordPress是使用PHP语言开发的博客平台，在支持PHP和MySQL数据库
 
 第6步：解析域名
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154115234012060_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154105893212060_zh-CN.png)
 
 **第1步：购买WordPress镜像**
 
-假设您第一次使用阿里云ECS服务，参照以下步骤创建一个ECS实例。
-
-**说明：** 以下示例步骤选用了[WordPress商用主题镜像](https://market.aliyun.com/products/53616009/cmjj028448.html)来创建ECS实例。如果您选用了其他镜像来创建ECS实例，创建实例的步骤可能有所差异。
+假设您第一次使用阿里云ECS服务，按以下步骤创建一台基于 [WordPress纯净版免费镜像](https://market.aliyun.com/products/52738005/cmjj027560.html) 或者 [WordPress商用主题镜像](https://market.aliyun.com/products/53616009/cmjj028448.html) 的ECS实例。
 
 1.  登录 [阿里云](https://account.aliyun.com/login/login.htm)。如果尚未注册，单击 [免费注册](https://account.aliyun.com/register/register.htm)。
-2.  进入云市场，找到[WordPress商用主题镜像](https://market.aliyun.com/products/53616009/cmjj028448.html)，并单击 **立即购买**。
+2.  进入云市场，找到 [WordPress纯净版免费镜像](https://market.aliyun.com/products/52738005/cmjj027560.html) 或者 [WordPress商用主题镜像](https://market.aliyun.com/products/53616009/cmjj028448.html)，并单击 **立即购买**。
 3.  在云服务器ECS 自定义购买 页面，完成如下 **基础配置**：
     1.  选择 **计费方式**：如果您需要备案网站，必须选择 **包年包月**，并在页面底部设置 **购买时长** 不少于3个月。如果不需要备案，您可以根据自己的需求选择计费方式。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154115234012061_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154105893212061_zh-CN.png)
 
     2.  选择 **地域**：目前支持该镜像的地域包括华北1、华北2、华北3、华北5、华东1、华东2、华南1。请根据网站用户的分布和您自己的地理位置选择合适的地域。如何选择地域与可用区，请参见 [地域与可用区](http://help.aliyun.com/document_detail/40654.html)。
 
-        **说明：** 
+        **Note:** 
 
         -   实例创建成功后，不能更改地域和可用区。
         -   不同地域提供的可用区数量、实例规格族、存储类型、实例价格等也会有所差异。请根据您的业务需求选择地域。
     3.  选择 **实例**：根据您网站的预期访问量选择实例规格（CPU、内存）。一般企业网站，通用或入门级的1核2 GiB或者2核4 GiB实例规格能满足需求。关于实例规格的详细介绍，请参见 [实例规格族](http://help.aliyun.com/document_detail/25378.html)。
-    4.  选择 **镜像**：从云市场购买镜像后已经设置为**镜像市场** 的**WordPress商用主题镜像 php-wordPress1.0.8**。您也可以根据需求，单击 **重新选择镜像** 从镜像市场选择其他WordPress镜像。
+    4.  选择 **镜像**：已经设置为 **镜像市场** 的 **WordPress纯净版免费镜像 WordPress4.9.4纯净版** 或者 **WordPress商用主题镜像 php-wordPress1.0.8**。您也可以根据需求，单击 **重新选择镜像** 从镜像市场选择其他WordPress镜像。
     5.  选择 **存储**：
         -   **系统盘**：必填项。您可以选择云盘类型和云盘容量。本示例中，系统盘类型选择 **高效云盘**，大小采用镜像文件大小，即46 GiB。
         -   **数据盘**：选填项。建议您创建一块50 GiB的高效云盘作为数据盘，不加密。
 4.  单击 **下一步：网络和安全组**，并完成 **网络和安全组** 配置：
     1.  选择 **网络**：选择 **专有网络**。如果您未创建专有网络和交换机，选择 **默认专有网络** 和 **默认交换机**。
 
-        **说明：** 如果您已经创建过经典网络类型的ECS实例，而且选择的实例类型也支持经典网络，那么，您可以选择 **经典网络**。
+        **Note:** 如果您已经创建过经典网络类型的ECS实例，而且选择的实例类型也支持经典网络，那么，您可以选择 **经典网络**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154115234012062_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154105893212062_zh-CN.png)
 
     2.  设置 **公网带宽**：因为创建的实例需要访问公网，所以，您需要选择 **分配公网IP地址**，并根据预期的网站出网流量，选择 **按固定带宽** 或 **按使用流量** 计费，并设置带宽。建议选择 **固定带宽**，而且带宽值建议不低于2 Mbps。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154115234012063_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154105893212063_zh-CN.png)
 
-    3.  设置**安全组**：当您在一个地域创建ECS实例时，会为您分配默认安全组。您也可以单击**重新选择安全组**或**新建安全组**来改变默认的安全组。
+    3.  选择 **安全组**：如果在当前地域内未创建过安全组，您可以使用默认安全组，并选择 **HTTP 80 端口**。
 
-        **说明：** 请确保此安全组开放包含 22（Linux）或者 3389（Windows）端口，否则无法远程登录ECS。您可以进入ECS控制台设置端口。
+        **Note:** 如果您已经创建了安全组，必须在安全组中添加规则，放行入方向允许对HTTP 80端口的访问。详细信息，请参见 [添加安全组规则](http://help.aliyun.com/document_detail/25471.html)。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9789/154115234114281_zh-CN.png)
-
-    4.  附加**弹性网卡**：您可单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9789/154115234114232_zh-CN.png)为专有网络交换机添加[弹性网卡](../../../../cn.zh-CN/产品简介/网络和安全性/弹性网卡.md#)。
-
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9789/154115234114280_zh-CN.png)
-
-        **说明：** [在创建实例时附加弹性网卡](../../../../cn.zh-CN/用户指南/弹性网卡/在创建实例时附加弹性网卡.md#)，最多只能附加2块弹性网卡，一块为主网卡，一块为辅助网卡。通过这种方式创建的辅助网卡，如果没有[将弹性网卡从实例上分离](../../../../cn.zh-CN/用户指南/弹性网卡/将弹性网卡从实例上分离.md#)，会随实例一起释放。
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154105893212064_zh-CN.png)
 
 5.  单击 **下一步：系统配置**，完成系统配置：
     1.  设置 **登录凭证**：建议您在这里直接设置实例的登录密码。请务必牢记登录名和密码。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9789/154115234114278_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154105893312065_zh-CN.png)
 
-    2.  设置 **实例名称**、**描述** 和 **主机名**，为了便于以后管理。如果您要为**实例名称**和**主机名**添加有序后缀，请勾选**有序后缀**。
+    2.  设置 **实例名称**、**描述** 和 **主机名**，为了便于以后管理。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9789/154115234114279_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154105893312066_zh-CN.png)
 
 6.  略过 **下一步：分组设置**，单击 **确认订单**：
     -   确认 **所选配置**。如果需要修改配置，单击 ![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/44543/cn_zh/1527648165582/edit_icon.png) 图标，重新选择配置。
@@ -95,15 +87,15 @@ WordPress是使用PHP语言开发的博客平台，在支持PHP和MySQL数据库
 
 为了满足企业官网展示的需求，您需要安装适合的主题模板。这部分主要介绍如何安装WordPress主题模板。
 
-1.  [使用软件连接Windows实例](../../../../cn.zh-CN/用户指南/连接实例/使用软件连接Windows实例.md#)。
-2.  回到ECS管理控制台，从新建的ECS实例的实例列表中复制实例的公网IP地址，然后打开IE浏览器，使用 `http://实例公网IP地址/wp-admin` 进入WordPress登录页面。
+1.  [远程连接Windows实例](http://help.aliyun.com/document_detail/25435.html)。
+2.  打开IE浏览器，使用 `http://实例公网IP地址/wp-admin` 进入WordPress登录页面。
 3.  输入用户名 **admin** 和初始密码 **admin123**，并单击 **登录**。
 4.  在 仪表盘 页面的左侧导航栏中，选择 **外观** \> **主题** 。
 5.  在 **主题** 页面上选择已经安装的主题。
 
-    **说明：** 登录后，建议您在 **编辑我的个人资料** 的 **账户管理** 中修改密码。
+    **Note:** 登录后，建议您在 **编辑我的个人资料** 的 **账户管理** 中修改密码。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154115234112070_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9753/154105893312070_zh-CN.png)
 
 
 **第3步：修改主题元素**

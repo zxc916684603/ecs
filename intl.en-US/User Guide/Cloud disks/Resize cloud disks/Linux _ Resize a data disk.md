@@ -15,9 +15,9 @@ This example uses a data disk of the ultra cloud disk type and an ECS instance r
 
 To resize a data disk, follow these steps:
 
-[Step 1. Increase the size of a data disk in the ECS console](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md#ResizeInConsole)
+[Step 1. Increase the size of a data disk in the ECS console](#)
 
-[Step 2. Log on to the instance to resize the file system](intl.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md#ResizeInInstance)
+[Step 2. Log on to the instance to resize the file system](#)
 
 ## Step 1. Increase the size of a data disk in the ECS console {#ResizeInConsole .section}
 
@@ -120,7 +120,7 @@ In this example, the data disk is attached to a Linux instance running the 64-bi
 
         **Note:** If you are using the `parted` tool, type `p` in the `parted` window to list the current partition details. If any partition is displayed, use rm + serial number to delete the original partition table, then run the `unit s` command to specify the start unit, calculated by the number of sectors, and finally run the `mkpart` command to create it, as shown in the following figure.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9677/15398559035353_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9677/15414321395353_en-US.png)
 
 4.  For some operating systems, the file system may be automatically mounted to the mount point after partitioning. We recommend that you run the `df -h` command to check the file system space and usage. Run the `umount [file system name]` to unmount the file system again.
 5.  Check the file system and resize the file system.

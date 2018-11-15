@@ -18,13 +18,13 @@ When you call this interface, consider the following: 
 |Name |Type |Required |Description |
 |:----|:----|:--------|:-----------|
 |Action |String |Yes |The name of this interface. Value: ApplyAutoSnapshotPolicy.|
-|RegionId |String |Yes|The region ID of the automatic snapshot policy and the disks. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId |String |Yes|The region ID of the automatic snapshot policy and the disks. For more information, call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |Autosnapshotpolicyid|String |Yes|The ID of the automatic snapshot policy. You can call DescribeAutoSnapshotPolicyEx to obtain all of your automatic snapshot policy IDs.|
 |DiskIds|String |Yes|The disk ID. When you want to apply the automatic snapshot policy to multiple disks, you can set the DiskIds to an array.  The format is a JSON array of \["d-xxxxxxxxx", "d-yyyyyyyyy", … "d-zzzzzzzzz"\]  and the IDs are separated by commas \(,\).|
 
 ## Response parameters  {#section_odr_vwz_xdb .section}
 
-All are common response parameters. For more information, see [Common parameters](intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
+All are common response parameters. For more information, see [Common parameters](reseller.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
 
 ## Examples  { .section}
 
@@ -58,11 +58,9 @@ https://ecs.aliyuncs.com/?Action=ApplyAutoSnapshotPolicy
 
 ## Error codes {#ErrorCode .section}
 
-The following error codes are specific to this interface. For more error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
-
 |Error code|Error message|HTTP status code|Description|
 |:---------|:------------|:---------------|:----------|
-|DiskCategory.OperationNotSupported |The type of the specified disk does not support creating a snapshot.|400 |You cannot apply automatic policy to a local disk. For more information, see [Local disks](../../../../intl.en-US/Product Introduction/Block storage/Local disks.md#).|
+|DiskCategory.OperationNotSupported |The type of the specified disk does not support creating a snapshot.|400 |You cannot apply automatic policy to a local disk. For more information, see [Local disks](../../../../reseller.en-US/Product Introduction/Block storage/Local disks.md#).|
 |DiskCategory.OperationNotSupported|The types of some disks in the disk list do not support creating snapshots.|400|IDs of local disks exist in the `DiskIds`.|
 |ParameterInvalid|The specified automatic snapshot policy does not exist.|404 |The specified `AutoSnapshotPolicyId` does not exist.|
 |ParameterInvalid|The specified automatic snapshot policy does not exist in the region.|404 |The specified `AutoSnapshotPolicyId` does not exist in the specified region.|

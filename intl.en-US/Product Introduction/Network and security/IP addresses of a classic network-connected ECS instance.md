@@ -14,7 +14,7 @@ Intranet IP addresses can be used in the following scenarios:
 -   Mutual intranet access between ECS instances
 -   Mutual intranet access between ECS instances and other cloud services, such as OSS and RDS
 
-Communication traffic through intranet IP addresses within an intranet is free of charge. For more information, see [Intranet](intl.en-US/Product Introduction/Network and security/Intranet.md#).
+Communication traffic through intranet IP addresses within an intranet is free of charge. For more information, see [Intranet](reseller.en-US/Product Introduction/Network and security/Intranet.md#).
 
 **Modify an intranet IP address**
 
@@ -37,7 +37,7 @@ A public IP address is used in the following scenarios:
 
 When you create an ECS instance, a public IP address is assigned to it if **Assign public IP** is selected.
 
-For a Subscription instance with no public IP address, you can use the [Upgrade Configuration](../../../../intl.en-US/User Guide/Instances/Change configurations/Upgrade configurations of Subscription instances.md) or the [Renew for Configuration Downgrade](../../../../intl.en-US/Pricing/Renew instances/Renew for configuration downgrade.md) feature to purchase public network bandwidth.
+For a Subscription instance with no public IP address, you can use the [Upgrade Configuration](../../../../reseller.en-US/User Guide/Instances/Change configurations/Upgrade configurations of Subscription instances.md) or the [Renew for Configuration Downgrade](../../../../reseller.en-US/Pricing/Renew instances/Renew for configuration downgrade.md) feature to purchase public network bandwidth.
 
 **Note:** 
 
@@ -46,7 +46,7 @@ For a Subscription instance with no public IP address, you can use the [Upgrade 
 
 **Billing**
 
-You are billed for usage of Internet outbound traffic only. For more information, see [Billing of network bandwidth](../../../../intl.en-US/Pricing/Billing of network bandwidth.md).
+You are billed for usage of Internet outbound traffic only. For more information, see [Billing of network bandwidth](../../../../reseller.en-US/Pricing/Billing of network bandwidth.md).
 
 ## Multicast and broadcast {#section_nlg_g3w_ydb .section}
 

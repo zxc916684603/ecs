@@ -11,5 +11,5 @@ GroupReferences
 |Name|Type|Description|
 |:---|:---|:----------|
 |SecurityGroupId|String|The ID of a security group.|
-|ReferencingSecurityGroups|[ReferencingSecurityGroup](intl.en-US/API Reference/Data type/ReferencingSecurityGroup.md#)|Other authorization information of the security group.|
+|ReferencingSecurityGroups|[ReferencingSecurityGroup](reseller.en-US/API Reference/Data type/ReferencingSecurityGroup.md#)|Other authorization information of the security group.|
 

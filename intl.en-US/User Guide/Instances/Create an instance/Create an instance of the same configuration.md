@@ -2,7 +2,7 @@
 
 To duplicate ECS instances of the same configurations, use the **Buy Same Type** feature.
 
-1.   Log on to the[ECS console](https://ecs.console.aliyun.com/#/home).
+1.   Log on to the[ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  Select the target region. 
 3.  In the left-side navigation pane, click **Instances**. 
 4.  Find your ECS instance and, in the **Actions** column, select **More** \> **Buy Same Type**. 

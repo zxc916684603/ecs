@@ -1,6 +1,6 @@
 # API behavior for accounts with overdue payment {#EcsApiOverduePayement .reference}
 
-In the following list, “-“ indicates no relation and “Normal Logic” indicates that the interface is executed and result returned based on the normal logic of the interface.
+In the following list, "-" indicates no relation and "Normal Logic" indicates that the interface is executed and result returned based on the normal logic of the interface.
 
 When payment is overdue, the `OperationLocks` in the outgoing parameters returned by the `DescribeInstanceAttribute` or `DescribeDisks` will include `LockReason: financial`.
 

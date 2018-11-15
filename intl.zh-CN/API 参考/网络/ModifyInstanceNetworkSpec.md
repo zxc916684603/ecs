@@ -7,16 +7,26 @@
 调用该接口时，您需要注意：
 
 -   修改**包年包月**（PrePaid）实例的带宽配置时：
+
     -   可以升级或者降配计费方式为**按使用流量**（PayByTraffic）的带宽。
+
     -   **公网出带宽**（InternetMaxBandwidthOut）从0 Mbps升级到一个非零值时会自动分配一个公网 IP。
+
 -   修改**按量付费**（PostPaid）实例的带宽配置时：
     -   可以升级或者降配带宽。
+
     -   **公网出带宽**（InternetMaxBandwidthOut）从0 Mbps升级到一个非零值时不会自动分配公网IP，您需要调用[AllocatePublicIpAddress](intl.zh-CN/API 参考/网络/AllocatePublicIpAddress.md#)为实例分配公网IP。
+
 -   对于经典网络（Classic）类型实例，当**公网出带宽**（InternetMaxBandwidthOut）从0 Mbps升级到一个非零值时，实例必须处于**已停止**（`Stopped`）状态。
 
--   升级带宽后，默认自动扣费。您需要确保账户余额充足，否则会生成异常订单，此时只能作废订单。如果您的账户余额不足，可以将参数AutoPay置为false，此时会生成正常的未支付订单，您可以登录[ECS管理控制台](https://ecs.console.aliyun.com/)  支付
--   单个实例每成功操作一次，5分钟内不能继续操作。
--   每台预付费（包年包月）实例降低公网带宽的次数不能超过3次。
+-   升级带宽后，默认自动扣费。您需要确保账户余额充足，否则会生成异常订单，此时只能作废订单。如果您的账户余额不足，可以将参数AutoPay置为false，此时会生成正常的未支付订单，您可以登录[ECS管理控制台](https://ecs.console.aliyun.com/) 支付。
+
+-   每台预付费（包年包月）实例降低公网带宽的次数不能超过三次，即价格差退款不会超过三次。
+
+-   修改带宽配置前后的价格差退款会退还到您的原付费方式中，已使用的代金券不退回。
+
+-   单个实例每成功操作一次，五分钟内不能继续操作。
+
 
 ## 请求参数 {#RequestParameter .section}
 
@@ -30,10 +40,10 @@
 
 |
 |AutoPay|Boolean|否|是否自动支付。取值范围：-   true：变更带宽配置后，自动扣费。当您将参数 Autopay 置为 True 时，您需要确保账户余额充足，如果账户余额不足会生成异常订单，此订单暂时不支持通过 ECS 控制台支付，只能作废。
--   false：变更带宽配置后，只生成订单不扣费。如果您的账户余额不足，可以将参数 Autopay 置为 false，即取消自动支付，此时调用该接口会生成正常的未支付订单，此订单可登录[ECS管理控制台](https://ecs.console.aliyun.com/) 支付。
+-   false：变更带宽配置后，只生成订单不扣费。如果您的账户余额不足，可以将参数 Autopay 置为 false，即取消自动支付，此时调用该接口会生成正常的未支付订单，此订单可登录[ECS管理控制台](https://ecs.console.aliyun.com/)支付。
 
 默认值：true|
-|ClientToken|String|否| 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅 [如何保证幂等性](../intl.zh-CN/API 参考/附录/如何保证幂等性.md#)。
+|ClientToken|String|否| 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅[如何保证幂等性](../intl.zh-CN/API 参考/附录/如何保证幂等性.md#)。
 
  |
 
@@ -77,7 +87,7 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceNetworkSpec
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP状态码|说明|
 |:---|:---|:------|:-|

@@ -1,6 +1,6 @@
 # DescribeRegions {#DescribeRegions .reference}
 
-Describes the latest Alibaba Cloud regions that are available to you. For more information, see [Regions and zones](https://www.alibabacloud.com/help/doc-detail/40654.htm).
+Describes the latest Alibaba Cloud regions that are available to you.
 
 ## Request parameters {#RequestParameter .section}
 
@@ -12,7 +12,7 @@ Describes the latest Alibaba Cloud regions that are available to you. For more i
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|Regions|[RegionType](intl.en-US/API Reference/Data type/RegionType.md#)|A collection that includes region information.|
+|Regions|[RegionType](reseller.en-US/API Reference/Data type/RegionType.md#)|A collection that includes region information.|
 
 ## Examples { .section}
 
@@ -44,20 +44,20 @@ https://ecs.aliyuncs.com/?Action=DescribeRegions
  **JSON format** 
 
 ```
-
+{
     "RequestId": "611CB80C-B6A9-43DB-9E38-0B0AC3D9B58F",
     "Regions": {
         "Region": [{
             "RegionId": "cn-hangzhou "
-        
-        
+        },
+        {
             "RegionId": "cn-qingdao"
-        
+        }]
     }
-
+}e
 ```
 
 ## Error codes {#ErrorCode .section}
 
-All are common error codes. For more error code, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
+All are common error codes. For more information, see [Common error codes](reseller.en-US/API Reference/Getting started/Response results.md#commonErrorCodes).
 

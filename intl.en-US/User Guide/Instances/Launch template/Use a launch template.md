@@ -1,12 +1,12 @@
 # Use a launch template {#task_rbj_xbv_xdb .task}
 
-You have [created a template](intl.en-US/User Guide/Instances/Launch template/Create a template.md#) or [created a version](intl.en-US/User Guide/Instances/Launch template/Create a template version.md#).
+You have [created a template](reseller.en-US/User Guide/Instances/Launch template/Create a template.md#) or [created a version](reseller.en-US/User Guide/Instances/Launch template/Create a template version.md#).
 
-1.   Log on to the [ECS console](https://ecs.console.aliyun.com/). 
+1.   Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs). 
 2.   In the left-side navigation pane, select **Launch Template**. 
 3.  Locate the template or version that you want to use, and then click **Create Instance** in the **Actions** column. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13810/15395016695354_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13810/15395043755354_en-US.png)
 
 4.  On the ECS buy page, select the required template and version. 
 

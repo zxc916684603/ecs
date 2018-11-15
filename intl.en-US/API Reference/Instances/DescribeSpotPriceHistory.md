@@ -1,41 +1,41 @@
 # DescribeSpotPriceHistory {#DescribeSpotPriceHistory .reference}
 
-Query the price history of the spot instance. You can query the price records within 30 days at most, that is, the specified parameter EndTime minus StartTime must be less than or equal to 30.
+Queries the price history of ECS preemptible instances. The specified parameter EndTime minus StartTime must be less than or equal to 30.
 
 ## Request parameters {#RequestParameter .section}
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DescribeSpotPriceHistory|
+|Action|String|Yes|The name of this interface. Value: DescribeSpotPriceHistory.|
 |RegionId|String|Yes|The region ID of the instance. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |ZoneId|String|Yes|Zone ID.|
-|NetworkType| String|Yes|Network type of the bid instance. Optional values:-   classic: the spot instance is in the classic network.
--   vpc: the spot instance is in the VPC.
+|NetworkType| String|Yes|Network type of the bid instance. Optional values:-   classic: The preemptible instance is classic network-connected.
+-   vpc: The preemptible instance is VPC-Connected.
 
 |
 |InstanceType|String|Yes|Instance type.|
-|IoOptimized|String|No|Whether it is an I/O-optimized instance.  Value range:-   optimized: the spot instance is I/O optimized.
+|IoOptimized|String|No|Whether it is an I/O-optimized instance. Value range:-   optimized: The preemptible instance is I/O optimized.
 -   none: indicates that the bid instance is not an I/O optimization instance
 
-Series I instance default: none
+The default value of Series I instance types is none.
 
-Series II instance default: optimized Series III Default instance : optimized
-
-|
-|StartTime|String|No|Query the start time of the historical price of the bid instance. The StartTime is based on [ISO8601](intl.en-US/API Reference/Appendix/ISO 8601 time format.md#) with a format of YYYY-MM-DDTHH:mm:ssZ. The default value is null, and null indicates three days earlier before the EndTime. The maximum value of StartTime cannot be 30 days earlier than the specified EndTime.|
-|EndTime|String|No|Query the end time of the price record of the spot instance. The EndTime is based on ISO8601 with a format of YYYY-MM-DDTHH:MM:SSZ, and the UTC time is required .It is null by default, and null indicates the current time.
+The default value of other instance types is optimized.
 
 |
-|Offset|Integer|No|Query the start line.Default: 0
+|StartTime|String|No|Query the start time of the historical price of the bid instance. The StartTime is based on [ISO8601](intl.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) with a format of YYYY-MM-DDTHH:mm:ssZ. The default value is null, and null indicates three days earlier before the EndTime. The maximum value of StartTime cannot be 30 days earlier than the specified EndTime.|
+|EndTime|String|No|Queries the end time of the price record of the preemptible instance. The EndTime is based on ISO8601 with a format of YYYY-MM-DDTHH:MM:SSZ, and the UTC time is required.It is null by default, and null indicates the current time.
+
+|
+|Offset|Integer|No|Queries the start line.Default: 0.
 
 |
 
-## Return parameters {#ResponseParameter .section}
+## Response parameters {#ResponseParameter .section}
 
 |Name|Type|Description|
 |:---|:---|:----------|
 |NextOffset|Integer|The start line of the next page. Queries data for the next page. The specified value of the parameter Offset is the value.|
-|SpotPrices |[SpotPriceType ](intl.en-US/API Reference/Data type/SpotPriceType.md#)|The price information of the spot instance.|
+|SpotPrices |[SpotPriceType ](intl.en-US/API Reference/Data type/SpotPriceType.md#)|The price information of the preemptible instance.|
 
 ## Example  { .section}
 
@@ -49,10 +49,10 @@ https://ecs.aliyuncs.com/?Action=DescribeSpotHistory
 &InstanceType=ecs.t1.xsmall
 &IoOptimized=none
 &UtcStartTime=2017-08-22T08:45:08Z...
-&<Common request parameters>
+&<Common Request Parameters>
 ```
 
-**Response sample** 
+**Response example**
 
 **XML format**
 

@@ -7,8 +7,8 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：ModifyAutoSnapshotPolicyEx|
-|RegionId|String|是|自动快照策略所在的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
-|AutoSnapshotPolicyId|String|是|目标自动快照策略 ID。您可以调用 [DescribeAutoSnapshotPolicyEx](cn.zh-CN/API参考/快照/DescribeAutoSnapshotPolicyEx.md#) 查看您可用的自动快照策略。|
+|RegionId|String|是|自动快照策略所在的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|AutoSnapshotPolicyId|String|是|目标自动快照策略 ID。您可以调用 [DescribeAutoSnapshotPolicyEx](cn.zh-CN/API 参考/快照/DescribeAutoSnapshotPolicyEx.md#) 查看您可用的自动快照策略。|
 |AutoSnapshotPolicyName|String|否|自动快照策略的名称。如果参数为空则代表不修改。|
 |TimePoints|String|否|自动快照的创建时间点，单位为小时。取值范围：\[0, 23\]，代表 00:00 至 23:00 共 24 个时间点，如 `1` 表示 01:00。当一天内需要创建多次自动快照时，可以传入多个时间点：-   最多传入 24 个时间点。
 -   多个时间点用一个格式类似 \["0", "1", … "23"\] 的 JSON 数组表示，时间点之间用半角逗号（`,`）隔开。
@@ -22,11 +22,11 @@
 -   \[1, 65536\]：指定保存天数。
 
 默认值：-1|
-|ClientToken|String|否|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一。只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](cn.zh-CN/API参考/附录/如何保证幂等性.md#)。|
+|ClientToken|String|否|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一。只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](cn.zh-CN/API 参考/附录/如何保证幂等性.md#)。|
 
 ## 返回参数 {#section_ajy_hd1_ydb .section}
 
-全是公共返回参数。参阅 [公共参数](cn.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅 [公共参数](cn.zh-CN/API 参考/快速入门/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 

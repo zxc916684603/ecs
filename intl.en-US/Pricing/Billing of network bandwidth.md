@@ -1,6 +1,6 @@
 # Billing of network bandwidth {#publicIP_china .concept}
 
-Alibaba Cloud only supports postpaid billing for ECS instance Internet bandwidth, which is called **PayByTraffic**. Alibaba Cloud collects the fees on an hourly basis according to actual traffic usage, regardless of ECS instance billing methods and network types. Network bandwidth prices vary among regions. For more information about pricing, see [Pricing of Elastic Cloud Server](https://www.alibabacloud.com/product/ecs#pricing).
+Alibaba Cloud only supports postpaid billing for ECS instance Internet bandwidth, which is called **PayByTraffic**. Alibaba Cloud collects the fees on an hourly basis according to actual traffic usage, regardless of ECS instance billing methods and network types. Network bandwidth prices vary among regions. For more information about pricing, see Pricing of Elastic Cloud Server.
 
 **Note:** Alibaba Cloud does not charge any fee on intranet traffic.
 
@@ -13,7 +13,7 @@ The following table lists Internet bandwidth types and related information for E
 |Outbound bandwidth|The bandwidth for outbound traffic from ECS instances. For example, your ECS instances provide external access or you want to download internal resources from the ECS instances by using an FTP client.| -   For Subscription instances, the maximum speed is 200 Mbit/s.
 -   For Pay-As-You-Go instances, the maximum speed is 100 Mbit/s.
 
- | [Open a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to increase the bandwidth limit to 200 Mbit/s for a Pay-As-You-Go instance.
+ | Open a ticket to increase the bandwidth limit to 200 Mbit/s for a Pay-As-You-Go instance.
 
  |
 |Inbound bandwidth|The bandwidth for inbound traffic to ECS instances. For example, you want to download resources for external networks from inside the ECS instance, or upload resources to ECS instances by using an FTP client.|The maximum speed is 200 Mbit/s.|The limit cannot be increased.|
@@ -28,19 +28,16 @@ You can use different methods to purchase Internet bandwidth for different Inter
 
 -   If an ECS instance needs to access the Internet by using its own Internet IP address, you must purchase Internet bandwidth while creating the instance.
 
-    **How to purchase**: When [creating an ECS instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#), in the **Network Billing Method** section, select **Assign public IP**.
+    **How to purchase**: When [creating an ECS instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#), in the **Network Billing Method** section, select **Assign public IP**.
 
--   If your ECS instance is in a VPC network and you want to use an EIP \(Elastic IP address\) to access the Internet, you only need to purchase the EIP service. For more information about the EIP service, see [EIP address related documentation](../../../../intl.en-US/Product Introduction/What is Elastic IP Address?.md#).
+-   If your ECS instance is in a VPC network and you want to use an EIP \(Elastic IP address\) to access the Internet, you only need to purchase the EIP service. For more information about the EIP service, see [EIP address related documentation](../../../../reseller.en-US/Product Introduction/What is Elastic IP Address?.md#).
 
     **Note:** If your ECS instances access the Internet by using an EIP address, you must not select **Assign public IP** when you create an instance.
 
 
-## Payment options {#section_rkc_xtk_zdb .section}
+## Payment options {#section_s3c_v5x_kfb .section}
 
-You can pay for Internet bandwidth by using any of the following payment options:
-
--   Credit card or a PayPal account bound to your account.
--   A data transfer plan. You can purchase a plan and deduct the traffic usage from it. For more information about data transfer plans, see [SSD Cloud Server ECS Starter Package Plan](https://www.alibabacloud.com/starter-packages/general).
+Credits are used to pay for the network bandwidth.
 
 ## Bill calculation example {#section_tkc_xtk_zdb .section}
 

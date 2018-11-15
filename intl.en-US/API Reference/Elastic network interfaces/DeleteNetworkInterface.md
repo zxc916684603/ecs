@@ -1,6 +1,6 @@
 # DeleteNetworkInterface {#DeleteNetworkInterface .reference}
 
-Remove the elastic network card \(ENI \).
+Deletes an elastic network interface \(ENI \).
 
 ## Description {#section_tyd_kj4_ydb .section}
 
@@ -14,8 +14,8 @@ Remove the elastic network card \(ENI \).
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DeleteNetworkInterface|
-|RegionId|String|Yes|Region ID. For more information of the region ID list, view the region list by calling the [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#).|
+|Action|String|Yes|The name of this interface. Value: DeleteNetworkInterface.|
+|RegionId|String|Yes|Region ID. For more information about the region ID list, view the region list by calling the [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#).|
 |NetworkInterfaceId|String|Yes|ENI ID.|
 
 ## Response parameters {#section_f54_lk5_xdb .section}
@@ -57,7 +57,7 @@ Error codes specific to this interface are as follows. For more error codes, vis
 
 |Error code|Error message|HTTP status code |Description|
 |:---------|:------------|:----------------|:----------|
-|Abs.InvalidAccount.NotFound|The Account is not found or ak is expired.|403|The specified Alibaba Cloud account does not exist. Alternatively, your AccessKey expires.|
+|Abs.InvalidAccount.NotFound|The Account is not found or AK is expired.|403|The specified Alibaba Cloud account does not exist. Alternatively, your AccessKey expires.|
 |Forbidden.NotSupportRAM|This action does not support accessed by RAM mode.|403|Ram users are not allowed to perform this operation.|
 |UnsupportedParameter|The parameters is unsupported.|400|The specified parameter does not exist. Alternatively, the specified parameter is not supported.|
 |Forbidden.SubUser|The specified action is not available for you.|403|Ram users are not allowed to perform this operation.|

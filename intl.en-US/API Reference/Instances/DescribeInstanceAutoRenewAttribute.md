@@ -4,9 +4,9 @@ Queries the auto renewal status of an instance.
 
 ## Description {#section_nzt_pxs_xdb .section}
 
--   This API allows you to query the auto renewal status of your instance to view whether your instance is set to auto renewal.
+-   Queries the auto renewal status of your instance to view if your instance is set to auto renewal.
 
--   This API supports [Subscription](../intl.en-US/Pricing/Subscription.md#) ECS instances only. If you use this API on a [Pay-As-You-Go](../intl.en-US/Pricing/Pay-As-You-Go.md#) instance, an error is returned.
+-   Supports [Subscription](../../../../reseller.en-US/Pricing/Subscription.md#) ECS instances only. If you use this API on a [Pay-As-You-Go](../../../../reseller.en-US/Pricing/Pay-As-You-Go.md#) instance, an error is returned.
 
 
 ## Request parameters {#RequestParameter .section}
@@ -14,7 +14,7 @@ Queries the auto renewal status of an instance.
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: DescribeInstanceAutoRenewAttribute.|
-|RegionId|String|Yes|Region ID of an instance. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|Region ID of an instance. For more information, call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |InstanceId|String|Yes|Instance ID set. A maximum of 100 Subscription instances are supported, in the format of \["instanceId1", "instanceId2", "instanceId3"…\].|
 
 ## Response parameters {#ResponseParameter .section}
@@ -73,30 +73,28 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceAutoRenewAttribute
  **JSON format** 
 
 ```
-
+{
     "InstanceRenewAttributes": {
         "InstanceRenewAttribute": [
-            
+            {
                 "Duration": 0,
                 "InstanceId": "i-instance1",
                 "AutoRenewEnabled": false
                 "RenewalStatus": "Normal"
-            
-            
+            },
+            {
                 "Duration": 1,
                 "InstanceId": "i-instance2",
                 "AutoRenewEnabled": true
                 "RenewalStatus": "AutoRenewal"
-            
-        
-    
+            }
+        ]
+    },
     "RequestId": "04F0F334-1335-436C-A1D7-6C044FE73368"
-
+}
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|

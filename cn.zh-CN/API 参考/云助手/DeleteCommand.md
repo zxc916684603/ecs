@@ -12,7 +12,7 @@
 
 ## 返回参数 {#section_f54_lk5_xdb .section}
 
-全是公共返回参数。参阅 [公共返回参数](cn.zh-CN/API 参考/调用方式/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅 [公共返回参数](cn.zh-CN/API 参考/快速入门/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 

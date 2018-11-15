@@ -8,7 +8,10 @@
 
 -   实例必须处于无欠费状态。
 -   实例状态必须为 **运行中**（`Running`）或者 **已停止**（`Stopped`）时才能调节公网带宽大小。
--   升级或者降低按量付费实例规格前，您可以通过 [DescribeResourcesModification](intl.zh-CN/API 参考/其他接口/DescribeResourcesModification.md#) 查询当前实例支持变配的实例规格。
+-   升级或者降低按量付费实例规格前，您可以通过 [DescribeResourcesModification](cn.zh-CN/API 参考/地域/DescribeResourcesModification.md#) 查询当前实例支持变配的实例规格。
+
+    更多详情，请参阅云栖社区 [查询 ECS 变配的可用资源实践](https://yq.aliyun.com/articles/500164)。
+
 -   实例状态必须为 **已停止**（`Stopped`）时才能变更实例规格。
 -   单次只能升级单项配置，即单次只能修改实例规格，或者只能调整公网带宽大小。
 -   单台实例每成功操作一次，5分钟内不能继续操作。
@@ -19,18 +22,20 @@
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：ModifyInstanceSpec|
 |InstanceId|String|是|指定的实例 ID。|
-|InstanceType|String|否|实例规格。更多详情，请参阅 [实例规格族](../intl.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](intl.zh-CN/API 参考/实例/DescribeInstanceTypes.md#)接口获得最新的规格表。|
-|InternetMaxBandwidthOut|Integer|否|公网出带宽最大值，单位为 Mbps \(Megabit per second\)。取值范围：-   按使用流量计费：\[0, 100\]
+|InstanceType|String|否|实例规格。更多详情，请参阅 [实例规格族](../cn.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](cn.zh-CN/API 参考/实例/DescribeInstanceTypes.md#)接口获得最新的规格表。|
+|InternetMaxBandwidthOut|Integer|否|公网出带宽最大值，单位为 Mbps \(Megabit per second\)。取值范围：-   按固定带宽计费：\[0, 100\]
+-   按使用流量计费：\[0, 100\]
 
 |
-|InternetMaxBandwidthIn|Integer|否|公网入带宽最大值，单位为 Mbps \(Megabit per second\)。取值范围：-   按使用流量计费：\[1, 200\]
+|InternetMaxBandwidthIn|Integer|否|公网入带宽最大值，单位为 Mbps \(Megabit per second\)。取值范围：-   按固定带宽计费：\[1, 200\]
+-   按使用流量计费：\[1, 200\]
 
 |
-|ClientToken|String|否|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一。只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](intl.zh-CN/API 参考/附录/如何保证幂等性.md#)。|
+|ClientToken|String|否|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一。只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](cn.zh-CN/API 参考/附录/如何保证幂等性.md#)。|
 
 ## 返回参数 {#ResponseParameter .section}
 
-全是公共返回参数。参阅 [公共返回参数](intl.zh-CN/API 参考/快速入门/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅 [公共返回参数](cn.zh-CN/API 参考/快速入门/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -66,7 +71,7 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceSpec
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|

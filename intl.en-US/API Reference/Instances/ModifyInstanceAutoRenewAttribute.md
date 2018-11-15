@@ -16,7 +16,7 @@ Sets the auto renewal attribute of an instance. 
 |Action|String|Yes|The name of this interface. Value: ModifyInstanceAutoRenewAttribute.|
 |RegionId|String|Yes.|Region ID of an instance. You can call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |InstanceId|String|Yes.|Instance ID. A maximum of 100 instances billed by subscription can be set in batches. Multiple instance IDs are separated with commas \(,\).|
-|Duration|Integer|No|Auto renewal duration of an instance, in the unit of month. Optional values: 1|12.|
+|Duration|Integer|No|Auto renewal duration of an instance, in the unit of month. Optional values: 1 | 12.|
 |AutoRenew|Boolean|No|Auto renewal or not. Optional values:-   True: Auto renewal enabled
 -   False: Auto renewal disabled
 

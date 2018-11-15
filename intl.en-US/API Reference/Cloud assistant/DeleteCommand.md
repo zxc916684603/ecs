@@ -7,12 +7,12 @@ Deletes a created cloud assistant command. The log of the original invocation i
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: DeleteCommand.|
-|RegionId|String|Yes|Regional ID. For more information, call [DescribeRegions](../intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|CommandId|String|Yes|Command ID. You can query all the available CommandId by calling the [DescribeCommands](intl.en-US/API Reference/Cloud assistant/DescribeCommands.md#).|
+|RegionId|String|Yes|Regional ID. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|CommandId|String|Yes|Command ID. You can query all the available CommandId by calling the [DescribeCommands](reseller.en-US/API Reference/Cloud assistant/DescribeCommands.md#).|
 
 ## Response parameters {#section_f54_lk5_xdb .section}
 
-All are common response parameters. See [Common response parameters](../intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
+All are common response parameters. See [Common response parameters](../reseller.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
 
 ## Examples { .section}
 
@@ -68,8 +68,6 @@ https://ecs.aliyuncs.com/?Action=DeleteCommand
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Description|
 |:---------|:------------|:---------------|:----------|

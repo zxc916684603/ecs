@@ -6,7 +6,7 @@ Creates a specified number of Pay-As-You-Go instances.
 
 You can call [DescribeAvailableResource](reseller.en-US/API Reference/Regions/DescribeAvailableResource.md#) to view the available resources in a specified region.
 
-We recommend that you maintain a sufficient balance in the linked credit card or PayPal account to complete the payment or preauthorization. For more information, see [Pricing overview](../../../../reseller.en-US/Pricing/Pricing overview.md#).
+We recommend that you maintain a sufficient balance in the linked credit card or PayPal account to complete the payment or preauthorization. For more information, see [Pricing overview](../reseller.en-US/Pricing/Pricing overview.md#).
 
 When you use this operation, consider the following:
 
@@ -15,7 +15,7 @@ When you use this operation, consider the following:
 -   You can call [DescribeInstances](reseller.en-US/API Reference/Instances/DescribeInstances.md#) to check the status of your instance.
 -   Make sure you have created a security group. For more information, see [CreateSecurityGroup](reseller.en-US/API Reference/Security groups/CreateSecurityGroup.md#).
 -   After a successful request, the instances that are created by you start automatically. An instance is ready to use when it is in the `Running` status.
--   Before creating a VPC-Connected instance, you must [Create a VPC](../../../../reseller.en-US/Quick Start/Create a VPC.md#). We can create a default VPC and VSwitch for you if needed.
+-   Before creating a VPC-Connected instance, you must [Create a VPC](../../../../../reseller.en-US/Quick Start/Create a VPC.md#). We can create a default VPC and VSwitch for you if needed.
 -   Unlike [CreateInstance](reseller.en-US/API Reference/Instances/CreateInstance.md#), instances created by calling the `RunInstances` method have Internet IPs allocated if you set the value of `InternetMaxBandwidthOut` greater than 0.
 -   If invalid parameters or stock shortage happens, the RunInstances action fails. For troubleshooting, see error codes.
 
@@ -33,13 +33,13 @@ Null indicates it is randomly chosen by Alibaba Cloud ECS.
 |ImageId|String|No|The image ID. You can call [DescribeImages](reseller.en-US/API Reference/Images/DescribeImages.md#) Describes your available image.`ImageId` is necessary and required when neither `LaunchTemplateId` nor `LaunchTemplateName` are specified.
 
 |
-|InstanceType|String|No|Instance type. For more information about available value, see [Instance type families](../../../../reseller.en-US/Product Introduction/Instance type families.md#) or call [DescribeInstanceTypes](reseller.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to query the latest instance type list.When neither `LaunchTemplateId` nor `LaunchTemplateName` are specified to choose a launch template, the `InstanceType` is required.
+|InstanceType|String|No|Instance type. For more information about available value, see [Instance type families](../reseller.en-US/Product Introduction/Instance type families.md#) or call [DescribeInstanceTypes](reseller.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to query the latest instance type list.When neither `LaunchTemplateId` nor `LaunchTemplateName` are specified to choose a launch template, the `InstanceType` is required.
 
 |
 |CreditSpecification|String|No| Modifies the running mode of an unlimited credit enabled t5 instance. Optional values:
 
- -   Standard: The standard running mode. For more information, see [t5 standard instances](../../../../reseller.en-US/Product Introduction/Instances/Burstable instances/t5 standard instances.md#).
--   Unlimited: The unlimited running mode. For more information, see [t5 unlimited instances](../../../../reseller.en-US/Product Introduction/Instances/Burstable instances/t5 unlimited instances.md#).
+ -   Standard: The standard running mode. For more information, see [t5 standard instances](../reseller.en-US/Product Introduction/Instances/Burstable instances/t5 standard instances.md#).
+-   Unlimited: The unlimited running mode. For more information, see [t5 unlimited instances](../reseller.en-US/Product Introduction/Instances/Burstable instances/t5 unlimited instances.md#).
 
  Default value: null.
 
@@ -136,10 +136,9 @@ If this parameter is not specified, the default value is the InstanceId of the i
 -   It cannot begin with "http://" or "https://".
 
 |
-|Password|String|No|Password of the ECS instance.-   It can be \[8, 30\] characters in length. It must contain uppercase and lowercase letters, digits.
--   The following special characters are allowed: @ \# $ % ^ & \* - + = | \{ \} \[ \] : ; ‘ < \> , . ? /
+|Password|String|No|Password of the ECS instance. The password can be \[8, 30\] characters in length. It must contain uppercase letters, lowercase letters, and numbers. The following special characters are allowed: \(\)\`~! @\#$%^&amp;\*-+=|\{\}\[\]:;‘&lt;\>,.? /. A slash \(/\) cannot be the first character of Windows instances administrative password.**Note:** If you specify a value for parameter `Password`, use HTTPS to call the API to avoid data breach.
 
-If you specify a value for parameter `Password`, use HTTPS to call the API to avoid data breach.|
+|
 |PasswordInherit|Boolean|No|Whether to use the password pre-configured in the image you select or not. When PasswordInherit is specified, the `Password` must be null. For a secure access, make sure that the selected image has password configured.|
 |Amount|String|No|The specified number of instances you want to create. Value range: \[1, 100\]. Default value: 1.|
 |AutoReleaseTime|String|No|The automatic release time for the specified instances. The time is presented using the [ISO8601](reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard and in UTC time. The format is YYYY-MM-DDTHH:mm:ssZ.-   If the seconds \(ss\) place is not 00, it is automatically set to start from the current minute \(mm\).
@@ -152,7 +151,7 @@ If you specify a value for parameter `Password`, use HTTPS to call the API to av
 -   The username and password authentication method is disabled if a value is set for parameter KeyPairName for a **Linux instance**.
 
 |
-|RamRoleName|String|No|Instance RAM role name. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../reseller.en-US/API reference/API reference (RAM)/Role Management Interface/ListRoles.md#). For more information, see [CreateRole](../../../../reseller.en-US/API reference/API reference (RAM)/Role Management Interface/CreateRole.md#) and [ListRoles](../../../../reseller.en-US/API reference/API reference (RAM)/Role Management Interface/ListRoles.md#).|
+|RamRoleName|String|No|Instance RAM role name. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../../reseller.en-US/API reference/API reference (RAM)/Role Management Interface/ListRoles.md#). For more information, see [CreateRole](../../../../../reseller.en-US/API reference/API reference (RAM)/Role Management Interface/CreateRole.md#) and [ListRoles](../../../../../reseller.en-US/API reference/API reference (RAM)/Role Management Interface/ListRoles.md#).|
 |SecurityEnhancementStrategy|String|No|Whether or not to enable security enhancement. Options:-   Active: Enables the security enhancement feature and installs a free network security software. Only applicable to the Alibaba Cloud official images.
 -   Deactive: Disables the security enhancement feature. No network security software is installed. Applicable to all kinds of images.
 
@@ -277,7 +276,7 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |InvalidHpcClusterId.Unnecessary|The specified HpcClusterId is unnecessary.|400|You can specify the ClusterId only for some `InstanceType`.|
 |InvalidVSwitchId.Necessary|The HpcClusterId is necessary.|400|To choose cluster for the specified `InstanceType`, you must specify the `HpcClusterId`.|
 |MissingParameter|The input parameter VSwitchId that is mandatory for processing this request is not supplied.|400|The `VSwitchId` parameter is required.|
-|QuotaExceed.AfterpayInstance|The maximum number of Pay-As-You-Go instances is exceeded.|400|You have exceeded the maximum number of Pay-As-You-Go instances. For more information, see [Limits](../../../../reseller.en-US/User Guide/Limits.md#).|
+|QuotaExceed.AfterpayInstance|The maximum number of Pay-As-You-Go instances is exceeded.|400|You have exceeded the maximum number of Pay-As-You-Go instances. For more information, see [Limits](../reseller.en-US/User Guide/Limits.md#).|
 |QuotaExceeded|Living instances quota exceeded in this VPC.|400|The number of instances in the specified VPC has reached the upper limit.|
 |ResourceNotAvailable|Resource you requested is not available in this region or zone.|400|The resource you requested is unavailable in the specified RegionId or ZoneId. Please try again in other regions or zones.|
 |CategoryNotSupported|The specified zone does not offer the specified disk category.|403|You cannot create a disk of the specified disk category in the specified zone.|
@@ -300,7 +299,7 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |InvalidSnapshotId.NotDataDiskSnapshot|The specified snapshot is system disk snapshot.|403|A data disk cannot be created from the system disk snapshot.|
 |InvalidSnapshotId.NotReady|The specified snapshot has not completed yet.|403|The snapshot has not been completed yet.|
 |InvalidSystemDiskCategory.ValueUnauthorized|The disk category is not authorized.|403|You are not authorized to create a disk of the specified category.|
-|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|A RAM user must be [granted](../../../../reseller.en-US/Quick Start/Authorize RAM users.md#) with a pass role permission before he or she specify RamRoleName for new ECS instances.|
+|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|A RAM user must be [granted](../../../../../reseller.en-US/Quick Start/Authorize RAM users.md#) with a pass role permission before he or she specify RamRoleName for new ECS instances.|
 |InvalidUserData.Forbidden|User not authorized to input the parameter UserData, please apply for permission UserData.|403|You are not authorized to configure the user data.|
 |InvalidVSwitchId.NotFound|The VSwitchId provided does not exist in our records.|403|The specified `VSwitchId` does not exist.|
 |IoOptimized.NotSupported|The specified image is not support IoOptimized Instance.|403|The specified image does not support the I/O optimized instances.|
@@ -312,7 +311,7 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |OperationDenied|The capacity of snapshot exceeds the size limit of the specified disk category or the specified category is not authorized.|403|The specified `DataDisk.n.Size` is invalid. Or the maximum capacity of the specified DataDisk.n.Size has exceeded. Or you are not allowed to create a disk of the specified category.|
 |OperationDenied|The type of the disk does not support the operation.|403|The specified disk type does not support this operation.|
 |OperationDenied.NoStock|Sales of this resource are temporarily suspended in the specified region; please try again later.|403|The specified instance type is out of stock. Please try other instance types in the region or try other regions and zones.|
-|QuotaExceed.BuyImage|The specified image is from the image market, You have not bought it or your quota has been exceeded.|403|The specified image is from the marketplace. You must purchase it in advance. Or the image is out of stock in the specified region. For more information, see [Limits](../../../../reseller.en-US/User Guide/Limits.md#).|
+|QuotaExceed.BuyImage|The specified image is from the image market, You have not bought it or your quota has been exceeded.|403|The specified image is from the marketplace. You must purchase it in advance. Or the image is out of stock in the specified region. For more information, see [Limits](../reseller.en-US/User Guide/Limits.md#).|
 |QuotaExceed.PortableCloudDisk|The quota of portable cloud disk exceeds.|403|The number of disks that can be attached to an instance has exceeded 16.|
 |RegionUnauthorized|There is no authority to create instance in the specified region.|403|You are not authorized to use the specified region.|
 |SecurityGroupInstanceLimitExceed|The maximum number of instances in a security group is exceeded.|403|The maximum number of instances in the specified security group has exceeded.|

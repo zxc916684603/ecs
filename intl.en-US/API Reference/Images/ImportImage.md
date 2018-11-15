@@ -4,13 +4,13 @@ Imports an on-premises image to Alibaba Cloud ECS.
 
 ## Description {#section_zj2_5wy_xdb .section}
 
-You can use the imported image to create instances \([RunInstances](intl.en-US/API Reference/Instances/RunInstances.md#)\) or replace the system disk of an instance \([ReplaceSystemDisk](intl.en-US/API Reference/Disk/ReplaceSystemDisk.md#)\). When you call this interface, consider the following:
+You can use the imported image to create instances \([RunInstances](reseller.en-US/API Reference/Instances/RunInstances.md#)\) or replace the system disk of an instance \([ReplaceSystemDisk](reseller.en-US/API Reference/Disk/ReplaceSystemDisk.md#)\). When you call this interface, consider the following:
 
--   You must [upload the image file to OSS](../../../../intl.en-US/Quick Start/Upload an object.md#) beforehand.
+-   You must [upload the image file to OSS](../../../../reseller.en-US/Quick Start/Upload an object.md#) beforehand.
 -   You can only import an image file to a region from OSS in the same region. The image and OSS must belong to one account.
 -   The n in `DiskDeviceMapping.n` indicates the disk type. When n is set to 1, it represents a system disk. When n is set to \[2, 17\], it represents a data disk.
--   You cannot delete an image that is being imported. However, you can cancel the image import task \([CancelTask](intl.en-US/API Reference/Others/CancelTask.md#)\).
--   To use [RAM](../../../../intl.en-US/Product Introduction/What is RAM.md#) to allow ECS to access OSS for your Alibaba Cloud account, follow these steps:
+-   You cannot delete an image that is being imported. However, you can cancel the image import task \([CancelTask](reseller.en-US/API Reference/Others/CancelTask.md#)\).
+-   To use [RAM](../../../../reseller.en-US/Product Introduction/What is RAM.md#) to allow ECS to access OSS for your Alibaba Cloud account, follow these steps:
     1.  Create a role with a name `AliyunECSImageImportDefaultRole` \(**image import fails if a different name is used**\), and see the following code snippet to set its role policy.
 
         ```
@@ -54,7 +54,7 @@ You can use the imported image to create instances \([RunInstances](intl.en-US/A
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: ImportImage.|
-|RegionId|String|Yes|The region ID. You can call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|The region ID. You can call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |ImageName|String|No|The image name.-   Can be \[2, 128\] characters in length. Must start with an uppercase or lowercase English letter, or a Chinese character. Can contain digits, colons \(:\), underscores \(\_\), or hyphen \(-\).
 -   The image name is displayed in the ECS console.
 -   Cannot start with http:// or https://.
@@ -142,13 +142,9 @@ https://ecs.aliyuncs.com/?Action=ImportImage
 
 ## Error codes {#ErrorCode .section}
 
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
-
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|
-|Forbbiden|User not authorized to operate on the specified resource|400|You cannot import the image now.[Open a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to enable the image import feature.
-
-|
+|Forbbiden|User not authorized to operate on the specified resource|400|You cannot import the image now.|
 |IncorrectImageStatus|The specified image is not available.|400|The status of the specified image is incorrect.|
 |InvalidArchitecture.Malformed|The specified Architecture is wrongly formed.|400|The specified `Architecture` is invalid.|
 |InvalidDescription.Malformed|The specified destination image description is wrongly formed.|400|The specified target image `Description` is invalid.|

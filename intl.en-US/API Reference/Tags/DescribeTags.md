@@ -10,9 +10,9 @@ In particular, if a tag key \(`Tag.n.Key`\) is specified, but no tag value \(`Ta
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DescribeTags|
+|Action|String|Yes|The name of this interface. Value: DescribeTags.|
 |RegionId|String|Yes|Regional ID. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|ResourceType|String|Yes|The type of the ECS resource. Value range:-   disk
+|ResourceType|String|Yes|The type of the ECS resource. Optional values:-   disk
 -   instance
 -   image
 -   securitygroup
@@ -31,13 +31,13 @@ Values are case-sensitive.|
  |
 |PageSize|Integer|No| The maximum entries on a page.
 
- Maximum: 100
+ Maximum: 100.
 
- Default: 50
+ Default: 50.
 
  |
 
-## Return parameters {#ResponseParameter .section}
+## Response parameters {#ResponseParameter .section}
 
 |Name|Type|Description|
 |:---|:---|:----------|
@@ -46,7 +46,7 @@ Values are case-sensitive.|
 |PageSize|Integer|The maximum entries on a page.|
 |PageNumber|Integer|Displays the tags on several pages.|
 
-## Example { .section}
+## Examples { .section}
 
 **Request example** 
 
@@ -60,9 +60,9 @@ https://ecs.aliyuncs.com/?Action=DescribeTags
 &<Common Request Parameters>
 ```
 
-**Response sample** 
+**Response example** 
 
-**XML format**
+**XML format** 
 
 ```
 <DescribeTagsResponse>

@@ -10,8 +10,8 @@ Price
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|Currency|String| The unit of currency.|
-|OriginalPrice|Double| The original price.|
+|Currency|String|The unit of currency.|
+|OriginalPrice|Double|The original price.|
 |DiscountPrice|Double|The trade discount.|
 |TradePrice|Double|The trading price, equal to the value of OriginalPrice minus the value of DiscountPrice.|
 

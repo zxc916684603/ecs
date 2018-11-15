@@ -18,7 +18,7 @@
 |PageSize|Integer|否|分页查询时设置的每页行数。最大值：50默认值：10
 
 |
-|DryRun|Boolean|否|是否只预检此次请求。-   true：发送检查请求，不会查询资源状况。检查项包括AccessKey是否有效、RAM用户的授权情况和是否填写了必需参数。如果检查不通过，则返回对应错误。如果检查通过，会返回错误码 `DryRunOperation`。
+|DryRun|Boolean|否|是否只预检此次请求。-   true：发送检查请求，不会查询资源状况。检查项包括AccessKey是否有效、RAM用户的授权情况和是否填写了必需参数。如果检查不通过，则返回对应错误。如果检查通过，会返回错误码`DryRunOperation`。
 -   false：发送正常请求，通过检查后返回2XX HTTP状态码并直接查询资源状况。
 
 默认值：false
@@ -109,5 +109,5 @@ https://ecs.aliyuncs.com/?Action=DescribeSecurityGroups
 
 ## 错误码 {#ErrorCode .section}
 
-全是公共错误码。更多错误码，请访问 [API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+全是公共错误码。更多错误码，请访问[API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 

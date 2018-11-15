@@ -178,15 +178,9 @@
     ```
 
 
-## 相关链接 {#section_fd3_zns_gfb .section}
+## 相关链接 {#section_lxd_dqs_gfb .section}
 
-用户可通过云中沙箱平台体验上述文档中的操作，[点击此处](https://edu.cloudcare.cn/courses/44377b56f7b64c2a873cba2232a1f766/detail?spm=a2c4g.11186623.2.41.6bfc1783y4o1fv)
+[Windows防火墙限制端口/IP/应用访问的方法以及例外的配置](https://www.alibabacloud.com/help/zh/faq-detail/40699.htm)
 
-[Windows防火墙限制端口/IP/应用访问的方法以及例外的配置](https://help.aliyun.com/knowledge_detail/40699.html)
-
-[Windows 系统远程桌面端口查看和修改方法](https://help.aliyun.com/knowledge_detail/40857.html)
-
-[Linux 修改默认远程端口方法](https://help.aliyun.com/knowledge_detail/41212.html)
-
-更多开源软件尽在[云市场](https://market.aliyun.com/software)
+更多开源软件尽在[云市场](https://marketplace.alibabacloud.com/)
 

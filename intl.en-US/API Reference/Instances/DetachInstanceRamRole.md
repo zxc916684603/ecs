@@ -1,15 +1,15 @@
 # DetachInstanceRamRole {#DetachInstanceRamRole .reference}
 
-Detaches a [RAM role](../../../../intl.en-US/User Guide/Instances/Instance RAM roles/What is the RAM role of an instance.md#) from an instance.
+Detaches a [RAM role](../../../../reseller.en-US/User Guide/Instances/Instance RAM roles/What is the RAM role of an instance.md#) from an instance.
 
 ## Request Parameters {#RequestParameter .section}
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: DetachInstanceRamRole.|
-|RegionId|String|Yes| Region ID. You can call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#).|
+|RegionId|String|Yes| Region ID. You can call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#).|
 |InstanceIds|String|Yes|Instance ID set. A maximum of 100 instances are supported, in the format of \["instanceId1", "instanceId2",  "instanceId3"…\].|
-|RamRoleName|String|No|Instance RAM role name. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../intl.en-US//Role Management Interface/ListRoles.md#). For more information, see the relevant APIs [CreateRole](../../../../intl.en-US//Role Management Interface/CreateRole.md#) and [ListRoles](../../../../intl.en-US//Role Management Interface/ListRoles.md#).|
+|RamRoleName|String|No|Instance RAM role name. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../reseller.en-US/.md#). For more information, see the relevant APIs [CreateRole](../../../../reseller.en-US/.md#) and [ListRoles](../../../../reseller.en-US/.md#).|
 
 ## Response parameters {#ResponseParameter .section}
 
@@ -83,15 +83,13 @@ https://ecs.aliyuncs.com/?Action=DetachInstanceRamRole
 
 ## Error codes {#ErrorCode .section}
 
-The following error codes are specific to this interface. For more error codes, visit the [API error center](https://error-center.alibabacloud.com/status/product/Ecs).
-
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|
 |MissingParameter.InstanceIds|The input parameter InstanceIds that is mandatory for processing this request is missing.|400|The required InstanceIds parameter is missing.|
 |MissingParameter.RegionId|The input parameter RegionId that is mandatory for processing this request is missing.|400|The required RegionId parameter is missing.|
 |InvalidInstanceIds.Malformed|The specified InstanceIds is not valid.|400|The specified InstanceIds is invalid.|
 |InvalidNetworkType.MismatchRamRole|Ram role cannot be attached to instances of Classic network type.|403|RAM roles cannot be attached to instances of Classic network type.|
-|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a RAM role.|403|Your RAM user account does not have PassRole permission. For more information, see  [Attach policies to a RAM user](../../../../intl.en-US/Quick Start/Attach policies to a RAM user.md#).|
+|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a RAM role.|403|Your RAM user account does not have PassRole permission. For more information, see  [Attach policies to a RAM user](../../../../reseller.en-US/Quick Start/Attach policies to a RAM user.md#).|
 |InvalidInstanceId.NotFound|The specified InstanceId does not exist.|404|The specified InstanceIds does not exist.|
 |InvalidRamRole.NotFound|The specified RamRoleName does not exist.|404|The specified RamRoleName does not exist.|
 

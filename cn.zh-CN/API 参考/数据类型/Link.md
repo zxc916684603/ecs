@@ -1,6 +1,6 @@
 # Link {#Link .reference}
 
-专有网络（VPC）连接数据类型。
+专有网络（VPC）连接的数据类型。
 
 ## 节点名 {#section_mqs_ptp_ydb .section}
 

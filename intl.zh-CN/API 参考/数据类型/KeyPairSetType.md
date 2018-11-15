@@ -10,5 +10,5 @@ SSH 密钥对组合类型。
 
 |名称|类型|描述|
 |:-|:-|:-|
-|KeyPair|[KeyPairItemType](intl.zh-CN/API参考/数据类型/KeyPairItemType.md#)|密钥对 `KeyPairItemType`。|
+|KeyPair|[KeyPairItemType](cn.zh-CN/API 参考/数据类型/KeyPairItemType.md#)|密钥对 `KeyPairItemType`。|
 

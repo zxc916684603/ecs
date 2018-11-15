@@ -27,7 +27,7 @@ If a cloud disk is created from a snapshot, the initial disk performance decreas
 
 ## Prerequisites {#section_hbc_ybb_ydb .section}
 
--   You have created a snapshot for your instance, and you make sure the region and zone. For specific actions, see [create snapshots](reseller.en-US/User Guide/Snapshots/Create snapshots.md#).
+-   You have created a snapshot for your instance, and you make sure the region and zone. For specific actions, see [create snapshots](reseller.en-US/User Guide/Snapshots/Create a snapshot.md#).
 -   [Attach a cloud disk](reseller.en-US/User Guide/Cloud disks/Attach a cloud disk.md#). The instance and the cloud disk must be in the same region and zone.
 
 ## Procedure {#section_lbc_ybb_ydb .section}

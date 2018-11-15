@@ -10,5 +10,5 @@ ShareGroup
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|Group|String|Shared group|
+|Group|String|Shared group.|
 

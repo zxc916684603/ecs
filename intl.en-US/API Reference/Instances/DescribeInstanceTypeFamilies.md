@@ -6,7 +6,7 @@ Describes the resources list of instance type families provided by Alibaba Cloud
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DescribeInstanceTypeFamilies|
+|Action|String|Yes|The name of this interface. Value: DescribeInstanceTypeFamilies.|
 |RegionId|String|Yes|Regional ID. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |Generation|String|No|The generation of the instance type families. Optional values:-   ecs-1: Generation I, which consists of the earliest and cost-effective instance types.
 -   ecs-2: Generation II, which is available later than the first generation of type families.
@@ -20,17 +20,17 @@ Describes the resources list of instance type families provided by Alibaba Cloud
 |:---|:---|:----------|
 |InstanceTypeFamilies|[InstanceTypeFamilyItemType](intl.en-US/API Reference/Data type/InstanceTypeFamilyItemType.md#)|A collection composed of InstanceTypeFamilyItemType.|
 
-## Example { .section}
+## Examples { .section}
 
 **Request example** 
 
 ```
 https://ecs.aliyuncs.com/?Action=DescribeInstanceTypeFamilies
 &RegionId=cn-hangzhou
-&<Common request parameters>
+&<Common Request Parameters>
 ```
 
-**Response sample** 
+**Response example** 
 
 **XML format**
 

@@ -6,7 +6,7 @@ You can modify the attribute of an ENI \(Elastic Network Interface\) by calling 
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: ModifyNetworkInterfaceAttribute|
+|Action|String|Yes|The name of this interface. Value: ModifyNetworkInterfaceAttribute.|
 |RegionId|String|Yes|ID of the region where the instance belongs. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |NetworkInterfaceId|String|Yes|ENI ID.|
 |SecurityGroupId.N|String|No|ID of the security group. The new security group replaces the earlier one, and the security group must be in the same VPC as the ENI.|
@@ -26,7 +26,7 @@ You can modify the attribute of an ENI \(Elastic Network Interface\) by calling 
 
 All are common response parameters. For more information, see [Common parameters](intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
 
-## Example { .section}
+## Examples { .section}
 
 **Request example** 
 
@@ -37,7 +37,7 @@ https://ecs.aliyuncs.com/?Action=ModifyNetworkInterfaceAttribute
 &<Common Request Parameters>
 ```
 
-**Response sample** 
+**Response example** 
 
 **XML format**
 

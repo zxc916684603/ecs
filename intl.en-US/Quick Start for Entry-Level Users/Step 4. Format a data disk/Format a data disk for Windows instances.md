@@ -2,7 +2,7 @@
 
 If data disks are selected when you create a Windows instance, you need to partition and format them for use.
 
-This article describes how to create a single-partition data disk using a new data disk and how to mount a file system. You can also configure multiple partitions based on business needs. This article applies only to data disks that are not larger than 2 TiB. For those that are larger than 2 TiB, see [Partition and format data disk larger than 2 TiB](../../../../intl.en-US/User Guide/Cloud disks/Partition and format data disk more than 2 TB.md#).
+This article describes how to create a single-partition data disk using a new data disk and how to mount a file system. You can also configure multiple partitions based on business needs. This article applies only to data disks that are not larger than 2 TiB. For those that are larger than 2 TiB, see [Partition and format data disk larger than 2 TiB](../../../../reseller.en-US/User Guide/Cloud disks/Partition and format data disk more than 2 TB.md#).
 
 **Warning:** 
 
@@ -13,7 +13,7 @@ This article describes how to create a single-partition data disk using a new da
 
 ## Prerequisites {#section_dsm_sg2_wdb .section}
 
-For a separately [purchased data disk](../../../../intl.en-US/User Guide/Cloud disks/Create a cloud disk.md#), you must [attach the data disk to an instance](../../../../intl.en-US/User Guide/Cloud disks/Attach a cloud disk.md#) before partitioning and formatting.
+For a separately [purchased data disk](../../../../reseller.en-US/User Guide/Cloud disks/Create a cloud disk.md#), you must [attach the data disk to an instance](../../../../reseller.en-US/User Guide/Cloud disks/Attach a cloud disk.md#) before partitioning and formatting.
 
 A data disk purchased along with the instance can be partitioned and formatted without being attached.
 
@@ -21,7 +21,7 @@ A data disk purchased along with the instance can be partitioned and formatted w
 
 This example describes how to partition and format a 20 GiB data disk on the 64-bit Windows Server 2012 R2.
 
-1.  [Connect to an instance](intl.en-US/Quick Start for Entry-Level Users/Step 3: Connect to an instance.md#).
+1.  [Connect to an instance](reseller.en-US/Quick Start for Entry-Level Users/Step 3: Connect to an instance.md#).
 
 2.  On Windows Server desktop, right click the **Start** icon, then select **Disk management**.
 
@@ -58,7 +58,7 @@ This example describes how to partition and format a 20 GiB data disk on the 64-
 
 After the partition formatting is completed, the status of Disk 2 in **Disk Management** is as shown in the following figure.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15356406035103_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15395036955103_en-US.png)
 
 In **This PC**, you can view a new drive named **New Volume \(F:\)**. The data disk is now ready to use.
 

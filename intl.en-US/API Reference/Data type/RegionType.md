@@ -10,6 +10,6 @@ Region
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|RegionId|String|Region ID|
-|LocalName|String| Name of the region|
+|RegionId|String|Region ID.|
+|LocalName|String|Name of the region.|
 

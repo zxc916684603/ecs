@@ -6,7 +6,7 @@ You can bind 20 tags to a resource at most. You can bind/unbind 20 tags at most 
 
 Take the following steps to bind resources with tags:
 
-1.  Log on to the[ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  Select the resource type in the left-side navigation bar for the binding operation, such as Instance, Cloud Disks, Snapshot, Image, and Security Groups.
 3.  Select a region.
 4.  Select the resources in the resource list to bind tags.

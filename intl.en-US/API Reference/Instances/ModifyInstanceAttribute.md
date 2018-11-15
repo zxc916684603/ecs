@@ -7,9 +7,9 @@ Modifies the information such as the name, password, host name, and description 
 When you call this interface, consider the following:
 
 -   You cannot reset the password for an instance when it is in the `Starting` status.
--   If the specified instance is [locked](intl.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#), and the `OperationLocks` of the instance indicates `"LockReason" : "security"`, you cannot reset its password.
--   The new password takes effect only after the instance is [restarted](../intl.en-US/User Guide/Instances/Restart an instance.md#) in the console or by calling the interface [RebootInstance](intl.en-US/API Reference/Instances/RebootInstance.md#). 
--   When an instance is in the **Stopped** status and is not limited to pass a [user data](../intl.en-US/User Guide/Instances/User-defined data and metadata/User data.md) script, you can modify its user data.
+-   If the specified instance is [locked](reseller.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#), and the `OperationLocks` of the instance indicates `"LockReason" : "security"`, you cannot reset its password.
+-   The new password takes effect only after the instance is [restarted](../reseller.en-US/User Guide/Instances/Restart an instance.md#) in the console or by calling the interface [RebootInstance](reseller.en-US/API Reference/Instances/RebootInstance.md#). 
+-   When an instance is in the **Stopped** status and is not limited to pass a [user data](../reseller.en-US/User Guide/Instances/User-defined data and metadata/User data.md) script, you can modify its user data.
 
 ## Request parameters {#RequestParameter .section}
 
@@ -28,8 +28,8 @@ When you call this interface, consider the following:
 |UserData|String|No|The user-defined data of your ECS instance. The size of your UserData must be less than 16 KB before the Base64 encodement. Refrain from entering confidential information, such as SSH key pair and AccessKey, in your request. If you do so, make sure the confidential information is encrypted before Base64 encoding. Also, do not forget to decrypt the information after it passes into your ECS instance.|
 |CreditSpecification|String|No| Modifies the running mode of an unlimited credit enabled t5 instance. Optional values:
 
- -   Standard: The standard running mode. For more information, see [t5 standard instances](../intl.en-US/Product Introduction/Instances/Burstable instances/t5 standard instances.md#).
--   Unlimited: The unlimited running mode. For more information, see [t5 unlimited instances](../intl.en-US/Product Introduction/Instances/Burstable instances/t5 unlimited instances.md#).
+ -   Standard: The standard running mode. For more information, see [t5 standard instances](../reseller.en-US/Product Introduction/Instances/Burstable instances/t5 standard instances.md#).
+-   Unlimited: The unlimited running mode. For more information, see [t5 unlimited instances](../reseller.en-US/Product Introduction/Instances/Burstable instances/t5 unlimited instances.md#).
 
  Default value: null.
 
@@ -37,7 +37,7 @@ When you call this interface, consider the following:
 
 ## Response parameters {#ResponseParameter .section}
 
-All are common response parameters. For more information, see [Common parameters](intl.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
+All are common response parameters. For more information, see [Common parameters](reseller.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
 
 ## Examples { .section}
 
@@ -70,7 +70,7 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceAttribute
 
 ## Error codes {#ErrorCode .section}
 
-All are common error codes. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
+All are common error codes. For more information, see [Common error codes](../reseller.en-US/API Reference/Getting started/Response results.md#commonErrorCodes).
 
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|

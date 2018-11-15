@@ -6,7 +6,7 @@ Detaches an SSH key pair from one or more of your Linux instances.
 
 When you call this interface, consider the following:
 
--   After you detach an SSH key pair, restart the instance \([RebootInstance](intl.en-US/API Reference/Instances/RebootInstance.md#)\) for the operation to take effect.
+-   After you detach an SSH key pair, restart the instance \([RebootInstance](reseller.en-US/API Reference/Instances/RebootInstance.md#)\) for the operation to take effect.
 
 -   After the key pair is detached, the user name and password authentication method is used by default.
 
@@ -16,15 +16,15 @@ When you call this interface, consider the following:
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: DetachKeyPair|
-|RegionId|String|Yes|The ID of the region to which your SSH key pair belongs. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|The ID of the region to which your SSH key pair belongs. For more information, call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |KeyPairName|String|Yes|The names of key pairs.|
 |InstanceIds|String|No|The instance ID. The instance ID. The value can contain arrays of up to 50 instance IDs. The IDs are displayed in the format of \["i-xxxxxxxxx", "i-yyyyyyyyy", … "i-zzzzzzzzz"\] and separated by commas \(,\).|
 
-## Return parameters {#section_f54_lk5_xdb .section}
+## Response parameters {#section_f54_lk5_xdb .section}
 
-All are common parameters. See [Common parameters](intl.en-US/API Reference/Call methods/Common parameters.md#).
+All are common parameters. See [Common parameters](reseller.en-US/API Reference/Getting started/Common parameters.md#).
 
-## Example { .section}
+## Examples { .section}
 
 **Request example** 
 
@@ -33,12 +33,12 @@ https://ecs.aliyuncs.com/?Action=DetachKeyPair
 &RegionId=cn-qingdao
 &InstanceIds=["i-xxxxxxx", "i-yyyyyyy"]
 &KeyPairName=test
-&<Common Request Parameter>
+&<Common Request Parameters>
 ```
 
 **Response example** 
 
-**XML format**
+**XML format** 
 
 ```
 <DetachKeyPairResponse>
@@ -55,8 +55,6 @@ https://ecs.aliyuncs.com/?Action=DetachKeyPair
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more error codes, see the [API error center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code |Note|
 |:---------|:------------|:----------------|:---|

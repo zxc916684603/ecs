@@ -7,14 +7,14 @@ Checks whether the cloud assistant client is installed or not on one or more ins
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The operation that you want to perform. Value: DescribeCloudAssistantStatus.|
-|RegionId|String|Yes|The ID of the region where the ECS instance is located. You can call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to view the latest region list.|
+|RegionId|String|Yes|The ID of the region where the ECS instance is located. You can call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to view the latest region list.|
 |InstanceId.N|Array|Yes|The list of instance IDs. A single request supports up to 20 instances, therefore, the N can be set to \[1, 20\].|
 
 ## Response parameters {#ResponseParameter .section}
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|InstanceCloudAssitantStatus|[InstanceCloudAssitantStatusSet](intl.en-US/API Reference/Cloud assistant/DescribeCloudAssistantStatus.md#InstanceCloudAssitantStatusSet)|A set of installation statuses of the cloud assistant in the instance.|
+|InstanceCloudAssitantStatus|[InstanceCloudAssitantStatusSet](reseller.en-US/API Reference/Cloud assistant/DescribeCloudAssistantStatus.md#InstanceCloudAssitantStatusSet)|A set of installation statuses of the cloud assistant in the instance.|
 
 **InstanceCloudAssitantStatusSet**
 
@@ -74,8 +74,6 @@ https://ecs.aliyuncs.com/?Action=DescribeCloudAssistantStatus
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Description|
 |:---------|:------------|:---------------|:----------|

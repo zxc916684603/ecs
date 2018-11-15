@@ -12,7 +12,7 @@ InstanceType 
 |:----|:----|:-----------|
 |InstanceTypeId|String |ID of the instance type.|
 |CpuCoreCount|Integer |Number of CPU cores.|
-|MemorySize|Double |Memory size in GB.|
+|MemorySize|Double |Memory size in GiB.|
 |InstanceTypeFamily|String |Instance type family.|
 |GPUAmount|Integer|The amount of GPU of an instance type.|
 |GPUSpec|String |The category of GPU of an instance type.|

@@ -19,5 +19,5 @@ DiskMonitorData
 |IOPSTotal|Integer|Total disk IO read and write operations, measured in /s.|
 |Latencyread|Integer|Read latency of a disk, measured in Byte/s.|
 |Write latency of a disk, measured in Byte/s.|Integer|Write latency of a disk, measured in Byte/s.|
-|TimeStamp|String|Time stamp of the query, which is presented according to [ISO8601](intl.en-US/API Reference/Appendix/ISO 8601 Time Format.md#), and UTC time is used. The format is yyyy-MM-ddThh:mmZ.|
+|TimeStamp|String|Time stamp of the query, which is presented according to [ISO8601](reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#), and UTC time is used. The format is yyyy-MM-ddThh:mmZ.|
 

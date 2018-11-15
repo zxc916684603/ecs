@@ -6,7 +6,7 @@
 
 -   为了方便您了解自己的实例是否为自动续费状态，本接口支持实例续费状态的查询。
 
--   目前只支持 [包年包月](../intl.zh-CN/产品定价/预付费（包年包月）.md#) 的实例，[按量付费](../intl.zh-CN/产品定价/按量付费.md#) 的实例执行该接口会报错。
+-   目前只支持 [包年包月](../../../../cn.zh-CN/产品定价/预付费（包年包月）.md#) 的实例，[按量付费](../../../../cn.zh-CN/产品定价/按量付费.md#) 的实例执行该接口会报错。
 
 
 ## 请求参数 {#RequestParameter .section}
@@ -14,7 +14,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeInstanceAutoRenewAttribute|
-|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|实例所属的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API 参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |InstanceId|String|是|实例 ID。支持最多 100 个包年包月实例批量查询，多个实例 ID 以英文逗号分隔。|
 
 ## 返回参数 {#ResponseParameter .section}
@@ -96,7 +96,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceAutoRenewAttribute
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|

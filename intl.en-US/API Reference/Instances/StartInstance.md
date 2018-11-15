@@ -6,7 +6,7 @@ Start a specified instance.
 
 -   You can only run this interface when the instance is in **Stopped** \(`Stopped`\) status.
 -   After you run this interface successfully, the specified instance is in **Starting** \(`Starting`\) status.
--   If the specified instance is [locked](intl.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#), and the `OperationLocks` of the instance indicates `LockReason: "security"`, you cannot start the instance.
+-   If the specified instance is [locked](reseller.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#), and the `OperationLocks` of the instance indicates `LockReason: "security"`, you cannot start the instance.
 
 ## Request parameters {#section_nzr_pww_ydb .section}
 
@@ -14,14 +14,14 @@ Start a specified instance.
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: StartInstance.|
 |InstanceId|String|Yes|ID of the instance.|
-|InitLocalDisk|Boolean|No|Applicable to instance types of D1, I1, and I2 [instance type family](../../../../intl.en-US/Product Introduction/Instance type families.md#). Recover to the previous normal status of your local disk when exceptions occurs. Optional values:-   true: Recover the local disk to the previous normal status. The accumulated data starting from the previous normal status is overwritten.
+|InitLocalDisk|Boolean|No|Applicable to instance types of D1, I1, and I2 [instance type family](../../../../reseller.en-US/Product Introduction/Instance type families.md#). Recover to the previous normal status of your local disk when exceptions occurs. Optional values:-   true: Recover the local disk to the previous normal status. The accumulated data starting from the previous normal status is overwritten.
 -   false: Skip the recovery, and keep the status of the local disk unchanged.
 
 |
 
 ## Response parameters {#section_ujd_cmm_xdb .section}
 
-All parameters are common response parameters. For more information, see [Common parameters](intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
+All parameters are common response parameters. For more information, see [Common parameters](reseller.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
 
 ## Examples { .section}
 
@@ -54,8 +54,6 @@ All parameters are common response parameters. For more information, see [Common
 ```
 
 ## Error codes { .section}
-
-Error codes specific to this interface are as follows. For more error codes, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|

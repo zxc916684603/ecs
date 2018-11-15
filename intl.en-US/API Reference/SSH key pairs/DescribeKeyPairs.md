@@ -7,7 +7,7 @@ Describes one or more of your SSH key pairs.
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: DescribeKeyPairs.|
-|RegionId|String|Yes| The ID of the region to which your SSH key pairs belong. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes| The ID of the region to which your SSH key pairs belong. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |KeyPairFingerPrint|String|No|The fingerprint of the key pair. The public key fingerprint format is defined in RFC4716 and uses the MD5 message digest algorithm. For more information, see [RFC4716](http://tools.ietf.org/html/rfc4716).|
 |KeyPairName|String|No|The key pair name. You can use the regular expression and the symbol `*` for fuzzy string search of a key pair name. Sample patterns:-    `*SshKey`: Matches the string set ending with *SshKey*, including *SshKey*.
 -    `SshKey*`: Matches the string set beginning with *SshKey*, including *SshKey*.
@@ -21,6 +21,8 @@ Describes one or more of your SSH key pairs.
 |PageSize|Integer|No|The maximum entries on a page. Maximum value: 50.Default value: 10.
 
 |
+|Tag.n.Key|String|Yes|The key of a tag of which n is from 1 to 20. Once you use this parameter, it cannot be a null string. It can be up to 64 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
+|Tag.n.Value|String|Yes|The value of a tag of which n is a number from 1 to 20. Once you use this parameter, it can be a null string. It can be up to 128 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
 
 ## Response parameters {#ResponseParameter .section}
 
@@ -30,9 +32,9 @@ Describes one or more of your SSH key pairs.
 |PageNumber|Integer| The current page.|
 |PageSize|Integer|The maximum entries on a page.|
 |RegionId|String|The region of the key pair.|
-|KeyPairs|[KeyPairItemType](intl.en-US/API Reference/Data type/KeyPairItemType.md#)|Information about key pairs, a set composed by KeyPairItemType.|
+|KeyPairs|[KeyPairItemType](reseller.en-US/API Reference/Data type/KeyPairItemType.md#)|Information about key pairs, a set composed by KeyPairItemType.|
 
-## Example { .section}
+## Examples { .section}
 
 **Request example** 
 
@@ -65,26 +67,26 @@ https://ecs.aliyuncs.com/?Action=DescribeKeyPairs
 </DescribeKeyPairsResponse>
 ```
 
- **JSON format** 
+**JSON format** 
 
 ```
-
-    "PageNumber": 1,
-    "PageSize": 2,
-    "TotalCount": 1,
-    "KeyPairs": {
-        "KeyPair":[{
-            "KeyPairName": "test",
-            "KeyPairFingerPrint": "xxxxxxxxxx"
-        
-    
-    "RequestId": "473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E"
-
+{
+  "PageNumber": 1,
+  "PageSize": 50,
+  "RequestId": "B04B8CF3-4489-432D-83BA-6F128E4F2295",
+  "Tags": {
+    "Tag": [
+      {
+        "TagKey": "test",
+        "TagValue": "api"
+      }
+    ]
+  },
+  "TotalCount": 1
+}
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|

@@ -31,7 +31,7 @@ This article describes usage restrictions and recommendations of an ECS instance
 -   For I/O-optimized instances, do not disable the aliyun-service process.
 -   For Windows users, exercise caution when using the administrator or other accounts to perform actions involving capacity expansion, spanned volume, registry, system update, and other related actions, in order to avoid data corruption due to misoperations.
 -   For Linux users, exercise caution when using the root or other accounts to perform actions involving fio, mkfs, fsck, capacity expansion, and other related actions, in order to avoid data corruption due to misoperations.
--   We do not recommend that you upgrade the kernel and the operating system. If you need to upgrade the kernel, see [How to avoid Linux instance startup failure after kernel upgrade](https://www.alibabacloud.com/help/faq-detail/59360.htm).
+-   We do not recommend that you upgrade the kernel and the operating system. If you need to upgrade the kernel, see [How to avoid Linux instance startup failure after kernel upgrade](https://partners-intl.aliyun.com/help/faq-detail/59360.htm).
 
 ## Windows instructions {#section_ajc_kdx_wdb .section}
 
@@ -48,5 +48,5 @@ This article describes usage restrictions and recommendations of an ECS instance
 -   We recommend you do not use the swap partition if Basic Cloud Disks are used. For Ultra Cloud Disks or SSD Cloud Disks, you can use the swap partition as needed.
 -   Do not enable the NetWorkManager service. This service conflicts with the internal network service of the system which can result in network errors.
 
-For more information, see [Limitations](intl.en-US/User Guide/Limitations.md#).
+For more information, see [Limitations](reseller.en-US/User Guide/Limitations.md#).
 

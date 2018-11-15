@@ -6,24 +6,24 @@ Deletes one or more of your SSH key pairs. Once an SSH key pair is deleted, we r
 
 When you call this interface, consider the following:
 
--   The SSH key pair cannot be described \([DescribeKeyPairs](intl.en-US/API Reference/SSH key pairs/DescribeKeyPairs.md#) \) any more.
+-   The SSH key pair cannot be described \([DescribeKeyPairs](reseller.en-US/API Reference/SSH key pairs/DescribeKeyPairs.md#)\) any more.
 
--   When you obtain the information about the instances \([DescribeInstances](intl.en-US/API Reference/Instances/DescribeInstances.md#)\), the key pair name \(`KeyPairNames`\) is still returned, but without any information about the SSH key pair.
+-   When you obtain the information about the instances \([DescribeInstances](reseller.en-US/API Reference/Instances/DescribeInstances.md#)\), the key pair name \(`KeyPairNames`\) is still returned, but without any information about the SSH key pair.
 
 
 ## Request parameters {#RequestParameter .section}
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DeleteKeyPairs|
-|RegionId|String|Yes|The ID of the region to which the SSH key pair belongs. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|Action|String|Yes|The name of this interface. Value: DeleteKeyPairs.|
+|RegionId|String|Yes|The ID of the region to which the SSH key pair belongs. For more information, call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |KeyPairNames|String|Yes|The names of key pairs. The value can contain arrays of up to 100 SSH key pairs. The key pair name are displayed in the format of \["key-xxxxxxxxx", "key-yyyyyyyyy", … "key-zzzzzzzzz"\]  and separated by commas \(,\).|
 
 ## Return parameters {#section_f54_lk5_xdb .section}
 
-All are common parameters. See [Common parameters](intl.en-US/API Reference/Call methods/Common parameters.md#).
+All are common parameters. See [Common parameters](reseller.en-US/API Reference/Getting started/Common parameters.md#).
 
-## Example { .section}
+## Examples { .section}
 
 **Request example** 
 
@@ -36,7 +36,7 @@ https://ecs.aliyuncs.com/?Action=DeleteKeyPairs
 
 **Response example** 
 
-**XML format**
+**XML format** 
 
 ```
 <DeleteKeyPairsResponse>
@@ -53,8 +53,6 @@ https://ecs.aliyuncs.com/?Action=DeleteKeyPairs
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more error codes, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code |Meaning|
 |:---------|:------------|:----------------|:------|

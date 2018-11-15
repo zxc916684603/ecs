@@ -4,7 +4,7 @@ A list of shared bandwidth packages.
 
 ## Node {#section_gcj_bgp_ydb .section}
 
-It depends on the interface.
+Depends on the methods.
 
 ## Subnode {#section_hcj_bgp_ydb .section}
 

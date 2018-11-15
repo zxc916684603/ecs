@@ -22,7 +22,7 @@ After you restart a Linux instance, you may encounter data disk partition loss o
 
 -   **Restore partitions by using fdisk**
 
-    Default values usually apply to the starting and ending sectors of the partition when you partition a data disk. You can then directly use fdisk to restore the partition. For more information about this tool, see [Linux Format and mount a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format and mount data disks for Linux instances.md#).
+    Default values usually apply to the starting and ending sectors of the partition when you partition a data disk. You can then directly use fdisk to restore the partition. For more information about this tool, see [Linux Format and mount a data disk](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#).
 
     ![](images/13051_en-US_source.png)
 
@@ -97,7 +97,7 @@ Data is users’ core asset. Many users establish websites and databases \(MYSQL
 
 -   **Common mistakes**
 
-    The bottom layer of Alibaba Cloud block-level storage is based on [triplicate technology](../../../../intl.en-US/Product Introduction/Block storage/Triplicate technology.md#). Therefore, some users consider that no risk of data loss in the operating system exists. It is actually a misunderstanding. The three copies of data stored in the bottom layer provide physical layer protection for data disks. However, if problems occur to the cloud disk logic in the system, such as viruses, accidental data deletion, and file system damage, the data may still be lost. To guarantee data security, you have to use technologies such as Snapshot and backup.
+    The bottom layer of Alibaba Cloud block-level storage is based on [triplicate technology](../../../../reseller.en-US/Product Introduction/Block storage/Triplicate technology.md#). Therefore, some users consider that no risk of data loss in the operating system exists. It is actually a misunderstanding. The three copies of data stored in the bottom layer provide physical layer protection for data disks. However, if problems occur to the cloud disk logic in the system, such as viruses, accidental data deletion, and file system damage, the data may still be lost. To guarantee data security, you have to use technologies such as Snapshot and backup.
 
 -   **Best practices**
 
@@ -109,7 +109,7 @@ Data is users’ core asset. Many users establish websites and databases \(MYSQL
 
         You log on to the ECS console to change the attributes of the disks to enable **snapshot release with the disk**. Disable snapshot release with the disk if you want to retain the snapshots.
 
-        For more information, see [FAQ about automatic snapshots](https://www.alibabacloud.com/help/faq-detail/40552.htm).
+        For more information, see [FAQ about automatic snapshots](https://partners-intl.aliyun.com/help/faq-detail/40552.htm).
 
     -   **Create manual snapshots**
 

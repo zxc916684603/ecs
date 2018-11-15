@@ -10,12 +10,12 @@ OperationProgress
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|RelatedItemSet|[RelatedItemSetType](intl.en-US/API Reference/Data type/RelatedItemType.md#)|Resource information type|
-|OperationStatus|String|Operation status. Optional values:-   Processing
+|RelatedItemSet|[RelatedItemSetType](intl.en-US/API Reference/Data type/RelatedItemType.md#)|Resource information type.|
+|OperationStatus|String|Operation status. Possible values:-   Processing
 -   Success
 -   Failed
 
 |
-|ErrorCode|String|Error code. It is null unless OperationStatus is Failed.Error message. It is null unless OperationStatus is Failed.|
+|ErrorCode|String|Error code. It is null unless OperationStatus is Failed.|
 |ErrorMsg|String|Error message. It is null unless OperationStatus is Failed.|
 

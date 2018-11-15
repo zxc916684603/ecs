@@ -1,6 +1,6 @@
 # KeyPairItemType {#KeyPairItemType .reference}
 
-Type of the SSH key pair
+Type of the SSH key pair.
 
 ## Node {#section_fb1_kmp_ydb .section}
 
@@ -10,6 +10,6 @@ KeyPairs
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|KeyPairName|String|Name of the key pair|
-|KeyPairFingerPrint|String| Fingerprint of the key pair|
+|KeyPairName|String|Name of the key pair.|
+|KeyPairFingerPrint|String|Fingerprint of the key pair.|
 

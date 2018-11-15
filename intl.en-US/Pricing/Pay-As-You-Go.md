@@ -2,6 +2,8 @@
 
 With the Pay-As-You-Go billing method, you are charged based on the amount of resources you actually use. Pay-As-You-Go allows you to activate and release resources at any time to meet your requirements. You can purchase resources on demand, and scale up as your business grows. Costs can be reduced by 30% to 80% compared to a traditional host investment, with which many resources may be wasted at times.
 
+**Note:** All the charging rules described in this article is for reference purpose only. For more information, please contact your service provider.
+
 ## Applicable resources {#section_xmc_xbg_c2b .section}
 
 Currently, the Pay-As-You-Go billing method is applicable to the following ECS resources:
@@ -16,24 +18,22 @@ You can make following changes after activating Pay-As-You-Go resources:
 
 -   Resource configuration change:
 
-    You can change the instance types, including CPU configuration and memory capacity, after you create an instance. For more information, see [Change configurations of Pay-As-You-Go instances](../../../../intl.en-US/User Guide/Instances/Change configurations/Change configurations of Pay-As-You-Go instances.md#).
+    You can change the instance types, including CPU configuration and memory capacity, after you create an instance. For more information, see [Change configurations of Pay-As-You-Go instances](../../../../reseller.en-US/User Guide/Instances/Change configurations/Change configurations of Pay-As-You-Go instances.md#).
 
 -   Billing method change:
 
-    Instances, system disks, and data disks support switching from Pay-As-You-Go billing to Subscription billing. For more information, see [Switch from Pay-As-You-Go to Subscription billing](intl.en-US/Pricing/Limits.md#).
+    Instances, system disks, and data disks support switching from Pay-As-You-Go billing to Subscription billing. For more information, see [Switch from Pay-As-You-Go to Subscription billing](reseller.en-US/Pricing/Limits.md#).
 
 
-## Payment methods {#section_igl_wcg_c2b .section}
+## Payment methods {#section_kgq_1gm_42b .section}
 
-You can use a credit card or a PayPal account linked to your Alibaba Cloud account to pay for Pay-As-You-Go resources. For more information, see [Add a payment method](https://www.alibabacloud.com/help/doc-detail/50517.htm).
-
-**Note:** If you are using PayPal as the payment method after activating a Pay-As-You-Go resource and place an order, Alibaba Cloud preauthorizes on your PayPal account.
+Credits are used to pay for the resources of the Pay-As-You-Go billing method.
 
 ## Billing period {#section_rbk_ldg_c2b .section}
 
 A Pay-As-You-Go resource is billed by the second after is it created, and billing stops after it is released.
 
-For a VPC instance, you can enable the [no fees for stopped instances feature](intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#). When the feature is enabled, a VPC instance is not billed when it is in a **Stopped** status. This feature is only available for instances, and not for other ECS resources.
+For a VPC instance, you can enable the [no fees for stopped instances feature](reseller.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#). When the feature is enabled, a VPC instance is not billed when it is in a **Stopped** status. This feature is only available for instances, and not for other ECS resources.
 
 The billing cycle varies depending on the resource types. The minimum charge for the lifecycle of an ECS instance \(from creation to release\) is USD 0.01.
 
@@ -52,19 +52,6 @@ Pay-As-You-Go resources are billed by the second, but settled by the hour. Note 
 
 -   If you have a quota agreement with Alibaba Cloud, fees are deducted when the cumulative consumption amount of your account exceeds the quota.
 
-|Cumulative consumption amount|Due date \(T\)|Fee deduction day|Description|
-|-----------------------------|--------------|-----------------|-----------|
-|Cumulative monthly consumption amount less than 1,000 USD.|The first day of the following month.|T, T+7, and T+14| -   In the event of deduction failure on the due date \(T\), the system attempts to deduct fees again on the day T+7 and the day T+14.
--   If fee deduction fails three times, the instance goes out of service on the day T+15. In this case, the instance stops running but data is retained. Billing stops when the instance is out of service.
--   When your instance is out of service, you must **open a ticket to clear the overdue payment**. After the overdue payment is cleared, you must [reactivate the instance](../../../../intl.en-US/User Guide/Instances/Reactivate an instance.md#) before the day T+30. Otherwise, the instance is released automatically.
--   If the overdue payment fails to be cleared before the day T+30, the instance is released and data cannot be recovered.
- |
-|Agreed quota|On the day when the quota is exceeded|
-
--   Example: The following flowchart shows the settlement process for a Pay-As-You-Go ECS instance. Assume that the due date is March 1.
-
-    ![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/40653/intl_en/1501834924317/PayAsYouGo_SettlementCycle.png)
-
 
 ## Instructions for settlement {#section_mwz_qx2_zdb .section}
 
@@ -80,7 +67,7 @@ Pay-As-You-Go resources are billed by the second, but settled by the hour. Note 
 
 ## Resource status when an instance is out of service {#section_rpb_4x2_zdb .section}
 
-If you fail to pay for the Pay-As-You-Go resources fees three times in one settlement period, the instance is out of service on the day T+15. When your instance is out of service, you cannot use the resources normally until you clear the overdue payment. Once the payment is cleared, you must [reactivate the instance](../../../../intl.en-US/User Guide/Instances/Reactivate an instance.md#) within the specified period. The following table lists the status of the related resources once the instance is out of service.
+If you fail to pay for the Pay-As-You-Go resources fees three times in one settlement period, the instance is out of service on the day T+15. When your instance is out of service, you cannot use the resources normally until you clear the overdue payment. Once the payment is cleared, you must [reactivate the instance](../../../../reseller.en-US/User Guide/Instances/Reactivate an instance.md#) within the specified period. The following table lists the status of the related resources once the instance is out of service.
 
 |Period|ECS instance and image|System disk + data disks|Internet IP address|Snapshots|
 |:-----|:---------------------|:-----------------------|:------------------|:--------|
@@ -108,9 +95,9 @@ If you fail to pay for the Pay-As-You-Go resources fees three times in one settl
 
 An instance stops working and is rendered out-of-service when a payment is overdue. When a Pay-As-You-Go instance is out of service, it is in an **Expired** status, and no fees are incurred.
 
-A stopped instance is in a Stopped status and has been stopped [in the ECS console](../../../../intl.en-US/User Guide/Instances/Start or stop an instance.md#) or by using the [StopInstance](../../../../intl.en-US/API Reference/Instances/StopInstance.md#) interface. Billing of a stopped instance varies according to the network type of the instance:
+A stopped instance is in a Stopped status and has been stopped [in the ECS console](../../../../reseller.en-US/User Guide/Instances/Start or stop an instance.md#) or by using the [StopInstance](../../../../reseller.en-US/API Reference/Instances/StopInstance.md#) interface. Billing of a stopped instance varies according to the network type of the instance:
 
--   VPC: You can enable the [No fees for stopped instances \(VPC-Connected\)](intl.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) feature. When this feature is enabled, an instance is not billed when it is in a **Stopped** status. This feature is only available for instances, and not for other resources.
+-   VPC: You can enable the [No fees for stopped instances \(VPC-Connected\)](reseller.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) feature. When this feature is enabled, an instance is not billed when it is in a **Stopped** status. This feature is only available for instances, and not for other resources.
 
 -   Classic: An instance continues to be billed even after it is in a **Stopped** status.
 

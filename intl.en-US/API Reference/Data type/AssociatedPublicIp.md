@@ -11,5 +11,5 @@ Determined by the methods.
 |Name |Type |Description |
 |:----|:----|:-----------|
 |PublicIpAddress |String |Internet IP of an ENI.|
-|AllocationId |String | EIP \(Elastic IP\) ID of an ENI.|
+|AllocationId |String |EIP \(Elastic IP\) ID of an ENI.|
 

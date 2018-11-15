@@ -6,7 +6,7 @@ Cancels the automatic snapshot policy for one or more disks.
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: CancelAutoSnapshotPolicy|
+|Action|String|Yes|The name of this interface. Value: CancelAutoSnapshotPolicy.|
 |RegionId|String|Yes|The region ID of the automatic snapshot policy and the disks. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |DiskIds|String| Yes|The disk ID. When you want to cancel the automatic snapshot policy for multiple disks, you can set the DiskIds to a JSON array in the format of \["d-xxxxxxxxx", "d-yyyyyyyyy", … "d-zzzzzzzzz"\], and the IDs are separated by half-width commas \(`,`\).|
 
@@ -25,7 +25,7 @@ https://ecs.aliyuncs.com/?Action=CancelAutoSnapshotPolicy
 &<Common Request Parameters>
 ```
 
-**Response sample** 
+**Response example** 
 
 **XML format**
 
@@ -45,7 +45,7 @@ https://ecs.aliyuncs.com/?Action=CancelAutoSnapshotPolicy
 
 ## Error codes {#ErrorCode .section}
 
-Error codes specific to this interface are as follows. For more error codes, visit the [API error center](https://error-center.alibabacloud.com/status/product/Ecs).
+Error codes specific to this interface are as follows. For more error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Description|
 |:---------|:------------|:---------------|:----------|

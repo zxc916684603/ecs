@@ -83,7 +83,7 @@ Cloud assistant features are free of charge.
 
 -   Generally, the invocation status of a command includes **overall invocation status** , **instance invocation status** , and **invocation-record status**. The relationships among various levels are shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/15387087845245_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/15394802045245_en-US.png)
 
 
 **For one-time invocations**
@@ -98,7 +98,7 @@ Cloud assistant features are free of charge.
 
         Take three ECS instances as an example. The following picture shows the relationships between the overall invocation status and the instance invocation status during a one-time invocation on multiple instances.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/15387087845246_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/15394802045246_en-US.png)
 
 -   **Instance invocation status**: The command is invoked only once in a one-time invocation, so the instance invocation status and the invocation-record status are identical.
 -   **Invocation-record status**:
@@ -121,18 +121,18 @@ Cloud assistant features are free of charge.
 
 You must install cloud assistant client on your ECS instance beforehand to use cloud assistant.
 
-Currently the cloud assistant is not available on the console. You can use it by APIs. For more information, see [Auto manage instances](https://www.alibabacloud.com/help/doc-detail/64741.htm).
+Currently the cloud assistant is not available on the console. You can use it by APIs. For more information, see Auto manage instances.
 
 ## References {#section_jvp_5dx_ydb .section}
 
--   [Cloud Assistant Client](intl.en-US/User Guide/Cloud Assistant Client.md#)
+-   [Cloud Assistant Client](reseller.en-US/User Guide/Cloud Assistant Client.md#)
 -   APIs:
-    -   [CreateCommand](../../../../intl.en-US/API Reference/Cloud assistant/CreateCommand.md#)
-    -   [InvokeCommand](../../../../intl.en-US/API Reference/Cloud assistant/InvokeCommand.md#)
-    -   [DescribeInvocations](../../../../intl.en-US/API Reference/Cloud assistant/DescribeInvocations.md#)
-    -   [DescribeInvocationResults](../../../../intl.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#)
-    -   [StopInvocation](../../../../intl.en-US/API Reference/Cloud assistant/StopInvocation.md#)
-    -   [ModifyCommand](../../../../intl.en-US/API Reference/Cloud assistant/ModifyCommand.md#)
-    -   [DescribeCommands](../../../../intl.en-US/API Reference/Cloud assistant/DescribeCommands.md#)
-    -   [DeleteCommand](../../../../intl.en-US/API Reference/Cloud assistant/DeleteCommand.md#)
+    -   [CreateCommand](../../../../reseller.en-US/API Reference/Cloud assistant/CreateCommand.md#)
+    -   [InvokeCommand](../../../../reseller.en-US/API Reference/Cloud assistant/InvokeCommand.md#)
+    -   [DescribeInvocations](../../../../reseller.en-US/API Reference/Cloud assistant/DescribeInvocations.md#)
+    -   [DescribeInvocationResults](../../../../reseller.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#)
+    -   [StopInvocation](../../../../reseller.en-US/API Reference/Cloud assistant/StopInvocation.md#)
+    -   [ModifyCommand](../../../../reseller.en-US/API Reference/Cloud assistant/ModifyCommand.md#)
+    -   [DescribeCommands](../../../../reseller.en-US/API Reference/Cloud assistant/DescribeCommands.md#)
+    -   [DeleteCommand](../../../../reseller.en-US/API Reference/Cloud assistant/DeleteCommand.md#)
 

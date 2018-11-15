@@ -10,5 +10,5 @@ SecurityGroups
 
 |Name |Type |Description |
 |:----|:----|:-----------|
-|SecurityGroup|[SecurityGroupItemType](intl.en-US/API Reference/Data type/Securitygroupitemtype.md#)|Security group SecurityGroupItemType|
+|SecurityGroup|[SecurityGroupItemType](intl.en-US/API Reference/Data type/Securitygroupitemtype.md#)|Security group SecurityGroupItemType.|
 

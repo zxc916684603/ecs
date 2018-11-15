@@ -7,7 +7,7 @@ Restarts an ECS instance.
 -   You can only restart an ECS instance that is in the **Running** \(`Running`\) status.
 -   After an ECS instance is restarted, its intermediate status is **Starting** \(`Starting`\).
 -   An instance can be forcefully stopped. Forcing an instance to stop \(`ForceStop`\) is same as a power failure. The temporary data and files in the instance may be lost.
--   If the specified instance is [locked](intl.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#), and the `OperationLocks` of the instance indicates  `"LockReason" : "security"`, you cannot restart the instance.
+-   If the specified instance is [locked](reseller.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#), and the `OperationLocks` of the instance indicates  `"LockReason" : "security"`, you cannot restart the instance.
 
 ## Request parameters {#RequestParameter .section}
 
@@ -22,7 +22,7 @@ Default value: false.|
 
 ## Response parameters {#ResponseParameter .section}
 
-All are common response parameters. For more information, see [Common parameters](intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
+All are common response parameters. For more information, see [Common parameters](reseller.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
 
 ## Examples { .section}
 
@@ -53,8 +53,6 @@ https://ecs.aliyuncs.com/?Action=RebootInstance
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|

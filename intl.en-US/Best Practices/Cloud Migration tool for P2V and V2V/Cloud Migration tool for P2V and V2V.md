@@ -2,14 +2,14 @@
 
 Cloud Migration tool balances the workloads between your local and cloud hosts, or cloud hosts from different cloud platforms. Being lightweight and agile, Cloud Migration tool can live convert your physical desktops and servers or migrate virtual machines and cloud hosts to ECS.
 
-Specifically, our Cloud Migration tool is designed for P2V \(Physical to virtual\) or V2V \(Virtual to virtual\) use cases. P2V indicates building virtualization environments for your physical desktops or servers in ECS, while V2V indicates migrating VMs \(virtual machines\) or cloud hosts to ECS. Resources such as operating system, applications, and application data in physical machines, VMs, or cloud hosts will be live clone to ECS images by using the Cloud Migration tool. Afterwards, you can use the ECS images to start a specified numbers of ECS instances.
+Specifically, our Cloud Migration tool is designed for P2V \(Physical to virtual\) or V2V \(Virtual to virtual\) use cases. P2V indicates building virtualization environments for your physical desktops or servers in ECS, while V2V indicates migrating VMs \(virtual machines\) or cloud hosts to ECS. Resources such as operating system, applications, and application data in physical machines, VMs, or cloud hosts will be live clone to ECS images by using the Cloud Migration tool. You can use the ECS images to start a specified numbers of ECS instances afterwards.
 
 ## Applicable operating systems {#section_x3j_v5z_jfb .section}
 
 Cloud Migration tool supports the following 32 or 64-bit physical machines, VMs, or cloud hosts:
 
 |Windows|Linux|
-|-------|-----|
+|:------|:----|
 | -   Windows Server 2003
 -   Windows Server 2008
 -   Windows Server 2012
@@ -33,27 +33,16 @@ Cloud Migration tool is free of charge. However, you may be charged for the foll
 
 -   During the migration, an ECS instance is created by default under your Alibaba Cloud account to act as an intermediate station. Billing method of the intermediate ECS instance is Pay-As-You-Go. In case you have put a limit on your credit card, you must delimit your credit card before the payment is attempted..
 
-    **Note:** - If the P2V migration fails, the instance is retained on your ECS console for next migration attempt. If the migration fails, the intermediate instance is retained in ECS for the next migration attempt. You can log on to the ECS console and manually [release the instance](../reseller.en-US/User Guide/Instances/Release an instance.md#) to avoid unnecessary charges.
+    **Note:** - If the P2V migration fails, the instance is retained on your ECS console for next migration attempt. If the migration fails, the intermediate instance is retained in ECS for the next migration attempt. You can log on to the ECS console and manually [release the instance](../../../../reseller.en-US/User Guide/Instances/Release an instance.md#) to avoid unnecessary charges.
 
 
 ## References {#section_htg_nvz_jfb .section}
 
 -   Alternatively, Cloud Migration tool can be used for cloud disk size shrinkage. For more information, see [Shrink disk](reseller.en-US/Best Practices/Shrink disk.md#).
 
--   Except for Cloud Migration tool, you can also [import custom images](../reseller.en-US/User Guide/Images/Import images/Notes for importing images.md#) to ECS for server migration.
+-   Except for Cloud Migration tool, you can also [import custom images](../../../../reseller.en-US/User Guide/Images/Import images/Notes for importing images.md#) to ECS for server migration.
 
 -   For on-premises databases to cloud migration, see [Data migration](https://partners-intl.aliyun.com/help/doc-detail/26594.htm).
-
-
-## Feedback and support {#section_lmt_rtg_mfb .section}
-
-For access to technical support and additional server migration support, choose any of the following options:
-
--   [Join the dedicated DingTalk Migration Tool group chat](https://h5.dingtalk.com/invite-page/index.html?code=ca190154ff). [DingTalk](https://www.dingtalk.com/en) is an enterprise communication and collaboration platform Developed by Alibaba Group.
-
--   In the Alibaba Cloud console, open a ticket.
-
--   Business hours access to cloud support via email of [server-migration@alibabacloud.com](mailto:server-migration@alibabacloud.com).
 
 
 ## Update history {#section_fjj_v5z_jfb .section}
@@ -61,7 +50,7 @@ For access to technical support and additional server migration support, choose 
 The following table shows the updated information about Cloud Migration tool:
 
 |Updated Time|Version|Description|
-|------------|-------|-----------|
+|:-----------|:------|:----------|
 |August 29, 2018|1.3.0| -   Boosts the migration speed and fixes several bugs.
 -   Implements automatic restoration for file system permission on Windows server after migration, without manual operation.
 

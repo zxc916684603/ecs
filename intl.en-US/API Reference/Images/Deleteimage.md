@@ -1,4 +1,4 @@
-# Deleteimage {#DeleteImage .reference}
+# DeleteImage {#DeleteImage .reference}
 
 Deletes a specified custom image.
 
@@ -9,8 +9,8 @@ Deletes a specified custom image.
 |Action|String|Yes|The name of this interface. Value: DeleteImage.|
 |RegionId|String|Yes|ID of an Alibaba Cloud region to where the image belongs. You can call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |ImageId|String|Yes|ID of an image.|
-|Force|String|No|Whether to directly delete the custom image or not. Optional values:-   true: Directly delete the custom image, and ignore the usage status of the image.
--   false: Verify whether the image has been used by any instance before the deletion.
+|Force|String|No|Whether to directly delete the custom image or not. Optional values:-   true: Directly deletes the custom image, and ignores the usage status of the image.
+-   false: Verifies whether the image has been used by any instance before the deletion.
 
 |
 

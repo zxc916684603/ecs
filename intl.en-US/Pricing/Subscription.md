@@ -2,6 +2,8 @@
 
 For the Subscription billing method, you can use resources only after you have paid for them.
 
+**Note:** All the charging rules described in this article is for reference purpose only. For more information, please contact your service provider.
+
 ## Applicable resources {#section_ilw_jv2_zdb .section}
 
 Currently, Subscription billing is used for the following ECS resources:
@@ -12,16 +14,9 @@ Currently, Subscription billing is used for the following ECS resources:
 
 If you create an ECS instance that uses Subscription billing, the **Instance Cost** displayed in the lower right of the instance creation page is the total cost of the three resources listed.
 
-## Payment methods {#section_klw_jv2_zdb .section}
+## Payment methods {#section_kx5_l2m_42b .section}
 
-You can pay for resources in Subscription mode using either of the following methods:
-
--   Credit card or PayPal account bound to your Alibaba Cloud account. See [Configure your account](https://www.alibabacloud.com/help/zh/doc-detail/50517.htm) in Account Management to bind a credit card or PayPal account to your account.
-
--   Coupons for Subscription products.
-
-    **Note:** Log on to the ECS console and select **Billing Management** \> **Coupon Management** to view the **Applicable Scenarios** of your coupons and check whether the coupons are applicable to Subscription products.
-
+Credits are used to pay for the resources of the Subscription billing method.
 
 ## Billing period {#section_mlw_jv2_zdb .section}
 
@@ -38,7 +33,7 @@ The price unit varies depending on the resource. The following table lists the p
 |System disk|USD/\(GiB\*month\)|
 |Data disk|USD/\(GiB\*month\)|
 
-To continue using a resource after the billing period has ended, you can renew your ECS instance at the end of a billing period. For more information about the renewal procedure, see [Manual renewal](intl.en-US/Pricing/Renew instances/Manual renewal.md#) or [Auto-renewal](intl.en-US/Pricing/Renew instances/Auto-renewal.md#).
+To continue using a resource after the billing period has ended, you can renew your ECS instance at the end of a billing period. For more information about the renewal procedure, see [Manual renewal](reseller.en-US/Pricing/Renew instances/Manual renewal.md#) or [Auto-renewal](reseller.en-US/Pricing/Renew instances/Auto-renewal.md#).
 
 ## Status changes after expiration {#section_qlw_jv2_zdb .section}
 

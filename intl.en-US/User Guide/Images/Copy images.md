@@ -5,13 +5,13 @@ Copying images allows you to deploy an application across regions by running the
 ## Attention {#section_wgf_n2m_xdb .section}
 
 -   Upon copying a custom image, a corresponding snapshot is created in the target region, and then the image is created from that snapshot in the target region. As a result, fees are incurred due to data transfer between different regions. Currently, no fee is charged for such traffic, and when it will be charged is subject to the official notice.
--   After copying a custom image, an identical image is created in the target region. However, the relevant role and service authorization information is lost, which is also true for previously configured [user data](intl.en-US/User Guide/Instances/User-defined data and metadata/User data.md#).
+-   After copying a custom image, an identical image is created in the target region. However, the relevant role and service authorization information is lost, which is also true for previously configured [user data](reseller.en-US/User Guide/Instances/User-defined data and metadata/User data.md#).
 
 ## Procedure {#section_sv3_x2m_xdb .section}
 
 To copy images in the ECS console, perform the following steps:
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/).
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  Select a region.
 3.  In the left-side navigation pane, select **Snapshots and Images** \> **Images**.
 4.  Select the custom image you want to copy. Note that **Type** must be **Custom Images**. In the **Actions** column, click **Copy Image**.
@@ -26,18 +26,18 @@ To copy images in the ECS console, perform the following steps:
 
     **Note:** If **Progress** is not 100%, **Status** is **Creating**. In this case, you can click **Cancel Copy** to cancel the operation. After the operation is canceled, the image information is removed from the target region.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9699/15391774316780_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9699/15394812856780_en-US.png)
 
 
-You can also use the ECS APIs [CopyImage](intl.en-US/API Reference/Images/CopyImage.md#) and [CancelCopyImage](intl.en-US/API Reference/Images/CancelCopyImage.md#) to perform the operation.
+You can also use the ECS APIs [CopyImage](reseller.en-US/API Reference/Images/CopyImage.md#) and [CancelCopyImage](reseller.en-US/API Reference/Images/CancelCopyImage.md#) to perform the operation.
 
 ## Next Steps {#section_kmp_xfm_xdb .section}
 
-When the image appears as **Available**, you can use it to [create an instance](../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#) or [change the system disk](intl.en-US/User Guide/Cloud disks/Change the system disk (custom image).md#).
+When the image appears as **Available**, you can use it to [create an instance](../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#) or [change the system disk](reseller.en-US/User Guide/Cloud disks/Change the system disk (custom image).md#).
 
 You can also view the copied snapshot in the target region.
 
 ## FAQs {#section_alb_2gm_xdb .section}
 
-[FAQs about copying images](https://www.alibabacloud.com/help/zh/faq-detail/40569.htm?spm=a2c63.q38357.a3.5.218e437aDm1XZR)
+[FAQs about copying images](https://partners-intl.aliyun.com/help/faq-detail/40569.htm?spm=a2c63.q38357.a3.3.2316631dRLlXRW)
 

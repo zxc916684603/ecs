@@ -2,7 +2,7 @@
 
 Previously, applications deployed on an ECS Instance usually needed to use AccessKey ID and AccessKey Secret \(AK\) to access APIs of other Alibaba Cloud products. AK is the key to accessing Alibaba Cloud APIs and has all of the permissions of the corresponding accounts. To help applications manage the AK, you have to save AK in the configuration files of the application or save it in an ECS instance by using other methods, which makes it more complicated to manage the AK and reduces its confidentiality. What’s more, if you need concurrent deployment across regions, the AK is diffused along with the images or instances created by the image, which makes you have to update and re-deploy the instances and images one by one when changing the AK.
 
-Now with the help of the instance [RAM role](https://partners-intl.aliyun.com/help/doc-detail/28649.htm), you can assign a RAM role to an ECS instance. The applications on the instance can then access APIs of other cloud products with the STS credential. The STS credential is automatically generated and updated by the system, and the applications can use the specified [meta data](../../../../reseller.en-US/User Guide/Instances/User-defined data and metadata/Metadata.md) URL to obtain the STS credential without special management. Meanwhile, you can modify the RAM role and the authorization policy to grant different or identical access permissions to an instance to different Alibaba Cloud products.
+Now with the help of the instance [RAM role](https://www.alibabacloud.com/help/doc-detail/28649.htm), you can assign a RAM role to an ECS instance. The applications on the instance can then access APIs of other cloud products with the STS credential. The STS credential is automatically generated and updated by the system, and the applications can use the specified [meta data](../../../../intl.en-US/User Guide/Instances/User-defined data and metadata/Metadata.md) URL to obtain the STS credential without special management. Meanwhile, you can modify the RAM role and the authorization policy to grant different or identical access permissions to an instance to different Alibaba Cloud products.
 
 This article introduces how to create an ECS instance that plays a RAM role and how to enable applications on the ECS instance to access other Alibaba Cloud products with the STS credential.
 
@@ -127,10 +127,10 @@ To obtain the STS credential of the instance, follow these steps:
 
 **Note:** A new STS credential is generated 30 minutes before the current one expires. Both STS credentials can be used during this period of time.
 
-1.  [Connect to the instance](../../../../reseller.en-US/User Guide/Connect to instances/Connect to a Linux instance by using a password.md).
+1.  [Connect to the instance](../../../../intl.en-US/User Guide/Connect to instances/Connect to a Linux instance by using a password.md).
 2.  Access the following URL to obtain the STS credential. `http://100.100.100.200/latest/meta-data/ram/security-credentials/EcsRamRoleTest` The last part of the URL is the RAM role name, which must be replaced with the one you create. The last part of the path is the RAM role name which should be replaced by one you create.
 
-    **Note:** In this example, use the curly command to access the above `curl` In this example, we run the curl command to access the URL. If you are using a Windows ECS instance, see[Use metadata of an instance](../../../../reseller.en-US/User Guide/Instances/User-defined data and metadata/Metadata.md)in ECS the User Guide to obtain the STS credential.
+    **Note:** In this example, use the curly command to access the above `curl` In this example, we run the curl command to access the URL. If you are using a Windows ECS instance, see[Use metadata of an instance](../../../../intl.en-US/User Guide/Instances/User-defined data and metadata/Metadata.md)in ECS the User Guide to obtain the STS credential.
 
     The return parameters are as follows.
 

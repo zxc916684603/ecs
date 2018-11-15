@@ -17,7 +17,7 @@ When you call this interface, consider the following:
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: AddTags.|
-|RegionId|String|Yes|The ID of the region to which the ECS resource belongs. For more information, call [DescribeRegions](../intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|The ID of the region to which the ECS resource belongs. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |ResourceType|String|Yes|The type of the ECS resource. Optional values:-   disk
 -   instance
 -   image
@@ -31,7 +31,7 @@ All values must be lowercase.|
 
 ## Response parameters {#section_f54_lk5_xdb .section}
 
-All are common parameters. See [Common parameters](intl.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
+All are common parameters. See [Common parameters](reseller.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
 
 ## Examples { .section}
 
@@ -66,8 +66,6 @@ https://ecs.aliyuncs.com/?Action=AddTags
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error codes|Error message|HTTP status code|Description|
 |:----------|:------------|:---------------|:----------|

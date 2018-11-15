@@ -6,17 +6,17 @@ Block storage is a high-performance, low latency block storage service for Aliba
 
 Alibaba Cloud provides a variety of block-level storage products based on a distributed storage architecture and local disks located on the physical servers where ECS instances are hosted. Specifically, the storage products are as follows:
 
--   [Cloud Disk](intl.en-US/Product Introduction/Block storage/Cloud disks and Shared Block Storage.md#), which is a block-level data storage product provided by Alibaba Cloud for ECS, uses a [multiple distributed system](intl.en-US/Product Introduction/Block storage/Triplicate technology.md#), and features low latency, high performance, persistence, high reliability, and more. Cloud disks can be created, resized, and released at any time.
+-   [Cloud Disk](reseller.en-US/Product Introduction/Block storage/Cloud disks and Shared Block Storage.md#), which is a block-level data storage product provided by Alibaba Cloud for ECS, uses a [multiple distributed system](reseller.en-US/Product Introduction/Block storage/Triplicate technology.md#), and features low latency, high performance, persistence, high reliability, and more. Cloud disks can be created, resized, and released at any time.
 
--   Shared block storage is a block-level data storage device that supports simultaneous read and write access to multiple ECS instances. Similar to the cloud disk, shared block storage uses a [multiple distributed system](intl.en-US/Product Introduction/Block storage/Triplicate technology.md#). It supports simultaneous access to multiple instances, and features low latency, high performance, and high reliability. Shared Block Storage applies to shared access scenarios for block storage devices under a shared everything architecture.
+-   Shared block storage is a block-level data storage device that supports simultaneous read and write access to multiple ECS instances. Similar to the cloud disk, shared block storage uses a [multiple distributed system](reseller.en-US/Product Introduction/Block storage/Triplicate technology.md#). It supports simultaneous access to multiple instances, and features low latency, high performance, and high reliability. Shared Block Storage applies to shared access scenarios for block storage devices under a shared everything architecture.
 
 -   Local disks are the disks attached to the physical servers \(host machines\) on which ECS instances are hosted. They are designed for business scenarios requiring high storage I/O performance and massive storage cost performance. Local disks provide local storage and access for instances, and features low latency, high random IOPS, high throughput, and cost-effective performance.
 
-For more information about the performance of block-level storage products, see [Storage parameters and performance test](intl.en-US/Product Introduction/Block storage/Storage parameters and performance test.md#).
+For more information about the performance of block-level storage products, see [Storage parameters and performance test](reseller.en-US/Product Introduction/Block storage/Storage parameters and performance test.md#).
 
 ## Block storage, OSS and NAS {#section_p5b_jzv_ydb .section}
 
-Currently, Alibaba Cloud provides three types of data storage products: block storage, [Object Storage Service \(OSS\)](https://www.alibabacloud.com/help/product/31815.htm), and [Network Attached Storage \(NAS\)](https://www.alibabacloud.com/help/product/27516.htm).
+Currently, Alibaba Cloud provides three types of data storage products: block storage, Object Storage Service \(OSS\), and Network Attached Storage \(NAS\).
 
 the following three types of data storage products:
 

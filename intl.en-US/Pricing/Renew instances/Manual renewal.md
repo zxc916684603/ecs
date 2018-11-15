@@ -25,7 +25,7 @@ You can manually renew your **Subscription** instances when they are in an **Exp
 
 To manually renew your instance, follow these steps:
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/#/home).
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, click **Instances**.
 3.  On the Instance List page, select the expected region and locate the ECS instance by the instance name, instance ID, or status \( **Expired**\).
 4.  In the **Actions** column, click **Renew**.
