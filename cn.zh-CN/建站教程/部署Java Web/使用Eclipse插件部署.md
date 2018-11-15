@@ -16,34 +16,34 @@ Alibaba Cloud Toolkit for Eclipse，简称Cloud Toolkit，是一款免费的IDE�
 1.  启动Eclipse。
 2.  在菜单栏中选中**Help** \> **Install New Software...**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154201708521799_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154227638821799_zh-CN.png)
 
 3.  单击**Add...**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154201708530980_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154227638930980_zh-CN.png)
 
 4.  输入名称（例如Cloud Toolkit for Eclipse）以及下载地址http://toolkit.aliyun.com/eclipse，并单击**Add**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154201708531037_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154227638931037_zh-CN.png)
 
 5.  勾选需要的组件**Alibaba Cloud Toolkit Core**和**Alibaba Cloud Toolkit Deployment Tools**，并在下方**Details** 区域中取消勾选**Contact all update sites during install to find required software**，然后单击**Next**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154201708531038_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154227638931038_zh-CN.png)
 
 6.  单击**Next**。
 7.  选择**I accept the terms of the license agreement**， 然后单击**Finish**。
 8.  单击**Install anyway**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154201708530612_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154227638930612_zh-CN.png)
 
 9.  单击**Restart Now**重启Eclipse。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154201708521860_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154227638921860_zh-CN.png)
 
 
 工具栏中出现Alibaba Cloud Toolkit for Eclipse的图标，表示Cloud Toolkit插件安装完成。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154201708521861_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154227638921861_zh-CN.png)
 
 ## 设置 AccessKey {#section_ox1_mq2_sfb .section}
 
@@ -53,14 +53,14 @@ AccessKeyID和AccessKeySecret 由阿里云官方颁发给访问者。AccessKeyID
 
 1.  在Eclipse工具栏单击Alibaba Cloud Toolkit图标，在下拉菜单中单击**Alibaba Cloud Preference...**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154201708530995_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154227638930995_zh-CN.png)
 
 2.  在左侧导航栏中，单击**Accounts**。
 3.  输入AccessKeyID和AccessKeySecret，然后单击**Apply and Close**完成设置。。
 
     **说明：** 如果您已有账号，但未创建AccessKey，单击**Get existing AK/SK**，然后登录阿里云控制台[创建AccessKey](../../../../../cn.zh-CN/通用参考/创建AccessKey.md#)。如果您还没有注册账号，单击**Sign up**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154201708530215_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154227638930215_zh-CN.png)
 
 
 ## ECS环境配置 {#section_n5f_bwl_sfb .section}
@@ -88,7 +88,21 @@ AccessKeyID和AccessKeySecret 由阿里云官方颁发给访问者。AccessKeyID
 
 **安装前准备**
 
-1.  参考[添加安全组规则](../cn.zh-CN/用户指南/安全组/添加安全组规则.md#)，放行80、443或8080端口入方向规则。
+1.  CentOS 7.4 系统默认开启了防火墙。您可以关闭防火墙，也可以参考[添加安全组规则](../cn.zh-CN/用户指南/安全组/添加安全组规则.md#)，放行 80、443 或 8080 端口入方向规则。
+    -   关闭防火墙：
+
+        ```language-bash
+        # systemctl stop firewalld.service
+        
+        ```
+
+    -   关闭防火墙开机自启动功能：
+
+        ```language-bash
+        # systemctl disable firewalld.service
+        
+        ```
+
 2.  连接ECS实例。
 3.  关闭SELinux。
     1.  运行`# getenforce`命令查看当前SELinux的状态。如果显示`Disabled`，则SELinux为关闭状态。如果显示`Enforcing`，则SELinux为开启状态，运行如下命令关闭SELinux：
@@ -128,6 +142,7 @@ AccessKeyID和AccessKeySecret 由阿里云官方颁发给访问者。AccessKeyID
 2.  解压JDK安装压缩包（本例中为jdk-8u191-linux-x64.tar.gz）到/usr/java。
 
     ```
+    # chmod +x jdk-8u191-linux-x64.tar.gz
     # tar xzf jdk-8u191-linux-x64.tar.gz -C /usr/java
     ```
 
@@ -147,7 +162,7 @@ AccessKeyID和AccessKeySecret 由阿里云官方颁发给访问者。AccessKeyID
 4.  加载环境变量： `# source /etc/profile`。
 5.  运行 `# java -version`命令，显示JDK版本信息时，表示 JDK 已经安装成功。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9766/154201708530641_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9766/154227638930641_zh-CN.png)
 
 
 **安装 Apache Tomcat**
@@ -259,7 +274,7 @@ AccessKeyID和AccessKeySecret 由阿里云官方颁发给访问者。AccessKeyID
 
 1.  在Eclipse中右键单击要部署的应用工程名，在右键菜单中单击**Alibaba Cloud** \> **Deploy to ECS...**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154201708630615_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154227638930615_zh-CN.png)
 
 2.  在 Deploy to Alibaba Cloud 对话框中，您可以做如下设置：
 
@@ -268,18 +283,18 @@ AccessKeyID和AccessKeySecret 由阿里云官方颁发给访问者。AccessKeyID
     -   **Target Deploy ECS**：选择您的实例所在的地域，并选择实例。
     -   **Deploy Location**：填入部署在ECS实例上的目录，本示例中，目录为/data/wwwroot/default。
     -   **Command**：单击**Select...**，在弹出的对话框中单击**Add...**。在文本框里输入一个命令，这个命令会在Cloud Toolkit插件把Java应用程序部署到ECS的文件夹后自动执行。本示例中，输入`service tomcat restart`命令来重启Tomcat。您可根据您的需求输入要执行的命令。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154201708630623_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154227638930623_zh-CN.png)
 
 3.  单击**Deploy**开始部署Java应用程序到ECS实例。
 4.  在Eclipse的**Console**区域，你可以查看部署的进展信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154201708630632_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/154227638930632_zh-CN.png)
 
 5.  在浏览器地址栏中输入`http://公网IP:8080`进行访问。
 
 出现如下图所示页面，表示成功用Alibaba Cloud Toolkit for Eclipse插件部署Java应用程序到ECS实例。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9766/154201708612137_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9766/154227638912137_zh-CN.png)
 
 如果您要修改Java应用程序，可在Eclipse中直接修改，然后保存代码，再次用Cloud Toolkit插件将改动过的文件部署到ECS实例上。
 
