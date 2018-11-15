@@ -23,16 +23,16 @@
 
 **步骤一：准备编译环境**
 
-本文主要说明手动安装LNMP平台的操作步骤，您也可以在 [云市场](https://marketplace.alibabacloud.com/) 购买LNMP镜像直接启动ECS，以便快速建站。
+本文主要说明手动安装LNMP平台的操作步骤，您也可以在 [云市场](https://market.aliyun.com/software) 购买LNMP镜像直接启动ECS，以便快速建站。
 
-1.  [使用向导创建实例](../intl.zh-CN/用户指南/实例/创建实例/使用向导创建实例.md#)。
+1.  [使用向导创建实例](../cn.zh-CN/用户指南/实例/创建实例/使用向导创建实例.md#)。
 
     **说明：** 本篇教程选用了使用专有网络的ECS实例来示范操作步骤。
 
-2.  [使用管理终端连接ECS实例](../intl.zh-CN/用户指南/连接实例/使用管理终端连接ECS实例.md#)。
+2.  [使用管理终端连接ECS实例](../cn.zh-CN/用户指南/连接实例/使用管理终端连接ECS实例.md#)。
 3.  在Linux命令行界面，查看系统版本可以输入命令`# cat /etc/redhat-release`
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154138912421103_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154227635221103_zh-CN.png)
 
     **说明：** 这是本文档实施时参考的系统版本。您的实际使用版本可能与此不同，下文中的nginx，mysql，及php版本，您也可以根据实际情况选择相应版本。
 
@@ -40,7 +40,7 @@
 
     输入`# getenforce`命令查看当前SELinux的状态。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154138912421065_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154227635221065_zh-CN.png)
 
     如果SELinux状态参数是Enforcing, 则SELinux为开启状态。如果SELinux状态参数是Disabled, 则SELinux为关闭状态。如上图所示，此处SELinux为开启状态，需要运行如下命令关闭SELinux:
 
@@ -58,24 +58,24 @@
     1.  登录[ECS管理控制台](https://ecs.console.aliyun.com/)。
     2.  点击左侧导航栏中的**实例**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154138912421095_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154227635221095_zh-CN.png)
 
     3.  在**实例列表**中找到要设置安全组的实例并点击实例的ID。
     4.  点击左侧导航栏中的**本实例安全组**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154138912421096_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154227635221096_zh-CN.png)
 
     5.  点击**配置规则**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154138912421144_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154227635221144_zh-CN.png)
 
     6.  点击**添加安全组规则**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154138912421145_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154227635221145_zh-CN.png)
 
-    7.  [添加安全组规则](../intl.zh-CN/用户指南/安全组/添加安全组规则.md#)。
+    7.  [添加安全组规则](../cn.zh-CN/用户指南/安全组/添加安全组规则.md#)。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154138912421146_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154227635221146_zh-CN.png)
 
         **说明：** 设置ECS安全组时放行需访问的端口和访问白名单，上图的示例表示允许所有IP访问服务器的80端口。您可以根据实际情况放行允许访问的客户端IP。
 
@@ -139,7 +139,7 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件，是由 Igor Syso
     --with-stream \
     --with-stream_ssl_module
     # make && make install
-    # mkdir -pv /var/tmp/nginx/client
+    # mkdir -p /var/tmp/nginx/client
     ```
 
 3.  添加SysV启动脚本。
@@ -268,7 +268,7 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件，是由 Igor Syso
 
 7.  登录 [ECS管理控制台](https://ecs.console.aliyun.com/)，点击左侧导航栏中的**实例**，在**实例列表**中找到正在部署环境的实例，从这个实例的**IP地址**项中复制它的公网IP，用浏览器访问这个IP地址可看到默认欢迎页面。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154138912421168_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154227635221168_zh-CN.png)
 
 
 **步骤三：安装MySQL**
@@ -334,12 +334,12 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件，是由 Igor Syso
 
     **说明：** 在CentOS 6.8版操作系统的最小安装完成后，在/etc目录下会存在一个my.cnf，需要将此文件更名为其他的名字，如：/etc/my.cnf.bak，否则，该文件会干扰源码安装的MySQL的正确配置，造成无法启动。
 
-7.  拷贝配置文件和启动脚本。
+7.  复制配置文件和启动脚本。
 
     ```
     # cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
     # chmod +x /etc/init.d/mysqld
-    # cp support-files/my-default.cnf /etc/my.cnf
+    # cp /usr/local/mysql/support-files/my-default.cnf /etc/my.cnf
     ```
 
 8.  设置开机自动启动。
@@ -474,7 +474,7 @@ Nginx本身不能处理PHP，作为web服务器，当它接收到请求后，不
 
     输入命令`# service nginx reload`重新载入nginx的配置文件。
 
-    在/usr/local/nginx/html/新建index.php的测试页面，内容如下。
+    在/usr/local/nginx/html/新建index.php的测试页面，内容如下：
 
     ```
     # touch index.php 
@@ -489,8 +489,8 @@ Nginx本身不能处理PHP，作为web服务器，当它接收到请求后，不
     ?>
     ```
 
-    保存并关闭index.php文件。登录 [ECS管理控制台](https://ecs.console.aliyun.com/)，点击左侧导航栏中的**实例**，在**实例列表**中复制正在部署环境的实例的公网IP地址。试，如看到这个公网IP地址，容则表示LNMP平台构建完成。
+    保存并关闭index.php文件。登录 [ECS管理控制台](https://ecs.console.aliyun.com/)，点击左侧导航栏中的**实例**，在**实例列表**中复制正在部署环境的实例的公网IP地址。用浏览器访问这个公网IP地址，如您看见如下图所示页面，则表示LNMP平台构建完成。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154138912421386_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154227635221386_zh-CN.png)
 
 
