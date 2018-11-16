@@ -2,7 +2,10 @@
 
 After you fix the error, run go2aliyun\_client of the Cloud Migration Tool again. The migration resumes from where it was suspended.
 
-After the migration job is finished for an on-premises server running Windows Server 2008 and later version of Windows Server, please wait for the automatic recovery of file system access permission at the first instance startup attempt. For more information, see FAQ 19[How can I check my system after migrating a Windows server](reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Cloud Migration tool FAQ.md#AfterWindows).
+**Note:** 
+
+-   If you are using the 1.3.0 or later version of Cloud Migration tool, after the migration job is finished for an on-premises server running Windows Server 2008 and later version of Windows Server, please wait for the automatic recovery of file system access permission at the first instance startup attempt. For more information, see FAQ 19 [How can I check my system after migrating a Windows server](reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Cloud Migration tool FAQ.md#AfterWindows).
+-   If you are using the 1.3.0 or earlier version of Cloud Migration tool, to avoid abnormal components and service failure, please run the [Reset File Permission](http://ecs-image-p2vs-hd1.oss-cn-hangzhou.aliyuncs.com/tools/ResetFilePermissions.zip) tool to restore the file system permission of Windows Server 2008 and later operating system.
 
 -   [Keyword “IllegalTimestamp” appears in the migration logs.](#)
 -   [Keyword “UnKnownError” appears in the migration logs.](#)
@@ -44,7 +47,7 @@ The default billing method of the intermediate instance is [Pay-As-You-Go](../re
 
 The RAM user are not granted with operation permission and cannot access the APIs.
 
-If the AccessKey that you create belongs to a RAM user, you must make sure that the specified RAM user is authorized the permission of `AliyunECSFullAccess` and `AliyunVPCFullAccess` to operate the ECS and VPC resources. For more information, see *RAM* document [Authorization policies](../../../../../reseller.en-US/User Guide/Authorization/Authorization Policy Management.md#).
+If the AccessKey that you create belongs to a RAM user, you must make sure that the specified RAM user is authorized the permission of `AliyunECSFullAccess` and `AliyunVPCFullAccess` to operate the ECS and VPC resources. For more information, see *RAM* document [Authorization policies](../../../../../reseller.en-US//Authorization/Authorization Policy Management.md#).
 
  **Keyword “InvalidImageName.Duplicated” appears in the migration logs.** 
 
