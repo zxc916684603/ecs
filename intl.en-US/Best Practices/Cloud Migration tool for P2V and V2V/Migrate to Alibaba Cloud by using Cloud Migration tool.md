@@ -1,6 +1,8 @@
 # Migrate to Alibaba Cloud by using Cloud Migration tool {#ServerMigrationOperation .concept}
 
-This tutorial describes how to migrate your physical machines, VMs, or cloud hosts to Alibaba Cloud ECS. For on-premises databases to cloud migration, see [Data migration](https://partners-intl.aliyun.com/help/doc-detail/26594.htm).
+This topic describes how to migrate your physical machines, VMs, or cloud hosts to Alibaba Cloud ECS. In this topic, we use on-premise server or server to represent the source of migration to make it easy to read. Thus, the migration steps also applies to your physical machines, VMs, or cloud hosts.
+
+**Note:** For on-premises databases to cloud migration, see [Data migration](https://partners-intl.aliyun.com/help/doc-detail/26594.htm).
 
 ## Precautions {#section_kwq_sxz_jfb .section}
 
@@ -8,21 +10,21 @@ To use Cloud Migration tool, consider the following:
 
 -   The system time of the on-premises server is synchronized with the real time. Otherwise, an error indicating abnormal TimeStamp is recorded in the migration log file.
 
--   The on-premises server can access the Internet to transfer the data to Alibaba Cloud ECS, uninterruptedly. The Cloud Migration tool accesses the Alibaba Cloud services from the following endpoints:
+-   The on-premises server must be able to reach the following network address and communication port to access the related Alibaba Cloud services, uninterruptedly:
 
-    -   Access ECS via HTTP 80 port: `http://ecs.aliyuncs.com`. For more information about detailed endpoints, see [Request structure](../reseller.en-US/API Reference/Getting started/Request structure.md#).
+-   The nearest ECS endpoint: `https://ecs.aliyuncs.com:443`. For other regional endpoints, see API Reference [Request structure](../reseller.en-US/API Reference/Getting started/Request structure.md#).
 
-    -   Access VPC via HTTP 80 port: `http://vpc.aliyuncs.com`
+-   Virtual Private Cloud \(VPC\): `http://vpc.aliyuncs.com:443`.
 
-    -   Access STS service through HTTPS 443 port: `https://sts.aliyuncs.com`
+-   Security Token \(STS\): `https://sts.aliyuncs.com:443`.
 
-    -   Access public network IP addresses for intermediate instances via 8080 and 8703 proxy ports.
+-   The intermediate instance: `https://xxx.xx.xxx.xx:8080` and `https://xxx.xx.xxx.xx:8073`. The `xxx.xx.xxx.xx` indicates the Internet IP address of the intermediate instance.
 
--   Cloud Migration tool does not support migration of incremental data yet. You may select an off-peak period to suspend your on-premises server in which services that require data integration run.
+-   Incremental data migration is not allowed. We recommend that applications such as databases and container services are paused, or related directories are filtered before migration to Alibaba Cloud. Synchronize any data related to those applications after the migration has been completed.
 
 -   During migration, an ECS instance named INSTANCE\_FOR\_GOTOALIYUN is created by default under your Alibaba Cloud account. It acts as an intermediate station. To avoid migration failure, do not stop, restart, or release the intermediate ECS instance. The intermediate ECS instance is automatically released once the migration completes.
 
--   If the AccessKey that you create belongs to a RAM user, you must make sure that the specified RAM user is granted with `AliyunECSFullAccess` and `AliyunVPCFullAccess` role to operate the Alibaba Cloud resources. For more information, see *RAM* document [Authorization policies](../../../../../reseller.en-US/User Guide/Authorization/Authorization Policy Management.md#).
+-   If the AccessKey that you create belongs to a RAM user, you must make sure that the specified RAM user is granted with `AliyunECSFullAccess` and `AliyunVPCFullAccess` role to operate the Alibaba Cloud resources. For more information, see *RAM* document [Authorization policies](../../../../../reseller.en-US//Authorization/Authorization Policy Management.md#).
 
 -   If shared memory is used in your on-premises server:
 
@@ -39,7 +41,7 @@ To use Cloud Migration tool, consider the following:
 
 ## For on-premises servers running Linux OS {#section_pwq_sxz_jfb .section}
 
-When your source server runs a Linux operation system, additional requirements is required:
+When your on-premise server runs a Linux operation system, additional requirements is required:
 
 -   The Rsync library must have been pre-installed.
 
@@ -70,7 +72,7 @@ You must have signed up for ECS snapshot service in the [ECS console](https://pa
     |-------------------|-----------|
     |Excludes folder|Filters out the directories from the migration. An rsync\_excludes\_win.txt file is included by default.|
     |client\_data|Maintains the record of transmission data during a migration. Transmission data includes the attributes of the intermediate instance for cloud migration, the process information of data disk migration, the generated custom image name, the region you plan to migrate to and so on.|
-    |user\_config.json|The configuration file of your source server|
+    |user\_config.json|The configuration file of your on-premise server|
     |go2aliyun\_gui.exe|A GUI wizard for Windows OS. For more information, see [Windows GUI of Cloud Migration tool](reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Windows GUI of Cloud Migration tool.md#).|
     |go2aliyun\_client.exe|Main program of Cloud Migration tool.|
 
@@ -78,11 +80,11 @@ You must have signed up for ECS snapshot service in the [ECS console](https://pa
     |-------------------|-----------|
     |Check|An image compliance detection tool. It contains a client\_check program by default.|
     |client\_data|Maintains the record of transmission data during a migration. Transmission data includes the attributes of the intermediate instance for cloud migration, the process information of data disk migration, the generated custom image name, the region you plan to migrate to and so on.|
-    |user\_config.json|The configuration file of the source server.|
+    |user\_config.json|The configuration file of the on-premise server.|
     |Excludes folder|Filters out the directories from the migration. An rsync\_excludes\_win.txt file is included by default.|
     |go2aliyun\_client|The main program of Cloud Migration tool.|
 
-2.  Log on to the server, virtual machine, or cloud host to be migrated.
+2.  Log on to the on-premise server, virtual machine, or cloud host to be migrated.
 
 3.  Decompress the Cloud Migration tool package to the specified directory.
 
@@ -115,18 +117,18 @@ If you are using the Windows GUI version, you can complete the user\_config on t
 
     |Name|Type|Required|Description|
     |:---|:---|:-------|:----------|
-    |access\_id|String|Yes|Your AccessKeyID for accessing Alibaba Cloud API. **Note:** 
+    |access\_id|String|Yes|Your AccessKeyID for accessing Alibaba Cloud API. For more information, see [Create AccessKey](https://partners-intl.aliyun.com/help/doc-detail/53045.htm).**Note:** 
 
 Migrating servers by using Cloud Migration tool requires your AccessKeyID and AccessKeySecret, which are important credentials, and you must keep them confidential and secured.
 
 |
-    |secret\_key|String|Yes|Your AccessKeySecret for accessing Alibaba Cloud API.|
+    |secret\_key|String|Yes|Your AccessKeySecret for accessing Alibaba Cloud API. For more information, see [Create AccessKey](https://partners-intl.aliyun.com/help/doc-detail/53045.htm).|
     |region\_id|String|Yes|Alibaba Cloud Region ID to which your server is migrated, for example, `cn-hangzhou` \(China East 1\). For details about values, see [Region and Zones](https://partners-intl.aliyun.com/help/doc-detail/40654.htm).|
     |image\_name|String|Yes|Set a name for your server image, which must be different from all existing image names in the same Alibaba Cloud region. The name is a string of 2 to 128 characters. It must begin with an English or a Chinese character. It can contain A-Z, a-z, Chinese characters, numbers, periods \(.\), colons \(:\), underscores \(\_\), and hyphens \(-\).|
-    |system\_disk\_size|Integer|No|Specify the system disk size in the unit of GiB. Value range: \[20, 500\].**Note:** The value must be greater than the occupied space of the system disk on the source server. For example, if the maximum system disk capacity is 500 GiB while the occupied space is 100 GiB, set this value to be greater than 100 GiB.
+    |system\_disk\_size|Integer|No|Specify the system disk size in the unit of GiB. Value range: \[20, 500\].**Note:** The value must be greater than the occupied space of the system disk on the on-premise server. For example, if the maximum system disk capacity is 500 GiB while the occupied space is 100 GiB, set this value to be greater than 100 GiB.
 
 |
-    |platform|String|No|Operating system of the source server. Optional values: Windows Server 2003 | Windows Server 2008 | Windows Server 2012 | Windows Server 2016 | CentOS | Ubuntu | SUSE | OpenSUSE | Debian | RedHat | Others Linux**Note:** 
+    |platform|String|No|Operating system of the on-premise server. Optional values: Windows Server 2003 | Windows Server 2008 | Windows Server 2012 | Windows Server 2016 | CentOS | Ubuntu | SUSE | OpenSUSE | Debian | RedHat | Others Linux**Note:** 
 
 The value of `platform` parameter is case-sensitive.
 
@@ -160,7 +162,7 @@ Here are four scenarios that describe how to customize user\_config.json based o
 
 **Scenario 1. Migrate a Windows server without data disk**
 
--   Assuming that the configuration of your server is as follows:
+-   Assuming that the configuration of your on-premise server is as follows:
     -   Operating system: Windows Server 2008
     -   Used space of system disk: 30 GiB
     -   System architecture: 64-bit
@@ -220,7 +222,7 @@ Assuming that the three data disks are attached to the Windows server in Scenari
 
 **Scenario 3. Migrate a Linux server without data disk**
 
--   Assuming that the configuration of your server is as follows:
+-   Assuming that the configuration of your on-premise server is as follows:
     -   Version: CentOS 7.2
     -   Used space of system disk: 30 GiB
     -   System architecture: 64-bit
