@@ -15,7 +15,7 @@ After you fix the error, run go2aliyun\_client of the Cloud Migration Tool again
 -   [Keyword “InvalidImageName.Duplicated” appears in the migration logs.](#)
 -   [Keyword “ InvalidAccountStatus.SnapshotServiceUnavailable” appears in the migration logs.](#)
 -   [Keyword “Connect to Server Failed” appears in the migration logs.](#)
--   [Keyword “” appears in the migration logs.](#)
+-   [Keyword “Do Rsync Disk x Failed” appears in the migration logs.](#)
 -   [Winodws server migration stops at the "Prepare For Rsync Disk 0" stage.](#)
 -   [What can I do if the Windows requires me to activate Microsoft license after the Windows server migration?](#)
 -   [What can I do if the drive letters of data disks are missing or wrong after the Windows server migration?](#)
@@ -55,7 +55,7 @@ The specified parameter `image_name` cannot be the same as an existing image nam
 
 **Keyword InvalidAccountStatus.SnapshotServiceUnavailable appears in the migration logs.**
 
-It indicates that you have not signed up for the ECS snapshot services. You can go to the[ECS console](https://partners-intl.console.aliyun.com/#/ecs) to sign up the ECS snapshot service and try cloud migration again.
+It indicates that you have not signed up for the ECS snapshot services. You can go to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs) to sign up the ECS snapshot service and try cloud migration again.
 
  **Keyword “Connect to Server Failed” appears in the migration logs.** 
 
@@ -79,6 +79,7 @@ It indicates that the data transmission is interrupted. Follow these steps:
 1.  View the migration log for any migration exception. Specifically, if the **return: 3072** or **return: 7680** is displayed in the log file, you must make sure the database or container service in the on-premises server has been disabled, such as Oracle, MySQL, MS SQL Server, MongoDB, and Docker. In that case, you can disable the service or filter out the related directory before you start the migration again.
 
 2.  Before you proceed, check the following:
+
     -   Whether the status of the intermediate instance is abnormal or not in the ECS console.
 
     -   Whether the network service of the on-premises server is abnormal or not. The TCP port 80, 443, 8703, and 8080 have been enabled because the Cloud Migration Tool needs the access permission of those ports.
@@ -168,7 +169,7 @@ After you migrate an on-premises Linux server, the data disks are not mounted by
 
 -   Connect to the ECS instance by using the [Management Terminal](../reseller.en-US/User Guide/Connect to instances/Connect to an instance by using the Management Terminal.md#) in the ECS console, if the following output appears:
 
-    ![](images/13375_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22638/154234892713375_en-US.png)
 
     Perhaps the kernel of your on-premises Linux servers is the earlier version, and the version of GRUB \(GRand Unified Bootloader\) is earlier than 1.9. You may [update the boot loader GRUB to a version later than 1.9](https://partners-intl.aliyun.com/help/doc-detail/62807.html).
 
@@ -179,5 +180,5 @@ When an image of Others Linux type is imported, Alibaba Cloud performs no config
 
 After the migration job is finished, we provide the created instance a single virtual network interface that uses DHCP to assign addresses. If network configuration still fails, open a ticket to contact Alibaba Cloud.
 
-If the problem persists, scan the following QR code to [join the dedicated DingTalk Migration Tool group chat](https://h5.dingtalk.com/invite-page/index.html?code=ca190154ff) or open a ticket to contact Alibaba Cloud.
+If the problem persists, [join the dedicated DingTalk Migration Tool group chat](https://h5.dingtalk.com/invite-page/index.html?code=ca190154ff) or open a ticket to contact Alibaba Cloud.
 
