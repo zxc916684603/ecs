@@ -27,7 +27,7 @@ Cloud Migration tool supports the following 32 or 64-bit physical machines, VMs,
 
  |
 
-Before migrating an operating system that is not listed previously, you must see topic [Migrate to Alibaba Cloud by using Cloud Migration tool](reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Migrate to Alibaba Cloud by using Cloud Migration tool.md#) thoroughly and exercise with caution.
+Before migrating an operating system that is not listed previously, you must see topic [Migrate to Alibaba Cloud by using Cloud Migration tool](intl.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Migrate to Alibaba Cloud by using Cloud Migration tool.md#) thoroughly and exercise with caution.
 
 ## Billing details {#section_bjj_v5z_jfb .section}
 
@@ -35,16 +35,16 @@ Cloud Migration tool is free of charge. However, you may be charged for the foll
 
 -   During the migration, an ECS instance is created by default under your Alibaba Cloud account to act as an intermediate station. Billing method of the intermediate ECS instance is Pay-As-You-Go. In case you have put a limit on your credit card, you must delimit your credit card before the payment is attempted..
 
-    **Note:** If the P2V migration fails, the instance is retained on your ECS console for next migration attempt. If the migration fails, the intermediate instance is retained in ECS for the next migration attempt. You can log on to the ECS console and manually [release the instance](../../../../reseller.en-US/User Guide/Instances/Release an instance.md#) to avoid unnecessary charges.
+    **Note:** If the P2V migration fails, the instance is retained on your ECS console for next migration attempt. If the migration fails, the intermediate instance is retained in ECS for the next migration attempt. You can log on to the ECS console and manually [release the instance](../../../../intl.en-US/User Guide/Instances/Release an instance.md#) to avoid unnecessary charges.
 
 
 ## References {#section_htg_nvz_jfb .section}
 
--   Alternatively, Cloud Migration tool can be used for cloud disk size shrinkage. For more information, see [Shrink disk](reseller.en-US/Best Practices/Shrink disk.md#).
+-   Alternatively, Cloud Migration tool can be used for cloud disk size shrinkage. For more information, see [Shrink disk](intl.en-US/Best Practices/Shrink disk.md#).
 
--   Except for Cloud Migration tool, you can also [import custom images](../../../../reseller.en-US/User Guide/Images/Import images/Notes for importing images.md#) to ECS for server migration.
+-   Except for Cloud Migration tool, you can also [import custom images](../../../../intl.en-US/User Guide/Images/Import images/Notes for importing images.md#) to ECS for server migration.
 
--   -   -   For on-premises databases to cloud migration, see [Data migration](https://partners-intl.aliyun.com/help/doc-detail/26594.htm).
+-   For on-premises databases to cloud migration, see [Data migration](https://www.alibabacloud.com/help/doc-detail/26594.htm).
 
 
 ## Update history {#section_fjj_v5z_jfb .section}
