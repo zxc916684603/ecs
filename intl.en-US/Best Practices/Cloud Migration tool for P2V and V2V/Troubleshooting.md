@@ -13,7 +13,7 @@ After you fix the error, run go2aliyun\_client of the Cloud Migration Tool again
 -   [Keyword “InvalidAccountStatus.NotEnoughBalance” appears in the migration logs.](#)
 -   [Keyword “Forbidden.RAM” appears in the migration logs.](#)
 -   [Keyword “InvalidImageName.Duplicated” appears in the migration logs.](#)
--   [日志错误提示 InvalidAccountStatus.SnapshotServiceUnavailable](#)
+-   [Keyword “ InvalidAccountStatus.SnapshotServiceUnavailable” appears in the migration logs.](#)
 -   [Keyword “Connect to Server Failed” appears in the migration logs.](#)
 -   [Keyword “” appears in the migration logs.](#)
 -   [Winodws server migration stops at the "Prepare For Rsync Disk 0" stage.](#)
