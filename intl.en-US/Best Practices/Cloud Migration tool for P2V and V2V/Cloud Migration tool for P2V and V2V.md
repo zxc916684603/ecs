@@ -15,13 +15,15 @@ Cloud Migration tool supports the following 32 or 64-bit physical machines, VMs,
 -   Windows Server 2012
 -   Windows Server 2016
 
- | -   Centos 5/6/7
--   Ubuntu 10/12/14/16/17
+ | -   Amazon Linux 2014 or later
+-   CentOS 5/6/7
 -   Debian 7/8/9
--   RedHat 5/6/7
--   SUSE 11.4/12.1/12.2
--   OpenSUSE 13.1
 -   Gentoo 13.0
+-   OpenSUSE 13.1
+-   Oracle Linux 5/6/7
+-   Red Hat 5/6/7
+-   SUSE 11.4/12.1/12.2
+-   Ubuntu 10/12/14/16/17
 
  |
 
@@ -33,7 +35,7 @@ Cloud Migration tool is free of charge. However, you may be charged for the foll
 
 -   During the migration, an ECS instance is created by default under your Alibaba Cloud account to act as an intermediate station. Billing method of the intermediate ECS instance is Pay-As-You-Go. In case you have put a limit on your credit card, you must delimit your credit card before the payment is attempted..
 
-    **Note:** - If the P2V migration fails, the instance is retained on your ECS console for next migration attempt. If the migration fails, the intermediate instance is retained in ECS for the next migration attempt. You can log on to the ECS console and manually [release the instance](../../../../reseller.en-US/User Guide/Instances/Release an instance.md#) to avoid unnecessary charges.
+    **Note:** If the P2V migration fails, the instance is retained on your ECS console for next migration attempt. If the migration fails, the intermediate instance is retained in ECS for the next migration attempt. You can log on to the ECS console and manually [release the instance](../../../../reseller.en-US/User Guide/Instances/Release an instance.md#) to avoid unnecessary charges.
 
 
 ## References {#section_htg_nvz_jfb .section}
@@ -42,15 +44,21 @@ Cloud Migration tool is free of charge. However, you may be charged for the foll
 
 -   Except for Cloud Migration tool, you can also [import custom images](../../../../reseller.en-US/User Guide/Images/Import images/Notes for importing images.md#) to ECS for server migration.
 
--   For on-premises databases to cloud migration, see [Data migration](https://partners-intl.aliyun.com/help/doc-detail/26594.htm).
+-   -   -   For on-premises databases to cloud migration, see [Data migration](https://partners-intl.aliyun.com/help/doc-detail/26594.htm).
 
 
 ## Update history {#section_fjj_v5z_jfb .section}
 
 The following table shows the updated information about Cloud Migration tool:
 
-|Updated Time|Version|Description|
-|:-----------|:------|:----------|
+|Date and time|Version|Description|
+|:------------|:------|:----------|
+|November 12, 2018|1.3.1| -   Uses SSH cryptographic protocol during data transmission, and supports dynamic SSH security token for authentication.
+-   Optimizes the transmission performance for Windows operating system server.
+-   Improves the support quality of Amazon Linux, Oracle Linux, and SLES operating system server.
+-   Fixes several known issues.
+
+ |
 |August 29, 2018|1.3.0| -   Boosts the migration speed and fixes several bugs.
 -   Implements automatic restoration for file system permission on Windows server after migration, without manual operation.
 
@@ -63,7 +71,7 @@ The following table shows the updated information about Cloud Migration tool:
 -   Restores the default filter option for some Windows data disk files and directories that are cannot be found.
 
  |
-|April 28, 2018|1.2.8| -   Provides more command line parameter options. For more information, run `--help` within the tool.
+|April 28, 2018|1.2.8| -   Provides more command line parameter options. For more information, run --help within the tool.
 -   Supports dedicated line for Virtual Private Cloud \(VPC\) migration.
 
  |

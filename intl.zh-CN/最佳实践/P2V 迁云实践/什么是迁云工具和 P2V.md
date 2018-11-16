@@ -15,13 +15,15 @@
 -   Windows Server 2012
 -   Windows Server 2016
 
- | -   CentOS 5/6/7
--   Ubuntu 10/12/14/16/17
+ | -   Amazon Linux 2014 及更高版本
+-   CentOS 5/6/7
 -   Debian 7/8/9
+-   Gentoo 13.0
+-   OpenSUSE 13.1
+-   Oracle Linux 5/6/7
 -   Red Hat 5/6/7
 -   SUSE 11.4/12.1/12.2
--   OpenSUSE 13.1
--   Gentoo 13.0
+-   Ubuntu 10/12/14/16/17
 
  |
 
@@ -51,6 +53,12 @@
 
 |更新时间|版本|描述|
 |:---|:-|:-|
+|2018/11/12|1.3.1| -   数据传输采用 SSH 通道，支持动态 SSH 安全证书验证
+-   提升 Windows 版本传输性能
+-   优化支持 Amazon Linux、Oracle Linux 和 SLES 等操作系统
+-   改进其他已知问题
+
+ |
 |2018/08/29|1.3.0| -   提速迁云进程并优化一些已知问题
 -   增加 Windows 服务器修复环节，您无需手动运行文件权限重置工具
 
