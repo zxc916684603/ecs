@@ -8,13 +8,13 @@
 
 -   实例必须处于 **已过期**（`Stopped`）或者 **欠费回收中**（`Stopped`）的状态。
 
--   为避免实例会被释放和无法恢复数据，您必须在实例欠费停机后 15 天内清理账单并重开机实例。无法重开机 VPC 类型实例时，请间隔一段时间后再试或 [提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm) 联系阿里云。
+-   为避免实例会被释放和无法恢复数据，您必须在实例欠费停机后 15 天内清理账单并重开机实例。无法重开机 VPC 类型实例时，请间隔一段时间后再试或 [提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) 联系阿里云。
 
--   结清欠费后，您的账户下必须有大于 100 元的余额。否则无法重新启动实例。更多业务限制，请参阅 [重开机](../cn.zh-CN/用户指南/实例/重开机.md#)。
+-   更多业务限制，请参阅 [重开机](../intl.zh-CN/用户指南/实例/重开机.md#)。
 
 -   接口调用成功后实例进入 **启动中** （`Starting`）状态。
 
--   被[安全控制](../cn.zh-CN/API 参考/附录/安全锁定时的 API 行为.md#)的ECS实例的`OperationLocks`不能标记为`"LockReason" : "security"`。
+-   被[安全控制](../intl.zh-CN/API 参考/附录/安全锁定时的 API 行为.md#)的ECS实例的`OperationLocks`不能标记为`"LockReason" : "security"`。
 
 
 ## 请求参数 {#RequestParameter .section}
@@ -26,7 +26,7 @@
 
 ## 返回参数 {#ResponseParameter .section}
 
-全是公共返回参数。参阅[公共返回参数](../cn.zh-CN/API 参考/快速入门/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅[公共返回参数](../intl.zh-CN/API 参考/快速入门/公共参数.md#commonResponseParameters)。
 
 ## 示例 {#Samples .section}
 
@@ -58,7 +58,7 @@ https://ecs.aliyuncs.com/?Action=ReactivateInstances
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
