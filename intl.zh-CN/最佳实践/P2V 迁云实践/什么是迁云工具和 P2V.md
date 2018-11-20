@@ -1,8 +1,16 @@
 # 什么是迁云工具和 P2V {#ServerMigrationCenter .concept}
 
+迁云工具能将计算机磁盘中的操作系统、应用程序以及应用数据等迁移到 ECS 或是虚拟磁盘分区中生成 ECS 镜像，您可以使用该镜像快速创建 ECS 实例，以实现 P2V 和 V2V。
+
+## 迁云工具概述 {#section_pq2_4s5_vfb .section}
+
 阿里云自主研发的迁云工具平衡了 ECS 用户的线上线下服务器负载或者各种不同云平台之间的负载。以其轻巧便捷的特点，迁云工具支持在线迁移物理机服务器、虚拟机以及其他云平台云主机至 ECS 经典网络平台或专有网络平台，实现统一部署资源的目的。
 
-迁云工具属于 P2V 或者 V2V 工具范畴。P2V（Physical to virtual）代表从物理 IDC 环境迁移到 ECS，V2V（Virtual to virtual）代表从虚拟机环境或者云平台主机迁移到 ECS。迁云工具能将计算机磁盘中的操作系统、应用程序以及应用数据等迁移到 ECS 或是虚拟磁盘分区中生成 ECS 镜像，您可以使用该镜像快速创建 ECS 实例，以实现 P2V 和 V2V。
+迁云工具属于 P2V 或者 V2V 工具范畴。P2V（Physical to virtual）代表从物理 IDC 环境迁移到 ECS，V2V（Virtual to virtual）代表从虚拟机环境或者云平台主机迁移到 ECS。为方便叙述，本文中的源服务器一词概指您的 IDC 服务器、虚拟机或者云主机。
+
+下图为使用迁云工具迁移您的源服务器的流程示意图：
+
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9832/154269297432321_zh-CN.png)
 
 ## 适用的操作系统 {#section_x3j_v5z_jfb .section}
 
