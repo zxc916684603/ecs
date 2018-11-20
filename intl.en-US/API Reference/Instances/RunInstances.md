@@ -19,6 +19,14 @@ When you use this operation, consider the following:
 -   Unlike [CreateInstance](reseller.en-US/API Reference/Instances/CreateInstance.md#), instances created by calling the `RunInstances` method have Internet IPs allocated if you set the value of `InternetMaxBandwidthOut` greater than 0.
 -   If invalid parameters or stock shortage happens, the RunInstances action fails. For troubleshooting, see error codes.
 
+**Best practices**
+
+You can use RunInstances to create instances in batch. For easy management and querying, we recommend that you specify tags \(Tag.n.Key and Tag.n.Value\) for each batch of instances, and add sequential suffixes \(**UniqueSuffix**\) to host names \(HostName\) and instance names \(InstanceName\).
+
+An instance launch template eliminates the need to enter a number of configuration parameters each time you create an instance. After creating an instance launch template, you can use the template by specifying LaunchTemplateId and LaunchTemplateVersion in the RunInstances request.
+
+When creating an instance in the [ECS console](https://partners-intl.console.aliyun.com/#/ecs), you can obtain the best practice suggestions for RunInstances. On the page of the **Preview** step, you can click **View Open API** to open the **Open API Best Practice** window. In that window, the left part is the **API Workflow** area that lists the APIs related to RunInstances, and the right part is the SDK area that shows the SDK examples for programming languages \(**Java** and **Python** examples are available for now\).
+
 ## Request parameters {#RequestParameter .section}
 
 |Name|Type|Required|Description|

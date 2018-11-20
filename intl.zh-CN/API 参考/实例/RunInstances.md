@@ -21,9 +21,11 @@
 
 **最佳实践**
 
-RunInstances可以执行批量创建任务，为便于管理与检索，建议您为每批次启动的实例指定标签（Tag.n.Key和Tag.n.Value），并且为主机名（HostName）和实例名称（InstanceName）添加有序后缀（**UniqueSuffix**）。
+RunInstances 可以执行批量创建任务，为便于管理与检索，建议您为每批次启动的实例指定标签（Tag.n.Key和Tag.n.Value），并且为主机名（HostName）和实例名称（InstanceName）添加有序后缀（**UniqueSuffix**）。
 
 实例启动模板能免除您每次创建实例时都需要填入大量配置参数，您可以创建实例启动模板（[CreateLaunchTemplate](intl.zh-CN/API 参考/启动模板/CreateLaunchTemplate.md#)）后，在RunInstances请求中指定LaunchTemplateId和LaunchTemplateVersion使用启动模板。
+
+您可以在 [ECS 管理控制台](https://ecs.console.aliyun.com/)创建 ECS 实例时获取 RunInstances 的最佳实践建议。确认订单时，左侧 **API 工作流** 罗列出 RunInstances 能使用的关联 API 以及请求参数的值。右侧提供面向编程语言的 SDK 示例，目前支持 **Java** 和 **Python** 示例。
 
 ## 请求参数 {#RequestParameter .section}
 
@@ -31,9 +33,7 @@ RunInstances可以执行批量创建任务，为便于管理与检索，建议�
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：RunInstances|
 |RegionId|String|是|实例所属的地域ID。您可以调用[DescribeRegions](../intl.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
-|ZoneId|String|否|实例所属的可用区编号，您可以调用[DescribeZones](intl.zh-CN/API 参考/地域/DescribeZones.md#)获取可用区列表。默认值：空
-
-空表示由系统选择。
+|ZoneId|String|否|实例所属的可用区编号，您可以调用[DescribeZones](intl.zh-CN/API 参考/地域/DescribeZones.md#)获取可用区列表。默认值：系统随机选择。
 
 |
 |LaunchTemplateId|String|否|启动模板ID。更多详情，请调用[`DescribeLaunchTemplates`](intl.zh-CN/API 参考/启动模板/DescribeLaunchTemplates.md#)。您必须指定`LaunchTemplateId`或`LaunchTemplateName`以确定启动模板。|
@@ -63,9 +63,9 @@ RunInstances可以执行批量创建任务，为便于管理与检索，建议�
 -   `PeriodUnit=Month`时，Period取值：\{ “1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “12”, “24”, “36”,”48”,”60”\}
 
 |
-|InternetChargeType|String|否|网络计费类型。取值范围：-   PayByTraffic：按使用流量计费
+|InternetChargeType|String|否|网络计费类型。取值范围：-   PayByTraffic（默认）：按使用流量计费
 
-默认值：PayByTraffic|
+|
 |IoOptimized|String|否|是否为I/O优化实例。取值范围：-   none：非I/O优化
 -   optimized：I/O优化
 
@@ -107,10 +107,10 @@ RunInstances可以执行批量创建任务，为便于管理与检索，建议�
 |
 |DataDisk.n.DiskName|String|否|数据盘名称，`n`的取值范围为\[1, 16\]。长度为 \[2, 128\] 个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。|
 |DataDisk.n.Description|String|否|数据盘描述，`n`的取值范围为\[1, 16\]。长度为 \[2, 256\] 个英文或中文字符，不能以 http:// 和 https:// 开头。|
-|DataDisk.n.DeleteWithInstance|Boolean|否|表示数据盘是否随实例释放，`n`的取值范围为\[1, 16\]。取值范围：-   true：实例释放时，这块磁盘随实例一起释放。
+|DataDisk.n.DeleteWithInstance|Boolean|否|表示数据盘是否随实例释放，`n`的取值范围为\[1, 16\]。取值范围：-   true（默认）：实例释放时，这块磁盘随实例一起释放。
 -   false：实例释放时，这块磁盘保留不释放。
 
-默认值：true这个参数只对参数`DataDisk.n.Category`取值为`cloud`、`cloud_efficiency`或`cloud_ssd`的云盘，否则会报错。
+这个参数只对参数`DataDisk.n.Category`取值为`cloud`、`cloud_efficiency`或`cloud_ssd`的云盘，否则会报错。
 
 |
 |HpcClusterId|String|否|实例所属的集群ID。|
@@ -164,16 +164,14 @@ RunInstances可以执行批量创建任务，为便于管理与检索，建议�
 |
 |Tag.n.Key|String|否|实例、磁盘和主网卡的标签键。n 的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。|
 |Tag.n.Value|String|否|实例、磁盘和主网卡的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。|
-|SpotStrategy|String|否|后付费实例的抢占策略。当参数`InstanceChargeType`取值为`PostPaid`时生效。取值范围：-   NoSpot：正常按量付费实例。
+|SpotStrategy|String|否|后付费实例的抢占策略。当参数`InstanceChargeType`取值为`PostPaid`时生效。取值范围：-   NoSpot（默认）：正常按量付费实例。
 -   SpotWithPriceLimit：设置上限价格的抢占式实例。
 -   SpotAsPriceGo：系统自动出价，跟随当前市场实际价格。
 
-默认值：NoSpot|
+|
 |SpotPriceLimit|Float|否|设置实例的每小时最高价格。支持最大3位小数，参数`SpotStrategy`取值为`SpotWithPriceLimit`时生效。|
-|DryRun|Boolean|否|是否只预检此次请求。-   true：发送检查请求，不会创建实例。检查项包括是否填写了必需参数、请求格式、业务限制和ECS库存。如果检查不通过，则返回对应错误。如果检查通过，则返回错误码`DryRunOperation`。
+|DryRun|Boolean|否|是否只预检此次请求。-   true（默认）：发送检查请求，不会创建实例。检查项包括是否填写了必需参数、请求格式、业务限制和ECS库存。如果检查不通过，则返回对应错误。如果检查通过，则返回错误码`DryRunOperation`。
 -   false：发送正常请求，通过检查后直接创建实例。
-
-默认值：false
 
 **说明：** `DryRun=true`时，Amount参数只能设置为1。
 
