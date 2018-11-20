@@ -12,7 +12,7 @@ You have settled the payment by opening a ticket.
 
 ## Procedure {#section_qll_q1n_xdb .section}
 
-To reactivate an instance, follow these steps:
+To reactivate an instance in the ECS console, follow these steps:
 
 1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, click **Instances**.
@@ -21,4 +21,6 @@ To reactivate an instance, follow these steps:
 5.  Choose whether to reactivate the instance immediately or later at a specified time.
 
 If you choose to reactivate immediately, the selected instance returns to the **Running** status after about 10 minutes.
+
+Alternatively, you can also complete the task by calling the ECS API [ReactivateInstances](../../../../reseller.en-US/API Reference/Instances/ ReactivateInstances.md#).
 
