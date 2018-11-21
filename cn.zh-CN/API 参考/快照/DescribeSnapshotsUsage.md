@@ -7,7 +7,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeSnapshotsUsage|
-|RegionId|String|是|快照所属的地域 ID。您可以调用[DescribeRegions](../cn.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
+|RegionId|String|是|快照所属的地域 ID。您可以调用[DescribeRegions](../intl.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
 
 ## 返回参数 {#ResponseParameter .section}
 
@@ -51,5 +51,5 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshotsUsage
 
 ## 错误码 {#ErrorCode .section}
 
-全是公共错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+全是公共错误码。更多错误码，请访问[API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
