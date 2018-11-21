@@ -25,7 +25,7 @@ You can manually renew your **Subscription** instances when they are in an **Exp
 
 To manually renew your instance, follow these steps:
 
-1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/#/home).
 2.  In the left-side navigation pane, click **Instances**.
 3.  On the Instance List page, select the expected region and locate the ECS instance by the instance name, instance ID, or status \( **Expired**\).
 4.  In the **Actions** column, click **Renew**.
@@ -36,4 +36,16 @@ To manually renew your instance, follow these steps:
     1.  Confirm the instance configuration.
     2.  Select the expected renewal length, which can be **1 Month** or **1 Year**, and click **Place Order**.
 6.  On the Pay page, confirm the order information and click **Pay** to complete the renewal operation.
+
+## Bulk renewal {#section_rdv_hmf_zdb .section}
+
+Perform the steps below to renew multiple instances:
+
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/#/home).
+2.  In the left-side navigation pane, click **Instances**.
+3.  Select a region.
+4.  Select multiple **Subscription** or **Weekly Subscription** instances.
+5.  At the bottom of the page, click **Renew**.
+6.  On the Bulk Instance Renewal page, click **Batch Change**. Select a renewal period and then click **OK**.
+7.  Click **Create Order** to finish the operation as instructed.
 
