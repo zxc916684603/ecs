@@ -7,7 +7,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeSnapshotPackage|
-|RegionId|String|是|快照所属的地域 ID。您可以调用[DescribeRegions](../cn.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
+|RegionId|String|是|快照所属的地域 ID。您可以调用[DescribeRegions](../intl.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
 |PageNumber|Integer|否|OSS 存储包列表的页码。起始值：1默认值：1
 
 |
@@ -26,8 +26,8 @@
 
 |名称|类型|描述|
 |:-|:-|:-|
-|StartTime|String|存储包的购买时间。按照[ISO8601](../cn.zh-CN/API 参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
-|EndTime|String|存储包的过期时间。按照[ISO8601](../cn.zh-CN/API 参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
+|StartTime|String|存储包的购买时间。按照[ISO8601](../intl.zh-CN/API 参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
+|EndTime|String|存储包的过期时间。按照[ISO8601](../intl.zh-CN/API 参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
 |InitCapacity|Long|存储包的最大容量。|
 |DisplayName|String|存储包名称。|
 
@@ -83,5 +83,5 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshotPackage
 
 ## 错误码 {#ErrorCode .section}
 
-全是公共错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+全是公共错误码。更多错误码，请访问[API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
