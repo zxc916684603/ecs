@@ -1,6 +1,6 @@
 # DescribeInstanceVncUrl {#DescribeInstanceVncUrl .reference}
 
-Queries the [management terminal URL](../../../../intl.en-US/User Guide/Connect/Terminal.md#) before connecting to an instance.
+Queries the [management terminal URL](../reseller.en-US/User Guide/Connect to instances/Connect to an instance by using the Management Terminal.md#) before connecting to an instance.
 
 ## Description {#section_nkr_mss_xdb .section}
 
@@ -12,27 +12,30 @@ When you call this interface, consider the following:
 
 -   If the connection is interrupted, you cannot reconnect for more than 30 times per minute.
 
--   At the end of the fixed URL [https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?](https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?), add `vncUrl=xxxx`, `instanceId=xxx`, `isWindows=True`, `isWindows=False` and `password=XXXXXX`, and use symbol `&` between the parameters. Wherein:
 
-    -   Parameter `vncUrl`: The value of `VncUrl` is responded after calling the interface successfully.
+**How to use the response parameter**
 
-    -   Parameter `instanceId`: The ID of your instance to which you are about to connect.
+At the end of the fixed URL [https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?](https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?), add `vncUrl=xxxx`, `instanceId=xxx`, `isWindows=true`, `isWindows=false` and `password=XXXXXX`, and use symbol `&` between the parameters. Wherein:
 
-    -   Parameter `isWindows`: Whether the operating system of an instance is Windows or not. The value `true` indicates a Windows instance, and the value `false` indicates other operating system, for example, Linux.
+-   Parameter `vncUrl`: The value of `VncUrl` is responded after calling the interface successfully.
 
-    -   \(Optional\). Parameter `password`: The instance connection password in the Management Terminal. It consists of 6 numbers or uppercase/lowercase letters. This parameter eliminates the need to enter the password before the connection establishes.
+-   Parameter `instanceId`: The ID of your instance to which you are about to connect.
 
-          **Sample**:
+-   Parameter `isWindows`: Whether the operating system of an instance is Windows or not. The value `true` indicates a Windows instance, and the value `false` indicates other operating system, for example, Linux.
 
-        ```
-        https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?vncUrl=ws%3A%2F%xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true
-        ```
+-   \(Optional\). Parameter `password`: The instance connection password in the Management Terminal. It consists of 6 numbers or uppercase/lowercase letters. This parameter eliminates the need to enter the password before the connection establishes.
 
-        Or
+    **Sample**:
 
-        ```
-        https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?vncUrl=ws%3A%2F%xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true&Password=111111
-        ```
+    ```
+    https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?vncUrl=ws%3A%2F%xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true
+    ```
+
+    Or
+
+    ```
+    https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?vncUrl=ws%3A%2F%xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true&Password=111111
+    ```
 
 
 ## Request parameters {#RequestParameter .section}
@@ -40,18 +43,18 @@ When you call this interface, consider the following:
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: DescribeInstanceVncUrl|
-|RegionId|String|Yes|The region ID of the instance. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|The region ID of the instance. For more information, call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |InstanceId|String|Yes|The ID of an instance.|
 
 ## Response parameters {#ResponseParameter .section}
 
 |Name|Type|Description|
 |:---|:---|:----------|
-|VncUrl|String|The management terminal URL|
+|VncUrl|String|The management terminal URL.|
 
 ## Examples { .section}
 
-**Request example** 
+**Request example**
 
 ```
 https://ecs.aliyuncs.com/?Action=DescribeInstanceVncUrl
@@ -60,7 +63,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceVncUrl
 &<Common Request Parameters>
 ```
 
-**Response example** 
+**Response example**
 
 **XML format**
 
@@ -71,7 +74,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceVncUrl
 </DescribeInstanceVncUrlResponse>
 ```
 
- **JSON format** 
+**JSON format**
 
 ```
 {
@@ -82,11 +85,9 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceVncUrl
 
 ## Error codes {#ErrorCode .section}
 
-Error codes specific to this interface are as follows. For more error codes, visit the [API error center](https://error-center.alibabacloud.com/status/product/Ecs).
-
 |Error code|Error message|HTTP status code|Description|
 |:---------|:------------|:---------------|:----------|
-|IncorrectInstanceStatus|The current status of the resource does not support this operation.|403|The specified instance must be in the **Running**  status.|
+|IncorrectInstanceStatus|The current status of the resource does not support this operation.|403|The specified instance must be in the **Running** status.|
 |InstanceNotReady|The specified instance is not ready for use|403|The specified instance is being created. Please try again later.|
 |InvalidInstanceId.NotFound|The specified InstanceId does not exist.|404|The specified `InstanceId` does not exist.|
 |InvalidRegionId.NotFound|The specified RegionId does not exist.|404|The specified `RegionId` does not exist.|
