@@ -5,7 +5,7 @@ This article describes how to create an instance using the console wizard.
 -   Before creating an ECS instance, you must complete the [preparation work](../../../../reseller.en-US/Quick Start for Entry-Level Users/Preparations.md#).
 -   To bind an SSH key pair when creating a Linux instance, you must [create an SSH key pair](reseller.en-US/User Guide/Key pairs/Create an SSH key pair.md#) in the target region.
 -   To set the user-defined data, you must prepare the [user data](reseller.en-US/User Guide/Instances/User-defined data and metadata/User data.md#).
--   To authorize an instance to play a role, you must [create an instance RAM role and grant it permissions](https://help.aliyun.com/document_detail/61175.html?spm=a2c4g.11186623.2.12.CscUFl).
+-   To authorize an instance to play a role, you must [create an instance RAM role and grant it permissions](reseller.en-US/User Guide/Instances/Instance RAM roles/Use the instance RAM role in the console.md#).
 
 1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs). 
 2.  In the left-side navigation pane, click **Instances**. 
@@ -57,7 +57,7 @@ This article describes how to create an instance using the console wizard.
     1.  Select a network: 
         -   **VPC**: Must select a VPC and a VSwitch. If you do not have a VPC and a VSwitch, you can use the default ones.
         -   **Classic network**: If you purchased the ECS instance for the first time after June 16, 2016, 12:00 \(UTC + 8\), you can no longer select a classic network.
-    2.  Configure the Internet bandwidth: 
+    2.  Configure the **Network Billing Method**: 
         -   To assign a public IP address to the instance, select **Assign public IP**. Then, select **PayByTraffic** as the network billing method and specify the bandwidth. For public IP addresses assigned in this way, you cannot unbind them from the instance. For more information about network billing, see [billing of network bandwidth](../../../../reseller.en-US/Pricing/Billing of network bandwidth.md#).
         -   If your instances do not need to access the Internet or your VPC instances [use an Elastic IP \(EIP\) address to access the Internet](../../../../reseller.en-US/Quick Start/Create a VPC.md#), you do not need to assign a public IP. You can unbind an EIP address from an instance.
     3.  Select a security group. You can use the default security group if you do not create one. For the rules of the default security group, see [default security group rules](reseller.en-US/User Guide/Security groups/Default security group rules.md#). 
@@ -78,11 +78,11 @@ This article describes how to create an instance using the console wizard.
         -   UserData: Customize the startup behaviors of an instance or pass data into an instance.
 7.  \(Optional\) Click **Next: Grouping** to manage instances by group. You can add tags to instances to simplify future management. 
 8.  Confirm the order: 
-    -   In the **Selected Configurations** area, confirm all the configurations. You can click the edit icon to re-edit the configuration.
+    -   In the **Configurations Selected** area, confirm all the configurations. You can click the edit icon to re-edit the configuration.
         -   \(Optional\) Click **Save as launch template** to record your configuration as a launch template for further reference and a quick launch. For more information, see [instance launch template](../../../../reseller.en-US/Product Introduction/Instances/Launch templates.md#).
         -   \(Optional\) Click **View Open API** to acquire the best API practice about how to create instances. At the left side, **API Workflow** explains the related API and request parameter values for the current operation. At the right side, the programing language-specifc sample are given for you to use, currently, **Java** and **Python** samples are provided. For more information about ECS API, see ECS API Reference [Overview](../../../../reseller.en-US/API Reference/Introduction.md#).
-    -   \(Optional\) If the billing method is **Pay-As-You-Go**, you can **set the automatic release time**.
-    -   \(Optional\) If the billing method is **Subscription**, you can set the duration and select whether to enable **auto renewal**.
+    -   \(Optional\) If the billing method is **Pay-As-You-Go**, you can set **Automatic Release**.
+    -   \(Optional\) If the billing method is **Subscription**, you can set the duration and select whether to enable **Auto Renewal**.
     -   Confirm the configuration costs. The billing methods for an instance and Internet bandwidth determine the displayed cost information, as shown in the following table.
 
         |Instance billing method|Fees estimated|
@@ -93,7 +93,7 @@ This article describes how to create an instance using the console wizard.
     -   Read and confirm **Terms of Service**.
 9.  Click **Create Instance**. 
 
-When the instance is activated, click **ECS console** to view the instance details on the console. In the **Instance List** of the relevant region, you can view the information of the new instance, including the instance name, the Internet IP address, and the private IP address.
+When the instance is activated, click **ECS console** to view the instance details on the console. In the **Instances** list of the relevant region, you can view the information of the new instance, including the instance name, the Internet IP address, and the private IP address.
 
 -   You can create an FTP site on the instance for transferring files. For more information, see [build an FTP site on an ECS instance](https://partners-intl.aliyun.com/help/doc-detail/51998.htm).
 -   To secure your instance after creation, we recommend that you perform security compliance inspection and configuration:
