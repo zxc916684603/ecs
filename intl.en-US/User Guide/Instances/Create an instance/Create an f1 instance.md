@@ -8,7 +8,7 @@ You must use an image that is pre-installed with the Intel development environme
 
 ## Procedure {#section_m1m_s31_ydb .section}
 
-Follow the steps described in [create an ECS instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#), However, the following configurations must be selected:
+Follow the steps described in [create an ECS instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#). The following configurations must be selected:
 
 -   **Region**: Select **China East 1 \(Hangzhou\)** \> **China East 1 Zone F**.
 -   **Instance Type**: Select **Heterogeneous Computing** \> **FPGA ** \> **Compute**, and then select the appropriate f1 instance type.
