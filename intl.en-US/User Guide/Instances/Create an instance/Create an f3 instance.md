@@ -10,7 +10,7 @@ Please submit a ticket to request a free f3 instance for testing. This instance 
 
 ## Procedure {#section_csy_fm1_ydb .section}
 
-For more information about how to create an f3 instance, see [Create an instance by using the wizard](reseller.en-US/User Guide/Instances/Create an instance/Create an instance by using the wizard.md#). However, the following configurations are recommended:
+For more information about how to create an f3 instance, see [create an instance by using the wizard](reseller.en-US/User Guide/Instances/Create an instance/Create an instance by using the wizard.md#). However, the following configurations are recommended:
 
 -   **Billing Method**: Select **Pay-As-You-Go** or **Subscription**.
 
@@ -24,7 +24,7 @@ For more information about how to create an f3 instance, see [Create an instanc
 
     **Note:** A Xilinx image is available for use \(recommended\). The image is only available as a Shared image. To obtain the image, open a ticket.
 
--   **System Disk**: Allocate a 200 GiB Ultra Cloud Disk for the system image.
+-   **System Disk**: Allocate a 200 GiB Ultra Disk for the system image.
 -   **Network**: Select **VPC**.
 
 ## Best practices {#section_hsy_fm1_ydb .section}
