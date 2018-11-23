@@ -25,7 +25,7 @@ You have already [created a template](reseller.en-US/User Guide/Instances/Launch
 2.  In the left-side navigation pane, select **Launch Template**.
 3.  Select a template ID to view its configurations, and then click **New Version**. You can also click **New Version** in the **Actions** column.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13806/15395043535351_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13806/15429610925351_en-US.png)
 
 4.  On the Launch Template page, set the parameters.
 
@@ -48,6 +48,6 @@ You have already [created a template](reseller.en-US/User Guide/Instances/Launch
 1.  In the ECS console, select a template ID that has multiple versions.
 2.  Locate the version you want to set as default, and then click **Set as Default** in the **Actions** column.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13806/15395043535352_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13806/15429610925352_en-US.png)
 
 
