@@ -2,13 +2,13 @@
 
 This article describes how to create an f2 instance.
 
-## Prerequisites {#section_qgq_4k1_ydb .section}
+## Prerequisite {#section_qgq_4k1_ydb .section}
 
 You must use an image that is pre-installed with the Xilinx development environment to create an f2 instance. To obtain the image, open a ticket.
 
 ## Procedure {#section_s2l_jk1_ydb .section}
 
-Follow the steps described in [create an ECS instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#), However, the following configurations must be selected:
+Follow the steps described in [creating an ECS instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#), However, the following configurations must be selected:
 
 -   **Region**: Select **China East 1 \(Hangzhou\)** \> **China East 1 Zone B**.
 -   **Instance Type**: Select **Heterogeneous Computing** \> **FPGA Compute**.
