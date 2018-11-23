@@ -6,7 +6,7 @@ To duplicate ECS instances of the same configurations, use the **Buy Same Type**
 2.  Select the target region. 
 3.  In the left-side navigation pane, click **Instances**. 
 4.  Find your ECS instance and, in the **Actions** column, select **More** \> **Buy Same Type**. 
-5.  On the **Buy Same Type** page, confirm the selected configurations in the **Overview** section. If you want to modify any configurations, select **View More** to change the billing method, security group, network billing method, bandwidth, logon credential, or instance name. 
+5.  On the **Buy the Same Configuration** page, confirm the selected configurations in the **Overview** section. If you want to modify any configurations, select **View More** to change the billing method, security group, network billing method, bandwidth, logon credential, or instance name. 
 6.  To purchase a Subscription ECS instance, you can change the **Purchase Time**. 
 7.  Set the **Amount**. 
 8.  Read and confirm you agree to the **ECS Service Terms and Product Terms of Service**. 
