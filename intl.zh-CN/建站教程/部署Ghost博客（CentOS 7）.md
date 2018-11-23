@@ -28,22 +28,22 @@ Ghost是一个免费的开源博客平台，使用JavaScript编写，基于Node.
 
 对于个人使用的小型网站，一台云服务器ECS实例可以满足需求。
 
-这里只介绍新购实例。如果您有镜像，可以 [使用自定义镜像创建实例](https://help.aliyun.com/document_detail/25465.html)。
+这里只介绍新购实例。如果您有镜像，可以 [使用自定义镜像创建实例](../../../../intl.zh-CN/用户指南/实例/创建实例/使用自定义镜像创建实例.md#) 。
 
-**操作步骤**
+操作步骤
 
 1.  登录 [云服务器管理控制台](https://ecs.console.aliyun.com/#/home)。如果尚未注册，单击 **免费注册**。
 2.  选择 **云服务器 ECS** \> **实例**。单击 **创建实例**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383512460_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169812460_zh-CN.png)
 
-3.  选择付费方式：**包年包月** 或 **按量付费**。关于两种付费方式的区别，请参见 [计费模式](https://help.aliyun.com/document_detail/25370.html)。
+3.  选择付费方式：**包年包月** 或 **按量付费**。关于两种付费方式的区别，请参见 [计费对比](../../../../intl.zh-CN/产品定价/计费对比.md#) 。
 
     如果选择 **按量付费**，请确保账户余额至少有100元。如无余额，请进入 **充值页面** 充值后再开通。
 
-    **说明：** 对于按量付费的实例，即使停止实例，也会继续收费。如果您不再需要该按量付费的实例，请及时 [释放实例](https://help.aliyun.com/document_detail/25442.html)。
+    **说明：** 对于按量付费的实例，即使停止实例，也会继续收费。如果您不再需要该按量付费的实例，请及时 [释放实例](../../../../intl.zh-CN/用户指南/实例/释放实例.md#) 。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383512461_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169812461_zh-CN.png)
 
 4.  选择地域。所谓地域，是指实例所在的地理位置。您可以根据您的用户所在的地理位置选择地域。与用户距离越近，延迟相对越少，下载速度相对越快。例如，您的用户都分布在北京地区，则可以选择 **华北2**。
 
@@ -53,34 +53,34 @@ Ghost是一个免费的开源博客平台，使用JavaScript编写，基于Node.
     -   不同地域提供的可用区数量、实例系列、存储类型、实例价格等也会有所差异。请根据您的业务需求进行选择。
 5.  选择网络类型。对于建站的用户，选择 **经典网络** 即可。然后选择安全组。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383512462_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169812462_zh-CN.png)
 
-6.  选择实例，根据您网站的访问量选择实例规格（CPU、内存）。对于个人网站，1 核 2GB 或 2 核 4GB 一般能够满足需求。关于实例规格的详细介绍，请参考 [实例规格族](https://help.aliyun.com/document_detail/25378.html)。
+6.  选择实例，根据您网站的访问量选择实例规格（CPU、内存）。对于个人网站，1 核 2GB 或 2 核 4GB 一般能够满足需求。关于实例规格的详细介绍，请参考 [实例规格族](../../../../intl.zh-CN/产品简介/实例规格族.md#) 。
 
     实例系列 II 是实例系列 I 的升级版，提供更高的性能，推荐使用。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383512463_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169812463_zh-CN.png)
 
 7.  选择网络带宽。如果选择 0 MB，则不分配外网 IP，该实例将无法访问公网。如果您选择了 按使用流量，同时选择 0 MB 固定带宽，则同样不分配外网 IP，而且 不支持 0 MB 带宽升级，因此请谨慎选择。
     -   按固定带宽付费。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383512464_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169812464_zh-CN.png)
 
     -   按使用流量付费。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383512466_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169812466_zh-CN.png)
 
 8.  选择镜像。如果用于建站，可以选择公共镜像中的 Linux 操作系统，如 CentOS。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383512467_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169812467_zh-CN.png)
 
 9.  选择 **系统盘**。您还可以选择 **用快照创建磁盘**，非常方便地把快照的数据直接复制到磁盘中。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383512469_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169812469_zh-CN.png)
 
 10. 设置实例的登录密码和实例名称。请务必牢记密码。您也可以在创建完成后再设置密码。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383512470_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169812470_zh-CN.png)
 
 11. 设置购买的时长和数量。
 12. 单击页面右侧价格下面的 **立即购买**。
@@ -116,11 +116,11 @@ Ghost是一个免费的开源博客平台，使用JavaScript编写，基于Node.
 5.  输入主机 IP 地址和用户名。
 6.  单击 **确定** 保存。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383612471_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169912471_zh-CN.png)
 
 7.  输入用户名 root 和登录密码。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383612472_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169912472_zh-CN.png)
 
 8.  添加Nginx软件库。
 
@@ -149,7 +149,7 @@ Ghost是一个免费的开源博客平台，使用JavaScript编写，基于Node.
 
 12. 在浏览器中输入IP地址，可以看到默认的Nginx的网页。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383612474_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169912474_zh-CN.png)
 
 
 至此，Nginx搭建完成。
@@ -228,7 +228,7 @@ Ghost是一个免费的开源博客平台，使用JavaScript编写，基于Node.
         [root@localhost ghost]# vim config.js
         ```
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383612477_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169912477_zh-CN.png)
 
     8.  使用进程管理器来配置Ghost永久运行。
 
@@ -272,7 +272,7 @@ Ghost是一个免费的开源博客平台，使用JavaScript编写，基于Node.
 
     5.  在浏览器中输入IP地址，可以看到默认的Nginx的网页。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383612478_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169912478_zh-CN.png)
 
 5.  配置Nginx作为Ghost的反向代理。
     1.  进入Nginx配置目录，新建Ghost博客的Nginx配置文件。
@@ -283,7 +283,7 @@ Ghost是一个免费的开源博客平台，使用JavaScript编写，基于Node.
 
     2.  将以下内容输入到ghost.conf中，把 **server\_name** 改成实际的域名。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383612479_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169912479_zh-CN.png)
 
     3.  修改默认的配置文件default.conf为default.conf.bak，使Nginx只应用ghost.conf。
 
@@ -300,13 +300,13 @@ Ghost是一个免费的开源博客平台，使用JavaScript编写，基于Node.
 6.  访问Ghost博客。
     1.  在浏览器输入 http://IP 或 http://域名 即可访问Ghost。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383612480_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169912480_zh-CN.png)
 
         **说明：** 如果访问出现502，请检查是否由于防火墙的问题引起，可以关闭防火墙。
 
     2.  需要对博客进行编辑修改，在浏览器输入 http://IP/ghost 即可。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383612481_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169912481_zh-CN.png)
 
 
 ## 步骤 4：购买域名 {#section_syf_f41_ffb .section}
@@ -319,23 +319,23 @@ Ghost是一个免费的开源博客平台，使用JavaScript编写，基于Node.
 
 1.  在 [购买域名](https://wanwang.aliyun.com/) 页面，搜索想用的域名，如尚未被注册，则可以购买。选择要购买的域名及期限，然后结算。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383612482_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169912482_zh-CN.png)
 
 2.  在确认订单的时候，需要选择域名的所有者是个人还是企业。为方便操作，建议暂时先选择个人，以后可以在会员中心进行修改。本文档将以个人用户为例。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383612483_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169912483_zh-CN.png)
 
 3.  如果这是您首次购买域名，需要 [创建消息模板](https://domain.console.aliyun.com/#/infotemplate)。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383612484_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169912484_zh-CN.png)
 
 4.  比较便捷的方式是选择用会员信息自动填写。请务必填写真实信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383612486_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169912486_zh-CN.png)
 
 5.  完成后需要进行实名认证。上传个人身份证正面扫描件。审核一般需要 3 ~ 5 个工作日。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383612487_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294169912487_zh-CN.png)
 
 
 ## 步骤 5：备案 {#section_sdf_m41_ffb .section}
@@ -348,19 +348,19 @@ Ghost是一个免费的开源博客平台，使用JavaScript编写，基于Node.
 
 1.  首先给购买的ECS实例 [申请备案服务号](https://bsn.console.aliyun.com/#/bsnApply/ecs)。这个服务号在备案时会用到。选择 **备案管理** \> **备案服务号申请**，然后单击 **申请**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383712488_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294170012488_zh-CN.png)
 
 2.  在弹出的提示信息对话框中，单击 **确定**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383712489_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294170012489_zh-CN.png)
 
 3.  申请成功后，页面自动跳转到备案服务号管理页面，显示与 ECS 实例绑定的备案号。然后单击 [备案专区](https://beian.aliyun.com/)，了解备案相关信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383712490_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294170012490_zh-CN.png)
 
 4.  首次备案的用户，需要在 [ICP代备案管理系统](https://beian.gein.cn/account/login.htm) 注册一个备案账号。注意，该账号不是阿里云账号，而是申请备案专用的账号。
 
-    关于首次备案的详细步骤，请参考 [首次备案图文引导](https://help.aliyun.com/knowledge_detail/36922.html)。
+    关于首次备案的详细步骤，请参考 [首次备案](../../../../intl.zh-CN/备案流程/首次备案.md#) 。
 
 
 ## 步骤 6：配置域名解析 { .section}
@@ -372,19 +372,19 @@ Ghost是一个免费的开源博客平台，使用JavaScript编写，基于Node.
 1.  登录 [域名管理控制台](https://netcn.console.aliyun.com/core/domain/list)。
 2.  在域名列表中找到要解析的域名，然后单击 **解析**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383712491_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294170012491_zh-CN.png)
 
 3.  单击 **新手引导设置**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383712492_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294170012492_zh-CN.png)
 
 4.  输入您的 Linux 实例的公网 IP 地址。然后单击 **提交**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383712493_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294170012493_zh-CN.png)
 
 5.  设置成功，会出现如下信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154096383712494_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/154294170012494_zh-CN.png)
 
 
 恭喜您！您可以使用域名访问自己的网站了！
