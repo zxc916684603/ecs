@@ -16,9 +16,9 @@ You can create a launch template using the following methods:
 ## Create a template in the ECS console {#console .section}
 
 1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
-2.  In the left-side navigation pane, select **Launch Template**, and then click **Create Template**.
+2.  In the left-side navigation pane, select **Launch Templates**, and then click **Create Template**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13805/15395043375347_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13805/15429604265347_en-US.png)
 
 3.  Go to the Launch Template page and complete the basic configurations and advanced configurations.
 
@@ -26,7 +26,7 @@ You can create a launch template using the following methods:
 
 4.  On the Confirm Configuration page, enter a template name and description, and then click **Create Launch Template**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13805/15395043375348_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13805/15429604265348_en-US.png)
 
     **Note:** All parameters are optional when you create a template. However, on the Confirm Configuration page, we recommend that you configure the required parameters so that you can create instances in one click as needed.
 
