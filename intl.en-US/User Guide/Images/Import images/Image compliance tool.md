@@ -1,6 +1,6 @@
 # Image compliance tool {#StandardImageFacilitator .concept}
 
-ECS allows you to create instances from imported custom images. The imported custom images can be created based on your offline server, virtual machine, or a cloud host on any cloud platform. The images you import must meet certain requirements. For more information, see [Notes for importing images](reseller.en-US/User Guide/Images/Import images/Notes for importing images.md#). To reduce the time required for creating images and instances, we recommend that you use the **image compliance tool** of ECS \(hereinafter referred to as **compliance tool**\) to create images that comply with the relevant standards. The compliance tool can detect non-compliance of various configuration indicators and locations based on a given server environment, generate TXT and JSON detection reports, and offer possible solutions.
+ECS allows you to create instances from imported custom images. Imported custom images can be created based on your offline server, virtual machine, or a cloud host on any cloud platform. The images you import must meet certain requirements. For more information, see [Notes for importing images](reseller.en-US/User Guide/Images/Import images/Notes for importing images.md#). To reduce the time required for creating images and instances, we recommend that you use the **image compliance tool** of ECS \(referenced in this document as **compliance tool**\) to create images that comply with the relevant standards. The compliance tool can detect non-compliance of various configuration indicators and locations based on a given server environment, generate TXT and JSON detection reports, and offer possible solutions.
 
 ## Limits {#section_o54_lr1_b2b .section}
 
@@ -8,9 +8,9 @@ The compliance tool currently supports Linux images only, such as Ubuntu, CentOS
 
 ## Sample {#section_n4v_kp1_b2b .section}
 
-The following sample use a CentOS 7.4 64-bit server.
+The following example use a CentOS 7.4 64-bit server.
 
-1.  Log on to your server, virtual machine, or cloud host on any cloud platform.
+1.  Log on to your server, virtual machine, or cloud host.
 2.  [Download](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/84961/cn_zh/1534906727238/image_check) the compliance tool.
 3.  Run `image_check` with root permissions to guarantee that the compliance tool can read configuration files under permission control.
 
@@ -65,8 +65,8 @@ The following sample use a CentOS 7.4 64-bit server.
 
 The compliance tool detects the following server configuration items to ensure that the ECS instances created from your custom image are fully functional.
 
-|Detection item|Non-compliance|Suggestion|
-|:-------------|:-------------|:---------|
+|Detection item|Non-compliance issue|Suggestion|
+|:-------------|:-------------------|:---------|
 |driver|The ECS instance cannot start normally.|Install a virtualization driver. For example, [install a virtio driver](reseller.en-US/User Guide/Images/Import images/Install virtio driver.md#)|
 |/etc/shadow|You cannot modify the password file, so you cannot create an ECS instance from the custom image.|Do not use the `chattr` command to lock the /etc/shadow file.|
 |SElinux|The ECS instance cannot start normally.|Do not modify /etc/selinux/config to start SELinux.|
@@ -76,7 +76,7 @@ The compliance tool detects the following server configuration items to ensure t
 |firewall|The system does not automatically configure your ECS instance environment.|Disable the firewall iptables, firewalld, IPFilter \(IPF\), IPFireWall \(IPFW\), or PacketFilter \(PF\).|
 |file system|You cannot [resize the disk](reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Overview.md#).|The XFS, Ext3, and Ext4 file systems are used, and the Ext2, UFS, and UDF file systems are allowed. The Ext4 file system does not support 64-bit features.|
 |root|You cannot use your username and password to remotely connect to the ECS instance.|Reserve the root account.|
-|passwd|You cannot add users for the ECS instance.|Retain or reinstall the passwd command.|
+|passwd|You cannot add users to the ECS instance.|Retain or reinstall the passwd command.|
 |Partition table|The ECS instance cannot start normally.|Use MBR partitioning.|
 |Logical Volume Manager \(LVM\)|The ECS instance cannot start normally.|Switch to another partitioning service.|
 |/lib|The ECS instance cannot be automatically configured.|The /lib and /lib64 files cannot be stored in absolute paths. Modify the storage paths of /lib and /lib64 to their relative paths.|
@@ -87,8 +87,8 @@ The compliance tool detects the following server configuration items to ensure t
 The compliance tool provides a detection result `OK`, `FAILED`, or `WARNING` based on detection items.
 
 -   `OK`: The detection items all comply with requirements.
--   `FAILED`: The detection items do not comply with requirements. The ECS instance created from the custom image cannot start normally. We recommend that you rectify the non-compliant items and recreate the image to improve instance startup efficiency.
--   `WARNING`: The detection items do not comply with requirements. The ECS instance created from the custom image can start normally, but ECS cannot use valid methods to configure your instance. You can choose to immediately rectify the non-compliant items or temporarily neglect the items and create an image.
+-   `FAILED`: The detection items do not comply with requirements, which means a ECS instance created from the custom image cannot start normally. We recommend that you rectify the non-compliant items and recreate the image to improve instance startup efficiency.
+-   `WARNING`: The detection items do not comply with requirements, which means an ECS instance created from the custom image can start normally, but ECS cannot use valid methods to configure your instance. You can choose to immediately rectify the non-compliant items or temporarily retain the items and create an image.
 
 ## Output items {#section_qpv_kp1_b2b .section}
 
