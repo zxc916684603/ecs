@@ -1,6 +1,6 @@
 # Create an EBM instance {#concept_lwh_gt1_ydb .concept}
 
-Follow the steps in [Create an instance by using the wizard](reseller.en-US/User Guide/Instances/Create an instance/Create an instance by using the wizard.md#) to create an EBM instance. However, the following configurations are recommended:
+Follow the steps in [creating an instance by using the wizard](reseller.en-US/User Guide/Instances/Create an instance/Create an instance by using the wizard.md#) to create an EBM instance. However, the following configurations are recommended:
 
 -   **Region**: Currently, EBM instances are available in the following regions and zones: **China East 2 \(Shanghai\), Zone D**, **China North 2 \(Beijing\), Zone C**, **China East 1 \(Hangzhou\), Zone G**, and **China South 1 \(Shenzhen\), Zone D**.
 -   **Instance Type**: In ebmhfg5, ebmc4, and ebmg5 type families are available. For more information about instance types, see [instance type families](../../../../reseller.en-US/Product Introduction/Instance type families.md#).
