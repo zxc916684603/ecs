@@ -12,7 +12,7 @@ If you want to create an ECS instance that has the same operating system, softwa
 1.   Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs). 
 2.   In the left-side navigation pane, click **Instances**. Alternatively, you can click **Images** to find the target image, and then click **Create Instance** in the **Actions** column.
 3.   In the upper-right corner of the Instances page, click **Create Instance**. 
-4.  Follow the instructions in [Create an instance by using the wizard](reseller.en-US/User Guide/Instances/Create an instance/Create an instance by using the wizard.md#). When creating an ECS instance, note the following: 
+4.  Follow the steps when you [create an instance by using the wizard](reseller.en-US/User Guide/Instances/Create an instance/Create an instance by using the wizard.md#). When creating an ECS instance, note the following: 
     -   Region: Select the region where the image is located.
     -   Image: Select **Custom Image** or **Shared Image**, and then select an image from the drop-down list.
 
