@@ -4,16 +4,16 @@ Custom images allow you to create multiple ECS instances with identical OS and e
 
 Custom images are based on ECS disk snapshots. You can set up identical or different configurations for ECS instances that are created from images.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/15404601034584_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/15429847584584_en-US.png)
 
-You can also use an instance to create an image. See [create a custom image by using an instance](reseller.en-US/User Guide/Images/Create custom image/Create a custom image by using an instance.md#).
+You can also use an instance to create an image. For more information, see [create a custom image by using an instance](reseller.en-US/User Guide/Images/Create custom image/Create a custom image by using an instance.md#).
 
 To enhance the security of custom images created from snapshots, see [security suggestions for Alibaba Cloud custom images](https://partners-intl.aliyun.com/help/faq-detail/54903.htm?spm=a2c63.q38357.a3.3.358654ffzwageD).
 
 **Note:** 
 
 -   Custom images cannot be used across regions.
--   You can change the operating system of an instance created from a custom image, and the custom image remains usable. See [change the system disk \(custom image\)](reseller.en-US/User Guide/Cloud disks/Replace the system disk (non-public image).md#).
+-   You can change the operating system of an instance created from a custom image, and the custom image remains usable. For details, see [change the system disk \(custom image\)](reseller.en-US/User Guide/Cloud disks/Replace the system disk (non-public image).md#).
 -   You can upgrade the instance created from a custom image, including upgrading the CPU, memory, bandwidth, and disks.
 -   Custom images are created independently from the billing methods of the instances from which they were created. For example, custom images created from Subscription instances can used for creating Pay-As-You-Go instances. The converse method also applies.
 -   If the ECS instance used for creating a custom image expires, or the data is erased \(that is, the system disk used for the snapshot expires or is released\), the custom image and the ECS instances created from the custom image are not affected. However, automatic snapshots are cleared when an ECS instance is released.
@@ -24,7 +24,7 @@ To enhance the security of custom images created from snapshots, see [security s
 -   We recommend that you umount all data disks before creating a custom image, and then use a snapshot to create a custom image. Otherwise, ECS instances that are created based on this custom image may not start.
 -   Do not upgrade the kernel or operating system version.
 -   Do not change the system disk partitions. The system disk only supports single root partitions.
--   Check the available space of the system disk to make sure that the system disk is not full.
+-   We recommend you check the available space of the system disk to make sure that the system has available space.
 -   Do not modify critical system files such as /sbin, /bin, /lib, and so on.
 -   Do not modify the default logon user name root.
 
@@ -32,17 +32,17 @@ To enhance the security of custom images created from snapshots, see [security s
 
 1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  Select the region.
-3.  In the left-hand navigation pane, click **Instances**.
-4.  Find the target instance and click its instance ID, or click the corresponding **Manage** button in the **Actions** column.
-5.  In the left-hand navigation pane, click **Instance Snapshots**. Find the target system disk and then click **Create Custom Image** in the **Actions** column.
+3.  In the left-side navigation pane, click **Instances**.
+4.  Find the target instance and click its instance ID, or click **Manage** in the **Actions** column.
+5.  In the left-side navigation pane, click **Instance Snapshots**. Find the target system disk and then click **Create Custom Image** in the **Actions** column.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/15404601044589_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/15429847584589_en-US.png)
 
     The snapshot must be created from system disks. Data disks cannot be used to create custom images. 
 
     You can also click **Snapshots and Images** \> **Snapshots**, and select a snapshot created from a system disk to **Create Custom Image**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/15404601044593_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/15429847584593_en-US.png)
 
 6.  In the Create Custom Image dialog box, complete the following:
     -   Confirm the snapshot ID.
@@ -54,7 +54,7 @@ To enhance the security of custom images created from snapshots, see [security s
         -   We recommend you remove sensitive data from the data disk before creating a custom image to guarantee data security.
         -   If the snapshot disk capacity is left blank, an empty disk is created with the default capacity of 5 GiB.
         -   If you select available snapshots, the disk size is the same as the size of the snapshots. 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/15404601044594_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/15429847584594_en-US.png)
 
 7.  Click **Create**. Then, in the left-side navigation pane, select **Snapshots and Images** \> **Images** to view the images you have created.
 
