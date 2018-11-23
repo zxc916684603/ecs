@@ -1,13 +1,13 @@
 # Convert image file format {#concept_obj_qpm_xdb .concept}
 
-Only image files in qcow2, RAW, or VHD format can be imported. If you want to import images in other formats, convert the format before importing the image. This article describes how to use the qemu-img tool to convert other image file formats to VHD or RAW. Using qemu-img, you can convert RAW, qcow2, VMDK, VDI, VHD \(vpc\), VHDX, qcow1, or QED to VHD, or implement mutual conversion between RAW and VHD.
+Only image files in qcow2, RAW, or VHD format can be imported. If you want to import images in other formats, you need to convert the format before importing the image. This topic describes how to use the qemu-img tool to convert other image file formats to VHD or RAW. Using qemu-img, you can convert RAW, qcow2, VMDK, VDI, VHD \(vpc\), VHDX, qcow1, or QED, to VHD, or implement conversion between RAW and VHD.
 
 ## Windows {#windows .section}
 
 To install qemu-img and convert the image file format, follow these steps:
 
 1.  Log on to your server or VM, download [qemu-img](https://qemu.weilnetz.de/w64/) and complete the installation. Installation path: C:\\Program Files\\qemu.
-2.  Perform the following to create an environment variable for qemu-img:
+2.  Perform the following actions to create an environment variable for qemu-img:
     1.  Choose **Start** \> **Computer**, then right click **Properties**.
     2.  In the left-side navigation pane, click **Advanced System Settings**.
     3.  In the **System Properties** dialog box, click the **Advanced** tab, and then click **Environment Variables**.
@@ -37,9 +37,9 @@ To install qemu-img and convert the image file format, follow these steps:
     When the conversion is complete, the target file appears in the directory where the source image file is located.
 
 
-## FAQ {#section_hkw_cgc_p2b .section}
+## Troubleshooting {#section_hkw_cgc_p2b .section}
 
-If errors occur during qemu-img installation and there are no clear prompts about the missing dependent libraries, you can run `pip install -r requirements.txt` to install all the dependent libraries based on the libraries shown in the file requirements.txt of cloud-init.
+If errors occur during qemu-img installation and there are no clear prompts about the missing dependent libraries, run `pip install -r requirements.txt` to install all the dependent libraries based on the libraries shown in the file requirements.txt of cloud-init.
 
 ## Next step {#section_yxz_vdc_p2b .section}
 
