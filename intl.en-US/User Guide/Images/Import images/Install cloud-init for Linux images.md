@@ -1,17 +1,17 @@
 # Install cloud-init for Linux images {#concept_e3k_vnm_xdb .concept}
 
-If you need to create an ECS instance using an existing image, you can import the image to configure the instance. To guarantee successful configuration of the hostname, NTP source, and yum source of the imported Linux image, you are advised to install cloud-init in your on-premise server, virtual machine \(VM\), or cloud host before import.
+To guarantee successful configuration of the hostname, NTP source, and yum source of an imported Linux image, we recommend that you install cloud-init in your on-premises server, virtual machine, or cloud host, before import.
 
 ## Limitations {#section_bw3_b4m_xdb .section}
 
--   Currently, cloud-init supports the following Linux distributions: CentOS, Debian, Fedora, FreeBSD, Gentoo, RHEL \(Red Hat Enterprise Linux\), SLES \(SUSE Linux Enterprise Server\), and Ubuntu.
+-   Currently, cloud-init supports the following Linux OSs: CentOS, Debian, Fedora, FreeBSD, Gentoo, RHEL \(Red Hat Enterprise Linux\), SLES \(SUSE Linux Enterprise Server\), and Ubuntu.
 
--   If cloud-init has been installed on your on-premise server, VM, or cloud host, make sure that the cloud-init version is later than 0.7.9 because images using an earlier-version cloud-init may cause instance configuration failure in NTP, hostname, and yum.
+-   If cloud-init has been installed on your on-premises server, VM, or cloud host, make sure that the cloud-init version is 0.7.9 or later because images using an earlier-version cloud-init may cause instance configuration failure in NTP, hostname, and yum. To check your version of cloud-init, follow these steps:
 
     1.  Log on to your on-premise server, VM, or cloud host.
     2.  Run `cloud-init --version` to query the cloud-init version.
 
-        You can use the cloud-init if its version is later than 0.7.9. Otherwise, do as instructed in [Install cloud-init](#Install).
+        If your version is earlier than 0.7.9, see how to [install cloud-init](#Install).
 
 
 ## Prerequisites {#section_kg1_d4m_xdb .section}
@@ -31,11 +31,11 @@ You have installed the following software on your on-premise server, VM, or clou
     Command for installing yum: `yum install python-pip`
 
 
-`yum` installation is used as an example. If you manage packages using `zypper` or `apt-get`, the installation methods are similar to `yum`.
+`yum` installation is used in the following example. If you manage packages using `zypper` or `apt-get`, the installation methods are similar to `yum`.
 
 ## Install cloud-init {#Install .section}
 
-Do as follows to install cloud-init:
+To install cloud-init, follow these steps:
 
 1.  Log on to your on-premise server, VM, or cloud host.
 2.  Run `git clone https://git.launchpad.net/cloud-init` to download the cloud-init source code package.
@@ -43,7 +43,7 @@ Do as follows to install cloud-init:
 4.  Run `python setup.py install` to install setup.py, which is the cloud-init installation file.
 5.  Run `vi /etc/cloud/cloud.cfg` to modify the cloud.cfg configuration file.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9704/15394858294621_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9704/15429849254621_en-US.png)
 
     Modify `cloud_init_modules` configurations to the following:
 
@@ -60,7 +60,7 @@ Do as follows to install cloud-init:
          name: root
          lock_passwd: False
      # If this is set, 'root' will not be able to ssh in and they 
-     # will get a message to login instead as the above $user
+     # will get a message to logon instead as the above $user
      disable_root: false
      # This will cause the set+update hostname module to not operate (if true)
      preserve_hostname: false
@@ -84,7 +84,7 @@ The libraries missing from images may be different. You can install the missing 
 
 **When the six and oauthlib libraries are missing**
 
--   The six library is missing from Python if the following message is displayed during installation. You can run `pip install six` to install the six library through pip.
+-   If the following message is displayed during installation, the six library is missing from Python. You can run `pip install six` to install the six library through pip.
 
     ```
     File "/root/cloud-init/cloudinit/log.py", line 19, in <module>
@@ -92,7 +92,7 @@ The libraries missing from images may be different. You can install the missing 
       ImportError: No module named s  )
     ```
 
--   The oauthlib library is missing from Python if the following message is displayed during installation. You can run `pip install oauthlib` to install the six library through pip.
+-   If the following message is displayed during installation, the oauthlib library is missing from Python. You can run `pip install oauthlib` to install the six library through pip.
 
     ```
     File "/root/cloud-init/cloudinit/url_helper.py", line 20, in <module>
@@ -107,7 +107,7 @@ You can run `pip install -r requirements.txt` to install all dependency librarie
 
 ## Next step {#section_bf1_mpm_xdb .section}
 
-You can [import the image to ECS](reseller.en-US/User Guide/Images/Import images/Import custom images.md#).
+You can [import the image to ECS](intl.en-US/User Guide/Images/Import images/Import custom images.md#).
 
 ## Reference {#section_qsb_npm_xdb .section}
 
