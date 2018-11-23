@@ -11,7 +11,7 @@ To create a GPU instance, you must configure the following settings. For detaile
     -   gn4: North China 2 \(Zone A\), East China 2 \(Zone B\), South China 1 \(Zone C\)
     -   gn5: North China 2 \(Zone C and E\), North China 5 \(Zone A\), East China 1 \(Zone G and F\), East China 2 \(Zone D, B, and E\), South China 1 \(Zone D\), Hong Kong \(Zone C and B\), Asia Pacific SE 1 \(Zone A and B\), Asia Pacific SE 2 \(Zone A\), Asia Pacific SE 3 \(Zone A\), Asia Pacific SE 5 \(Zone A\), US West 1 \(Zone A and B\), US East 1 \(Zone A and B\), and EU Central 1 \(Zone A\)
 
-        **Note:** If you want to deploy NVIDIA GPU CLOUD \(NGC\) on a gn5 instance, see [deploy an NGC on a gn5 instance](https://help.aliyun.com/document_detail/69102.html) when selecting a region.
+        **Note:** If you want to deploy NVIDIA GPU CLOUD \(NGC\) on a gn5 instance, see [deploy an NGC on a gn5 instance when selecting a region](../../../../reseller.en-US/Best Practices/GPU instances/Deploy an NGC on gn5 instances.md#).
 
     -   gn5i: North China 2 \(Zone C, E and A\), East China 1 \(Zone B\), East China 2 \(Zone D and B\), and South China 1 \(Zone A\)
     -   gn6v: East China 2 \(Zone F\)
@@ -38,7 +38,7 @@ To create a GPU instance, you must configure the following settings. For detaile
 
     **Note:** We recommend that you do not select **Set Later**. This is because, to log on to the instance after it is created and before the GPU driver is installed, you have to reset the password or bind an SSH key pair, and then restart the instance to make the change take effect. The restart operation, however, causes the failure of driver installation.
 
--   **UserData**: If **Auto-install GPU Driver** is enabled, a script to install a CUDA library and a GPU driver is displayed here. Read the script and note carefully.
+-   **User Data**: If **Auto-install GPU Driver** is enabled, a script to install a CUDA library and a GPU driver is displayed here. Read the script and note carefully.
 
 ## Check the installation progress {#section_gbb_nxz_xdb .section}
 
@@ -59,7 +59,7 @@ If the image is not pre-installed with a GPU driver, you must install one for th
         |Product Type|Tesla|Tesla|Tesla|Tesla|
         |Product Series|M-Class|P-Series|P-Series|V-Series|
         |Product|M40|Tesla P100|Tesla P4|Tesla V100|
-        |Operating System|Select an OS version according to the image of your instance. If the server operating system is not displayed in the drop-down list, click **Show all Operating Systems** at the bottom of the drop-down list.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15395932605114_en-US.png)
+        |Operating System|Select an OS version according to the image of your instance. If the server operating system is not displayed in the drop-down list, click **Show all Operating Systems** at the bottom of the drop-down list.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15429592905114_en-US.png)
 
 |
 
@@ -89,7 +89,7 @@ If the image is not pre-installed with a GPU driver, you must install one for th
 
             Take Linux 64-bit Ubuntu 14.04 as an example.
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15395932605117_en-US.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15429592905117_en-US.png)
 
 
 ## Install a GRID driver {#section_ubb_nxz_xdb .section}
