@@ -15,7 +15,7 @@ Before partition and formatting a large data disk, note the following:
     |Linux|`parted`|ext4 or xfs|
     |Windows|**Disk management**|NTFS|
 
--   **We do not recommend that you create a large data disk by using a snapshot of a small data disk. **
+-   **We recommend that you do not create a large data disk by using a snapshot of a small data disk. **
 
     If you create a large data disk by using the snapshot of a small data disk, the following risks may occur:
 
@@ -44,7 +44,7 @@ The data disk has been attached to an instance. For more information, see [attac
 To partition and format a large data disk, follow these steps:
 
 1.  [Connect to a Windows instance](reseller.en-US/User Guide/Connect to instances/Overview.md#).
-2.  Click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/15414313534424_en-US.png) icon in the task bar.
+2.  Click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/15432231484424_en-US.png) icon in the task bar.
 3.  In the left-side navigation pane select **Storage** \> **Disk Management**.
 4.  Find the disk that is to be partitioned and formatted \(in this example, **Disk 4**\). The disk status should be shown as **Offline**.
 5.  Right click the blank area around Disk 4, and then click **Online**.
@@ -113,7 +113,7 @@ Your Linux instance has installed **parted**. If not, run `yum install -y parted
 
 Your Linux instance has installed **e2fsprogs**. If not, run `yum install -y e2fsprogs`.
 
-The data disk has been attached to the instance. For more information, see [Attach a cloud disk](reseller.en-US/User Guide/Cloud disks/Attach a cloud disk.md#).
+The data disk has been attached to the instance. For more information, see [attach a cloud disk](reseller.en-US/User Guide/Cloud disks/Attach a cloud disk.md#).
 
 **Procedure**
 
@@ -160,8 +160,8 @@ To partition and format a large data disk and mount the file system, follow thes
 
     **Note:** 
 
-    -   If you want to disable the lazy init function of ext4 file system to avoid its effect on data disk I/O performance, see [Appendix 2: Disable lazy  init function.](#LazyInit).
-    -   If capacity of the data disk is 16 TiB, you must format it by using e2fsprogs in the designated version. See [Appendix 1: Update e2fsprogs](#e2fsprogs).
+    -   If you want to disable the lazy init function of ext4 file system to avoid its effect on data disk I/O performance, see [disable lazy  init function.](#LazyInit).
+    -   If capacity of the data disk is 16 TiB, you must format it by using e2fsprogs in the designated version. See [update e2fsprogs](#e2fsprogs).
     -   If you want to create an xfs file system, run `mkfs -t xfs /dev/vdd1`.
 5.  Run `mkdir /test` to create a mount point with the name /test.
 6.  Run `mount /dev/vdd1 /test` to mount /dev/vdd1 to /test.
@@ -202,7 +202,7 @@ To install e2fsprogs of later version, such as 1.42.8 in this example, follow th
 
 1.  Run `rpm -qa | grep e2fsprogs` to check the current version of e2fsprogs.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/15414313534439_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9672/15432231484439_en-US.png)
 
     If the current version is earlier than 1.42, update the software by following these steps.
 
