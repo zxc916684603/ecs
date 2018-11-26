@@ -16,15 +16,15 @@ You must have created an automatic snapshot policy.
 To create an automatic snapshot policy, follow these steps:
 
 1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
-2.  In the left-side navigation pane, select **Snapshots and Images** \> **Automatic Snapshot Policy**.
-3.  On the Create Automatic Snapshot Policy page, perform the following action as required:
+2.  In the left-side navigation pane, select **Snapshots and Images** \> **Automatic Snapshot Policies**.
+3.  On the Automatic Snapshot Policies page, perform the following action as required:
     -   If you want to create a policy, click **Create Policy** at the upper-right corner.
     -   If you want to modify a policy, find the policy that you want to modify, and click **Modify Policy** in the **Actions** column.
 4.  In the Create Policy or Modify Policy dialog box, define the automatic snapshot policy as follows.
     -   Enter a policy name.
     -   Select a time after **Executed At** to specify the time of day for automatically creating snapshots.
     -   Specify the **Execution Frequency**.
-    -   Set a number after **Keep Snapshots** to defines the number of days a snapshot can be retained. The value range is 1−65535 days, or permanently. By default, it is set to 30 days. You can also choose to permanently r retain utomatic snapshots.
+    -   Set a number after **Keep Snapshots** to defines the number of days a snapshot can be retained. The value range is 1−65535 days, or permanently. By default, it is set to 30 days. You can also choose to permanently retain automatic snapshots.
 
         **Note:** When the number of snapshots reaches the limit, the system automatically removes the oldest automatic snapshots created. Manually created snapshots are not removed.
 
