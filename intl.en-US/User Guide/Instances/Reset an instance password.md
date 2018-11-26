@@ -16,7 +16,7 @@ To reset a password for one or multiple ECS instances, follow these steps:
 2.  In the left-side navigation pane, click **Instances**.
 3.  Select the target region.
 4.  According to the number of instances to be operated, do the following:
-    -   To reset the password for one instance, find the target instance and, in the **Actions** column, select **More** \> **Reset Password**.
+    -   To reset the password for one instance, find the target instance and, in the **Actions** column, select **More** \> **Password/Key Pair** \> **Reset Password**.
 
     -   To reset the passwords for multiple instances, select the target instances and, under the instance list, click **Reset Password**.
 
