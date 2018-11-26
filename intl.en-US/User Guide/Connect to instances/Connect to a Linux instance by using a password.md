@@ -2,7 +2,7 @@
 
 You can connect to a Linux instance by using different authentication methods:
 
--   If you are using an SSH key pair, see [Connect to a Linux instance by using an SSH key pair](reseller.en-US/User Guide/Connect to instances/Connect to a Linux instance by using an SSH key pair.md).
+-   If you are using an SSH key pair, see [connect to a Linux instance by using an SSH key pair](reseller.en-US/User Guide/Connect to instances/Connect to a Linux instance by using an SSH key pair.md).
 -   If you are using a password, you can [connect to an instance by using the Management Terminal](reseller.en-US/User Guide/Connect to instances/Connect to an instance by using the Management Terminal.md) or by using software applications or command lines.
 
 ## Prerequisites {#section_tyv_dwx_wdb .section}
@@ -14,7 +14,7 @@ You can connect to a Linux instance by using different authentication methods:
     -   In the classic network, a public IP address is assigned to the instance by using either of the following methods:
         -   For a Subscription or a Pay-As-You-Go instance, you can select **Assign public IP** when creating the instance.
         -   For a Subscription instance without a public IP address, you can assign one by [upgrading the bandwidth](reseller.en-US/User Guide/Instances/Change configurations/Overview of configuration changes.md#).
--   The following security group rules must be added to the security group that the instance joins. For more information, see [Add security group rules](reseller.en-US/User Guide/Security groups/Add security group rules.md#).
+-   The following security group rules must be added to the security group that the instance joins. For more information, see [add security group rules](reseller.en-US/User Guide/Security groups/Add security group rules.md#).
 
     |Network type|NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object |Priority|
     |------------|---|--------------|--------------------|-------------|----------|------------------|---------------------|--------|
@@ -49,7 +49,7 @@ Follow these steps to connect to a Linux instance:
 
     **Note:** For the first connection to an ECS instance, you have the PuTTY Security Alert as follows, which means PuTTY cannot guarantee the instance is the one that you think it is, so it can only provide the public key fingerprint of the instance for you to decide to trust the instance or not. If you select **Yes**, the public key will be added to the PuTTY’s cache and you will not be alerted again during your next connection. If you select Yes but are alerted again, a [man-in-the-middle attack \(MITM\)](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) may occur. For more information, see [PuTTY User Manual](https://the.earth.li/~sgtatham/putty/0.70/htmldoc/Chapter2.html#gs-hostkey).
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9621/15408934445251_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9621/15432164125251_en-US.png)
 
 4.  Enter the user name and password for the Linux instance, and then press **Enter**.
 
@@ -77,9 +77,9 @@ Welcome to Alibaba Cloud Elastic Compute Service !
 
 ## Android or iOS {#section_tqb_wbg_qfb .section}
 
-If your local machine is running Android OS or iOS, see [Connect to an instance on a mobile device](reseller.en-US/User Guide/Connect to instances/Connect to an instance on a mobile device.md#).
+If your local machine is running Android OS or iOS, see [connect to an instance on a mobile device](reseller.en-US/User Guide/Connect to instances/Connect to an instance on a mobile device.md#).
 
 ## Reference {#section_pzv_dwx_wdb .section}
 
-You can run a script to install a graphical desktop on an instance running CentOS. For more information, see [Automatic installation tool for Linux instance](https://partners-intl.aliyun.com/help/faq-detail/41181.htm).
+You can run a script to install a graphical desktop on an instance running CentOS. For more information, see [automatic installation tool for Linux instance](https://partners-intl.aliyun.com/help/faq-detail/41181.htm).
 
