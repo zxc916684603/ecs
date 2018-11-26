@@ -31,7 +31,7 @@ After you modify the instance user data, depending on the type of scripts and mo
 
 -   If the user data configures modules such as bootcmd, update\_etc\_hosts, and yum\_add\_repo, the modified user data is run.
 
-    For more information, see [Modules](http://cloudinit.readthedocs.io/en/latest/topics/modules.html).
+    For more information, see [modules](http://cloudinit.readthedocs.io/en/latest/topics/modules.html).
 
 
 ## Set user data {#SetUserDataExample .section}
@@ -47,22 +47,22 @@ For this example, assume that you write user data development in a Windows envir
 4.  \(Optional\) If you make a [Gzip compression content](#Gzip), compress the script file in .gz format.
 5.  \(Optional\) If you are creating an [Include file](#Include) or a [Gzip compression script](#Gzip), upload script file to available storage services, obtain the link, and set the valid period of the link.
 
-    We recommend that you use Alibaba Cloud OSS to create links. For more information, see [Upload an object](../../../../reseller.en-US/Quick Start/Upload an object.md#) or [Set lifecycle](../../../../reseller.en-US/Console User Guide/Manage buckets/Set lifecycle.md#).
+    We recommend that you use Alibaba Cloud OSS to create links. For more information, see [upload an object](../../../../reseller.en-US/Quick Start/Upload an object.md#) or [set lifecycle](../../../../reseller.en-US/Console User Guide/Manage buckets/Set lifecycle.md#).
 
-6.  Log on to the [ECS Management Console](https://partners-intl.console.aliyun.com/#/ecs).
-7.  See  [Step 2. Create an instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#) to create a Linux instance.
+6.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+7.  Follow the instructions in [creating an instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#) to create a Linux instance.
 
-    **Note:** The instance must be VPC-Connected, and you must select a [image](#Image) that meets the requirement. For [phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm), I/O optimized instances are required. Other [Instance type families](../../../../reseller.en-US/Product Introduction/Instance type families.md#) are not limited in terms of I/O optimized.
+    **Note:** The instance must be VPC-Connected, and you must select a [image](#Image) that meets the requirement. For [phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm), I/O optimized instances are required. Other [instance type families](../../../../reseller.en-US/Product Introduction/Instance type families.md#) are not limited in terms of I/O optimized.
 
     After creating the instance, select  **Advanced \(based on instance RAM roles or cloud-init\) use text form** and enter your **user data**. If your user data has been encrypted by Base64 encoding, click **The text is Base64-encoded**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15395060315484_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15432137295484_en-US.png)
 
 8.  Wait for the instance to be created.
 9.  [Connect](reseller.en-US/User Guide/Connect to instances/Overview.md#) to your instance.
 10. View the results of the user data. If a failure occurs, check the relevant log files. The following is an output example of user data on a CentOS instance by using the upstart job script:
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15395060315485_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15432137305485_en-US.png)
 
     In the preceding figure, the startup job file part-001.conf is generated in the /etc/init folder.
 
@@ -78,19 +78,19 @@ You can view user data of an instance from the server `100.100.100.200`. To do s
     -   For Linux, run `curl http://100.100.100.200/latest/user-data` to view the user data.
     -   For Windows, run `Invoke-RestMethod http://100.100.100.200/latest/user-data/` to view the user data.
 
-Related APIs:[DescribeUserdata](../../../../reseller.en-US/API Reference/Instances/DescribeUserdata.md#)
+Related API: [DescribeUserdata](../../../../reseller.en-US/API Reference/Instances/DescribeUserdata.md#)
 
 ## Modify user data {#linuxCustomData2 .section}
 
 You must stop the instance before modifying its current user data. If you need to restart a Pay-As-You-Go VPC-Connected instance immediately after you modify the user data, we recommend that you disable the No fees for stopped instances option. To modify user data of an instance, follow these steps:
 
-1.  Log on to the [ECS Management Console](https://partners-intl.console.aliyun.com/#/ecs).
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, click **Instances**.
 3.  Select the target region.
 4.  Select the target instance and then, in the **Actions** column, click **Sets User Data**.
 5.  Enter the user data and then click **OK**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15395060315486_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15432137305486_en-US.png)
 
 
 **Note:** After you modify the user data, depending on the script type and the module type, the modified user data is or is not run.
@@ -99,7 +99,7 @@ Related API: [ModifyInstanceAttribute](../../../../reseller.en-US/API Reference/
 
 ## Linux instance user data {#linuxCustomScripts .section}
 
-Linux instance user data can be configured by several types of script, such as [User-data Script](#User-DataScript), [Cloud Config](#CloudConfigData), [Include Files](#Include), [Gzip compression scripts](#Gzip), and  [Upstart Job](#UpstartJob) . The scripts follow the format of open source cloud-init, and reference the [Metadata](reseller.en-US/User Guide/Instances/User-defined data and metadata/Metadata.md#) for data sources. The configuration of Linux instances are automated at boot. For more information, see [Formats](http://cloudinit.readthedocs.io/en/latest/topics/format.html).
+Linux instance user data can be configured by several types of script, such as [User-data Script](#User-DataScript), [Cloud Config](#CloudConfigData), [Include Files](#Include), [Gzip compression scripts](#Gzip), and [Upstart Job](#UpstartJob). The scripts follow the format of open source cloud-init, and reference the [Metadata](reseller.en-US/User Guide/Instances/User-defined data and metadata/Metadata.md#) for data sources. The configuration of Linux instances are automated at boot. For more information, see [formats](http://cloudinit.readthedocs.io/en/latest/topics/format.html).
 
 **User-data script**
 
@@ -140,7 +140,7 @@ bootcmd:
 
 After the instance has been created, connect to the instance to view the results.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15395060315487_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15432137305487_en-US.png)
 
 **Include files**
 
@@ -195,7 +195,7 @@ echo "bat test" > c:\1.txt
 
 After the instance has been created, connect to the instance to view the results. In the following example, a 1.txt text file is shown under the C:\\ drive.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15395060315488_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15432137305488_en-US.png)
 
 **The first line of PowerShell scripts**
 
@@ -209,7 +209,7 @@ write-output "Powershell Test" | Out-File C:\2.txt
 
 ## Reference {#Reference .section}
 
-For more information about Linux instance user data, see cloud-init [Formats](http://cloudinit.readthedocs.io/en/latest/topics/format.html).
+For more information about Linux instance user data, see cloud-init [formats](http://cloudinit.readthedocs.io/en/latest/topics/format.html).
 
-For more information about the update frequency of Linux instance user data, see cloud-init [Modules](http://cloudinit.readthedocs.io/en/latest/topics/modules.html).
+For more information about the update frequency of Linux instance user data, see cloud-init [modules](http://cloudinit.readthedocs.io/en/latest/topics/modules.html).
 
