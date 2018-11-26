@@ -21,8 +21,8 @@ To apply an automatic snapshot policy through the Cloud Disks menu, follow these
 
 1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  Select the target region.
-3.  In the left-side navigation pane, click Cloud Disks.
-4.  Select the disk for which you want to execute the policy and click Automatic Snapshot Policy.
+3.  In the left-side navigation pane, click **Disks**.
+4.  Select the disk for which you want to execute the policy and click **Create Automatic Snapshot Policy**.
 5.  Enable the automatic snapshot function and select the desired snapshot policy.
 6.  Click **OK**.
 
@@ -40,6 +40,6 @@ To apply or disable an automatic snapshot policy, follow these steps:
 
 6.  To disable the automatic snapshot policy, select the **Disks with Policy Applied** tab to view the disks, select the disk for which you want to disable the policy, and then click **Disable Policy** at the right side. Note that if you select multiple disks, you need to click **Disable Policy** at the lower-left corner to disable the automatic snapshot policy for all selected disks.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9689/15420249314568_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9689/15432263184568_en-US.png)
 
 
