@@ -2,7 +2,7 @@
 
 You can release a Pay-As-You-Go instance when you no longer need it to avoid excess charges.
 
-For a Pay-As-You-Go instance, if the [No fees for stopped instances \(VPC-Connected\)](../../../../reseller.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) feature is not enabled, charges continue to incur until the instance is released.
+For a Pay-As-You-Go instance, if the [No fees for stopped VPC instances](../../../../reseller.en-US/Pricing/No fees for stopped VPC instances.md#) feature is not enabled, charges continue to incur until the instance is released.
 
 For a Subscription instance, the instance is automatically released after the billing cycle expires.
 
@@ -11,7 +11,7 @@ To release a Pay-As-You-Go instance, you can choose either of the following opti
 -   Release immediately, which releases the pay-per-order instance at once.
 -   Scheduled Release, which customizes the releasetime of your Pay-As-You-Go instance. The time to release the instance must be at least 30 minutes from the current time. Applying new schedules overwrites the previous ones.
 
-**Note:** After an instance is released, its data cannot be recovered. We recommend that you [create a snapshot](reseller.en-US/User Guide/Snapshots/Create snapshots.md#) to back up data before releasing an instance.
+**Note:** After an instance is released, its data cannot be recovered. We recommend that you [create a snapshot](reseller.en-US/User Guide/Snapshots/Create a snapshot.md#) to back up data before releasing an instance.
 
 ## Release an instance immediately {#section_cqg_ccn_xdb .section}
 
@@ -39,7 +39,7 @@ To enable automatic release, follow these steps:
 5.  In the dialog box, select **Scheduled Release**.
 6.  Turn on the Automatic Release switch, and specify the release date and time. The earliest setting can only be set to automatically release an instance after 30 minutes.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9651/15395049595454_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9651/154321126332962_en-US.png)
 
 7.  Click **Next**, and then click **OK**.
 
@@ -59,7 +59,7 @@ To disable the automatic release feature, follow these steps:
 6.  Turn off the Automatic Release switch.
 7.  Click **Next**, and then click **OK**.
 
-## Related APIs {#section_rqg_ccn_xdb .section}
+## Related API {#section_rqg_ccn_xdb .section}
 
 [DeleteInstance](../../../../reseller.en-US/API Reference/Instances/DeleteInstance.md#)
 
