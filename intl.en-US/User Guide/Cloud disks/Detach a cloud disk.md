@@ -46,20 +46,20 @@ To detach a cloud disk from the Instance Disks page, follow these steps:
 3.  In the left-side navigation pane, click **Instances**.
 4.  Select the target region.
 5.  Find the target instance and click its ID to go to its Instance Details page.
-6.  In the left-side navigation pane, click **Instance Disks**.
-7.  Find the target cloud disk and then, in the **Actions** column, select **More** \> **Detach**.
+6.  In the left-side navigation pane, click **Disks**.
+7.  Find the target cloud disk and then, in the **Actions** column, select **More** \> **Unmount**.
 
     Only cloud disks that have the following attributes can be detached:
 
-    -   **Disk Status** must be **In Use**.
-    -   **Detachable** must be **Yes**.
-    -   **Used As** must be **Data Disk**.
-8.  In the dialog box, click **Confirm Detaching**.
+    -   **Status** must be **In Use**.
+    -   **Unmountable** must be **Yes**.
+    -   **Type** must be **Data Disk**.
+8.  In the dialog box, click **Confirm**.
 9.  Optional. If you want to detach multiple cloud disks, repeat steps 7 and 8 as required.
 
-When the status of the cloud disk becomes **Available** , the disk is detached.
+When the status of the cloud disk becomes **Unmounted**, the disk is detached.
 
-## Detach a cloud disks on the Disk List page {#CloudCloud .section}
+## Detach a cloud disks on the Diskspage {#CloudCloud .section}
 
 On the Disk List page, you can detach a specific cloud disk from an ECS instance.
 
@@ -81,18 +81,18 @@ To detach a cloud disk on the Disk List page, follow these steps:
     |Windows|Start Disk Management, right-click the disk name \(for example, **Disk 2**\) and then click **Offline**.|
 
 2.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
-3.  In the left-side navigation pane, select **Block Storage** \> **Cloud Disks**.
+3.  In the left-side navigation pane, select **Block Storage** \> **Disks**.
 4.  Select the target region.
-5.  Find the target cloud disk and then, in the **Actions** column, select **More** \> **Detach**.
+5.  Find the target cloud disk and then, in the **Actions** column, select **More** \> **Unmount**.
 
     Only cloud disks that have the following attributes can be detached:
 
-    -   **Disk Status** must be **In Use**.
-    -   **Detachable** must be **Yes**.
-    -   **Used As** must be **Data Disk**.
-6.  In the dialog box, click **Confirm Detaching**.
+    -   **Status** must be **In Use**.
+    -   **Unmountable** must be **Yes**.
+    -   **Type** must be **Data Disk**.
+6.  In the dialog box, click **Confirm**.
 
-When the status of the cloud disk becomes **Available**, the disk is detached.
+When the status of the cloud disk becomes **Unmounted**, the disk is detached.
 
 ## Related API {#section_ijl_1qh_ydb .section}
 
