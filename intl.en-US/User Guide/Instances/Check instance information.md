@@ -23,12 +23,12 @@ To navigate to the Instance List page, follow these steps:
 2.  On the left-side navigation pane, click **Instances**.
 3.  Select a region.
 
-Here, you can see information of all the existing ECS instances in the selected region, including ECS instance ID/name, zone, IP addresses, status, network type, billing method, and actions. You can show or hide the displayed information of an instance by using the Set Display Items feature.
+Here, you can see information of all the existing ECS instances in the selected region, including ECS instance ID/name, zone, IP addresses, status, network type, billing method, and actions. You can show or hide the displayed information of an instance by using the Column Filter feature.
 
 1.  In the upper-right corner of the Instance List, click the ![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/25441/cn_zh/1514174627852/icon_CustomizeItem.png) icon.
 2.  Select the instance information to be displayed and then click **OK**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9639/15395026975368_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9639/154320423832943_en-US.jpg)
 
 
 ## View details of an ECS instance on Instance Details page {#detail .section}
@@ -49,5 +49,5 @@ On theInstance Details page, you can view the following information:
 -   Payment Information, including billing method, the mode to stop an instance, creation time, and automatic release schedule \(applies to Pay-As-You-Go instances only\).
 -   Monitoring Information, including CPU and network usage.
 
-You can also switch from the Instance Detailspage to the Instance Disks, Shared Block Storage, Instance Snapshots, or Security Groups page to view resources related to this instance.
+You can also switch from the Instance Detailspage to the Disks, Instance Snapshots, or Security Groups page to view resources related to this instance.
 
