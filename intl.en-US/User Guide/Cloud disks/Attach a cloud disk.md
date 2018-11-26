@@ -28,13 +28,13 @@ To attach one or multiple cloud disks to a specified ECS instance, follow these 
 2.  In the left-side navigation pane, click **Instances**.
 3.  Select the target region.
 4.  Find the target ECS instance and click its ID to go to its Instance Details page.
-5.  In the left-side navigation pane, click **Instance Disks** and then, on the Disk List page, click **Attach Disk**.
+5.  In the left-side navigation pane, click **Disks** and then, on the Disks page, click **Mount**.
 6.  In the dialog box, complete the following configurations:
-    -   **Target Disk**: Select a cloud disk in the **Available** status in the same region and zone.
+    -   **Target Disk**: Select a cloud disk in the **Unmounted** status in the same region and zone.
     -   **Release Disk with Instance**: If you select this option, the disk is released when you release its corresponding instance.
-    -   **Delete automatic snapshots when releasing disk**: If you select this option, all the automatic snapshots of the target disk are deleted when you release it. However, all the manual snapshots are retained. To keep a complete data backup, we recommend that you do not select this option.
+    -   **Delete Automatic Snapshots While Releasing Disk**: If you select this option, all the automatic snapshots of the target disk are deleted when you release it. However, all the manual snapshots are retained. To keep a complete data backup, we recommend that you do not select this option.
 
-        Click **OK** and then click **Attach**.
+        Click **OK** and then click **Mount**.
 
 7.  Refresh the Disk List.
 
@@ -44,8 +44,8 @@ To attach one or multiple cloud disks to a specified ECS instance, follow these 
 
     |Disk content|Operating system of the ECS instance|Follow-up operations|
     |:-----------|:-----------------------------------|:-------------------|
-    |A new empty cloud disk|Linux|[Format a data disk for Linux instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#). If the cloud disk is larger than 2 TiB, see [Partition and format data disk more than 2 TiB](reseller.en-US/User Guide/Cloud disks/Partition and format data disk more than 2 TiB.md#).|
-    |Windows|[Format a data disk for Windows instances](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Windows instances.md#). If the cloud disk is larger than 2 TiB, see [Partition and format data disk more than 2 TiB](reseller.en-US/User Guide/Cloud disks/Partition and format data disk more than 2 TiB.md#).|
+    |A new empty cloud disk|Linux|[Format a data disk for Linux instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#). If the cloud disk is larger than 2 TiB, see [partition and format data disk more than 2 TiB](reseller.en-US/User Guide/Cloud disks/Partition and format data disk more than 2 TiB.md#).|
+    |Windows|[Format a data disk for Windows instances](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Windows instances.md#). If the cloud disk is larger than 2 TiB, see [partition and format data disk more than 2 TiB](reseller.en-US/User Guide/Cloud disks/Partition and format data disk more than 2 TiB.md#).|
     |A cloud disk from a snapshot|Linux|Connect to the Linux instance and run the `mount` command to mount the partitions to make the disk ready for use.|
     |Windows|No follow-up operations are required. The cloud disk is ready for use.|
 
@@ -55,15 +55,15 @@ To attach one or multiple cloud disks to a specified ECS instance, follow these 
 To attach a cloud disks to an ECS instances, follow these steps:
 
 1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
-2.  In the left-side navigation pane, select **Block Storage** \> **Cloud Disks**.
+2.  In the left-side navigation pane, select **Block Storage** \> **Disks**.
 3.  Select the target region.
-4.  Find a cloud disk in the **Available** status and then, in the **Actions** column, select **More** \> **Attach**.
+4.  Find a cloud disk in the **Unmounted** status and then, in the **Actions** column, select **More** \> **Mount**.
 5.  In the dialog box, complete the following configurations:
     -   **Target Instance**: Select an ECS instance in the same zone.
     -   **Release Disk with Instance**: If you select this option, the disk is released when you release its instance.
-    -   **Delete automatic snapshots when releasing disk**: If you select this option, all the automatic snapshots of the selected disk are deleted when you release the disk. However, all the manual snapshots are retained. To keep complete data backup, we recommend that you do not select this option.
+    -   **Delete Automatic Snapshots While Releasing Disk**: If you select this option, all the automatic snapshots of the selected disk are deleted when you release the disk. However, all the manual snapshots are retained. To keep complete data backup, we recommend that you do not select this option.
 
-        Click **Attach**.
+        Click **Mount**.
 
 6.  Refresh the disk list.
 
@@ -73,8 +73,8 @@ To attach a cloud disks to an ECS instances, follow these steps:
 
     |Disk content|Operating system of the ECS instance|Follow-up operations|
     |:-----------|:-----------------------------------|:-------------------|
-    |A new empty cloud disk|Linux|[Format a data disk for Linux instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#). If the cloud disk is larger than 2 TiB, see [Partition and format data disk more than 2 TiB](reseller.en-US/User Guide/Cloud disks/Partition and format data disk more than 2 TiB.md#).|
-    |Windows|[Format a data disk for Windows instances](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Windows instances.md#). If the cloud disk is larger than 2 TiB, see [Partition and format data disk more than 2 TiB](reseller.en-US/User Guide/Cloud disks/Partition and format data disk more than 2 TiB.md#).|
+    |A new empty cloud disk|Linux|[Format a data disk for Linux instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#). If the cloud disk is larger than 2 TiB, see [partition and format data disk more than 2 TiB](reseller.en-US/User Guide/Cloud disks/Partition and format data disk more than 2 TiB.md#).|
+    |Windows|[Format a data disk for Windows instances](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Windows instances.md#). If the cloud disk is larger than 2 TiB, see [partition and format data disk more than 2 TiB](reseller.en-US/User Guide/Cloud disks/Partition and format data disk more than 2 TiB.md#).|
     |A cloud disk from a snapshot|Linux|Connect to the Linux instance and run the `mount` command to mount the partitions to make the disk ready for use.|
     |Windows|No follow-up operations are required. The cloud disk is ready for use.|
 
