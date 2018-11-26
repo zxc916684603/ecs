@@ -55,33 +55,33 @@ If you want to increase the size of the system disk while keeping the operating 
 
         -   For more information about the limitations of creating a custom image, see [create a custom mirror using a snapshot](reseller.en-US/User Guide/Images/Create custom image/Create a custom image by using a snapshot.md#).
         -   The custom image is displayed in the dropdown ist of the **Custom Image** l on the Replace System Disk page.
-    2.  Go back to the  Instances page and then, in the left-side navigation pane, select **Snapshots and Images** \> **Image**to check the creation status and progress of the custom image.
+    2.  Go back to the Instances page and then, in the left-side navigation pane, select **Snapshots and Images** \> **Image** to check the creation status and progress of the custom image.
 7.  When the progress is 100% and the status is **Available**, in the left-side navigation pane, click **Instances**.
-8.  In the Instance List, find the instance, and in the **Actions** column, select **More** \> **Instance Status** \> **Stop**.
+8.  In the Instances list, find the instance, and in the **Actions** column, select **More** \> **Instance Status** \> **Stop**.
 
-    **Note:** For a Pay-As-You-Go VPC-Connected ECS instance, if the [No fees for stopped instances \(VPC-Connected\)](../../../../reseller.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#) feature is enabled, in the Notes dialog box, click **OK**. Then, in the Stop dialog box, select **Keep Stopped Instances and Continue Billing**, and click **OK**. If you use the **No Fees for Stopped Instances \(VPC-Connected\)**, you may not be able to start the instance successfully after changing the system disk.
+    **Note:** For a Pay-As-You-Go VPC-Connected ECS instance, if the [No fees for stopped instances \(VPC-Connected\)](../../../../reseller.en-US/Pricing/No fees for stopped VPC instances.md#) feature is enabled, in the Notes dialog box, click **OK**. Then, in the Stop dialog box, select **Keep Stopped Instances and Continue Billing**, and click **OK**. If you use the **No Fees for Stopped Instances \(VPC-Connected\)**, you may not be able to start the instance successfully after changing the system disk.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9676/15416884475328_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9676/15432240115328_en-US.png)
 
 9.  When the instance is in the **Stopped** status, go to the **Actions** column and select **More** \> **Disk and Image** \> **Replace System Disk**.
 10. In the pop-up dialog box, read and confirm you agree to the notice by clicking **OK**.
 11. On the Replace System Disk page, complete the configurations as follows:
     1.  **Image Type**: Click the **Custom Image** tab and select the created custom image in the drop-down list.
-    2.  **System Disk**: Specify a new size for the system disk according to your business needs. The maximum size is 500 GiB. The size limit for changing is determined by the image and the current size of the system disk, as displayed in the following table.
+    2.  **Security enhancement**:
+        -   **System Disk**: Specify a new size for the system disk according to your business needs. The maximum size is 500 GiB. The size limit for changing is determined by the image and the current size of the system disk, as displayed in the following table.
 
-        |Image|Limit for capacity expansion \(GiB\)|
-        |:----|:-----------------------------------|
-        |Linux \(excluding CoreOS\) and FreeBSD|20-500|
-        |CoreOS|30-500|
-        |Windows|40-500|
+            |Image|Limit for capacity expansion \(GiB\)|
+            |:----|:-----------------------------------|
+            |Linux \(excluding CoreOS\) and FreeBSD|20-500|
+            |CoreOS|30-500|
+            |Windows|40-500|
 
-        **Note:** You cannot modify the Cloud Type of the system tray.
+            **Note:** You cannot modify the Cloud Type of the system tray.
 
-    3.  **Security**:
         -   If a Windows image is used, set a logon password.
         -   If a Linux image is used and the instance is I/O optimized,  you can choose to set a password or bind an SSH key pair for logon.
-    4.  Confirm the **Instance Cost**, which includes the price of the mirror and the price of the system disk.
-    5.  Read and confirm you agree to the ECS Service Terms and Product Terms of Service, check the box, and then click **Confirm to change**.
+    3.  Confirm the **Instance Cost**, which includes the price of the mirror and the price of the system disk.
+    4.  Read and confirm you agree to the ECS Service Terms and Product Terms of Service, check the box, and then click **Confirm to change**.
 
 Go back to the ECS console to check the status of the process. It may take a few minutes to process the change. After the system disk is changed, the instance starts automatically.
 
