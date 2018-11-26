@@ -13,6 +13,5 @@ You can restart your instances through the ECS console.
 2.  In the left-side navigation pane, click **Instances**.
 3.  Select the target region.
 4.  Select one or multiple instances as needed. All selected instances must be in the **Running** status.
-5.  Click **Restart**.
-6.  Click **Restart**, and then click **OK**.
+5.  Click **Restart**, and then click **OK**.
 
