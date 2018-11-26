@@ -14,14 +14,14 @@ The Management Terminal can be used to:
 
 ## Prerequisites {#section_u1y_rmx_wdb .section}
 
--   You have an ECS instance. For more information, see [Create an ECS instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#).
+-   You have an ECS instance. For more information, see [create an ECS instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#).
 -   You have set the logon password of the ECS instance. If not, you can use the [reset password](reseller.en-US/User Guide/Instances/Reset an instance password.md#) function.
 
 ## Procedure {#section_ary_smx_wdb .section}
 
 The following figure illustrates how to use the Management Terminal to connect to an ECS instance.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9619/15395085005162_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9619/15432159315162_en-US.png)
 
 To connect to the ECS instance by using the Management Terminal, follow these steps:
 
@@ -36,10 +36,10 @@ To connect to the ECS instance by using the Management Terminal, follow these st
 
             **Note:** 
 
-            -   The VNC password appears only once. You must save and secure password immediately for future use. If you need to change the VNC password, see [Change the VNC connection password](#).
+            -   The VNC password appears only once. You must save the password immediately and store it securely for future use. If you need to change the VNC password, see [change the VNC connection password](#).
             -   If you log on as a RAM user to connect to the Management Terminal for the first time, you will not see this dialog box.
         2.  In the Enter VNC Password dialog box, paste the VNC connection password that you have copied, and click **OK**.
-    -   If you log on as a RAM user to connect to the Management Terminal for the first time, or if you have forgotten your VNC connection password, follow these stepsl:
+    -   If you log on as a RAM user to connect to the Management Terminal for the first time, or if you have forgotten your VNC connection password, follow these steps:
         -   [Change the VNC connection password](#).
         -   In the upper-left corner of the Management Terminal page, select **Send Remote Command** \> **Connect to Management Terminal**.
         -   In the Enter VNC Password dialog box, enter the new password and click **OK**.
@@ -52,7 +52,7 @@ To connect to the ECS instance by using the Management Terminal, follow these st
         -   If you do not know the logon password of your instance, [reset the password](reseller.en-US/User Guide/Instances/Reset an instance password.md#).
         -   The logon password input is invisible.
         -   If you want to perform additional operations within the instance, in the upper-left corner of the Management Terminal page, select **Send Remote Command** \> **CTRL + ALT + Fx**, of which **Fx** can be any key from **F1** to **F10**, to switch the interfaces for different operations.
-        -   If see a black screen, the Linux instance may be in sleep mode. To exit sleep mode, click the mouse or press any key.
+        -   If see a black screen, the Linux instance may be in sleep mode. To exit sleep mode, click your mouse or press any key.
     -   For a Windows instance: In the upper-left corner of the Management Terminal page, select **Send Remote Command** \> **CTRL+ALT+DELETE**. The Windows logon interface is displayed. Enter the user name \(Administrator\) and the logon password.
 
         **Note:** If you do not know the logon password of your instance, [reset the password](reseller.en-US/User Guide/Instances/Reset an instance password.md#).
