@@ -3,10 +3,10 @@
 You have [created a template](reseller.en-US/User Guide/Instances/Launch template/Create a template.md#) or [created a version](reseller.en-US/User Guide/Instances/Launch template/Create a template version.md#).
 
 1.   Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs). 
-2.   In the left-side navigation pane, select **Launch Template**. 
+2.  In the left-side navigation pane, select **Launch Templates**. 
 3.  Locate the template or version that you want to use, and then click **Create Instance** in the **Actions** column. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13810/15429612765354_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13810/15432028025354_en-US.png)
 
 4.  On the ECS buy page, select the required template and version. 
 
