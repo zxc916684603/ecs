@@ -1,12 +1,12 @@
 # What is the RAM role of an instance {#concept_kbp_r1t_xdb .concept}
 
-Instance **RAM** \(Resource Access Management\) roles allow you to authorize role-based permissions to ECS instances.
+Instance RAM \(Resource Access Management\) roles allow you to authorize role-based permissions to ECS instances.
 
-You can assign a [Role](../../../../reseller.en-US/User Guide/Identities/Role.md#) to an ECS instance to allow applications hosted on that instance to access other cloud services by using a temporary STS \(Security Token Service\) credential. This helps guarantee the security of your AccessKey and allows you to apply fine-grained access control of your instances.
+You can assign a [role](../../../../reseller.en-US//Identities/Role.md#) to an ECS instance to allow applications hosted on that instance to access other cloud services by using a temporary STS \(Security Token Service\) credential. This helps guarantee the security of your AccessKey and allows you to apply fine-grained access control of your instances.
 
 ## Background {#section_rsm_x1t_xdb .section}
 
-Generally, applications within an ECS instance need to use the AccessKey of the **primary account** or [RAM user account](../../../../reseller.en-US/User Guide/Identities/User.md#),  which includes an AccessKeyId and AccessKeySecret, to access various cloud services on the Alibaba Cloud platform.
+Generally, applications within an ECS instance need to use the AccessKey of the **primary account** or [RAM user account](../../../../reseller.en-US//Identities/User.md#),  which includes an AccessKeyId and AccessKeySecret, to access various cloud services on the Alibaba Cloud platform.
 
 This means that, to make a call, you must apply the AccessKey directly in the instance, such as in the configuration file. However, if Alibaba Cloud writes the AccessKey into the instance for calling purposes, the AccessKey may be mistakenly exposed. To ensure the security of your account and resources, Alibaba Cloud provides instance RAM roles to support .
 
@@ -14,7 +14,7 @@ This means that, to make a call, you must apply the AccessKey directly in the in
 
 Instance RAM roles enable you to:
 
--   Associate a [Role](../../../../reseller.en-US/User Guide/Identities/Role.md#) to an ECS instance.
+-   Associate a [role](../../../../reseller.en-US//Identities/Role.md#) to an ECS instance.
 
 -   Access other cloud services securely \(such as OSS, SLB, and ApsaraDB for RDS\) by using the STS credential from the applications within the ECS instance.
 
@@ -40,15 +40,15 @@ Instance RAM roles have the following limits:
 
 The instance RAM role can be used by any of the following methods:
 
--   [Use the instance RAM role in the console](reseller.en-US/User Guide/Instances/Instance RAM roles/Use the instance RAM role in the console.md#)
+-   [Use the instance RAM role in the console](reseller.en-US/User Guide/Instances/Instance RAM roles/Use the instance RAM role in the console.md#).
 
--   [Use the instance RAM role by calling APIs](reseller.en-US/User Guide/Instances/Instance RAM roles/Use the instance RAM role by calling APIs.md#)
+-   [Use the instance RAM role by calling APIs](reseller.en-US/User Guide/Instances/Instance RAM roles/Use the instance RAM role by calling APIs.md#).
 
 
 ## References {#section_vwf_kbt_xdb .section}
 
--   For a list of cloud services that support STS, see [Cloud services supporting RAM](../../../../reseller.en-US/Product Introduction/Cloud services supporting RAM.md#).
+-   For a list of cloud services that support STS, see [cloud services supporting RAM](../../../../reseller.en-US/Product Introduction/Cloud services supporting RAM.md#).
 
--   See [Access other Cloud Product APIs by the Instance RAM Role](../../../../reseller.en-US/Best Practices/Access other Cloud Product APIs by the Instance RAM Role.md#) for instruction on how to access other cloud services.
+-   See [access other Cloud Product APIs by the Instance RAM Role](../../../../reseller.en-US/Best Practices/Access other Cloud Product APIs by the Instance RAM Role.md#) for instruction on how to access other cloud services.
 
 
