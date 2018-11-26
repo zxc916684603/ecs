@@ -25,9 +25,9 @@ This article describes how to connect to an ECS instance on a mobile device. Dep
 
 **Procedure**
 
-For iOS devices, see [Use SSH Control Lite  to connect to a Linux instance](#). In this example, a user name and password are used for authentication.
+For iOS devices, see [use SSH Control Lite  to connect to a Linux instance](#). In this example, a user name and password are used for authentication.
 
-For Android devices, see  [Use JuiceSSH to connect  to a Linux instance](#). In this example, a user name and password are used for the authentication.
+For Android devices, see [use JuiceSSH to connect  to a Linux instance](#). In this example, a user name and password are used for authentication.
 
 **Use SSH Control Lite to connect to a Linux instance**
 
@@ -46,7 +46,7 @@ For Android devices, see  [Use JuiceSSH to connect  to a Linux instance](#). I
 
     The following figure shows Steps 1 through 6. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15395116075317_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15432175265317_en-US.png)
 
 7.  On the New remote page, tap **Host1**.
 8.  In the action sheet, tap **Bind**.
@@ -56,7 +56,7 @@ For Android devices, see  [Use JuiceSSH to connect  to a Linux instance](#). I
 
     The following figure shows Steps 7 through 11.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15395116075318_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15432175275318_en-US.png)
 
 12. In the action sheet, select **Yes, Once** or **Yes,  Permanently**. Once the connection is successful, the indicator in front of **DocTest** turns green.
 13. On the New remote page, tap **DocTest**.
@@ -64,18 +64,18 @@ For Android devices, see  [Use JuiceSSH to connect  to a Linux instance](#). I
 
     The following figure shows Steps 12 through 14:
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15395116075319_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15432175275319_en-US.png)
 
 
 **Use JuiceSSH to connect to a Linux instance**
 
 1.  Start JuiceSSH, and tap **Connections**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15395116075320_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15432175275320_en-US.png)
 
 2.  Under the Connections tab, tap the **+** icon.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15395116075321_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15432175275321_en-US.png)
 
 3.  On the New Connection page, add the connection information and then tap the ![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/58642/cn_zh/1503983576102/check%20icon.png) icon. The following connection information is required:
     -   Nickname: Specify the name of the connection session. DocTest is used in this example.
@@ -88,24 +88,24 @@ For Android devices, see  [Use JuiceSSH to connect  to a Linux instance](#). I
             -   Username: Type root for the user name.
             -   Password: Tap **SET\(OPTIONAL\)**, and type the logon password of the instance.
 
-                ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15395116075322_en-US.png)
+                ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15432175275322_en-US.png)
 
     -   Port: Type the port number for SSH protocol. In this example, 22 is used.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15395116075323_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15432175275323_en-US.png)
 
 4.  Confirm the message, and tap**ACCEPT**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15395116085324_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15432175275324_en-US.png)
 
 5.  \(Optional\) For a first-time connection, the app will show a prompt of helpful tips. Tap **OK - I’VE GOT IT!**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15395116085325_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15432175275325_en-US.png)
 
 
 If you are successfully connected to the Linux instance, the following screen is displayed.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15395116085326_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15432175275326_en-US.png)
 
 ## Connect to Windows instances {#windows .section}
 
@@ -133,28 +133,28 @@ To connect to a Windows instance by using Microsoft Remote Desktop, follow these
 
 1.  Start RD Client. In the navigation bar, tap the**+** icon.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15395116085327_en-US.PNG)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15432175275327_en-US.PNG)
 
 2.  On the Add New page, select**Desktop**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15395116085329_en-US.PNG)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15432175275329_en-US.PNG)
 
 3.  On the Edit Desktop page, type the connection information and tap **Save**.  The following connection information is required:
     -   PC Name: Type the public IP address of the Windows instance to connect to.
     -   User Account: Type the account name administrator and the logon password of the Windows instance.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15395116085330_en-US.PNG)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15432175275330_en-US.PNG)
 
 4.  On the Remote Desktop page, tap the icon of a Windows instance.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15395116085331_en-US.PNG)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15432175275331_en-US.PNG)
 
 5.  On the confirmation page, confirm the message and tap **Accept**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15395116085332_en-US.PNG)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15432175275332_en-US.PNG)
 
 
 If you are successfully connected to the Windows instance, the following screen is displayed.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15395116085333_en-US.PNG)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9623/15432175275333_en-US.PNG)
 
