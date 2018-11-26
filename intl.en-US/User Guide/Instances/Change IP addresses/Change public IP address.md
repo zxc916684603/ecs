@@ -1,12 +1,12 @@
 # Change public IP address {#concept_emj_v2n_xdb .concept}
 
-If your instance is assigned a public IP address, you can change the address within six hours after the instance is created reagrdless of whether the instance is in a classic network or in a VPC network.
+If your instance is assigned a public IP address, you can change the address within six hours after the instance is created regardless of whether the instance is in a classic network or in a VPC network.
 
 ## Limits {#section_pv5_w2n_xdb .section}
 
--   The instance must be assigned a public IP address. To verify the public IP accress, view the public IP address in the **IP Address** column from the **Instance List** in the ECS console, as displayed in the following figure. 
+-   The instance must be assigned a public IP address. To verify the public IP address, view the public IP address in the **IP Address** column from the **Instance List** in the ECS console, as displayed in the following figure. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9656/15395052225458_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9656/15432125695458_en-US.png)
 
     **Note:** 
 
@@ -32,7 +32,7 @@ To change the public IP address, follow these steps:
 1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, click **Instances**.
 3.  Select the target region.
-4.  Find the target instance to change the public IP address and then, in the **Actions** column, select **More** \> **Change Public IP**.
+4.  Find the target instance to change the public IP address and then, in the **Actions** column, select **More** \> **Network and Security Group** \> **Change Public IP**.
 
     **Note:** If the instance has existed for more than six hours, the **Change Public IP** option in the **More** drop-down menu is not available.
 
@@ -40,7 +40,7 @@ To change the public IP address, follow these steps:
 
     A new public IP address is displayed as shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9656/15395052235460_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9656/15432125695460_en-US.png)
 
 6.  Click **OK**.
 
