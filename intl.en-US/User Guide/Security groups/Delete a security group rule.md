@@ -10,7 +10,7 @@ You can delete security group rules if you no longer need them. To delete rules 
     -   If the security group is for classic network, the rule directions are **Internet Inbound**, **Internet Outbound**, **Intranet Inbound**, and **Intranet Outbound**.
     -   If the security group is for VPC, the rule directions are **Inbound** and **Outbound**.
 6.  In the **Actions** column, click **Delete**.
-7.  On  Delete Security Group Rule  dialog box, read and confirm the notes, and then click **OK**.
+7.  On  Delete Security Group Rule dialog box, read and confirm the notes, and then click **OK**.
 
 You have successfully deleted a security group rule.
 
