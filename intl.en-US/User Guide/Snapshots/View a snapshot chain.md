@@ -25,7 +25,7 @@ To view the total size of all the snapshots of a cloud disk or shared block stor
 3.  In the left-side navigation pane, select **Snapshots and Images** \> **Snapshots** .
 4.  Find the disk ID of the target snapshot.
 5.  In the left-side navigation pane, click **Snapshot Chains**.
-6.  View the size of all snapshots on the disk according to the disk ID found in step 5. You can view the total number and size of snapshots of the disk in the list.
+6.  View the size of all snapshots on the disk according to the disk ID found in step 4. You can view the total number and size of snapshots of the disk in the list.
 
 In the **Actions** column, click **Details** to go to the Snapshot Chain Details page to see all snapshots of the disk. Here, you can choose to [roll back a cloud disk](reseller.en-US/User Guide/Cloud disks/Roll back a cloud disk.md#) or [create a custom image by using a snapshot](reseller.en-US/User Guide/Images/Create custom image/Create a custom image by using a snapshot.md#).
 
