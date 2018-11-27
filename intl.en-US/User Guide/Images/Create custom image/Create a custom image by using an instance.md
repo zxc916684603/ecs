@@ -2,13 +2,13 @@
 
 You can create a custom image based on an ECS instance. That is,, you can fully copy all its disks and pack the data into an image.
 
-During this process, snapshots are automatically created for all disks of the instance, including the system disk and data disks. All the created snapshots compose a new custom image. The following illustration demonstrates this process.
+During this process, snapshots are automatically created for all disks of the instance, including the system disk and data disks. All the created snapshots compose a new custom image. The following figure details this process.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9697/15407948854599_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9697/15433065434599_en-US.png)
 
 For information about creating an image from a snapshot, see [create a custom image by using a snapshot](reseller.en-US/User Guide/Images/Create custom image/Create a custom image by using a snapshot.md#).
 
-## Prerequisites {#section_yw3_zbm_xdb .section}
+## Considerations {#section_yw3_zbm_xdb .section}
 
 -   Make sure you have deleted all confidential data in the ECS instance before creating a custom image to guarantee data security.
 -   During creation, do not change the status of the instance. Specifically, do not stop, start, or restart the instance.
@@ -25,12 +25,12 @@ For information about creating an image from a snapshot, see [create a custom im
 5.  Enter a name and description for the image.
 6.  Click **Create**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9697/15407948864601_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9697/15433065444601_en-US.png)
 
 
 The image is available after all snapshots of all disks have been created.
 
-## Additional operations {#section_rwd_lcm_xdb .section}
+## Additional operation {#section_rwd_lcm_xdb .section}
 
 See [create a custom image by using a snapshot](reseller.en-US/User Guide/Instances/Create an instance/Create an instance from a custom image.md#).
 
