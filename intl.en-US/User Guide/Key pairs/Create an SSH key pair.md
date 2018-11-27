@@ -19,16 +19,16 @@
 
     **Note:** The specified key pair name must be unique. It cannot be the same as that of the existing key pairs or a key pair that was bound to the instance before being deleted. Otherwise, an error message “The key pair already exists” appears.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9728/15395047384669_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9728/15433135464669_en-US.png)
 
 6.  Click **OK** to create the key pair.
 
     **Note:** After a key pair is created, you must download and save the private key for further use.  If you do not have the private key, you cannot log on to the ECS instance.
 
 
-After creating the key pair, you can view the information, including **Key Pair Name** and **Key Pair Fingerprint** in the key pair list.
+After creating the key pair, you can view the information, including key pair **Name** and **Fingerprint** in the key pair list.
 
-## Follow-up operations {#section_nn4_5j1_ydb .section}
+## What to do next {#section_nn4_5j1_ydb .section}
 
 After creating an SSH key pair, you can [bind or unbind it](reseller.en-US/User Guide/Key pairs/Bind or unbind an SSH key pair.md#) to an ECS instance.
 
