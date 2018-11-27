@@ -26,7 +26,7 @@ To copy images in the ECS console, follow these steps:
 
     **Note:** If **Progress** is not 100%, **Status** is **Creating**. In this case, you can click **Cancel Copy** to cancel the operation. After the operation is canceled, the image information is removed from the target region.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9699/15429848296780_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9699/15433068016780_en-US.png)
 
 
 You can also use the ECS APIs [CopyImage](reseller.en-US/API Reference/Images/CopyImage.md#) and [CancelCopyImage](reseller.en-US/API Reference/Images/CancelCopyImage.md#) to perform the operation.
@@ -37,7 +37,7 @@ When an image's status is **Available**, you can use it to [create an instance](
 
 You can also view all copied snapshot in the target region.
 
-## FAQs {#section_alb_2gm_xdb .section}
+## FAQ {#section_alb_2gm_xdb .section}
 
 [FAQs about copying images](https://partners-intl.aliyun.com/help/faq-detail/40569.htm?spm=a2c63.q38357.a3.3.2316631dRLlXRW)
 
