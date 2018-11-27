@@ -24,7 +24,7 @@ For Linux images that are not included in the preceding list, you must install t
 
 1.  Run `grep -i virtio /boot/config-$(uname -r)` to inspect whether the  virtio driver is already built in the kernel of your server.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15429849454632_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15433075784632_en-US.png)
 
     **Note:** 
 
@@ -33,7 +33,7 @@ For Linux images that are not included in the preceding list, you must install t
     -   If the values of parameter CONFIG\_VIRTIO\_BLK and parameter CONFIG\_VIRTIO\_NET are m, continue to step 2.
 2.  Run `lsinitrd /boot/initramfs-$(uname -r).img | grep virtio` to make sure the virtio driver has been complied in the temporary root file system of initramfs or initrd.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15429849454633_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15433075784633_en-US.png)
 
     **Note:** 
 
@@ -84,11 +84,11 @@ The following example uses a Red Hat server:
 1.  Run `yum install -y ncurses-devel gcc make wget` to install necessary components to compile the kernel.
 2.  Run `uname -r` to query the kernel version of your server, such as 4.4.24-2.a17.x86\_64.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15429849454634_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15433075784634_en-US.png)
 
 3.  Visit [published Linux Kernel Archives](https://www.kernel.org/pub/linux/kernel/) to download the source codes of kernel, for example, the download link of kernel version starting with 4.4.24 is [https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.24.tar.gz](https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.24.tar.gz).
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15429849454638_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15433075794638_en-US.png)
 
 4.  Run `cd /usr/src/` to change the directory.
 5.  Run `wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.24.tar.gz` to download the installation package.
@@ -114,11 +114,11 @@ The following example uses a Red Hat server:
 
     1.  Press the space bar to select Virtualization.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15429849454639_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15433075794639_en-US.png)
 
         Make sure that you have selected  the option of KVM \(Kernel-based Virtual Machine\).
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15429849454640_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15433075794640_en-US.png)
 
         ```
         Processor type and features  --->
@@ -129,7 +129,7 @@ The following example uses a Red Hat server:
          [*]   KVM Guest support
         ```
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15429849454641_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9707/15433075794641_en-US.png)
 
         ```
         Device Drivers  --->
@@ -162,7 +162,7 @@ The following example uses a Red Hat server:
         **Note:** If any of the output includes virtio\_blk and virtio\_pci.virtio\_console, your server has correctly installed the virtio driver.
 
 
-## Next steps {#section_e12_gws_xdb .section}
+## What to do next {#section_e12_gws_xdb .section}
 
 After compiling the virtio driver, you can [migrate your server to Alibaba Cloud by using the Cloud Migration Tool](../../../../reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Migrate to Alibaba Cloud by using Cloud Migration tool.md#).
 
