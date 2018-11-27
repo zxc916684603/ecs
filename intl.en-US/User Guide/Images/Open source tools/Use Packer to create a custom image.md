@@ -6,15 +6,15 @@ This topic provides information about how to install and use Packer to create a 
 
 You must have an AccessKey.
 
-**Note:** Do not use the AccessKey of your Alibaba Cloud account. Instead, [Create a RAM user](../../../../reseller.en-US/Quick Start/Create a RAM user.md#) and use the RAM account to create the necessary [AccessKey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#) to maintain account security.
+**Note:** Do not use the AccessKey of your Alibaba Cloud account. Instead, [create a RAM user](../../../../reseller.en-US/Quick Start/Create a RAM user.md#) and use the RAM account to create the necessary [AccessKey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#) to maintain account security.
 
 ## Step 1.  Install Packer {#section_j5g_gdm_xdb .section}
 
-Go to the official  [Packer download page](https://www.packer.io/downloads.html) where you can choose required version of Packer for your operating system.
+Go to the official [Packer download page](https://www.packer.io/downloads.html) where you can choose required version of Packer for your operating system.
 
 **To install Packer on a Linux server**
 
-1.  Connect and log on to the Linux server. If the server you want to connect to is an ECS Linux instance, see [Connect to a Linux instance by using a password](reseller.en-US/User Guide/Connect to instances/Connect to a Linux instance by using a password.md#).
+1.  Connect and log on to the Linux server. If the server you want to connect to is an ECS Linux instance, see [connect to a Linux instance by using a password](reseller.en-US/User Guide/Connect to instances/Connect to a Linux instance by using a password.md#).
 2.  Run `cd /usr/local/bin` to go to the /usr/local/bin directory. 
 
     **Note:** The /usr/local/bin directory is an environment variable directory. You can install Packer to this directory or another directory that has been added to the environment variable.
@@ -27,7 +27,7 @@ Go to the official  [Packer download page](https://www.packer.io/downloads.html
 
 The following examples uses Windows Server 2012 64-bit:
 
-1.  Connect and log on to the Windows server. If the server you want to connect to is an ECS Windows instance, see [Connect to a Windows instance](reseller.en-US/User Guide/Connect to instances/Connect to a Windows instance.md#).
+1.  Connect and log on to the Windows server. If the server you want to connect to is an ECS Windows instance, see [connect to a Windows instance](reseller.en-US/User Guide/Connect to instances/Connect to a Windows instance.md#).
 2.  Open the official [download page of Packer](https://www.packer.io/downloads.html)  and select an appropriate Packer installer for 64-bit Windows.
 3.  Unzip the package to a specified directory and install Packer.
 4.  Define the directory for Packer in the PATH environment variable.
@@ -42,7 +42,7 @@ The following examples uses Windows Server 2012 64-bit:
 
 **Note:** 
 
-To create a custom image by using Packer, you must first create a JSON format template file. In the template, you must specify the  [Alibaba Cloud Image Builder](https://www.packer.io/docs/builders/alicloud-ecs.html) and  [Provisioner](https://www.packer.io/docs/provisioners/index.html) for the custom image to be created. Packer offers a diverse range of provisioners for you to choose from when configuring the content generation mode of the custom image. In the following JSON file example, the [Shell](https://www.packer.io/docs/provisioners/shell.html) provisioner is used as an example to illustrate how to define a Packer template.
+To create a custom image by using Packer, you must first create a JSON format template file. In the template, you must specify the [Alibaba Cloud Image Builder](https://www.packer.io/docs/builders/alicloud-ecs.html) and [Provisioner](https://www.packer.io/docs/provisioners/index.html) for the custom image to be created. Packer offers a diverse range of provisioners for you to choose from when configuring the content generation mode of the custom image. In the following JSON file example, the [Shell](https://www.packer.io/docs/provisioners/shell.html) provisioner is used as an example to illustrate how to define a Packer template.
 
 Create a JSON file named alicloud and paste the following content:
 
@@ -78,8 +78,8 @@ Create a JSON file named alicloud and paste the following content:
 **Note:** Customize the values of the following parameters according to your actual requirements.
 
 |Parameter| Description|
-|access\_key| Your AccessKey ID. For more details, see [Create an Accesskey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#).|
-|secret\_key|Your AccessKey Secret. For more information, see [Create an AccessKey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#).|
+|access\_key| Your AccessKey ID. For more details, see [create an Accesskey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#).|
+|secret\_key|Your AccessKey Secret. For more information, see [create an AccessKey](../../../../reseller.en-US/General Reference/Create an AccessKey.md#).|
 |region|The region of the temporary instance used to create the custom image. |
 |image\_name|The custom image’s name|
 |source\_image|The name of the basic image name retrieved from Alibaba Cloud public image list.|
@@ -117,12 +117,12 @@ Build 'alicloud-ecs' finished.
 cn-beijing: m-2ze12578be1oa4ovs6r9
 ```
 
-## Next steps {#section_chp_qdv_ydb .section}
+## What to do next {#section_chp_qdv_ydb .section}
 
-Use this custom image to create an ECS instance. For more information, see [Create an instance from a custom image](reseller.en-US/User Guide/Instances/Create an instance/Create an instance from a custom image.md#).
+Use this custom image to create an ECS instance. For more information, see [create an instance from a custom image](reseller.en-US/User Guide/Instances/Create an instance/Create an instance from a custom image.md#).
 
 ## References {#section_ntx_rdv_ydb .section}
 
 -   For more information, visit [packer-provider](https://github.com/alibaba/packer-provider) , the Packer repository of Alibaba Cloud Github.
--   See the [Packer Official Documents](https://www.packer.io/docs/index.html) to learn more about how to use Packer.
+-   See the [Packer official documents](https://www.packer.io/docs/index.html) to learn more about how to use Packer.
 
