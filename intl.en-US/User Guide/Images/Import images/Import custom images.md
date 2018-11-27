@@ -23,7 +23,7 @@ To import custom images in the ECS console, follow these steps:
 2.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 3.  In the left-side navigation pane, choose **Snapshots and Images** \> **Images**.
 4.  Click **Import Image**.
-5.  In the Import Image dialog box, click **Confirm Address** as follows.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9706/15433093467027_en-US.png)
+5.  In the Import Image dialog box, click **Confirm Address** as follows.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9706/15433094017027_en-US.png)
 6.  In the Cloud Resource Access Authorization window, select `AliyunECSImageImportDefaultRole` and `AliyunECSExportDefaultRole`, then click **Confirm Authorization Policy** to allow the ECS service to access your OSS resources.
 7.  On the Images page, click **Import Image** again.
 8.  In the Import Image dialog box, enter the following information:
