@@ -29,7 +29,7 @@ Before you attach an ENI to an instance, finish the following operations:
 To attach an ENI to an instance, follow these steps:
 
 1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
-2.  In the left-side navigation pane, select**Networks and Security** \> **ENI**.
+2.  In the left-side navigation pane, select **Networks and Security** \> **ENI**.
 3.  Select a region.
 4.  Find an available ENI, and in the **Actions** column, click **Bind to Instance**.
 5.  In the Bind to Instance dialog box, after selecting an instance, click **OK**.
