@@ -12,13 +12,13 @@ To import an SSH key pair, follow these steps:
 2.  In the left-side navigation pane, select **Networks and Security** \> **SSH Key Pair**.
 3.  Click **Create SSH Key Pair**.
 4.  Select a region.
-5.  On the Create Key Pair page, enter a name for the key pair, and select **Import SSH Key Pair**, and then enter the **Public Key**.
+5.  On the Create SSH Key Pair page, enter a name for the key pair, and select **Import SSH Key Pair**, and then enter the **Public Key**.
 
     **Note:** The specified key pair name must not be the same as that of an existing key pair or a key pair that was bound to an instance before being deleted. Otherwise, an error message “The key pair already exists” appears.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9729/15395047164670_en-US.png)
+    ![](images/33173_en-US.jpg)
 
 6.  Click **OK**.
 
-After creation, you can view the information, including **Key Pair Name** and **Key Pair Fingerprint**, in the key pair list.
+After creation, you can view the information, including the key pair **Name** and **Fingerprint**, in the key pair list.
 
