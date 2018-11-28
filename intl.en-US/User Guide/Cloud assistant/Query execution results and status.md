@@ -2,7 +2,7 @@
 
 There is no difference between running a cloud assistant command on the console and running a command while logged into the instance. In both cases, a command can be run successfully only after all of the command's conditions are satisfied. Cloud assistant commands executed at the same time can provide different command execution results and statuses if the following errors occur: lack of relevant dependencies, network disruptions, command semantic errors, script debugging errors, or abnormal instance statuses. We recommend that you review the command execution results and status after running a command to ensure the target operation has completed properly.
 
-## Prerequisites {#section_nmt_qyt_q2b .section}
+## Prerequisite {#section_nmt_qyt_q2b .section}
 
 The command must be run at least once.
 
@@ -13,8 +13,8 @@ To view command execution result on the ECS Console, you must take the following
 1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, select **Cloud Assistant**.
 3.  Select a region.
-4.  In the **Execution Record** area, search for the execution record of the necessary command execution, and select **View Results** from **Actions**.
-5.  In the pop-up window, select an execution record and click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17026/15387098768508_en-US.png) to expand the command execution record.
+4.  In the **Execution Record** area, search for the execution record of the necessary command execution, and select **View Results** from the **Operation** column.
+5.  In the pop-up window, select an execution record and click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17026/15433875498508_en-US.png) to expand the command execution record.
 
 You can also use the ECS API [DescribeInvocationResults](../reseller.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#) to view command results.
 
@@ -27,7 +27,7 @@ To view command execution status in the ECS Console, you must take the following
 3.  Select a region.
 4.  In the **Execution Record** area, search for the execution record of the necessary command execution, and then in the **Execution Status** bar view the command execution status.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17026/15387098778525_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17026/15433875498525_en-US.png)
 
 
 You can also use the ECS API [DescribeInvocations](../reseller.en-US/API Reference/Cloud assistant/DescribeInvocations.md#) to view command execution status.
@@ -38,7 +38,7 @@ You can also use the ECS API [DescribeInvocations](../reseller.en-US/API Referen
 
 -   Generally, the invocation status of a command includes **overall invocation status** , **instance invocation status** , and **invocation-record status**. The relationships among various levels are shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/15387098775245_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/15433875495245_en-US.png)
 
 
 **For one-time invocations**
@@ -53,7 +53,7 @@ You can also use the ECS API [DescribeInvocations](../reseller.en-US/API Referen
 
         Take three ECS instances as an example. The following picture shows the relationships between the overall invocation status and the instance invocation status during a one-time invocation on multiple instances.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/15387098775246_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9581/15433875495246_en-US.png)
 
 -   **Instance invocation status**: The command is invoked only once in a one-time invocation, so the instance invocation status and the invocation-record status are identical.
 -   **Invocation-record status**:
