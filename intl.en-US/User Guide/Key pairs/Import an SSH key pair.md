@@ -16,7 +16,7 @@ To import an SSH key pair, follow these steps:
 
     **Note:** The specified key pair name must not be the same as that of an existing key pair or a key pair that was bound to an instance before being deleted. Otherwise, an error message “The key pair already exists” appears.
 
-    ![](images/33173_en-US.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9729/15433844284670_en-US.png)
 
 6.  Click **OK**.
 
