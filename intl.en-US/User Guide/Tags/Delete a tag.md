@@ -8,7 +8,7 @@ You can unbind a tag from the resource if the tag is no longer applicable to res
 
 -   The Edit Tags function unbinds tags one by one.
 
-    **Note:**  You can unbind 20 tags from a resource each time.
+    **Note:** You can unbind 20 tags from a resource each time.
 
 
 ## Unbind tags from instances using the tag deletion function {#section_amn_vfj_zdb .section}
@@ -25,7 +25,7 @@ See the following steps to delete tags:
     **Note:** You can also filter instances by tag and select the expected instance.
 
 5.  Click ** More** \> **Instance Settings** \> **Delete Tag**.
-6.  In the Delete Tag dialog box, enter the **Tag Key** and **Tag Value**of the tags you want to unbind.
+6.  In the Delete Tag dialog box, enter the **Tag Key** and **Tag Value** of the tags you want to unbind.
 7.  Click **OK** to complete tag unbinding.
 
 To check whether the tags are successfully unbound, use the **Edit Tag** function of the instance or click **Tags** in the left-side navigation pane of the ECS console.
