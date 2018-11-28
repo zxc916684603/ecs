@@ -5,7 +5,7 @@ RunInstances can create multiple ECS instances at a time. It helps you fast deve
 Compared with [CreateInstance](../../../../reseller.en-US/API Reference/Instances/CreateInstance.md#), [RunInstances](../../../../reseller.en-US/API Reference/Instances/RunInstances.md#) has the following benefits:
 
 -   RunInstances contains Amount to create and automatically run up to 100 instances or preemptible instances for one request.
--   When an instance is created, the instance status automatically becomes Starting and then Running. You do not need to call the StartInstance operation.
+-   When an instance is created, the instance status automatically becomes **Starting** and then **Running**. You do not need to call the StartInstance operation.
 -   Instances have Internet IPs allocated if you set the value of InternetMaxBandwidthOut greater than 0.
 -   You can also create 100 [preemptable instances](../../../../reseller.en-US/Product Introduction/Instances/Preemptible instance.md#) at a time to fully meet your requirements.
 -   Release plan can be scheduled by setting AutoReleaseTime, and the number of created parameters can be set by configuring Amount. The error codes and available parameters of RunInstances are completely compatible with CreateInstance.
@@ -39,7 +39,7 @@ The version of the SDK used in this article is 4.4.3. If you are using an older 
 
 Create RunInstancesRequest object and then enter the related parameters:
 
-In this example, we create two instances and specify to automatically check the instance status every 10 seconds. The creation procedure ends when the instance status turns into Running.
+In this example, we create two instances and specify to automatically check the instance status every 10 seconds. The creation procedure ends when the instance status turns into **Running**.
 
 ```
 # your access key Id
@@ -133,7 +133,7 @@ def batch_create_instance_with_auto_release_time():
 
 ## Complete example code {#section_gph_glk_kfb .section}
 
-The complete example code is as the following.
+The complete example code is as follows.
 
 ```
 #  coding=utf-8
