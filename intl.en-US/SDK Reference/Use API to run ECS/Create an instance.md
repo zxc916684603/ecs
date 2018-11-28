@@ -1,6 +1,6 @@
 # Create an instance {#concept_t42_k4d_kfb .concept}
 
-In addition to the ECS Console or Buy Page, you can also use API code to elastically create and manage ECS instances. This article describes how to create an ECS instance using Python.
+In addition to the ECS Console or Buy Page, you can also use API code to elastically create and manage ECS instances. This topic describes how to create an ECS instance using Python.
 
 When creating an ECS instance, focus on the following APIs:
 
