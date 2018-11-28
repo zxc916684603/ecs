@@ -10,7 +10,7 @@ Once system events occur, you are notified about the default actions and the tim
 
 ## Limits {#section_nnp_5yz_xdb .section}
 
-Phased-out instance types, including but not limited to sn2, sn1, t1, s1, s2, s3, m1, m2, c1, c2, c4, ce4, cm4, n1, n2 and e3, do not support system events. For more information, see [Instance type families](../reseller.en-US/Product Introduction/Instance type families.md#).
+Phased-out instance types, including but not limited to sn2, sn1, t1, s1, s2, s3, m1, m2, c1, c2, c4, ce4, cm4, n1, n2 and e3, do not support system events. For more information, see [instance type families](../reseller.en-US/Product Introduction/Instance type families.md#).
 
 ## Event types {#section_onp_5yz_xdb .section}
 
@@ -46,21 +46,21 @@ System events observe the following two periods:
 -   **User operation period**: The period between initiation and scheduled time of system events. Normally, you receive a notification from 24 to 48 hours before a system failure event is fixed, from 3 days before a Subscription instances is stopped, and 1 hour before a Pay-As-You-Go instance is stopped. Instances are released 15 days later if no renewal or recharge are made. During this period, you can choose the recommended methods to handle system events in advance. You can also wait until the default actions are triggered.
 -   **System action period**: Generally, if you wait until we take the default action, system events are automatically fixed within 6 hours after the system action period begins at a scheduled time. Later you receive the report of system events.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9748/15410419083942_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9748/15433968963942_en-US.png)
 
     **Note:** Only scheduled system events have user operation period. Unexpected system events that are caused by emergency failures or invalid operations do not have user operation periods. Once unexpected system events occur, you will receive notifications, but you cannot take any action. However, you can query the system events history for fault diagnosis, cause analysis, or data recovery.
 
 
 ## View system events {#SystemAlert .section}
 
-If a system event is scheduled, the **Unsettled events** button in the ECS console shows a highlighted tag to remind you to check the event.
+If a system event is scheduled, the **Pending Tasks** button in the ECS console shows a highlighted tag to remind you to check the event.
 
 1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, select **Overview**.
-3.  Select **Unsettled events** from the navigation pane on the right-side of the Overview page.
-4.  On the **Unsettled events** page, you can see the list of instance IDs, regions, and running status, system events, recommended user operations, and buttons for operations. Optionally, you can choose recommended user operations under the Actions column to handle the system events.
+3.  Select **Pending Tasks** from the navigation pane on the right-side of the Overview page.
+4.  On the **Pending Tasks** page, you can see the list of instance ID, region, status, system tasks, recommended user operations, and buttons for operations. Optionally, you can choose recommended user operations under the **Actions** column to handle the system events.
 
-**API operation**: Call [DescribeInstancesFullStatus](../reseller.en-US/API Reference/Operations and monitoring/DescribeInstancesFullStatus.md) to view system events.
+**API operation**: Call [DescribeInstancesFullStatus](../reseller.en-US/API Reference/System event/DescribeInstancesFullStatus.md) to view system events.
 
 ## View system events history {#SystemAlertHistory .section}
 
@@ -68,14 +68,14 @@ On the All events page, you can query the system events history within the last 
 
 1.  [ECS console](https://partners-intl.console.aliyun.com/#/ecs)
 2.  On the left-side navigation pane, select **Overview**.
-3.  Select **Unsettled events** from the navigation pane on the right-side of the **Overview** page.
-4.  Click **All events**, and on the All events page, click **Scheduled system event** \> **Instances.**You can see the list of instance IDs, event types, and regions, and event status.
+3.  Select **Pending Tasks** from the navigation pane on the right-side of the **Overview** page.
+4.  Click **All Tasks**, and on the All Tasks page, click **System Tasks** \> **Instances** to see the list of instance ID, event type, region, and task status.
 
-**API operation**: Call [DescribeInstanceHistoryEvents](../reseller.en-US/API Reference/Operations and monitoring/DescribeInstanceHistoryEvents.md#) to view system events history.
+**API operation**: Call [DescribeInstanceHistoryEvents](../reseller.en-US/API Reference/System event/DescribeInstanceHistoryEvents.md#) to view system events history.
 
 ## System event suggestions {#section_e2q_3zz_xdb .section}
 
-System events make you perceptible to underlying components of Alibaba Cloud ECS. You can optimize the O&M of instances based on system events. We recommend the following actions to handle system events.
+System events make you perceptible to underlying components of Alibaba Cloud ECS. You can optimize the O&M of instances based on system events. We recommend that you use the following actions to handle system events.
 
 |Event type|Parameter|Recommended|
 |:---------|:--------|:----------|
@@ -86,7 +86,7 @@ System events make you perceptible to underlying components of Alibaba Cloud ECS
 **Note:** Instance restart performed in the instance or from the instance list has no effect on this type of system events.
 
 
-We recommend that you [Create snapshots](reseller.en-US/User Guide/Snapshots/Create snapshots.md#) \([CreateSnapshot](../reseller.en-US/API Reference/Snapshots/CreateSnapshot.md)\) for the attached disks to back up your data.|
+We recommend that you [create snapshots](reseller.en-US/User Guide/Snapshots/Create a snapshot.md#) \([CreateSnapshot](../reseller.en-US/API Reference/Snapshots/CreateSnapshot.md)\) for the attached disks to back up your data.|
 |An instance restarts after unexpected system failures.|SystemFailure.Reboot|When you receive the notification, your instances are being restarted. We recommend that you verify the recovery of instances and applications after the event.|
 |An instance restarts after unexpected instance failures.|InstanceFailure.Reboot|When you receive the notification, your instances are being restarted. We recommend that you:-   Verify the recovery of instances and applications.
 
