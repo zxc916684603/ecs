@@ -18,7 +18,7 @@ You have attached an elastic network card to an ECS instance.
 To configure the ENI, follow these steps:
 
 1.  Use the [DescribeNetworkInterfaces](../../../../dita-oss-bucket/SP_2/DNA0011860945/EN-US_TP_9954.dita) interface or log on to the ECS console to obtain the following attributes of the ENI: primary private IP address, subnet mask, the default route, and the MAC address. To obtain these attributes in the ECS console, follow these steps: MAC address. Do the following on the console.
-    1.  Log on to the  [ECS Management Console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
+    1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).Log on to the ECS Management Console.
     2.  Find a network interface, and obtain its primary private IP address, subnet mask, default route, and MAC address.Locate the primary private IP address, mask address, default route,  MAC for each network cardAddress. Example
 
         ```
@@ -27,7 +27,7 @@ To configure the ENI, follow these steps:
         eth2 10.0.0.21/24 10.0.0.253 00: 16: 12: 16: EC
         ```
 
-2.  [Connect to the ECS Instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 3. Connect to an instance.md).
+2.  [Connect to the ECS instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 3: Connect to an instance.md).
 3.  Run the command to generate the confi`cat /etc/sysconfig/network-scripts/ifcfg-[network interface name in the OS]`.
 
     **Note:** 
@@ -37,7 +37,6 @@ To configure the ENI, follow these steps:
     -   Example:
 
         ```
-        
         # cat /etc/sysconfig/network-scripts/ifcfg-eth1 
         DEVICE=eth1
         BOOTPROTO=dhcp
@@ -55,7 +54,6 @@ To configure the ENI, follow these steps:
     1.  Run the `ifup [network interface name in the OS]`  command to start the dhclient process, and initiate a  DHCP request. Example
 
         ```
-        
         # ifup eth1
         # ifup eth2
         ```
@@ -63,7 +61,6 @@ To configure the ENI, follow these steps:
     2.  After a response is received, run the `ip a`  a command to check the  IP allocation on the network interfaces, which must match with the information displayed on the ECS console. Example:
 
         ```
-        
         # ip a
         1: lo: mtu 65536 qdisc noqueue state UNKNOWN qlen 1
         link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -86,7 +83,6 @@ To configure the ENI, follow these steps:
 5.  Set the metric for each network interface in the route table. In this example, set the metric parameters of eth1 and eth2  as follows.
 
     ```
-    
     eth1: gw: 10.0.0.253 metric: 1001
     eth2: gw: 10.0.0.253 metric: 1002
     ```
@@ -94,15 +90,13 @@ To configure the ENI, follow these steps:
     1.  Run the following command to set the metric  parameters.
 
         ```
-        
         # Ip-4 route add default via glasdev eth1 metric 1001
         # ip -4 route add default via 10.0.0.253 dev eth2 metric 1002
         ```
 
-    2.  Run the`route -n` command to check whether the configuration is successful or not. Example:
+    2.  Run the `route -n` command to check whether the configuration is successful or not. Example:
 
         ```
-        
         # route -n
         Kernel IP routing table
         Destination Gateway Genmask Flags Metric Ref Use Iface
@@ -124,7 +118,6 @@ To configure the ENI, follow these steps:
     1.  Run the command to build a route table.
 
         ```
-        
         # ip -4 route add default via 10.0.0.253 dev eth1 table 1001
         # Ip-4 route add default via glasdev eth2 table 1002
         ```
@@ -132,7 +125,6 @@ To configure the ENI, follow these steps:
     2.  Run the command to check whether the route table is built successfully or not.
 
         ```
-        
         # ip route list table 1001
         default via 10.0.0.253 dev eth1
         # ip route list table 1002
@@ -143,15 +135,13 @@ To configure the ENI, follow these steps:
     1.  Run the following command .
 
         ```
-        
         # ip -4 rule add from 10.0.0.20 lookup 1001
         # ip -4 rule add from 10.0.0.21 lookup 1002
         ```
 
-    2.  运行命令 `ip rule list` View routing rules.
+    2.  Run `ip rule list` to view routing rules.
 
         ```
-        
         # ip rule list
         0: from all lookup local
         32764: from 10.0.0.21 lookup 1002
