@@ -15,9 +15,9 @@ To create a command on the ECS Console, take the following steps:
 2.  In the left-side navigation pane, select **Cloud Assistant**.
 3.  Select a region.
 4.  Click **Create Command**, and in the right-side pop-up window.
-    1.  Input a **command name**, such as HelloECS.
-    2.  Input a **command description**, such as UserGuide.
-    3.  Click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17007/15387100778334_en-US.png) icon, and select command type from the drop-down list. For Windows instances, you can select either **Bat** or **PowerShell**. For Linux instances, you must select **Shell**.
+    1.  Input a **Command Name**, such as HelloECS.
+    2.  Input a **Command Description**, such as UserGuide.
+    3.  Click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17007/15433858278334_en-US.png) icon, and select command type from the drop-down list. For Windows instances, you can select either **Bat** or **PowerShell**. For Linux instances, you must select **Shell**.
     4.  Modify or paste the contents of your command, such as:
 
         ```
@@ -26,16 +26,16 @@ To create a command on the ECS Console, take the following steps:
         echo Remmember your password!
         ```
 
-    5.  Determine the **execution path** of the command. The execution paths of Bat and PowerShell commands are by default set to the directory where the cloud assistant client is stored, such as `C:\ProgramData\aliyun\assist\$(version)`. Shell commands are by default in the `/root` directory.
+    5.  Determine the **Execution Path** of the command. The execution paths of Bat and PowerShell commands are by default set to the directory where the cloud assistant client is stored, such as `C:\ProgramData\aliyun\assist\$(version)`. Shell commands are by default in the `/root` directory.
     6.  Set the maximum timeout time \(in seconds\) for commands in an instance. The default value is set to 3600s. When a command you created cannot be run for some reason, the command times out. After the command times out, the command process will be forcibly terminated.
-    7.  After confirming the command, click **OK**.
+    7.  After confirming the command, click **Create**.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17007/15387100778365_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17007/15433858278365_en-US.png)
 
 
 You can also use the ESC API [CreateCommand](../reseller.en-US/API Reference/Cloud assistant/CreateCommand.md#) to create a cloud assistant command.
 
-## Next step {#section_gxh_53t_q2b .section}
+## What to do next {#section_gxh_53t_q2b .section}
 
 [Invoke commands](reseller.en-US/User Guide/Cloud assistant/Run commands.md#)
 
