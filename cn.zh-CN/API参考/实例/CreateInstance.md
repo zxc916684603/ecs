@@ -6,7 +6,7 @@
 
 创建一台实例前，您可以调用 [DescribeAvailableResource](cn.zh-CN/API参考/地域/DescribeAvailableResource.md#) 查看指定地域或者可用区内的实例资源供给情况。
 
-创建实例会涉及到资源计费，建议您提前了解云服务器ECS的计费方式。更多详情，请参阅[计费概述](../cn.zh-CN/产品定价/计费概述.md#)。若实例付费类型为预付费的包年包月实例（`PrePaid`），则在付款时默认会使用您可用的优惠券。
+创建实例会涉及到资源计费，建议您提前了解云服务器ECS的计费方式。更多详情，请参阅 [计费概述](../cn.zh-CN/产品定价/计费概述.md#)。若实例付费类型为预付费的包年包月实例（`PrePaid`），则在付款时默认会使用您可用的优惠券。
 
 创建实例需要通过实名认证。您可以参阅 [账号实名认证相关文档](https://help.aliyun.com/knowledge_list/37170.html) 完成认证。
 
@@ -152,6 +152,7 @@
 -   cloud\_efficiency：高效云盘
 -   cloud\_ssd：SSD 云盘
 -   ephemeral\_ssd：本地 SSD 盘
+-   cloud\_essd：ESSD 云盘。目前 ESSD 云盘正在火热公测中，仅部分地域下的可用区可以选购。更多详情，请参阅 [ESSD 云盘 FAQ](https://help.aliyun.com/knowledge_detail/64950.html#AvailableRegion)。
 
 [已停售的实例规格](https://help.aliyun.com/document_detail/55263.html)且非 I/O 优化实例默认值：cloud否则，默认值：cloud\_efficiency
 
@@ -170,6 +171,7 @@
 |DataDisk.n.Size|Integer|否|第n个数据盘的容量大小，n的取值范围为\[1, 16\]，内存单位为 GiB。取值范围：-   cloud：\[5, 2000\]
 -   cloud\_efficiency：\[20, 32768\]
 -   cloud\_ssd：\[20, 32768\]
+-   cloud\_essd：\[20, 32768\]
 -   ephemeral\_ssd：\[5, 800\]
 
 该参数的取值必须大于等于参数 `SnapshotId` 指定的快照的大小。|
@@ -177,6 +179,7 @@
 -   cloud\_efficiency：高效云盘
 -   cloud\_ssd：SSD 云盘
 -   ephemeral\_ssd：本地 SSD 盘
+-   cloud\_essd：ESSD 云盘。目前 ESSD 云盘正在火热公测中，仅部分地域下的可用区可以选购。更多详情，请参阅 [ESSD 云盘 FAQ](https://help.aliyun.com/knowledge_detail/64950.html#AvailableRegion)。
 
 默认值：cloud|
 |DataDisk.n.Encrypted|Boolean|否|数据盘n是否加密。默认值：false|
