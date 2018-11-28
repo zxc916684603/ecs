@@ -1,6 +1,6 @@
 # Use APIs to manage preemptible instances {#concept_cqh_xtk_kfb .concept}
 
-This document describes how to use Alibaba Cloud ECS SDKs to quickly create and manage preemptible instances.
+This topic describes how to use Alibaba Cloud ECS SDKs to quickly create and manage preemptible instances.
 
 ## Preparation {#section_esp_ytk_kfb .section}
 
@@ -26,7 +26,7 @@ Before you begin, make sure that:
 
 ## Query regions and available instance types {#section_j4y_c5k_kfb .section}
 
-Use the [DescribeZones](../../../../reseller.en-US/API Reference/Regions/DescribeZones.md#) interface to query the regions where you can create preemptible instances and the available instance types. The sample code is as follows.
+Use the [DescribeZones](../../../../reseller.en-US/API Reference/Regions/DescribeZones.md#) interface to query the regions where you can create preemptible instances and the available instance types. The sample code is as follows:
 
 -   OpenApiCaller.java
 
@@ -372,9 +372,9 @@ spot instance will be recycled immediately, instance id:i-bp1ecbyds24ij63w146c
 
 ## Other operations {#section_bzw_v5k_kfb .section}
 
-You can start, stop, and release preemptible instances. These operations are the same as for Pay-As-You-Go instances. For more information, see the API documentation:
+You can start, stop, and release preemptible instances. These operations are the same as Pay-As-You-Go instances. For more information, see:
 
--   Start an instance:[StartInstance](../../../../reseller.en-US/API Reference/Instances/StartInstance.md#)
--   Stop an instance:[StopInstance](../../../../reseller.en-US/API Reference/Instances/StopInstance.md#)
--   Release an instance:[DeleteInstance](../../../../reseller.en-US/API Reference/Instances/DeleteInstance.md#)
+-   Start an instance: [StartInstance](../../../../reseller.en-US/API Reference/Instances/StartInstance.md#)
+-   Stop an instance: [StopInstance](../../../../reseller.en-US/API Reference/Instances/StopInstance.md#)
+-   Release an instance: [DeleteInstance](../../../../reseller.en-US/API Reference/Instances/DeleteInstance.md#)
 
