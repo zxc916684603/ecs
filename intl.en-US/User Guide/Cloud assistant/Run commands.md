@@ -23,16 +23,16 @@ To execute a command on the ECS console, take the following steps:
     1.  Click **View command content** to confirm the command contents.
     2.  Click **Select Instance**. In the pop-up window:
         1.  Select one or more instances.
-        2.  Click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17010/15433865308440_en-US.png) to select an instance.
+        2.  Click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17010/15433866078440_en-US.png) to select an instance.
 
-            **Note:** Bat or PowerShell commands can only be selected for Windows instances, and Shell commands can only be selected for Linux instances. All instances must have the Cloud Assistant Client **installed**. Otherwise, the instance cannot be selected even after you click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17010/15433865308440_en-US.png) icon.
+            **Note:** Bat or PowerShell commands can only be selected for Windows instances, and Shell commands can only be selected for Linux instances. All instances must have the Cloud Assistant Client **installed**. Otherwise, the instance cannot be selected even after you click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17010/15433866078440_en-US.png) icon.
 
         3.  Click **OK**.
     3.  Select **Immediate Execution** or **Scheduled Execution**:
 
         -   **Immediate Execution**: The cloud assistant will run the command immediately on the instances once.
         -   **Scheduled Execution**: Use the cron expression to run the command periodically. Fill in the **Execution Time**. For more information, see [Cron expression value description](https://partners-intl.aliyun.com/help/faq-detail/64769.htm).
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17010/15433865308439_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17010/15433866078439_en-US.png)
 
 5.  Click **Execute**.
 
@@ -40,7 +40,7 @@ You can also use the ECS API [InvokeCommand](../reseller.en-US/API Reference/Clo
 
 ## Stop command execution {#StopCommand .section}
 
-**Prerequisite**: Either it must be a periodic command, or the command must have a command execution status of **Running** \(`Running`\).
+**Prerequisite**: Either it must be a periodic command, or the command must have a command execution status of **Running**.
 
 To stop a command on the management console, take the following steps:
 
@@ -49,7 +49,7 @@ To stop a command on the management console, take the following steps:
 3.  Select a region.
 4.  In the **Execution Record** area, search for the command you need to stop, and select **Stop Command** from the **Operation** column.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17010/15433865308527_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17010/15433866088527_en-US.png)
 
 
 ## What to do next {#section_crb_4st_q2b .section}
