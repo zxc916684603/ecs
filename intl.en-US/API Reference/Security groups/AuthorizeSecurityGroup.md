@@ -6,7 +6,7 @@ Adds an inbound rule to a security group. This action permits or declines the in
 
 We define the beginning of the traffic as the source, and the terminal of the traffic as the destination, see the following picture.
 
-![](images/3982_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9917/15434923623983_en-US.png)
 
 When you call this interface, consider the following:
 
@@ -22,9 +22,9 @@ When you call this interface, consider the following:
 
 -   Use the following two sets of parameters to add a security group rule. If one rule already exists according to the two sets of parameters, the `AuthorizeSecurityGroup` fails.
 
-    -   To set the access permission of an IP address range, for example, [Request example 1](#Sample1): `IpProtocol`, `PortRange`, \(Optional\) `SourcePortRange`, `NicType`, `Policy`, \(Optional\) `DestCiderIp` and  `SourceCidrIp`.
+    -   To set the access permission of an IP address range, for example, [Request example 1](#): `IpProtocol`, `PortRange`, \(Optional\) `SourcePortRange`, `NicType`, `Policy`, \(Optional\) `DestCidrIp` and  `SourceCidrIp`.
 
-    -   To set the access permission of instances that are in another security group, for example, [Request example 2](#Sample2): `IpProtocol`, `PortRange`, \(Optional\) `SourcePortRange`, `NicType`, `Policy`, \(Optional\) `DestCiderIp`, `SourceGroupOwnerAccount`, `and SourceGroupId.`
+    -   To set the access permission of instances that are in another security group, for example, [Request example 2](#): `IpProtocol`, `PortRange`, \(Optional\) `SourcePortRange`, `NicType`, `Policy`, \(Optional\) `DestCidrIp`, `SourceGroupOwnerAccount`, `and SourceGroupId.`
 
 
 ## Request parameters {#RequestParameter .section}
@@ -32,7 +32,7 @@ When you call this interface, consider the following:
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes| The name of this interface. Value: AuthorizeSecurityGroup.|
-|RegionId|String|Yes|The region ID. For more information, see Regions and zones, or call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|The region ID. For more information, see Regions and zones, or call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |SecurityGroupId|String|Yes|The ID of the destination security group.|
 |IpProtocol|String|Yes|The transport layer protocol. These values are case-insensitive. Optional values:-   tcp
 -   udp
@@ -61,8 +61,8 @@ In mutual security group authorization, while `SourceGroupId` is specified and `
 -   drop: Declines the access, and sends no response to the source device.
 
 Default value: accept.|
-|DestCidrIp|String|No|The destination IP address range. Only CIDR and IPv4 format are supported. Default value: 0.0.0.0/0.|
-|SourceCidrIp|String|No|The source IP address range. Only CIDR and IPv4 format are supported. Default value: 0.0.0.0/0.|
+|DestCidrIp|String|No|The destination IP address range. Only CIDR and IPv4 format are supported. Default value: Null.|
+|SourceCidrIp|String|No|The source IP address range. Only CIDR and IPv4 format are supported. Default value: Null.|
 |SourceGroupId|String|No|The source security group ID. Either the `SourceGroupId` or `SourceCidrIp` parameter must be set.If the `SourceGroupId` is specified and `SourceCidrIp` is not specified, the `NicType` must be set to `intranet`.
 
 If both the `SourceGroupId` and `SourceCidrIp` parameters are set, `SourceCidrIp` is authorized by default.
@@ -83,7 +83,7 @@ If both the `SourceGroupId` and `SourceCidrIp` parameters are set, `SourceCidrIp
 
 ## Response parameters {#section_px3_2g1_ydb .section}
 
-All are common parameters. For more information, see [Common parameters](intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
+All are common response parameters. See [Common response parameters](../reseller.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
 
 ## Examples { .section}
 
@@ -104,7 +104,7 @@ https://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
 
 **Request example 2**
 
-Grant the access permission of another security group. The `NicType` can be set to `intranet` only. For mutual accesses between classic network-connected security groups, you can set the permission for another security group in the same region to access your security group. This security group can be yours or belong to other `SourceGroupOwnerAccount`. For mutual accesses between VPC-connected security groups, you can set the permission for another security group in the same VPC to access your security group.
+Grant the access permission of another security group. The `NicType` can be set to `intranet` only. For mutual accesses between classic network-connected security groups, you can set the permission for another security group in the same region to access your security group. This security group can be yours or belong to other `SourceGroupOwnerAccount`. For mutual accesses between VPC-Connected security groups, you can set the permission for another security group in the same VPC to access your security group.
 
 ```
 https://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
@@ -131,14 +131,12 @@ https://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
  **JSON format** 
 
 ```
-
+{
     "RequestId":"CEF72CEB-54B6-4AE8-B225-F876FF7BA984"
-
+}
 ```
 
 ## Error codes {#ErrorCode .section}
-
-The following error codes are restricted to this interface. For more error codes, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|
