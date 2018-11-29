@@ -12,7 +12,7 @@
 
 -   实例的状态必须为 **已停止**（`Stopped`）状态。如果您的专有网络 VPC 类型实例开启了 VPC 内实例停机不收费功能后，为防止地域内 ECS 实例资源不足而引起更换系统盘后无法重启实例，您需要在停止实例时关闭停机不收费功能。更多详情，请参阅 [StopInstance](cn.zh-CN/API参考/实例/StopInstance.md#)。
 
--   被 [安全控制](cn.zh-CN/API参考/附录/安全锁定时的 API 行为.md#) 的 ECS 实例的 `OperationLocks` 不能标记为 `"LockReason" : "security"` 。
+-   被 [安全控制](cn.zh-CN/API参考/附录/安全锁定时的API行为.md#) 的 ECS 实例的 `OperationLocks` 不能标记为 `"LockReason" : "security"` 。
 
 -   实例不能为欠费状态。
 
@@ -26,10 +26,9 @@
 |Action|String|是|系统规定参数。取值：ReplaceSystemDisk|
 |InstanceId|String|是|指定实例的 ID。|
 |ImageId|String|是|重置系统时使用的镜像 ID。|
-|Password|String|否|实例的密码。-   长度为 \[8, 30\] 位字符，必须同时包含三类不同的字符（大、小写字母，数字和特殊符号）。
--   支持以下特殊字符：\( \) \` ~ ! @ \# $ % ^ & \* - + = | \{ \} \[ \] : ; ‘ < \> , . ? /
+|Password|String|否|实例的密码。长度为 8 至 30 个字符，必须同时包含大小写英文字母、数字和特殊符号。特殊符号可以是\(\)\` ~!@\#$%^&\*-\_+=|\{\}\[\]:;‘<\>,.?/。其中，Windows 实例不能以斜线号（/）为密码首字符。**说明：** 如果传入 `Password` 参数，请务必使用 HTTPS 协议调用 API，避免密码泄露。
 
-如果传入 `Password` 参数，请务必使用 HTTPS 协议调用 API，避免密码泄露。|
+|
 |PasswordInherit|Boolean|否|是否使用镜像预设的密码。使用该参数时，`Password`参数必须为空，同时您需要确保使用的镜像已经设置了密码。|
 |KeyPairName|String|否|密钥对名称。-   Windows ECS 实例，忽略该参数。默认为空。即使填写了该参数，仍旧只执行 `Password` 的内容。
 -   Linux ECS 实例的密码登录方式会被初始化成禁止。
@@ -38,7 +37,9 @@
 |SystemDisk.Size|Integer|否|新的系统盘容量，单位为 GB。取值范围：\[Max\{20, 参数ImageId对应的镜像大小\}, 500\]默认值：Max\{40, 参数ImageId对应的镜像大小\}
 
 |
-|ClientToken|String|否|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一。只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](cn.zh-CN/API参考/附录/如何保证幂等性.md#)。|
+|ClientToken|String|否|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅[如何保证幂等性](../cn.zh-CN/API参考/附录/如何保证幂等性.md#)。
+
+|
 |SecurityEnhancementStrategy|String|否|当指定的云盘为系统盘时，您可以设置是否开启安全加固，加载云服务器 ECS 安全组件云盾等。取值范围：-   Active：启用安全加固，免费安装云盾。该值仅支持公共镜像。
 -   DeactiveDeactive：不启用安全加固，卸载云盾等安全组件。该值支持所有镜像。
 
@@ -72,7 +73,7 @@ https://ecs.aliyuncs.com/?Action=ReplaceSystemDisk
 </ReplaceSystemDiskResponse>
 ```
 
- **JSON 格式** 
+**JSON 格式** 
 
 ```
 {
@@ -83,7 +84,7 @@ https://ecs.aliyuncs.com/?Action=ReplaceSystemDisk
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
