@@ -24,7 +24,7 @@ To use Cloud Migration tool, consider the following:
 
 -   During migration, an ECS instance named INSTANCE\_FOR\_GOTOALIYUN is created by default under your Alibaba Cloud account. It acts as an intermediate station. To avoid migration failure, do not stop, restart, or release the intermediate ECS instance. The intermediate ECS instance is automatically released once the migration completes.
 
--   If the AccessKey that you create belongs to a RAM user, you must make sure that the specified RAM user is granted with `AliyunECSFullAccess` and `AliyunVPCFullAccess` role to operate the Alibaba Cloud resources. For more information, see *RAM* document [Authorization policies](../../../../../reseller.en-US//Authorization/Authorization Policy Management.md#).
+-   If the AccessKey that you create belongs to a RAM user, you must make sure that the specified RAM user is granted with `AliyunECSFullAccess` and `AliyunVPCFullAccess` role to operate the Alibaba Cloud resources. For more information, see *RAM* document [Authorization policies](../../../../../reseller.en-US//Authorization/Authorization policy management.md#).
 
 -   If shared memory is used in your on-premises server:
 
