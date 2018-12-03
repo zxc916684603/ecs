@@ -8,13 +8,13 @@ Upgrading instance types has the following impacts:
 
 -   Classic network instances:
 
-    -   For [phased-out instance types](https://help.aliyun.com/knowledge_detail/55263.html), when a non-I/O optimized instance is upgraded to an I/O optimized instance, changes are made to the private IP address, the driver name, and the software authorization code. For Linux instances, Basic Cloud Disks \(`cloud`\) are recognized as `xvda` or `xvdb`, while Ultra Cloud Disks \(`cloud_efficiency`\) and SSD Cloud Disks \(`cloud_ssd`\) are recognized as `vda` or `vdb`.
+    -   For [phased-out instance types](https://www.alibabacloud.com/help/faq-detail/55263.htm?spm=a2c63.q38357.a3.10.29d85115s1FyEZ), when a non-I/O optimized instance is upgraded to an I/O optimized instance, changes are made to the private IP address, the driver name, and the software authorization code. For Linux instances, Basic Cloud Disks \(`cloud`\) are recognized as `xvda` or `xvdb`, while Ultra Cloud Disks \(`cloud_efficiency`\) and SSD Cloud Disks \(`cloud_ssd`\) are recognized as `vda` or `vdb`.
 
     -   For [available instance types](../../../../reseller.en-US/Product Introduction/Instance type families.md#), changes are made to the private IP address of the instance.
 
 -   VPC instances:
 
-    For [phased-out instance types](https://help.aliyun.com/knowledge_detail/55263.html), when a non-I/O optimized instance is upgraded to an I/O optimized instance, changes are made to the driver name and the software authorization code. For Linux instances, Basic Cloud Disks \(`cloud`\) are recognized as `xvda` or `xvdb`, while Ultra Cloud Disks \(`cloud_efficiency`\) and SSD Cloud Disks \(`cloud_ssd`\) are recognized as `vda` or `vdb`.
+    For [phased-out instance types](https://www.alibabacloud.com/help/faq-detail/55263.htm?spm=a2c63.q38357.a3.10.29d85115s1FyEZ), when a non-I/O optimized instance is upgraded to an I/O optimized instance, changes are made to the driver name and the software authorization code. For Linux instances, Basic Cloud Disks \(`cloud`\) are recognized as `xvda` or `xvdb`, while Ultra Cloud Disks \(`cloud_efficiency`\) and SSD Cloud Disks \(`cloud_ssd`\) are recognized as `vda` or `vdb`.
 
 
 ## Instance type families that support upgrading instance types {#section_ehm_smb_1fb .section}
