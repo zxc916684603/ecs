@@ -4,7 +4,7 @@ Preemptible instances are on-demand instances. They are designed to reduce your 
 
 **Note:** After an instance is released, its data cannot be recovered. We recommend that you [create a snapshot](../../../../reseller.en-US/User Guide/Snapshots/Create a snapshot.md#) to back up data before releasing an instance.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9552/15434047715106_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9552/15438211515106_en-US.png)
 
 ## Scenarios {#section_fdc_jt5_ydb .section}
 
@@ -56,7 +56,7 @@ Preemptible instance price and billing considerations:
 
     The billing method varies according to the regions:
 
-    -   Australia \(Sydney\), Japan \(Tokyo\), Germany \(Frankfurt\), United Arab Emirates \(Dubai\)
+    -   Australia \(Sydney\), Japan \(Tokyo\), Germany \(Frankfurt\), United Arab Emirates \(Dubai\), China \(Zhangjiakou\), China \(Hohhot\), Malaysia \(Kuala Lumpur\), Singapore, India \(Mumbai\), Indonesia \(Jakarta\)
 
         Preemptible instances are billed by the second. When a preemptible instance is created successfully, the market price is an hourly rate and you only need to divide it by 3,600 to get the price per second.
 
