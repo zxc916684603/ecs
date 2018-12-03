@@ -1,6 +1,6 @@
 # Create an instance in the deployment set {#RunInstancesInDS .task}
 
-Once you have an available deployment set, you can learn how to create instances in it by follow this article.
+Once you have an available deployment set, you can learn how to create instances in it by following this article.
 
 Only seven instances can be created in a deployment set in one zone. The number of instances that can be created in a region is seven multiplied by the number of the zones. When you create an instance, you can use a launch template or use the bulk creation feature to avoid the inconvenience caused by the restriction of maximum instances per zone. This topic describes how to create an instance in a deployment set using the ECS console. If you are an API user, you can call [RunInstances](../intl.en-US/API Reference/Instances/RunInstances.md#) and specify the DeploymentSetId parameter in the request.
 
