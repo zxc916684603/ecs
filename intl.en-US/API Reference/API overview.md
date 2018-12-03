@@ -148,9 +148,9 @@ For more information about the APIs for Virtual Private Cloud \(VPC\), see [VPC 
 
 |Action|Description|
 |:-----|:----------|
-|[DescribeDisksFullStatus](reseller.en-US/API Reference/Operations and monitoring/DescribeDisksFullStatus.md#)|Describes the lifecycle status and health status information of a disk.|
+|[DescribeDisksFullStatus](reseller.en-US/API Reference/System event/DescribeDisksFullStatus.md#)|Describes the lifecycle status and health status information of a disk.|
 |[DescribeDiskMonitorData](reseller.en-US/API Reference/Operations and monitoring/DescribeDiskMonitorData.md#)|Queries the monitoring data of a specified disk.|
-|[DescribeInstancesFullStatus](reseller.en-US/API Reference/Operations and monitoring/DescribeInstancesFullStatus.md#)|Describes the full status information of the specified Instance.|
+|[DescribeInstancesFullStatus](reseller.en-US/API Reference/System event/DescribeInstancesFullStatus.md#)|Describes the full status information of the specified Instance.|
 |[DescribeInstanceHistoryEvents](reseller.en-US/API Reference/SSH key pairs/CreateKeyPair.md#)|Describes the history events of a specified Instance.|
 |[DescribeInstanceMonitorData](reseller.en-US/API Reference/Operations and monitoring/DescribeInstanceMonitorData.md#)|Describes all the instance-related monitoring data.|
 
@@ -166,7 +166,7 @@ For more information about the APIs for Virtual Private Cloud \(VPC\), see [VPC 
 
 |Action|Description|
 |:-----|:----------|
-|[CreateCommand](reseller.en-US/API Reference/Cloud assistant/CreateCommand.md#)|Creates a [cloud assistant](https://help.aliyun.com/document_detail/64601.html) command.|
+|[CreateCommand](reseller.en-US/API Reference/Cloud assistant/CreateCommand.md#)|Creates a [cloud assistant](../../../../reseller.en-US/Product Introduction/Cloud assistant.md#) command.|
 |[InvokeCommand](reseller.en-US/API Reference/Cloud assistant/InvokeCommand.md#)|Performs a specified command on the target Instances.|
 |[StopInvocation](reseller.en-US/API Reference/Cloud assistant/StopInvocation.md#)|Stops cloud assistant command processes that are in `Running` status for one or more instances.|
 |[DeleteCommand](reseller.en-US/API Reference/Cloud assistant/DeleteCommand.md#)|Deletes a created cloud assistant command.|
