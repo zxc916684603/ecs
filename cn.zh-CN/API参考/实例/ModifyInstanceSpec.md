@@ -1,25 +1,20 @@
 # ModifyInstanceSpec {#ModifyInstanceSpec .reference}
 
-调整一台实例的实例规格和公网带宽大小。
+调整一台按量付费实例的实例规格和公网带宽大小。
 
 ## 描述 {#section_bmh_rh5_xdb .section}
 
 调用该接口时，您需要注意：
 
 -   实例必须处于无欠费状态。
-
 -   实例状态必须为 **运行中**（`Running`）或者 **已停止**（`Stopped`）时才能调节公网带宽大小。
+-   升级或者降低按量付费实例规格前，您可以通过 [DescribeResourcesModification](cn.zh-CN/API参考/地域/DescribeResourcesModification.md#) 查询当前实例支持变配的实例规格。
 
--   升级或者降低实例规格前，您可以通过 [DescribeResourcesModification](cn.zh-CN/API参考/其他接口/DescribeResourcesModification.md#) 查询当前实例支持变配的实例规格。
-
-    更多详情，请参阅 *云栖社区* [查询 ECS 变配的可用资源实践](https://yq.aliyun.com/articles/500164)。
+    更多详情，请参阅云栖社区 [查询 ECS 变配的可用资源实践](https://yq.aliyun.com/articles/500164)。
 
 -   实例状态必须为 **已停止**（`Stopped`）时才能变更实例规格。
-
 -   单次只能升级单项配置，即单次只能修改实例规格，或者只能调整公网带宽大小。
-
--   单个实例每成功操作一次，5 分钟内不能继续操作。
-
+-   单台实例每成功操作一次，5分钟内不能继续操作。
 
 ## 请求参数 {#RequestParameter .section}
 
@@ -27,7 +22,7 @@
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：ModifyInstanceSpec|
 |InstanceId|String|是|指定的实例 ID。|
-|InstanceType|String|否|实例规格。更多详情，请参阅 [实例规格族](../../../../cn.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](cn.zh-CN/API参考/实例/DescribeInstanceTypes.md#)接口获得最新的规格表。|
+|InstanceType|String|否|实例规格。更多详情，请参阅 [实例规格族](../cn.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](cn.zh-CN/API参考/实例/DescribeInstanceTypes.md#)接口获得最新的规格表。|
 |InternetMaxBandwidthOut|Integer|否|公网出带宽最大值，单位为 Mbps \(Megabit per second\)。取值范围：-   按固定带宽计费：\[0, 100\]
 -   按使用流量计费：\[0, 100\]
 
@@ -40,9 +35,7 @@
 
 ## 返回参数 {#ResponseParameter .section}
 
-|名称|类型|描述|
-|:-|:-|:-|
-|RequestId|String|请求 ID|
+全是公共返回参数。参阅 [公共返回参数](cn.zh-CN/API参考/快速入门/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -68,7 +61,7 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceSpec
 </ModifyInstanceSpecResponse>
 ```
 
- **JSON 格式** 
+**JSON 格式** 
 
 ```
 {
@@ -85,7 +78,7 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceSpec
 |Account.Arrearage|Your account has an outstanding payment.|400|账号已经欠费。|
 |DependencyViolation.InstanceType|The current InstanceType cannot be changed to the specified InstanceType.|400|当前实例规格不允许变更到指定的实例规格。|
 |IdempotenceParamNotMatch|Request uses a client token in a previous request but is not identical to that request.|400|与相同 `ClientToken` 的请求参数不符合。|
-|InvalidClientToken.ValueNotSupported|The ClientToken provided is invalid.|400|`ClientToken` 参数值不合法，不能包含 ASCII 以外的字符。|
+|InvalidClientToken.ValueNotSupported|The ClientToken provided is invalid.|400|`ClientToken` 参数值不合法，不能包含ASCII以外的字符。|
 |InvalidInstance.UnpaidOrder|The specified instance has unpaid order.|400|当前实例有未支付的订单。|
 |InvalidInstanceType.ValueNotSupported|The specified InstanceType is not supported.|400|指定的 `InstanceType` 不合法（超出可选范围）。|
 |InvalidInstanceType.ValueUnauthorized|The specified InstanceType is not authorized.|400|指定的 `InstanceType` 未授权使用。|
@@ -96,10 +89,18 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceSpec
 |InvalidParameter.Mismatch|Too many parameters in one request.|400|请求参数过多。|
 |InvalidStatus.ValueNotSupported|The current status of the resource does not support this operation.|400|当前的实例状态不支持此操作。|
 |InvalidStatus.ValueNotSupported|The instance cannot be modified in the specified status.|400|当前的实例状态不支持此操作。|
+|InvalidAction.NotSupport|The ecs on dedicatedHost not support modify instanceType.|400|不支持更改专有宿主机上的 ECS 实例规格。|
 |OperationDenied|The specified instance is in VPC.|400|该实例的网络类型为专有网络。|
 |Price.PricePlanResultNotFound|The internetMaxBandwidthIn or internetMaxBandwidthOut provided is invalid.|400|请求参数 `InternetMaxBandwidthIn` 或 `InternetMaxBandwidthOut` 不合法。|
 |Throttling|You have made too many requests within a short time; your request is denied due to request throttling.|400|操作过于频繁。|
 |InvalidInstanceStatus.NotStopped|The specified Instance status is not stopped.|400|实例未处于停止状态。|
+|InvalidOperation.EniCountExceeded|The number of ENI exceeds the limit\(\{0\}\). target instanceType \{1\}. Attached:\{2\}. Expecting attach:\{3\}.|403|弹性网卡数量不能超过实例规格的使用限制。更多信息，请参阅 [实例规格族](../cn.zh-CN/产品简介/实例规格族.md#)。**说明：** 错误信息里的花括号（`{}`）按实际情况动态返回取值。
+
+|
+|InvalidOperation.Ipv4CountExceeded|The number of eni \{0\} private ip exceeds the limit\(\{1\}\). target instanceType \{2\}. Assigned:\{3\}. Expecting assign:\{4\}.|403|您指定的 IPv4 地址数量不能超过实例规格 InstanceType 上限。|
+|InvalidOperation.Ipv6CountExceeded|The number of eni \{0\} ipv6 address exceeds the limit\(\{1\}\). target instanceType \{2\}. Assigned:\{3\}. Expecting assign:\{4\}.|403|您指定的 IPv6 地址数量（Ipv6AddressCount）不能超过实例规格 InstanceType 上限。|
+|InvalidOperation.Ipv6NotSupport|The instanceType of \{0\} not support ipv6.|403|指定的实例规格 InstanceType 不支持 IPv6 地址。|
+|InvalidOperation.Ipv4NotSupport|The instanceType of \{0\} not support secondary ipv4.|403|指定的实例规格 InstanceType 不支持 IPv4 地址。|
 |CategoryViolation|The specified instance does not support this operation because of its disk category.|403|当前实例的磁盘类型不支持此操作。|
 |ChargeTypeViolation|The operation is not permitted due to charge type of the instance.|403|当前实例的付费类型不支持此操作。|
 |ImageNotSupportInstanceType|The specified image does not support the specified InstanceType.|403|指定镜像不支持该实例类型。|
