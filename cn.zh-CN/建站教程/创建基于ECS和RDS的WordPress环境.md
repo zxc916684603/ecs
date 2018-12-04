@@ -18,7 +18,7 @@ ROS 模版是一个 JSON 格式文本文件，您可以在这个文本中定义�
 3.  在控制台左侧导航栏中，单击 **模版样例**，页面显示 ROS 提供的常用模版。
 4.  从模版示例中找到 **wordpress\_instance**，本篇教程将通过这个模版创建基于 ECS 和 RDS 的 WordPress 环境。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9767/154288619232242_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9767/154391316132242_zh-CN.png)
 
 5.  单击 **预览** 按钮查看模板的JSON文件。JSON文件各个顶级字段的解释如下表所示。
 
@@ -29,7 +29,7 @@ ROS 模版是一个 JSON 格式文本文件，您可以在这个文本中定义�
     |`"Resources" : { }`|定义这个模板将要创建的阿里云资源。本示例中，申明将要创建一个ECS实例和一个安全组，这里申明的资源属性可以引用`Parameters`中定义的参数。|
     |`"Outputs": { }`|定义资源创建完成后，栈需要输出的资源信息。本示例中，资源创建完成后将输出ECS实例ID、公网IP地址和安全组ID。|
 
-    **说明：** 关于ROS资源栈模板的更多信息，请参见资源编排的 [模板结构说明](../../../../cn.zh-CN/.md#)。
+    **说明：** 关于ROS资源栈模板的更多信息，请参见资源编排的 [模板结构说明](../../../../cn.zh-CN/用户指南/模板语法/模板结构说明.md#)。
 
 6.  单击 **创建栈**。
 7.  在 **所在region** 的下拉框中选择具体地域，并单击 **下一步**。本例选择 **华北2**。
@@ -50,12 +50,12 @@ ROS 模版是一个 JSON 格式文本文件，您可以在这个文本中定义�
     -   **DBName**：填写MySQL数据库名。
     -   **DBUser**：填写MySQL数据库的用户名。
     -   **DBPassword** ：设置访问MySQL数据库的密码。根据模板定义，密码必须包括大写英文字母、小写英文字母、数字和下划线四种。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9767/154288619232251_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9767/154391316132251_zh-CN.png)
 
 9.  单击 **创建**。
 10. 单击左侧导航栏的 **资源栈管理**，从下拉菜单中选取您创建的栈所在的地域，即可找到您刚创建的栈。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9767/154288619232490_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9767/154391316132490_zh-CN.png)
 
 11. 单击栈名，再单击左侧导航栏中的以下几项可以了解已创建栈的相关信息：
     -   **概览**：可查看栈的基本信息、启动参数、状态、输出值和栈参数。
