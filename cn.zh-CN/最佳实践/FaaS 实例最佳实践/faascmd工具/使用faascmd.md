@@ -32,7 +32,7 @@ faascmd auth --bucket=<yourFaasOSSBucketName>
 
 **示例代码**
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154267798731129_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154390707931129_zh-CN.png)
 
 **说明：** 如果同一主账户下有多个子账户，建议子账户间共享一个OSS bucket，以避免重复修改或覆盖授权策略。
 
@@ -48,7 +48,7 @@ faascmd list_policy
 
 **示例代码**
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154267798731130_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154390708031130_zh-CN.png)
 
 **说明：** 请关注您的OSS Bucket和OSS Bucket/compiling\_logs是否出现在列出的策略信息中。
 
@@ -64,7 +64,7 @@ faascmd delete_policy
 
 **示例代码**
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154267798731131_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154390708031131_zh-CN.png)
 
 **说明：** 如果同一主账户下有多个子账户，建议您去RAM控制台操作，以避免误删授权策略。
 
@@ -80,7 +80,7 @@ faascmd list_objects
 
 **示例代码**
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154267798731132_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154390708031132_zh-CN.png)
 
 **说明：** 您可以配合grep命令筛选出您想要的文件。例如: `faascmd list_objects | grep "xxx"` 。
 
@@ -97,7 +97,7 @@ faascmd upload_object --object=<newFileNameinOSSBucket> --file= <your_file_path>
 
 **示例代码**
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154267798731112_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154390708031112_zh-CN.png)
 
 **说明：** 
 
@@ -106,19 +106,19 @@ faascmd upload_object --object=<newFileNameinOSSBucket> --file= <your_file_path>
 -   intel fpga的本地编译原始文件为.gbs格式；xilinx fpga的本地编译原始文件为脚本处理后得到的tar包。
 
 
-## 下载OSS Bucket中的objects {#section_b4q_gsr_5fb .section}
+## 下载OSS Bucket中的object {#section_b4q_gsr_5fb .section}
 
-`faascmd get_object` 命令用来下载OSS Bucket中所有的objects。
+`faascmd get_object` 命令用来下载OSS Bucket中指定的object。
 
 **命令格式**
 
 ```
-faascmd get_object --obejct= --file=<your_local_path>/vivado.log
+faascmd get_object --obejct=<yourObjectName> --file=<your_local_path>/<yourFileName>
 ```
 
 **示例代码**
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154267798731115_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154390708031115_zh-CN.png)
 
 **说明：** 如果您不提供路径，则默认下载到当前文件夹。
 
@@ -138,7 +138,7 @@ faascmd create_image --object=<yourObjectName>
 
 **示例代码**
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154267798731117_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154390708031117_zh-CN.png)
 
 ## 查看fpga镜像 {#section_msw_nsr_5fb .section}
 
@@ -152,7 +152,7 @@ faascmd list_images
 
 **示例代码**
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154267798731118_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154390708031118_zh-CN.png)
 
 **说明：** 每个子账户最多允许保留10个fpga镜像。
 
@@ -168,7 +168,7 @@ faascmd delete_image --imageuuid=<yourImageuuid>
 
 **示例代码**
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154267798831120_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154390708031120_zh-CN.png)
 
 ## 下载fpga镜像 {#section_cmr_tsr_5fb .section}
 
@@ -201,7 +201,7 @@ faascmd fpga_status --fpgauuid=<fpgauuid> --instanceId=<instanceId>
 
 **示例代码**
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154267798831126_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154390708031126_zh-CN.png)
 
 ## 发布fpga镜像 {#section_snv_ysr_5fb .section}
 
@@ -230,5 +230,5 @@ faascmd list_instances --instanceId=<yourInstanceId>
 
 **示例代码**
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154267798831128_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61626/154390708031128_zh-CN.png)
 
