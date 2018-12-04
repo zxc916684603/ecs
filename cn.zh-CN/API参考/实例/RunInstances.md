@@ -141,6 +141,14 @@ RunInstances 可以执行批量创建任务，为便于管理与检索，建议�
 |PrivateIpAddress|String|否|实例私网IP地址。该IP地址必须为VSwitchId网段的子集网址。**说明：** 设置PrivateIpAddress时，Amount参数取值只能为1。
 
 |
+|Ipv6Addresses.N|String|否|为弹性网卡指定一个或多个 IPv6 地址。目前，N 的取值范围仅支持 1。取值示例：`Ipv6Address.1=2001:db8:1234:1a00::XXX`
+
+**说明：** 您不能同时指定参数 Ipv6Addresses.N 和 Ipv6AddressCount。
+
+|
+|Ipv6AddressCount|Integer|否|为弹性网卡指定随机生成的 IPv6 地址数量。**说明：** 您不能同时指定参数 Ipv6Addresses.N 和 Ipv6AddressCount。
+
+|
 |InternetMaxBandwidthIn|Integer|否|公网入带宽最大值，单位为Mbit/s。取值范围：\[1, 200\] 默认值：200
 
 |
@@ -273,6 +281,8 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 
 以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
+**说明：** 错误信息里的花括号（`{}`）按实际情况动态返回取值。
+
 |错误代码|错误信息|HTTP状态码|说明|
 |:---|:---|:------|:-|
 |Account.Arrearage|Your account has an outstanding payment.|400|您的账号已经欠费。|
@@ -349,6 +359,11 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |InvalidDiskCategory.NotSupported|The specified disk category is not support the specified instance type.|403|指定的磁盘类型不支持该实例类型。|
 |InvalidDiskSize.TooSmall|Specified disk size is less than the size of snapshot.|403|指定的磁盘小于指定快照大小。|
 |InvalidInstanceType.ZoneNotSupported|The specified zone does not support this InstanceType.|403|指定的可用区不支持该实例规格。|
+|InvalidOperation.EniCountExceeded|The number of ENI exceeds the limit\(\{0\}\). target instanceType \{1\}. Attached:\{2\}. Expecting attach:\{3\}.|403|弹性网卡数量不能超过实例规格的使用限制。更多详情，请参阅 [实例规格族](../cn.zh-CN/产品简介/实例规格族.md#)。|
+|InvalidOperation.Ipv4CountExceeded|The number of eni \{0\} private ip exceeds the limit\(\{1\}\). target instanceType \{2\}. Assigned:\{3\}. Expecting assign:\{4\}.|403|您指定的 IPv4 地址数量不能超过实例规格 InstanceType 上限。|
+|InvalidOperation.Ipv6CountExceeded|The number of eni \{0\} ipv6 address exceeds the limit\(\{1\}\). target instanceType \{2\}. Assigned:\{3\}. Expecting assign:\{4\}.|403|您指定的 IPv6 地址数量（Ipv6AddressCount）不能超过实例规格 InstanceType 上限。|
+|InvalidOperation.Ipv6NotSupport|The instanceType of \{0\} not support ipv6.|403|指定的实例规格 InstanceType 不支持 IPv6 地址。|
+|InvalidOperation.Ipv4NotSupport|The instanceType of \{0\} not support secondary ipv4.|403|指定的实例规格 InstanceType 不支持 IPv4 地址。|
 |InvalidNetworkType.MismatchRamRole|Ram role cannot be attached to instances of Classic network type.|403|实例RAM角色不能用于经典网络类型实例。|
 |InvalidPayMethod|The specified billing method is not valid.|403|指定的计费方式不存在。|
 |InvalidResourceType.NotSupported|This resource type is not supported; please try other resource types.|403|创建实例的配置暂无可用区支持，请选择其他配置创建。|
