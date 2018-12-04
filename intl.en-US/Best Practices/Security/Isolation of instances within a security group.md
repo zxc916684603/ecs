@@ -23,13 +23,11 @@ A security group is a virtual firewall that provides Stateful Packet Inspection 
 
 ## Modify the access control policy {#section_tmy_scv_tfb .section}
 
-You can use the [ModifySecurityGroupPolic](../../../../intl.en-US/API Reference/Security groups/ModifySecurityGroupPolicy.md#) interface to modify the access control policy within a security group.
+You can use the [ModifySecurityGroupPolic](../../../../reseller.en-US/API Reference/Security groups/ModifySecurityGroupPolicy.md#) interface to modify the access control policy within a security group.
 
 ## Case analysis {#section_rdw_v4y_sfb .section}
 
-The following figure shows the relationship between three instances and their security groups.
-
-![](images/31133_en-US.png)
+The following figure shows the relationship between three instances and their security groups.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/61459/154389802631133_en-US.png)
 
 In this example, Group1, Group2, and Group3 are three different security groups. ECS1, ECS2, and ECS3 are three different ECS instances. ECS1 and ECS2 belong to Group1 and Group2. ECS2 and ECS3 belong to Group3.
 
