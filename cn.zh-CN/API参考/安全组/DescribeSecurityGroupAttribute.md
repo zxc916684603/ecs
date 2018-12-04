@@ -7,7 +7,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeSecurityGroupAttribute|
-|RegionId|String|是|安全组所属地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|安全组所属地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |SecurityGroupId|String|是|安全组 ID。|
 |NicType|String|否|网卡类型。取值范围：-   internet：公网
 -   intranet：内网
@@ -31,7 +31,7 @@
 -   Drop：内网隔离
 
 |
-|Permissions|[PermissionType](intl.zh-CN/API参考/数据类型/PermissionType.md#)|安全组权限规则集合|
+|Permissions|[PermissionType](cn.zh-CN/API参考/数据类型/PermissionType.md#)|安全组权限规则集合|
 |VpcId|String|VPC ID。如果返回 VPC ID，表示该安全组网络类型为 VPC。否则，表示是经典网络类型安全组。|
 
 ## 示例 { .section}
@@ -45,7 +45,7 @@ https://ecs.aliyuncs.com/?Action=DescribeSecurityGroupAttribute
 &<公共请求参数>
 ```
 
-**返回示例** 
+**返回示例**
 
 **XML 格式**
 
@@ -76,7 +76,7 @@ https://ecs.aliyuncs.com/?Action=DescribeSecurityGroupAttribute
 </DescribeSecurityGroupAttributeResponse>
 ```
 
- **JSON 格式** 
+**JSON 格式** 
 
 ```
 {
@@ -106,7 +106,7 @@ https://ecs.aliyuncs.com/?Action=DescribeSecurityGroupAttribute
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
