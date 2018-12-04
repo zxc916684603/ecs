@@ -48,7 +48,17 @@
 
 默认值：accept|
 |DestCidrIp|String|否|目的端 IP 地址范围。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。默认值：0.0.0.0/0|
+|Ipv6DestCidrIp|String|否|目的端 IPv6 CIDR 地址段。支持 CIDR 格式和 IPv6 格式的 IP 地址范围。**说明：** 仅支持 VPC 类型的 IP 地址。
+
+默认值：无。
+
+|
 |SourceCidrIp|String|否|源端 IP 地址范围。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。默认值：0.0.0.0/0|
+|Ipv6SourceCidrIp|String|否|源端 IPv6 CIDR 地址段。支持 CIDR 格式和 IPv6 格式的 IP 地址范围。**说明：** 仅支持 VPC 类型的 IP 地址。
+
+默认值：无。
+
+|
 |SourceGroupId|String|否|需要撤销访问权限的源端安全组 ID。必须设置 `SourceGroupId` 或者 `SourceCidrIp` 参数。如果指定了 `SourceGroupId` 没有指定参数 `SourceCidrIp`，则参数 `NicType` 取值只能为 `intranet`。如果同时指定了 `SourceGroupId` 和 `SourceCidrIp`，则默认以 `SourceCidrIp` 为准。|
 |SourceGroupOwnerAccount|String|否|跨账户删除安全组规则时，源端安全组所属的阿里云账户。-   如果 `SourceGroupOwnerAccount` 及 `SourceGroupOwnerId` 均未设置，则认为是撤销您其他安全组的访问权限。
 -   如果已经设置参数 `SourceCidrIp`，则参数 `SourceGroupOwnerAccount` 无效。
@@ -62,9 +72,9 @@
 
 |
 
-## 返回参数 {#section_vxx_cp1_ydb .section}
+## 返回参数 {#ResponseParameter .section}
 
-全是公共返回参数。参阅 [公共参数](cn.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅[公共返回参数](../cn.zh-CN/API参考/快速入门/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -101,12 +111,16 @@ https://ecs.aliyuncs.com/?Action=RevokeSecurityGroup
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
-|错误代码|错误信息|HTTP 状态码|说明|
-|:---|:---|:-------|:-|
+|错误代码|错误信息|HTTP状态码|说明|
+|:---|:---|:------|:-|
 |InvalidIpPortRange.Malformed|The specified parameter “PortRange” is not valid.|400|指定的 `PortRange` 不合法。|
 |InvalidIpProtocol.ValueNotSupported|The specified IpProtocol does not exist.|400|指定的 `IpProtocol`不存在。|
+|InvalidParam.SourceIp|SourceCidrIp either ipv4 or ipv6.|400|不能同时指定参数 SourceCidrIp 和Ipv6SourceCidrIp。|
+|InvalidParam.DestIp|DestCidrIp either ipv4 or ipv6.|400|不能同时指定参数 DestCidrIp 和Ipv6DestCidrIp。|
+|InvalidParam.Ipv6SourceCidrIp|The specified param V6SourceCidrIp is not valid.|400|指定的参数 Ipv6SourceCidrIp 无效。|
+|InvalidParam.Ipv6DestCidrIp|The specified param V6DestCidrIp is not valid.|400|指定的参数Ipv6DestCidrIp 无效。|
 |InvalidNicType.ValueNotSupported|The specified NicType does not exist.|400|指定的 `NicType` 不存在。|
 |InvalidPolicy.Malformed|The specified parameter “Policy” is not valid.|400|指定的 `Policy` 不合法。|
 |InvalidSourceCidrIp.Malformed|The specified parameter “SourceCidrIp” is not valid.|400|指定的 `SourceCidrIp`不合法。|
