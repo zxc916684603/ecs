@@ -47,8 +47,18 @@
 -   drop：拒绝访问，不发回拒绝信息。
 
 默认值：accept|
-|DestCidrIp|String|否|目的端 IP 地址范围。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。默认值：0.0.0.0/0|
-|SourceCidrIp|String|否|源端 IP 地址范围。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。默认值：0.0.0.0/0|
+|DestCidrIp|String|否|目的端 IP 地址范围。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。默认值：无。|
+|Ipv6DestCidrIp|String|否|目的端 IPv6 CIDR 地址段。支持 CIDR 格式和 IPv6 格式的 IP 地址范围。**说明：** 仅支持 VPC 类型的 IP 地址。
+
+默认值：无。
+
+|
+|SourceCidrIp|String|否|源端 IP 地址范围。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。默认值：无。|
+|Ipv6SourceCidrIp|String|否|源端 IPv6 CIDR 地址段。支持 CIDR 格式和 IPv6 格式的 IP 地址范围。**说明：** 仅支持 VPC 类型的 IP 地址。
+
+默认值：无。
+
+|
 |DestGroupId|String|否|需要撤销访问权限的目的端安全组 ID。必须设置 `DestGroupId` 或者 `DestCidrIp` 参数。如果指定了 `DestGroupId` 没有指定参数 `DestCidrIp`，则参数 `NicType` 取值只能为 `intranet`。如果同时指定了 `DestGroupId` 和 `DestCidrIp`，则默认以 `DestCidrIp` 为准。|
 |DestGroupOwnerAccount|String|否|跨账户删除安全组规则时，目的端安全组所属的阿里云账户。-   如果 `DestGroupOwnerAccount` 及 `DestGroupOwnerId` 均未设置，则认为是撤销您其他安全组的访问权限。
 -   如果已经设置参数 `DestCidrIp`，则参数 `DestGroupOwnerAccount` 无效。
@@ -62,9 +72,9 @@
 
 |
 
-## 返回参数 {#section_f54_lk5_xdb .section}
+## 返回参数 {#ResponseParameter .section}
 
-全是公共返回参数。参阅 [公共参数](cn.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅[公共返回参数](../cn.zh-CN/API参考/快速入门/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -109,7 +119,7 @@ https://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress
 </RevokeSecurityGroupEgressResponse>
 ```
 
- **JSON 格式** 
+**JSON 格式** 
 
 ```
 {
@@ -119,12 +129,16 @@ https://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
-|错误代码|错误信息|HTTP 状态码|说明|
-|:---|:---|:-------|:-|
+|错误代码|错误信息|HTTP状态码|说明|
+|:---|:---|:------|:-|
 |InvalidDestCidrIp.Malformed|The specified parameter “DestCidrIp” is not valid.|400|指定的 `DestCidrIp`不合法。|
 |InvalidDestCidrIp.sMalformed|The specified parameter “DestCidrIp” is not valid.|400|指定的 `DestCidrIp`不合法。|
+|InvalidParam.SourceIp|SourceCidrIp either ipv4 or ipv6.|400|不能同时指定参数 SourceCidrIp 和Ipv6SourceCidrIp。|
+|InvalidParam.DestIp|DestCidrIp either ipv4 or ipv6.|400|不能同时指定参数 DestCidrIp 和Ipv6DestCidrIp。|
+|InvalidParam.Ipv6SourceCidrIp|The specified param V6SourceCidrIp is not valid.|400|指定的参数 Ipv6SourceCidrIp 无效。|
+|InvalidParam.Ipv6DestCidrIp|The specified param V6DestCidrIp is not valid.|400|指定的参数Ipv6DestCidrIp 无效。|
 |InvalidDestGroupId.Mismatch|Specified security group and destination group are not in the same VPC.|400|指定安全组的网络类型是 VPC，目的端安全组必须在同一个 VPC 里。|
 |InvalidIpPortRange.Malformed|The specified parameter “PortRange” is not valid.|400|指定的 `PortRange` 不合法。|
 |InvalidIpProtocol.ValueNotSupported|The specified IpProtocol does not exist.|400|指定的 `IpProtocol`不存在。|
