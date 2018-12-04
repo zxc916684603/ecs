@@ -6,9 +6,9 @@
 
 ## Java SDK 使用方法示例 { .section}
 
-以 ECS Java SDK 查询可用镜像资源的方法 [DescribeImages](../../../../intl.zh-CN/API 参考/镜像/DescribeImages.md#) 为例，介绍 SDK 使用的完整流程，其中 IClientProfile 和 IAcsClient 两个类包含在 aliyun-java-sdk-core 包中，其他的类均包含在 aliyun-java-sdk-ecs 包中。
+以 ECS Java SDK 查询可用镜像资源的方法 [DescribeImages](../../../../intl.zh-CN/API参考/镜像/DescribeImages.md#) 为例，介绍 SDK 使用的完整流程，其中 IClientProfile 和 IAcsClient 两个类包含在 aliyun-java-sdk-core 包中，其他的类均包含在 aliyun-java-sdk-ecs 包中。
 
-1.  创建 Profile。生成 IClientProfile 的对象 profile，该对象存放 AccessKeyID 和 AccessKeySecret 和默认的地域信息，如示例中的 cn-hangzhou，更多关于地域的信息，参阅 [地域与可用区](https://help.aliyun.com/document_detail/40654.html)。
+1.  创建 Profile。生成 IClientProfile 的对象 profile，该对象存放 AccessKeyID 和 AccessKeySecret 和默认的地域信息，如示例中的 cn-hangzhou，更多关于地域的信息，参阅 [地域和可用区](../../../../intl.zh-CN/通用参考/地域和可用区.md#)。
 
     ```
     IClientProfile profile = DefaultProfile.getProfile("cn-hangzhou", ak,  aks); #ak 是您的 AccessKey，aks 是您的 AccessKeySecret
@@ -20,13 +20,13 @@
     IAcsClient client = new DefaultAcsClient(profile);
     ```
 
-3.  创建 Request。创建一个对应方法的 Request，类的命名规则一般为 API 的方法名加上 Request，如获得镜像列表的 API 方法名为 [DescribeImages](../../../../intl.zh-CN/API 参考/镜像/DescribeImages.md#)，那么对应的请求类名就是 DescribeImagesRequest，直接使用构造函数生成一个默认的类 describe。
+3.  创建 Request。创建一个对应方法的 Request，类的命名规则一般为 API 的方法名加上 Request，如获得镜像列表的 API 方法名为 [DescribeImages](../../../../intl.zh-CN/API参考/镜像/DescribeImages.md#)，那么对应的请求类名就是 DescribeImagesRequest，直接使用构造函数生成一个默认的类 describe。
 
     ```
     DescribeImagesRequest describe = new DescribeImagesRequest();
     ```
 
-4.  设置 Request 的参数。请求类生成好之后需要通过 Request 类的 setXxx 方法设置必要的信息，即 API 参数中必须要提供的信息，[DescribeImages](../../../../intl.zh-CN/API 参考/镜像/DescribeImages.md#) 的 API 方法必须要提供的参数为 RegionId，该值可以省略，因为 IClientProfile 中已经提供了地域信息，同样的也可以通过 setXxx 方法设置其他可选的参数，如这里设置要查询的镜像为自定义镜像，则设置 ImageOwnerAlias 的值为 self，表示查询您的自定义镜像。
+4.  设置 Request 的参数。请求类生成好之后需要通过 Request 类的 setXxx 方法设置必要的信息，即 API 参数中必须要提供的信息，[DescribeImages](../../../../intl.zh-CN/API参考/镜像/DescribeImages.md#) 的 API 方法必须要提供的参数为 RegionId，该值可以省略，因为 IClientProfile 中已经提供了地域信息，同样的也可以通过 setXxx 方法设置其他可选的参数，如这里设置要查询的镜像为自定义镜像，则设置 ImageOwnerAlias 的值为 self，表示查询您的自定义镜像。
 
     ```
     describe.setImageOwnerAlias("self");
@@ -68,7 +68,7 @@
 
 ## 参考信息 { .section}
 
--   关于 ECS 的所有 API，请参阅 [API 概览](../../../../intl.zh-CN/API 参考/API 概览.md#)。
+-   关于 ECS 的所有 API，请参阅 [API 概览](../../../../intl.zh-CN/API参考/API 概览.md#)。
 
 -   关于如何创建 AccessKey，请参阅 [创建 AccessKey](https://www.alibabacloud.com/help/doc-detail/53045.htm)。
 
