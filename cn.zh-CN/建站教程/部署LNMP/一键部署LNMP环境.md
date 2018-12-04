@@ -1,6 +1,6 @@
 # 一键部署LNMP环境 {#concept_53077_zh .concept}
 
-LNMP分别代表Linux、Nginx、MySQL、PHP。本文介绍如何使用阿里云资源编排服务（ROS）一键在ECS实例搭建LNMP环境。
+LNMP分别代表Linux、Nginx、MySQL、PHP。本文介绍如何使用阿里云资源编排服务（ROS）一键部署LNMP环境。
 
 ROS是阿里云官网提供的免费服务，无需下载安装。您可以使用ROS创建JSON格式的资源栈模板文件，或者使用ROS提供的 [模板样例](https://ros.console.aliyun.com/#/template/list) 创建一组阿里云资源。在本教程中，我们会使用ROS控制台提供的 **LNMP\_basic** 模板，自动创建一台ECS实例，并在实例上部署LNMP环境。
 
@@ -18,11 +18,12 @@ ROS是阿里云官网提供的免费服务，无需下载安装。您可以使�
 3.  在左侧导航栏中，单击 **模板样例**。
 4.  从模板样例中，找到 **LNMP\_basic**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/154115239212071_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/154391301912071_zh-CN.png)
 
 5.  单击 **预览** 按钮查看模板的JSON文件。JSON文件各个顶级字段的解释如下表所示。
 
     |顶级字段|解释|
+    |:---|:-|
     |`"ROSTemplateFormatVersion" : "2015-09-01"`|定义模板版本。|
     |     ```
 "Description": "Deploy LNMP(Linux+Nginx+MySQL+PHP) stack on 1 ECS instance. ***
@@ -34,11 +35,11 @@ ROS是阿里云官网提供的免费服务，无需下载安装。您可以使�
     |`"Resources" : { }`|定义这个模板将要创建的阿里云资源。本示例中，申明将要创建一个ECS实例和一个安全组，这里申明的资源属性可以引用`Parameters`中定义的参数。|
     |`"Outputs": { }`|定义资源创建完成后，栈需要输出的资源信息。本示例中，资源创建完成后将输出ECS实例ID、公网IP地址和安全组ID。|
 
-    **说明：** 关于ROS资源栈模板的更多信息，请参见资源编排的 [模板结构说明](../../../../cn.zh-CN/.md#)。
+    **说明：** 关于ROS资源栈模板的更多信息，请参见资源编排的 [模板结构说明](../../../../cn.zh-CN/用户指南/模板语法/模板结构说明.md#)。
 
-6.  单击 **创建Stack**。
-7.  在 **直接输入** 部分，在 **所在region** 的下拉框中选择具体地域，并在页面右下角单击 **下一步**。本例选择 **华东2**。
-8.  在 **启动栈** 部分，设置参数：
+6.  单击 **创建栈**。
+7.  在 **所在region** 的下拉框中选择具体地域，并在页面右下角单击 **下一步**。本例选择 **华东2**。
+8.  设置栈的相关参数：
 
     -   **栈名**：设置一个栈名，不可重复，而且创建之后不能修改。
     -   **创建超时**：设置一个时间。如果在设置的时间段内资源未创建成功，则判断超时。您可以选择是否 **失败回滚**。如果选择失败回滚，那么创建过程中发生任何失败（包括创建超时），ROS都会删除已经创建成功的资源。
@@ -52,19 +53,19 @@ ROS是阿里云官网提供的免费服务，无需下载安装。您可以使�
     -   **InstanceType**：填写您需要的ECS实例规格。详见第2步。
     -   **SystemDiskCategory**：选择云盘类型，作为系统盘。
     -   **InstancePassword** 和 **Please Confirm InstancePassword**：设置并确认实例的登录密码。根据模板定义，密码只能包括大写或小写英文字母和数字。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/154115239212072_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/154391301912072_zh-CN.png)
 
 9.  单击 **创建**，页面将提示 **请求提交成功**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/154115239214330_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/154391301914330_zh-CN.png)
 
 10. 在左侧导航栏中，单击 **资源栈管理** 查看栈的状态。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/154115239214331_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/154391301914331_zh-CN.png)
 
 11. 点击新创建的栈的名称，在打开的**栈概况**页面的**输出**部分查看`Outputs`中定义的`NginxWebsiteURL`。您能通过这个地址访问创建好的LNMP环境。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/154115239214341_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/154391301914341_zh-CN.png)
 
     **说明：** 
 
@@ -78,5 +79,5 @@ ROS是阿里云官网提供的免费服务，无需下载安装。您可以使�
 
 更多模板，请参见 [模板样例](https://ros.console.aliyun.com/#/template/list)。
 
-更多ROS信息，请参见 [ROS帮助中心](../../../../cn.zh-CN/.md#) 和 [ROS云栖博客](https://yq.aliyun.com/articles/57553)。
+更多ROS信息，请参见 [ROS文档](../../../../cn.zh-CN/产品简介/什么是资源编排服务？.md#) 和 [ROS云栖博客](https://yq.aliyun.com/articles/57553)。
 
