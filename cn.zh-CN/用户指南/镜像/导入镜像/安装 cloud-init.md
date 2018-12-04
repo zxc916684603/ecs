@@ -43,7 +43,7 @@
 4.  运行 `python setup.py install` 安装cloud-init的安装文件setup.py。
 5.  运行 `vi /etc/cloud/cloud.cfg` 修改配置文件cloud.cfg。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9704/15394858254621_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9704/15439003574621_zh-CN.png)
 
     将 `cloud_init_modules` 之前的配置修改成如下：
 
@@ -80,7 +80,7 @@
 
 ## 排查故障 {#section_xsx_t4m_xdb .section}
 
-不同镜像缺少的库可能不同，您都可以通过pip安装，安装完之后再次重复以上步骤 [4](#setup.py)。
+不同镜像缺少的库可能不同，您都可以通过pip安装，安装完之后再次重复以上 [步骤4](#)。
 
 **缺少six和oauthlib库**
 
