@@ -1,15 +1,15 @@
 # 搭建LNMP环境（CentOS 7） {#concept_fnh_v3x_5fb .concept}
 
-本文档介绍如何使用云服务器用ECS实例搭建LNMP平台，其中LNMP分别代表Linux、Nginx、MySQL和PHP。
+本文档介绍如何手动在ECS实例上搭建LNMP环境（CentOS 7），其中LNMP分别代表Linux、Nginx、MySQL和PHP。
 
 ## 项目配置 {#section_mrn_4dv_vfb .section}
 
 本篇教程在示例步骤中使用了以下版本的软件。操作时，请您以实际软件版本为准。
 
--   操作系统：CentOS 7.2
+-   操作系统：CentOS 7.2 64位
 -   Nginx版本：Nginx 1.10.2
 -   MySQL版本：MySQL 5.6.24
--   PHP版本：PHP 5.6.23
+-   PHP版本：PHP 5.6.38
 
 ## 适用对象 {#section_pmz_2x2_2fb .section}
 
@@ -36,13 +36,13 @@
 2.  [使用管理终端连接ECS实例](../cn.zh-CN/用户指南/连接实例/使用管理终端连接ECS实例.md#)。
 3.  输入命令`cat /etc/redhat-release`查看系统版本。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/154288288432170_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/154391310132170_zh-CN.png)
 
 4.  关闭防火墙。
 
     输入`systemctl status firewalld`命令查看当前防火墙的状态。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/154288288432172_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/154391310132172_zh-CN.png)
 
     如果防火墙的状态参数是active，则防火墙为开启状态。如果防火墙的状态参数是inactive，则防火墙为关闭状态。如上图所示，此处防火墙为开启状态，需要运行如下命令关闭防火墙：
 
@@ -57,14 +57,14 @@
 5.  关闭SELinux。
     1.  输入getenforce命令查看当前SELinux的状态。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154288288421065_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154391310121065_zh-CN.png)
 
     2.  如果SELinux状态参数是Enforcing，则SELinux为开启状态。如果SELinux状态参数是Disabled， 则SELinux为关闭状态。如上图所示，此处SELinux为开启状态，需要运行如下命令关闭SELinux：
         -   如果您想临时关闭SELinux，输入命令`setenforce 0`。
 
             **说明：** 这只是暂时关闭SELinux，下次重启Linux后，SELinux还会开启。
 
-        -   如果您想永久关闭SELinux，输入命令`vi /etc/selinux/config`编辑SELinux配置文件。回车后，把光标移动到`SELINUX=enforcing`这一行，输入`i`进入编辑模式，修改为`SELINUX=disabled`， 按`Esc`键，然后输入`:wq`并回车以保存并关闭SELinux配置文件。
+        -   如果您想永久关闭SELinux，输入命令`vi /etc/selinux/config`编辑SELinux配置文件。回车后，把光标移动到`SELINUX=enforcing`这一行，按下`i`键进入编辑模式，修改为`SELINUX=disabled`， 按下`Esc`键，然后输入`:wq`并回车以保存并关闭SELinux配置文件。
 
             **说明：** 您可参考redhat关于[SELinux的官方文档](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/deployment_guide/ch-selinux#s1-SELinux-resources)来决定何时开启SELinux。
 
@@ -129,7 +129,7 @@
 
 3.  输入命令`nginx -v`可查看Nginx的版本号。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/154288288432179_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/154391310132179_zh-CN.png)
 
 4.  添加运行Nginx服务进程的用户。
 
@@ -140,7 +140,7 @@
 
 5.  添加nginx.service启动配置文件。
 
-    输入命令`vi /usr/lib/systemd/system/nginx.service`打开Nginx的启动配置文件，然后在配置文件中写下如下内容：
+    输入命令`vi /usr/lib/systemd/system/nginx.service`打开Nginx的启动配置文件，按下`i`键，然后在配置文件中写下如下内容：
 
     ```
     [Unit]
@@ -172,7 +172,7 @@
 
 7.  登录[ECS管理控制台](https://ecs.console.aliyun.com/)，单击左侧导航栏中的**实例**，在**实例列表**中找到正在部署环境的实例，从这个实例的**IP地址**项中复制它的公网IP，用浏览器访问这个IP地址可看到默认欢迎页面。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154288288421168_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154391310121168_zh-CN.png)
 
 
 **步骤三：安装MySQL。**
@@ -191,7 +191,6 @@
     groupadd -r mysql
     useradd -r -g mysql -s /sbin/nologin mysql
     id mysql
-    uid=995(mysql) gid=993(mysql) groups=993(mysql)
     ```
 
 3.  更改数据目录属主和属组。
@@ -207,21 +206,21 @@
     tar xvf mysql-5.6.24.tar.gz -C  /usr/local/src
     cd /usr/local/src/mysql-5.6.24
     cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \
-    -DMYSQL_DATADIR=/mnt/data \
-    -DSYSCONFDIR=/etc \
-    -DWITH_INNOBASE_STORAGE_ENGINE=1 \
-    -DWITH_ARCHIVE_STORAGE_ENGINE=1 \
-    -DWITH_BLACKHOLE_STORAGE_ENGINE=1 \
-    -DWITH_READLINE=1 \
-    -DWITH_SSL=system \
-    -DWITH_ZLIB=system \
-    -DWITH_LIBWRAP=0 \
-    -DMYSQL_TCP_PORT=3306 \
-    -DDEFAULT_CHARSET=utf8 \
-    -DMYSQL_UNIX_ADDR=/tmp/mysql.sock \ 
-    -DWITH_SYSTEMD=auto \ 
-    -DINSTALL_SYSTEMD_UNITDIR=/usr/lib/systemd/system \
-    -DDEFAULT_COLLATION=utf8_general_ci 
+    > -DMYSQL_DATADIR=/mnt/data \
+    > -DSYSCONFDIR=/etc \
+    > -DWITH_INNOBASE_STORAGE_ENGINE=1 \
+    > -DWITH_ARCHIVE_STORAGE_ENGINE=1 \
+    > -DWITH_BLACKHOLE_STORAGE_ENGINE=1 \
+    > -DWITH_READLINE=1 \
+    > -DWITH_SSL=system \
+    > -DWITH_ZLIB=system \
+    > -DWITH_LIBWRAP=0 \
+    > -DMYSQL_TCP_PORT=3306 \
+    > -DDEFAULT_CHARSET=utf8 \
+    > -DDEFAULT_COLLATION=utf8_general_ci \
+    > -DMYSQL_UNIX_ADDR=/usr/local/mysql/mysql.sock \
+    > -DWITH_SYSTEMD=1 \
+    > -DINSTALL_SYSTEMD_UNITDIR=/usr/lib/systemd/system \
     make && make install
     ```
 
@@ -248,7 +247,7 @@
 
 8.  添加mysql.service启动配置文件。
 
-    输入命令`vi /usr/lib/systemd/system/mysql.service`打开MySQL的启动配置文件，然后在配置文件中写下如下内容：
+    输入命令`vi /usr/lib/systemd/system/mysql.service`打开MySQL的启动配置文件，按下`i`键，然后在配置文件中写下如下内容：
 
     ```
     [Unit]
@@ -306,10 +305,10 @@ Nginx作为web服务器，当它接收到请求后，不支持对外部程序的
 2.  下载稳定版源码包解压编译。
 
     ```
-    wget http://cn2.php.net/get/php-5.6.23.tar.bz2/from/this/mirror
-    cp mirror php-5.6.23.tar.bz2
-    tar xvf php-5.6.23.tar.bz2 -C /usr/local/src
-    cd /usr/local/src/php-5.6.23
+    wget http://cn2.php.net/get/php-5.6.38.tar.bz2/from/this/mirror
+    cp mirror php-5.6.38.tar.bz2
+    tar xvf php-5.6.38.tar.bz2 -C /usr/local/src
+    cd /usr/local/src/php-5.6.38
     ./configure --prefix=/usr/local/php \
     --with-config-file-scan-dir=/etc/php.d \
     --with-config-file-path=/etc \
@@ -333,7 +332,7 @@ Nginx作为web服务器，当它接收到请求后，不支持对外部程序的
 3.  添加PHP和PHP-FPM配置文件。
 
     ```
-    cp /usr/local/src/php-5.6.23/php.ini-production /etc/php.ini
+    cp /usr/local/src/php-5.6.38/php.ini-production /etc/php.ini
     cd /usr/local/php/etc/
     cp php-fpm.conf.default php-fpm.conf
     sed -i 's@;pid = run/php-fpm.pid@pid = /usr/local/php/var/run/php-fpm.pid@' php-fpm.conf
@@ -341,7 +340,7 @@ Nginx作为web服务器，当它接收到请求后，不支持对外部程序的
 
 4.  添加php-fpm.service启动配置文件。
 
-    输入命令`vi /usr/lib/systemd/system/php-fpm.service`打开PHP-FPM的启动配置文件，然后在配置文件中写下如下内容：
+    输入命令`vi /usr/lib/systemd/system/php-fpm.service`打开PHP-FPM的启动配置文件，按下`i`键，然后在配置文件中写下如下内容：
 
     ```
     [Unit]
@@ -383,7 +382,7 @@ Nginx作为web服务器，当它接收到请求后，不支持对外部程序的
         cp /etc/nginx/nginx.conf.default /etc/nginx/nginx.conf
         ```
 
-    2.  输入命令`vi /etc/nginx/nginx.conf`编辑Nginx的配置文件，在所支持的主页面格式中添加PHP格式的主页，类似如下：
+    2.  输入命令`vi /etc/nginx/nginx.conf`打开Nginx的配置文件，按下`i`键，在所支持的主页面格式中添加PHP格式的主页，类似如下：
 
         ```
         location / {
@@ -408,7 +407,7 @@ Nginx作为web服务器，当它接收到请求后，不支持对外部程序的
     5.  将`fastcgi_param SCRIPT_FILENAME /scripts$fastcgi_script_name;`改成`fastcgi_param SCRIPT_FILENAME /etc/nginx/html/$fastcgi_script_name;`。
     6.  按下`Esc`键，然后输入`:wq`并回车以保存并关闭Nginx配置文件。
 8.  输入命令`systemctl restart nginx`重新载入Nginx的配置文件。
-9.  输入命令`vi /etc/nginx/html/index.php`打开index.php文件，然后在文件中写入如下内容：
+9.  输入命令`vi /etc/nginx/html/index.php`打开index.php文件，按下`i`键，然后在文件中写入如下内容：
 
     ```
     <?php
@@ -428,5 +427,5 @@ Nginx作为web服务器，当它接收到请求后，不支持对外部程序的
 
 登录 [ECS管理控制台](https://ecs.console.aliyun.com/)，单击左侧导航栏中的**实例**，在**实例列表**中复制正在部署环境的实例的公网IP地址。用浏览器访问这个公网IP地址，如您看见如下图所示页面，则表示LNMP平台构建完成。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/154288288432205_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/154391310132205_zh-CN.png)
 
