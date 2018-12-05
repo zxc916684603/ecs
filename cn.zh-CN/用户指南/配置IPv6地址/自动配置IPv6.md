@@ -11,7 +11,7 @@ IPv6地址不仅可以手工配置，还能够自动配置。您可以使用ecs-
 
 ## 注意事项 {#section_rqf_bwp_yfb .section}
 
--   该工具仅适用于VPC网络实例，依赖实例元数据服务，使用前请勿将网络禁用或者将相关出口IP端口（100.100.100.200:80）禁用。
+-   该工具仅适用于VPC网络实例，依赖实例元数据服务，使用前请勿将网络禁用或者将相关出口IP端口（100.100.100.200:80）禁用。详情请参见 [实例元数据](cn.zh-CN/用户指南/实例/实例自定义数据和元数据/实例元数据.md#)。
 
 -   该工具运行时会自动重启网卡、网络服务，短时间内网络可能会不可用，请慎重执行。
 
@@ -77,7 +77,7 @@ IPv6地址不仅可以手工配置，还能够自动配置。您可以使用ecs-
 
 -   RHEL系列
 
-    支持CentOS 6/7， Red Hat 6/7，Aliyun Linux 17
+    支持CentOS 5/6/7， Red Hat 5/6/7，Aliyun Linux 17
 
     [下载地址](http://ecs-image-utils.oss-cn-hangzhou.aliyuncs.com/ipv6/rhel/ecs-utils-ipv6)
 
@@ -85,7 +85,7 @@ IPv6地址不仅可以手工配置，还能够自动配置。您可以使用ecs-
 
     支持Ubuntu 14/16， Debian/8/9
 
-    [下载地址](http://ecs-image-utils.oss-cn-hangzhou.aliyuncs.com/ipv6/rhel/ecs-utils-ipv6)
+    [下载地址](http://ecs-image-utils.oss-cn-hangzhou.aliyuncs.com/ipv6/debian/ecs-utils-ipv6)
 
 -   SLES系列
 
@@ -93,12 +93,24 @@ IPv6地址不仅可以手工配置，还能够自动配置。您可以使用ecs-
 
     [下载地址](http://ecs-image-utils.oss-cn-hangzhou.aliyuncs.com/ipv6/sles/ecs-utils-ipv6)
 
+-   CoreOS系列
+
+    支持CoreOS 14/17
+
+    [下载地址](http://ecs-image-utils.oss-cn-hangzhou.aliyuncs.com/ipv6/coreos/ecs-utils-ipv6)
+
+-   FreeBSD系列
+
+    支持FreeBSD 11
+
+    [下载地址](http://ecs-image-utils.oss-cn-hangzhou.aliyuncs.com/ipv6/freebsd/ecs-utils-ipv6)
+
 -   Windows系列
 
     支持Windows Server 2003/2008/2012/2016（32、64位）
 
-    -   [64位下载地址](http://ecs-image-utils.oss-cn-hangzhou.aliyuncs.com/ipv6/win/ecs-utils-ipv6.exe)
-    -   [32位下载地址](http://ecs-image-utils.oss-cn-hangzhou.aliyuncs.com/ipv6/win/ecs-utils-ipv6-i386.exe)
+    -   [64位下载地址](http://ecs-image-utils.oss-cn-hangzhou.aliyuncs.com/ipv6/win/64/ecs-utils-ipv6.exe)
+    -   [32位下载地址](http://ecs-image-utils.oss-cn-hangzhou.aliyuncs.com/ipv6/win/32/ecs-utils-ipv6.exe)
 
 ## 自动化脚本示例 {#section_ykn_bzp_yfb .section}
 
