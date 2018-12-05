@@ -40,12 +40,13 @@ IPV6_DEFAULTGW=<IPv6网关>
     -   多 IPv6 地址：
 
 ```
-NETWORKING_IPV6=yes
-IPV6ADDR_SECONDARIES="<IPv6地址1>/<子网前缀长度> <IPv6地址2>/<子网前缀长度>">
+IPV6INIT=yes
+IPV6ADDR=<IPv6地址>/<子网前缀长度>
+IPV6ADDR_SECONDARIES="<IPv6地址1>/<子网前缀长度> <IPv6地址2>/<子网前缀长度>"
 IPV6_DEFAULTGW=<IPv6网关>
 ```
 
-        **说明：** 多个 IPv6 地址使用半角引号（`"`）包含，并用空格隔开。
+        **说明：** 为区分单个 IPv6 与多个 IPv6 地址，请在 IPV6ADDR\_SECONDARIES 参数中使用列表格式表达多地址格式，使用半角引号（`"`）包含地址，并用空格隔开。
 
 3.  重启网络服务：运行 `service network restart` 或 `systemctl restart network`。
 
@@ -69,18 +70,26 @@ gateway <IPv6网关>
     -   多 IPv6 地址：
 
 ```
-auto eth0:1
-iface eth0:1 inet6 static
+auto eth0
+iface eth0 inet6 static
+address <IPv6地址>
+netmask <子网前缀长度>
+gateway <IPv6网关>
+
+auto eth0:0
+iface eth0:0 inet6 static
 address <IPv6地址1>
 netmask <子网前缀长度>
 gateway <IPv6网关>
 
-auto eth0:2
-iface eth0:2 inet6 static
+auto eth0:1
+iface eth0:1 inet6 static
 address <IPv6地址2>
 netmask <子网前缀长度>
 gateway <IPv6网关>
 ```
+
+        **说明：** 为区分单个 IPv6 与多个 IPv6 地址，您只需在同一网卡标识符的基础上重复添加地址信息即可。
 
 3.  重启网络服务：运行 `service network restart` 或 `systemctl restart networking`。
 
@@ -101,12 +110,17 @@ PREFIXLEN_0=<子网前缀长度>
     -   多 IPv6 地址：
 
 ```
+IPADDR_0=<IPv6地址>
+PREFIXLEN_0=<子网前缀长度>
+
 IPADDR_1=<IPv6地址1>
 PREFIXLEN_1=<子网前缀长度>
 
 IPADDR_2=<IPv6地址2>
 PREFIXLEN_2=<子网前缀长度>
 ```
+
+        **说明：** 为区分单个 IPv6 与多个 IPv6 地址，请使用不用的 IPADDR\_N 和 PREFIXLEN\_N 重复添加地址信息。
 
 3.  运行 `vi /etc/sysconfig/network/routes` 打开路由配置文件，添加配置项：
 
@@ -140,7 +154,12 @@ Gateway=<IPv6网关>
 Address=<IPv6地址1>/<子网前缀长度>
 [Address]
 Address=<IPv6地址2>/<子网前缀长度>
+[Route]
+Destination=::/0
+Gateway=<IPv6网关>
 ```
+
+        **说明：** 为区分单个 IPv6 与多个 IPv6 地址，您只需重复添加地址信息即可。
 
 3.  重启网络服务：运行 `systemctr restart systemd-networkd`。
 
@@ -163,7 +182,10 @@ ipv6_defaultrouter="<IPv6网关>"
 ```
 ipv6_ifconfig_vtnet0="<IPv6地址1>"
 ipv6_ifconfig_vtnet0="<IPv6地址2>"
+ipv6_defaultrouter="<IPv6网关>"
 ```
+
+        **说明：** 为区分单个 IPv6 与多个 IPv6 地址，您只需在同一网卡标识符的基础上重复添加地址信息即可。
 
 3.  重启网络服务：运行 `/etc/netstart restart`。
 
