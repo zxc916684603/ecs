@@ -60,4 +60,10 @@ Default value: NoSpot.|
 |IoOptimized|Boolean |Whether an instance is I/O optimized or not.|
 |ExpiredTime|String|Time of expiration. The time format follows the [ISO8601](../reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.|
 |KeyPairName|String|SSH key pair name.|
+|DeletionProtection|Boolean|Whether an instance can be released manually through the console or API \([DeleteInstance](reseller.en-US/API Reference/Instances/DeleteInstance.md#)\).-   true: Deletion protection is enabled.
+-   false: Deletion protection is disabled.
+
+**Note:** This attribute applies to the Pay-As-You-Go instances and preemptible instances. However, it can only restrict the manual release operation, not the release operation by Alibaba Cloud.
+
+|
 
