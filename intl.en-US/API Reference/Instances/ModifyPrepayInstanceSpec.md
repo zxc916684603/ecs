@@ -20,7 +20,7 @@ When using this operation, consider the following:
 |Action|String|Yes|The operation that you want to perform. Value: ModifyPrepayInstanceSpec.|
 |InstanceId|String|Yes|Instance ID.|
 |RegionId|String|Yes|The region ID.For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|InstanceType|String|Yes|The instance type to change to. For more information, see [Instance Type Family](../reseller.en-US/Product Introduction/Instance type families.md#), or call [DescribeInstanceTypes](reseller.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to obtain the latest type list.|
+|InstanceType|String|Yes|The instance type to change to. For more information, see [instance Type Family](../reseller.en-US/Product Introduction/Instance type families.md#), or call [DescribeInstanceTypes](reseller.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to obtain the latest type list.|
 |OperatorType|String|No|Operation type. Optional values:-   upgrade: Upgrades the instance type.
 -   downgrade: Downgrades the instance type.
 
@@ -117,7 +117,7 @@ https://ecs.aliyuncs.com/?Action=ModifyPrepayInstanceSpec
 |ImageNotSupportInstanceType|The specified image does not support the specified InstanceType.|403|The specified image does not support this instance type.|
 |InvalidAccountStatus.NotEnoughBalance|Your account does not have enough balance.|403|Your registered credit card is invalid or has credit limit set.|
 |InvalidBillingMethod|The specified billing method is invalid.|403|The specified billing method does not exist.|
-|InvalidUser.PassRoleForbidden|The RAM user does not have privilege to pass a role.|403|Your RAM user does not have the `PassRole` permission. Contact the owner of the primary account to [grant](../reseller.en-US/Quick Start/Attach policies to a RAM user.md#) the PassRole permission.|
+|InvalidUser.PassRoleForbidden|The RAM user does not have privilege to pass a role.|403|Your RAM user does not have the `PassRole` permission. Contact the owner of the primary account to [grant](../reseller.en-US/Quick Start/Authorize RAM users.md#) the PassRole permission.|
 |BillingMethodNotFound|The account has not chosen any billing method.|404|No payment method was selected for your account.|
 |InvalidRegionId.NotFound|The specified RegionId does not exist.|404|The specified `RegionId` does not exist.|
 |InternalError|The request processing has failed due to some unknown error, exception or failure.|500|Internal error.|
