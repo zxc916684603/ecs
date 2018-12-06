@@ -8,13 +8,17 @@ Creates a command. You can perform the command by using cloud assistant.
     -   Bat scripts for Windows instances \(`RunBatScript`\).
     -   PowerShell scripts for Windows instances \(`RunPowerShellScript`\).
     -   Shell scripts for Linux instances \(`RunShellScript`\).
--   You can specify the `TimeOut` parameter to set the maximum timeout value for command invocation on ECS instances. When the command invocation times out, the [client](../reseller.en-US/User Guide/Cloud Assistant Client.md#) forces the command process to stop.
+-   You can specify the `TimeOut` parameter to set the maximum timeout value for command invocation on ECS instances. When the command invocation times out, the [client](../reseller.en-US/User Guide/Cloud assistant/Cloud assistant client.md#) forces the command process to stop.
     -   For one-time invocation, after an invocation timeout, the command invocation status \([`InvokeRecordStatus`](reseller.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#InvokeRecordStatusRequest)\) for the specified ECS instance becomes `Failed`.
     -   For periodical invocation:
         -   The timeout value of periodical invocation is effective for every invocation record.
         -   After one invocation operation times out, the status for the invocation record \([`InvokeRecordStatus`](reseller.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#InvokeRecordStatusRequest)\) becomes `Failed`.
         -   The timeout status of last invocation does not affect the next invocation.
 -   You can specify the `WorkingDir` parameter to specify the invocation path of the command. For Linux instances, commands are performed in the `/root` directory by default. For Windows instances, commands are performed in the directory where the cloud assistant client process is located, such as `C:\ProgramData\aliyun\assist\$(version)`.
+-   You can create 100 commands at maximum under a Alibaba Cloud Region.
+
+    **Note:** If you require a higher quota of commands, please submit a ticket to apply for.
+
 
 ## Request parameters {#RequestParameter .section}
 
