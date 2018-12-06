@@ -6,14 +6,20 @@
 
 当您使用该接口时，请注意：
 
--   在一个阿里云地域下，您每天最多能运行500次云助手命令。
--   目标实例的网络类型必须是 [专有网络VPC](../../../../../intl.zh-CN/产品简介/什么是专有网络.md#)。
+-   在一个阿里云地域下，您每天能调用 100 次 InvokeCommand 接口。
+
+    **说明：** 如果您想调整调用次数上限，请 [提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm) 申请。
+
+-   目标实例的网络类型必须是 [专有网络VPC](../../../../../cn.zh-CN/产品简介/什么是专有网络.md#)。
 -   目标实例的状态必须为 **运行中**（`Running`）。
--   目标实例必须预先安装 [云助手客户端](../intl.zh-CN/用户指南/云助手/云助手客户端.md#)。
--   执行类型为PowerShell的命令时，您需要确保目标ECS Windows实例已经配置了PowerShell模块。
+-   目标实例必须预先安装 [云助手客户端](../cn.zh-CN/用户指南/云助手/云助手客户端.md#)。
+-   执行类型为 PowerShell 的命令时，您需要确保目标 ECS Windows实例已经配置了 PowerShell 模块。
 -   对于单次执行（`Timed=False`），只执行一次命令。
 -   对于周期执行（`Timed=True`），云助手将根据参数 `Frequency` 指定的时间频率定时执行。上次的执行结果不对下一次执行产生任何影响。
--   周期执行的时间设置基准为UTC +08:00，且该时间以实例的系统时间为准，您需要确保您的ECS实例的时间或者时区与您预期的时间一致。
+-   周期执行的时间设置基准为UTC +08:00，且该时间以实例的系统时间为准，您需要确保您的 ECS 实例的时间或者时区与您预期的时间一致。
+
+    更多关于时区的详情，Linux 实例请参阅 [时间设置：设置Linux实例时区和NTP服务](../cn.zh-CN/最佳实践/实例配置/时间设置：设置Linux实例时区和NTP服务.md#)，Windows 实例请参阅 [时间设置：设置Windows实例NTP服务](../cn.zh-CN/最佳实践/实例配置/时间设置：设置Windows实例NTP服务.md#)。
+
 -   您可以选择多台ECS实例，若其中某台实例不满足执行条件时，您需要重新选择。
 -   命令的执行可能会因为目标实例的状态异常、网络异常或云助手客户端异常而出现无法执行的情况，无法执行时不会生成执行信息。
 
@@ -22,13 +28,13 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：InvokeCommand|
-|RegionId|String|是|地域ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
-|InstanceId.N|Array|是|需要执行命令的实例列表，最多能指定20台实例ID。`N` 的取值范围为\[1, 20\]。|
-|CommandId|String|是|命令 ID。您可以通过接口 [DescribeCommands](intl.zh-CN/API参考/云助手/DescribeCommands.md#) 查询所有可用的 `CommandId`。|
+|RegionId|String|是|地域ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|InstanceId.N|Array|是|需要执行命令的实例列表，最多能指定 20 台实例 ID。`N` 的取值范围为 \[1, 20\]。|
+|CommandId|String|是|命令 ID。您可以通过接口 [DescribeCommands](cn.zh-CN/API参考/云助手/DescribeCommands.md#) 查询所有可用的 `CommandId`。|
 |Timed|Boolean|否|命令是否为周期执行。默认值：False
 
 |
-|Frequency|String|否|周期任务的执行周期，两次周期任务的时间间隔不能低于10秒。当参数 [`Timed`](#Timed) 的值为 `True` 时，参数 `Frequency` 为必需参数。该参数取值遵循Cron表达式，参阅 [Cron 表达式](https://www.alibabacloud.com/help/faq-detail/64769.htm)。
+|Frequency|String|否|周期任务的执行周期，两次周期任务的时间间隔不能低于10秒。当参数 [`Timed`](#Timed) 的值为 `True` 时，参数 `Frequency` 为必需参数。该参数取值遵循Cron表达式，参阅 [Cron 表达式](https://help.aliyun.com/document_detail/64769.html)。
 
 |
 
@@ -98,10 +104,10 @@ https://ecs.aliyuncs.com/?Action=InvokeCommand
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
-|错误代码|错误信息|HTTP状态码|说明|
-|:---|:---|:------|:-|
+|错误代码|错误信息|HTTP 状态码|说明|
+|:---|:---|:-------|:-|
 |InvalidInstanceStatus|The specified instance’s status can not execute this operation|400|指定实例的状态必须为运行中；或者指定实例的网络状态异常。|
 |MissingParameter.CommandId|The input parameter “CommandId” that is mandatory for processing this request is not supplied.|400|您必须指定必需参数 `CommandId`。|
 |MissingParameter.InstanceIds|The input parameter “InstanceIds” that is mandatory for processing this request is not supplied.|400|您必须指定必需参数 `InstanceId.N`。|

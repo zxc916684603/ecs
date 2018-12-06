@@ -6,9 +6,13 @@ Performs a specified command on one or more ECS instances.
 
 When you call this interface, consider the following:
 
+-   You can call this InvokeCommand action 100 times at maximum per day.
+
+    **Note:** If you require a higher quota of invocations, please submit a ticket to apply for.
+
 -   The network type of the specified instances must be VPC.
 -   The target ECS instance must be in the **Running** \(`Running`\) status.
--   The target ECS instance must have the [cloud assistant client](../reseller.en-US/User Guide/Cloud Assistant Client.md#) installed in advance.
+-   The target ECS instance must have the [cloud assistant client](../reseller.en-US/User Guide/Cloud assistant/Cloud assistant client.md#) installed in advance.
 -   To perform a PowerShell command, make sure that the target Windows ECS instance has been configured with the PowerShell module.
 -   For one-time invocation \(`Timed=False`\), the command is performed only once.
 -   For periodical invocation \(`Timed=True`\), the first invocation task starts at the time specified in the `Frequency` parameter. Subsequent invocations follow the frequency specified in the `Frequency` parameter. The result of last invocation does not affect the next invocation.
@@ -98,7 +102,7 @@ https://ecs.aliyuncs.com/?Action=InvokeCommand
 
 |Error code|Error message |HTTP status code|Meaning|
 |:---------|:-------------|:---------------|:------|
-|InvalidInstance.NoClient|The specified instances have no cloud assistant client installed.|400|The target ECS instance must have the cloud assistant client installed in advance. For more information, see [Cloud assistant client](../reseller.en-US/User Guide/Cloud Assistant Client.md#).|
+|InvalidInstance.NoClient|The specified instances have no cloud assistant client installed.|400|The target ECS instance must have the cloud assistant client installed in advance. For more information, see [Cloud assistant client](../reseller.en-US/User Guide/Cloud assistant/Cloud assistant client.md#).|
 |InvalidInstance.NotVpc|The specified instances must be VPC instances.|400|The network type of the specified `InstanceIds` must be VPC.|
 |InvalidInstanceStatus|The specified instance’s status can not execute this operation|400|The specified instance must be in the Running status. Or the specified instance has abnormal network connection.|
 |MissingParameter.CommandId|The input parameter “CommandId” that is mandatory for processing this request is not supplied.|400|You must specify the required parameter `CommandId`.|
