@@ -6,7 +6,7 @@
 
 VPC内网迁云要求您能从IDC、虚拟机环境或者云主机访问目标VPC。具体实现方案可以选择高速通道服务或者VPN网关服务，利用高速通道的 [专线接入](https://www.alibabacloud.com/help/doc-detail/54210.html)功能或者在目标VPC中 [搭建VPN网关](https://www.alibabacloud.com/help/doc-detail/54211.html)。
 
-**说明：** 高速通道或者VPN网关为付费云服务，请根据您的实际需要使用。更多详情，请参阅 [高速通道计费方式](../../../../../intl.zh-CN/产品定价/计费说明.md#) 和 [按量计费](../../../../../intl.zh-CN/产品定价/按量计费.md#)。
+**说明：** 高速通道或者VPN网关为付费云服务，请根据您的实际需要使用。更多详情，请参阅 [物理专线连接计费说明](../../../../../intl.zh-CN/产品定价/物理专线连接计费说明.md#) 和 [按量计费](../../../../../intl.zh-CN/产品定价/按量计费.md#)。
 
 ## client\_data说明 {#section_eww_qz1_kfb .section}
 
@@ -78,5 +78,5 @@ VPC内网迁云需要将`net_mode`设置为1或者2。|
 
 ## FAQ {#section_zww_qz1_kfb .section}
 
-当迁云工作中断后，您可以查看 [迁云工具FAQ](intl.zh-CN/最佳实践/P2V 迁云实践/迁云工具 FAQ.md#) 或者 [添加迁云工具客户反馈钉钉群](https://h5.dingtalk.com/invite-page/index.html?spm=a2c4g.11186623.2.31.FEg99s&code=ca190154ff) 联系ECS迁云技术支持。![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9833/154054593313339_zh-CN.png)
+当迁云工作中断后，您可以查看 [迁云工具FAQ](intl.zh-CN/最佳实践/P2V 迁云实践/迁云工具 FAQ.md#) 或者 [添加迁云工具客户反馈钉钉群](https://h5.dingtalk.com/invite-page/index.html?spm=a2c4g.11186623.2.31.FEg99s&code=ca190154ff) 联系ECS迁云技术支持。![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9833/154408646713339_zh-CN.png)
 
