@@ -115,7 +115,7 @@
 |Description|String|否|实例的描述。长度为 \[2, 256\] 个英文或中文字符，不能以 http:// 和 https:// 开头。默认值：空。
 
 |
-|DedicatedHostId|String|否| 是否在专有宿主机上创建 ECS 实例。您可以通过[DescribeDedicatedHosts](intl.zh-CN/API参考/专有宿主机/DescribeDedicatedHosts.md#) 查询专有宿主机 ID 列表。
+|DedicatedHostId|String|否| 是否在专有宿主机上创建 ECS 实例。您可以通过 [DescribeDedicatedHosts](../../../../../intl.zh-CN/API参考/DescribeDedicatedHosts.md#) 查询专有宿主机 ID 列表。
 
  由于专有宿主机不支持创建抢占式实例，指定 DedicatedHostId 参数后，会自动忽略请求中的 SpotStrategy 和 SpotPriceLimit 设置。
 
