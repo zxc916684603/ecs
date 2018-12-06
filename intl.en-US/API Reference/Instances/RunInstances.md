@@ -154,12 +154,18 @@ If this parameter is not specified, the default value is the InstanceId of the i
 -   It must be less than three years from the current time.
 
 |
+|DeletionProtection|Boolean|No|Whether an instance can be released manually through the console or API \([DeleteInstance](reseller.en-US/API Reference/Instances/DeleteInstance.md#)\).-   true: Enable deletion protection.
+-   false \(default value\): Disable deletion protection.
+
+**Note:** This attribute applies to the Pay-As-You-Go instances and preemptible instances. However, it can only restrict the manual release operation, not the release operation by Alibaba Cloud.
+
+|
 |UserData|String|No|The user data of an instance. It must be encoded in Base64 format. The maximum size of the user data is 16 KB.|
 |KeyPairName|String|No|The name of the key pair.-   For **Windows** instances, ignore this parameter. Default value: null. The `Password` is still effective even the KeyPairName is used.
 -   The username and password authentication method is disabled if a value is set for parameter KeyPairName for a **Linux instance**.
 
 |
-|RamRoleName|String|No|Instance RAM role name. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../../reseller.en-US/API reference/API reference (RAM)/Role Management Interface/ListRoles.md#). For more information, see [CreateRole](../../../../../reseller.en-US/API reference/API reference (RAM)/Role Management Interface/CreateRole.md#) and [ListRoles](../../../../../reseller.en-US/API reference/API reference (RAM)/Role Management Interface/ListRoles.md#).|
+|RamRoleName|String|No|Instance RAM role name. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../../reseller.en-US/API reference/API Reference (RAM)/Role Management Interface/ListRoles.md#). For more information, see [CreateRole](../../../../../reseller.en-US/API reference/API Reference (RAM)/Role Management Interface/CreateRole.md#) and [ListRoles](../../../../../reseller.en-US/API reference/API Reference (RAM)/Role Management Interface/ListRoles.md#).|
 |SecurityEnhancementStrategy|String|No|Whether or not to enable security enhancement. Options:-   Active: Enables the security enhancement feature and installs a free network security software. Only applicable to the Alibaba Cloud official images.
 -   Deactive: Disables the security enhancement feature. No network security software is installed. Applicable to all kinds of images.
 
