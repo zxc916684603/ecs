@@ -16,8 +16,11 @@
 |ImageId|String|实例运行的镜像 ID|
 |RegionId|String|实例所属地域 ID|
 |ZoneId|String|实例所属可用区|
+|DedicatedHostAttribute|Array of DedicatedHostAttributeType|由专有宿主机 ID（DedicatedHostId） 和名称（DedicatedHostName）组成的宿主机属性数组|
 |Cpu|Integer|vCPU 核数|
-|Memory|Integer|内存大小，单位 MB|
+|GPUSpec|String|实例规格附带的 GPU 类型|
+|GPUAmount|Integer|实例规格附带的 GPU 数量|
+|Memory|Float|内存大小，单位 GiB|
 |InstanceType|String|实例资源规格|
 |InstanceTypeFamily|String|实例规格族|
 |HostName|String|实例主机名|
@@ -30,7 +33,7 @@
 |InternetChargeType|String|网络计费类型。可能值：-   PayByTraffic：按流量计费
 
 |
-|CreationTime|String|实例创建时间。按照 [ISO8601](intl.zh-CN/API参考/附录/时间格式.md#) 标准表示，使用 UTC 时间。格式为 YYYY-MM-DDThh:mm:ssZ|
+|CreationTime|String|实例创建时间。按照[ISO8601](../intl.zh-CN/API参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
 |InstanceNetworkType|String|实例网络类型。可能值：-   Classic
 -   Vpc
 
@@ -39,11 +42,13 @@
 |EipAddress|[EipAddressAssociateType](intl.zh-CN/API参考/数据类型/EipAddressAssociateType.md#)|弹性公网 IP 绑定信息|
 |InnerIpAddress|[IpAddressSetType](intl.zh-CN/API参考/数据类型/IpAddressSetType.md#)|实例的内网 IP 地址|
 |OperationLocks|[OperationLocksType](intl.zh-CN/API参考/数据类型/OperationLocksType.md#)|实例的锁定原因|
-|InstanceChargeType|String|实例的付费方式。可能值：-   PrePaid：包年包月
+|InstanceChargeType|String|实例的计费方式。可能值：-   PrePaid：预付费（包年包月 ）
 -   PostPaid：按量付费
 
 |
-|SpotStrategy|String|抢占式实例的竞价策略。可能值：-   NoSpot：正常按量付费实例
+|SaleCycle|String|当实例为预付费实例时，实例购买的周期单位。取值范围：week | month | year|
+|SpotPriceLimit|Float|设置实例的每小时最高价格。支持最大3位小数，参数`SpotStrategy=SpotWithPriceLimit`时，该参数生效。|
+|SpotStrategy|String|抢占式实例的抢占策略。可能值：-   NoSpot：正常按量付费实例
 -   SpotWithPriceLimit：设置上限价格的抢占式实例
 -   SpotAsPriceGo：系统自动出价，最高按量付费价格
 
@@ -57,6 +62,12 @@
 |DeploymentSetId|String|部署集 ID|
 |NetworkInterfaces|[NetworkInterfaceType](intl.zh-CN/API参考/数据类型/NetworkInterfaceType.md#)|实例包含的弹性网卡集合|
 |IoOptimized|Boolean|是否为 I/O 优化型实例|
-|ExpiredTime|String|过期时间。按照 [ISO8601](intl.zh-CN/API参考/附录/时间格式.md#) 标准表示，使用 UTC 时间。格式为 YYYY-MM-DDThh:mm:ssZ|
+|ExpiredTime|String|过期时间。按照[ISO8601](../intl.zh-CN/API参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
 |KeyPairName|String|密钥对名称|
+|DeletionProtection|Boolean|实例释放保护属性，指定是否支持通过控制台或API（[DeleteInstance](intl.zh-CN/API参考/实例/DeleteInstance.md#)）释放实例。-   true：已开启实例释放保护。
+-   false：未开启实例释放保护。
+
+**说明：** 该属性适用于按量付费和抢占式实例，但只能限制手动释放操作，对系统释放操作不生效。
+
+|
 
