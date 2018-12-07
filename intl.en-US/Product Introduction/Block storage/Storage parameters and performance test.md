@@ -126,10 +126,7 @@ Block Storage capacity is measured in binary units, such as kibibyte \(KiB\), me
 
 ## Test disk performance {#section_jvz_vzv_ydb .section}
 
-Depending on the OS that an instance is running, the following tools are recommended to test disk performance:
-
--   For Linux, DD, fio, or sysbench is recommended.
--   For Windows, fio or Iometer is recommended.
+fio in recommended to test disk performance.
 
 **Note:** The disk benchmark tested by different tools varies with different operating systems. The performance parameters in this article are the results tested by fio with a Linux instance, and are used as the index reference of block storage product performance.
 
