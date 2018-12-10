@@ -4,7 +4,7 @@ Preemptible instances are on-demand instances. They are designed to reduce your 
 
 **Note:** After an instance is released, its data cannot be recovered. We recommend that you [create a snapshot](../../../../reseller.en-US/User Guide/Snapshots/Create a snapshot.md#) to back up data before releasing an instance.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9552/15438211515106_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9552/15444092475106_en-US.png)
 
 ## Scenarios {#section_fdc_jt5_ydb .section}
 
@@ -50,13 +50,13 @@ Preemptible instance price and billing considerations:
 
 -   **Price** 
 
-    The preemptible instance price applies to the instance type only, including vCPUs and memories, but not system disks, data disks, or network bandwidth. Instead, system disks and data disks are billed according to the [Pay-As-You-Go](../../../../reseller.en-US/Pricing/Pay-As-You-Go.md#) billing method. Network bandwidth is billed according to the bandwidth billing rules of Pay-As-You-Go instances. For more information, see [Billing of Internet bandwidth](../../../../reseller.en-US/Pricing/Billing of network bandwidth.md#).
+    The preemptible instance price applies to the instance type only, including vCPUs and memories, but not system disks, data disks, or network bandwidth. Instead, system disks and data disks are billed according to the [Pay-As-You-Go](../../../../reseller.en-US/Pricing/Pay-As-You-Go.md#) billing method. Network bandwidth is billed according to the bandwidth billing rules of Pay-As-You-Go instances. For more information, see [Billing of Internet bandwidth](../../../../reseller.en-US/Pricing/Billing of Internet bandwidth.md#).
 
 -   **Billing method**
 
     The billing method varies according to the regions:
 
-    -   Australia \(Sydney\), Japan \(Tokyo\), Germany \(Frankfurt\), United Arab Emirates \(Dubai\), China \(Zhangjiakou\), China \(Hohhot\), Malaysia \(Kuala Lumpur\), Singapore, India \(Mumbai\), Indonesia \(Jakarta\)
+    -   Australia \(Sydney\), Japan \(Tokyo\), Germany \(Frankfurt\), United Arab Emirates \(Dubai\)
 
         Preemptible instances are billed by the second. When a preemptible instance is created successfully, the market price is an hourly rate and you only need to divide it by 3,600 to get the price per second.
 
