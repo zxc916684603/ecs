@@ -35,18 +35,17 @@
         "Action": "sts:AssumeRole",
         "Effect": "Allow",
         "Principal": {
-        "Service": [
-          "ecs.aliyuncs.com"
-        ]
+          "Service": [
+            "ecs.aliyuncs.com"
+          ]
         }
         }
         ],
         "Version": "1"
         }
-        
         ```
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9825/153924209112522_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9825/154440953212522_zh-CN.png)
 
 2.  创建授权策略。找到 OpenAPI Explorer RAM 产品下的 CreatePolicy API。其中：
     -    **PolicyName**：设置授权策略的名称。本示例中为 *EcsRamRolePolicyTest*。
@@ -57,8 +56,8 @@
         "Statement": [
         {
         "Action": [
-        "oss:Get*",
-        "oss:List*"
+          "oss:Get*",
+          "oss:List*"
         ],
         "Effect": "Allow",
         "Resource": "*"
@@ -66,17 +65,16 @@
         ],
         "Version": "1"
         }
-        
         ```
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9825/153924209112523_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9825/154440953312523_zh-CN.png)
 
 3.  为角色附加授权。找到 OpenAPI Explorer RAM 产品下 AttachPolicyToRole API。其中：
     -    **PolicyType**：填写 *Custom*。
     -    **PolicyName**：填写第 2 步创建的策略名称，如本示例中的 *EcsRamRolePolicyTest*。
     -    **RoleName**：填写第 1 步创建的角色名称，如本示例中的 *EcsRamRoleTest*。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9825/153924209112524_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9825/154440953312524_zh-CN.png)
 
 
 ## 步骤 2. 为 ECS 实例指定 RAM 角色 { .section}
@@ -106,26 +104,25 @@
     -    **VSwitchId**：实例所在的 VPC 虚拟交换机。因为 ECS 实例 RAM 角色目前只支持 VPC 类型 ECS 实例，所以 VSwitchId 是必需的。
     -    **RamRoleName**：RAM 角色的名称。本示例中为 *EcsRamRoleTest*。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9825/153924209112525_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9825/154440953312525_zh-CN.png)
 
     如果您希望授权子账号创建指定 RAM 角色的 ECS 实例，那么子账号除了拥有创建 ECS 实例的权限之外，还需要增加 PassRole 权限。所以，您需要创建一个如下所示的自定义授权策略并绑定到子账号上。如果是创建 ECS 实例，\[ECS RAM Action\] 可以是 `ecs:CreateInstance`，您也可以根据实际情况添加更多的权限。如果您需要为子账号授予所有 ECS 操作权限，\[ECS RAM Action\] 应该替换为 `ecs:*`。
 
     ```
     {
-      "Statement": [
-        {
-          "Action": "[ECS RAM Action]", 
-          "Resource": "*",
-          "Effect": "Allow"
-        },
-    	{
-          "Action": "ram:PassRole",
-          "Resource": "*",
-          "Effect": "Allow"
-      ],
-      "Version": "1"
+    "Statement": [
+    {
+    "Action": "[ECS RAM Action]", 
+    "Resource": "*",
+    "Effect": "Allow"
+    },
+    {
+    "Action": "ram:PassRole",
+    "Resource": "*",
+    "Effect": "Allow"
+    ],
+    "Version": "1"
     }
-    
     ```
 
 2.  设置密码并启动实例。
@@ -137,7 +134,7 @@
 
 **说明：** STS 临时凭证失效前半小时会生成新的 STS 临时凭证，在这半小时内，新旧 STS 临时凭证均可使用。
 
-1.  [远程连接实例](../../../../dita-oss-bucket/SP_2/DNA0011894323/ZH-CN_TP_9621.dita)。
+1.  远程连接实例。
 2.  访问 `http://100.100.100.200/latest/meta-data/ram/security-credentials/EcsRamRoleTest` 获取 STS 临时凭证。路径最后一部分是 RAM 角色名称，您应替换为自己的创建的 RAM 角色名称。
 
     **说明：** 本示例中使用 `curl` 命令访问上述 URL。如果您使用的是 Windows ECS 实例，请参见 [实例元数据](../../../../intl.zh-CN/用户指南/实例/实例自定义数据和元数据/实例元数据.md)。
@@ -153,8 +150,8 @@
     "SecurityToken" : "CAIXXXXXXXXXXXwmBkleCTkyI+",
     "LastUpdated" : "2017-06-09T03:17:18Z",
     "Code" : "Success"
+    }cess"
     }
-    
     ```
 
 
@@ -180,18 +177,17 @@
     -    `oss2.StsAuth` 中的 3 个参数分别对应于上述 URL 返回的 AccessKeyId、AccessKeySecret 和 SecurityToken。
     -    `oss2.Bucket` 中后 2 个参数是 Bucket 的名称和 Endpoint。
     ```
-    	import oss2
-    	from itertools import islice
-    	auth = oss2.StsAuth(<AccessKeyId>, <AccessKeySecret>, <SecurityToken>)
-    	bucket = oss2.Bucket(auth, <您的 Endpoint>, <您的 Bucket 名称>)
-    	for b in islice(oss2.ObjectIterator(bucket), 10):
-    	    print(b.key)
-    
+    import oss2
+    from itertools import islice
+    auth = oss2.StsAuth(<AccessKeyId>, <AccessKeySecret>, <SecurityToken>)
+    bucket = oss2.Bucket(auth, <您的 Endpoint>, <您的 Bucket 名称>)
+    for b in islice(oss2.ObjectIterator(bucket), 10):
+      print(b.key).key)
     ```
 
     示例输出结果如下。
 
-    ```language-python
+    ```
     [root@local ~]# python
     Python 2.7.5 (default, Nov  6 2016, 00:28:07)
     [GCC 4.8.5 20150623 (Red Hat 4.8.5-11)] on linux2
@@ -204,8 +200,7 @@
     ...     print(b.key)
     ...
     ramroletest.txt
-    test.sh
-    
+    test.shh
     ```
 
 
