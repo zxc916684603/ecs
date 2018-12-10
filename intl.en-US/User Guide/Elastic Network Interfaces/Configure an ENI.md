@@ -17,7 +17,7 @@ You have attached an elastic network card to an ECS instance.
 
 To configure the ENI, follow these steps:
 
-1.  Use the [DescribeNetworkInterfaces](../../../../dita-oss-bucket/SP_2/DNA0011860945/EN-US_TP_9954.dita) interface or log on to the ECS console to obtain the following attributes of the ENI: primary private IP address, subnet mask, the default route, and the MAC address. To obtain these attributes in the ECS console, follow these steps: MAC address. Do the following on the console.
+1.  Use the [DescribeNetworkInterfaces](../../../../reseller.en-US/API Reference/Elastic network interfaces/DescribeNetworkInterfaces.md#) interface or log on to the ECS console to obtain the following attributes of the ENI: primary private IP address, subnet mask, the default route, and the MAC address. To obtain these attributes in the ECS console, follow these steps: MAC address. Do the following on the console.
     1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).Log on to the ECS Management Console.
     2.  Find a network interface, and obtain its primary private IP address, subnet mask, default route, and MAC address. Locate the primary and private IP address, mask address, default route,  and MAC for each network interface. Example:
 
