@@ -1,5 +1,7 @@
 # 配置 ECS 实例的弹性网卡 {#concept_lyl_2kk_zdb .concept}
 
+根据您的实例使用的镜像不同，部分镜像需要手动配置弹性网卡，才能使附加在实例上的弹性网卡被系统识别。
+
 如果您的实例使用以下几种镜像，您不需要手工配置弹性网卡（ENI）：
 
 -   CentOS 7.3 64 位
@@ -19,7 +21,7 @@
 
 您应该按以下步骤配置弹性网卡：
 
-1.  使用 [DescribeNetworkInterfaces](../../../../dita-oss-bucket/SP_2/DNA0011860945/ZH-CN_TP_9954.dita) 接口或者在 ECS 控制台上获取每个网卡的主私有 IP 地址、掩码地址、默认路由和 MAC 地址。以下为 ECS 控制台上的操作步骤：
+1.  使用 [DescribeNetworkInterfaces](../../../../intl.zh-CN/API参考/弹性网卡/DescribeNetworkInterfaces.md#) 接口或者在 ECS 控制台上获取每个网卡的主私有 IP 地址、掩码地址、默认路由和 MAC 地址。以下为 ECS 控制台上的操作步骤：
     1.  登录 [ECS管理控制台](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home)。
     2.  找到每个网卡的主私有 IP 地址、掩码地址、默认路由和 MAC 地址。示例如下：
 
