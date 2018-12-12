@@ -13,9 +13,11 @@ Permission
 |IpProtocol|String|IP协议|
 |PortRange|String|端口范围|
 |SourceCidrIp|String|源IP地址段，用于入方向授权|
+|Ipv6SourceCidrIp|String|源 IPv6 地址段|
 |SourceGroupId|String|源安全组，用于入方向授权|
 |SourceGroupOwnerAccount|String|源安全组所属阿里云账户Id|
 |DestCidrIp|String|目标IP地址段，用于出方向授权|
+|Ipv6DestCidrIp|String|目的 IPv6 地址段|
 |DestGroupId|String|目标安全组，用于出方向授权|
 |DestGroupOwnerAccount|String|目标安全组所属阿里云账户Id|
 |Policy|String|授权策略|
