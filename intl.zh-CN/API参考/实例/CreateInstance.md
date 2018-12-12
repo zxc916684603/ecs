@@ -1,10 +1,10 @@
 # CreateInstance {#CreateInstance .reference}
 
-创建一台ECS实例。
+创建一台预付费（包年包月）或者按量付费的 ECS 实例。创建实例的同时，您需要自行确定实例的操作系统类型、磁盘容量和网络类型等配置。
 
 ## 描述 {#section_nnh_jcy_wdb .section}
 
-创建一台实例前，您可以调用 [DescribeAvailableResource](intl.zh-CN/API参考/地域/DescribeAvailableResource.md#) 查看指定地域或者可用区内的实例资源供给情况。
+**说明：** 创建一台实例前，您可以调用 [DescribeAvailableResource](intl.zh-CN/API参考/地域/DescribeAvailableResource.md#) 查看指定地域或者可用区内的实例资源供给情况。若您希望批量创建实例并且实例自动进入 **运行中**（`Running`），推荐您使用 [RunInstances](intl.zh-CN/API参考/实例/RunInstances.md#) 接口。
 
 创建实例会涉及到资源计费，建议您提前了解云服务器ECS的计费方式。更多详情，请参阅 [计费概述](../intl.zh-CN/产品定价/计费概述.md#)。若实例付费类型为预付费的包年包月实例（`PrePaid`），则在付款时默认会使用您可用的优惠券。
 
@@ -19,7 +19,7 @@
 
 在创建实例时，必须要选择镜像，确定新创建实例的系统盘配置。基于镜像创建实例后，实例的系统盘即为此镜像的完全克隆。
 
--   实例内存为512 MiB时不能使用Windows镜像。
+-   实例内存为512 MiB时不能使用除Windows Server 1709之外的Windows镜像。
 
 -   实例内存为4 GiB以上时不能使用32位操作系统的镜像。
 
@@ -229,7 +229,7 @@
 
 |
 |DeploymentSetId|String|否|部署集ID。|
-|RamRoleName|String|否|实例RAM角色名称。您可以使用 *RAM* API [ListRoles](../../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#) 查询实例RAM角色名称。参考相关 API [CreateRole](../../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/CreateRole.md#) 和 [ListRoles](../../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#) 。|
+|RamRoleName|String|否|实例RAM角色名称。您可以使用 *RAM* API [ListRoles](../../../../../intl.zh-CN/API 参考（RAM）/角色管理接口/ListRoles.md#) 查询实例RAM角色名称。参考相关 API [CreateRole](../../../../../intl.zh-CN/API 参考（RAM）/角色管理接口/CreateRole.md#) 和 [ListRoles](../../../../../intl.zh-CN/API 参考（RAM）/角色管理接口/ListRoles.md#) 。|
 |SecurityEnhancementStrategy|String|否|是否开启安全加固。取值范围：-   Active：启用安全加固，只对系统镜像生效。
 -   Deactive：不启用安全加固，对所有镜像类型生效。
 
@@ -300,12 +300,10 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |InstanceDiskNumber.LimitExceed|The total number of specified disk in an instance exceeds.|400|镜像中包含的数据盘和数据盘参数合并后，数据盘的总数超出限制。|
 |InvalidAutoRenewPeriod.ValueNotSupported|The specified autoRenewPeriod is not valid.|400|指定的`AutoRenewPeriod`不合法。|
 |InvalidDataDiskCategory.ValueNotSupported|The specified parameter DataDisk.n.Category is not valid.|400|指定的`DataDisk.n.Category`不合法。|
-|InvalidDataDiskCategory.ValueNotSupported|The specified parameter DataDisk.n.Category is not valid.|400|指定的`DataDisk.n.Category`不合法。|
 |InvalidDataDiskSize.ValueNotSupported|The specified DataDisk.n.Size beyond the permitted range, or the capacity of snapshot exceeds the size limit of the specified disk category.|400|指定的`DataDisk.n.Size`不合法（超出范围）。|
 |InvalidDescription.Malformed|The specified parameter Description is not valid.|400|指定的`Description`格式不合法。|
 |InvalidDiskCategory.Mismatch|The specified disk categories’ combination is not supported.|400|指定的磁盘类型组合不支持。|
 |InvalidDiskCategory.ValueNotSupported|The specified parameter DiskCategory is not valid.|400|指定的`DiskCategory`不合法。|
-|InvalidDiskDescription.Malformed|The specified parameter SystemDisk.DiskDescription or DataDisk.n.Description is not valid.|400|指定的`SystemDisk.DiskDescription`或`DataDisk.n.Description`不合法。|
 |InvalidDiskDescription.Malformed|The specified parameter SystemDisk.DiskDescription or DataDisk.n.Description is not valid.|400|指定的`SystemDisk.DiskDescription`或`DataDisk.n.Description`不合法。|
 |InvalidDiskName.Malformed|The specified parameter SystemDisk.DiskName or DataDisk.n.DiskName is not valid.|400|指定的`SystemDisk.DiskName`或`DataDisk.n.DiskName`不合法。|
 |InvalidHostName.Malformed|The specified parameter HostName is not valid.|400|指定的`HostName`格式不合法。|
@@ -395,7 +393,6 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |ZoneId.NotFound|The specified zone does not exists.|403|指定的可用区不存在。|
 |DependencyViolation.IoOptimized|The specified InstanceType must be IoOptimized instance.|404|指定的实例规格必须是I/O优化实例。|
 |HOSTNAME\_ILLEGAL|hostname is not valid.|404|指定的`HostName`不合法。|
-|InvalidDataDiskSnapshotId.NotFound|The specified parameter DataDisk.n.SnapshotId is not valid.|404|指定的`DataDisk.n.SnapshotId`不存在。|
 |InvalidDataDiskSnapshotId.NotFound|The specified parameter DataDisk.n.SnapshotId is not valid.|404|指定的`DataDisk.n.SnapshotId`不存在。|
 |InvalidDeploymentSetId.NotFound|The specified DeploymentSetId does not exist.|404|指定的`DeploymentSetId`不存在。|
 |InvalidImageId.NotFound|The specified ImageId does not exist.|404|指定的镜像不存在。|
