@@ -6,7 +6,7 @@
 
 我们定义出方向流量的发起端为源端（Source），数据传输的接收端为目的端（Destination），如下图所示。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9918/15439103326061_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9918/15447687296061_zh-CN.png)
 
 调用该接口时，您需要了解：
 
@@ -22,9 +22,9 @@
 
 -   以下任意一组参数可以确定一条安全组规则。如果匹配的安全组规则已存在，此次 `AuthorizeSecurityGroupEgress`调用失败。
 
-    -   设置指定 IP 地址段的访问权限，如 [请求示例一](#Sample1)：`IpProtocol`、`PortRange`、（可选）`SourcePortRange`、`NicType`、`Policy`、`DestCiderIp` 和 （可选）`SourceCidrIp`
+    -   设置指定 IP 地址段的访问权限，如 [请求示例一](#Sample1)：`IpProtocol`、`PortRange`、（可选）`SourcePortRange`、`NicType`、`Policy`、`DestCidrIp` 和 （可选）`SourceCidrIp`
 
-    -   设置其他安全组的访问权限，如 [请求示例二](#Sample2)：`IpProtocol`、`PortRange`、（可选）`SourcePortRange`、`NicType`、`Policy`、（可选）`DestCiderIp`、`DestGroupOwnerAccount` 和 `DestGroupId`
+    -   设置其他安全组的访问权限，如 [请求示例二](#Sample2)：`IpProtocol`、`PortRange`、（可选）`SourcePortRange`、`NicType`、`Policy`、（可选）`DestCidrIp`、`DestGroupOwnerAccount` 和 `DestGroupId`
 
 
 ## 请求参数 {#RequestParameter .section}
@@ -64,7 +64,7 @@
 |DestCidrIp|String|否|目的端 IP 地址范围。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。默认值：无。
 
 |
-|Ipv6DestCiderIp|String|否|目的端 IPv6 CIDR 地址段。支持CIDR格式和IPv6格式的IP地址范围。**说明：** 仅支持 VPC 类型的 IP 地址。
+|Ipv6DestCidrIp|String|否|目的端 IPv6 CIDR 地址段。支持CIDR格式和IPv6格式的IP地址范围。**说明：** 仅支持 VPC 类型的 IP 地址。
 
 默认值：无。
 
