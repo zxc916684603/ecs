@@ -6,16 +6,17 @@
 
 -   只支持 **可用**（`Available`）或者 **已绑定**（`InUse`）状态下的弹性网卡。
 -   操作主网卡时，网卡附加的实例必须处于 **运行中**（`Running`）或者 **已停止**（`Stopped`）状态。
--   网卡处于 **可用**（`Available`）状态时，最多可以分配10个辅助私有IP地址。一旦挂载到实例上，网卡能分配的辅助私有IP地址数将受到实例规格限制。更多详情，请参阅 [实例规格族](../intl.zh-CN/产品简介/实例规格族.md#)。
+-   网卡处于 **可用**（`Available`）状态时，最多可以分配10个辅助私有IP地址。一旦挂载到实例上，网卡能分配的辅助私有IP地址数将受到实例规格限制。更多详情，请参阅 [实例规格族](../cn.zh-CN/产品简介/实例规格族.md#)。
 
 ## 请求参数 {#RequestParameter .section}
 
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：AssignPrivateIpAddresses|
+|RegionId|String|是|网卡所在的地域ID。您可以调用[DescribeRegions](../cn.zh-CN/API参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
 |NetworkInterfaceId|String|是|弹性网卡ID。|
 |PrivateIpAddress.N|Array|否|从弹性网卡所属虚拟交换机的CIDR地址段中选择一个或多个辅助私有IP地址。`N` 的取值范围：-   弹性网卡处于 **可用**（`Available`）状态：\[1, 10\]
--   弹性网卡处于 **已绑定**（`InUse`）状态：受到实例规格限制，更多详情，请参阅 [实例规格族](../intl.zh-CN/产品简介/实例规格族.md#)。
+-   弹性网卡处于 **已绑定**（`InUse`）状态：受到实例规格限制，更多详情，请参阅 [实例规格族](../cn.zh-CN/产品简介/实例规格族.md#)。
 
 分配辅助私有IP地址时，您要么指定参数`PrivateIpAddress.N`，要么指定参数`SecondaryPrivateIpAddressCount`。
 
@@ -24,7 +25,7 @@
 
 ## 返回参数 {#ResponseParameter .section}
 
-全是公共返回参数。参阅 [公共返回参数](intl.zh-CN/API参考/快速入门/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅 [公共返回参数](cn.zh-CN/API参考/快速入门/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -58,7 +59,7 @@ https://ecs.aliyuncs.com/?Action=AssignPrivateIpAddresses
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
