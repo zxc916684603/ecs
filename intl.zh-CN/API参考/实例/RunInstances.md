@@ -165,7 +165,7 @@ RunInstances 可以执行批量创建任务，为便于管理与检索，建议�
 |DeletionProtection|Boolean|否|实例释放保护属性，指定是否支持通过控制台或API（[DeleteInstance](intl.zh-CN/API参考/实例/DeleteInstance.md#)）释放实例。-   true：开启实例释放保护。
 -   false（默认）：关闭实例释放保护。
 
-**说明：** 该属性适用于按量付费和抢占式实例，但只能限制手动释放操作，对系统释放操作不生效。
+**说明：** 该属性适用于按量付费实例，但只能限制手动释放操作，对系统释放操作不生效。
 
 |
 |UserData|String|否|实例自定义数据。需要以Base64方式编码，原始数据最多为16 KB。|
@@ -174,7 +174,7 @@ RunInstances 可以执行批量创建任务，为便于管理与检索，建议�
 
 |
 |DeploymentSetId|String|否|部署集ID。|
-|RamRoleName|String|否|实例RAM角色名称。您可以使用 *RAM* API [ListRoles](../../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#) 查询实例RAM角色名称。参考相关API [CreateRole](../../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/CreateRole.md#) 和 [ListRoles](../../../../../intl.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#)。|
+|RamRoleName|String|否|实例RAM角色名称。您可以使用 *RAM* API [ListRoles](../../../../../intl.zh-CN/API参考/角色管理接口/ListRoles.md#) 查询实例RAM角色名称。参考相关API [CreateRole](../../../../../intl.zh-CN/API参考/角色管理接口/CreateRole.md#) 和 [ListRoles](../../../../../intl.zh-CN/API参考/角色管理接口/ListRoles.md#)。|
 |SecurityEnhancementStrategy|String|否|是否开启安全加固。取值范围：-   Active：启用安全加固，只对系统镜像生效。
 -   Deactive：不启用安全加固，对所有镜像类型生效。
 
