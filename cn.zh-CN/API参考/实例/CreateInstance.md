@@ -95,7 +95,9 @@
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：CreateInstance|
 |RegionId|String|是|实例所属的地域ID。您可以调用[DescribeRegions](../intl.zh-CN/API参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
-|ImageId|String|是|镜像文件ID，启动实例时选择的镜像资源。如需使用云市场镜像，您可以在云市场镜像商详情页查看ImageId。|
+|ImageId|String|是|镜像文件 ID，启动实例时选择的镜像资源。您可以通过 [DescribeImages](intl.zh-CN/API参考/镜像/DescribeImages.md#) 查询您可以使用的镜像资源。如需使用云市场镜像，您可以在云市场镜像商详情页查看ImageId。
+
+|
 |InstanceType|String|是|实例的资源规格。更多详情，请参阅 [实例规格族](../intl.zh-CN/产品简介/实例规格族.md#)，也可以调用 [DescribeInstanceTypes](intl.zh-CN/API参考/实例/DescribeInstanceTypes.md#) 接口获得最新的规格表。|
 |CreditSpecification|String|否| 修改突发性能 t5 实例的运行模式。取值范围：
 
@@ -229,7 +231,7 @@
 
 |
 |DeploymentSetId|String|否|部署集ID。|
-|RamRoleName|String|否|实例RAM角色名称。您可以使用 *RAM* API [ListRoles](../../../../../intl.zh-CN/API 参考（RAM）/角色管理接口/ListRoles.md#) 查询实例RAM角色名称。参考相关 API [CreateRole](../../../../../intl.zh-CN/API 参考（RAM）/角色管理接口/CreateRole.md#) 和 [ListRoles](../../../../../intl.zh-CN/API 参考（RAM）/角色管理接口/ListRoles.md#) 。|
+|RamRoleName|String|否|实例RAM角色名称。您可以使用 *RAM* API [ListRoles](../../../../../intl.zh-CN/API参考/角色管理接口/ListRoles.md#) 查询实例RAM角色名称。参考相关 API [CreateRole](../../../../../intl.zh-CN/API参考/角色管理接口/CreateRole.md#) 和 [ListRoles](../../../../../intl.zh-CN/API参考/角色管理接口/ListRoles.md#) 。|
 |SecurityEnhancementStrategy|String|否|是否开启安全加固。取值范围：-   Active：启用安全加固，只对系统镜像生效。
 -   Deactive：不启用安全加固，对所有镜像类型生效。
 

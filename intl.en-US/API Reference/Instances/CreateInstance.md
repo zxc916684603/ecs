@@ -4,7 +4,7 @@ Create an ECS instance.
 
 ## Description {#section_nnh_jcy_wdb .section}
 
-Before creating an instance, you can call [DescribeAvailableResource](reseller.en-US/API Reference/Regions/DescribeAvailableResource.md#) to view the available resources in a specified region.
+**Note:** Before creating an instance, you can call [DescribeAvailableResource](reseller.en-US/API Reference/Regions/DescribeAvailableResource.md#) to view the available resources in a specified region. [RunInstances](reseller.en-US/API Reference/Instances/RunInstances.md#) is recommended if you are going to create multiple instances in a single request.
 
 You are billed when you launch ECS services, so make sure that you understand the billing methods of ECS instances \(`InstanceChargeType`\). And, you must maintain a sufficient balance in your linked credit card or PayPal account to complete the payment or preauthorization. For more information, see [Subscription](../reseller.en-US/Pricing/Subscription.md#) \(`PrePaid`\) and [Pay-As-You-Go](../reseller.en-US/Pricing/Pay-As-You-Go.md#) \(`PostPaid`\). For a subscribed \(`PrePaid`\) instance, your available coupons are the first payment options by default.
 
@@ -95,7 +95,9 @@ For example, [CLI](https://partners-intl.aliyun.com/help/doc-detail/29993.htm)  
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: CreateInstance.|
 |RegionId|String|Yes|Region ID of an instance. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|ImageId|String|Yes|ID of an image file. An image is a running environment template for ECS instances. If you want to select image from the Alibaba Cloud marketplace, you can view the ImageId on the related image details page.|
+|ImageId|String|Yes|ID of an image file. An image is a running environment template for ECS instances. The image ID. You can call [DescribeImages](reseller.en-US/API Reference/Images/DescribeImages.md#) Describes your available image. If you want to select image from the Alibaba Cloud marketplace, you can view the ImageId on the related image details page.
+
+|
 |InstanceType|String|Yes|Instance type. For more information, see [Instance Type Family](../reseller.en-US/Product Introduction/Instance type families.md#), or call [DescribeInstanceTypes](reseller.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to view the latest instance type list.|
 |CreditSpecification|String|No| Modifies the running mode of an unlimited credit enabled t5 instance. Optional values:
 
@@ -245,7 +247,7 @@ Default value: false.|
 
 |
 |DeploymentSetId|String|No|Deployment Set ID. If you do not enter the value, 1 is used.|
-|RamRoleName|String|No|The RAM role name of the instance. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../../reseller.en-US/API reference/API Reference (RAM)/Role Management Interface/ListRoles.md#). For more information, see [CreateRole](../../../../../reseller.en-US/API reference/API Reference (RAM)/Role Management Interface/CreateRole.md#) and [ListRoles](../../../../../reseller.en-US/API reference/API Reference (RAM)/Role Management Interface/ListRoles.md#).|
+|RamRoleName|String|No|The RAM role name of the instance. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../../reseller.en-US/API Reference (RAM)/Role Management Interface/ListRoles.md#). For more information, see [CreateRole](../../../../../reseller.en-US/API Reference (RAM)/Role Management Interface/CreateRole.md#) and [ListRoles](../../../../../reseller.en-US/API Reference (RAM)/Role Management Interface/ListRoles.md#).|
 |SecurityEnhancementStrategy|String|No|Whether or not to enable security enhancement. Optional values:-   Active: Enables the security enhancement feature and installs a free network security software. Only applicable to the Alibaba Cloud official images.
 -   Deactive: Disables the security enhancement feature. No network security software is installed. Applicable to all kinds of images.
 
@@ -307,12 +309,10 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |InstanceDiskNumber.LimitExceed|The total number of specified disk in an instance exceeds.|400|The number of data disks attached to one ECS exceeds 16.|
 |InvalidAutoRenewPeriod.ValueNotSupported|The specified autoRenewPeriod is not valid.|400|The specified `AutoRenewPeriod` is invalid.|
 |InvalidDataDiskCategory.ValueNotSupported|The specified parameter DataDisk.n.Category is not valid.|400|The specified `DataDisk.n.Category` is invalid.|
-|InvalidDataDiskCategory.ValueNotSupported|The specified parameter DataDisk.n.Category is not valid.|400|The specified `DataDisk.n.Category` is invalid.|
 |InvalidDataDiskSize.ValueNotSupported|The specified DataDisk.n.Size beyond the permitted range, or the capacity of snapshot exceeds the size limit of the specified disk category.|400|The specified `DataDisk.n.Size` is invalid or exceeds the maximum size of the specified disk category.|
 |InvalidDescription.Malformed|The specified parameter Description is not valid.|400|The specified `Description` is invalid.|
 |InvalidDiskCategory.Mismatch|The specified disk categories’ combination is not supported.|400|The combination of specified disk categories is not supported.|
 |InvalidDiskCategory.ValueNotSupported|The specified parameter DiskCategory is not valid.|400|The specified `DiskCategory` is invalid.|
-|InvalidDiskDescription.Malformed|The specified parameter SystemDisk.DiskDescription or DataDisk.n.Description is not valid.|400|The specified `SystemDisk.DiskDescription` or `DataDisk.n.Description` is invalid.|
 |InvalidDiskDescription.Malformed|The specified parameter SystemDisk.DiskDescription or DataDisk.n.Description is not valid.|400|The specified `SystemDisk.DiskDescription` or `DataDisk.n.Description` is invalid.|
 |InvalidDiskName.Malformed|The specified parameter SystemDisk.DiskName or DataDisk.n.DiskName is not valid.|400|The specified `SystemDisk.DiskName` or `DataDisk.n.DiskName` is invalid.|
 |InvalidHostName.Malformed|The specified parameter HostName is not valid.|400|The specified `HostName` is invalid.|
@@ -402,7 +402,6 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |ZoneId.NotFound|The specified zone does not exists.|403|The specified ZoneId does not exist.|
 |DependencyViolation.IoOptimized|The specified InstanceType must be IoOptimized instance.|404|Only I/O optimized instances are allowed for the specified instance type.|
 |HOSTNAME\_ILLEGAL|hostname is not valid.|404|The specified `HostName` is invalid.|
-|InvalidDataDiskSnapshotId.NotFound|The specified parameter DataDisk.n.SnapshotId is not valid.|404|The specified `DataDisk.n.SnapshotId` does not exist.|
 |InvalidDataDiskSnapshotId.NotFound|The specified parameter DataDisk.n.SnapshotId is not valid.|404|The specified `DataDisk.n.SnapshotId` does not exist.|
 |InvalidDeploymentSetId.NotFound|The specified DeploymentSetId does not exist.|404|The specified `DeploymentSetId` does not exist.|
 |InvalidImageId.NotFound|The specified ImageId does not exist.|404|The specified ImageId does not exist.|
