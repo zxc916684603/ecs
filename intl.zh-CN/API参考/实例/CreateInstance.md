@@ -247,7 +247,7 @@
 |DeletionProtection|Boolean|否|实例释放保护属性，指定是否支持通过控制台或API（[DeleteInstance](intl.zh-CN/API参考/实例/DeleteInstance.md#)）释放实例。-   true：开启实例释放保护。
 -   false（默认）：关闭实例释放保护。
 
-**说明：** 该属性适用于按量付费实例，但只能限制手动释放操作，对系统释放操作不生效。
+**说明：** 该属性仅适用于按量付费实例，且只能限制手动释放操作，对系统释放操作不生效。
 
 |
 
