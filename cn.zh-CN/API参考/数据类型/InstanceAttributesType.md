@@ -26,23 +26,22 @@
 |HostName|String|实例主机名|
 |SerialNumber|String|实例序列号|
 |Status|String|实例状态|
-|SecurityGroupIds|[SecurityGroupIdSetType](cn.zh-CN/API参考/数据类型/SecurityGroupIdSetType.md#)|实例所属安全组集合|
-|PublicIpAddress|[IpAddressSetType](cn.zh-CN/API参考/数据类型/IpAddressSetType.md#)|实例公网 IP 地址|
+|SecurityGroupIds|[SecurityGroupIdSetType](intl.zh-CN/API参考/数据类型/SecurityGroupIdSetType.md#)|实例所属安全组集合|
+|PublicIpAddress|[IpAddressSetType](intl.zh-CN/API参考/数据类型/IpAddressSetType.md#)|实例公网 IP 地址|
 |InternetMaxBandwidthIn|Integer|公网入带宽最大值|
 |InternetMaxBandwidthOut|Integer|公网出带宽最大值|
 |InternetChargeType|String|网络计费类型。可能值：-   PayByTraffic：按流量计费
--   PayByBandwidth：按带宽计费
 
 |
-|CreationTime|String|实例创建时间。按照[ISO8601](../cn.zh-CN/API参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
+|CreationTime|String|实例创建时间。按照[ISO8601](../intl.zh-CN/API参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
 |InstanceNetworkType|String|实例网络类型。可能值：-   Classic
 -   Vpc
 
 |
-|VpcAttributes|[VpcAttributesType](cn.zh-CN/API参考/数据类型/VpcAttributesType.md#)|专有网络 VPC 属性|
-|EipAddress|[EipAddressAssociateType](cn.zh-CN/API参考/数据类型/EipAddressAssociateType.md#)|弹性公网 IP 绑定信息|
-|InnerIpAddress|[IpAddressSetType](cn.zh-CN/API参考/数据类型/IpAddressSetType.md#)|实例的内网 IP 地址|
-|OperationLocks|[OperationLocksType](cn.zh-CN/API参考/数据类型/OperationLocksType.md#)|实例的锁定原因|
+|VpcAttributes|[VpcAttributesType](intl.zh-CN/API参考/数据类型/VpcAttributesType.md#)|专有网络 VPC 属性|
+|EipAddress|[EipAddressAssociateType](intl.zh-CN/API参考/数据类型/EipAddressAssociateType.md#)|弹性公网 IP 绑定信息|
+|InnerIpAddress|[IpAddressSetType](intl.zh-CN/API参考/数据类型/IpAddressSetType.md#)|实例的内网 IP 地址|
+|OperationLocks|[OperationLocksType](intl.zh-CN/API参考/数据类型/OperationLocksType.md#)|实例的锁定原因|
 |InstanceChargeType|String|实例的计费方式。可能值：-   PrePaid：预付费（包年包月 ）
 -   PostPaid：按量付费
 
@@ -61,14 +60,14 @@
 
 |
 |DeploymentSetId|String|部署集 ID|
-|NetworkInterfaces|[NetworkInterfaceType](cn.zh-CN/API参考/数据类型/NetworkInterfaceType.md#)|实例包含的弹性网卡集合|
+|NetworkInterfaces|[NetworkInterfaceType](intl.zh-CN/API参考/数据类型/NetworkInterfaceType.md#)|实例包含的弹性网卡集合|
 |IoOptimized|Boolean|是否为 I/O 优化型实例|
-|ExpiredTime|String|过期时间。按照[ISO8601](../cn.zh-CN/API参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
+|ExpiredTime|String|过期时间。按照[ISO8601](../intl.zh-CN/API参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
 |KeyPairName|String|密钥对名称|
-|DeletionProtection|Boolean|实例释放保护属性，指定是否支持通过控制台或API（[DeleteInstance](cn.zh-CN/API参考/实例/DeleteInstance.md#)）释放实例。-   true：已开启实例释放保护。
+|DeletionProtection|Boolean|实例释放保护属性，指定是否支持通过控制台或API（[DeleteInstance](intl.zh-CN/API参考/实例/DeleteInstance.md#)）释放实例。-   true：已开启实例释放保护。
 -   false：未开启实例释放保护。
 
-**说明：** 该属性适用于预付费（包年包月）和按量付费实例，但只能限制手动释放操作，对系统释放操作不生效。
+**说明：** 该属性仅适用于按量付费实例，且只能限制手动释放操作，对系统释放操作不生效。
 
 |
 
