@@ -4,7 +4,9 @@ GPU计算型实例包括gn4、gn5、gn5i和gn6v。
 
 ## 创建实例 {#section_v1b_nxz_xdb .section}
 
-您可以按照 [创建ECS实例](../../../../intl.zh-CN/个人版快速入门/步骤 2：创建ECS实例.md#) 的描述创建GPU计算型实例，创建时需要注意以下配置。
+您可以按照 [创建ECS实例](intl.zh-CN/用户指南/实例/创建实例/使用向导创建实例.md#) 的描述创建GPU计算型实例。
+
+在选择配置时，您需要注意以下几点：
 
 -   **地域**：不同的实例规格族供应的地域信息不同。如下所示：
 
@@ -59,7 +61,7 @@ GPU计算型实例包括gn4、gn5、gn5i和gn6v。
         |产品类型|Tesla|Tesla|Tesla|Tesla|
         |产品系列|M-Class|P-Series|P-Series|V-Series|
         |产品家族|M40|Tesla P100|Tesla P4|Tesla V100|
-        |操作系统|根据实例的镜像选择对应的版本。如果下拉列表中没有显示服务器操作系统，请单击下拉列表底部的 **选择所有操作系统**。![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15438273535114_zh-CN.png)
+        |操作系统|根据实例的镜像选择对应的版本。如果下拉列表中没有显示服务器操作系统，请单击下拉列表底部的 **选择所有操作系统**。![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15451968035114_zh-CN.png)
 
 |
 
@@ -89,7 +91,7 @@ GPU计算型实例包括gn4、gn5、gn5i和gn6v。
 
             以Linux 64-bit Ubuntu 14.04为例：
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15438273535117_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15451968035117_zh-CN.png)
 
 
 ## 安装GRID驱动 {#section_ubb_nxz_xdb .section}
