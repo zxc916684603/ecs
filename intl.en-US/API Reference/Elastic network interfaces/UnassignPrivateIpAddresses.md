@@ -1,20 +1,21 @@
 # UnassignPrivateIpAddresses {#reference_lnv_bdd_n2b .reference}
 
-Deletes one or more secondary private IP addresses from an ENI.
+This API allows you to delete one or more secondary private IP addresses from an Elastic Network Interface \(ENI\).
 
 ## Description {#section_phk_ddd_n2b .section}
 
--   This operation only supports ENIs in the ****`Available` or ****`InUse` status.
--   When operating on a primary ENI, the attached instance must be in the ****`Running` or ****`Stopped` status.
+-   This API applies only to ENIs in the **Available** \(`Available`\) or **Bound** \(`InUse`\) status.
+-   For primary ENIs, the relevant instance must be in the **Running** \(`Running`\) or **Stopped** \(`Stopped`\) status.
 
 ## Request parameters {#RequestParameter .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The operation that you want to perform. Value: UnassignPrivateIpAddresses.|
+|Parameter|Type|Required or not?|Description|
+|:--------|:---|:---------------|:----------|
+|Action|String|Yes|The name of this interface. Value: UnassignPrivateIpAddresses.|
+|RegionId|String|Yes|The region ID of an ENI. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |NetworkInterfaceId|String|Yes|ENI ID.|
-|PrivateIpAddress.N|Array|Yes|One or more secondary private IP addresses to delete from an ENI. Value range of `N`:-   ENI is in the ****`Available` status: \[1, 10\].
--   ENI is in the ****`InUse` status: Subject to instance type restrictions.
+|PrivateIpAddress.N|Array|Yes|One or more secondary private IP addresses to be deleted. The value range of `N`:-   An ENI is in the **Available** \(`Available`\) status: \[1, 10\].
+-   An ENI is in the **Bound** \(`InUse` status: limited by instance types.
 
 |
 
@@ -34,7 +35,7 @@ https://ecs.aliyuncs.com/?Action=UnassignPrivateIpAddresses
 
 **Response example** 
 
-**XML format**
+**In XML format**
 
 ```
 <UnassignPrivateIpAddressesResponse>
@@ -42,7 +43,7 @@ https://ecs.aliyuncs.com/?Action=UnassignPrivateIpAddresses
 </UnassignPrivateIpAddressesResponse>
 ```
 
-**JSON format** 
+**In JSON format** 
 
 ```
 {
@@ -50,16 +51,16 @@ https://ecs.aliyuncs.com/?Action=UnassignPrivateIpAddresses
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error code {#ErrorCode .section}
 
 |Error code|Error message|HTTP status code|Description|
 |:---------|:------------|:---------------|:----------|
-|InValidParameter|the parameter\(s\) “\{0\}” provided is\(are\) invalid.|400|The specified parameter is invalid.|
-|MissingParameter|The input parameter “\{0\}” that is mandatory for processing this request is not supplied.|400|You must specify this required parameters.|
-|InvalidOperation.InvalidEniState|The operation is not allowed in the current ENI state. Expecting status is “\{0\}” while current status is “\{1\}”.|400|This operation only supports ENIs in the ****`Available` or ****`InUse` status.|
-|InvalidIp.IpUnassigned|The specified IP “\{0\}” is not assigned on this ENI.|403|The specified secondary private IP address was not assigned to this ENI.|
-|InvalidVSwitchId.IpInvalid|The specified IpAddress “\{0\}” is not valid in VSwitch CIDR block “\{1\}”.|403|You must select secondary IP addresses from the VSwitch's CIDR block.|
+|InvalidParameter|the parameter\(s\) provided is\(are\) invalid.|400|The specified parameter is invalid.|
+|MissingParameter|The input parameter that is mandatory for processing this request is not supplied.|400|Required parameters must be specified.|
+|InvalidOperation.InvalidEniState|The operation is not allowed in the current ENI state. Expecting status is, while current status is.|400|This operation can only be performed on ENIs in the **Available** \(`Available`\) or **Bound** \(`InUse`\) status.|
+|InvalidIp.IpUnassigned|The specified IP is not assigned on this ENI.|403|The specified secondary private IP address is not assigned to this ENI.|
+|InvalidVSwitchId.IpInvalid|The specified IpAddress is not valid in VSwitch CIDR block.|403|You must select secondary IP addresses from the VSwitch's CIDR block.|
 |Operation.Conflict|ecs task is conflicted.|403|The specified ENI is processing another task. Please try again later.|
-|InvalidEniId.NotFound|The specified EniId “\{0\}” is not found.|404|The specified `NetworkInterfaceId` does not exist.|
-|InvalidVSwitchId.NotFound|The specified VSwitchId “\{0\}” is not found.|404|The specified VSwitch does not exist.|
+|InvalidEniId.NotFound|The specified EniId is not found.|404|The specified `NetworkInterfaceId` does not exist.|
+|InvalidVSwitchId.NotFound|The specified VSwitchId is not found.|404|The specified VSwitch does not exist.|
 
