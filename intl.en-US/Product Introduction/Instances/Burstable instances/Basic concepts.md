@@ -66,8 +66,6 @@ t5 instances come with two running modes: [Standard](reseller.en-US/Product Intr
 
     Taking ecs.t5-lc2m1.nano as an example, the maximum CPU credit balance is 144. When the CPU credit balance reaches 144, accrual pauses. When the balance is lower than 144, accrual restarts.
 
-    The initial credits are not included in the credit balance.
-
 
 ## How stopping an instance impacts CPU credits {#section_xt5_fx5_ydb .section}
 
