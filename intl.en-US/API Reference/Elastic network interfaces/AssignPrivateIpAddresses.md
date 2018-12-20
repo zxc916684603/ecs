@@ -1,24 +1,27 @@
 # AssignPrivateIpAddresses {#reference_hlp_yrc_n2b .reference}
 
-Allocates one or more secondary private IP addresses to an ENI. Particularly, you can specify the CIDR private IP addresses that are available in the VSwitch. Alternatively, set the number of private IP addresses you want to allocate, and ECS automatically allocates the IP addresses for you.
+This API allows you to assign one or more secondary private IP addresses to an ENI. Specifically, you can set a private IP addresses within the CIDR block of the VSwitch to which an ENI belongs. Alternatively, you can specify the number of private IP addresses for ECS to assign them automatically.
 
 ## Description {#section_eq4_qvc_n2b .section}
 
--   This operation only supports ENIs in the **Available**`Available` or **InUse**`InUse` status.
--   When operating on a primary ENI, the attached instance must be in the **Running**`Running` or **Stopped**`Stopped` status.
--   When the ENI is **Available**`Available`, you can allocate up to 10 secondary private IP addresses to the ENI. However, once the ENI is used and attached an instance, the maximum number of private IP addresses is subject to the instance type limits. For more information, see [instance type families](../reseller.en-US/Product Introduction/Instance type families.md#).
+-   This API applies only to ENIs in the **Available** \(`Available`\) or **Bound** \(`InUse`\) status.
+-   For primary ENIs, the relevant instance must be in the **Running** \(`Running`\) or **Stopped** \(`Stopped`\) status.
+-   When an ENI is in the **Available** \(`Available`\) status, you can assign up to 10 secondary private IP addresses to the ENI. However, once an ENI is attached to an instance, the quota of private IP addresses for the ENI is limited by the instance type. For more information, see [Instance type families](../reseller.en-US/Product Introduction/Instance type families.md#).
 
 ## Request parameters {#RequestParameter .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The operation that you want to perform. Value: AssignPrivateIpAddresses.|
+|Parameter|Type|Required or not|Description|
+|:--------|:---|:--------------|:----------|
+|Action|String|Yes|A parameter required by the system. Value: AssignPrivateIpAddresses.|
+|RegionId|String|Yes|The region ID of an ENI. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |NetworkInterfaceId|String|Yes|ENI ID.|
-|PrivateIpAddress.N|Array|No|Select one or more secondary private IP addresses from the CIDR block of the VSwitch. Value range of `N`:-   When ENI is in the **Available**`Available` status: \[1, 10\].
--   When ENI is in the **InUse**`InUse` status: Subject to instance type restrictions. For more information, see [instance type families](../reseller.en-US/Product Introduction/Instance type families.md#).
+|PrivateIpAddress.N|Array|No|Select one or more secondary private IP addresses from the CIDR block of the VSwitch to which an ENI belongs. Value range of `N`:-   When an ENI is in the **Available** \(`Available`\) status: \[1, 10\].
+-   When an ENI is in the **Bound** \(`InUse`\) status: Limited by instance types. For more information, see [Instance type families](../reseller.en-US/Product Introduction/Instance type families.md#).
 
-You cannot specify the parameters `PrivateIpAddress.N` and `SecondaryPrivateIpAddressCount` at the same time.|
-|SecondaryPrivateIpAddressCount|Integer|No|ECS can automatically create IP addresses for you. You must specify the number of private IP addresses you want to create.|
+To assign a secondary private IP address, you can either specify the parameter `PrivateIpAddress.N` or the parameter `SecondaryPrivateIpAddressCount`.
+
+|
+|SecondaryPrivateIpAddressCount|Integer|No|You can specify the number of private IP addresses for ECS to assign them automatically.|
 
 ## Response parameters {#ResponseParameter .section}
 
@@ -31,12 +34,12 @@ https://ecs.aliyuncs.com/?Action=AssignPrivateIpAddresses
 &NetworkInterfaceId=eni-m5e709m1ytxc4wx7wXXX
 &PrivateIpAddress. 1=192.168.0.1
 &PrivateIpAddress. 2=192.168.10.1
-&<Common Request Parameters>
+&<Common request parameters>
 ```
 
-**Response example** 
+**Response examples** 
 
-**XML format**
+**In XML format**
 
 ```
 <AssignPrivateIpAddressesResponse>
@@ -44,7 +47,7 @@ https://ecs.aliyuncs.com/?Action=AssignPrivateIpAddresses
 </AssignPrivateIpAddressesResponse>
 ```
 
-**JSON format** 
+**In JSON format** 
 
 ```
 {

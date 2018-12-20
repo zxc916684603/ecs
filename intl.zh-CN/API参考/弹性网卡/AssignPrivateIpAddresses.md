@@ -13,6 +13,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：AssignPrivateIpAddresses|
+|RegionId|String|是|网卡所在的地域ID。您可以调用[DescribeRegions](../intl.zh-CN/API参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
 |NetworkInterfaceId|String|是|弹性网卡ID。|
 |PrivateIpAddress.N|Array|否|从弹性网卡所属虚拟交换机的CIDR地址段中选择一个或多个辅助私有IP地址。`N` 的取值范围：-   弹性网卡处于 **可用**（`Available`）状态：\[1, 10\]
 -   弹性网卡处于 **已绑定**（`InUse`）状态：受到实例规格限制，更多详情，请参阅 [实例规格族](../intl.zh-CN/产品简介/实例规格族.md#)。
