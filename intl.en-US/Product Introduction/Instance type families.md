@@ -13,7 +13,7 @@ Alibaba Cloud ECS provides two kinds of instance type families: enterprise-level
 **Note:** 
 
 -   If you are using sn1, sn2, t1, s1, s2, s3, m1, m2, c1, c2, c4, ce4, cm4, n1, n2, or e3, see [Phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm).
--   Upgrading instance types is supported within or between certain instance type families. For such families and corresponding upgrade rules, see [Instance type families that support upgrading instance types](../../../../reseller.en-US/User Guide/Change configurations/Instance type families that support instance type upgrades.md#).
+-   Upgrading instance types is supported within or between certain instance type families. For such families and corresponding upgrade rules, see [Instance type families that support upgrading instance types](../../../../reseller.en-US/User Guide/Instances/Change configurations/Instance type families that support instance type upgrades.md#).
 -   Upgrading instance types is not supported within or between the following instance type families: d1, d1ne, i1, i2, i2g, ga1, gn5, f1, f2, f3, ebmc4, ebmg5, sccg5, and scch5.
 
 Alibaba Cloud ECS instances are categorized into the following type families:
@@ -26,6 +26,7 @@ Alibaba Cloud ECS instances are categorized into the following type families:
     -   [sn1ne, compute optimized type family with enhanced network performance](#)
     -   [r5, memory instance type family](#)
     -   [re4, memory optimized type family with enhanced performance](#)
+    -   [re4e, memory optimized type family with enhanced performance](#)
     -   [se1ne, memory optimized type family with enhanced network performance](#)
     -   [se1, memory optimized type family](#)
     -   [d1ne, big data type family with enhanced network performance](#)
@@ -260,6 +261,28 @@ Click [here](#) to view other instance type families.
 |:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.re4.20xlarge|80|960.0|N/A|15.0|2,000|16|8|
 |ecs.re4.40xlarge|160|1920.0|N/A|30.0|4,500|16|8|
+
+Click [here](#) to view other instance type families.
+
+## re4e, memory optimized type family with enhanced performance {#re4e .section}
+
+**Features**
+
+-   I/O-optimized
+-   Supports SSD Cloud Disks and Ultra Cloud Disks
+-   Optimized for high-performance databases, high memory databases, and other memory-intensive enterprise applications
+-   2.2 GHz Intel Xeon E7 8880 v4 \(Broadwell\) processors, up to 2.4 GHz Turbo Boot
+-   vCPU to memory ratio = 1:24, up to 3840.0 GiB memory
+-   Ideal for:
+    -   High-performance databases and high memory databases \(for example, SAP HANA\)
+    -   Memory intensive applications
+    -   Big Data processing engines, such as Apache spark or Presto
+
+**Instance types**
+
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
+|ecs.re4e.40xlarge|160|3840.0|N/A|30.0|4,500|16|15|
 
 Click [here](#) to view other instance type families.
 
@@ -548,11 +571,11 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance types|vCPU|Memory \(GiB\)|Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\)[\*\*](#)|Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
-|:-------------|:---|:-------------|:-------------------------|:--|:----------------------------|:-------------------------------------------------|:----------------------|:------------------|
-|ecs.gn6v-c8g1.2xlarge|8|32.0|N/A|1 \* NVIDIA V100|2.5|800|4|4|
-|ecs.gn6v-c8g1.8xlarge|32|128.0|N/A|4 \* NVIDIA V100|10.0|2,000|8|8|
-|ecs.gn6v-c8g1.16xlarge|64|256.0|N/A|8 \* NVIDIA V100|20.0|2,500|16|8|
+|Instance types|vCPU|Memory \(GiB\)|Local disks \(GiB\)[\*](#)|GPU|GPU memory \(GB\)|Bandwidth \(Gbit/s\)[\*\*](#)|Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:-------------|:-------------------------|:--|:----------------|:----------------------------|:-------------------------------------------------|:----------------------|:------------------|
+|ecs.gn6v-c8g1.2xlarge|8|32.0|N/A|1 \* NVIDIA V100|1 \* 16|2.5|800|4|4|
+|ecs.gn6v-c8g1.8xlarge|32|128.0|N/A|4 \* NVIDIA V100|4 \* 16|10.0|2,000|8|8|
+|ecs.gn6v-c8g1.16xlarge|64|256.0|N/A|8 \* NVIDIA V100|8 \* 16|20.0|2,500|16|8|
 
 **Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
 
@@ -576,16 +599,16 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
-|ecs.gn5-c4g1.xlarge|4|30.0|440|1 \* NVIDIA P100|3.0|300|1|3|
-|ecs.gn5-c8g1.2xlarge|8|60.0|440|1 \* NVIDIA P100|3.0|400|1|4|
-|ecs.gn5-c4g1.2xlarge|8|60.0|880|2 \* NVIDIA P100|5.0|1,000|2|4|
-|ecs.gn5-c8g1.4xlarge|16|120.0|880|2 \* NVIDIA P100|5.0|1,000|4|8|
-|ecs.gn5-c28g1.7xlarge|28|112.0|440|1 \* NVIDIA P100|5.0|1,000|8|8|
-|ecs.gn5-c8g1.8xlarge|32|240.0|1760|4 \* NVIDIA P100|10.0|2,000|8|8|
-|ecs.gn5-c28g1.14xlarge|56|224.0|880|2 \* NVIDIA P100|10.0|2,000|14|8|
-|ecs.gn5-c8g1.14xlarge|54|480.0|3520|8 \* NVIDIA P100|25.0|4,000|14|8|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|GPU memory \(GB\)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:--|:----------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
+|ecs.gn5-c4g1.xlarge|4|30.0|440|1 \* NVIDIA P100|1 \* 16|3.0|300|1|3|
+|ecs.gn5-c8g1.2xlarge|8|60.0|440|1 \* NVIDIA P100|1 \* 16|3.0|400|1|4|
+|ecs.gn5-c4g1.2xlarge|8|60.0|880|2 \* NVIDIA P100|2 \* 16|5.0|1,000|2|4|
+|ecs.gn5-c8g1.4xlarge|16|120.0|880|2 \* NVIDIA P100|2 \* 16|5.0|1,000|4|8|
+|ecs.gn5-c28g1.7xlarge|28|112.0|440|1 \* NVIDIA P100|1 \* 16|5.0|1,000|8|8|
+|ecs.gn5-c8g1.8xlarge|32|240.0|1760|4 \* NVIDIA P100|4 \* 16|10.0|2,000|8|8|
+|ecs.gn5-c28g1.14xlarge|56|224.0|880|2 \* NVIDIA P100|2 \* 16|10.0|2,000|14|8|
+|ecs.gn5-c8g1.14xlarge|54|480.0|3520|8 \* NVIDIA P100|8 \* 16|25.0|4,000|14|8|
 
 **Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
 
@@ -607,14 +630,14 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
-|ecs.gn5i-c2g1.large|2|8.0|N/A|1 \* NVIDIA P4|1.0|100|2|2|
-|ecs.gn5i-c4g1.xlarge|4|16.0|N/A|1 \* NVIDIA P4|1.5|200|2|3|
-|ecs.gn5i-c8g1.2xlarge|8|32.0|N/A|1 \* NVIDIA P4|2.0|400|4|4|
-|ecs.gn5i-c16g1.4xlarge|16|64.0|N/A|1 \* NVIDIA P4|3.0|800|4|8|
-|ecs.gn5i-c16g1.8xlarge|32|128.0|N/A|2 \* NVIDIA P4|6.0|1,200|8|8|
-|ecs.gn5i-c28g1.14xlarge|56|224.0|N/A|2 \* NVIDIA P4|10.0|2,000|14|8|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|GPU memory \(GB\)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:--|:----------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
+|ecs.gn5i-c2g1.large|2|8.0|N/A|1 \* NVIDIA P4|1 \* 8|1.0|100|2|2|
+|ecs.gn5i-c4g1.xlarge|4|16.0|N/A|1 \* NVIDIA P4|1 \* 8|1.5|200|2|3|
+|ecs.gn5i-c8g1.2xlarge|8|32.0|N/A|1 \* NVIDIA P4|1 \* 8|2.0|400|4|4|
+|ecs.gn5i-c16g1.4xlarge|16|64.0|N/A|1 \* NVIDIA P4|1 \* 8|3.0|800|4|8|
+|ecs.gn5i-c16g1.8xlarge|32|128.0|N/A|2 \* NVIDIA P4|2 \* 8|6.0|1,200|8|8|
+|ecs.gn5i-c28g1.14xlarge|56|224.0|N/A|2 \* NVIDIA P4|2 \* 8|10.0|2,000|14|8|
 
 **Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
 
@@ -637,14 +660,14 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
-|ecs.gn4-c4g1.xlarge|4|30.0|N/A|1 \* NVIDIA M40|3.0|300|1|3|
-|ecs.gn4-c8g1.2xlarge|8|30.0|N/A|1 \* NVIDIA M40|3.0|400|1|4|
-|ecs.gn4.8xlarge|32|48.0|N/A|1 \* NVIDIA M40|6.0|800|3|8|
-|ecs.gn4-c4g1.2xlarge|8|60.0|N/A|2 \* NVIDIA M40|5.0|500|1|4|
-|ecs.gn4-c8g1.4xlarge|16|60.0|N/A|2 \* NVIDIA M40|5.0|500|1|8|
-|ecs.gn4.14xlarge|56|96.0|N/A|2 \* NVIDIA M40|10.0|1,200|4|8|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|GPU memory \(GB\)|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:--|:----------------|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
+|ecs.gn4-c4g1.xlarge|4|30.0|N/A|1 \* NVIDIA M40|1 \* 12|3.0|300|1|3|
+|ecs.gn4-c8g1.2xlarge|8|30.0|N/A|1 \* NVIDIA M40|1 \* 12|3.0|400|1|4|
+|ecs.gn4.8xlarge|32|48.0|N/A|1 \* NVIDIA M40|1 \* 12|6.0|800|3|8|
+|ecs.gn4-c4g1.2xlarge|8|60.0|N/A|2 \* NVIDIA M40|2 \* 12|5.0|500|1|4|
+|ecs.gn4-c8g1.4xlarge|16|60.0|N/A|2 \* NVIDIA M40|2 \* 12|5.0|500|1|8|
+|ecs.gn4.14xlarge|56|96.0|N/A|2 \* NVIDIA M40|2 \* 12|10.0|1,200|4|8|
 
 **Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
 
@@ -668,13 +691,13 @@ Click [here](#) to view other instance type families.
 
 **Instance types**
 
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|Bandwidth \(Gbit/s\)**[\*\*](#)** |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:--|:---------------------------------|:-------------------------------------------------|:----------------------|:------------------|
-|ecs.ga1.xlarge|4|10.0|1 \* 87|0.25 \* AMD S7150|1.0|200|1|3|
-|ecs.ga1.2xlarge|8|20.0|1 \* 175|0.5 \* AMD S7150|1.5|300|1|4|
-|ecs.ga1.4xlarge|16|40.0|1 \* 350|1 \* AMD S7150|3.0|500|2|8|
-|ecs.ga1.8xlarge|32|80.0|1 \* 700|2 \* AMD S7150|6.0|800|3|8|
-|ecs.ga1.14xlarge|56|160.0|1 \* 1400|4 \* AMD S7150|10.0|1,200|4|8|
+|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|GPU|GPU memory \(GB\)|Bandwidth \(Gbit/s\)**[\*\*](#)** |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
+|:-------------|:---|:--------------|:-------------------------|:--|:----------------|:---------------------------------|:-------------------------------------------------|:----------------------|:------------------|
+|ecs.ga1.xlarge|4|10.0|1 \* 87|0.25 \* AMD S7150|2|1.0|200|1|3|
+|ecs.ga1.2xlarge|8|20.0|1 \* 175|0.5 \* AMD S7150|4|1.5|300|1|4|
+|ecs.ga1.4xlarge|16|40.0|1 \* 350|1 \* AMD S7150|8|3.0|500|2|8|
+|ecs.ga1.8xlarge|32|80.0|1 \* 700|2 \* AMD S7150|2 \* 8|6.0|800|3|8|
+|ecs.ga1.14xlarge|56|160.0|1 \* 1400|4 \* AMD S7150|4 \* 8|10.0|1,200|4|8|
 
 **Note:** For more information, see [Create an instance of ga1](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a ga1 instance.md#).
 
