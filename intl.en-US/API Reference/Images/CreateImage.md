@@ -106,15 +106,15 @@ https://ecs.aliyuncs.com/?Action=CreateImage
 |Error code|Error message|HTTP status code |Description|
 |:---------|:------------|:----------------|:----------|
 |IncorrectInstanceStatus|The current status of the instance does not support this operation.|400|The status of the specified instance must be Running or Stopped.|
-|InstanceLockedForSecurity|The input parameter InstanceId that is mandatory for processing this  security reasons.|400|The specified instance has been locked for the sake of security.|
-|InvalidDescription.Malformed|The specified description is wrongly formed.|400|The specified `Description` is invalid.|
+|InstanceLockedForSecurity|The input parameter InstanceId that is required for processing this  security reasons.|400|The specified instance has been locked for the sake of security.|
+|InvalidDescription.Malformed|The specified description is incorrectly formed.|400|The specified `Description` is invalid.|
 |InvalidImageName.Duplicated|The specified Image name has already been used.|400|The value of the specified `ImageName` already exists.|
-|InvalidImageName.Malformed|The specified Image name is wrongly formed.|400|The format of the specified `ImageName` is incorrect.|
-|InvalidImageVersion.Malformed|The specified ImageVersion is wrongly formed.|400|The format of the specified `ImageVersion` is incorrect. Or you are not authorized to access the specified `ImageVersion`.|
+|InvalidImageName.Malformed|The specified Image name is incorrectly formed.|400|The format of the specified `ImageName` is incorrect.|
+|InvalidImageVersion.Malformed|The specified ImageVersion is incorrectly formed.|400|The format of the specified `ImageVersion` is incorrect. Or you are not authorized to access the specified `ImageVersion`.|
 |InvalidInstanceId.NotFound|The specified InstanceId does not exist.|400|The specified InstanceId does not exist.|
 |InvalidInstanceId.ValueNotSupported|The specified InstanceId is not allowed to create image.|400|The specified InstanceId cannot be used to create custom images.|
 |InvalidSize.ValueNotSupported|The specified parameter DiskDeviceMapping.n.Size beyond the permitted range.|400|The maximum size of the specified `DiskDeviceMapping.n.Size` value is exceeded.|
-|MissingParameter|The input parameter SnapshotId or InstanceId or DiskDeviceMapping that is mandatory for processing this request is not supplied.|400|You must specify the required `SnapshotId`, `InstanceId`, or `DiskDeviceMapping`.|
+|MissingParameter|The input parameter SnapshotId or InstanceId or DiskDeviceMapping that is required for processing this request is not supplied.|400|You must specify the required `SnapshotId`, `InstanceId`, or `DiskDeviceMapping`.|
 |OperationDenied|The specified parameter DiskDeviceMapping.n.SnapshotId does not contain system disk snapshot.|400|One system disk snapshot must be contained in the list of `DiskDeviceMapping.n.SnapshotId`.|
 |OperationDenied|The specified parameter DiskDeviceMapping.n.SnapshotId contains two or more system disk snapshots.|400|Parameter Only one system disk snapshot can be contained in the list of `DiskDeviceMapping.n.SnapshotId`.|
 |Invalidaccountant status.|Your account does not have enough balance.|403|Your registered credit card is invalid or you have insufficient balance in your PayPal account.|
