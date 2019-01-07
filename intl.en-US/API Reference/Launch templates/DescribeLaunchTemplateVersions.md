@@ -271,7 +271,7 @@ https://ecs.aliyuncs.com/?Action=DescribeLaunchTemplateVersions
 |Error code |Error message |HTTP status code|Meaning|
 |:----------|:-------------|:---------------|:------|
 |InvalidLaunchTemplate.NotFound|The specified LaunchTemplateId “\{0\}” LaunchTemplateName “\{1\}” is not found.|400|The specified `LaunchTemplateId` or `LaunchTemplateName` is not found.|
-|MissingParameter|The input parameter “\{0\}” that is mandatory for processing this Request is not supplied.|400|A required parameter is missing.|
+|MissingParameter|The input parameter “\{0\}” that is required for processing this Request is not supplied.|400|A required parameter is missing.|
 |InvalidParameter|the parameter\(s\) “\{0\}” provided is\(are\) invalid.|400|The specified parameter is invalid.|
 |Innerservicefailed|Call inner service failed|403|Internal server error.|
 
