@@ -83,7 +83,7 @@ https://ecs.aliyuncs.com/?Action=InvokeCommand
     <RequestId>540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx</RequestId>
     <HostId>ecs.aliyuncs.com</HostId>
     <Code>MissingParameter.CommandId</Code>
-    <Message>The input parameter “CommandId” that is mandatory for processing this request is not supplied.</Message>
+    <Message>The input parameter “CommandId” that is required for processing this request is not supplied.</Message>
 </Error>
 ```
 
@@ -94,7 +94,7 @@ https://ecs.aliyuncs.com/?Action=InvokeCommand
     "RequestId": "540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx",
     "HostId": "ecs.aliyuncs.com"
     "Code": "MissingParameter.CommandId"
-    "Message": "The input parameter “CommandId” that is mandatory for processing this request is not supplied."
+    "Message": "The input parameter “CommandId” that is required for processing this request is not supplied."
 }
 ```
 
@@ -105,9 +105,9 @@ https://ecs.aliyuncs.com/?Action=InvokeCommand
 |InvalidInstance.NoClient|The specified instances have no cloud assistant client installed.|400|The target ECS instance must have the cloud assistant client installed in advance. For more information, see [Cloud assistant client](../reseller.en-US/User Guide/Cloud assistant/Cloud assistant client.md#).|
 |InvalidInstance.NotVpc|The specified instances must be VPC instances.|400|The network type of the specified `InstanceIds` must be VPC.|
 |InvalidInstanceStatus|The specified instance’s status can not execute this operation|400|The specified instance must be in the Running status. Or the specified instance has abnormal network connection.|
-|MissingParameter.CommandId|The input parameter “CommandId” that is mandatory for processing this request is not supplied.|400|You must specify the required parameter `CommandId`.|
-|MissingParameter.InstanceIds|The input parameter “InstanceIds” that is mandatory for processing this request is not supplied.|400|You must specify the required parameter `InstanceIds`.|
-|MissingParameter.RegionId|The input parameter “RegionId” that is mandatory for processing this request is not supplied.|400|You must specify the required parameter `RegionId`. Or you cannot use the resources in the specified `RegionId`.|
+|MissingParameter.CommandId|The input parameter “CommandId” that is required for processing this request is not supplied.|400|You must specify the required parameter `CommandId`.|
+|MissingParameter.InstanceIds|The input parameter “InstanceIds” that is required for processing this request is not supplied.|400|You must specify the required parameter `InstanceIds`.|
+|MissingParameter.RegionId|The input parameter “RegionId” that is required for processing this request is not supplied.|400|You must specify the required parameter `RegionId`. Or you cannot use the resources in the specified `RegionId`.|
 |MissingParameter.Frequency|The frequency parameter must exist when create a timed Invocation.|400|When the `Timed` parameter value is `True`, the `Frequency` parameter is required.|
 |InvalidCmdId.NotFound|The specified commandId does not exist.|404|The specified `CommandId` does not exist.|
 |InvalidInstance.NotFound|The specified instances does not exist.|404|The specified `InstanceId` does not exist.|
