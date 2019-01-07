@@ -140,7 +140,7 @@ https://ecs.aliyuncs.com/?Action=DescribeNetworkInterfaces
 |:---------|:------------|:---------------|:----------|
 |Abs.InvalidAccount.NotFound|The Account is not found or AK is expired.|403|The specified Alibaba Cloud account does not exist. Alternatively, your AccessKey expired.|
 |UnsupportedParameter|The parameters is unsupported.|400|The specified parameter does not exist. Alternatively, the specified parameter is not supported.|
-|MissingParameter|The input parameter that is mandatory for processing this request is not supplied.|400|You must specify the required parameter.|
+|MissingParameter|The input parameter that is required for processing this request is not supplied.|400|You must specify the required parameter.|
 |InvalidEcsId.NotFound|The specified EcsId is not found.|404|The specified instance ID does not exist.|
 |InvalidVSwitchId.NotFound|The specified VSwitchId is not found.|404|The specified VSwitch ID does not exist.|
 |InvalidSecurityGroupId.NotFound|The specified SecurityGroupId is not found.|404|The specified security group ID does not exist.|
