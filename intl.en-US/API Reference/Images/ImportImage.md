@@ -6,11 +6,11 @@ Imports an on-premises image to Alibaba Cloud ECS.
 
 You can use the imported image to create instances \([RunInstances](reseller.en-US/API Reference/Instances/RunInstances.md#)\) or replace the system disk of an instance \([ReplaceSystemDisk](reseller.en-US/API Reference/Disk/ReplaceSystemDisk.md#)\). When you call this interface, consider the following:
 
--   You must [upload the image file to OSS](../../../../reseller.en-US/Quick Start/Upload an object.md#) beforehand.
+-   You must [upload the image file to OSS](../../../../../reseller.en-US/Quick Start/Upload an object.md#) beforehand.
 -   You can only import an image file to a region from OSS in the same region. The image and OSS must belong to one account.
 -   The n in `DiskDeviceMapping.n` indicates the disk type. When n is set to 1, it represents a system disk. When n is set to \[2, 17\], it represents a data disk.
 -   You cannot delete an image that is being imported. However, you can cancel the image import task \([CancelTask](reseller.en-US/API Reference/Others/CancelTask.md#)\).
--   To use [RAM](../../../../reseller.en-US/Product Introduction/What is RAM.md#) to allow ECS to access OSS for your Alibaba Cloud account, follow these steps:
+-   To use [RAM](../../../../../reseller.en-US/Product Introduction/What is RAM.md#) to allow ECS to access OSS for your Alibaba Cloud account, follow these steps:
     1.  Create a role with a name `AliyunECSImageImportDefaultRole` \(**image import fails if a different name is used**\), and see the following code snippet to set its role policy.
 
         ```
@@ -146,17 +146,17 @@ https://ecs.aliyuncs.com/?Action=ImportImage
 |:---------|:------------|:---------------|:------|
 |Forbbiden|User not authorized to operate on the specified resource|400|You cannot import the image now.|
 |IncorrectImageStatus|The specified image is not available.|400|The status of the specified image is incorrect.|
-|InvalidArchitecture.Malformed|The specified Architecture is wrongly formed.|400|The specified `Architecture` is invalid.|
-|InvalidDescription.Malformed|The specified destination image description is wrongly formed.|400|The specified target image `Description` is invalid.|
-|InvalidFormat.Malformed|The specified Image format is wrongly formed.|400|The specified image file format is invalid.|
+|InvalidArchitecture.Malformed|The specified Architecture is incorrectly formed.|400|The specified `Architecture` is invalid.|
+|InvalidDescription.Malformed|The specified destination image description is incorrectly formed.|400|The specified target image `Description` is invalid.|
+|InvalidFormat.Malformed|The specified Image format is incorrectly formed.|400|The specified image file format is invalid.|
 |InvalidImageName.Duplicated|The destination image is exist.|400|The value of the specified ImageName already exists.|
-|InvalidImageName.Malformed|The specified destination Image name is wrongly formed.|400|The specified `ImageName` is invalid.|
+|InvalidImageName.Malformed|The specified destination Image name is incorrectly formed.|400|The specified `ImageName` is invalid.|
 |InvalidImageSize|The specified “DiskDeviceMapping.n.DiskImageSize” should be not less than system device size.|400|The value of the specified `DiskDeviceMapping.n.DiskImageSize` must be larger than or equal to the actual used space of disks.|
-|InvalidOSType.Malformed|The specified OSType is wrongly formed.|400|The specified `OSType` is invalid.|
-|InvalidPlatform.Malformed|The specified Platform is wrongly formed.|400|The specified `Platform` is invalid.|
-|MissingParameter|An input parameter “RegionId” that is mandatory for processing the request is not supplied.|400|You must specify the parameter `RegionId`.|
-|MissingParameter|An input parameter “DiskDeviceMapping.n.OSSBucket” that is mandatory for processing the request is not supplied.|400|You must specify the parameter `OSSBucket`.|
-|MissingParameter|An input parameter “DiskDeviceMapping.n.OSSObject” that is mandatory for processing the request is not supplied.|400|You must specify the parameter `OSSObject`.|
+|InvalidOSType.Malformed|The specified OSType is incorrectly formed.|400|The specified `OSType` is invalid.|
+|InvalidPlatform.Malformed|The specified Platform is incorrectly formed.|400|The specified `Platform` is invalid.|
+|MissingParameter|An input parameter “RegionId” that is required for processing the request is not supplied.|400|You must specify the parameter `RegionId`.|
+|MissingParameter|An input parameter “DiskDeviceMapping.n.OSSBucket” that is required for processing the request is not supplied.|400|You must specify the parameter `OSSBucket`.|
+|MissingParameter|An input parameter “DiskDeviceMapping.n.OSSObject” that is required for processing the request is not supplied.|400|You must specify the parameter `OSSObject`.|
 |RegionId.NotFound|The specified region is not found.|400|The `RegionId` of the specified image does not exist.|
 |ImageIsImporting|The specified Image is importing.|403|The specified image is being copied. Please try again later.|
 |InvalidRegion.NotSupport|The specified region does not support image import or export.|403|The specified region currently does not support image import.|
