@@ -50,7 +50,7 @@ https://ecs.aliyuncs.com/?Action=DeleteLaunchTemplateVersion
 
 |Error code |Error message|HTTP status code |Description |
 |:----------|:------------|:----------------|:-----------|
-|MissingParameter|The input parameter “\{0\}” that is mandatory for processing this request is not supplied.|400|A required parameter is missing.|
+|MissingParameter|The input parameter “\{0\}” that is required for processing this request is not supplied.|400|A required parameter is missing.|
 |InvalidParameter|the parameter\(s\) “\{0\}” provided is\(are\) invalid.|400 |The specified parameter is invalid.|
 |InnerServiceFailed|call inner service failed|403 |Internal server error.|
 |InvalidOperation.DeleteDefaultVersion|Delete default version from template is not allowed. |403 |You cannot delete the default template version directly.|
