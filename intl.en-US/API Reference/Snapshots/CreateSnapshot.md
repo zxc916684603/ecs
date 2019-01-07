@@ -77,7 +77,7 @@ https://ecs.aliyuncs.com/?Action=CreateSnapshot
 |:---------|:------------|:---------------|:----------|
 |DiskCategory.OperationNotSupported|The operation is not supported to the specified disk due to its disk Category|400|You cannot create a snapshot for the specified disk because of its category.|
 |IncorrectInstanceStatus|The current status of the resource does not support this operation.|400|The instance of disk Mount must be in **Stopped** \(`Stopped`\), or **Running** \(`Running`\) status.|
-|InvalidSnapshotName.Malformed|The specified SnapshotName is wrongly formed.|400|The specified `SnapshotName` is invalid.|
+|InvalidSnapshotName.Malformed|The specified SnapshotName is incorrectly formed.|400|The specified `SnapshotName` is invalid.|
 |CreateSnapshot.Failed|The process of creating snapshot failed.|403|Snapshot creation has failed.|
 |DiskId.ValueNotSupported|The specified parameter diskid is not supported.|403|You cannot create snapshots for the specified `DiskId`.|
 |DiskInArrears|The specified operation is denied as your disk has expired.|403|The disk has an overdue payment. Try again after your clear your overdue payment.|
@@ -89,6 +89,6 @@ https://ecs.aliyuncs.com/?Action=CreateSnapshot
 |InvalidAccountStatus.NotEnoughBalance|Your account does not have enough balance.|403|You registered credit card is invalid. Or insufficient balance in your PayPal account..|
 |InvalidAccountStatus.SnapshotServiceUnavailable|Snapshot service has not been opened yet.|403|You have not activated the service. Please open a ticket to activate it.|
 |QuotaExceed.Snapshot|The maximum number of snapshots is exceeded.|403|You have exceeded the snapshot creation limit. The maximum number of snapshots you can create for a disk is 64.|
-|InvalidDescription.Malformed|The specified description is wrongly formed.|404|The specified target image `Description` is invalid.|
+|InvalidDescription.Malformed|The specified description is incorrectly formed.|404|The specified target image `Description` is invalid.|
 |InvalidDiskId.NotFound|The specified DiskId does not exist.|404|The specified disk does not exist.|
 
