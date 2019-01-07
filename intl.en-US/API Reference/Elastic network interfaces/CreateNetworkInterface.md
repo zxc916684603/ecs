@@ -81,7 +81,7 @@ https://ecs.aliyuncs.com/?Action=CreateNetworkInterface
 
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|
-|MissingParameter|The input parameter that is mandatory for processing this request is not supplied.|400|You must specify the required parameter.|
+|MissingParameter|The input parameter that is required for processing this request is not supplied.|400|You must specify the required parameter.|
 |UnsupportedParameter|The parameters is unsupported.|400|The specified parameter does not exist. Alternatively, the specified parameter is not supported.|
 |Abs.InvalidAccount.NotFound|The Account is not found or AK is expired.|403|The specified Alibaba Cloud account does not exist. Alternatively, your AccessKey expired.|
 |Forbidden.NotSupportRAM|This action does not support accessed by RAM mode.|403|A RAM User is limited to access the resource.|
