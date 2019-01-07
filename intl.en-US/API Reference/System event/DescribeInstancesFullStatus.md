@@ -296,6 +296,6 @@ https://ecs.aliyuncs.com/?Action=DescribeInstancesFullStatus
 |InvalidParameter|The Parameter provided is not valid.|403|The specified parameter is invalid.|
 |EventIdLimitExceeded|The amount of EventId specified exceeds limit 100.|403|The number of the specified `EventId` cannot be greater than 100.|
 |InstanceIdLimitExceeded|The amount of InstanceId specified exceeds limit 100.|403|The number of the specified `InstanceId` cannot be greater than 100.|
-|MissingParameter|The input parameter that is mandatory for processing this request is not supplied.|403|You must specify the required parameter.|
+|MissingParameter|The input parameter that is required for processing this request is not supplied.|403|You must specify the required parameter.|
 |InternalError|The request processing has failed due to some unknown error,exception or failure.|500|Internal error, please try again later.|
 
