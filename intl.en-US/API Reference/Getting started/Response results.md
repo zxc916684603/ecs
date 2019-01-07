@@ -38,7 +38,7 @@ You can fix the exception according to the API-specific error codes or [common e
         <RequestId>540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx</RequestId> <! --Request ID-->
         <HostId>ecs.aliyuncs.com</HostId> <! --Endpoint-->
         <Code>MissingParameter.CommandId</Code> <! --Error code-->
-        <Message>The input parameter “CommandId” that is mandatory for processing this request is not supplied.</Message> <! --Error message-->
+        <Message>The input parameter “CommandId” that is required for processing this request is not supplied.</Message> <! --Error message-->
     </Error>
     ```
 
@@ -49,7 +49,7 @@ You can fix the exception according to the API-specific error codes or [common e
         "RequestId": "540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx", /* Request ID */
         "HostId": "ecs.aliyuncs.com", /* Endpoint */
         "Code": "MissingParameter.CommandId", /* Error code */
-        "Message": "The input parameter “CommandId” that is mandatory for processing this request is not supplied." /* Error message */
+        "Message": "The input parameter “CommandId” that is required for processing this request is not supplied." /* Error message */
     }
     ```
 
@@ -60,7 +60,7 @@ You can fix the exception according to the API-specific error codes or [common e
 |:---------|:---------------|:---------|
 |IdempotentParameterMismatch|400|The request is retried with updated parameters.|
 |IllegalTimestamp|400|The input parameter `Timestamp` that is required for processing this request is not supplied.|
-|IncompleteSignature|400|The request signature does not conform to Aliyun standards.|
+|IncompleteSignature|400|The request signature does not conform to Alibaba Cloud standards.|
 |InsufficientBalance|400|Your account does not have enough balance.|
 |InvalidAccessKeyId.NotFound|400|The specified AccessKey ID does not exist.|
 |InvalidOwner|400|OwnerId and OwnerAccount can’t be used at one API access.|
@@ -71,11 +71,11 @@ You can fix the exception according to the API-specific error codes or [common e
 |InvalidParameter|400|The specified parameter is not valid|
 |InvalidParameter|400|The specified parameter `Action or Version` is not valid.|
 |InvalidParameter.IsNull|400|The required parameter must be not null.|
-|MissingParameter|400|The input parameter `Action` that is mandatory for processing this request is not supplied|
-|MissingParameter|400|The input parameter `AccessKeyId` that is mandatory for processing this request is not supplied|
-|MissingParameter|400|The input parameter `Signature` that is mandatory for processing the request is not supplied.|
-|MissingParameter|400|The input parameter `TimeStamp` that is mandatory for processing this request is not supplied|
-|MissingParameter|400|The input parameter `Version` that is mandatory for processing this request is not supplied|
+|MissingParameter|400|The input parameter `Action` that is required for processing this request is not supplied|
+|MissingParameter|400|The input parameter `AccessKeyId` that is required for processing this request is not supplied|
+|MissingParameter|400|The input parameter `Signature` that is required for processing the request is not supplied.|
+|MissingParameter|400|The input parameter `TimeStamp` that is required for processing this request is not supplied|
+|MissingParameter|400|The input parameter `Version` that is required for processing this request is not supplied|
 |SignatureNonceUsed|400|The request signature nonce has been used.|
 |Throttling|400|You have made too many requests within a short time; your request is denied due to request throttling.|
 |UnsupportedParameter|400|The parameters is unsupported.|
@@ -84,7 +84,7 @@ You can fix the exception according to the API-specific error codes or [common e
 |Forbidden.AccessKeyDisabled|403|The AccessKey is disabled.|
 |Forbidden.NotSupportRAM|403|This action does not support accessed by RAM mode.|
 |Forbidden.RAM|403|User not authorized to operate on the specified resource, or this API doesn’t support RAM.|
-|Forbidden.RiskControl|403|This operation is forbidden by Aliyun RiskControl system.|
+|Forbidden.RiskControl|403|This operation is forbidden by Alibaba Cloud RiskControl system.|
 |Forbidden.SubUser|403|The specified action is not available for you.|
 |Forbidden.Unauthorized|403|User not authorized to operate on the specified resource.|
 |InvalidAccount.NotFound|403|The specified Account does not exist.|
@@ -93,7 +93,7 @@ You can fix the exception according to the API-specific error codes or [common e
 |InvalidParameter.OwnerAccount|403|OwnerAccount is Invalid.|
 |InvalidParameter.ResourceOwnerAccount|403|ResourceOwnerAccount is Invalid.|
 |LastTokenProcessing|403|The last token request is processing.|
-|MissingParameter|403|The input parameter OwnerId,OwnerAccount that is mandatory for processing this request is not supplied.|
+|MissingParameter|403|The input parameter OwnerId,OwnerAccount that is required for processing this request is not supplied.|
 |RealNameAuthenticationError|403|Your account has not passed the real-name authentication yet.|
 |UnsupportedHTTPMethod|403|This HTTP method is not supported.|
 |InvalidDiskId.NotFound|404|The specified DiskId does not exist.|
