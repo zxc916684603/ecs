@@ -211,6 +211,6 @@ All are common error codes. For more information, see [Common error codes](../re
 |:---------|:------------|:---------------|:------|
 |InvalidParameter|The Parameter provided is not valid.|403|The specified parameter is invalid.|
 |EventIdLimitExceeded|The amount of EventId specified exceeds limit 100.|403|The number of `EventId` cannot exceed 100.|
-|MissingParameter|The input parameter that is mandatory for processing this request is not supplied.|403|You must specify the required parameter.|
+|MissingParameter|The input parameter that is required for processing this request is not supplied.|403|You must specify the required parameter.|
 |InternalError|The request processing has failed due to some unknown error, exception or failure.|500|Internal error. Please try again later.|
 
