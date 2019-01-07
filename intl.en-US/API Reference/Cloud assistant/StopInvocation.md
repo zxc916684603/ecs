@@ -78,9 +78,9 @@ https://ecs.aliyuncs.com/?Action=StopInvocation
 |Error code|Error message|HTTP status code|Description|
 |:---------|:------------|:---------------|:----------|
 |InvalidInvokeId.NotFound|The specified ImageId does not exist.|400|The specified `InvokeId`does not exist.|
-|MissingParameter.InstanceId|The input parameter “InstanceIds” that is mandatory for processing this request is not supplied.|400|You must specify the required parameter of InstanceIds.|
-|MissingParameter.RegionId|The input parameter “RegionId” that is mandatory for processing this request is not supplied.|400|You must specify the required parameter of `RegionId`. Or you cannot use the resources in the specified region.|
-|MissingParameter.InvokeId|The input parameter “InvokeId” that is mandatory for processing this request is not supplied.|400|You must specify the required parameter `InvokeId`.|
+|MissingParameter.InstanceId|The input parameter “InstanceIds” that is required for processing this request is not supplied.|400|You must specify the required parameter of InstanceIds.|
+|MissingParameter.RegionId|The input parameter “RegionId” that is required for processing this request is not supplied.|400|You must specify the required parameter of `RegionId`. Or you cannot use the resources in the specified region.|
+|MissingParameter.InvokeId|The input parameter “InvokeId” that is required for processing this request is not supplied.|400|You must specify the required parameter `InvokeId`.|
 |InvalidRegionId.NotFound|The RegionId provided does not exist in our items.|404|The specified `RegionId`does not exist.|
 |InternalError.Dispatch|An internal error occurred when dispath the request|500|Internal error, please try later.|
 
