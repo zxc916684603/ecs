@@ -68,11 +68,11 @@ https://ecs.aliyuncs.com/?Action=CopyImage
 |:---------|:------------|:---------------|:---|
 |DestinationRegion.NotFound|The destination region not found|400|The `DestinationRegionId` does not exist.|
 |IncorrectImageStatus|The image not available.|400|The status of the specified source custom image \(`ImageId`\) must be `Available`.|
-|InvalidDescription.Malformed|The specified description is wrongly formed.|400|The description of the specified destination custom image \(`DestinationDescription`\) is invalid.|
+|InvalidDescription.Malformed|The specified description is incorrectly formed.|400|The description of the specified destination custom image \(`DestinationDescription`\) is invalid.|
 |InvalidImageId.NotFound|The specified ImageId does not exist.|400|The specified source custom image \(`ImageId`\) does not exist.|
 |InvalidImageName.Duplicated|The destination image does not exist.|400|The name of the destination custom image \(`DestinationImageName`\) is already in use.|
-|InvalidImageName.Malformed|The specified destination Image name is wrongly formed.|400|The name of the specified destination custom image \(`DestinationImageName`\) is invalid.|
-|InvalidImageName.Malformed|The specified Image name is wrongly formed.|400|The format of `DestinationImageName` is incorrect.|
+|InvalidImageName.Malformed|The specified destination Image name is incorrectly formed.|400|The name of the specified destination custom image \(`DestinationImageName`\) is invalid.|
+|InvalidImageName.Malformed|The specified Image name is incorrectly formed.|400|The format of `DestinationImageName` is incorrect.|
 |SourceRegion.NotFound|The source region not found|400|The `RegionId` of the specified source custom image does not exist.|
 |Forbidden|User not authorized to operate on the specified resource.|403|You don't have permissions for copying images.|
 |IncorrectDestinationRegion|The destination region is not equal the target region.|403|The source region for copying images \(`RegionId`\) must be different from the destination region \(`DestinationRegionId`\).|
