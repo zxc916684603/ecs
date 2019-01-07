@@ -98,10 +98,10 @@ https://ecs.aliyuncs.com/?Action=CreateDisk
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|
 |Account.Arrearage|Your account has an outstanding payment.|400|Your account balance is insufficient. Update your account status and try again.|
-|InvalidDescription.Malformed|The specified description is wrongly formed.|400|The specified `DescriptionName` format is invalid.|
+|InvalidDescription.Malformed|The specified description is incorrectly formed.|400|The specified `DescriptionName` format is invalid.|
 |InvalidDiskCategory.NotSupported|The specified disk category is not support.|400|The specified disk category is not supported.|
 |InvalidDiskCategory.ValueNotSupported|The specified parameter DiskCategory is not valid.|400|The specified `DiskCategory` is invalid.|
-|InvalidDiskName.Malformed|The specified disk name is wrongly formed.|400|The specified `DiskName` format is invalid.|
+|InvalidDiskName.Malformed|The specified disk name is incorrectly formed.|400|The specified `DiskName` format is invalid.|
 |EncryptedOption.Conflict|Encryption value of disk conflicts with that of snapshot.|400|The encryption value of disk and snapshot must be the same.|
 |InvalidParameter.Encrypted.KmsNotEnabled|The encrypted disk need enable KMS.|400|No KMS service is available in your account, please enable the KMS service by yourself.|
 |InvalidParameter.EncryptedIllegal|The value of parameter encrypted is illegal.|400|The specified parameter `Encrypted` is invalid.|
