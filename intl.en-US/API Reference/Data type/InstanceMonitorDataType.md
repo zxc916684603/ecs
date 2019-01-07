@@ -18,9 +18,9 @@ InstanceMonitorData
 |InternetRX|Integer|Internet traffic received by the instance, measured in kbits.|
 |InternetTX|Integer|Internet traffic sent by the instance, measured in kbits.|
 |InternetBandwidth|Integer|Internet bandwidth of the instance, network traffic per unit time, measured in kbits/s.|
-|IOPSRead|Integer|System disk IO reads, measured in /s.|
-|IOPSWrite|Integer|System disk IO writes, measured in /s.|
+|IOPSRead|Integer|System disk I/O reads, measured in /s.|
+|IOPSWrite|Integer|System disk I/O writes, measured in /s.|
 |BPSRead|Integer|System disk read bandwidth, measured in Byte/s.|
 |BPSWrite|Integer|System disk write bandwidth, measured in Byte/s.|
-|TimeStamp|String|Time of the traffic query, which is presented according to [ISO8601](intl.en-US/API Reference/Appendix/ISO 8601 Time Format.md#), and UTC time is used. The format is YYYY-MM-DDThh:mmZ.|
+|TimeStamp|String|Time of the traffic query, which is presented according to [ISO8601](reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#), and UTC time is used. The format is YYYY-MM-DDThh:mmZ.|
 
