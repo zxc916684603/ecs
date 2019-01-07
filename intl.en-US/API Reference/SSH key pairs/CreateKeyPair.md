@@ -70,7 +70,7 @@ https://ecs.aliyuncs.com/?Action=CreateKeyPair
 
 |Error code|Error message|HTTP status code |NOTE|
 |:---------|:------------|:----------------|:---|
-|MissingParameter|The input parameter “RegionId” that is mandatory for processing this request is not supplied.|400|You must specify the `RegionId` parameter.|
+|MissingParameter|The input parameter “RegionId” that is required for processing this request is not supplied.|400|You must specify the `RegionId` parameter.|
 |InvalidKeyPairName.Malformed|Specified Key Pair name is not valid.|400|The specified `KeyPairName` is invalid or already exists.|
 |QuotaExceed.KeyPair|The key pair quota exceeds.|403|The number of your key pairs cannot exceed 500 in each region.|
 |InvalidRegionId.NotFound|The specified RegionId does not exist.|404|The specified `RegionId` does not exist.|
