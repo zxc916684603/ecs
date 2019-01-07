@@ -90,7 +90,7 @@ https://ecs.aliyuncs.com/?Action=DescribeKeyPairs
 
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|
-|MissingParameter|The input parameter “RegionId” that is mandatory for processing this request is not supplied.|400| The `RegionId` parameter must be specified.|
+|MissingParameter|The input parameter “RegionId” that is required for processing this request is not supplied.|400| The `RegionId` parameter must be specified.|
 |InvalidParameter|The specified parameter “PageNumber” is not valid.|400|The specified `PageNumber` parameter is invalid.|
 |InvalidParameter|The specified parameter “PageSize” is not valid.|400| The specified `PageSize` parameter is invalid.|
 
