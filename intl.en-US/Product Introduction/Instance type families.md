@@ -13,8 +13,8 @@ Alibaba Cloud ECS provides two kinds of instance type families: enterprise-level
 **Note:** 
 
 -   If you are using sn1, sn2, t1, s1, s2, s3, m1, m2, c1, c2, c4, ce4, cm4, n1, n2, or e3, see [Phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm).
--   Upgrading instance types is supported within or between certain instance type families. For such families and corresponding upgrade rules, see [Instance type families that support upgrading instance types](../../../../reseller.en-US/User Guide/Instances/Change configurations/Instance type families that support instance type upgrades.md#).
--   Upgrading instance types is not supported within or between the following instance type families: d1, d1ne, i1, i2, i2g, ga1, gn5, f1, f2, f3, ebmc4, ebmg5, sccg5, and scch5.
+-   Upgrading instance types is supported within or between certain instance type families. For such families and corresponding upgrade rules, see [Instance type families that support upgrading instance types](../../../../../reseller.en-US/User Guide/Instances/Change configurations/Instance type families that support instance type upgrades.md#).
+-   Upgrading instance types is not supported within or between the following instance type families: d1, d1ne, i1, i2, i2g, ga1, gn5, f1, f3, ebmc4, ebmg5, sccg5, and scch5.
 
 Alibaba Cloud ECS instances are categorized into the following type families:
 
@@ -43,7 +43,6 @@ Alibaba Cloud ECS instances are categorized into the following type families:
     -   [gn4, compute optimized type family with GPU](#)
     -   [ga1, visualization compute optimized type family with GPU](#)
     -   [f1, compute optimized type family with FPGA](#)
-    -   [f2, compute optimized type family with FPGA](#)
     -   [f3, compute optimized type family with FPGA](#)
 -   ECS Bare Metal Instance type families and Super Computing Cluster \(SCC\) instance type families:
     -   [ebmhfg5, ECS Bare Metal Instance type family with high clock speed](#)
@@ -133,7 +132,7 @@ Click [here](#) to view other instance type families.
     -   Web front-end servers
     -   Data analysis, batch compute, and video coding
     -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication information
-    -   Massively Multiplayer Online \(MMO\) game front-ends
+    -   Massively Multiplayer Online \(MMO\) game frontends
 
 **Instance types**
 
@@ -160,7 +159,7 @@ Click [here](#) to view other instance type families.
 -   Ideal for:
     -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication information
     -   Web front-end servers
-    -   Massively Multiplayer Online \(MMO\) game front-ends
+    -   Massively Multiplayer Online \(MMO\) game frontends
     -   Data analysis, batch compute, and video coding
     -   High-performance science and engineering applications
 
@@ -192,7 +191,7 @@ Click [here](#) to view other instance type families.
 -   Ideal for:
     -   Scenarios where a large volume of packets are received and transmitted, such as the re-transmission of telecommunication information
     -   Web front-end servers
-    -   Massively Multiplayer Online \(MMO\) game front-ends
+    -   Massively Multiplayer Online \(MMO\) game frontends
     -   Data analysis, batch compute, and video coding
     -   High-performance science and engineering applications
 
@@ -577,7 +576,7 @@ Click [here](#) to view other instance type families.
 |ecs.gn6v-c8g1.8xlarge|32|128.0|N/A|4 \* NVIDIA V100|4 \* 16|10.0|2,000|8|8|
 |ecs.gn6v-c8g1.16xlarge|64|256.0|N/A|8 \* NVIDIA V100|8 \* 16|20.0|2,500|16|8|
 
-**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
+**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -610,7 +609,7 @@ Click [here](#) to view other instance type families.
 |ecs.gn5-c28g1.14xlarge|56|224.0|880|2 \* NVIDIA P100|2 \* 16|10.0|2,000|14|8|
 |ecs.gn5-c8g1.14xlarge|54|480.0|3520|8 \* NVIDIA P100|8 \* 16|25.0|4,000|14|8|
 
-**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
+**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -639,7 +638,7 @@ Click [here](#) to view other instance type families.
 |ecs.gn5i-c16g1.8xlarge|32|128.0|N/A|2 \* NVIDIA P4|2 \* 8|6.0|1,200|8|8|
 |ecs.gn5i-c28g1.14xlarge|56|224.0|N/A|2 \* NVIDIA P4|2 \* 8|10.0|2,000|14|8|
 
-**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
+**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -669,7 +668,7 @@ Click [here](#) to view other instance type families.
 |ecs.gn4-c8g1.4xlarge|16|60.0|N/A|2 \* NVIDIA M40|2 \* 12|5.0|500|1|8|
 |ecs.gn4.14xlarge|56|96.0|N/A|2 \* NVIDIA M40|2 \* 12|10.0|1,200|4|8|
 
-**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
+**Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a compute optimized instance with GPUs.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -699,7 +698,7 @@ Click [here](#) to view other instance type families.
 |ecs.ga1.8xlarge|32|80.0|1 \* 700|2 \* AMD S7150|2 \* 8|6.0|800|3|8|
 |ecs.ga1.14xlarge|56|160.0|1 \* 1400|4 \* AMD S7150|4 \* 8|10.0|1,200|4|8|
 
-**Note:** For more information, see [Create an instance of ga1](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a ga1 instance.md#).
+**Note:** For more information, see [Create an instance of ga1](../../../../../reseller.en-US/User Guide/Instances/Create an instance/Create a ga1 instance.md#).
 
 Click [here](#) to view other instance type families.
 
@@ -725,37 +724,9 @@ Click [here](#) to view other instance type families.
 |Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|FPGA|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
 |:-------------|:---|:--------------|:-------------------------|:---|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
 |ecs.f1-c8f1.2xlarge|8|60.0|N/A|Intel ARRIA 10 GX 1150|3.0|400|4|4|
-|ecs.f2-c8f1.4xlarge|16|120.0|N/A|2 \* Intel ARRIA 10 GX 1150|5.0|1,000|4|8|
+|ecs.f1-c8f1.4xlarge|16|120.0|N/A|2 \* Intel ARRIA 10 GX 1150|5.0|1,000|4|8|
 |ecs.f1-c28f1.7xlarge|28|112.0|N/A|Intel ARRIA 10 GX 1150|5.0|2,000|8|8|
-|ecs.f2-c28f1.14xlarge|56|224.0|N/A|2 \* Intel ARRIA 10 GX 1150|10.0|2,000|14|8|
-
-Click [here](#) to view other instance type families.
-
-## f2, compute optimized type family with FPGA {#f2 .section}
-
-**Features**
-
--   I/O-optimized
--   Supports SSD Cloud Disks and Ultra Cloud Disks
--   Xilinx Kintex UltraScale XCKU115
--   vCPU to memory ratio = 1:7.5
--   2.5 GHz Intel Xeon E5-2682 v4 \(Broadwell\) processors
--   Higher computing specifications matching higher network performance
--   Ideal for:
-    -   Deep learning and reasoning
-    -   Genomics research
-    -   Financial analysis
-    -   Picture transcoding
-    -   Computational workloads, such as real-time video processing and security
-
-**Instance types**
-
-|Instance type |vCPU|Memory \(GiB\) |Local disks \(GiB\)[\*](#)|FPGA|Bandwidth \(Gbit/s\)[\*\*](#) |Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
-|:-------------|:---|:--------------|:-------------------------|:---|:-----------------------------|:-------------------------------------------------|:----------------------|:------------------|
-|ecs.f2-c8f1.2xlarge|8|60.0|N/A|Xilinx Kintex UltraScale XCKU115|2.0|800|4|4|
-|ecs.f2-c8f1.4xlarge|16|120.0|N/A|2 \* Xilinx Kintex UltraScale XCKU115|5.0|1,000|4|8|
-|ecs.f2-c28f1.7xlarge|28|112.0|N/A|Xilinx Kintex UltraScale XCKU115|5.0|1,000|8|8|
-|ecs.f2-c28f1.14xlarge|56|224.0|N/A|2 \* Xilinx Kintex UltraScale XCKU115|10.0|2,000|14|8|
+|ecs.f1-c28f1.14xlarge|56|224.0|N/A|2 \* Intel ARRIA 10 GX 1150|10.0|2,000|14|8|
 
 Click [here](#) to view other instance type families.
 
@@ -780,6 +751,8 @@ Click [here](#) to view other instance type families.
 
 |Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[\*](#)|FPGA|Bandwidth \(Gbit/s\)[\*\*](#)|Packet forwarding rate \(Thousand pps\)[\*\*\*](#)|NIC queues[\*\*\*\*](#)|ENIs[\*\*\*\*\*](#)|
 |:------------|:---|:-------------|:-------------------------|:---|:----------------------------|:-------------------------------------------------|:----------------------|:------------------|
+|ecs.f3-c4f1.xlarge|4|16.0|N/A|1 \* Xilinx VU9P|1.5|300|2|3|
+|ecs.f3-c8f1.2xlarge|8|32.0|N/A|1 \* Xilinx VU9P|2.5|500|4|4|
 |ecs.f3-c16f1.4xlarge|16|64.0|N/A|1 \* Xilinx VU9P|5.0|1,000|4|8|
 |ecs.f3-c16f1.8xlarge|32|128.0|N/A|2 \* Xilinx VU9P|10.0|2,000|8|8|
 |ecs.f3-c16f1.16xlarge|64|256.0|N/A|4 \* Xilinx VU9P|20.0|2,500|16|8|
