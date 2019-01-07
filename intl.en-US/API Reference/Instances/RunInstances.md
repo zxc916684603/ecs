@@ -15,7 +15,7 @@ When you use this operation, consider the following:
 -   You can call [DescribeInstances](reseller.en-US/API Reference/Instances/DescribeInstances.md#) to check the status of your instance.
 -   Make sure you have created a security group. For more information, see [CreateSecurityGroup](reseller.en-US/API Reference/Security groups/CreateSecurityGroup.md#).
 -   After a successful request, the instances that are created by you start automatically. An instance is ready to use when it is in the `Running` status.
--   Before creating a VPC-Connected instance, you must [Create a VPC](../../../../../reseller.en-US/Quick Start/Create a VPC.md#). We can create a default VPC and VSwitch for you if needed.
+-   Before creating a VPC-Connected instance, you must [Create a VPC](../../../../../../reseller.en-US/Quick Start/Create a VPC.md#). We can create a default VPC and VSwitch for you if needed.
 -   Unlike [CreateInstance](reseller.en-US/API Reference/Instances/CreateInstance.md#), instances created by calling the `RunInstances` method have Internet IPs allocated if you set the value of `InternetMaxBandwidthOut` greater than 0.
 -   If invalid parameters or stock shortage happens, the RunInstances action fails. For troubleshooting, see error codes.
 
@@ -165,7 +165,7 @@ If this parameter is not specified, the default value is the InstanceId of the i
 -   The username and password authentication method is disabled if a value is set for parameter KeyPairName for a **Linux instance**.
 
 |
-|RamRoleName|String|No|Instance RAM role name. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../../reseller.en-US/API Reference (RAM)/Role Management Interface/ListRoles.md#). For more information, see [CreateRole](../../../../../reseller.en-US/API Reference (RAM)/Role Management Interface/CreateRole.md#) and [ListRoles](../../../../../reseller.en-US/API Reference (RAM)/Role Management Interface/ListRoles.md#).|
+|RamRoleName|String|No|Instance RAM role name. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../../../reseller.en-US/API Reference/Role management APIs/ListRoles.md#). For more information, see [CreateRole](../../../../../../reseller.en-US/API Reference/Role management APIs/CreateRole.md#) and [ListRoles](../../../../../../reseller.en-US/API Reference/Role management APIs/ListRoles.md#).|
 |SecurityEnhancementStrategy|String|No|Whether or not to enable security enhancement. Options:-   Active: Enables the security enhancement feature and installs a free network security software. Only applicable to the Alibaba Cloud official images.
 -   Deactive: Disables the security enhancement feature. No network security software is installed. Applicable to all kinds of images.
 
@@ -289,7 +289,7 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |InvalidHpcClusterId.Creating|The specified HpcClusterId is creating.|400|The specified `HpcClusterId` is being created. Please try again later.|
 |InvalidHpcClusterId.Unnecessary|The specified HpcClusterId is unnecessary.|400|You can specify the ClusterId only for some `InstanceType`.|
 |InvalidVSwitchId.Necessary|The HpcClusterId is necessary.|400|To choose cluster for the specified `InstanceType`, you must specify the `HpcClusterId`.|
-|MissingParameter|The input parameter VSwitchId that is mandatory for processing this request is not supplied.|400|The `VSwitchId` parameter is required.|
+|MissingParameter|The input parameter VSwitchId that is required for processing this request is not supplied.|400|The `VSwitchId` parameter is required.|
 |QuotaExceed.AfterpayInstance|The maximum number of Pay-As-You-Go instances is exceeded.|400|You have exceeded the maximum number of Pay-As-You-Go instances. For more information, see [Limits](../reseller.en-US/User Guide/Limits.md#).|
 |QuotaExceeded|Living instances quota exceeded in this VPC.|400|The number of instances in the specified VPC has reached the upper limit.|
 |ResourceNotAvailable|Resource you requested is not available in this region or zone.|400|The resource you requested is unavailable in the specified RegionId or ZoneId. Please try again in other regions or zones.|
@@ -313,7 +313,7 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |InvalidSnapshotId.NotDataDiskSnapshot|The specified snapshot is system disk snapshot.|403|A data disk cannot be created from the system disk snapshot.|
 |InvalidSnapshotId.NotReady|The specified snapshot has not completed yet.|403|The snapshot has not been completed yet.|
 |InvalidSystemDiskCategory.ValueUnauthorized|The disk category is not authorized.|403|You are not authorized to create a disk of the specified category.|
-|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|A RAM user must be [granted](../../../../../reseller.en-US/Quick Start/Authorize RAM users.md#) with a pass role permission before he or she specify RamRoleName for new ECS instances.|
+|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|A RAM user must be [granted](../../../../../../reseller.en-US/Quick Start/Authorize RAM users.md#) with a pass role permission before he or she specify RamRoleName for new ECS instances.|
 |InvalidUserData.Forbidden|User not authorized to input the parameter UserData, please apply for permission UserData.|403|You are not authorized to configure the user data.|
 |InvalidVSwitchId.NotFound|The VSwitchId provided does not exist in our records.|403|The specified `VSwitchId` does not exist.|
 |IoOptimized.NotSupported|The specified image is not support IoOptimized Instance.|403|The specified image does not support the I/O optimized instances.|
