@@ -2,7 +2,7 @@
 
 本文提供通过微软的RDP协议客户端远程连接Windows实例时报错：出现身份验证错误，要求的函数不受支持（The function requested is not supported）的解决方法。
 
-![The function requested is not supported](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10592/154691592236309_zh-CN.png)
+![The function requested is not supported](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10592/154691718236309_zh-CN.png)
 
 ## 问题原因 { .section}
 
@@ -67,7 +67,7 @@
 2.  搜索并打开Windows更新。
 3.  单击**检查更新**下载积累的更新。
 
-    ![The function requested is not supported](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10592/154691592236452_zh-CN.png)
+    ![The function requested is not supported](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10592/154691718236452_zh-CN.png)
 
 4.  等待更新下载和安装。
 5.  重启实例以完成安装更新。
@@ -98,7 +98,7 @@
 3.  定位到HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\CredSSP\\Parameters键，如果CredSSP或者Parameters键不存在，请新建CredSSP或者Parameters键。
 4.  在Parameters键下新建DWORD值AllowEncryptionOracle，并设置数据为2。
 
-    ![The function requested is not supported](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10592/154691592236453_zh-CN.png)
+    ![The function requested is not supported](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10592/154691718236453_zh-CN.png)
 
 5.  重启实例或者本地计算机。
 
