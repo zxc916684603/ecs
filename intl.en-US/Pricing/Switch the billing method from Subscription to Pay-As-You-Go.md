@@ -51,7 +51,3 @@ Conversion failure may be due to:
 
 If any of the preceding error messages appears, adjust the instance accordingly. If the problem persists, open a ticket.
 
-**Can I claim a refund without giving a reason if I convert the billing method of a newly created Subscription instance to Pay-As-You-Go within five days?**
-
-No. You are still using the instance after you convert the billing method from Subscription to Pay-As-You-Go. For more information about claiming a refund without giving a reason within five days, see [How can I claim a refund without giving a reason within five days \(ECS\)](https://partners-intl.console.aliyun.com/#/expense).
-
