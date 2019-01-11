@@ -5,7 +5,7 @@ You can export custom images for on-premises testing or for Apsara stack environ
 **Note:** 
 
 -   The time it takes to export an image depends on the size of the image file and the number of export tasks in the queue.
--   Exported images are stored in your [OSS](../../../../reseller.en-US/Product Introduction/What is OSS?.md#) bucket. This means you are billed for the OSS storage and download traffic. For more information, see OSS [billing items](../../../../reseller.en-US/Pricing/Billing items.md#).
+-   Exported images are stored in your [OSS](../../../../../reseller.en-US/Product Introduction/What is OSS?.md#) bucket. This means you are billed for the OSS storage and download traffic. For more information, see OSS [billing items](../../../../../reseller.en-US/Pricing/Billing items.md#).
 
 ## Limitations {#section_mcn_12t_xdb .section}
 
@@ -20,7 +20,7 @@ Currently, the image export function has the following limitations:
 Before exporting a custom image, you must:
 
 -   Open a ticket to activate the image export feature, and describe the use cases of the exported images in the ticket.
--   Activate OSS and make sure that the region where your custom images are located has an available OSS bucket. For more information, see [create a bucket](../../../../reseller.en-US/Quick Start/Create a bucket.md#).
+-   Activate OSS and make sure that the region where your custom images are located has an available OSS bucket. For more information, see [create a bucket](../../../../../reseller.en-US/Quick Start/Create a bucket.md#).
 
 ## Procedure {#section_wwm_h2t_xdb .section}
 
@@ -39,7 +39,7 @@ To export a custom image in the ECS console, follow these steps:
 7.  Click **OK**.
 8.  \(Optional\) Cancel the image export task. Before the task is completed, you can go to the [**Tasks**](https://partners-intl.console.aliyun.com/#/ecs/task/region/cn-qingdao) management page in the ECS console, find the relevant task in the specified region and cancel the task.
 
-You can also use the ECS APIs [ExportImage](../../../../reseller.en-US/API Reference/Images/ExportImage.md#) and [CancelTask](../../../../reseller.en-US/API Reference/Others/CancelTask.md#) to perform the preceding operations.
+You can also use the ECS APIs [ExportImage](../../../../../reseller.en-US/API Reference/Images/ExportImage.md#) and [CancelTask](../../../../../reseller.en-US/API Reference/Others/CancelTask.md#) to perform the preceding operations.
 
 ## Next steps {#section_qlv_v2t_xdb .section}
 
@@ -47,5 +47,8 @@ You can also use the ECS APIs [ExportImage](../../../../reseller.en-US/API Refer
 
     **Note:** When an exported custom image contains a data disk snapshot, multiple files appear in your OSS. The file name with `system` indicates a system disk shapshot and the file name with `data` indicates a data disk snapshot. A data disk snapshot has an identifier corresponding to the data disk, which is the mount point of the data disk, such as xvdb or xvdc.
 
-2.  After the custom image is exported successful, [download the object](../../../../reseller.en-US/Console User Guide/Manage objects/Download an object.md#) and then download the custom image file. The format of the image file is RAW by default.
+2.  After the custom image is exported successful, [download the object](../../../../../reseller.en-US/Console User Guide/Manage objects/Download an object.md#) and then download the custom image file.
+
+    **Note:** The format of the image file is RAW by default. However, the .tar.gz format is also available during the gated launch period, and the file is in the .raw format after you unzip the .tar.gz file. If you are using Mac OS X operating system, the agent gnu-tar is recommended to unzip the file.
+
 
