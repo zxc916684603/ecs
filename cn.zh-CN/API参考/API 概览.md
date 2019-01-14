@@ -119,8 +119,8 @@
 
 |接口|描述|
 |:-|:-|
-|[CreateDeploymentSet](cn.zh-CN/API参考/部署集/CreateDeploymentSet.md#)|在指定的地域内创建一个部署集。|
-|[ModifyInstanceDeployment](cn.zh-CN/API参考/部署集/ModifyInstanceDeployment.md#)|增加一条安全组入方向规则。|
+|[ZH-CN\_TP\_21439.md\#](cn.zh-CN/API参考/部署集/CreateDeploymentSet.md#)|在指定的地域内创建一个部署集。|
+|[ModifyInstanceDeployment](cn.zh-CN/API参考/部署集/ModifyInstanceDeployment.md#)|在同一地域下，修改一台 ECS 实例的宿主机。|
 |[ModifyDeploymentSetAttributes](cn.zh-CN/API参考/部署集/ModifyDeploymentSetAttributes.md#)|将一台实例加入一个部署集，或者将实例从一个部署集调整到另外一个部署集。|
 |[DescribeDeploymentSets](cn.zh-CN/API参考/部署集/DescribeDeploymentSets.md#)|查询一个或多个部署集的属性列表。|
 |[DeleteDeploymentSet](cn.zh-CN/API参考/部署集/DeleteDeploymentSet.md#)|删除一个部署集。|
