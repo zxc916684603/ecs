@@ -67,7 +67,7 @@ cloud-init是云平台为Linux操作系统的虚拟机做系统初始化配置�
 
 4.  确认是否成功安装。若返回`"description": "success"`，表示安装成功。
 
-    ![cloud-init成功安装](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9704/154752941637025_zh-CN.png)
+    ![cloud-init成功安装](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9704/154753385437025_zh-CN.png)
 
 
 ## 安装阿里云版本cloud-init示例 { .section}
@@ -226,7 +226,7 @@ cloud-init是云平台为Linux操作系统的虚拟机做系统初始化配置�
 
 5.  运行`vi /etc/cloud/cloud.cfg`修改配置文件cloud.cfg。
 
-    ![cloud-initcloud.cfg](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9704/15475294164621_zh-CN.png)
+    ![cloud-initcloud.cfg](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9704/15475338544621_zh-CN.png)
 
     将`cloud_init_modules:`之前的配置修改为以下内容：
 
