@@ -1,28 +1,36 @@
 # ECS instance life cycle {#concept_zg1_gv2_5db .concept}
 
-The life cycle of an ECS instance begins when it is created and ends when it is released.
+The life cycle of an ECS instance begins when the instance is created and ends when the instance is released.
 
 ## Instance status {#section_p4f_dk5_ydb .section}
 
-During this process, an ECS instance may undergo several status changes, as explained in the following table.
+During its life cycle, an ECS instance may undergo several status changes, as described in the following table.
 
-|Status|Status attribute|Description|Corresponding API status|Viewable in the console|
-|:-----|:---------------|:----------|:-----------------------|:----------------------|
-|Preparing|Intermediate|After an instance is created, it remains in this status before running. If an instance is in this status for a long time, an exception occurs.|Pending|No|
-|Starting|Intermediate|An instance is in this status when it is either [started](../../../../reseller.en-US/User Guide/Instances/Start or stop an instance.md#) or [restarted](../../../../reseller.en-US/User Guide/Instances/Restart an instance.md#) in the console or by using an API before it is running. If an instance is in this status for a long time, an exception occurs.|Starting|Yes|
-|Running|Stable|The instance is operating normally and can accommodate your business needs.|Running|Yes|
-|Stopping|Intermediate|An instance is in this status after the stop operation is performed in the console or when using an API but before the instance actually stops. If an instance is in this status for a long time, an exception occurs.|Stopping|Yes|
-|Stopped|Stable|The instance has been stopped properly. In this status, the instance cannot accommodate external services.|Stopped|Yes|
-|Expired|Stable|A yearly or monthly subscribed instance is in this status if it expires because it has not been timely renewed. A Pay-As-You-Go instance is in this status only when you have an overdue payment. After an ECS instance expires, it continues running for 15 days, and the data on its disks is retained for an additional 15 days, after which the instance will be released and the data will be permanently removed. In this status, the instance cannot accommodate external services.|Stopped|Yes|
-|Expiring|Stable|A Subscription instance is in this status for 15 days before it expires.  After it is [renewed](../../../../reseller.en-US/Pricing/Renew instances/Renewal overview.md#), the instance is in the **Running**status.|Stopped|Yes|
-|Locked|Stable| An instance is in this status because of an overdue account or security risks. To unlock the instance, open a ticket.
+|Status|Status attribute|Description|API status|Visible in the console?|
+|:-----|:---------------|:----------|:---------|:----------------------|
+|Preparing|Intermediate|After an instance is created, it is in this status before it enters the **Running** status. If the instance is in this status for a long time, it means that an exception has occurred.|Pending|No|
+|Starting|Intermediate|After an instance is started or restarted in the console or through an API, the instance is in this status before it enters the **Running** status. If the instance is in this status for a long time, it means that an exception has occurred.|Starting|Yes|
+|Running|Stable|The instance is operating normally, and you can run your services.|Running|Yes|
+|Expiring|Stable|A Subscription instance is in this status for 15 days before it expires. We recommend that you [Renew the instance](../../../../../reseller.en-US/Pricing/Renew instances/Renewal overview.md#).|Running|Yes|
+|Stopping|Intermediate|After an instance is stopped in the console or through an API, the instance is in this status before it enters the **Stopped** status. If the instance is in this status for a long time, it means that an exception has occurred.|Stopping|Yes|
+|Stopped|Stable|An instance is in this status after it has been created but has not been started yet, or when it has been stopped due to normal operations. An instance in this status cannot provide external services.|Stopped|Yes|
+|Expired|Stable|A Subscription instance enters the **Expired** status when it expires. A Pay-As-You-Go instance enters this status if you have an overdue payment under your account. An instance in this status cannot provide external services. For information about resource status changes, see [Subscription](../../../../../reseller.en-US/Pricing/Subscription.md#) and [Pay-As-You-Go](../../../../../reseller.en-US/Pricing/Pay-As-You-Go.md#).|Stopped|Yes|
+|Expired and Being Recycled|Stable|Within 15 days after a VPC instance expires or is stopped due to an overdue payment, the instance stays in the **Expired** status for a period of time, and then enters the **Expired and Being Recycled** status.-   Pay-As-You-Go instance:
+    -   You can add funds to your account and [Restart](../../../../../reseller.en-US/User Guide/Instances/Reactivate an instance.md#) the instance before the instance enters the **Expired and Being Recycled** status. If the restart is successful, all resources will be retained without being affected.
+    -   After the instance enters the **Expired and Being Recycled** status, its computing resources \(vCPU + Memory\) will no longer be retained, but its cloud disks, local disks, and assigned Internet IP address will be retained. You can add funds to your account and restart the instance, but the restart may fail. You can try again later or open a ticket. If the restart is successful, the block storage \(including the local disks\) and the assigned Internet IP address will remain the same.
+-   Subscription instance:
+    -   You can renew the instance before it enters the **Expired and Being Recycled** status. If the renewal is successful, all resources will be retained without being affected.
+    -   After the instance enters the **Expired and Being Recycled** status, its computing resources \(vCPU + Memory\) will no longer be retained, but its cloud disks, local disks, and assigned Internet IP address will be retained. You can renew the instance. If the renewal is successful, the block storage \(including the local disks\) and the assigned Internet IP address will remain the same.
+
+|Stopped|Yes|
+|Locked|Stable|An instance is in this status if you have an overdue payment under your account or you account is insecure. You can open a ticket to unlock the instance.|Stopped|Yes|
+|Release pending|Stable| A Subscription instance is in this status after you apply for a refund before the instance expires.
 
  |Stopped|Yes|
-|Release pending|Stable|A Subscription instance is in this status after you apply for a refund before it expires.|Stopped |Yes|
 
-## API status changes {#section_apf_dk5_ydb .section}
+## API status {#section_apf_dk5_ydb .section}
 
-The following figure illustrates API status changes of an instance within its life cycle.
+You can call [Describeinstancestatus](../../../../../reseller.en-US/API Reference/Instances/DescribeInstanceStatus.md#) or [Description instances](../../../../../reseller.en-US/API Reference/Instances/DescribeInstances.md#) to view the API status of an instance. The following figure shows the status conversions described in this topic.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9551/15394796615105_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9551/15476899675105_en-US.png)
 
