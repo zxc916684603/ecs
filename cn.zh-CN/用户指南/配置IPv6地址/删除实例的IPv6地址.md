@@ -9,14 +9,14 @@
 3.  在 实例列表 页面，选择已创建的ECS实例，单击 **操作** 列下的 **管理**。 
 4.  在 配置信息 区域， 单击 **更多** \> **管理辅助私网IP** 。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65345/154390846233569_zh-CN.png)
+    ![管理辅助私网IP地址](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65345/154769543533569_zh-CN.png)
 
 5.  单击 **取消分配**。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65346/154390846233574_zh-CN.png)
+    ![取消分配IPv6地址](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65346/154769543533574_zh-CN.png)
 
 6.  单击 **修改**。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65346/154390846233577_zh-CN.png)
+    ![确认修改信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65346/154769543533577_zh-CN.png)
 
 
