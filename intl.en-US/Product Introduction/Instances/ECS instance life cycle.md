@@ -20,7 +20,6 @@ During its life cycle, an ECS instance may undergo several status changes, as de
 
 | | |
 |Overdue and Being Recycled|Stable|Within 15 days after a VPC Pay-As-You-Go instance expires or is stopped due to an overdue payment, the instance stays in the **Expired** status for a period of time, and then enters the **Overdue and Being Recycled** status.-   You can add funds to your account and [Restart](../../../../../reseller.en-US/User Guide/Instances/Reactivate an instance.md#) the instance before the instance enters the **Overdue and Being Recycled** status. If the restart is successful, all resources will be retained without being affected.
--   You can add funds to your account and [Restart](../../../../../reseller.en-US/User Guide/Instances/Reactivate an instance.md#) the instance before the instance enters the **Overdue and Being Recycled** status. If the restart is successful, all resources will be retained without being affected.
 
 |Stopped|Yes|
 |Locked|Stable|An instance is in this status if you have an overdue payment under your account or you account is insecure. You can open a ticket to unlock the instance.|Stopped|Yes|
@@ -32,5 +31,5 @@ During its life cycle, an ECS instance may undergo several status changes, as de
 
 You can call [Describeinstancestatus](../../../../../reseller.en-US/API Reference/Instances/DescribeInstanceStatus.md#) or [Description instances](../../../../../reseller.en-US/API Reference/Instances/DescribeInstances.md#) to view the API status of an instance. The following figure shows the status conversions described in this topic.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9551/15477063435105_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9551/15477065245105_en-US.png)
 
