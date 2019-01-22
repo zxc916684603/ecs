@@ -28,7 +28,7 @@
 2.  使用[DescribeInstances](cn.zh-CN/API参考/实例/DescribeInstances.md#)筛选磁盘ID：
 
     ```
-    aliyun ecs DescribeDisks --InstanceId i-bp1afnc98r8k69XXXXXX --output cols=DiskId
+    aliyun ecs DescribeInstances --RegionId cn-hangzhou --InstanceId i-bp1afnc98r8k69XXXXXX --output cols=DiskId
     ```
 
 3.  使用[CreateSnapshot](cn.zh-CN/API参考/快照/CreateSnapshot.md#)根据磁盘ID创建快照：
