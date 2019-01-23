@@ -2,7 +2,7 @@
 
 ## Image description {#section_rmr_2jv_xdb .section}
 
-GPU visualization computing ga1 instances use the AMD S7150 series GPU. Alibaba Cloud and AMD work together to optimize GPU drivers, so you can choose the following images with preinstalled drivers from **Image Marketplace**:
+GPU visualization computing ga1 instances use the AMD S7150 series GPU. Alibaba Cloud and AMD work together to optimize GPU drivers, so you can select the following images with preinstalled drivers from **Image Marketplace**:
 
 -   Ubuntu16.04 with AMD GPU driver preinstalled
 -   Windows Server 2016 English version with AMD GPU driver preinstalled
@@ -10,15 +10,15 @@ GPU visualization computing ga1 instances use the AMD S7150 series GPU. Alibaba 
 
 ## Procedure {#section_tmr_2jv_xdb .section}
 
-You can create a ga1 instance by following the instructions provided in [Step 2. Create an instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#). Use the following configurations when configuring an instance:
+You can create a ga1 instance by following the instructions provided in [creating an instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#). Use the following configurations when configuring an instance:
 
--   **Network**: Choose **VPC**. The current GPU-rendered ga1 instances only support VPCs.
--   **Instance**: Choose **Heterogeneous Computing** \> **GPU Visualization Compute** \> **GPU Rendering Type ga1**.
+-   **Network**: Select **VPC**. The current GPU-rendered ga1 instances only support VPCs.
+-   **Instance**: Select **Heterogeneous Computing** \> **GPU Visualization Compute** \> **GPU Rendering Type ga1**.
 -   **Image**: Click **Marketplace Image**, and then click **Select from image market \(including operating system\)**. Enter GPU or AMD in the search box to search images.
 
-    **Note:** It is recommended that you purchase or subscribe to these images because you can choose images later for another instance directly from **Purchased Images** or **Subscribed Images**.
+    **Note:** It is recommended that you purchase or subscribe to these images because you can select images later for another instance directly from **Purchased Images** or **Subscribed Images**.
 
-    ![](images/5119_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9628/15429589725119_en-US.png)
 
 
 ## Precautions {#section_rk5_kjv_xdb .section}

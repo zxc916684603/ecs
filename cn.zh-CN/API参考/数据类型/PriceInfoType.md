@@ -10,6 +10,6 @@ PriceInfo
 
 |名称|类型|描述|
 |:-|:-|:-|
-|Price|[PriceType](intl.zh-CN/API参考/数据类型/PriceType.md#)|价格|
-|Rules|[RulesType](intl.zh-CN/API参考/数据类型/RulesType.md#)|活动规则|
+|Price|[PriceType](cn.zh-CN/API参考/数据类型/PriceType.md#)|价格|
+|Rules|[RulesType](cn.zh-CN/API参考/数据类型/RulesType.md#)|活动规则|
 

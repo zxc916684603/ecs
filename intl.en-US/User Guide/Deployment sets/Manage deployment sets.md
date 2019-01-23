@@ -11,9 +11,9 @@ To change the name or description of a deployment set in the ECS console, follow
 3.  In the left-side navigation pane, choose **Networks and Security** \> **Deployment Sets**.
 4.  Locate the deployment set that needs to be modified.
 5.  Edit the information using either of the following methods:
-    -   Hover the cursor over the **Deployment Set Name** column, click the![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21512/154382090112136_en-US.png) icon that appears, and then enter the deployment set name and description.
+    -   Hover the cursor over the **Deployment Set Name** column, click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21512/154382177712136_en-US.png) icon that appears, and then enter the deployment set name and description.
     -   In the Actions column of the target deployment set, click **Edit**, and enter the deployment set name and description.
-6.  Click**OK**.
+6.  Click **OK**.
 
 You can also use the [ModifyDeploymentSetAttributes](../intl.en-US/API Reference/Deployment sets/ModifyDeploymentSetAttributes.md#) API operation to modify the deployment set name and description.
 

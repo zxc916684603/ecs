@@ -36,7 +36,7 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，用来方�
 
 **步骤 1：创建ECS实例**
 
-[创建ECS实例](../../../../cn.zh-CN/个人版快速入门/步骤 2：创建ECS实例.md#)。选择操作系统为公共镜像CentOS7.2。使用root用户 [连接实例](../../../../cn.zh-CN/用户指南/连接实例/使用用户名密码验证连接Linux实例.md#)。
+[创建ECS实例](../../../../../cn.zh-CN/个人版快速入门/步骤 2：创建ECS实例.md#)。选择操作系统为公共镜像CentOS7.2。使用root用户 [连接实例](../../../../../cn.zh-CN/用户指南/连接实例/使用用户名密码验证连接Linux实例.md#)。
 
 **步骤2：部署Node.js环境**
 
@@ -197,7 +197,7 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，用来方�
 6.  （可选）如果您的实例中开启了防火墙，必须添加端口的入站规则（如本示例中为TCP 3000端口）。
 7.  在本地机器的浏览器中输入 `http://实例公网IP地址:端口号` 访问项目。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9770/153804316012144_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9770/154817535912144_zh-CN.png)
 
 
 ## 相关链接 { .section}

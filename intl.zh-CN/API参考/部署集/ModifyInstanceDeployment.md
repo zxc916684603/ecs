@@ -27,10 +27,10 @@ ModifyInstanceDeployment 可以为您完成以下任务：
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：ModifyInstanceDeployment|
-|RegionId|String|是|实例共在的地域 ID。您可以调用[DescribeRegions](../intl.zh-CN/API参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
+|RegionId|String|是|实例共在的地域 ID。您可以调用[DescribeRegions](../cn.zh-CN/API参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
 |InstanceId|String|是|实例 ID。实例必须处于`Stopped`或者`Running`状态。|
 |DeploymentSetId|String|否|部署集 ID。|
-|DedicatedHostId|String|否|专有宿主机 ID。您可以调用 [DescribeDedicatedHosts](../../../../../intl.zh-CN/API参考/DescribeDedicatedHosts.md#) 查看可以使用的专有宿主机。|
+|DedicatedHostId|String|否|专有宿主机 ID。您可以调用 [DescribeDedicatedHosts](../../../../../../cn.zh-CN/API参考/DescribeDedicatedHosts.md#) 查看可以使用的专有宿主机。|
 |Force|Boolean|否|是否强制更换实例宿主机。-   true：允许实例更换宿主机，允许重启 **运行中** 的实例、**已停止** 的预付费（包年包月）实例和 **已停止** 的停机收费的按量付费实例。
 -   false（默认）：不允许实例更换宿主机，只在当前宿主机上加入部署集。这可能导致更换部署集失败。
 
@@ -38,7 +38,7 @@ ModifyInstanceDeployment 可以为您完成以下任务：
 
 ## 返回参数 {#ResponseParameter .section}
 
-全是公共返回参数。参阅[公共返回参数](../intl.zh-CN/API参考/快速入门/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅[公共返回参数](../cn.zh-CN/API参考/HTTP调用方式/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -71,7 +71,7 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceDeployment
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP状态码|说明|
 |:---|:---|:------|:-|

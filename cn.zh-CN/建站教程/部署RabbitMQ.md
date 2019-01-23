@@ -20,7 +20,7 @@ RabbitMQ 是一个开源的 AMQP 实现，服务器端用 Erlang 语言编写，
 5.  选择所购 ECS 实例所在的地域，并找到所购 ECS 实例，在 **IP 地址** 列获取该实例的公网 IP 地址。
 6.  在浏览器地址栏中输入公网 IP 地址，下载操作文档。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9776/153804707812515_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9776/154817562612515_zh-CN.png)
 
 7.  使用 putty 登录 Linux 服务器，请参考 [连接Linux实例](https://help.aliyun.com/document_detail/25425.html)；忘记 root 密码，请参考 [重置实例密码](https://help.aliyun.com/document_detail/25439.html)。
 8.  初始化 rabbitmq。
@@ -30,11 +30,11 @@ RabbitMQ 是一个开源的 AMQP 实现，服务器端用 Erlang 语言编写，
      ./init_rabbitmq.sh
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9776/153804707812516_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9776/154817562612516_zh-CN.png)
 
 9.  进入管理页面，浏览器访问 `http://公网IP:15672`。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9776/153804707812517_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9776/154817562612517_zh-CN.png)
 
 
 ## 手工部署 {#section_gr4_zy1_ffb .section}
@@ -62,7 +62,7 @@ RabbitMQ 是一个开源的 AMQP 实现，服务器端用 Erlang 语言编写，
     exit  #退出重新登录
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9776/153804707812518_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9776/154817562612518_zh-CN.png)
 
 
 **安装依赖包**
@@ -71,7 +71,7 @@ RabbitMQ 是一个开源的 AMQP 实现，服务器端用 Erlang 语言编写，
 yum -y install make gcc gcc-c++ m4 ncurses-devel openssl-devel unixODBC-devel
 ```
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9776/153804707812519_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9776/154817562612519_zh-CN.png)
 
 **源代码下载**
 
@@ -356,13 +356,13 @@ make && make install
     service rabbitmq-server start
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9776/153804707812520_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9776/154817562612520_zh-CN.png)
 
 9.  进入管理页面。
 
     浏览器访问 [http://公网IP:15672。](http://xn--ip-xz4cq45o:15672%E3%80%82/)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9776/153804707812521_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9776/154817562612521_zh-CN.png)
 
 
 更多开源软件尽在云市场：[https://market.aliyun.com/software](https://market.aliyun.com/software) 。

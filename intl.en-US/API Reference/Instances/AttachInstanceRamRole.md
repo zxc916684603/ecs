@@ -1,6 +1,6 @@
 # AttachInstanceRamRole {#AttachInstanceRamRole .reference}
 
-Attaches an [instance RAM role](../../../../reseller.en-US/User Guide/Instances/Instance RAM roles/What is the RAM role of an instance.md#) to your ECS instance. You can only assign one RAM role to an instance at any time. If the instance already has a RAM role, an error code returns when you attach another RAM role to the same instance.
+Attaches an [instance RAM role](../../../../../reseller.en-US/User Guide/Instances/Instance RAM roles/What is the RAM role of an instance.md#) to your ECS instance. You can only assign one RAM role to an instance at any time. If the instance already has a RAM role, an error code returns when you attach another RAM role to the same instance.
 
 ## Request parameters {#RequestParameter .section}
 
@@ -9,7 +9,7 @@ Attaches an [instance RAM role](../../../../reseller.en-US/User Guide/Instances/
 |Action|String|Yes|The name of this interface. Value: AttachInstanceRamRole.|
 |RegionId|String|Yes|Region ID. You can call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |InstanceIds|Array|Yes|Instance ID set. A maximum of 100 instances are supported, in the format of \["instanceId1", "instanceId2",  "instanceId3"…\].|
-|RamRoleName|String|Yes|Instance RAM role name. The name is provided and maintained by *RAM*. You can call [ListRoles](../../../../reseller.en-US/.md#) to view the ram role list. For more information, see API [CreateRole](../../../../reseller.en-US/.md#) and [ListRoles](../../../../reseller.en-US/.md#).|
+|RamRoleName|String|Yes|Instance RAM role name. The name is provided and maintained by *RAM*. You can call [ListRoles](../../../../../reseller.en-US/API Reference/Role management APIs/ListRoles.md#) to view the ram role list. For more information, see API [CreateRole](../../../../../reseller.en-US/API Reference/Role management APIs/CreateRole.md#) and [ListRoles](../../../../../reseller.en-US/API Reference/Role management APIs/ListRoles.md#).|
 
 ## Response parameters {#ResponseParameter .section}
 
@@ -72,9 +72,9 @@ https://ecs.aliyuncs.com/?Action=AttachInstanceRamRole
 |Error code|Error message |HTTP status code|Meaning|
 |:---------|:-------------|:---------------|:------|
 |InvalidInstanceIds.Malformed|The specified InstanceIds is not valid.|400|The specified InstanceIds is invalid.|
-|MissingParameter.InstanceIds|The input parameter InstanceIds that is mandatory for processing this request is missing.|400|The required InstanceIds parameter is missing.|
-|MissingParameter.RamRoleName|The input parameter RamRoleName that is mandatory for processing this request is missing.|400|The required RamRoleName parameter is missing.|
-|MissingParameter.RegionId|The input parameter RegionId that is mandatory for processing this request is missing.|400|The required RegionId parameter is missing.|
+|MissingParameter.InstanceIds|The input parameter InstanceIds that is required for processing this request is missing.|400|The required InstanceIds parameter is missing.|
+|MissingParameter.RamRoleName|The input parameter RamRoleName that is required for processing this request is missing.|400|The required RamRoleName parameter is missing.|
+|MissingParameter.RegionId|The input parameter RegionId that is required for processing this request is missing.|400|The required RegionId parameter is missing.|
 |InvalidNetworkType.MismatchRamRole|Ram role cannot be attached to instances of Classic network type.|403|RAM roles cannot be attached to instances of classic network type.|
 |InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|The RAM user does not have the privilege to pass a role.|
 |InvalidInstanceId.NotFound|The specified InstanceId does not exist.|404|The specified InstanceId does not exist.|

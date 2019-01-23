@@ -12,7 +12,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：UnassignPrivateIpAddresses|
-|RegionId|String|是|网卡所在的地域ID。您可以调用[DescribeRegions](../intl.zh-CN/API参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
+|RegionId|String|是|网卡所在的地域ID。您可以调用[DescribeRegions](../cn.zh-CN/API参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
 |NetworkInterfaceId|String|是|弹性网卡ID。|
 |PrivateIpAddress.N|Array|是|一个或多个需要删除的辅助私有IP地址。`N` 的取值范围：-   弹性网卡处于 **可用**（`Available`）状态：\[1, 10\]
 -   弹性网卡处于 **已绑定**（`InUse`）状态：受到实例规格限制。
@@ -21,7 +21,7 @@
 
 ## 返回参数 {#ResponseParameter .section}
 
-全是公共返回参数。参阅 [公共返回参数](intl.zh-CN/API参考/快速入门/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅 [公共返回参数](cn.zh-CN/API参考/HTTP调用方式/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -55,7 +55,7 @@ https://ecs.aliyuncs.com/?Action=UnassignPrivateIpAddresses
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|

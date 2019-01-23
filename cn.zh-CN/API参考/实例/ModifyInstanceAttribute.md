@@ -8,11 +8,11 @@
 
 -   实例状态为**启动中**（`Starting`）时，无法重置实例密码。
 
--   被[安全控制](../intl.zh-CN/API参考/附录/安全锁定时的API行为.md#)的ECS实例的`OperationLocks`不能标记为`"LockReason" : "security"`。
+-   被[安全控制](../cn.zh-CN/API参考/附录/安全锁定时的API行为.md#)的ECS实例的`OperationLocks`不能标记为`"LockReason" : "security"`。
 
--   重置密码后，您需要在控制台 [重启实例](../intl.zh-CN/用户指南/实例/重启实例.md#) 或者调用 [RebootInstance](intl.zh-CN/API参考/实例/RebootInstance.md#) 使更改生效，在实例内部重启将不会生效。
+-   重置密码后，您需要在控制台 [重启实例](../cn.zh-CN/用户指南/实例/重启实例.md#) 或者调用 [RebootInstance](cn.zh-CN/API参考/实例/RebootInstance.md#) 使更改生效，在实例内部重启将不会生效。
 
--   实例状态为 **已停止**（`Stopped`）且满足 [实例自定义数据](../intl.zh-CN/用户指南/实例/实例自定义数据和元数据/实例自定义数据.md) 使用限制时，支持修改自定义数据。
+-   实例状态为 **已停止**（`Stopped`）且满足 [实例自定义数据](../cn.zh-CN/用户指南/实例/实例自定义数据和元数据/实例自定义数据.md) 使用限制时，支持修改自定义数据。
 
 
 ## 请求参数 {#RequestParameter .section}
@@ -36,13 +36,13 @@
 |UserData|String|否|实例自定义数据，需要以 Base64 编码。编码前，原始数据不能超过 16 KB。建议不要明文传入敏感信息，例如密码和私钥等。如果必须传入敏感信息，建议您加密后再以 Base64 编码传入，在实例内部以同样的方式反解密。|
 |CreditSpecification|String|否| 修改突发性能 t5 实例的运行模式。取值范围：
 
- -   Standard：标准模式，实例性能请参阅 [t5性能约束实例](../intl.zh-CN/产品简介/实例/突发性能实例/t5性能约束实例.md#)。
--   Unlimited：无性能约束模式，实例性能请参阅 [t5无性能约束实例](../intl.zh-CN/产品简介/实例/突发性能实例/t5无性能约束实例.md#)。
+ -   Standard：标准模式，实例性能请参阅 [t5性能约束实例](../cn.zh-CN/产品简介/实例/突发性能实例/t5性能约束实例.md#)。
+-   Unlimited：无性能约束模式，实例性能请参阅 [t5无性能约束实例](../cn.zh-CN/产品简介/实例/突发性能实例/t5无性能约束实例.md#)。
 
  默认值：无。
 
  |
-|DeletionProtection|Boolean|否|实例释放保护属性，指定是否支持通过控制台或API（[DeleteInstance](intl.zh-CN/API参考/实例/DeleteInstance.md#)）释放实例。-   true：开启实例释放保护。
+|DeletionProtection|Boolean|否|实例释放保护属性，指定是否支持通过控制台或API（[DeleteInstance](cn.zh-CN/API参考/实例/DeleteInstance.md#)）释放实例。-   true：开启实例释放保护。
 -   false：关闭实例释放保护。
 
 **说明：** 该属性仅适用于按量付费实例，且只能限制手动释放操作，对系统释放操作不生效。
@@ -51,7 +51,7 @@
 
 ## 返回参数 {#ResponseParameter .section}
 
-全是公共返回参数。参阅[公共返回参数](../intl.zh-CN/API参考/快速入门/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅[公共返回参数](../cn.zh-CN/API参考/HTTP调用方式/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -84,7 +84,7 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceAttribute
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|

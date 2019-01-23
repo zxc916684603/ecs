@@ -11,7 +11,7 @@ To guarantee successful configuration of the hostname, NTP source, and yum sourc
     1.  Log on to your on-premise server, VM, or cloud host.
     2.  Run `cloud-init --version` to query the cloud-init version.
 
-        If your version is earlier than 0.7.9, see how to [install cloud-init](#Install).
+        If your version is earlier than 0.7.9, see how to [install cloud-init](#).
 
 
 ## Prerequisites {#section_kg1_d4m_xdb .section}
@@ -43,7 +43,7 @@ To install cloud-init, follow these steps:
 4.  Run `python setup.py install` to install setup.py, which is the cloud-init installation file.
 5.  Run `vi /etc/cloud/cloud.cfg` to modify the cloud.cfg configuration file.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9704/15429849254621_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9704/15433074314621_en-US.png)
 
     Modify `cloud_init_modules` configurations to the following:
 
@@ -80,7 +80,7 @@ To install cloud-init, follow these steps:
 
 ## Troubleshooting {#section_xsx_t4m_xdb .section}
 
-The libraries missing from images may be different. You can install the missing libraries through pip and repeat step [4](#setup.py).
+The libraries missing from images may be different. You can install the missing libraries through pip and repeat [step 4](#).
 
 **When the six and oauthlib libraries are missing**
 
@@ -105,9 +105,9 @@ The libraries missing from images may be different. You can install the missing 
 
 You can run `pip install -r requirements.txt` to install all dependency libraries according to the library information in the requirements.txt file of cloud-init.
 
-## Next step {#section_bf1_mpm_xdb .section}
+## What to do next {#section_bf1_mpm_xdb .section}
 
-You can [import the image to ECS](intl.en-US/User Guide/Images/Import images/Import custom images.md#).
+You can [import the image to ECS](reseller.en-US/User Guide/Images/Import images/Import custom images.md#).
 
 ## Reference {#section_qsb_npm_xdb .section}
 

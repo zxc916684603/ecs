@@ -7,11 +7,11 @@
 -   只有状态为 **运行中**（`Running`）的实例才可以进行此操作。
 -   成功调用接口后实例进入 **停止中**（`Stopping`） 状态。实例成功停止关机后进入 **已停止**（`Stopped`）状态。
 -   支持强制停止，等同于断电处理，可能丢失实例操作系统中未写入磁盘的数据。
--    [安全控制](intl.zh-CN/API参考/附录/安全锁定时的 API 行为.md#) 的实例的 `OperationLocks` 中标记了 `"LockReason" : "security"` 的锁定状态时，不能停止实例。
--   对于配置 [本地盘存储](../../../../intl.zh-CN/产品简介/块存储/本地存储.md#)（Local\_storage） 的 [I1 规格族](../../../../intl.zh-CN/产品简介/实例规格族.md#i1) 实例，`ConfirmStop` 入参为必选，取值为 `True` 后接口调用才会成功，否则会返回错误码。
+-    [安全控制](cn.zh-CN/API参考/附录/安全锁定时的API行为.md#) 的实例的 `OperationLocks` 中标记了 `"LockReason" : "security"` 的锁定状态时，不能停止实例。
+-   对于配置 [本地盘存储](../../../../../cn.zh-CN/产品简介/块存储/本地盘.md#)（Local\_storage） 的 [I1 规格族](../../../../../cn.zh-CN/产品简介/实例规格族.md#i1) 实例，`ConfirmStop` 入参为必选，取值为 `True` 后接口调用才会成功，否则会返回错误码。
 -   I1 规格族实例，成功调用接口后，本地盘存储上的数据将会被清空，需要通过应用层的数据冗余保证数据可用性。
 -   系统自动忽略其他规格族实例的 `ConfirmStop` 入参。
--   开通 **[默认VPC内实例停机不收费](../../../../intl.zh-CN/产品定价/按量付费实例停机不收费.md#)** 功能后，您可以通过设置 `StoppedMode=KeepCharging` 保持停机收费，ECS 实例停止后会继续计费，并为您保留 ECS 实例规格库存和公网 IP 地址。
+-   开通 **[默认VPC内实例停机不收费](../../../../../cn.zh-CN/产品定价/按量付费实例停机不收费.md#)** 功能后，您可以通过设置 `StoppedMode=KeepCharging` 保持停机收费，ECS 实例停止后会继续计费，并为您保留 ECS 实例规格库存和公网 IP 地址。
 
 ## 请求参数 { .section}
 
@@ -27,13 +27,13 @@
 -   false
 
 默认值：false|
-|StoppedMode|String|否|停止 ECS 实例后，实例依然计费。取值：KeepCharging开通 **[默认VPC内实例停机不收费](../../../../intl.zh-CN/产品定价/按量付费实例停机不收费.md#)** 功能后，您可以通过设置 `StoppedMode=KeepCharging` 保持停机收费，ECS 实例停止后会继续计费，并为您保留 ECS 实例规格库存和公网 IP 地址。
+|StoppedMode|String|否|停止 ECS 实例后，实例依然计费。取值：KeepCharging开通 **[默认VPC内实例停机不收费](../../../../../cn.zh-CN/产品定价/按量付费实例停机不收费.md#)** 功能后，您可以通过设置 `StoppedMode=KeepCharging` 保持停机收费，ECS 实例停止后会继续计费，并为您保留 ECS 实例规格库存和公网 IP 地址。
 
 |
 
 ## 返回参数 {#section_edm_s4m_xdb .section}
 
-全是公共返回参数。参阅[公共参数](intl.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)
+全是公共返回参数。参阅[公共参数](cn.zh-CN/API参考/HTTP调用方式/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -45,7 +45,9 @@ https://ecs.aliyuncs.com/?Action=StopInstance
 &<公共请求参数>
 ```
 
-**返回示例** **XML 格式** 
+**返回示例** 
+
+**XML 格式** 
 
 ```
 <StopInstanceResponse>
@@ -63,7 +65,7 @@ https://ecs.aliyuncs.com/?Action=StopInstance
 
 ## 错误码 { .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|

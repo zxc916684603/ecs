@@ -39,20 +39,20 @@ phpwind 是采用 PHP + MySQL 方式运行的开源社区程序。轻架构，�
 4.  在浏览器地址栏中，输入公网 IP 地址。屏幕上会显示提示页面。
 5.  在提示页面上，单击 **获取权限** 按钮，下载权限文档 zhcloud-readme.doc。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414712205_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572412205_zh-CN.png)
 
     权限文档中包含了智慧云虚机面板权限（host\)、FTP 权限（PHPWind ftp\)、 MySQL 数据库权限（PHPWind database）和 phpwind 后台管理权限（PHPWind admin）。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414712206_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572412206_zh-CN.png)
 
 6.  在浏览器地址栏里，输入 `http://实例公网 IP 地址/admin.php`，进入 phpwind 的登录页面。
 7.  在 phpwind 登录页面上，输入在权限文档 zhcloud-readme.doc 中获取的 phpwind 后台管理的用户名和密码，再单击 **登录**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414712207_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572412207_zh-CN.png)
 
     登录 phpwind 后台，您就可以管理 phpwind 论坛了。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414712208_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572412208_zh-CN.png)
 
 
 **绑定域名**
@@ -62,15 +62,15 @@ phpwind 是采用 PHP + MySQL 方式运行的开源社区程序。轻架构，�
     -   host url 是指智慧云虚机面板的登录地址；
     -   host account 是指智慧云虚机面板的登录账号；
     -   host password 是指智慧云虚机面板的登录密码。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414712209_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572412209_zh-CN.png)
 
     登录之后，如图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414712210_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572412210_zh-CN.png)
 
 2.  单击 **域名绑定**，输入您的域名即可绑定。若您想禁止 IP 访问，删除含有 IP 地址的这条记录即可。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414712211_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572512211_zh-CN.png)
 
 
 ## 安装并使用 phpwind 稳定版 {#section_m4s_1xm_2fb .section}
@@ -92,34 +92,34 @@ phpwind 是采用 PHP + MySQL 方式运行的开源社区程序。轻架构，�
 1.  登录 [智慧云虚机面板](http://zhy.yjcom.com/)。
 2.  单击 **增加网站** ，进入新增站点的页面。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414712212_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572512212_zh-CN.png)
 
 3.  指定一个 FTP 账号密码，选择站点目录，单击 **下一步**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414712213_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572512213_zh-CN.png)
 
 4.  **启用JSP** 选择 **否**，**启用PHP** 选择 **是**，**PHP版本** 选择 **PHP5.4** 版本。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414712214_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572512214_zh-CN.png)
 
 5.  **类型** 选择 **mysql**，指定数据库 **名称** 及 数据库 **密码**，单击 **下一步**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414712215_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572512215_zh-CN.png)
 
 6.  输入一个 **域名**，单击 **执行创建**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414812216_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572512216_zh-CN.png)
 
 
 至此，您已经成功创建了一个新的站点。您可以查看新站点 FTP 和数据库的权限：
 
 -   查看 FTP 的权限：进入面板首页，单击 **FTP 账号**，单击 **查看密码**，可以查看到新站点的 FTP 账号和 FTP 密码。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414812217_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572512217_zh-CN.png)
 
 -   查看数据库权限：在 [智慧云虚机面板](http://zhy.yjcom.com/) 的 **数据库** 可以查看到。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414812218_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572512218_zh-CN.png)
 
 
 **使用 FTP 连接到新建的站点**
@@ -127,7 +127,7 @@ phpwind 是采用 PHP + MySQL 方式运行的开源社区程序。轻架构，�
 1.  启动 FileZilla FTP。
 2.  输入 ECS 实例的公网 IP 地址、FTP 账号、FTP 密码，单击 **快速链接**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414812219_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572512219_zh-CN.png)
 
 
 ## 购买并下载安装 phpwind 稳定版（v8.7.1） {#section_npd_fym_2fb .section}
@@ -137,33 +137,33 @@ phpwind 是采用 PHP + MySQL 方式运行的开源社区程序。轻架构，�
 3.  开通成功后，单击 **管理控制台**。
 4.  在 已购买的服务 里，找到 phpwind 8.7.1安装包（UTF8），单击 **管理**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414812220_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572512220_zh-CN.png)
 
 5.  在 **应用管理信息** 中，单击下载地址。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414812221_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572512221_zh-CN.png)
 
 6.  下载并解压安装包。
 7.  在 FTP 中，打开 phpwind 8.7.1安装包（UTF8）的 upload 目录，将 upload 目录下的程序上传到站点根目录下。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414812222_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572512222_zh-CN.png)
 
 8.  在浏览器中访问 **新增站点** 里绑定的域名。
 9.  在弹出对话框中，单击 **接受**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414812223_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572512223_zh-CN.png)
 
 10. 单击 **下一步**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414912224_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572512224_zh-CN.png)
 
 11. 输入数据库权限，单击 **下一步**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414912225_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572512225_zh-CN.png)
 
 12. 完成安装，进入 phpwind 论坛首页。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414912226_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572512226_zh-CN.png)
 
 
 **获取商业授权**
@@ -177,19 +177,19 @@ phpwind 是采用 PHP + MySQL 方式运行的开源社区程序。轻架构，�
 3.  登录 [ECS 管理控制台](https://ecs.console.aliyun.com/#/home)。
 4.  进入 **云市场** \> **已购买服务**，找到 phpwind 商业授权，单击 **管理**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414912228_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572512228_zh-CN.png)
 
 5.  在 **应用管理信息** 中，单击管理地址。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414912229_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572612229_zh-CN.png)
 
 6.  单击 **点击这里下载**，得到验证文件 verify.html，通过 FTP 工具上传至站点根目录，再单击 **立即授权**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414912230_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572612230_zh-CN.png)
 
 7.  输入您的站点域名，单击 **确定**，就完成商业授权了。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414912231_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572612231_zh-CN.png)
 
 
 ## 常见问题 {#section_xyr_d1n_2fb .section}
@@ -199,7 +199,7 @@ phpwind 是采用 PHP + MySQL 方式运行的开源社区程序。轻架构，�
 1.  登录 [智慧云虚机面板](http://zhy.yjcom.com/)。
 2.  找到 **自定义伪静态** \> **自定义**，写入 301 重定向的 Nginx 规则，单击 **保存**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/153804414912232_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9786/154817572612232_zh-CN.png)
 
     下面以域名 `yjcom.com` 为例写 301 重定向 Nginx 规则。
 

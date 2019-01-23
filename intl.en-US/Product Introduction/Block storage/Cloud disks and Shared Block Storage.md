@@ -2,7 +2,7 @@
 
 Cloud disks and Shared Block Storage are block-level data storage products provided by Alibaba Cloud for ECS that features low latency, high performance, persistence, and high reliability. They use a [triplicate distributed system](reseller.en-US/Product Introduction/Block storage/Triplicate technology.md#) to provide 99.9999999% data reliability for ECS instances. Cloud disks and Shared Block Storage can automatically copy your data within the target zone to help you prevent unexpected hardware faults from causing data unavailability or service disruption. Just like what you do with a hard disk, you can partition and format the cloud disks and Shared Block Storage attached to an ECS instance, create a file system, and store data on them.
 
-You can expand the cloud disks and Shared Block Storage as needed at any time. For more information, see [Linux \_ Resize a data disk](../../../../reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md#) and [increase system disk size](../../../../reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Increase system disk size.md#). You can also create snapshots to back up data for the cloud disks and Shared Block Storage. For more information about snapshots, see [what are ECS snapshots](reseller.en-US/Product Introduction/Snapshots/What are ECS snapshots.md#).
+You can expand the cloud disks and Shared Block Storage as needed at any time. For more information, see [Linux - Resize a data disk](../../../../reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md#) and [increase system disk size](../../../../reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Increase system disk size.md#). You can also create snapshots to back up data for the cloud disks and Shared Block Storage. For more information about snapshots, see [what are ECS snapshots](reseller.en-US/Product Introduction/Snapshots/Snapshot overview.md#).
 
 Cloud disks and Shared Block Storage differ in whether they can be simultaneously attached to multiple ECS instances and perform read and write operations. Details are as follows:
 
@@ -60,7 +60,7 @@ You can change the billing method of the cloud disk, as shown in the following t
 |:----------------------------|:------|:-------------|:-----------|
 |Subscription -\> Pay-As-You-Go|[Renew for configuration downgrade](../../../../reseller.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#)|Effective from the next billing cycle|Subscription cloud disks mounted to Subscription instances. The billing method of the system disk cannot be changed.|
 |Pay-As-You-Go -\> Subscription|[Upgrade configurations](../../../../reseller.en-US/User Guide/Instances/Change configurations/Upgrade configurations of Subscription instances.md#)|Effective immediately|Pay-As-You-Go data disks mounted to Subscription instances. The billing method of the system disk cannot be changed.|
-|[Switch from Pay-As-You-Go to Subscription billing](../../../../reseller.en-US/Pricing/Limits.md#)|System disks and data disks mounted to Pay-As-You-Go instances.|
+|[Switch from Pay-As-You-Go to Subscription billing](../../../../reseller.en-US/Pricing/Switch from Pay-As-You-Go to Subscription billing.md#)|System disks and data disks mounted to Pay-As-You-Go instances.|
 
 ## Related operations {#section_mnz_nbw_ydb .section}
 

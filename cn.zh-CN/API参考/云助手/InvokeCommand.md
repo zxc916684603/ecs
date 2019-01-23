@@ -10,7 +10,7 @@
 
     **说明：** 如果您想调整调用次数上限，请 [提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm) 申请。
 
--   目标实例的网络类型必须是 [专有网络VPC](../../../../../cn.zh-CN/产品简介/什么是专有网络.md#)。
+-   目标实例的网络类型必须是 [专有网络VPC](../../../../../../cn.zh-CN/产品简介/什么是专有网络.md#)。
 -   目标实例的状态必须为 **运行中**（`Running`）。
 -   目标实例必须预先安装 [云助手客户端](../cn.zh-CN/用户指南/云助手/云助手客户端.md#)。
 -   执行类型为 PowerShell 的命令时，您需要确保目标 ECS Windows实例已经配置了 PowerShell 模块。

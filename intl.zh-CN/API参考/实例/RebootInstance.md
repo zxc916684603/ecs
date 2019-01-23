@@ -7,7 +7,7 @@
 -   您只能重启状态为 **运行中**（`Running`）的 ECS 实例。
 -   重启 ECS 实例后进入 **启动中**（`Starting`）状态。
 -   支持强制重启（`ForceStop`），强制重启等同于传统服务器的断电重启，可能丢失实例操作系统中未写入磁盘的数据。
--   被 [安全控制](intl.zh-CN/API参考/附录/安全锁定时的 API 行为.md#) 的 ECS 实例的 `OperationLocks` 中标记了 `"LockReason" : "security"` 时，不能重启实例。
+-   被 [安全控制](cn.zh-CN/API参考/附录/安全锁定时的API行为.md#) 的 ECS 实例的 `OperationLocks` 中标记了 `"LockReason" : "security"` 时，不能重启实例。
 
 ## 请求参数 {#RequestParameter .section}
 
@@ -22,7 +22,7 @@
 
 ## 返回参数 {#ResponseParameter .section}
 
-全是公共返回参数。参阅[公共参数](intl.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)
+全是公共返回参数。参阅[公共参数](cn.zh-CN/API参考/HTTP调用方式/公共参数.md#commonResponseParameters)
 
 ## 示例 { .section}
 
@@ -54,7 +54,7 @@ https://ecs.aliyuncs.com/?Action=RebootInstance
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|

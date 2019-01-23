@@ -50,51 +50,51 @@
 
     **说明：** 使用自动安装工具需要服务器能访问外网，如果访问不了，需要手动下载组件，然后使用命令安装，具体可以查看微软官方文档。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/153796239012385_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/154817568412385_zh-CN.png)
 
     必备组件安装成功。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/153796239112386_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/154817568412386_zh-CN.png)
 
     所有组件安装完成后，重启服务器，然后开始安装 Sharepoint。
 
     运行SharePoint2016安装向导，输入产品 Key。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/153796239112387_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/154817568412387_zh-CN.png)
 
     开始安装 ShrePoint 2016。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/153796239112388_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/154817568412388_zh-CN.png)
 
     运行 SharePoint 配置向导。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/153796239112389_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/154817568412389_zh-CN.png)
 
     选择创建新的服务器场。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/153796239112390_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/154817568412390_zh-CN.png)
 
     指定配置数据库设置。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/153796239112391_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/154817568412391_zh-CN.png)
 
     指定服务器角色。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/153796239112392_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/154817568412392_zh-CN.png)
 
     **说明：** 此处为单台服务器做测试，因此选择单一服务器场。
 
     指定 SharePoint 管理中心端口以及安全设置。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/153796239112393_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/154817568412393_zh-CN.png)
 
     完成配置向导并开始安装。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/153796239112394_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/154817568412394_zh-CN.png)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/153796239112395_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/154817568412395_zh-CN.png)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/153796239112396_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9788/154817568412396_zh-CN.png)
 
     到这里就全部安装完成，后面可以通过管理中心配置服务器场，配置服务器场时选择开启自己需要的服务，否则会造成不必要的内存开支。
 

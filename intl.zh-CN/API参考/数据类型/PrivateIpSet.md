@@ -12,5 +12,5 @@
 |:-|:-|:-|
 |PrivateIpAddress|String|弹性网卡私有 IP 地址|
 |Primary|Boolean|弹性网卡是否是主私有 IP 地址|
-|AssociatedPublicIp|[AssociatedPublicIp](intl.zh-CN/API参考/数据类型/AssociatedPublicIp.md#)|弹性网卡关联的公有 IP|
+|AssociatedPublicIp|[AssociatedPublicIp](cn.zh-CN/API参考/数据类型/AssociatedPublicIp.md#)|弹性网卡关联的公有 IP|
 

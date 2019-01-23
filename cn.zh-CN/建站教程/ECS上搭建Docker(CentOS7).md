@@ -45,7 +45,7 @@
 
     出现以下xin说明信息则表明安装成功。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9774/153804724112347_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9774/154817544912347_zh-CN.png)
 
 
 ## Docker基本用法 {#section_tz2_4pt_2fb .section}
@@ -122,7 +122,7 @@
 
         在浏览器输入宿主机ip加8080端口访问测试，出现以下内容则说明运行成功。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9774/153804724112348_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9774/154817544912348_zh-CN.png)
 
 
 ## 镜像制作 {#section_iyd_jqt_2fb .section}

@@ -6,7 +6,7 @@
 
 我们定义出方向流量的发起端为源端（Source），数据传输的接收端为目的端（Destination），如下图所示。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9918/15447687296061_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9918/15482139296061_zh-CN.png)
 
 调用该接口时，您需要了解：
 
@@ -93,11 +93,11 @@
 
 ## 返回参数 {#ResponseParameter .section}
 
-全是公共返回参数。参阅[公共返回参数](../cn.zh-CN/API参考/快速入门/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅[公共返回参数](../cn.zh-CN/API参考/HTTP调用方式/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
-更多关于安全组规则的设置示例，请参阅 [应用案例](../cn.zh-CN/用户指南/安全组/应用案例.md#)、[安全组规则的典型应用](../cn.zh-CN/用户指南/安全组/安全组规则的典型应用.md#) 和 [安全组五元组规则介绍](https://yq.aliyun.com/articles/272107)。
+更多关于安全组规则的设置示例，请参阅 [应用案例](../cn.zh-CN/用户指南/安全组/安全组应用案例.md#)、[安全组规则的典型应用](../cn.zh-CN/用户指南/安全组/安全组规则的典型应用.md#) 和 [安全组五元组规则介绍](https://yq.aliyun.com/articles/272107)。
 
 **请求示例一** 
 

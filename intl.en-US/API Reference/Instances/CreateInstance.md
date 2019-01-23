@@ -212,7 +212,7 @@ Default value: PostPaid.|
 
 Default value: NoSpot.|
 |SpotPriceLimit|Float|No|The hourly price threshold for a preemptible instance, and it takes effect only when parameter `SpotStrategy` is `SpotWithPriceLimit`. Three decimal places are allowed at most.|
-|Period|Integer|No|Unit: month. This parameter is valid and mandatory only when `InstanceChargeType` is set to `PrePaid`. Optional values:-   1-9
+|Period|Integer|No|Unit: month. This parameter is valid and required only when `InstanceChargeType` is set to `PrePaid`. Optional values:-   1-9
 -   12
 -   24
 -   36
@@ -247,7 +247,7 @@ Default value: false.|
 
 |
 |DeploymentSetId|String|No|Deployment Set ID. If you do not enter the value, 1 is used.|
-|RamRoleName|String|No|The RAM role name of the instance. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../../reseller.en-US/API Reference (RAM)/Role Management Interface/ListRoles.md#). For more information, see [CreateRole](../../../../../reseller.en-US/API Reference (RAM)/Role Management Interface/CreateRole.md#) and [ListRoles](../../../../../reseller.en-US/API Reference (RAM)/Role Management Interface/ListRoles.md#).|
+|RamRoleName|String|No|The RAM role name of the instance. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../../../reseller.en-US/API Reference/Role management APIs/ListRoles.md#). For more information, see [CreateRole](../../../../../../reseller.en-US/API Reference/Role management APIs/CreateRole.md#) and [ListRoles](../../../../../../reseller.en-US/API Reference/Role management APIs/ListRoles.md#).|
 |SecurityEnhancementStrategy|String|No|Whether or not to enable security enhancement. Optional values:-   Active: Enables the security enhancement feature and installs a free network security software. Only applicable to the Alibaba Cloud official images.
 -   Deactive: Disables the security enhancement feature. No network security software is installed. Applicable to all kinds of images.
 
@@ -355,7 +355,7 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |InvalidSystemDiskCategory.ValueNotSupported|The specified parameter SystemDisk.Category is not valid.|400|The specified `SystemDisk.Category` is invalid.|
 |InvalidUserData.NotSupported|The specified parameter UserData only support the vpc and IoOptimized Instance.|400|You can only specify UserData for I/O optimized VPC-connected instances.|
 |InvalidUserData.SizeExceeded|The specified parameter UserData exceeds the size.|400|The size of the UserData has exceeded 16 KB.|
-|MissingParameter|The input parameter VSwitchId that is mandatory for processing this request is not supplied.|400|The `VSwitchId` parameter is required.|
+|MissingParameter|The input parameter VSwitchId that is required for processing this request is not supplied.|400|The `VSwitchId` parameter is required.|
 |MissingParamter|The specified parameter Period is not null.|400|The `Period` parameter is required.|
 |QuotaExceed.AfterpayInstance|The maximum number of Pay-As-You-Go instances is exceeded.|400|The maximum number of Pay-As-You-Go instances is exceeded.|
 |QuotaExceeded|Living instances quota exceeded in this VPC.|400|The number of instances in the specified VPC has reached the upper limit.|
@@ -382,7 +382,7 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |InvalidSnapshotId.NotDataDiskSnapshot|The specified snapshot is system disk snapshot.|403|A data disk cannot be created from the system disk snapshot.|
 |InvalidSnapshotId.NotReady|The specified snapshot has not completed yet.|403|The snapshot has not been completed yet.|
 |InvalidSystemDiskCategory.ValueUnauthorized|The disk category is not authorized.|403|You are not allowed to create a disk of the specified category.|
-|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|A RAM user must be [granted](../../../../../reseller.en-US/Quick Start/Authorize RAM users.md#) with a pass role permission before he or she specify RamRoleName for a new ECS instance.|
+|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|A RAM user must be [granted](../../../../../../reseller.en-US/Quick Start/Authorize RAM users.md#) with a pass role permission before he or she specify RamRoleName for a new ECS instance.|
 |InvalidVSwitchId.NotFound|The VSwitchId provided does not exist in our records.|403|The specified `VSwitchId` does not exist.|
 |IoOptimized.NotSupported|The specified image is not support IoOptimized Instance.|403|The instances of the specified instance type are not I/O optimized.|
 |IoOptimized.NotSupported|Vpc is not support IoOptimized instance.|403|I/O optimized instances are not supported in VPC.|

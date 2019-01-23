@@ -6,7 +6,7 @@
 
 -   不支持导出使用市场镜像的系统盘快照创建的自定义镜像。
 -   支持导出镜像中包括数据盘快照的信息的自定义镜像，其中数据盘数不能超过 4 块，单块数据盘容量最大不能超过 500 GB。
--   您需要 [提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm) 联系阿里云，为您开启导出镜像功能。
+-   您需要 [提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) 联系阿里云，为您开启导出镜像功能。
 
 -   需要通过 RAM 授权云服务器 ECS 官方服务账号写入 OSS 的权限：
     1.  创建角色：`AliyunECSImageExportDefaultRole`（其他任何角色名称无效），为该角色设置以下角色策略：
@@ -57,11 +57,11 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：ExportImage|
-|RegionId|String|是|自定义镜像的地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|自定义镜像的地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |ImageId|String|是|自定义镜像 ID。|
 |OssBucket|String|是|保存导出镜像的 OSS bucket。|
 |OssPrefix|String|否|用户的 OSS 的 Object 的前缀。可以由数字或者字母组成，字符长度为 \[1, 30\]。|
-|ClientToken|String|否|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一。只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](cn.zh-CN/API参考/附录/如何保证幂等性.md#)。|
+|ClientToken|String|否|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一。只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](intl.zh-CN/API参考/附录/如何保证幂等性.md#)。|
 
 ## 返回参数 {#ResponseParameter .section}
 
@@ -106,7 +106,7 @@ https://ecs.aliyuncs.com/?Action=ExportImage
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|

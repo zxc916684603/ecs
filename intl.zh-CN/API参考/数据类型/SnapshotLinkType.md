@@ -16,5 +16,5 @@
 |SourceDiskSize|Integer|源磁盘容量，单位为 GB|
 |TotalSize|Integer|快照链中所有快照的大小，单位为 Byte|
 |TotalCount|Integer|快照链中所有快照的数量|
-|CreationTime|String|快照链创建时间，按照 [ISO8601](intl.zh-CN/API参考/附录/时间格式.md#) 标准表示，并需要使用 UTC 时间，格式为 YYYY-MM-DDThh:mmZ|
+|CreationTime|String|快照链创建时间，按照 [ISO8601](cn.zh-CN/API参考/附录/时间格式.md#) 标准表示，并需要使用 UTC 时间，格式为 YYYY-MM-DDThh:mmZ|
 

@@ -7,6 +7,13 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeRegions|
+|AcceptLanguage|String|否|根据汉语、英语和日语筛选返回结果。更多详情，请参阅 [RFC7231](https://tools.ietf.org/html/rfc7231)。取值范围：
+
+-   zh-CN
+-   en-US
+-   ja
+
+默认值：null。|
 
 ## 返回参数 {#ResponseParameter .section}
 
@@ -29,30 +36,40 @@ https://ecs.aliyuncs.com/?Action=DescribeRegions
 
 ```
 <DescribeRegionsResponse>
-    <RequestId>611CB80C-B6A9-43DB-9E38-0B0AC3D9B58F</RequestId>
+    <RequestId>38EC7366-F5A9-46B1-BDB1-0FDC2E296397</RequestId>
     <Regions>
         <Region>
-            <RegionId>cn-hangzhou </RegionId>
+            <RegionId>cn-shanghai-et2-bo1</RegionId>
+            <RegionEndpoint>ecs.aliyuncs.com</RegionEndpoint>
+            <LocalName>弹内生产环境-上海</LocalName>
         </Region>
         <Region>
-            <RegionId>cn-qingdao</RegionId>
+            <RegionId>cn-qingdao-nebula</RegionId>
+            <RegionEndpoint>ecs.cn-qingdao-nebula.aliyuncs.com</RegionEndpoint>
+            <LocalName>cn-qingdao-nebula</LocalName>
         </Region>
     </Regions>
 </DescribeRegionsResponse>
 ```
 
- **JSON 格式** 
+**JSON 格式** 
 
 ```
 {
-    "RequestId": "611CB80C-B6A9-43DB-9E38-0B0AC3D9B58F",
-    "Regions": {
-        "Region": [{
-            "RegionId": "cn-hangzhou "
-        },
-        {
-            "RegionId": "cn-qingdao"
-        }]
+    "RequestId":"38EC7366-F5A9-46B1-BDB1-0FDC2E296397",
+    "Regions":{
+        "Region":[
+            {
+                "RegionId":"cn-shanghai-et2-b01",
+                "RegionEndpoint":"ecs.aliyuncs.com",
+                "LocalName":"弹内生产环境-上海"
+            },
+            {
+                "RegionId":"cn-qingdao-nebula",
+                "RegionEndpoint":"ecs.cn-qingdao-nebula.aliyuncs.com",
+                "LocalName":"cn-qingdao-nebula"
+            }
+        ]
     }
 }
 ```

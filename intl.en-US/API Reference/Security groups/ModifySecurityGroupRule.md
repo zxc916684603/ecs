@@ -4,11 +4,13 @@ Modify the inbound rules of the security group. You can only modify the descript
 
 ## Description {#section_vqh_lhn_ydb .section}
 
+We define the beginning of the traffic as the source, and the terminal of the traffic as the destination. For more information, see [AuthorizeSecurityGroup](reseller.en-US/API Reference/Security groups/AuthorizeSecurityGroup.md#).
+
 Any of the following sets of parameters can determine a Security Group Entry direction rule, specifying only one parameter cannot determine a security group rule.
 
--   Authorize assignment of IP Access to address segments: `IpProtocol`, `PortRange`, \(optional\) `SourcePortRange`, `NicType`, `Policy`, `DestCiderIp` and \(optional\) `SourceCidrIp`
+-   Authorize assignment of IP Access to address segments: `IpProtocol`, `PortRange`, \(optional\) `SourcePortRange`, `NicType`, `Policy`, `DestCidrIp` and \(optional\) `SourceCidrIp`
 
--   Authorize access to other security groups: `IpProtocol`, `PortRange`, \(optional\) `SourcePortRange`, `NicType`, `Policy`, \(optional\)`DestCiderIp`, `DestGroupOwnerAccount` and `DestGroupId`
+-   Authorize access to other security groups: `IpProtocol`, `PortRange`, \(optional\) `SourcePortRange`, `NicType`, `Policy`, \(optional\)`DestCidrIp`, `DestGroupOwnerAccount` and `DestGroupId`
 
 
 ## Request parameters {#RequestParameter .section}

@@ -11,6 +11,7 @@
 |名称|类型|描述|
 |:-|:-|:-|
 |IoOptimized|String|是否 I/O 优化|
+|AvailableDedicatedHostTypes|Array|支持的专有宿主机规格|
 |supportedNetworkCategory|String|支持的网络类型|
 |supportedInstanceGeneration|Array|支持的实例系列|
 |supportedInstanceTypeFamily|Array|支持的实例规格族|

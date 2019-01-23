@@ -1,6 +1,12 @@
 # Image compliance tool {#StandardImageFacilitator .concept}
 
-ECS allows you to create instances from imported custom images. Imported custom images can be created based on your offline server, virtual machine, or a cloud host on any cloud platform. The images you import must meet certain requirements. For more information, see [Notes for importing images](reseller.en-US/User Guide/Images/Import images/Notes for importing images.md#). To reduce the time required for creating images and instances, we recommend that you use the **image compliance tool** of ECS \(referenced in this document as **compliance tool**\) to create images that comply with the relevant standards. The compliance tool can detect non-compliance of various configuration indicators and locations based on a given server environment, generate TXT and JSON detection reports, and offer possible solutions.
+This topic introduces how to use the image compliance tool to automatically locate the operating system settings of non-Alibaba Cloud specification through operation examples, parameter description, and output details. The tool is suitable for importing custom images scenarios.
+
+## Introduction {#section_sjs_mc4_fgb .section}
+
+ECS allows you to create instances from imported custom images. Imported custom images can be created based on your offline server, virtual machine, or a cloud host on any cloud platform. The images you import must meet certain requirements. For more information, see [Notes for importing images](reseller.en-US/User Guide/Images/Import images/Notes for importing images.md#).
+
+To reduce the time required for creating images and instances, we recommend that you use the **image compliance tool** of ECS \(referenced in this document as **compliance tool**\) to create images that comply with the relevant standards. The compliance tool can detect non-compliance of various configuration indicators and locations based on a given server environment, generate TXT and JSON detection reports, and offer possible solutions.
 
 ## Limits {#section_o54_lr1_b2b .section}
 
@@ -71,7 +77,7 @@ The compliance tool detects the following server configuration items to ensure t
 |/etc/shadow|You cannot modify the password file, so you cannot create an ECS instance from the custom image.|Do not use the `chattr` command to lock the /etc/shadow file.|
 |SElinux|The ECS instance cannot start normally.|Do not modify /etc/selinux/config to start SELinux.|
 |qemu-ga|Some of the services required by ECS are unavailable, and the instance is not fully functional.|Uninstall qemu-ga.|
-|network|Network functions of the ECS instance are unstable.|Disable or delete the Network Manager and enable the network service. For the latest Linux versions, we recommend that you use the Network Manager and run the nmcli command to configure the network.|
+|network|Network functions of the ECS instance are unstable.|Disable or delete the Network Manager and enable the network service.|
 |ssh|You cannot [connect](reseller.en-US/User Guide/Connect to instances/Overview.md#) to the ECS instance from the console.|Enable the SSH service and do not set PermitRootLogin.|
 |firewall|The system does not automatically configure your ECS instance environment.|Disable the firewall iptables, firewalld, IPFilter \(IPF\), IPFireWall \(IPFW\), or PacketFilter \(PF\).|
 |file system|You cannot [resize the disk](reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Overview.md#).|The XFS, Ext3, and Ext4 file systems are used, and the Ext2, UFS, and UDF file systems are allowed. The Ext4 file system does not support 64-bit features.|
@@ -129,9 +135,9 @@ The compliance tool provides detection reports in both TXT and JSON formats afte
     ```
 
 
-## Next steps {#section_mb3_ct1_b2b .section}
+## What to do next {#section_mb3_ct1_b2b .section}
 
-1.  View [Notes for importing images](reseller.en-US/User Guide/Images/Import images/Notes for importing images.md#).
+1.  View the [notes for importing images](reseller.en-US/User Guide/Images/Import images/Notes for importing images.md#).
 2.  [Install the virtio driver.](reseller.en-US/User Guide/Images/Import images/Install virtio driver.md#)
 3.  \(Optional\) [Convert the image file format.](reseller.en-US/User Guide/Images/Import images/Convert image file format.md#)
 4.  [Import custom images.](reseller.en-US/User Guide/Images/Import images/Import custom images.md#)

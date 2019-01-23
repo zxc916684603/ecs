@@ -56,7 +56,7 @@ Moodle 是一个开源课程管理系统，采用 PHP + MySQL 方式运行的自
 
     -   使用 [重置实例密码](http://help.aliyun.com/document_detail/25439.html) 功能设置 ECS 实例的登录密码。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/153796333512543_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/154817578112543_zh-CN.png)
 
 
 ## 远程连接 ECS 实例并查看权限 {#section_rqq_j3b_ffb .section}
@@ -64,7 +64,7 @@ Moodle 是一个开源课程管理系统，采用 PHP + MySQL 方式运行的自
 1.  [远程连接到 ECS 实例](http://help.aliyun.com/document_detail/25425.html)。
 2.  运行命令 `cat default.pass` 查看随机生成的数据库权限及 FTP 权限。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/153796333512544_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/154817578112544_zh-CN.png)
 
 
 **安装 Moodle 系统**
@@ -79,15 +79,15 @@ Moodle 是一个开源课程管理系统，采用 PHP + MySQL 方式运行的自
 1.  在浏览器地址栏里，输入 Moodle 的安装地址。
 2.  选择您想要的语言，选择后单击 **向后**。本示例中，选择 **简体中文**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/153796333512545_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/154817578112545_zh-CN.png)
 
 3.  在 确认路径 页面上，保持所有默认目录不变。单击 **向后**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/153796333512546_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/154817578112546_zh-CN.png)
 
 4.  在 选择数据库驱动 页面上，采用默认类型。单击 **向后**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/153796333512547_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/154817578212547_zh-CN.png)
 
 5.  设置数据库。其中：
     -   **数据库主机**：只能填 `127.0.0.1`。
@@ -96,26 +96,26 @@ Moodle 是一个开源课程管理系统，采用 PHP + MySQL 方式运行的自
 
         确认所有信息后，单击 **向后**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/153796333512548_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/154817578212548_zh-CN.png)
 
 6.  阅读并确认了解版权声明。单击 **继续**。
 7.  下图中显示的是安装 Moodle 需要的一些组件，都已经部署好了。单击 **继续** 就可以安装系统。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/153796333512549_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/154817578212549_zh-CN.png)
 
 8.  当安装页面底部出现 **继续** 时，说明已经完成安装。单击 **继续**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/153796333612550_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/154817578212550_zh-CN.png)
 
 9.  按要求设置 Moodle 系统的登录信息后，单击 **保存更改**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/153796333612551_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/154817578212551_zh-CN.png)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/153796333612552_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/154817578212552_zh-CN.png)
 
 10. 安装完成，自动进入管理后台首页。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/153796333612553_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/154817578212553_zh-CN.png)
 
 
 **绑定域名**
@@ -126,7 +126,7 @@ Moodle 是一个开源课程管理系统，采用 PHP + MySQL 方式运行的自
 
 1.  远程连接 Linux 实例后，输入命令 `vim /etc/httpd/conf/httpd.conf` 打开配置文件，找到 Servername 选项。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/153796333612554_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9785/154817578212554_zh-CN.png)
 
 2.  将 `localhost` 改为 `www.yourdomain.com` 即可。其中，`www.yourdomain.com` 必须替换为您自己的域名。
 

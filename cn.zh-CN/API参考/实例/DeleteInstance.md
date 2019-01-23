@@ -25,7 +25,7 @@
 
 ## 返回参数 {#ResponseParameter .section}
 
-全是公共返回参数。参阅 [公共返回参数](cn.zh-CN/API参考/快速入门/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅 [公共返回参数](cn.zh-CN/API参考/HTTP调用方式/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -61,8 +61,8 @@ https://ecs.aliyuncs.com/?Action=DeleteInstance
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
-|DependencyViolation.RouteEntry|Specified instance is used by route entry.|400|[路由条目](../../../../../cn.zh-CN/用户指南/路由.md#) 正在使用该实例。|
-|DependencyViolation.SLBConfiguring|Specified operation is denied as your instance is using by another product.|400|[负载均衡](../../../../../cn.zh-CN/产品简介/什么是负载均衡.md#) 正在使用该实例。|
+|DependencyViolation.RouteEntry|Specified instance is used by route entry.|400|[路由条目](../../../../../../cn.zh-CN/用户指南/路由.md#) 正在使用该实例。|
+|DependencyViolation.SLBConfiguring|Specified operation is denied as your instance is using by another product.|400|[负载均衡](../../../../../../cn.zh-CN/产品简介/什么是负载均衡.md#) 正在使用该实例。|
 |InvalidParameter|The input parameter InstanceId is invalid.|400|指定的实例 ID 不合法。|
 |ChargeTypeViolation|The operation is not permitted due to charge type of the instance.|403|不能释放包年包月的实例。|
 |InvalidOperation.DeletionProtection|The operation is not allowed due to “\{0\}” is protected by deletion protection.|400|指定实例已开启实例释放保护，不允许删除。|

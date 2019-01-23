@@ -40,7 +40,7 @@ unicorn：An HTTP server for Rack applications，GitLab Rails应用是托管在�
 
 **GitLab工作流程**
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443812255_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556412255_zh-CN.png)
 
 **GitLab Shell**
 
@@ -109,7 +109,7 @@ ECS配置要求：内存2G以上
     Gpgkey=https://packages.gitlab.com/gpg.key
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443812256_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556412256_zh-CN.png)
 
 2.  更新本地yum缓存。
 
@@ -117,7 +117,7 @@ ECS配置要求：内存2G以上
     sudo yum makecache
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443812257_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556412257_zh-CN.png)
 
 3.  安装GitLab社区版。
 
@@ -126,7 +126,7 @@ ECS配置要求：内存2G以上
     sudo yum install gitlab-ce-x.x.x    #安装指定版本
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443812258_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512258_zh-CN.png)
 
     GitLab常用命令：
 
@@ -148,13 +148,13 @@ ECS配置要求：内存2G以上
 
 1.  在浏览器的地址栏中输入ECS服务器的公网IP即可登录GitLab的界面，第一次登录使用的用户名和密码为 root 和 5iveL!fe。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443812259_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512259_zh-CN.png)
 
 2.  首次登录会强制用户修改密码。密码修改成功后，输入新密码进行登录。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443812260_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512260_zh-CN.png)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443812261_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512261_zh-CN.png)
 
 
 **创建Project**
@@ -165,35 +165,35 @@ ECS配置要求：内存2G以上
     yum install git
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443812262_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512262_zh-CN.png)
 
 2.  生成密钥文件。
 
     使用ssh-keygen生成密钥文件.ssh/id\_rsa.pub。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443812263_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512263_zh-CN.png)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443812264_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512264_zh-CN.png)
 
 3.  在GitLab的主页中新建一个Project。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443912265_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512265_zh-CN.png)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443912274_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512274_zh-CN.png)
 
 4.  添加ssh key导入步骤2中生成的密钥文件内容：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443912266_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512266_zh-CN.png)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443912275_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512275_zh-CN.png)
 
     ssh key添加完成：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443912267_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512267_zh-CN.png)
 
     项目地址，该地址在进行clone操作时需要用到：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443912268_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512268_zh-CN.png)
 
 
 **简单配置**
@@ -216,7 +216,7 @@ ECS配置要求：内存2G以上
     git clone git@iZbp1h7fx16gkr9u4gk8v3Z:root/test.git
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443912269_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512269_zh-CN.png)
 
 
 **上传文件**
@@ -239,7 +239,7 @@ ECS配置要求：内存2G以上
     cp /root/test.sh ./ 
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443912270_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556612270_zh-CN.png)
 
 4.  将test.sh文件加入到索引中。
 
@@ -259,11 +259,11 @@ ECS配置要求：内存2G以上
     git push -u origin master
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443912271_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556612271_zh-CN.png)
 
 7.  在网页中查看上传的test.sh文件已经同步到GitLab中。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/153804443912272_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556612272_zh-CN.png)
 
 
 ## 相关链接 {#section_rqd_4zs_2fb .section}

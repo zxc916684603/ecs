@@ -1,4 +1,4 @@
-# Windows \_ Resize a data disk {#concept_rjc_l5h_ydb .concept}
+# Windows - Resize a data disk {#concept_rjc_l5h_ydb .concept}
 
 As your business grows, the current capacity of your data disks may not be able to meet your data storage needs. You can use the **Resize Disk** function to resize your data disks as necessary.
 
@@ -39,38 +39,38 @@ To resize a data disk in the ECS console, follow these steps:
 
 Once the data disk resizing completes, you can do the following:
 
--   If the data disk is attached to an instance, [log on to the instance to enable the extended storage space](reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Windows _ Resize a data disk.md#ResizeInInstance).
+-   If the data disk is attached to an instance, [log on to the instance to enable the extended storage space](reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Windows - Resize a data disk.md#ResizeInInstance).
 -   If the data disk is not attached to an instance, attach the disk to an instance in the console first, and then proceed depending on the data disk:
     -   If it is not formatted or partitioned, format and mount the data disk. For more information, see [format a data disk for Windows instances](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Windows instances.md#).
-    -   If it is formatted and partitioned, [log on to the instance to enable the extended storage space](reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Windows _ Resize a data disk.md#ResizeInInstance).
+    -   If it is formatted and partitioned, [log on to the instance to enable the extended storage space](reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Windows - Resize a data disk.md#ResizeInInstance).
 
 ## Step 2. Log on to the instance to enable the extended storage space {#ResizeInInstance .section}
 
 To resize a data disk within the instance, follow these steps:
 
 1.  [Connect to a Windows instance](reseller.en-US/User Guide/Connect to instances/Connect to a Windows instance.md#).
-2.  On the Windows Server desktop, click the Server Manager icon ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15432242485356_en-US.png).
+2.  On the Windows Server desktop, click the Server Manager icon ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15453934495356_en-US.png).
 3.  In the left-side navigation pane of **Server Manager**, select **Storage** \> **Disk Management**. In the disk management area, you can see the relationship between the new and the original data disk spaces. In this example, **Disk 1** is the resized data disk. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15432242485358_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15453934495358_en-US.png)
 
 4.  Right click **Disk 1**, select **Convert to Dynamic Disk**, and follow the wizard to convert a basic disk to a dynamic disk. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15432242485360_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15453934505360_en-US.png)
 
     **Note:** Converting a basic disk into a dynamic disk unmounts the disk from the system. Applications installed on the data disk, if any, are temporarily unavailable during the conversion process. The conversion process does not cause any data loss.
 
     After the conversion, the **Disk 1** information shows in the Disk Manager as follows.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15432242485362_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15453934505362_en-US.png)
 
 5.  Right click an empty area of the simple volume of Disk 1, and select **Extend Volume**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15432242485363_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15453934505363_en-US.png)
 
 6.  Follow the Extend Volume Wizard to extend the volume. When the wizard is complete, the new data disk space is automatically merged into the original volume and the **Disk 1** information showed in the Disk Manager as follows. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15432242485364_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15453934505364_en-US.png)
 
     **Note:** On Windows Server 2003, the extended storage space is added to the data disk but it is displayed as a separate volume in Disk Manager. On Windows Server 2003, one separate volume is created for each expansion and is not merged into the original volume, which does not affect the availability of the extended storage space.
 

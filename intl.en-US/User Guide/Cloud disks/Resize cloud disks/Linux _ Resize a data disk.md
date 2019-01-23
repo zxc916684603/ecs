@@ -1,4 +1,4 @@
-# Linux \_ Resize a data disk {#concept_z11_xsh_ydb .concept}
+# Linux - Resize a data disk {#concept_z11_xsh_ydb .concept}
 
 As your business grows, the current capacity of your data disks may not be able to meet your data storage needs. You can use the **Resize Disk** feature to resize your data disks as necessary.
 
@@ -38,10 +38,10 @@ To increase the size of a data disk in the ECS console, follow these steps:
 
 After the disk size is increased,
 
--   If the data disk is attached to an instance, [log on to the instance to resize the file system](reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md#ResizeInInstance).
+-   If the data disk is attached to an instance, [log on to the instance to resize the file system](reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Linux - Resize a data disk.md#ResizeInInstance).
 -   If the data disk is not attached to an instance, attach the disk to an instance in the console \([attach a cloud disk](reseller.en-US/User Guide/Cloud disks/Attach a cloud disk.md#)\) first, and then proceed depending on the data disk:
     -   If it is a new data disk, which has not been formatted, format it. For more information, see [format a data disk for Linux instances](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#).
-    -   If it has been formatted and partitioned, [log on to the instance to resize the file system](reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Linux _ Resize a data disk.md#ResizeInInstance).
+    -   If it has been formatted and partitioned, [log on to the instance to resize the file system](reseller.en-US/User Guide/Cloud disks/Resize cloud disks/Linux - Resize a data disk.md#ResizeInInstance).
 
 ## Step 2. Log on to the instance to resize the file system {#ResizeInInstance .section}
 
@@ -120,7 +120,7 @@ In this example, the data disk is attached to a Linux instance running the 64-bi
 
         **Note:** If you are using the `parted` tool, type `p` in the `parted` window to list the current partition details. If any partition is displayed, use rm + serial number to delete the original partition table, then run the `unit s` command to specify the start unit, calculated by the number of sectors, and finally run the `mkpart` command to create it, as shown in the following figure.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9677/15432243755353_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9677/15453934715353_en-US.png)
 
 4.  For some operating systems, the file system may be automatically mounted to the mount point after partitioning. We recommend that you run the `df -h` command to check the file system space and usage. Run the `umount [file system name]` to unmount the file system again.
 5.  Check the file system and resize the file system.

@@ -22,7 +22,7 @@
 
 ## 返回参数 {#section_ecw_clp_yfb .section}
 
-全是公共返回参数。参见 [公共返回参数](cn.zh-CN/API参考/快速入门/公共参数.md#)。
+全是公共返回参数。参见 [公共返回参数](cn.zh-CN/API参考/HTTP调用方式/公共参数.md#)。
 
 ## 示例 {#section_yjy_zfq_yfb .section}
 

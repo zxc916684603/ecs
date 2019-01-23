@@ -43,27 +43,27 @@ WDlinux Control Panel（简称 wdCP），是一套通过 Web 控制和管理服�
 
 4.  在弹出的 停止实例 框中，选择 **停止**，单击 **确认**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9775/153796256912398_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9775/154817555812398_zh-CN.png)
 
 5.  实例停止后，单击实例名称，或者在实例的右侧选择 **更多** \> **更换系统盘**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9775/153796257012399_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9775/154817555812399_zh-CN.png)
 
 6.  在弹出的 更换系统盘 框中，单击 **确定，更换系统盘**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9775/153796257012400_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9775/154817555812400_zh-CN.png)
 
 7.  单击 **镜像市场**，然后单击 **从镜像市场选择（含操作系统）**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9775/153796257012401_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9775/154817555812401_zh-CN.png)
 
 8.  在镜像市场列表的左侧，根据分类选择待使用的镜像，并在镜像的右下方单击 **同意并使用**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9775/153796257012402_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9775/154817555812402_zh-CN.png)
 
 9.  在弹出的 云服务器更换操作系统温馨提示 框中，单击 **确定**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9775/153796257012403_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9775/154817555812403_zh-CN.png)
 
 
 **未购买的实例部署镜像**

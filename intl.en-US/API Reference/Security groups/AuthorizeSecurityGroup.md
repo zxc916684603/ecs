@@ -6,7 +6,7 @@ Adds an inbound rule to a security group. This action permits or declines the in
 
 We define the beginning of the traffic as the source, and the terminal of the traffic as the destination, see the following picture.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9917/15434923623983_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9917/15458188613983_en-US.png)
 
 When you call this interface, consider the following:
 

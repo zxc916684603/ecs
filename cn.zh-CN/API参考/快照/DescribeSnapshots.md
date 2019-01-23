@@ -1,20 +1,20 @@
 # DescribeSnapshots {#DescribeSnapshots .reference}
 
-查询一台 ECS 实例或一块磁盘设备所有的快照列表。`InstanceId`、`DiskId` 和 `SnapshotIds` 不是必需参数，但是可以构建过滤器逻辑，参数之间为逻辑与（`And`）关系。
+查询一台ECS实例或一块磁盘设备所有的快照列表。`InstanceId`、`DiskId`和`SnapshotIds`不是必需参数，但是可以构建过滤器逻辑，参数之间为逻辑与（`And`）关系。
 
 ## 请求参数 {#RequestParameter .section}
 
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：DescribeSnapshots|
-|RegionId|String|是|磁盘所属于的 Region ID。|
-|InstanceId|String|否|指定的实例 ID。|
-|DiskId|String|否|指定的磁盘设备 ID。|
+|RegionId|String|是|磁盘所属于的地域ID。您可以调用[DescribeRegions](../cn.zh-CN/API参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
+|InstanceId|String|否|指定的实例ID。|
+|DiskId|String|否|指定的磁盘设备ID。|
 |Encrypted|Boolean|否|过滤加密快照。取值范围：-   true：只筛选出加密快照
 -   false：不做加密属性的筛选
 
 默认值：False|
-|SnapshotIds|String|否|快照标识编码。取值可以由多个快照 ID 组成一个 JSON 数组，格式为 \["s-xxxxxxxxx", "s-yyyyyyyyy", … "s-zzzzzzzzz"\]，最多支持 100 个 ID，ID 之间用半角逗号（`,`）隔开。|
+|SnapshotIds|String|否|快照标识编码。取值可以由多个快照ID组成一个JSON数组，格式为\["s-xxxxxxxxx", "s-yyyyyyyyy", … "s-zzzzzzzzz"\]，最多支持100个ID，ID之间用半角逗号（`,`）隔开。|
 |SnapshotName|String|否|快照名称。|
 |Status|String|否|快照状态。取值范围：-   progressing：正在创建的快照
 -   accomplished：创建成功的快照
@@ -31,18 +31,24 @@
 -   Data：根据数据盘创建的快照
 
 |
-|Usage|String|否|有引用关系的资源类型。取值范围：-   image：使用快照 [CreateImage](intl.zh-CN/API参考/镜像/CreateImage.md#) 
--   disk：使用快照 [CreateDisk](intl.zh-CN/API参考/磁盘/CreateDisk.md#) 
+|Usage|String|否|有引用关系的资源类型。取值范围：-   image：使用快照 [CreateImage](cn.zh-CN/API参考/镜像/CreateImage.md#)
+-   disk：使用快照 [CreateDisk](cn.zh-CN/API参考/磁盘/CreateDisk.md#)
 -   image\_disk：使用快照创建了数据盘和自定义镜像
 -   none：暂无引用关系
 
 |
-|Tag.n.Key|String|否|快照的标签键。`n`的取值范围：\[1, 5\]。一旦传入该值，则不允许为空字符串。|
-|Tag.n.Value|String|否|快照的标签值。`n`的取值范围：\[1, 5\]。一旦传入该值，可以为空字符串。|
-|PageNumber|Integer|否|快照列表的页码。 起始值：1 默认值：1
+|Tag.n.Key|String|否|快照的标签键。n 的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。|
+|Tag.n.Value|String|否|快照的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。|
+|PageNumber|Integer|否|快照列表的页码。起始值：1默认值：1
 
 |
-|PageSize|Integer|否|分页查询时设置的每页行数。 最大值：100 默认值：10
+|PageSize|Integer|否|分页查询时设置的每页行数。最大值：100默认值：10
+
+|
+|DryRun|Boolean|否|是否只预检此次请求。-   true：发送检查请求，不会查询资源状况。检查项包括AccessKey是否有效、RAM用户的授权情况和是否填写了必需参数。如果检查不通过，则返回对应错误。如果检查通过，会返回错误码`DryRunOperation`。
+-   false：发送正常请求，通过检查后返回2XX HTTP状态码并直接查询资源状况。
+
+默认值：false
 
 |
 
@@ -53,7 +59,7 @@
 |TotalCount|Integer|快照总个数|
 |PageNumber|Integer|快照列表的页码|
 |PageSize|Integer|输入时设置的每页行数|
-|Snapshots|[SnapshotType](intl.zh-CN/API参考/数据类型/SnapshotType.md#)|快照详情集合|
+|Snapshots|[SnapshotType](cn.zh-CN/API参考/数据类型/SnapshotType.md#)|快照详情集合|
 
 ## 示例 { .section}
 
@@ -65,9 +71,9 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshots
 &<公共请求参数>
 ```
 
-**返回示例** 
+**返回示例**
 
-**XML 格式**
+**XML格式**
 
 ```
 <DescribeSnapshotsResponse>
@@ -106,7 +112,7 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshots
 </DescribeSnapshotsResponse>
 ```
 
- **JSON 格式** 
+**JSON格式** 
 
 ```
 {
@@ -145,15 +151,16 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshots
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
-|错误代码|错误信息|HTTP 状态码|说明|
-|:---|:---|:-------|:-|
-|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|400|指定的参数 `Tag.n.Key` 和 `Tag.n.Value` 不匹配。|
-|InvalidTagCount|The specified tags are beyond the permitted range.|400|指定的标签数超过了 5 个。|
-|InvalidSnapshotIds.Malformed|The amount of specified specified snapshot Ids exceeds the limit.|403|指定的参数 `SnapshotIds` 格式不正确。|
-|InvalidSnapshotType.NotFound|The specfied SnapshotType is not found.|404|指定的参数 `SnapshotType` 取值有误。|
-|InvalidSourceDiskType|The specifed SourceDiskType is not valid.|404|指定的参数 `SourceDiskType` 不合法。|
-|InvalidStatus.NotFound|The specified Status is not found.|404|指定的参数 `Status` 取值有误。|
-|InvalidUsage|The specifed Usage is not valid.|404|指定的参数 `Usage` 不合法。|
+|错误代码|错误信息|HTTP状态码|说明|
+|:---|:---|:------|:-|
+|DryRunOperation|Request validation has been passed with DryRun flag set.|400|此次DryRun预检请求合格。|
+|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|400|指定的参数`Tag.n.Key`和`Tag.n.Value`不匹配。|
+|InvalidTagCount|The specified tags are beyond the permitted range.|400|指定的标签数超过了5个。|
+|InvalidSnapshotIds.Malformed|The amount of specified specified snapshot Ids exceeds the limit.|403|指定的参数`SnapshotIds`格式不正确。|
+|InvalidSnapshotType.NotFound|The specfied SnapshotType is not found.|404|指定的参数`SnapshotType`取值有误。|
+|InvalidSourceDiskType|The specifed SourceDiskType is not valid.|404|指定的参数`SourceDiskType`不合法。|
+|InvalidStatus.NotFound|The specified Status is not found.|404|指定的参数`Status`取值有误。|
+|InvalidUsage|The specifed Usage is not valid.|404|指定的参数`Usage`不合法。|
 

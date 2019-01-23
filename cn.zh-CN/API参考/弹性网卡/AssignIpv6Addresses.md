@@ -32,7 +32,7 @@
 
 ## 返回参数 {#section_ec3_kfp_yfb .section}
 
-全是公共返回参数。参见 [公共返回参数](cn.zh-CN/API参考/快速入门/公共参数.md#)。
+全是公共返回参数。参见 [公共返回参数](cn.zh-CN/API参考/HTTP调用方式/公共参数.md#)。
 
 ## 示例 {#section_uxt_x2q_yfb .section}
 

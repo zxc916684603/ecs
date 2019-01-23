@@ -90,7 +90,7 @@ https://ecs.aliyuncs.com/?Action=CreateCommand
     <RequestId>540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx</RequestId>
     <HostId>ecs.aliyuncs.com</HostId>
     <Code>MissingParameter.Name</Code>
-    <Message>The input parameter “Name” that is mandatory for processing this request is not supplied.</Message>
+    <Message>The input parameter “Name” that is required for processing this request is not supplied.</Message>
 </Error>
 ```
 
@@ -101,7 +101,7 @@ https://ecs.aliyuncs.com/?Action=CreateCommand
     "RequestId": "540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx",
     "HostId": "ecs.aliyuncs.com"
     "Code": "MissingParameter.Name"
-    "Message": "The input parameter “Name” that is mandatory for processing this request is not supplied."
+    "Message": "The input parameter “Name” that is required for processing this request is not supplied."
 
 ```
 
@@ -110,9 +110,9 @@ https://ecs.aliyuncs.com/?Action=CreateCommand
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|
 |Invalid.CommandContent|The specified CommandContent is not valid or exceed max|400|The specified `CommandContent` parameter is invalid. Or the `CommandContent` value exceeds 16 KB.|
-|MissingParameter.Name|The input parameter “Name” that is mandatory for processing this request is not supplied.|400|You must specify the required parameter `Name`.|
-|MissingParameter.RegionId|The input parameter “RegionId” that is mandatory for processing this request is not supplied.|400|You must specify the required parameter `RegionId`. Or you cannot use the resources in the specified region.|
-|MissingParameter.Type|The input parameter “Type” that is mandatory for processing this request is not supplied.|400|You must specify the required parameter `Type`.|
+|MissingParameter.Name|The input parameter “Name” that is required for processing this request is not supplied.|400|You must specify the required parameter `Name`.|
+|MissingParameter.RegionId|The input parameter “RegionId” that is required for processing this request is not supplied.|400|You must specify the required parameter `RegionId`. Or you cannot use the resources in the specified region.|
+|MissingParameter.Type|The input parameter “Type” that is required for processing this request is not supplied.|400|You must specify the required parameter `Type`.|
 |InvalidCmdType.NotFound|The specified command type does not exist|404|The specified `Type` parameter does not exist.|
 |InvalidRegionId.NotFound|The RegionId provided does not exist in our items.|404|The specified `RegionId` does not exist.|
 |InternalError.Dispatch|An internal error occurred when dispath the request|500|Internal error. Please try again later.|

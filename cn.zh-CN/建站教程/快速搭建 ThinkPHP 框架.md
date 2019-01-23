@@ -26,11 +26,11 @@ ThinkPHP 是一款免费开源的，快速、简单的面向对象的轻量级 P
 6.  在浏览器地址栏中输入公网 IP 地址。屏幕上会显示提示页面。
 7.  在提示页面上单击 **获取权限** 按钮，下载权限文档 zhcloud-readme.doc。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9781/153804397812159_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9781/154817558012159_zh-CN.png)
 
     权限文档中包含了智慧云虚机面板权限、FTP 权限和 MySQL 数据库权限，请保存好。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9781/153804397812160_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9781/154817558012160_zh-CN.png)
 
 
 **上传您的程序**
@@ -41,7 +41,7 @@ ThinkPHP 是一款免费开源的，快速、简单的面向对象的轻量级 P
 2.  下载 FileZilla 后，双击 filezilla.exe，开始按软件提示安装 FileZilla FTP。
 3.  启动 FileZilla FTP，在 **主机**、**用户名** 和 **密码** 处分别输入 FTP IP 地址、FTP 账号和 FTP 密码，相关信息详见权限文档 zhcloud-readme.doc。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9781/153804397812161_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9781/154817558012161_zh-CN.png)
 
 4.  单击 **快速连接**，开始连接 FTP。
 5.  将您已经写好的应用程序拉到右边区域即可实现上传。
@@ -55,15 +55,15 @@ ThinkPHP 是一款免费开源的，快速、简单的面向对象的轻量级 P
     -   `host url` 是指 **智慧云虚机面板** 的登录地址；
     -   `host account` 是指 **智慧云虚机面板** 的登录账号；
     -   `host password` 是指 **智慧云虚机面板** 的登录密码。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9781/153804397912162_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9781/154817558112162_zh-CN.png)
 
     登录之后，如图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9781/153804397912163_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9781/154817558112163_zh-CN.png)
 
 2.  单击 **脚本切换** ，选择您需要的 PHP 版本，单击 **确定** 。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9781/153804397912165_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9781/154817558112165_zh-CN.png)
 
 
 **开启 pathinfo**
@@ -73,7 +73,7 @@ ThinkPHP 是一款免费开源的，快速、简单的面向对象的轻量级 P
 1.  登录 [智慧云虚机面板](http://zhy.yjcom.com/)。
 2.  单击 **PATH\_INFO** , 选择您的站点，单击开启按钮。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9781/153804397912166_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9781/154817558112166_zh-CN.png)
 
 
 **绑定域名**
@@ -85,7 +85,7 @@ ThinkPHP 是一款免费开源的，快速、简单的面向对象的轻量级 P
 
     若您想禁止 IP 访问，删除含有 IP 地址的这条记录即可。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9781/153804397912167_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9781/154817558112167_zh-CN.png)
 
 
 ## 常见问题 {#section_ugz_lyl_2fb .section}
@@ -95,7 +95,7 @@ ThinkPHP 是一款免费开源的，快速、简单的面向对象的轻量级 P
 1.  登录 [智慧云虚机面板](http://zhy.yjcom.com/)。
 2.  找到 **自定义伪静态** \> **自定义**，写入 301 重定向的 Nginx 规则，单击 **保存**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9781/153804397912168_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9781/154817558112168_zh-CN.png)
 
     下面以域名 `yjcom.com` 为例写 301 重定向 Nginx 规则。
 

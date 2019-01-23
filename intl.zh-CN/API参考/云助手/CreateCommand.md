@@ -1,6 +1,6 @@
 # CreateCommand {#CreateCommand .reference}
 
-新建一条 [云助手](../intl.zh-CN/产品简介/云助手.md#) 命令。
+新建一条 [云助手](../cn.zh-CN/产品简介/云助手.md#) 命令。
 
 ## 描述 {#section_iyx_fl4_ydb .section}
 
@@ -8,16 +8,16 @@
     -   Windows 实例适用的 Bat 脚本（`RunBatScript`）
     -   Windows 实例适用的 PowerShell 脚本（`RunPowerShellScript`）
     -   Linux 实例适用的 Shell 脚本（`RunShellScript`）
--   您可以通过指定参数 `TimeOut` 为命令设置在 ECS 实例中执行时最大的超时时间，命令执行超时后，[云助手客户端](../intl.zh-CN/用户指南/云助手/云助手客户端.md#) 会强制终止命令进程，即取消命令的 PID。
-    -   对于单次执行，超时后，该命令针对指定的 ECS 实例的执行状态（[`InvokeRecordStatus`](intl.zh-CN/API参考/云助手/DescribeInvocationResults.md#InvokeRecordStatusRequest)）变为 **执行失败**（`Failed`）。
+-   您可以通过指定参数 `TimeOut` 为命令设置在 ECS 实例中执行时最大的超时时间，命令执行超时后，[云助手客户端](../cn.zh-CN/用户指南/云助手/云助手客户端.md#) 会强制终止命令进程，即取消命令的 PID。
+    -   对于单次执行，超时后，该命令针对指定的 ECS 实例的执行状态（[`InvokeRecordStatus`](cn.zh-CN/API参考/云助手/DescribeInvocationResults.md#InvokeRecordStatusRequest)）变为 **执行失败**（`Failed`）。
     -   对于周期执行：
         -   周期执行的超时时间对每一次执行记录均有效。
-        -   某次执行超时后，该次执行记录的状态（[`InvokeRecordStatus`](intl.zh-CN/API参考/云助手/DescribeInvocationResults.md#InvokeRecordStatusRequest)）变为 **执行失败**（`Failed`）。
+        -   某次执行超时后，该次执行记录的状态（[`InvokeRecordStatus`](cn.zh-CN/API参考/云助手/DescribeInvocationResults.md#InvokeRecordStatusRequest)）变为 **执行失败**（`Failed`）。
         -   上次执行超时与否不影响下一次执行。
 -   您可以通过指定参数 `WorkingDir` 为命令指定执行路径。对于 Linux 实例，默认在管理员 root 用户的 home 目录下，具体为 `/root` 目录。对于 Windows 实例，默认在云助手客户端进程所在目录，例如，`C:\ProgramData\aliyun\assist\$(version)`。
 -   在一个地域下，您最多能创建 100 条云助手命令。
 
-    **说明：** 如果您想调整调用次数上限，请 [提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) 申请。
+    **说明：** 如果您想调整调用次数上限，请 [提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm) 申请。
 
 
 ## 请求参数 {#RequestParameter .section}
@@ -25,7 +25,7 @@
 |名称|类型|是否必需|描述|
 |:-|:-|:---|:-|
 |Action|String|是|系统规定参数。取值：CreateCommand|
-|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](intl.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
+|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
 |Name|String|是|命令名称，支持全字符集。长度不得超过 30 个字符。|
 |Type|String|是|命令的类型。取值范围：-   RunBatScript：创建一个在 Windows 实例中运行的 Bat 脚本
 -   RunPowerShellScript：创建一个在 Windows 实例中运行的 PowerShell 脚本
@@ -107,7 +107,7 @@ https://ecs.aliyuncs.com/?Action=CreateCommand
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|

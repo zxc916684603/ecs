@@ -21,7 +21,7 @@
 
 ## 返回参数 {#section_f54_lk5_xdb .section}
 
-全是公共返回参数。参阅 [公共参数](cn.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)。
+全是公共返回参数。参阅 [公共参数](intl.zh-CN/API参考/调用方式/公共参数.md#commonResponseParameters)。
 
 ## 示例 { .section}
 
@@ -54,13 +54,13 @@ https://ecs.aliyuncs.com/?Action=LeaveSecurityGroup
 
 ## 错误码 {#ErrorCode .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.alibabacloud.com/status/product/Ecs)。
 
 |错误代码|错误信息|HTTP 状态码|说明|
 |:---|:---|:-------|:-|
 |IncorrectInstanceStatus|The current status of the resource does not support this operation.|403|移出安全组之前，实例必须处于 **已停止**（`Stopped`）或者 **运行中**（`Running`）状态。|
 |InstanceLastSecurityGroup|The specified security group is the last security group for the instance.|403|该安全组是该实例唯一的安全组，一台实例必须至少加入一个安全组。|
-|InstanceLockedForSecurity|The specified operation is denied as your instance is locked for security reasons.|403|被 [安全控制](cn.zh-CN/API参考/附录/安全锁定时的 API 行为.md#) 的实例的 `OperationLocks` 中标记了 `"LockReason" : "security"` 时，无法移出安全组。|
+|InstanceLockedForSecurity|The specified operation is denied as your instance is locked for security reasons.|403|被 [安全控制](intl.zh-CN/API参考/附录/安全锁定时的 API 行为.md#) 的实例的 `OperationLocks` 中标记了 `"LockReason" : "security"` 时，无法移出安全组。|
 |InstanceNotInSecurityGroup|The instance not in the group.|403|指定实例不在指定安全组中。|
 |InvalidInstanceId.NotFound|The specified InstanceId does not exist.|404|指定的 `InstanceId` 不存在。|
 |InvalidSecurityGroupId.NotFound|The specified SecurityGroupId does not exist.|404|指定的 `SecurityGroupId` 不存在。|

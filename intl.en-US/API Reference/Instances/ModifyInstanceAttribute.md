@@ -37,7 +37,7 @@ When you call this interface, consider the following:
 |DeletionProtection|Boolean|No|Whether an instance can be released manually through the console or API \([DeleteInstance](reseller.en-US/API Reference/Instances/DeleteInstance.md#)\).-   true: Enable deletion protection.
 -   false: Disable deletion protection.
 
-**Note:** This attribute applies to the Pay-As-You-Go instances and preemptible instances. However, it can only restrict the manual release operation, not the release operation by Alibaba Cloud.
+**Note:** This attribute applies to the Pay-As-You-Go instances. However, it can only restrict the manual release operation, not the release operation by Alibaba Cloud.
 
 |
 

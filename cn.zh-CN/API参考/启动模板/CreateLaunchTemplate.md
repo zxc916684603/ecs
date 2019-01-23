@@ -82,7 +82,7 @@
 -   Linux实例的密码登录方式会被初始化成禁止。
 
 |
-|RamRoleName|String|否|实例RAM角色名称。您可以使用*RAM* API [ListRoles](../../../../../cn.zh-CN/API参考/API 参考（RAM）/角色管理接口/ListRoles.md#)查询实例RAM角色名称。|
+|RamRoleName|String|否|实例RAM角色名称。您可以使用*RAM* API [ListRoles](../../../../../../cn.zh-CN/API参考/角色管理接口/ListRoles.md#)查询实例RAM角色名称。|
 |AutoReleaseTime|String|否|实例自动释放时间。按照[ISO8601](../cn.zh-CN/API参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
 |SpotStrategy|String|否|后付费实例的抢占策略。当创建实例接口中的`InstanceChargeType`参数取值为`PostPaid`时为生效。取值范围：-   NoSpot：正常按量付费实例。
 -   SpotWithPriceLimit：设置上限价格的抢占式实例。
