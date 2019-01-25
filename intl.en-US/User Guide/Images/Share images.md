@@ -26,11 +26,11 @@ To share an image in the ECS console, follow these steps:
 3.  In the left-side navigation pane, choose **Snapshots and Images** \> **Images**.
 4.  Select the target **Custom Image** the, in the **Actions** column, click **Share Image**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9700/15429848526790_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9700/15483148516790_en-US.png)
 
-5.  In the pop-up dialog box, select **Alibaba Cloud Account ID** in the **Account Type** drop-down list. Then, enter the account ID that you want to share the image with in the **Account** box. For more information, see [Appendix. How to get the account ID](#HowToFindAccountId).
+5.  In the pop-up dialog box, select **Alibaba Cloud Account ID** in the **Account Type** drop-down list. Then, enter the account ID that you want to share the image with in the **Account** box. For more information, see [Appendix:How to get the account ID?](#).
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9700/15429848526801_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9700/15483148516801_en-US.png)
 
     **Note:** If you want to stop sharing the image with an account, click **Unshare** next to the account. After you cancel the sharing, that account will be unable to query and use the image. This means that i that account has already created an instance by using this shared image, the instance will be unable to [re-initialize the system disk](reseller.en-US/User Guide/Cloud disks/Reinitialize a cloud disk.md#).
 
@@ -43,14 +43,14 @@ You can also use the ECS APIs [ModifyImageSharePermission](reseller.en-US/API Re
 After an image is shared with other users, they can use it to create one or more instances.
 
 1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
-2.  Create one or more instances by referring to [Step 2. Create an instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#)Create an instance in *Quick Start*. Note that you should select **Shared Image** during the procedure.
+2.  Create one or more instances by referring to [Step 2. Create an instance](../../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#)Create an instance in *Quick Start*. Note that you should select **Shared Image** during the procedure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9700/15429848526802_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9700/15483148516802_en-US.png)
 
 
 They can also use the shared image to [Replace the system disk \(non-public image\)](reseller.en-US/User Guide/Cloud disks/Replace the system disk (non-public image).md#) for instances.
 
-## Appendix. How to get the account ID? {#HowToFindAccountId .section}
+## Appendix: How to get the account ID? {#HowToFindAccountId .section}
 
 To find your account ID, follow these steps:
 
@@ -58,6 +58,6 @@ To find your account ID, follow these steps:
 2.  Hover your mouse over your avatar and then click **Security Settings** from the account menu.
 3.  On the page that appears, the account ID is displayed at the right as follows.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9700/15429848526803_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9700/15483148516803_en-US.png)
 
 
