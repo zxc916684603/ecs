@@ -1,4 +1,4 @@
-# Modify configurations of ext vSphere Distributed Switch {#task_d3r_tx1_hgb .task}
+# Modify configurations of ext vSphere Distributed Switch {#task_dtr_ty1_hgb .task}
 
 This topic describes the steps to modify the ext VDS configurations.
 
@@ -8,12 +8,12 @@ This topic describes the steps to modify the ext VDS configurations.
 
 1.  Log on to the **vSphere Web Client**. 
 2.  In the left-side navigation pane, click the distributed port group**ext-DPortGroup**. 
-3.   Click **Configure** from the right panel, and then click **Settings** \> **Properties**. On the Properties page, click **Edit**, as shown in the following figure.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/85001/154857742536573_en-US.png)
+3.  Click **Configure** from the right panel, and then click **Settings** \> **Properties**. On the Properties page, click **Edit**, as shown in the following figure.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/85001/154858192236573_en-US.png)
 
  
-4.  On the Edit Settings page, click **Security**. Click the **Promiscuous mode** drop-down box, and select Accept. Click the **MAC address changes** drop-down box, and select Accept, as shown in the following figure. 
+4.   On the Edit Settings page, click **Security**. Click the **Promiscuous mode** drop-down box, and select Accept. Click the **MAC address changes** drop-down box, and select Accept, as shown in the following figure.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/85001/154858192236574_en-US.png)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/84996/154857742535591_en-US.png)
+ 
 
     The parameters are described as follows.
 
