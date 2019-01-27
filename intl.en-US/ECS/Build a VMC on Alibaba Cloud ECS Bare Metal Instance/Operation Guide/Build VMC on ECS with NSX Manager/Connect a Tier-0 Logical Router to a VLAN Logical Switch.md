@@ -6,11 +6,11 @@ This topic describes how to connect a tier-0 logical router to a VLAN logical sw
 -   Create a tier-0 router.
 
 1.  Open `https://nsx-manager-ip-address>` in your browser and log on to NSX Manager with your admin privileges. 
-2.  Select **Routing** \> **Routers** and click the tier-0 logical router.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/85014/154857841836133_en-US.png)
+2.   Select **Routing** \> **Routers** and click the tier-0 logical router.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/85014/154859278636133_en-US.png)
 
  
 3.  Select **Configuration** \> **Router Ports** and click **ADD**. 
-4.  Enter a name for the new tier-0 router port.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/85014/154857841836134_en-US.png)
+4.   Enter a name for the new tier-0 router port.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/85014/154859278636134_en-US.png)
 
  
 5.  Enter an optional description. 
