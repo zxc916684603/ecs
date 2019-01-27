@@ -9,16 +9,16 @@ This topic describes how to create a VLAN logical switch. A logical switch is us
 -   Your NSX Controller cluster has been verified as stable.
 
 1.  Enter `https://nsx-manager-ip-address` in your browser and log on to NSX Manager with your admin privileges. 
-2.   Select **Switching** \> **Switches**, and click **Add**.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/85004/154857808036086_en-US.png)
+2.   Select **Switching** \> **Switches**, and click **Add**.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/85004/154858538936086_en-US.png)
 
  
 3.  Specify a name for the logical switch. 
 4.  \(Optional\) Enter a description for the logical switch. 
 5.  Select the VLAN transport zone for the logical switch. 
 
-    **说明：** If the virtual machines attached to the logical switch are in the same transport zone, these VMs can communicate with each other.
+    **Note:** If the virtual machines attached to the logical switch are in the same transport zone, these VMs can communicate with each other.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/119753/154857808038089_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/119753/154858538938089_en-US.png)
 
 6.  Select Use Default as the uplink teaming policy. 
 7.  Set the **Admin Status** to Up. 
