@@ -25,11 +25,11 @@
 
  **1. 我在什么场景下可以使用迁云工具？** 
 
-迁云工具可以将物理服务器、虚拟机以及其他云平台云主机一站式地迁移到阿里云ECS，支持迁移主流Windows和Linux操作系统。更多详情，请参阅 [什么是迁云工具与P2V](cn.zh-CN/用户指南/P2V 迁云工具/什么是迁云工具.md#)。
+迁云工具可以将物理服务器、虚拟机以及其他云平台云主机一站式地迁移到阿里云ECS，支持迁移主流Windows和Linux操作系统。更多详情，请参阅 [什么是迁云工具与P2V](intl.zh-CN/用户指南/P2V 迁云工具/什么是迁云工具.md#)。
 
  **2. 迁云工具的迁移过程是什么？** 
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22635/154872616413350_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22635/154872628213350_zh-CN.png)
 
 -   检查源服务器是否满足迁移条件。
 -   在您的云账号下创建一台临时中转实例，将源服务器系统数据传输到中转实例。
@@ -49,15 +49,15 @@
 
  **6. 迁移完成得到自定义镜像后该如何操作？** 
 
-建议先使用该镜像创建一台按量付费的实例，检查系统是否正常。确认镜像可用后，选择合适您业务的 [实例规格](../cn.zh-CN/产品简介/实例规格族.md#) 并 [创建一台或多台ECS实例](cn.zh-CN/用户指南/实例/创建实例/使用向导创建实例.md#)。
+建议先使用该镜像创建一台按量付费的实例，检查系统是否正常。确认镜像可用后，选择合适您业务的 [实例规格](../intl.zh-CN/产品简介/实例规格族.md#) 并 [创建一台或多台ECS实例](intl.zh-CN/用户指南/实例/创建实例/使用向导创建实例.md#)。
 
 **7. 如何处理迁云中断或提示失败？**
 
 -   当迁云工具程序异常退出或者迁云进度卡顿时，可以尝试重新运行迁云工具恢复迁云。
 
--   如果迁云失败并提示`Not Finished`，您可以查看Logs目录下的日志文件，并参阅 [排查故障](cn.zh-CN/用户指南/P2V 迁云工具/问题排查.md#) 或者 [API错误中心](https://error-center.aliyun.com/status/product/Ecs) 查看报错原因。
+-   如果迁云失败并提示`Not Finished`，您可以查看Logs目录下的日志文件，并参阅 [排查故障](intl.zh-CN/用户指南/P2V 迁云工具/问题排查.md#) 或者 [API错误中心](https://error-center.alibabacloud.com/status/product/Ecs) 查看报错原因。
 
-    如果问题仍未解决，建议您添加 [迁云工具支持钉钉群](https://h5.dingtalk.com/invite-page/index.html?spm=a2c4g.11186623.2.31.x8X0fd&code=ca190154ff)。也可以 [提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm) 并附上日志信息，联系售后客服支持。
+    如果问题仍未解决，建议您添加 [迁云工具支持钉钉群](https://h5.dingtalk.com/invite-page/index.html?spm=a2c4g.11186623.2.31.x8X0fd&code=ca190154ff)。也可以 [提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) 并附上日志信息，联系售后客服支持。
 
 
 **8. 关于中转实例，我需要注意什么？**
@@ -66,7 +66,7 @@
 
 -   中转实例的默认安全组在入方向开放了8080和8703端口，这是中转实例的迁云服务端口，请勿修改或删除该安全组配置。
 
--   迁云完成后，中转实例会被自动释放，如果迁云失败，需要手动 [释放实例](cn.zh-CN/用户指南/实例/释放实例.md#)。
+-   迁云完成后，中转实例会被自动释放，如果迁云失败，需要手动 [释放实例](intl.zh-CN/用户指南/实例/释放实例.md#)。
 
 
  **9. 关于user\_config.json，我需要注意什么？** 
@@ -85,7 +85,7 @@ client\_data文件记录了迁云过程数据，包含中转实例信息、迁�
 
  **12. 什么时候需要清理client\_data文件？** 
 
-清理client\_data文件可以使用 [CLI命令](cn.zh-CN/用户指南/P2V 迁云工具/CLI参数.md#) `--cleardata`，或者通过 [Windows GUI](cn.zh-CN/用户指南/P2V 迁云工具/迁云工具 Windows GUI 版本介绍.md#) 的Client Client Data菜单项。
+清理client\_data文件可以使用 [CLI命令](intl.zh-CN/用户指南/P2V 迁云工具/CLI参数.md#) `--cleardata`，或者通过 [Windows GUI](intl.zh-CN/用户指南/P2V 迁云工具/迁云工具 Windows GUI 版本介绍.md#) 的Client Client Data菜单项。
 
 -   迁云已经开始后如果想重新迁云，可以清理现有的client\_data文件或者使用原始的client\_data文件覆盖后再运行。
 
@@ -102,7 +102,7 @@ client\_data文件记录了迁云过程数据，包含中转实例信息、迁�
 
  **15. 为什么提示账号余额不足NotEnoughBalance？** 
 
-迁云工具本身是免费的，但迁云时默认创建 [按量付费](../cn.zh-CN/产品定价/按量付费.md#) 中转实例。根据阿里云收费服务标准，创建按量付费实例需要您的云账号余额不低于100元人民币。
+迁云工具本身是免费的，但迁云时默认创建 [按量付费](../intl.zh-CN/产品定价/按量付费.md#) 中转实例。根据阿里云收费服务标准，创建按量付费实例需要您的云账号余额不低于100元人民币。
 
  **16. 为什么提示RAM权限不足Forbidden.RAM？** 
 
@@ -116,10 +116,10 @@ client\_data文件记录了迁云过程数据，包含中转实例信息、迁�
 
 确认源服务器能访问以下服务地址IP端口：
 
--   云服务器 ECS：`https://ecs.aliyuncs.com` 443 端口。有关其他地域 ECS 服务地址，请参见[接入地址](../cn.zh-CN/API参考/HTTP调用方式/请求结构.md#)。
+-   云服务器 ECS：`https://ecs.aliyuncs.com` 443 端口。有关其他地域 ECS 服务地址，请参见[接入地址](../intl.zh-CN/API参考/HTTP调用方式/请求结构.md#)。
 -   专有网络 VPC：`http://vpc.aliyuncs.com` 443 端口。
 -   安全凭证 STS：`https://sts.aliyuncs.com` 443 端口。
--   中转实例：公网 IP 地址 8080 和 8703 端口。使用 [VPC 内网迁移](cn.zh-CN/用户指南/P2V 迁云工具/VPC内网迁云.md#) 方案时，访问私有 IP 地址。
+-   中转实例：公网 IP 地址 8080 和 8703 端口。使用 [VPC 内网迁移](intl.zh-CN/用户指南/P2V 迁云工具/VPC内网迁云.md#) 方案时，访问私有 IP 地址。
 
 **说明：** 源服务器不需要开放任何入方向的端口，但是需要在出方向访问上述公网地址和端口。
 
@@ -133,7 +133,7 @@ client\_data文件记录了迁云过程数据，包含中转实例信息、迁�
 
 3.  等待文件系统权限修复过程完成后，选择是否重启实例：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22635/154872616513956_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22635/154872628213956_zh-CN.png)
 
     **说明：** 初次启动ECS实例后，如果文件系统权限修复程序未自启动，您可以运行C:\\go2aliyun\_prepare\\go2aliyun\_restore.exe手动修复。执行前要确保实例上的磁盘数量和盘符路径跟源系统保持一致。
 
@@ -144,7 +144,7 @@ client\_data文件记录了迁云过程数据，包含中转实例信息、迁�
 
  **20. 阿里云支持激活哪些Windows Server？** 
 
-支持自动激活Windows Server 2003、2008、2012和2016。其他不在此列版本的Windows如果迁移至ECS，需要 [申请许可移动性证](https://help.aliyun.com/document_detail/84749.html)。
+支持自动激活Windows Server 2003、2008、2012和2016。其他不在此列版本的Windows如果迁移至ECS，需要 [申请许可移动性证](https://www.alibabacloud.com/help/doc-detail/84749.html)。
 
  **21. 迁移Linux服务器前怎么检查是否满足迁云条件？** 
 
@@ -156,7 +156,7 @@ client\_data文件记录了迁云过程数据，包含中转实例信息、迁�
 
 1.  检查系统盘数据是否完整。
 
-2.  如果有数据盘，您需要自行 [挂载数据盘](cn.zh-CN/用户指南/云盘/挂载云盘.md#)。
+2.  如果有数据盘，您需要自行 [挂载数据盘](intl.zh-CN/用户指南/云盘/挂载云盘.md#)。
 
 3.  检查网络服务是否正常。
 
