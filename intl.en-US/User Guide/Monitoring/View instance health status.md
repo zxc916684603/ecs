@@ -6,7 +6,7 @@ Alibaba Cloud Elastic Computing Service \(ECS\) can perform periodic checks on e
 
 The instance health status is different from the life cycle status of your instance \(such as `pending`, `running`, or `stopped`\), instead it focuses on abnormal activities of network configuration, software crashes, and hardware usage. By monitoring the instance status, you can record network, software, or hardware issues in time to keep your applications running continuously in Alibaba Cloud ECS.
 
-Meanwhile, by using the metric monitoring features of [CloudMonitor](../../../../../intl.en-US/Product Introduction/What is CloudMonitor.md#), you can have an systematic overview of computing resource maintenance.
+Meanwhile, by using the metric monitoring features of [CloudMonitor](../../../../../intl.en-US/Product Introduction/What is CloudMonitor.md#), you can have systematic overview of computing resource maintenance.
 
 ## Health status {#section_grl_cvw_pgb .section}
 
@@ -30,7 +30,7 @@ The health status is returned for each instance query performed. If the health c
 4.  Find the ECS instance health status that you want to view, and click instance ID.
 5.  The health status is displayed on the**Instance Details** page.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122606/154892925438356_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122606/154892935238356_en-US.png)
 
 
 ## View the health status by calling APIs {#section_efm_s2x_pgb .section}
