@@ -24,20 +24,20 @@
 
 ## 步骤 1. 在控制台上扩容数据盘 {#ResizeInConsole .section}
 
-1.  登录 [ECS管理控制台](https://ecs.console.aliyun.com/#/home)。
-2.  在左侧导航栏中，选择 **存储** \> **云盘**。
+1.  在左侧导航栏中，选择 **存储** \> **云盘**。
 
     **说明：** 如果您需要扩容的数据盘已经挂载在某个实例上，您可以单击 **实例**，找到相应实例后，进入实例详情页，并单击 **本实例磁盘**。
 
-3.  选择地域。
-4.  找到需要扩容的数据盘，在 **操作** 列中，选择 **更多** \> **磁盘扩容**。
-    1.  1.  设置 **扩容后容量**。
+2.  选择地域。
+3.  找到需要扩容的数据盘，在 **操作** 列中，选择 **更多** \> **磁盘扩容**。
+4.  设置 **扩容后容量**。
 
     **说明：** 扩容后的容量必须大于当前容量。
 
 5.  待页面上显示费用信息后，单击 **确定扩容**。
 
-**说明：** 扩容成功后，磁盘列表里即显示扩容后的容量。但是，如果您的数据盘已经挂载到实例上，您需要先在控制台上 [重启实例](intl.zh-CN/用户指南/实例/重启实例.md#)，登录实例才能看到扩容后的数据盘容量。
+    **说明：** 扩容成功后，磁盘列表里即显示扩容后的容量。但是，如果您的数据盘已经挂载到实例上，您需要先在控制台上 [重启实例](intl.zh-CN/用户指南/实例/重启实例.md#)，登录实例才能看到扩容后的数据盘容量。
+
 
 在控制台上完成扩容后，
 
@@ -49,20 +49,20 @@
 ## 步骤 2. 登录实例完成扩容 {#ResizeInInstance .section}
 
 1.  [使用软件连接Windows实例](intl.zh-CN/用户指南/连接实例/使用软件连接Windows实例.md#)。
-2.  在Windows Server桌面，双击服务器管理器图标 ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15490061605356_zh-CN.png)。
+2.  在Windows Server桌面，双击服务器管理器图标 ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/15490133095356_zh-CN.png)。
 3.  在左侧导航栏中，选择 **存储** \> **磁盘管理**。
 
     在磁盘管理区域，可以看到新增的数据盘空间与旧的数据盘空间之间的关系。本例中，**磁盘 1** 是扩容的数据盘。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/154900616037961_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/154901330937961_zh-CN.png)
 
 4.  右键单击磁盘 1 新加卷的任一空白处，并选择 **扩展卷**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/154900616037962_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/154901330937962_zh-CN.png)
 
 5.  根据 扩展卷向导 的指示完成扩展卷操作。完成后，新增的数据盘空间会自动合入原来的卷中，**磁盘 1** 在磁盘管理器中显示如下。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/154900616037963_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/154901330937963_zh-CN.png)
 
     **说明：** 如果您使用Windows Server 2003并且创建的是动态磁盘，完成后新增的数据盘空间会自动增加到数据盘中，但是在磁盘管理器中，新增的数据盘空间会以一个独立卷的形式存在。Windows Server 2003中，扩容多少次就会有创建多少个独立的卷，不会将所有的卷都合并到之前的卷里面，但并不会影响实际使用。Windows Server 2003系统中扩容后数据盘的显示信息类似如下图所示。
 
