@@ -18,13 +18,13 @@ To use Cloud Migration tool, consider the following:
 
 -   Security Token \(STS\): `https://sts.aliyuncs.com:443`.
 
--   The intermediate instance: `https://xxx.xx.xxx.xx:8080` and `https://xxx.xx.xxx.xx:8073`. The `xxx.xx.xxx.xx` indicates the Internet IP address of the intermediate instance.
+-   The intermediate instance: `https://xxx.xx.xxx.xx:8080` and `https://xxx.xx.xxx.xx:8703`. The `xxx.xx.xxx.xx` indicates the Internet IP address of the intermediate instance.
 
 -   Incremental data migration is not allowed. We recommend that applications such as databases and container services are paused, or related directories are filtered before migration to Alibaba Cloud. Synchronize any data related to those applications after the migration has been completed.
 
 -   During migration, an ECS instance named INSTANCE\_FOR\_GOTOALIYUN is created by default under your Alibaba Cloud account. It acts as an intermediate station. To avoid migration failure, do not stop, restart, or release the intermediate ECS instance. The intermediate ECS instance is automatically released once the migration completes.
 
--   If the AccessKey that you create belongs to a RAM user, you must make sure that the specified RAM user is granted with `AliyunECSFullAccess` and `AliyunVPCFullAccess` role to operate the Alibaba Cloud resources. For more information, see *RAM* document [Authorization policies](../../../../../reseller.en-US//Authorization/Authorization policy management.md#).
+-   If the AccessKey that you create belongs to a RAM user, you must make sure that the specified RAM user is granted with `AliyunECSFullAccess` and `AliyunVPCFullAccess` role to operate the Alibaba Cloud resources. For more information, see *RAM* document [Authorization policies](../../../../../../reseller.en-US//Authorization management/Policy management.md#).
 
 -   If shared memory is used in your on-premises server:
 
@@ -55,7 +55,7 @@ When your on-premise server runs a Linux operation system, additional requiremen
 
 -   SELinux must be deactivated. You can temporarily deactivate SELinux by running `setenforce 0`. However, we recommend that you disable the SELinux for better experience by specifying the `SELINUX=disabled` in the /etc/selinux/config file.
 
--   The Kernel-based Virtual Machine \(KVM\) driver is installed. For more information about how to install a KVM driver, see [Install virtio driver](../reseller.en-US/User Guide/Images/Import images/Install virtio driver.md#).
+-   The Kernel-based Virtual Machine \(KVM\) driver is installed. For more information about how to install a KVM driver, see [Install virtio driver](reseller.en-US/User Guide/Images/Import images/Install virtio driver.md#).
 
 -   For server such as CentOS 5, Red Hat 5, or Debian that has a too old kernel, and the version of GRUB \(GRand Unified Bootloader\) is earlier than 1.9. You may [update the boot loader GRUB to a version later than 1.9](https://partners-intl.aliyun.com/help/doc-detail/62807.html).
 
@@ -73,7 +73,7 @@ You must have signed up for ECS snapshot service in the [ECS console](https://pa
     |Excludes folder|Filters out the directories from the migration. An rsync\_excludes\_win.txt file is included by default.|
     |client\_data|Maintains the record of transmission data during a migration. Transmission data includes the attributes of the intermediate instance for cloud migration, the process information of data disk migration, the generated custom image name, the region you plan to migrate to and so on.|
     |user\_config.json|The configuration file of your on-premise server|
-    |go2aliyun\_gui.exe|A GUI wizard for Windows OS. For more information, see [Windows GUI of Cloud Migration tool](reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Windows GUI of Cloud Migration tool.md#).|
+    |go2aliyun\_gui.exe|A GUI wizard for Windows OS. For more information, see [Windows GUI of Cloud Migration tool](reseller.en-US/User Guide/Cloud Migration tool for P2V and V2V/Windows GUI of Cloud Migration tool.md#).|
     |go2aliyun\_client.exe|Main program of Cloud Migration tool.|
 
     |File or file folder|Description|
@@ -95,7 +95,7 @@ The user\_config.json configuration file is edited in JSON. It contains necessar
 
 **Note:** 
 
-If you are using the Windows GUI version, you can complete the user\_config on the GUI interface. For more information, see [Windows GUI of Cloud Migration tool](reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Windows GUI of Cloud Migration tool.md#).
+If you are using the Windows GUI version, you can complete the user\_config on the GUI interface. For more information, see [Windows GUI of Cloud Migration tool](reseller.en-US/User Guide/Cloud Migration tool for P2V and V2V/Windows GUI of Cloud Migration tool.md#).
 
 1.  Open the user\_config.json file in the decompressed Cloud Migration tool. The following is the initial file:
 
@@ -358,13 +358,13 @@ Default filtered files or directories include /dev/\*, /sys/\*, /proc/\*, /media
 
 **Warning:** Only when you can directly access a VPC in an Alibaba Cloud region from your Integrated Data Center \(IDC\), virtual machines, or cloud hosts, you are recommended to edit the client\_data file. Otherwise, the modification may affect cloud migration and running processes.
 
-The client\_data file maintains the record of transmission data during migration. For more information about how to edit the client\_data file, see [Cloud migration through VPC intranet](reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Cloud migration through VPC intranet.md#).
+The client\_data file maintains the record of transmission data during migration. For more information about how to edit the client\_data file, see [Cloud migration through VPC intranet](reseller.en-US/User Guide/Cloud Migration tool for P2V and V2V/Cloud migration through VPC intranet.md#).
 
 After each successful migration, information about the intermediate ECS instance in the ECS is automatically recorded in the client\_data configuration file. For the next migration, you must clear the current client\_data file or use the default client\_data file to override the current file.
 
 ## Step 5: Run the Cloud Migration tool {#section_uz1_md1_kfb .section}
 
-Windows server: Right-click go2aliyun\_client.exe and select **Run as administrator**. If you are using the Windows GUI version, see [Windows GUI of Cloud Migration tool](reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Windows GUI of Cloud Migration tool.md#).
+Windows server: Right-click go2aliyun\_client.exe and select **Run as administrator**. If you are using the Windows GUI version, see [Windows GUI of Cloud Migration tool](reseller.en-US/User Guide/Cloud Migration tool for P2V and V2V/Windows GUI of Cloud Migration tool.md#).
 
 Linux server: Run Cloud Migration tool as a root user.
 
@@ -377,7 +377,7 @@ Linux server: Run Cloud Migration tool as a root user.
 
 If `Goto Aliyun Finished!` is displayed, go to the image page in the [ECS console](https://partners-intl.console.aliyun.com/#/ecs) to check the results. After migration, the resource of your on-premises server, such as the operating system, applications, and application data, are convert to a custom image, which is displayed in the image page of the ECS console.
 
-If `Goto Aliyun Not Finished!` is displayed, check the log files in the logs folder for [troubleshooting](reseller.en-US/Best Practices/Cloud Migration tool for P2V and V2V/Troubleshooting.md#). After the problem is rectified, run go2aliyun\_client again, and it continues to proceed from where it was suspended during the preceding execution.
+If `Goto Aliyun Not Finished!` is displayed, check the log files in the logs folder for [troubleshooting](reseller.en-US/User Guide/Cloud Migration tool for P2V and V2V/Troubleshooting.md#). After the problem is rectified, run go2aliyun\_client again, and it continues to proceed from where it was suspended during the preceding execution.
 
 **Note:** 
 
@@ -386,7 +386,7 @@ If `Goto Aliyun Not Finished!` is displayed, check the log files in the logs fol
 
 ## What to do next {#section_g1r_sxz_jfb .section}
 
-You can [create a Pay-As-You-Go instance by using the custom image](../reseller.en-US/User Guide/Instances/Create an instance/Create an instance from a custom image.md#) or [change the system disk by using the custom image](../reseller.en-US/User Guide/Cloud disks/Replace the system disk (non-public image).md#) to test whether the custom image works or not.
+You can [create a Pay-As-You-Go instance by using the custom image](reseller.en-US/User Guide/Instances/Create an instance/Create an instance from a custom image.md#) or [change the system disk by using the custom image](reseller.en-US/User Guide/Cloud disks/Replace the system disk (non-public image).md#) to test whether the custom image works or not.
 
 After you migrate an on-premises Linux server, the data disks are not mounted by default. You may run `ls /dev/vd*` in the instances to mount the data disks manually as needed, and edit configuration file `/etc/fstab` to configure the mounting file systems. For more information, see [Linux\_Format and mount a data disk](../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#).
 
