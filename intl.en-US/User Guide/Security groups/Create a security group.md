@@ -1,55 +1,50 @@
 # Create a security group {#concept_ocl_bvz_xdb .concept}
 
-Each ECS instance must join at least one security group. For more information, see [security group](../../../../reseller.en-US/Product Introduction/Network and security/Security group.md#).
+In the default security group, the default rules only apply to the incoming ICMP traffic and the incoming access to SSH port 22, RDP port 3389, HTTP port 80, and HTTPS port 443. Moreover, the default rules vary according to the network type of the security group. If you do not want to add your instance to the default security group, you can create a custom security group.
 
-If you do not have not created a security group prior to creating an ECS instance, we recommend that you use the default security group provided by the system. For more information, see [default security group rules](reseller.en-US/User Guide/Security groups/Default security group rules.md#).
+## Context {#section_rry_yb1_hgb .section}
 
-Alternatively, you can create a security group to meet your business needs and then add your instances to it. This topic describes how to create a security group.
+Each ECS instance must join at least one security group. For more information, see [Security groups](../../../../../reseller.en-US/Product Introduction/Network and security/Security groups.md#).
 
-## Prerequisite {#section_ctl_3vz_xdb .section}
+If you did not create a security group before creating an instance, you can use the default security group. For more information, see [Default security group rules](reseller.en-US/User Guide/Security groups/Default security group rules.md#).
 
-To create a VPC-connected security group, you must [manage a VPC](../../../../reseller.en-US/User Guide/Manage a VPC.md#).
+## Prerequisites {#section_ctl_3vz_xdb .section}
 
-**Note:** 
+If you want to create a security group for a VPC, you must first [create a VPC and a vSwitch](../../../../../reseller.en-US//Manage a VPC.md#section_ufw_rhv_rdb).
 
-You can create a VPC-connected security group across VSwitches, but not across VPCs.
+**Note:** If you create a security group in a VPC, you can use that security group together with different vSwitches in that VPC. However, you cannot use that security group in other VPCs.
 
 ## Procedure {#section_nyb_kvz_xdb .section}
 
 1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
-2.  In the left-side navigation pane, select **Networks and Security** \> **Security Groups**.
-3.  Select the target region.
+2.  In the left-side navigation pane, choose **Network and Security** \> **Security Groups**.
+3.  Select a region.
 4.  Click **Create Security Group**.
-5.  In the Create Security Group dialog box, complete the following configurations:
-    -   **Template**: If the instances in the security group are for Web server deployment, select an appropriate template to simplify security group rule configuration.
+5.  In the displayed Create Security Group dialog box, complete the following configurations:
+    -   **Template**: Select a template according to the services deployed in the instances inside the security group. Templates are designed to simplify the configuration of security group rules. The following table describes how templates can be applied to various scenarios.
 
-        |Setting|Template|Note|
-        |To deploy a Web server on the Linux instances in the security group|**Web Server Linux**|By default, inbound traffic to TCP 80, TCP 443, TCP 22, and ICMP is allowed.|
-        |To deploy a Web server on the Windows instances in the security group|**Web Server Windows**|By default, inbound traffic to port TCP 80, TCP 443, TCP 3389, and ICMP is allowed.|
-        |Not for Web server|**Custom**|After the security group is created, [add security group rules](reseller.en-US/User Guide/Security groups/Add security group rules.md#) to meet your business needs.|
+        |Scenario|Template|Description|
+        |Web services need to be deployed in Linux instances in the security group.|**Web Server Linux**|By default, incoming access to TCP ports 80/443/22 and incoming ICMP traffic are allowed.|
+        |Web services need to be deployed in Windows instances in the security group.|**Web Server Windows**|By default, incoming access to TCP ports 80/443/3389 and incoming ICMP traffic are allowed.|
+        |No special requirements|**Custom**|After the security group is created, you can add security group rules according to your business needs. [Add security group rules](reseller.en-US/User Guide/Security groups/Add security group rules.md#)|
 
-    -   **Security Group Name**: Specify a name for the security group.
-    -   **Description**: Enter description of the security group for easier management.
+    -   **Security Group Name**: Enter a name for the security group.
+    -   **Description**: Enter a description of the security group.
     -   **Network Type**:
-        -   To create a VPC-Connected security group, select **VPC** and then select the target VPC.
-        -   To create a Classic network-connected security group, select **Classic**.
+        -   To create a security group for a VPC, select **VPC**, and then select the target VPC.
+        -   To create a security group for the classic network, select **Classic**.
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9717/15433120874657_en-US.png)
+            ![Create a security group](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9717/15490093594657_en-US.png)
 
 6.  Click **OK**.
 
-For a new security group without any rules, the following default rules apply to the communication of all the instances in the group over the Internet or intranet:
+If you create a new security group without adding any rules, the default rules for both the Internet and intranet apply. Specifically, outbound access is allowed while inbound access is denied.
 
--   Outbound: Allow
--   Inbound: Forbid
+## API operations {#section_qj5_221_hgb .section}
 
-## Follow-up operations {#section_agj_cwz_xdb .section}
+You can call [CreateSecurityGroup](../../../../../reseller.en-US/API Reference/Security groups/CreateSecurityGroup.md#) to create a security group.
 
-After you create a security, you can [add security group rules](reseller.en-US/User Guide/Security groups/Add security group rules.md#).
+## What to do next {#section_agj_cwz_xdb .section}
 
-You can also[add/remove an instance to/from a security group](reseller.en-US/User Guide/Instances/Add to or remove from a security group.md#).
-
-## Related API {#section_gqg_dwz_xdb .section}
-
-[CreateSecurityGroup](../../../../reseller.en-US/API Reference/Security groups/CreateSecurityGroup.md#)
+-   You can [add security group rules](reseller.en-US/User Guide/Security groups/Add security group rules.md#) to control the Internet- or intranet-based access of your ECS instances. For information about the ports commonly involved in security group rules, see [Introduction to common ECS instance ports](reseller.en-US/User Guide/Security groups/Introduction to common ECS instance ports.md#). For details about typical use cases, see [Typical applications of security group rules](reseller.en-US/User Guide/Security groups/Typical applications of security group rules.md#).
 
