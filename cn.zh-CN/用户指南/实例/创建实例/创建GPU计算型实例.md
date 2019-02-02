@@ -36,7 +36,7 @@ GPU计算型实例包括gn4、gn5、gn5i和gn6v。
 -   **网络**：选择 **专有网络**。
 -   **公网带宽**：根据您的实际需要选择带宽。
 
-    **说明：** 如果使用Windows 2008 R2镜像，GPU驱动安装生效后，您不能使用控制台的 [远程连接](intl.zh-CN/用户指南/连接实例/使用管理终端连接ECS实例.md#) 功能连接GPU计算型实例，所以，您必须选择 **分配公网IP地址**，或者创建实例后 [绑定云资源](../../../../../intl.zh-CN/用户指南/绑定云资源.md#)。
+    **说明：** 如果使用Windows 2008 R2镜像，GPU驱动安装生效后，您不能使用控制台的 [远程连接](intl.zh-CN/用户指南/连接实例/使用管理终端连接ECS实例.md#) 功能连接GPU计算型实例，所以，您必须选择 **分配公网IP地址**，或者创建实例后 [绑定云资源](../../../../../intl.zh-CN/用户指南/88991绑定云资源.md#)。
 
 -   **登录凭证**：根据实际需求设置登录凭证。
 
@@ -67,7 +67,7 @@ GPU计算型实例包括gn4、gn5、gn5i和gn6v。
 
         -   如果下拉列表中没有显示服务器操作系统，请单击下拉列表底部的 **选择所有操作系统**。
         -   Debian操作系统，选择 **Linux 64-bit**。
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15489066625114_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15490863675114_zh-CN.png)
 
 |
 
@@ -97,7 +97,7 @@ GPU计算型实例包括gn4、gn5、gn5i和gn6v。
 
             以Linux 64-bit Ubuntu 14.04为例：
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15489066625117_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15490863675117_zh-CN.png)
 
 
 ## 安装GRID驱动 {#section_ubb_nxz_xdb .section}
