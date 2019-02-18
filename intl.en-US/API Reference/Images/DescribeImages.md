@@ -35,13 +35,12 @@ Default value: null. Null indicates that results of `system`, `self` and `others
 -   none: The image is not in use.
 
 |
-|Tag.n.Key|String|No|The key of a tag. The value range of `n` is \[1, 5\]. If you query the images according to tags, the value of Tag.n.Key cannot be a null string.|
-|Tag.n.Key|String|Yes|The key of a tag of which n is from 1 to 20. Once you use this parameter, it cannot be a null string. It can be up to 64 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
-|Tag.n.Value|String|Yes|The value of a tag of which n is a number from 1 to 20. Once you use this parameter, it can be a null string. It can be up to 128 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
+|Tag.n.Key|String|No|The key of a tag of which n is from 1 to 20. Once you use this parameter, it cannot be a null string. It can be up to 64 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
+|Tag.n.Value|String|No|The value of a tag of which n is a number from 1 to 20. Once you use this parameter, it can be a null string. It can be up to 128 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
 |PageSize|Integer|No|Sets the number of lines per page for queries per page. Maximum value: 100.Default value: 10.
 
 |
-|PageNumber|Integer|否|The current page of the of image list.Default value: 1.
+|PageNumber|Integer|No|The current page of the of image list.Default value: 1.
 
 |
 |DryRun|Boolean|No|Whether the system performs a permission check only.-   true: Sends a permission check request, without performing actual API action. An enabled DryRun checks whether your AccessKey is valid, the authorization status of a RAM user, and whether the required parameters are set. If you do not have the required permissions, a related error response is returned. Otherwise, it is `DryRunOperation`.
