@@ -2,7 +2,7 @@
 
 An image is a running environment template for ECS instances. It generally includes an operating system and pre-installed software. An image works as a file copy that includes data from one or more disks. These disks can be a single system disk, or a combination of the system disk and data disks.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9572/15471917765238_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9572/15504546445238_en-US.png)
 
 ## Image overview {#section_nyg_r5w_ydb .section}
 
@@ -13,7 +13,7 @@ ECS provides a range of image types that you can use to easily access image reso
 |Public image|Alibaba Cloud provides the following types of public images:-   **Aliyun Linux image**: The Aliyun Linux image is a custom, native operating system provided by Alibaba Cloud for ECS. The Aliyun Linux image has undergone stringent testing to guarantee its security, stability, and normal startup and operation.
 -   **Third-party commercial image and open-source licensed image**: Such images include Windows Server, Ubuntu, CentOS, Red Hat Enterprise Linux, Debian, SUSE Linux, FreeBSD and CoreOS. These images have undergone stringent testing conducted by Alibaba Cloud to guarantee their security, stability, and normal startup and operation.
 
-| -   **Aliyun Linux image**: Alibaba Cloud provides [technical support](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+| -   **Aliyun Linux image**: Alibaba Cloud provides technical support.
 -   **Third-party commercial image and open-source licensed image**: You can contact the OS vendors or open source communities for technical support. Additionally, Alibaba Cloud provides technical support to assist investigation into various image-related and system-related problems.
 
  |
@@ -22,7 +22,7 @@ ECS provides a range of image types that you can use to easily access image reso
  | You can contact the OS vendors for technical support. Additionally, Alibaba Cloud provides technical support in problem investigation.
 
  |
-|Marketplace image| [Marketplace](https://marketplace.alibabacloud.com/) images are licensed and provided by Independent Software Vendors \(ISVs\) and sold in Alibaba Cloud Marketplace. Such images have undergone stringent testing conducted by the respective ISVs and Alibaba Cloud to guarantee security.
+|Marketplace image| Marketplace images are licensed and provided by Independent Software Vendors \(ISVs\) and sold in Alibaba Cloud Marketplace. Such images are well tested by the ISVs and Alibaba Cloud to guarantee content security.
 
  Marketplace images provide not only the OSs required for applications, but also the configuration environments. This eliminates complicated installation and configuration process and helps you deploy ECS in one click.
 
@@ -34,7 +34,7 @@ ECS provides a range of image types that you can use to easily access image reso
 
 Public images are fully licensed to provide a highly stable operating environment. You can customize your application environment based on a public image. Different instance types correspond to different available public images. For information about the built-in services of public images releases, go to the official website of the OS vendors.
 
-Alibaba Cloud regularly releases and updates public images. For more information, see [Image release notes](../intl.en-US/User Guide/Images/Image release notes/Image release notes.md#). You can view available public images in the [Public image list in the ECS console](https://ecs.console.aliyun.com/#/image/region/cn-hangzhou/systemImageList). The following table lists the ECS public images.
+Alibaba Cloud regularly releases and updates public images. For more information, see [Image release notes](../reseller.en-US/User Guide/Images/Image release notes/Image release notes.md#). You can view available public images in the [Public image list in the ECS console](https://ecs.console.aliyun.com/#/image/region/cn-hangzhou/systemImageList). The following table lists the ECS public images.
 
 |OS type|OS version|OS type|OS version|
 |:------|:---------|:------|:---------|
@@ -45,8 +45,8 @@ Alibaba Cloud regularly releases and updates public images. For more information
 -   Windows Server 2012 R2 Datacenter 64-bit
 -   Windows Server 2016 R2 Datacenter 64-bit
 -   Windows Server 2016 R2 Datacenter 64-bit
--   Windows Server Version 1709 Datacenter 64-bit
--   Windows Server Version 1709 Datacenter 64-bit
+-   Windows Server Version 1809 Datacenter 64-bit
+-   Windows Server Version 1809 Datacenter 64-bit
 
  |CentOS| -   CentOS 6.8 64-bit
 -   CentOS 6.8 32-bit
@@ -83,28 +83,28 @@ Alibaba Cloud regularly releases and updates public images. For more information
 
 After you successfully create or import a custom image, the status of the image becomes Available. You can then use this image to create an instance, share the image with other Alibaba Cloud accounts, or copy the image to other Alibaba Cloud regions under your account. The following figure shows the typical usage of a custom image.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9572/154719177636980_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9572/155045464436980_en-US.png)
 
 You can create a custom image by using the following methods:
 
--   [Create a custom image by using a snapshot](../intl.en-US/User Guide/Images/Create custom image/Create a custom image by using a snapshot.md#)
--   [Create a custom image by using an instance](../intl.en-US/User Guide/Images/Create custom image/Create a custom image by using an instance.md#)
--   [Import an on-premises custom image](../intl.en-US/User Guide/Images/Import images/Notes for importing images.md#)
+-   [Create a custom image by using a snapshot](../reseller.en-US/User Guide/Images/Create custom image/Create a custom image by using a snapshot.md#)
+-   [Create a custom image by using an instance](../reseller.en-US/User Guide/Images/Create custom image/Create a custom image by using an instance.md#)
+-   [Import an on-premises custom image](../reseller.en-US/User Guide/Images/Import images/Notes for importing images.md#)
 
-    **Note:** A custom image must be imported in one of the following formats: VHD, qcow2, or RAW. If the custom image is in another format, it must be converted before it can run in ECS. For more information, see [Convert image file format](../intl.en-US/User Guide/Images/Import images/Convert image file format.md#).
+    **Note:** A custom image must be imported in one of the following formats: VHD, qcow2, or RAW. If the custom image is in another format, it must be converted before it can run in ECS. For more information, see [Convert image file format](../reseller.en-US/User Guide/Images/Import images/Convert image file format.md#).
 
 
 After creating custom images, you can perform the following operations:
 
--   [Replace the OS of an instance](../intl.en-US/User Guide/Cloud disks/Replace the system disk (non-public image).md#)
--   [Copy your custom images from one region to another](../intl.en-US/User Guide/Images/Copy images.md#)
--   [Share your custom images with other Alibaba Cloud accounts](../intl.en-US/User Guide/Images/Share images.md#)
--   [Export your custom images to on-premises testing environments or private cloud environments](../intl.en-US/User Guide/Images/Export custom images.md#)
--   [Manage your custom images](../intl.en-US/User Guide/Images/Manage custom images.md#)
+-   [Replace the OS of an instance](../reseller.en-US/User Guide/Cloud disks/Replace the system disk (non-public image).md#)
+-   [Copy your custom images from one region to another](../reseller.en-US/User Guide/Images/Copy images.md#)
+-   [Share your custom images with other Alibaba Cloud accounts](../reseller.en-US/User Guide/Images/Share images.md#)
+-   [Export your custom images to on-premises testing environments or private cloud environments](../reseller.en-US/User Guide/Images/Export custom images.md#)
+-   [Manage your custom images](../reseller.en-US/User Guide/Images/Manage custom images.md#)
 
 ## Billing details {#section_uyg_r5w_ydb .section}
 
-We recommend that you maintain a sufficient balance in the linked credit card or PayPal account to complete the payment or preauthorization. For more information, see [Pricing overview](../intl.en-US/Pricing/Pricing overview.md#).The ECS image billing details are as follows:
+We recommend that you maintain a sufficient balance in the linked credit card or PayPal account to complete the payment or preauthorization. For more information, see [Pricing overview](../reseller.en-US/Pricing/Pricing overview.md#).The ECS image billing details are as follows:
 
 |Image type|Billing description|
 |:---------|:------------------|
@@ -116,10 +116,10 @@ We recommend that you maintain a sufficient balance in the linked credit card or
  Other public images are available free of charge.
 
  |
-|Custom image| -   If you [Create a custom image by using a snapshot](../intl.en-US/User Guide/Images/Create custom image/Create a custom image by using a snapshot.md#):
+|Custom image| -   If you [Create a custom image by using a snapshot](../reseller.en-US/User Guide/Images/Create custom image/Create a custom image by using a snapshot.md#):
     -   If the image used by the system disk snapshot is from the Alibaba Cloud Marketplace, the bill may include fees for the image and fees for the snapshot capacity.
     -   If the image used by the system disk snapshot is not from the Alibaba Cloud Marketplace, the bill may include fees for the snapshot capacity.
--   If you [Create a custom image by using an instance](../intl.en-US/User Guide/Images/Create custom image/Create a custom image by using an instance.md#), and the image used by the instance is from the Alibaba Cloud Marketplace, the billing policies of the Alibaba Cloud Marketplace and the ISV apply.
+-   If you [Create a custom image by using an instance](../reseller.en-US/User Guide/Images/Create custom image/Create a custom image by using an instance.md#), and the image used by the instance is from the Alibaba Cloud Marketplace, the billing policies of the Alibaba Cloud Marketplace and the ISV apply.
 
  |
 |Marketplace image|The billing policies of the ISVs apply.|
@@ -129,20 +129,20 @@ We recommend that you maintain a sufficient balance in the linked credit card or
 
 **Console operations**
 
--   You can [Create an instance from a custom image](../intl.en-US/User Guide/Instances/Create an instance/Create an instance from a custom image.md#).
+-   You can [Create an instance from a custom image](../reseller.en-US/User Guide/Instances/Create an instance/Create an instance from a custom image.md#).
 -   You can change the system disk of an ECS instance by using either of the following methods:
-    -   [Replace the image of the system disk with a public image](../intl.en-US/User Guide/Cloud disks/Replace the system disk (public image).md#).
-    -   [Replace the image of the system disk with a non-public image](../intl.en-US/User Guide/Cloud disks/Replace the system disk (non-public image).md#).
+    -   [Replace the image of the system disk with a public image](../reseller.en-US/User Guide/Cloud disks/Replace the system disk (public image).md#).
+    -   [Replace the image of the system disk with a non-public image](../reseller.en-US/User Guide/Cloud disks/Replace the system disk (non-public image).md#).
 -   You can obtain a custom image by using the following methods:
-    -   [Create a custom image by using a snapshot](../intl.en-US/User Guide/Images/Create custom image/Create a custom image by using a snapshot.md#).
-    -   [Create a custom image by using an instance](../intl.en-US/User Guide/Images/Create custom image/Create a custom image by using an instance.md#).
-    -   [Import an on-premises custom image](../intl.en-US/User Guide/Images/Import images/Notes for importing images.md#).
+    -   [Create a custom image by using a snapshot](../reseller.en-US/User Guide/Images/Create custom image/Create a custom image by using a snapshot.md#).
+    -   [Create a custom image by using an instance](../reseller.en-US/User Guide/Images/Create custom image/Create a custom image by using an instance.md#).
+    -   [Import an on-premises custom image](../reseller.en-US/User Guide/Images/Import images/Notes for importing images.md#).
 -   After creating custom images, you can perform the following operations:
-    -   [Copy your custom images from one region to another](../intl.en-US/User Guide/Images/Copy images.md#).
-    -   [Share your custom images with other Alibaba Cloud accounts](../intl.en-US/User Guide/Images/Share images.md#).
-    -   [Export your custom images to on-premises testing environments or private cloud environments](../intl.en-US/User Guide/Images/Export custom images.md#).
+    -   [Copy your custom images from one region to another](../reseller.en-US/User Guide/Images/Copy images.md#).
+    -   [Share your custom images with other Alibaba Cloud accounts](../reseller.en-US/User Guide/Images/Share images.md#).
+    -   [Export your custom images to on-premises testing environments or private cloud environments](../reseller.en-US/User Guide/Images/Export custom images.md#).
 
 **API operations**
 
-For more information, see the [APIs for images](../intl.en-US/API Reference/API overview.md#section_image_t2h_vdb).
+For more information, see the [APIs for images](../reseller.en-US/API Reference/API overview.md#section_image_t2h_vdb).
 
