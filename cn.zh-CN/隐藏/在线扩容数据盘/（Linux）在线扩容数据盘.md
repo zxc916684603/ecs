@@ -25,11 +25,9 @@
 
 本示例中，数据盘为高效云盘，ECS实例的操作系统为CentOS 7.5 64 位。实例操作系统中的数据盘设备名为**/dev/vdb**，原有分区为**/dev/vdb1**。扩容前的数据盘容量为20 GiB，通过在线扩容变为40 GiB。您可以参考以下步骤扩容数据盘并使扩容后的容量可用：
 
-1.  在控制台上扩容数据盘
-2.  查看数据盘容量
-3.  连接实例确认数据盘的分区以及文件系统情况
-4.  完成扩容
-5.  检查扩容结果
+1.  [在控制台上扩容数据盘](#)
+2.  [连接实例确认数据盘的分区以及文件系统情况](#)
+3.  [完成扩容](#)
 
 ## 准备工作 {#section_tcx_kn5_qgb .section}
 
@@ -49,33 +47,7 @@
     扩容成功后，磁盘列表中立即显示扩容后的容量。
 
 
-## 步骤2. 查看数据盘容量 {#section_kzg_rlv_qgb .section}
-
-控制台扩容后，您可以通过以下方式查看扩容后的数据盘容量。
-
--   控制台查看
-
-    扩容成功后，控制台的磁盘列表里即显示扩容后的容量。
-
--   登录实例查看
-
-    执行命令`fdisk -lu /dev/vdb`，结果如下所示。
-
-    ```
-    # fdisk -lu /dev/vdb
-    Disk /dev/vdb: 42.9 GB, 42949672960 bytes, 83886080 sectors
-    Units = sectors of 1 * 512 = 512 bytes
-    Sector size (logical/physical): 512 bytes / 512 bytes
-    I/O size (minimum/optimal): 512 bytes / 512 bytes
-    Disk label type: dos
-    Disk identifier: 0x9277b47b
-    
-    Device Boot Start End Blocks Id System
-    /dev/vdb1 2048 41943039 20970496 83 Linux
-    ```
-
-
-## 步骤3. 确认数据盘的分区以及文件系统 {#section_tfj_pnv_qgb .section}
+## 步骤2. 确认数据盘的分区以及文件系统 {#section_tfj_pnv_qgb .section}
 
 在ECS控制台上完成扩容后，数据盘容量已经增加，但是数据盘的分区和文件系统并未扩容，您需要连接实例先确认分区与文件系统，再按需完成扩容。
 
@@ -123,7 +95,7 @@
     ```
 
 
-## 步骤4. 完成扩容 {#section_pbr_xpv_qgb .section}
+## 步骤3. 完成扩容 {#section_pbr_xpv_qgb .section}
 
 ****如果新磁盘空间用于扩容已有的分区，按照以下步骤在实例中完成扩容：****
 
