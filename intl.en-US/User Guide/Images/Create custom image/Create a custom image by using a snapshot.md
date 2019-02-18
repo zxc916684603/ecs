@@ -4,7 +4,7 @@ Custom images allow you to create multiple ECS instances with identical OS and e
 
 Custom images are based on ECS disk snapshots. You can set up identical or different configurations for ECS instances that are created from images.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/15433064584584_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/15504763934584_en-US.png)
 
 You can also use an instance to create an image. For more information, see [create a custom image by using an instance](reseller.en-US/User Guide/Images/Create custom image/Create a custom image by using an instance.md#).
 
@@ -36,13 +36,9 @@ To enhance the security of custom images created from snapshots, see [security s
 4.  Find the target instance and click its instance ID, or click **Manage** in the **Actions** column.
 5.  In the left-side navigation pane, click **Instance Snapshots**. Find the target system disk and then click **Create Custom Image** in the **Actions** column.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/15433064584589_en-US.png)
-
     The snapshot must be created from system disks. Data disks cannot be used to create custom images. 
 
     You can also click **Snapshots and Images** \> **Snapshots**, and select a snapshot created from a system disk to **Create Custom Image**.
-
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/15433064584593_en-US.png)
 
 6.  In the Create Custom Image dialog box, complete the following:
     -   Confirm the snapshot ID.
@@ -54,7 +50,7 @@ To enhance the security of custom images created from snapshots, see [security s
         -   We recommend that you remove sensitive data from the data disk before creating a custom image to guarantee data security.
         -   If the snapshot disk capacity is left blank, an empty disk is created with the default capacity of 5 GiB.
         -   If you select available snapshots, the disk size is the same as the size of the snapshots. 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/15433064584594_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/15504763934594_en-US.png)
 
 7.  Click **Create**. Then, in the left-side navigation pane, select **Snapshots and Images** \> **Images** to view the images you have created.
 
