@@ -43,10 +43,9 @@ You can also use the ECS APIs [ExportImage](../../../../../reseller.en-US/API Re
 
 ## Next steps {#section_qlv_v2t_xdb .section}
 
+When an exported custom image contains a data disk snapshot, multiple files appear in your OSS. The file name with `system` indicates a system disk shapshot and the file name with `data` indicates a data disk snapshot. A data disk snapshot has an identifier corresponding to the data disk, which is the mount point of the data disk, such as xvdb or xvdc.
+
 1.  Log on to the [OSS console](https://partners-intl.console.aliyun.com/#/oss) to query the export result.
-
-    **Note:** When an exported custom image contains a data disk snapshot, multiple files appear in your OSS. The file name with `system` indicates a system disk shapshot and the file name with `data` indicates a data disk snapshot. A data disk snapshot has an identifier corresponding to the data disk, which is the mount point of the data disk, such as xvdb or xvdc.
-
 2.  After the custom image is exported successful, [download the object](../../../../../reseller.en-US/Console User Guide/Manage objects/Download an object.md#) and then download the custom image file.
 
     **Note:** The format of the image file is RAW by default. However, the .tar.gz format is also available during the gated launch period, and the file is in the .raw format after you unzip the .tar.gz file. If you are using Mac OS X operating system, the agent gnu-tar is recommended to unzip the file.
