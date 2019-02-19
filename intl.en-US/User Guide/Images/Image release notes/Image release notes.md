@@ -2,6 +2,17 @@
 
 This topic describes the release notes of images and relevant updates.
 
+## February 18, 2019 {#section_kvk_mk4_vgb .section}
+
+|Release|Description|
+|:------|:----------|
+|CentOS 7.6| -   Image ID:centos\_7\_06\_64\_20G\_alibase\_20190218.vhd
+-   Kernel version:3.10.0-957.5.1.el7.x86\_64
+-   Released in: China East 1,China North 2
+-   What's new: Updated to the latest system patches.
+
+ |
+
 ## January 3, 2019 {#section_r5q_dkl_jgb .section}
 
 |Release|Description|
@@ -20,7 +31,7 @@ This topic describes the release notes of images and relevant updates.
 |Windows Server version 1809| -   Image ID:
     -   winsvr\_64\_dtcC\_1809\_zh-cn\_40G\_alibase\_20181222.vhd \(Chinese version\)
     -   winsvr\_64\_dtcC\_1809\_en-us\_40G\_alibase\_20181222.vhd \(English version\)
--   Released in: China North 3
+-   Released in: all regions
 -   What's new:
     -   Updated the image to the latest patch KB4483235 \(released in December 2018\).
     -   Used Sysprep tool to generalize the image.
