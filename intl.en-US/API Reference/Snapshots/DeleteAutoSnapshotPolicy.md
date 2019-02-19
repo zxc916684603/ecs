@@ -8,11 +8,11 @@ Creates an automatic snapshot policy. If the target automatic snapshot policy ha
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: DeleteAutoSnapshotPolicy.|
 |RegionId|String|Yes|The region ID to which the automatic snapshot policy belongs. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|AutoSnapshotPolicyId|String|Yes|The ID of the target automatic snapshot policy. You can call [DescribeAutoSnapshotPolicyEx](intl.en-US/API Reference/Snapshots/DescribeAutoSnapshotPolicyEx.md#) to obtain all your automatic snapshot policies.|
+|autoSnapshotPolicyId|String|Yes|The ID of the target automatic snapshot policy. You can call [DescribeAutoSnapshotPolicyEx](intl.en-US/API Reference/Snapshots/DescribeAutoSnapshotPolicyEx.md#) to obtain all your automatic snapshot policies.|
 
 ## Return parameters {#section_byv_lyz_xdb .section}
 
-All are common parameters. See [Common parameters](intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
+All are common parameters. See [Common parameters](intl.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
 
 ## Example { .section}
 
