@@ -9,7 +9,7 @@ Queries one or more of your available snapshots. `InstanceId`, `DiskId`, and  `
 |Action|String|Yes|The name of this interface. Value: DescribeSnapshots.|
 |RegionId|String|Yes|The Region ID of snapshot.|
 |InstanceId|String|No|The specified instance ID.|
-|DiskId|String|No|The specified instance ID.|
+|DiskId|String|No|The specified disk ID.|
 |Encrypted|Boolean|No|Queries the encrypted snapshots. Optional values:-   true: Encrypted snapshots.
 -   false: No encryption attribute limit.
 
