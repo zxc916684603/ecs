@@ -1,6 +1,6 @@
 # DescribeSnapshots {#DescribeSnapshots .reference}
 
-Queries one or more of your available snapshots. InstanceId, DiskId, and  SnapshotIds are not required. However, they act as a filter. Logically, they are in an And \(&&\) relation.
+Queries one or more of your available snapshots. The request parameters InstanceId, DiskId, and SnapshotIds are not required. However, they act as a filter. Logically, they are in an And \(&&\) relation.
 
 ## Request parameters {#RequestParameter .section}
 
