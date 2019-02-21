@@ -1,6 +1,6 @@
 # DescribeSnapshots {#DescribeSnapshots .reference}
 
-Queries one or more of your available snapshots. `InstanceId`, `DiskId`, and  `SnapshotIds` are not required. However, they act as a filter. Logically, they are in an `And` relation.
+Queries one or more of your available snapshots. InstanceId, DiskId, and  SnapshotIds are not required. However, they act as a filter. Logically, they are in an And \(&&\) relation.
 
 ## Request parameters {#RequestParameter .section}
 
@@ -65,7 +65,7 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshots
 &<Common Request Parameters>
 ```
 
-**Response example** 
+**Response example**
 
 **XML format** 
 
