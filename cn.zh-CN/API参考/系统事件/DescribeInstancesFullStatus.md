@@ -1,37 +1,62 @@
-# DescribeInstancesFullStatus {#DescribeInstancesFullStatus .reference}
+# DescribeInstancesFullStatus {#doc_api_1006045 .reference}
 
-查询一台或多台实例的全状态信息。全状态信息包括实例状态和实例事件状态，其中，实例状态为实例的生命周期状态，实例事件为维护事件的健康状态，更多详情，请参阅 [实例生命周期](../cn.zh-CN/产品简介/实例/实例生命周期.md#) 和 [实例系统事件](../cn.zh-CN/用户指南/运维与监控/系统事件.md#)。
+查询一台或多台实例的全状态信息。全状态信息包括实例状态和实例事件状态，其中，实例状态为实例的生命周期状态，实例事件为维护事件的健康状态，更多详情，请参阅实例生命周期和实例系统事件。
 
-## 描述 {#section_rcq_354_ydb .section}
+## 描述 {#description .section}
 
-返回结果包括实例状态和 **待执行**（`Scheduled`） 状态的实例系统事件。
+返回结果包括实例状态和待执行（Scheduled）状态的实例系统事件。
 
 如果指定一个时间段，则根据时间段筛选事件。
 
-## 请求参数 {#RequestParameter .section}
+## 调试 {#apiExplorer .section}
 
-|名称|类型|是否必需|描述|
-|:-|:-|:---|:-|
-|Action|String|是|系统规定参数。取值：DescribeInstancesFullStatus|
-|RegionId|String|是|实例所在地域 ID。您可以调用[DescribeRegions](../cn.zh-CN/API参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
-|InstanceId.N|String|否|一台或者多台实例 ID。`N` 的取值范围：\[1, 100\]，多个取值使用重复列表的形式，示例 `InstanceId.1="i-instance1"`，`InstanceId.2="i-instance2"`……|
-|EventId.N|String|否|一个或者多个事件 ID。`N` 的取值范围：\[1, 100\]，多个取值使用重复列表的形式，示例 `EventId.1="e-xhskHun1256xxxx"`，`EventId.2="e-xhskHun1257xxxx"`……|
-|Status|String|否|指定实例的生命周期状态。取值范围：-   Starting：启动中
--   Running：运行中
--   Stopped：已停止
+前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeInstancesFullStatus)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
-|
-|HealthStatus|String|否|指定实例的健康状态。取值范围：-   Impaired：服务损坏
+## 请求参数 {#parameters .section}
+
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|RegionId|String|是|cn-hangzhou|实例所在地域 ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
+
+ |
+|Action|String|否|DescribeInstancesFullStatus|系统规定参数。取值：DescribeInstancesFullStatus
+
+ |
+|EventId.N|RepeatList|否|\[EventId.1="e-xhskHun1256xxxx"，EventId.2="e-xhskHun1257xxxx"……\]|一个或者多个事件 ID。N 的取值范围：1~100，多个取值使用重复列表的形式。
+
+ |
+|EventPublishTime.End|String|否|2017-12-07T00:00:00Z|查询事件发布时间的结束时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
+
+ |
+|EventPublishTime.Start|String|否|2017-11-30T00:00:00Z|查询事件发布时间的开始时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
+
+ |
+|EventType|String|否|InstanceExpiration.Stop|一个事件的类型。EventType 参数只在未指定 InstanceEventType.N 参数时有效。取值范围：
+
+ -   SystemMaintenance.Reboot：因系统维护实例重启
+-   SystemFailure.Reboot：因系统错误实例重启
+-   InstanceFailure.Reboot：因实例错误实例重启
+-   InstanceExpiration.Stop：因预付费期限到期，实例停止
+-   InstanceExpiration.Delete：因预付费期限到期，实例释放
+-   AccountUnbalanced.Stop：因账号欠费，按量付费实例停止
+-   AccountUnbalanced.Delete：因账号欠费，按量付费实例释放
+
+ |
+|HealthStatus|String|否|Maintaining|指定实例的健康状态。取值范围：
+
+ -   Impaired：服务损坏
 -   Warning：服务降级
 -   Maintaining：系统维护
 -   Initializing：初始化中
 -   InsufficientData：数据不足
 -   NotApplicable：不适用
 
-以上参数取值均大小写敏感。
+ 以上参数取值均区分大小写。
 
-|
-|InstanceEventType.N|String|否|一个或者多个事件的类型。`N` 的取值范围：\[1, 30\]，多个取值使用重复列表的形式，示例 `InstanceEventType.1="SystemMaintenance.Reboot"`，`InstanceEventType.2="SystemFailure.Reboot"`……。取值范围：-   SystemMaintenance.Reboot：因系统维护实例重启
+ |
+|InstanceEventType.N|RepeatList|否|InstanceExpiration.Stop|一个或者多个事件的类型。N 的取值范围：1~30，多个取值使用重复列表的形式。取值范围：
+
+ -   SystemMaintenance.Reboot：因系统维护实例重启
 -   SystemFailure.Reboot：因系统错误实例重启
 -   InstanceFailure.Reboot：因实例错误实例重启
 -   InstanceExpiration.Stop：因预付费期限到期，实例停止
@@ -39,74 +64,146 @@
 -   AccountUnbalanced.Stop：因账号欠费，按量付费实例停止
 -   AccountUnbalanced.Delete：因账号欠费，按量付费实例释放
 
-|
-|EventType|String|否|一个事件的类型。`EventType` 参数只在未指定 `InstanceEventType.N` 参数时有效。取值范围：-   SystemMaintenance.Reboot：因系统维护实例重启
--   SystemFailure.Reboot：因系统错误实例重启
--   InstanceFailure.Reboot：因实例错误实例重启
--   InstanceExpiration.Stop：因预付费期限到期，实例停止
--   InstanceExpiration.Delete：因预付费期限到期，实例释放
--   AccountUnbalanced.Stop：因账号欠费，按量付费实例停止
--   AccountUnbalanced.Delete：因账号欠费，按量付费实例释放
+ |
+|InstanceId.N|RepeatList|否|\[InstanceId.1="i-instance1"，InstanceId.2="i-instance2"……\]|一台或者多台实例 ID。N 的取值范围：1~100，多个取值使用重复列表的形式。
 
-|
-|NotBefore.Start|String|否|查询事件计划执行时间的开始时间。按照[ISO8601](../cn.zh-CN/API参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
-|NotBefore.End|String|否|查询事件计划执行时间的结束时间。按照[ISO8601](../cn.zh-CN/API参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
-|EventPublishTime.Start|String|否|查询事件发布时间的开始时间。按照[ISO8601](../cn.zh-CN/API参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
-|EventPublishTime.End|String|否|查询事件发布时间的结束时间。按照[ISO8601](../cn.zh-CN/API参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
-|PageNumber|Integer|否|查询结果的页码。取值范围：正整数默认值：1
+ |
+|NotBefore.End|String|否|2017-11-30T00:00:00Z|查询事件计划执行时间的结束时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
-|
-|PageSize|Integer|否|查询结果的分页大小。取值范围：\[1,100\]默认值：10
+ |
+|NotBefore.Start|String|否|2017-12-07T00:00:00Z|查询事件计划执行时间的开始时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
-|
+ |
+|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
 
-## 返回参数 {#ResponseParameter .section}
+ |
+|PageNumber|Integer|否|1|查询结果的页码。取值范围：正整数
 
-|名称|类型|描述|
-|:-|:-|:-|
-|TotalCount|Integer|总条数|
-|PageNumber|Integer|页码|
-|PageSize|Integer|每页大小|
-|InstanceFullStatusSet|Array of [`InstanceFullStatusType`](#)|实例全状态数组|
+ 默认值：1
 
-**数据类型 InstanceFullStatusType** 
+ |
+|PageSize|Integer|否|10|查询结果的分页大小。取值范围：1~100
 
-|名称|类型|描述|
-|:-|:-|:-|
-|InstanceId|String|实例 ID|
-|ScheduledSystemEventSet|Array of [`ScheduledSystemEventType`](#)|系统计划事件数组|
-|Status.Code|Integer|实例生命周期状态代码|
-|Status.Name|String|实例生命周期状态名称|
-|HealthStatus.Code|Integer|健康状态代码|
-|HealthStatus.Name|String|健康状态名称|
+ 默认值：10
 
- **数据类型 ScheduledSystemEventType** 
+ |
+|Status|String|否|Running|指定实例的生命周期状态。取值范围：
 
-|名称|类型|描述|
-|:-|:-|:-|
-|EventId|String|实例事件 ID|
-|EventCycleStatus.Code|Integer|事件状态代码|
-|EventCycleStatus.Name|String|事件状态名称|
-|EventType.Code|Integer|事件类型代码|
-|EventType.Name|String|事件类型名称|
-|EventPublishTime|String|事件的发布时间。按照[ISO8601](../cn.zh-CN/API参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
-|NotBefore|String|事件的计划执行时间。按照[ISO8601](../cn.zh-CN/API参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
+ -   Starting：启动中
+-   Running：运行中
+-   Stopped：已停止
 
-## 示例 { .section}
+ |
 
-**请求示例** 
+## 返回参数 {#resultMapping .section}
 
-```
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|InstanceFullStatusSet| | |实例全状态数组
+
+ |
+|└HealthStatus| | |实例的健康状态
+
+ |
+|└Code|Integer|64|健康状态代码
+
+ |
+|└Name|String|Warning|健康状态名称
+
+ |
+|└InstanceId|String|i-instance1|实例 ID
+
+ |
+|└ScheduledSystemEventSet| | |系统计划事件数组
+
+ |
+|└EventCycleStatus| | |事件状态
+
+ |
+|└Code|Integer|24|事件状态代码
+
+ |
+|└Name|String|Scheduled|事件状态名称
+
+ |
+|└EventId|String|e-event1|实例事件 ID
+
+ |
+|└EventPublishTime|String|2017-11-30T06:32:31Z|事件的发布时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
+
+ |
+|└EventType| | |事件类型
+
+ |
+|└Code|Integer|1|事件类型代码
+
+ |
+|└Name|String|SystemMaintenance.Reboot|事件类型名称
+
+ |
+|└ExtendedAttribute| | |本地盘实例系统事件拓展属性。
+
+ |
+|└Device|String|/dev/vdb|本地盘磁盘设备名。
+
+ |
+|└DiskId|String|d-diskid2|本地盘磁盘ID。
+
+ |
+|└NotBefore|String|2017-12-07T00:00:00Z|事件的计划执行时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
+
+ |
+|└Status| | |实例生命周期状态
+
+ |
+|└Code|Integer|1|实例生命周期状态代码
+
+ |
+|└Name|String|Running|实例生命周期状态名称
+
+ |
+|PageNumber|Integer|1|页码
+
+ |
+|PageSize|Integer|10|每页大小
+
+ |
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。无论调用接口成功与否，我们都会返回请求 ID。
+
+ |
+|TotalCount|Integer|2|总条数
+
+ |
+
+## 示例 {#demo .section}
+
+请求示例
+
+``` {#request_demo}
+
 https://ecs.aliyuncs.com/?Action=DescribeInstancesFullStatus
 &RegionId=cn-hangzhou
+&InstanceId.1=i-instance1
+&EventId.1=e-event1
+&Status=Running
+&HealthStatus=Maintaining
+&InstanceEventType.1=InstanceExpiration.Stop
+&EventType=InstanceExpiration.Stop
+&NotBefore.Start=2017-12-07T00:00:00Z
+&NotBefore.End=2017-11-30T00:00:00Z
+&EventPublishTime.Start=2017-11-30T00:00:00Z
+&EventPublishTime.End=2017-12-07T00:00:00Z
+&PageNumber=1
+&PageSize=10
 &<公共请求参数>
-```
-
-**正常返回示例** 
-
-**XML 格式**
 
 ```
+
+正常返回示例
+
+`XML` 格式
+
+``` {#xml_return_success_demo}
 <DescribeInstancesFullStatusResponse>
     <?xml version="1.0" encoding="UTF-8" ?>
     <InstanceFullStatusSet>
@@ -183,123 +280,100 @@ https://ecs.aliyuncs.com/?Action=DescribeInstancesFullStatus
 </DescribeInstancesFullStatusResponse>
 ```
 
-**JSON 格式** 
+`JSON` 格式
 
-```
+``` {#json_return_success_demo}
 {
-  "InstanceFullStatusSet": {
-    "InstanceFullStatusType": [
-      {
-        "InstanceId": "i-instance1",
-        "Status": {
-          "Code": 1,
-          "Name": "Running"
-        },
-        "HealthStatus": {
-          "Code": 0,
-          "Name": "Maintaining"
-        },
-        "ScheduledSystemEventSet": {
-          "ScheduledSystemEventType": [
-            {
-              "EventId": "e-event1",
-              "EventCycleStatus": {
-                "Code": 24,
-                "Name": "Scheduled"
-              },
-              "EventType": {
-                "Code": 1,
-                "Name": "SystemMaintenance.Reboot"
-              },
-              "EventPublishTime": "2017-11-30T06:32:31Z",
-              "NotBefore": "2017-12-01T06:32:31Z"
-            },
-            {
-              "EventId": "e-event2",
-              "EventCycleStatus": {
-                "Code": 24,
-                "Name": "Scheduled"
-              },
-              "EventType": {
-                "Code": 34,
-                "Name": "InstanceExpiration.Stop"
-              },
-              "EventPublishTime": "2017-11-30T00:00:00Z",
-              "NotBefore": "2017-12-07T00:00:00Z"
-            }
-          ]
-        }
-      },
-      {
-        "InstanceId": "i-instance2",
-        "Status": {
-          "Code": 1,
-          "Name": "Running"
-        },
-        "HealthStatus": {
-          "Code": 64,
-          "Name": "Warning"
-        },
-        "ScheduledSystemEventSet": {
-          "ScheduledSystemEventType": [
-            {
-              "EventId": "e-event3",
-              "EventCycleStatus": {
-                "Code": 24,
-                "Name": "Scheduled"
-              },
-              "EventType": {
-                "Code": 65,
-                "Name": "SystemFailure.Reboot"
-              },
-              "EventPublishTime": "2017-11-30T06:32:31Z",
-              "NotBefore": "2017-12-01T06:32:31Z"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  "PageSize": 10,
-  "PageNumber": 1,
-  "TotalCount": 2,
-  "RequestId": "AAC49D3E-ED6F-4F00-XXXX-377C551B1DD4"
+	"PageNumber":1,
+	"TotalCount":2,
+	"PageSize":10,
+	"InstanceFullStatusSet":{
+		"InstanceFullStatusType":[
+			{
+				"Status":{
+					"Name":"Running",
+					"Code":1
+				},
+				"HealthStatus":{
+					"Name":"Maintaining",
+					"Code":0
+				},
+				"InstanceId":"i-instance1",
+				"ScheduledSystemEventSet":{
+					"ScheduledSystemEventType":[
+						{
+							"EventPublishTime":"2017-11-30T06:32:31Z",
+							"NotBefore":"2017-12-01T06:32:31Z",
+							"EventId":"e-event1",
+							"EventType":{
+								"Name":"SystemMaintenance.Reboot",
+								"Code":1
+							},
+							"EventCycleStatus":{
+								"Name":"Scheduled",
+								"Code":24
+							}
+						},
+						{
+							"EventPublishTime":"2017-11-30T00:00:00Z",
+							"NotBefore":"2017-12-07T00:00:00Z",
+							"EventId":"e-event2",
+							"EventType":{
+								"Name":"InstanceExpiration.Stop",
+								"Code":34
+							},
+							"EventCycleStatus":{
+								"Name":"Scheduled",
+								"Code":24
+							}
+						}
+					]
+				}
+			},
+			{
+				"Status":{
+					"Name":"Running",
+					"Code":1
+				},
+				"HealthStatus":{
+					"Name":"Warning",
+					"Code":64
+				},
+				"InstanceId":"i-instance2",
+				"ScheduledSystemEventSet":{
+					"ScheduledSystemEventType":[
+						{
+							"EventPublishTime":"2017-11-30T06:32:31Z",
+							"NotBefore":"2017-12-01T06:32:31Z",
+							"EventId":"e-event3",
+							"EventType":{
+								"Name":"SystemFailure.Reboot",
+								"Code":65
+							},
+							"EventCycleStatus":{
+								"Name":"Scheduled",
+								"Code":24
+							}
+						}
+					]
+				}
+			}
+		]
+	},
+	"RequestId":"AAC49D3E-ED6F-4F00-XXXX-377C551B1DD4"
 }
 ```
 
-**异常返回示例** 
+## 错误码 { .section}
 
-**XML 格式**
+|HttpCode|错误码|错误信息|描述|
+|--------|---|----|--|
+|404|MissingParameter|%s|缺失必需参数。|
+|403|InvalidParameter|%s|参数格式不正确。|
+|403|InvalidParameter.TimeEndBeforeStart|%s|结束时间不得早于开始时间。|
+|403|OperationDenied.NotInWhiteList|%s|无权限执行此操作。|
+|403|InstanceIdLimitExceeded|%s|指定的InstanceId个数不得超过100个。|
+|403|EventIdLimitExceeded|%s|一次最多能指定100个模拟事件ID。|
 
-```
-<Error>
-    <RequestId>C38E0D94-C18B-44F3-8C05-6E35BE334088</RequestId>
-    <HostId>ecs.aliyuncs.com</HostId>
-    <Code>InstanceIdLimitExceeded</Code>
-    <Message>The amount of InstanceId specified exceeds limit 100.</Message>
-</Error>
-```
-
-**JSON 格式** 
-
-```
-{
-    "RequestId": "1A8B4B27-8B2D-XXXX-XXXX-0F64DBE4C213",
-    "HostId": "ecs.aliyuncs.com"
-    "Code": "InstanceIdLimitExceeded"
-    "Message": "The amount of InstanceId specified exceeds limit 100."
-}
-```
-
-## 错误码 {#ErrorCode .section}
-
-以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
-
-|错误代码|错误信息|HTTP 状态码|说明|
-|:---|:---|:-------|:-|
-|InvalidParameter|The Parameter provided is not valid.|403|请求参数不合法。|
-|EventIdLimitExceeded|The amount of EventId specified exceeds limit 100.|403|指定的 `EventId` 参数值个数超出了合法范围。|
-|InstanceIdLimitExceeded|The amount of InstanceId specified exceeds limit 100.|403|指定的 `InstanceId` 参数值个数超出了合法范围。|
-|MissingParameter|The input parameter that is mandatory for processing this request is not supplied.|403|输入的参数缺少必填项。|
-|InternalError|The request processing has failed due to some unknown error,exception or failure.|500|内部错误。|
+[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
