@@ -1,10 +1,10 @@
-# CreateDeploymentSet {#doc_api_910711 .reference}
+# CreateDeploymentSet {#doc_api_999647 .reference}
 
 在指定的地域内创建一个部署集。
 
 ## 调试 {#apiExplorer .section}
 
-单击[这里](https://api.aliyun.com/#product=Ecs&api=CreateDeploymentSet)在OpenAPI Explorer中进行可视化调试，并生成SDK代码示例。
+前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=CreateDeploymentSet)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
 ## 请求参数 {#parameters .section}
 
@@ -102,15 +102,9 @@ https://ecs.aliyuncs.com/?Action=CreateDeploymentSet
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
+|400|MissingParameter|The input parameter RegionId that is mandatory for processing this request is not supplied.|参数 RegionID 不得为空。|
 |400|InvalidDescription.Malformed|The specified parameter Description is not valid.|指定的资源描述格式不合法。长度为2-256个字符，不能以 http:// 和 https:// 开头。|
-|400|InvalidDeploymentSetId.NotFound|The specified DeploymentSetId does not exist.|指定的参数 DeploymentSetId 不存在，请您检查 DeploymentSetId 是否正确。|
 |400|MissingParameter|The input parameter DeploymentSetId that is mandatory for processing this request is not supplied.|未提供必需的 DeploymentSetId。|
-|400|InvalidParameter.Domain|The specified parameter Domain is not valid.|指定的 Domain 参数不合法。|
-|400|InvalidParameter.Strategy|The specified parameter Strategy is not valid|指定的 Strategy 不合法。|
-|400|InvalidParameter.granularity|The specified parameter Granularity is not valid.|指定的 Granularity 参数不合法。|
-|400|DependencyViolation.domain.granularity|The DeploymentSet domain and granularity is violation.|部署集域与数据粒度冲突。|
-|400|DependencyViolation.strategy.granularity|The DeploymentSet strategy and granularity is violation.|部署集策略与数据粒度冲突。|
-|400|DEPLOYMENTSET.QUOTA\_FULL|The deploymentSet quota is full|部署集配额已满，请您减少部署集数量。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
