@@ -1,111 +1,192 @@
-# DescribeTags {#DescribeTags .reference}
+# DescribeTags {#doc_api_1006035 .reference}
 
 查询可以供您使用的标签。您可以根据资源类型、资源ID、标签键或标签值等条件查询标签，筛选条件之间为逻辑与（&&）关系，返回满足所有筛选条件的标签。
 
-## 描述 {#section_zxn_2ph_ydb .section}
+## 描述 {#description .section}
 
-如果您指定了标签键（`Tag.n.Key`）但没有指定标签值（`Tag.n.Value`），我们将查询该标签键对应的所有标签键值对。如果您指定了标签键值对，就查询精确匹配该键值对的标签。
+如果您指定了标签键（Tag.n.Key）但没有指定标签值（Tag.n.Value），我们将查询该标签键对应的所有标签键值对。如果您指定了标签键值对，就查询精确匹配该键值对的标签。
 
-## 请求参数 {#RequestParameter .section}
+## 调试 {#apiExplorer .section}
 
-|名称|类型|是否必需|描述|
-|:-|:-|:---|:-|
-|Action|String|是|系统规定参数。取值：DescribeTags|
-|RegionId|String|是|地域ID。您可以调用[DescribeRegions](../cn.zh-CN/API参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
-|ResourceType|String|是|资源类型。取值范围：-   disk
+前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeTags)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+
+## 请求参数 {#parameters .section}
+
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|RegionId|String|是|cn-hangzhou|地域ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
+
+ |
+|Action|String|否|DescribeTags|系统规定参数。取值：DescribeTags
+
+ |
+|PageNumber|Integer|否|1|标签列表的页码。 起始值：1
+
+ 默认值：1
+
+ |
+|PageSize|Integer|否|50|分页查询时设置的每页行数。 最大值：100
+
+ 默认值：50
+
+ |
+|ResourceId|String|否|s-946ntx4wr|标签绑定的资源ID。例如，当资源类型（ResourceType）为实例（instance）时，资源ID可以理解为实例ID。
+
+ |
+|ResourceType|String|否|snapshot|资源类型。取值范围：
+
+ -   disk
 -   instance
 -   image
 -   securitygroup
 -   snapshot
 
-以上取值均为小写。|
-|ResourceId|String|否|标签绑定的资源ID。例如，当资源类型（`ResourceType`）为实例（`instance`）时，资源ID可以理解为实例ID。|
-|Tag.n.Key|String|否|资源的标签键。n 的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。|
-|Tag.n.Value|String|否|资源的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。|
-|PageNumber|Integer|否| 标签列表的页码。
-
- 起始值：1
-
- 默认值：1
+ 以上取值均为小写。
 
  |
-|PageSize|Integer|否| 分页查询时设置的每页行数。
+|Tag.N.Key|String|否|Finance|资源的标签键。N的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
 
- 最大值：100
+ |
+|Tag.N.Value|String|否|Finance|资源的标签值。N的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
 
- 默认值：50
+ |
+|Tag.N.key|String|否|Finance|资源的标签键。N的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+
+ **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Key参数。
+
+ |
+|Tag.N.value|String|否|Finance|资源的标签值。N的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+
+ **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Value参数。
 
  |
 
-## 返回参数 {#ResponseParameter .section}
+## 返回参数 {#resultMapping .section}
 
-|名称|类型|描述|
-|:-|:-|:-|
-|Tags|[TagSetItem](cn.zh-CN/API参考/数据类型/TagSetItem.md#)|满足所有筛选条件的标签|
-|TotalCount|Integer|标签总个数|
-|PageSize|Integer|分页查询时设置的每页行数|
-|PageNumber|Integer|标签列表的页码|
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|PageNumber|Integer|1|标签列表的页码
 
-## 示例 { .section}
+ |
+|PageSize|Integer|50|分页查询时设置的每页行数
 
-**请求示例**
+ |
+|RequestId|String|B04B8CF3-4489-432D-83BA-6F128E4F2295|请求 ID
 
-```
+ |
+|Tags| | |满足所有筛选条件的标签
+
+ |
+|└ResourceTypeCount| | |资源类型计数。
+
+ |
+|└Ddh|Integer|1|该标签标记了多少专有宿主机。
+
+ |
+|└Disk|Integer|15|该标签标记了多少磁盘。
+
+ |
+|└Eni|Integer|5|该标签标记了多少弹性网卡。
+
+ |
+|└Image|Integer|6|该标签标记了多少镜像。
+
+ |
+|└Instance|Integer|45|该标签标记了多少实例。
+
+ |
+|└KeyPair|Integer|17|该标签标记了多少密钥对。
+
+ |
+|└LaunchTemplate|Integer|6|该标签标记了多少启动模板。
+
+ |
+|└Securitygroup|Integer|4|该标签标记了多少安全组。
+
+ |
+|└Snapshot|Integer|15|该标签标记了多少快照。
+
+ |
+|└Volume|Integer|6|该标签标记了多少扩展卷。
+
+ |
+|└TagKey|String|test|标签键
+
+ |
+|└TagValue|String|api|标签值
+
+ |
+|TotalCount|Integer|1|标签总个数
+
+ |
+
+## 示例 {#demo .section}
+
+请求示例
+
+``` {#request_demo}
+
 https://ecs.aliyuncs.com/?Action=DescribeTags
+&RegionId=cn-hangzhou
+&PageSize=50
+&PageNumber=1
 &ResourceType=snapshot
 &ResourceId=s-946ntx4wr
-&RegionId=cn-hangzhou
-&Tag.1.Key=test
-&Tag.1.Value=api
+&Tag.1.value=Finance
+&Tag.1.key=Finance
+&Tag.1.Key=Finance
+&Tag.1.Value=Finance
 &<公共请求参数>
-```
-
-**返回示例**
-
-**XML格式**
 
 ```
+
+正常返回示例
+
+`XML` 格式
+
+``` {#xml_return_success_demo}
 <DescribeTagsResponse>
-    <RequestId>B04B8CF3-4489-432D-83BA-6F128E4F2295</RequestId>
-    <PageNumber>1</PageNumber>
-    <PageSize>50</PageSize>
-    <Tags>
-        <Tag>
-            <TagKey>test</TagKey>
-            <TagValue>api</TagValue>
-        </Tag>
-    </Tags>
-    <TotalCount>1</TotalCount>
+  <RequestId>B04B8CF3-4489-432D-83BA-6F128E4F2295</RequestId>
+  <PageNumber>1</PageNumber>
+  <PageSize>50</PageSize>
+  <Tags>
+    <Tag>
+      <TagKey>test</TagKey>
+      <TagValue>api</TagValue>
+    </Tag>
+  </Tags>
+  <TotalCount>1</TotalCount>
 </DescribeTagsResponse>
-```
-
-**JSON格式**
 
 ```
+
+`JSON` 格式
+
+``` {#json_return_success_demo}
 {
-  "PageNumber": 1,
-  "PageSize": 50,
-  "RequestId": "B04B8CF3-4489-432D-83BA-6F128E4F2295",
-  "Tags": {
-    "Tag": [
-      {
-        "TagKey": "test",
-        "TagValue": "api"
-      }
-    ]
-  },
-  "TotalCount": 1
+	"Tags":{
+		"Tag":[
+			{
+				"TagValue":"api",
+				"TagKey":"test"
+			}
+		]
+	},
+	"PageNumber":1,
+	"TotalCount":1,
+	"PageSize":50,
+	"RequestId":"B04B8CF3-4489-432D-83BA-6F128E4F2295"
 }
 ```
 
-## 错误码 {#ErrorCode .section}
+## 错误码 { .section}
 
-以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+|HttpCode|错误码|错误信息|描述|
+|--------|---|----|--|
+|404|InvalidRegionId.NotFound|The specified RegionId does not exist.|指定的 RegionId 不存在，请您检查此产品在该地域是否可用。|
+|404|InvalidResourceType.NotFound|The ResourceType provided does not exist in our records.|指定的资源类型不存在。|
+|400|InvalidTagCount|The specified tags are beyond the permitted range.|指定的标记超出取值范围。|
+|400|InvalidTagKey.Malformed|The parameter Tag.n.Key is illegal.|Tag.n.Key 不合法。|
 
-|错误代码|错误信息|HTTP状态码|说明|
-|:---|:---|:------|:-|
-|nvalidTagKey.Malformed|The parameter Tag.n.Key is illegal.|400|指定的`Tag.n.Key`不合法。|
-|InvalidTagValue.Malformed|The parameter Tag.n.Value is illegal.|400|指定的`Tag.n.Value`不合法。|
-|InvalidRegionId.NotFound|The RegionId provided does not exist in our records.|404|指定的`RegionId`不存在。|
-|InvalidResourceType.NotFound|The ResourceType provided does not exist in our records.|404|指定的`ResourceType`不存在。|
+[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
