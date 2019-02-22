@@ -71,7 +71,7 @@ To replace the system disk, follow these steps:
 
     **Note:** If the instance is a Pay-As-You-Go instance using a VPC with the No Fees for Stopped Instances function enabled, in the displayed Notes dialog box, click **OK**. In the displayed Stop dialog box, select **Keep Stopped Instances and Continue Billing**. If you select **No Fees for Stopped Instances \(VPC-Connected\)**, the instance may not be properly started after system disk replacement.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9676/15432254535328_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9676/15508036635328_en-US.png)
 
 5.  After the instance is stopped, in the **Actions** column, select **More** \> **Disk and Image** \> **Replace System Disk**.
 6.  In the displayed dialog box, read the precautionary statement about system disk replacement and then click **OK**.
@@ -93,11 +93,11 @@ To replace the system disk, follow these steps:
     3.  **Security enhancement**:
         -   If the new OS is Windows, you can only use a password for authentication.
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9682/15432254535517_en-US.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9682/15508036635517_en-US.png)
 
         -   If the instance is an I/O optimized instance, and the new OS is Linux, you can use either a password or an SSH key pair for authentication. In this case, we recommend you set a login password or bind an SSH key pair.
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9682/15432254545518_en-US.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9682/15508036635518_en-US.png)
 
     4.  Confirm **Instance Cost**, which includes the image fee and system disk fee. For more information about system disk price, see the pricing page of ECS.
     5.  Check the configuration and click **Confirm to change**.
@@ -110,7 +110,7 @@ After replacing the system disk, you can perform the following operations:
 
 -   \(Optional\) [Apply automatic snapshot policies to disks](reseller.en-US/User Guide/Snapshots/Apply automatic snapshot policies to disks.md#). Automatic snapshot policies are bound to the disk ID. After the system disk is replaced, automatic snapshot policies applied on the original disk automatically fail. You need to configure automatic snapshot policies for the new system disk.
 
--   If the OS before and after disk replacement is Linux, and if a data disk is mounted to the instance and the partition is set to be mounted automatically at instance startup, then all mounting information will be lost. In this case, you need to write the new partition information into the /etc/fstab file of the new system disk and mount the partition, but do not need to partition or format the data disk for another time. The steps are described as follows. For more information about operation commands, see [format and mount data disks for Linux instances](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#).
+-   If the OS before and after disk replacement is Linux, and if a data disk is mounted to the instance and the partition is set to be mounted automatically at instance startup, then all mounting information will be lost. In this case, you need to write the new partition information into the /etc/fstab file of the new system disk and mount the partition, but do not need to partition or format the data disk for another time. The steps are described as follows. For more information about operation commands, see [format and mount data disks for Linux instances](../../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#).
 
     1.  \(Recommended\) Back up the /etc/fstab file.
     2.  Write information about the new partition into the /etc/fstab file.
@@ -123,5 +123,5 @@ After replacing the system disk, you can perform the following operations:
 
 ## Related API {#section_eby_y3j_ydb .section}
 
-[ReplaceSystemDisk](../../../../reseller.en-US/API Reference/Disk/ReplaceSystemDisk.md#)
+[ReplaceSystemDisk](../../../../../reseller.en-US/API Reference/Disk/ReplaceSystemDisk.md#)
 
