@@ -19,7 +19,7 @@
 |[DescribeInstanceStatus](intl.zh-CN/API参考/实例/DescribeInstanceStatus.md#)|批量获取当前用户所有实例的状态信息。|
 |[DescribeInstances](intl.zh-CN/API参考/实例/DescribeInstances.md#)|查询所有实例的详细信息。|
 |[DescribeInstanceVncUrl](intl.zh-CN/API参考/实例/DescribeInstanceVncUrl.md#)|查询实例的 Web 管理终端地址。|
-|[DescribeUserdata](intl.zh-CN/API参考/实例/DescribeUserdata.md#)|查询您的实例的自定义数据。|
+|[DescribeUserdata](intl.zh-CN/API参考/实例/DescribeUserData.md#)|查询您的实例的自定义数据。|
 |[DescribeInstanceAutoRenewAttribute](intl.zh-CN/API参考/实例/DescribeInstanceAutoRenewAttribute.md#)|查询实例自动续费状态。|
 |[DescribeInstanceRamRole](intl.zh-CN/API参考/实例/DescribeInstanceRamRole.md#)|查询一台或者多台实例上的已赋予的实例 RAM 角色的信息。|
 |[DescribeSpotPriceHistory](intl.zh-CN/API参考/实例/DescribeSpotPriceHistory.md#)|查询抢占式实例历史价格。最多能查询 30 天内的历史价格记录。|
@@ -54,6 +54,7 @@
 |[DescribeDisks](intl.zh-CN/API参考/磁盘/DescribeDisks.md#)|查询您已经创建的磁盘。|
 |[AttachDisk](intl.zh-CN/API参考/磁盘/AttachDisk.md#)|为实例挂载数据盘。|
 |[DetachDisk](intl.zh-CN/API参考/磁盘/DetachDisk.md#)|将一块云盘从一台实例上卸载。|
+|[ModifyDiskChargeType](intl.zh-CN/API参考/磁盘/ModifyDiskChargeType.md#)|修改一台实例上挂载的一块或最多 16 块磁盘的计费方式。|
 |[ModifyDiskAttribute](intl.zh-CN/API参考/磁盘/ModifyDiskAttribute.md#)|修改您的磁盘的属性或者明细。|
 |[ReplaceSystemDisk](intl.zh-CN/API参考/磁盘/ReplaceSystemDisk.md#)|更换实例的系统盘或者操作系统。|
 |[ReInitDisk](intl.zh-CN/API参考/磁盘/ReInitDisk.md#)|初始化云盘到创建时的初始状态。|
@@ -74,6 +75,7 @@
 |[DescribeImageSharePermission](intl.zh-CN/API参考/镜像/DescribeImageSharePermission.md#)|查询一份自定义镜像已经共享的所有用户。|
 |[ModifyImageAttribute](intl.zh-CN/API参考/镜像/ModifyImageAttribute.md#)|修改自定义镜像的名称和描述。|
 |[ModifyImageSharePermission](intl.zh-CN/API参考/镜像/ModifyImageSharePermission.md#)|管理镜像共享权限。|
+|[DescribeImageSupportInstanceTypes](intl.zh-CN/API参考/镜像/DescribeImageSupportInstanceTypes.md#)|查询指定镜像支持的实例规格。|
 
 ## 快照相关接口 {#section_snapshot_t2h_vdb .section}
 
@@ -85,24 +87,12 @@
 |[DeleteSnapshot](intl.zh-CN/API参考/快照/DeleteSnapshot.md#)|删除指定的快照。|
 |[CancelAutoSnapshotPolicy](intl.zh-CN/API参考/快照/CancelAutoSnapshotPolicy.md#)|取消一块或者多块磁盘的自动快照策略。|
 |[DeleteAutoSnapshotPolicy](intl.zh-CN/API参考/快照/DeleteAutoSnapshotPolicy.md#)|删除一条自动快照策略。|
-|[DescribeAutoSnapshotPolicyEx](intl.zh-CN/API参考/快照/DescribeAutoSnapshotPolicyEx.md#)|查询您已创建的自动快照策略。|
+|[DescribeAutoSnapshotPolicyEx](intl.zh-CN/API参考/快照/DescribeAutoSnapshotPolicyEX.md#)|查询您已创建的自动快照策略。|
 |[DescribeSnapshots](intl.zh-CN/API参考/快照/DescribeSnapshots.md#)|查询某台实例磁盘设备所有的快照列表。|
 |[DescribeSnapshotLinks](intl.zh-CN/API参考/快照/DescribeSnapshotLinks.md#)|查询磁盘快照链。|
 |[ModifyAutoSnapshotPolicyEx](intl.zh-CN/API参考/快照/ModifyAutoSnapshotPolicyEx.md#)|修改一条自动快照策略。|
-
-## 网络相关接口 {#section_network_t2h_vdb .section}
-
-|接口|描述|
-|:-|:-|
-|[AllocatePublicIpAddress](intl.zh-CN/API参考/网络/AllocatePublicIpAddress.md#)|为一台实例分配一个公网 IP 地址。|
-|[ConvertNatPublicIpToEip](intl.zh-CN/API参考/网络/ConvertNatPublicIpToEip.md#)|将一台网络类型为 VPC 类型的实例的公网 IP（NatPublicIp）转化为 弹性公网 IP（EIP）。|
-|[AttachClassicLinkVpc](intl.zh-CN/API参考/网络/AttachClassicLinkVpc.md#)|将一台经典网络类型实例连接到 VPC 中，使经典网络类型实例可以和 VPC 中的云资源私网互通。|
-|[DetachClassicLinkVpc](intl.zh-CN/API参考/网络/DetachClassicLinkVpc.md#)|取消经典网络类型实例与 VPC 的连接（ClassicLink）。|
-|[DescribeBandwidthLimitation](intl.zh-CN/API参考/网络/DescribeBandwidthLimitation.md#)|查询带宽资源列表。|
-|[DescribeClassicLinkInstances](intl.zh-CN/API参考/网络/DescribeClassicLinkInstances.md#)|查询一台或者多台与 VPC 建立了连接的经典网络类型实例。|
-|[ModifyInstanceNetworkSpec](intl.zh-CN/API参考/网络/ModifyInstanceNetworkSpec.md#)|修改实例的带宽配置。|
-
-专有网络 VPC 相关的接口，请参阅 [专有网络 VPC API 参考](../../../../intl.zh-CN/API 参考/API概览.md#)。
+|[DescribeSnapshotsUsage](intl.zh-CN/API参考/快照/DescribeSnapshotsUsage.md#)|查询您在一个地域下的快照数量以及快照容量。|
+|[DescribeSnapshotPackage](intl.zh-CN/API参考/快照/DescribeSnapshotPackage.md#)|查询您在一个阿里云地域下已经购买了用于可以抵扣快照存储容量的对象存储OSS（存储包）。|
 
 ## 安全组相关接口 {#section_securitygroup_t2h_vdb .section}
 
@@ -128,7 +118,7 @@
 |接口|描述|
 |:-|:-|
 |[CreateDeploymentSet](intl.zh-CN/API参考/部署集/CreateDeploymentSet.md#)|在指定的地域内创建一个部署集。|
-|[ModifyInstanceDeployment](intl.zh-CN/API参考/部署集/ModifyInstanceDeployment.md#)|增加一条安全组入方向规则。|
+|[ModifyInstanceDeployment](intl.zh-CN/API参考/部署集/ModifyInstanceDeployment.md#)|在同一地域下，修改一台 ECS 实例的宿主机。|
 |[ModifyDeploymentSetAttributes](intl.zh-CN/API参考/部署集/ModifyDeploymentSetAttributes.md#)|将一台实例加入一个部署集，或者将实例从一个部署集调整到另外一个部署集。|
 |[DescribeDeploymentSets](intl.zh-CN/API参考/部署集/DescribeDeploymentSets.md#)|查询一个或多个部署集的属性列表。|
 |[DeleteDeploymentSet](intl.zh-CN/API参考/部署集/DeleteDeploymentSet.md#)|删除一个部署集。|
@@ -144,6 +134,20 @@
 |[DeleteKeyPairs](intl.zh-CN/API参考/SSH 密钥对/DeleteKeyPairs.md#)|删除一对或多对 SSH 密钥对。|
 |[DescribeKeyPairs](intl.zh-CN/API参考/SSH 密钥对/DescribeKeyPairs.md#)|查询一对或者多对 SSH 密钥对。|
 
+## 网络相关接口 {#section_network_t2h_vdb .section}
+
+|接口|描述|
+|:-|:-|
+|[AllocatePublicIpAddress](intl.zh-CN/API参考/网络/AllocatePublicIpAddress.md#)|为一台实例分配一个公网 IP 地址。|
+|[ConvertNatPublicIpToEip](intl.zh-CN/API参考/网络/ConvertNatPublicIpToEip.md#)|将一台网络类型为 VPC 类型的实例的公网 IP（NatPublicIp）转化为 弹性公网 IP（EIP）。|
+|[AttachClassicLinkVpc](intl.zh-CN/API参考/网络/AttachClassicLinkVpc.md#)|将一台经典网络类型实例连接到 VPC 中，使经典网络类型实例可以和 VPC 中的云资源私网互通。|
+|[DetachClassicLinkVpc](intl.zh-CN/API参考/网络/DetachClassicLinkVpc.md#)|取消经典网络类型实例与 VPC 的连接（ClassicLink）。|
+|[DescribeBandwidthLimitation](intl.zh-CN/API参考/网络/DescribeBandwidthLimitation.md#)|查询带宽资源列表。|
+|[DescribeClassicLinkInstances](intl.zh-CN/API参考/网络/DescribeClassicLinkInstances.md#)|查询一台或者多台与 VPC 建立了连接的经典网络类型实例。|
+|[ModifyInstanceNetworkSpec](intl.zh-CN/API参考/网络/ModifyInstanceNetworkSpec.md#)|修改实例的带宽配置。|
+
+专有网络 VPC 相关的接口，请参阅 [专有网络 VPC API 参考](../../../../../intl.zh-CN/API参考/API概览.md#)。
+
 ## 弹性网卡相关接口 {#section_networkinterface_t2h_vdb .section}
 
 |接口|描述|
@@ -154,18 +158,41 @@
 |[DeleteNetworkInterface](intl.zh-CN/API参考/弹性网卡/DeleteNetworkInterface.md#)|删除一张弹性网卡（ENI）。|
 |[DescribeNetworkInterfaces](intl.zh-CN/API参考/弹性网卡/DescribeNetworkInterfaces.md#)|查看弹性网卡（ENI）列表。|
 |[ModifyNetworkInterfaceAttribute](intl.zh-CN/API参考/弹性网卡/ModifyNetworkInterfaceAttribute.md#)|修改一张弹性网卡（ENI）的属性。|
+|[AssignPrivateIpAddresses](intl.zh-CN/API参考/弹性网卡/AssignPrivateIpAddresses.md#)|为一块弹性网卡分配一个或多个辅助私有IPv4地址。可以为网卡指定在所属虚拟交换机（VSwitch）的CIDR私有IP地址，或者通过指定私有网络地址数量自动创建私有IP地址。|
+|[UnassignPrivateIpAddresses](intl.zh-CN/API参考/弹性网卡/UnassignPrivateIpAddresses.md#)|从一块弹性网卡删除一个或多个辅助私有 IPv4 地址。|
 
-## 运维与监控相关接口 {#section_monitor_t2h_vdb .section}
+## 系统事件相关接口 {#section_eqs_vyd_kgb .section}
 
 |接口|描述|
 |:-|:-|
 |[DescribeDisksFullStatus](intl.zh-CN/API参考/系统事件/DescribeDisksFullStatus.md#)|查询磁盘的全部状态信息。|
 |[CreateSimulatedSystemEvents](intl.zh-CN/API参考/系统事件/CreateSimulatedSystemEvents.md#)|为一台或多台ECS实例预约模拟系统事件。模拟系统事件相当于事件演习，不会真正执行事件，也不会对ECS实例产生影响。|
-|[CancelSimulatedSystemEvents](intl.zh-CN/API参考/系统事件/CancelSimulatedSystemEvents.md#)|取消一件或多件处于`Scheduled`或`Executing`状态的模拟系统事件。取消系统事件后，模拟事件变为`Canceled`状态。|
-|[DescribeDiskMonitorData](intl.zh-CN/API参考/运维与监控/DescribeDiskMonitorData.md#)|查询一块磁盘指定时间内的使用信息。|
+|[ZH-CN\_TP\_18617.md\#](intl.zh-CN/API参考/系统事件/CancelSimulatedSystemEvents.md#)|取消一件或多件处于`Scheduled`或`Executing`状态的模拟系统事件。取消系统事件后，模拟事件变为`Canceled`状态。|
 |[DescribeInstancesFullStatus](intl.zh-CN/API参考/系统事件/DescribeInstancesFullStatus.md#)|查询实例的全状态信息。|
-|[DescribeInstanceHistoryEvents](intl.zh-CN/API参考/SSH 密钥对/CreateKeyPair.md#)|查询指定实例的已经处于非活跃状态的历史事件，指定查询事件的最大时长必须小于等于 2 个月。|
+|[DescribeInstanceHistoryEvents](intl.zh-CN/API参考/系统事件/DescribeInstanceHistoryEvents.md#)|查询指定实例的已经处于非活跃状态的历史事件，指定查询事件的最大时长必须小于等于 2 个月。|
+
+## 运维与监控相关接口 {#section_monitor_t2h_vdb .section}
+
+|接口|描述|
+|:-|:-|
+|[DescribeDiskMonitorData](intl.zh-CN/API参考/运维与监控/DescribeDiskMonitorData.md#)|查询一块磁盘指定时间内的使用信息。|
 |[DescribeInstanceMonitorData](intl.zh-CN/API参考/运维与监控/DescribeInstanceMonitorData.md#)|查询您某一台实例所有相关的监控信息，查询结果可以分页显示。|
+|[GetInstanceScreenshot](intl.zh-CN/API参考/运维与监控/GetInstanceScreenshot.md#)|获取实例的截屏信息。|
+|[GetInstanceConsoleOutput](intl.zh-CN/API参考/运维与监控/GetInstanceConsoleOutput.md#)|获取一台实例的系统命令行输出，数据以Base64编码后返回。|
+|[DescribeEniMonitorData](intl.zh-CN/API参考/运维与监控/DescribeEniMonitorData.md#)|查询一块辅助网卡在指定时间段内使用的流量信息。|
+
+## 云助手相关接口 {#section_cloudassistant_t2h_vdb .section}
+
+|接口|描述|
+|:-|:-|
+|[CreateCommand](intl.zh-CN/API参考/云助手/CreateCommand.md#)|新建 [云助手](../../../../../intl.zh-CN/产品简介/云助手.md#) 命令。|
+|[InvokeCommand](intl.zh-CN/API参考/云助手/InvokeCommand.md#)|为目标实例触发指定的命令。|
+|[StopInvocation](intl.zh-CN/API参考/云助手/StopInvocation.md#)|停止实例中正在进行中（`Running`）的云助手命令进程。|
+|[DeleteCommand](intl.zh-CN/API参考/云助手/DeleteCommand.md#)|删除已创建的云助手命令。|
+|[DescribeCommands](intl.zh-CN/API参考/云助手/DescribeCommands.md#)|查询您已经创建的云助手命令。|
+|[DescribeInvocations](intl.zh-CN/API参考/云助手/DescribeInvocations.md#)|查询您的实例中的云助手命令执行列表及状态。|
+|[DescribeInvocationResults](intl.zh-CN/API参考/云助手/DescribeInvocationResults.md#)|查看云助手命令的执行结果，即在指定实例中的实际输出信息（Output）。|
+|[ModifyCommand](intl.zh-CN/API参考/云助手/ModifyCommand.md#)|修改已创建的云助手命令相关参数以及命令内容。|
 
 ## 标签相关接口 {#section_tag_t2h_vdb .section}
 
@@ -175,27 +202,6 @@
 |[RemoveTags](intl.zh-CN/API参考/标签/RemoveTags.md#)|从云服务器 ECS 资源上解绑一个或多个标签，例如，实例、磁盘、快照、镜像和安全组等。|
 |[DescribeTags](intl.zh-CN/API参考/标签/DescribeTags.md#)|查询可以供您使用的标签。|
 
-## 云助手相关接口 {#section_cloudassistant_t2h_vdb .section}
-
-|接口|描述|
-|:-|:-|
-|[CreateCommand](intl.zh-CN/API参考/云助手/CreateCommand.md#)|新建 [云助手](../../../../intl.zh-CN/产品简介/云助手.md#) 命令。|
-|[InvokeCommand](intl.zh-CN/API参考/云助手/InvokeCommand.md#)|为目标实例触发指定的命令。|
-|[StopInvocation](intl.zh-CN/API参考/云助手/StopInvocation.md#)|停止实例中正在进行中（`Running`）的云助手命令进程。|
-|[DeleteCommand](intl.zh-CN/API参考/云助手/DeleteCommand.md#)|删除已创建的云助手命令。|
-|[DescribeCommands](intl.zh-CN/API参考/云助手/DescribeCommands.md#)|查询您已经创建的云助手命令。|
-|[DescribeInvocations](intl.zh-CN/API参考/云助手/DescribeInvocations.md#)|查询您的实例中的云助手命令执行列表及状态。|
-|[DescribeInvocationResults](intl.zh-CN/API参考/云助手/DescribeInvocationResults.md#)|查看云助手命令的执行结果，即在指定实例中的实际输出信息（Output）。|
-|[ModifyCommand](intl.zh-CN/API参考/云助手/ModifyCommand.md#)|修改已创建的云助手命令相关参数以及命令内容。|
-
-## 其它接口 {#section_other_t2h_vdb .section}
-
-|接口|描述|
-|:-|:-|
-|[CancelTask](intl.zh-CN/API参考/其他接口/CancelTask.md#)|取消一件正在运行的任务。|
-|[DescribeTasks](intl.zh-CN/API参考/其他接口/DescribeTasks.md#)|查询指定的异步请求的进度。|
-|[DescribeTaskAttribute](intl.zh-CN/API参考/其他接口/DescribeTaskAttribute.md#)|查询异步任务的详细信息。目前，可以查询的异步任务有导入镜像（[ImportImage](intl.zh-CN/API参考/镜像/ImportImage.md#)）和导出镜像（[ExportImage](intl.zh-CN/API参考/镜像/ExportImage.md#)）两种。|
-
 ## 地域相关接口 {#section_region_t2h_vdb .section}
 
 |接口|描述|
@@ -204,4 +210,13 @@
 |[DescribeZones](intl.zh-CN/API参考/地域/DescribeZones.md#)|查询某一阿里云地域下的可用区。|
 |[DescribeAvailableResource](intl.zh-CN/API参考/地域/DescribeAvailableResource.md#)|查询某一可用区的资源列表。|
 |[DescribeResourcesModification](intl.zh-CN/API参考/地域/DescribeResourcesModification.md#)|查询升级和降配实例规格或者系统盘时，某一可用区的可用资源信息。|
+
+## 其他接口 {#section_other_t2h_vdb .section}
+
+|接口|描述|
+|:-|:-|
+|[CancelTask](intl.zh-CN/API参考/其他接口/CancelTask.md#)|取消一件正在运行的任务。|
+|[DescribeTasks](intl.zh-CN/API参考/其他接口/DescribeTasks.md#)|查询指定的异步请求的进度。|
+|[DescribeTaskAttribute](intl.zh-CN/API参考/其他接口/DescribeTaskAttribute.md#)|查询异步任务的详细信息。目前，可以查询的异步任务有导入镜像（[ImportImage](intl.zh-CN/API参考/镜像/ImportImage.md#)）和导出镜像（[ExportImage](intl.zh-CN/API参考/镜像/ExportImage.md#)）两种。|
+|[DescribeAccountAttributes](intl.zh-CN/API参考/其他接口/DescribeAccountAttributes.md#)|查询您在一个阿里云地域下能创建的ECS资源上限。包括您能创建的安全组数量、弹性网卡数量、按量付费vCPU核数、抢占式实例vCPU核数、专用宿主机数量、地域网络类型以及账号是否已完成实名认证。|
 
