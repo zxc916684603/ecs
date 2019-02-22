@@ -75,7 +75,6 @@
 |[DescribeImageSharePermission](intl.zh-CN/API参考/镜像/DescribeImageSharePermission.md#)|查询一份自定义镜像已经共享的所有用户。|
 |[ModifyImageAttribute](intl.zh-CN/API参考/镜像/ModifyImageAttribute.md#)|修改自定义镜像的名称和描述。|
 |[ModifyImageSharePermission](intl.zh-CN/API参考/镜像/ModifyImageSharePermission.md#)|管理镜像共享权限。|
-|[DescribeImageSupportInstanceTypes](intl.zh-CN/API参考/镜像/DescribeImageSupportInstanceTypes.md#)|查询指定镜像支持的实例规格。|
 
 ## 快照相关接口 {#section_snapshot_t2h_vdb .section}
 
@@ -167,7 +166,7 @@
 |:-|:-|
 |[DescribeDisksFullStatus](intl.zh-CN/API参考/系统事件/DescribeDisksFullStatus.md#)|查询磁盘的全部状态信息。|
 |[CreateSimulatedSystemEvents](intl.zh-CN/API参考/系统事件/CreateSimulatedSystemEvents.md#)|为一台或多台ECS实例预约模拟系统事件。模拟系统事件相当于事件演习，不会真正执行事件，也不会对ECS实例产生影响。|
-|[ZH-CN\_TP\_18617.md\#](intl.zh-CN/API参考/系统事件/CancelSimulatedSystemEvents.md#)|取消一件或多件处于`Scheduled`或`Executing`状态的模拟系统事件。取消系统事件后，模拟事件变为`Canceled`状态。|
+|[CancelSimulatedSystemEvents](intl.zh-CN/API参考/系统事件/CancelSimulatedSystemEvents.md#)|取消一件或多件处于`Scheduled`或`Executing`状态的模拟系统事件。取消系统事件后，模拟事件变为`Canceled`状态。|
 |[DescribeInstancesFullStatus](intl.zh-CN/API参考/系统事件/DescribeInstancesFullStatus.md#)|查询实例的全状态信息。|
 |[DescribeInstanceHistoryEvents](intl.zh-CN/API参考/系统事件/DescribeInstanceHistoryEvents.md#)|查询指定实例的已经处于非活跃状态的历史事件，指定查询事件的最大时长必须小于等于 2 个月。|
 
