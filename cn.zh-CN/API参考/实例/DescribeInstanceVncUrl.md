@@ -1,4 +1,4 @@
-# DescribeInstanceVncUrl {#doc_api_1006134 .reference}
+# DescribeInstanceVncUrl {#doc_api_1022181 .reference}
 
 查询一台 ECS 实例的 Web 管理终端地址。
 
@@ -27,7 +27,7 @@
 
         ```
         
-                https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?vncUrl=ws%3A%2F%xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true&Password=111111
+                https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?vncUrl=ws%3A%2F%xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true&password=111111
                 
         ```
 
