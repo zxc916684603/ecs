@@ -19,6 +19,11 @@ In addition to the preceding limits, the following table details further limits 
 |Default quota of launch templates in each region for one account|30|No|
 |Default quota of versions of one launch template|30|No|
 |Switch from Pay-As-You-Go to Subscription|The following instance types \(families\) are not supported: t1, s1, s2, s3, c1, c2, m1, m2, n1, n2, and e3.|No|
+|Switch from Subscription to Pay-As-You-Go| -   Depends on the membership level
+-   5,000 vCPUs × hours for each month. The quota increases with membership levels.
+-   Maximum refund limit per month \(varies with the membership level\).
+
+ |No|
 
 ## Block storage {#section_xlb_32x_wdb .section}
 
