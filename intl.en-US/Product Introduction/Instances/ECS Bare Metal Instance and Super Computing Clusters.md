@@ -12,7 +12,7 @@ EBM Instances create value for customers through technological innovation. EBM I
 
 -   **Exclusive computing resources**
 
-    As a cloud-based elastic computing product, the EBM Instances exceed the performance and isolation of contemporary physical machines and enable exclusive computing resources without virtualization performance overheads and feature loss. EBM Instances support 8, 16, 32, and 96 CPU cores and ultrahigh frequency. An EBM Instance with 8 cores, for example, supports an ultrahigh frequency of up to 3.7 to 4.1 GHz, providing better performance and responsiveness for gaming and financial industries than similar products.
+    As a cloud-based elastic computing product, the EBM Instances exceed the performance and isolation of contemporary physical machines and enable exclusive computing resources without virtualization performance overheads and feature loss. EBM Instances support 8, 32, and 96 CPU cores and ultrahigh frequency. An EBM Instance with 8 cores, for example, supports an ultrahigh frequency of up to 3.7 to 4.1 GHz, providing better performance and responsiveness for gaming and financial industries than similar products.
 
 -   **Encrypted compute**
 
@@ -37,7 +37,7 @@ EBM Instances and SCC have the following features:
 
 -   CPU specifications:
 
-    -   EBM Instances: Supports 8 cores, 16 cores, 32 cores, and 96 cores, and supports high clock speed.
+    -   EBM Instances: Supports 8 cores, 32 cores, and 96 cores, and supports high clock speed.
     -   SCC: Supports 64 cores and 96 cores, and provides support for high clock speed.
 -   Memory specifications:
 
@@ -93,11 +93,11 @@ For more information, see [EBM Instance type families](reseller.en-US/Product In
 
 ## Billing methods {#section_wfq_x55_ydb .section}
 
-EBM Instances and SCC instances support Subscription and Pay-As-You-Go. For more information about billing methods, see [Billing method comparison](../../../../reseller.en-US/Pricing/Billing method comparison.md#).
+EBM Instances and SCC instances support Subscription and Pay-As-You-Go. For more information about billing methods, see [Billing method comparison](../../../../../reseller.en-US/Pricing/Billing method comparison.md#).
 
 ## Related operations {#section_xfq_x55_ydb .section}
 
-You can [create an EBM instance](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create an EBM instance.md#) or [create an SCC server instance](../../../../reseller.en-US/User Guide/Instances/Create an instance/Create an SCC server instance.md#) in the console.
+You can [create an EBM instance](../../../../../reseller.en-US/User Guide/Instances/Create an instance/Create an EBM instance.md#) or [create an SCC server instance](../../../../../reseller.en-US/User Guide/Instances/Create an instance/Create an SCC server instance.md#) in the console.
 
 For more information, see [FAQs about EBM Instances](https://partners-intl.aliyun.com/help/faq-detail/66558.htm) and [SCC FAQ](https://partners-intl.aliyun.com/help/faq-detail/89878.htm).
 
