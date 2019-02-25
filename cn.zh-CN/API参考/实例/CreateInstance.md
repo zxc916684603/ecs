@@ -1,10 +1,10 @@
-# CreateInstance {#doc_api_1023337 .reference}
+# CreateInstance {#doc_api_1024015 .reference}
 
 创建一台 ECS 实例。
 
 ## 描述 {#description .section}
 
-创建一台实例前，您可以调用 [DescribeAvailableResource](~~66186~~) 查看指定地域或者可用区内的实例资源供给情况。
+**说明：** 创建一台实例前，您可以调用 [DescribeAvailableResource](~~66186~~) 查看指定地域或者可用区内的实例资源供给情况。若您希望批量创建实例并且实例自动进入运行中（Running）状态，推荐您使用[RunInstances](~~63440~~)接口。
 
 创建实例会涉及到资源计费，建议您提前了解云服务器ECS的计费方式。更多详情，请参阅 [计费概述](~~25398~~)。若实例付费类型为预付费的包年包月实例（`PrePaid`），则在付款时默认会使用您可用的优惠券。
 
@@ -95,10 +95,9 @@
  |
 |AutoRenewPeriod|Integer|否|2|每次自动续费的时长，当参数AutoRenew取值True时为必填。
 
- `PeriodUnit` 为 `Week` 时：
+ PeriodUnit 为 Week 时，AutoRenewPeriod 取值 \{“1”, “2”, “3”\}
 
- -   AutoRenewPeriod 取值 \{“1”, “2”, “3”\}`PeriodUnit` 为 `Month` 时：
--   AutoRenewPeriod 取值 \{“1”, “2”, “3”, “6”, “12”\}
+ PeriodUnit 为 Month 时，AutoRenewPeriod 取值 \{“1”, “2”, “3”, “6”, “12”\}
 
  |
 |ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
@@ -254,8 +253,9 @@
  |
 |Period|Integer|否|1|购买资源的时长，单位为：月。当参数 `InstanceChargeType` 取值为 `PrePaid` 时才生效且为必选值。一旦指定了 DedicatedHostId，则取值范围不能超过专有宿主机的订阅时长。取值范围：
 
- -   `PeriodUnit=Week`时，Period取值：\{“1”, “2”, “3”, “4”\}
--   `PeriodUnit=Month`时，Period取值：\{ “1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “12”, “24”, “36”,”48”,”60”\}
+ PeriodUnit 为 Week 时，Period取值：\{“1”, “2”, “3”, “4”\}
+
+ PeriodUnit 为 Month 时，Period取值：\{ “1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “12”, “24”, “36”,”48”,”60”\}
 
  |
 |PeriodUnit|String|否|month|购买资源的时长。可选值：Week和Month（默认）。
