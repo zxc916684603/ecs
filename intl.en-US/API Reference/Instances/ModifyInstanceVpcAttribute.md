@@ -11,8 +11,7 @@ Modifies the attributes of a Virtual Private Cloud \(VPC\).
 -   When `VSwitchId` is specified and `PrivateIpAddress` is not specified, the system automatically allocates a private IP address for your ECS instance.
 -   The current `VSwitchId` and new VSwitch of the specified instance must belong to the same zone.
 -   The current VSwitch and new `VSwitchId` of the specified instance must belong to the same VPC.
--   When both `VSwitchId` and `PrivateIpAddress` are specified, the specified PrivateIpAddress must be in the [network segment](../../../../reseller.en-US/Product Introduction/What is VPC?.md#section_w1b_tvz_ndb) of the specified VSwitch. The value of `PrivateIpAddress` depends on `VSwitchId`. You must specify the VSwitchId when you modify the `PrivateIpAddress` of your instance.
--   For more information about the APIs for VPC, see [API Reference of VPC](../../../../reseller.en-US/API reference/API overview.md#).
+-   When both `VSwitchId` and `PrivateIpAddress` are specified, the specified PrivateIpAddress must be in the [network segment](../../../../../reseller.en-US/Product Introduction/What is VPC?.md#section_w1b_tvz_ndb) of the specified VSwitch. The value of `PrivateIpAddress` depends on `VSwitchId`. You must specify the VSwitchId when you modify the `PrivateIpAddress` of your instance.
 
 ## Request parameters {#RequestParameter .section}
 
