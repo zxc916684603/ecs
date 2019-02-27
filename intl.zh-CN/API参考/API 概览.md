@@ -145,8 +145,6 @@
 |[DescribeClassicLinkInstances](intl.zh-CN/API参考/网络/DescribeClassicLinkInstances.md#)|查询一台或者多台与 VPC 建立了连接的经典网络类型实例。|
 |[ModifyInstanceNetworkSpec](intl.zh-CN/API参考/网络/ModifyInstanceNetworkSpec.md#)|修改实例的带宽配置。|
 
-专有网络 VPC 相关的接口，请参阅 [专有网络 VPC API 参考](../../../../../intl.zh-CN/API参考/API概览.md#)。
-
 ## 弹性网卡相关接口 {#section_networkinterface_t2h_vdb .section}
 
 |接口|描述|
@@ -184,7 +182,7 @@
 
 |接口|描述|
 |:-|:-|
-|[CreateCommand](intl.zh-CN/API参考/云助手/CreateCommand.md#)|新建 [云助手](../../../../../intl.zh-CN/产品简介/云助手.md#) 命令。|
+|[CreateCommand](intl.zh-CN/API参考/云助手/CreateCommand.md#)|新建 [云助手](../../../../../intl.zh-CN/部署与运维/云助手/云助手概述.md#) 命令。|
 |[InvokeCommand](intl.zh-CN/API参考/云助手/InvokeCommand.md#)|为目标实例触发指定的命令。|
 |[StopInvocation](intl.zh-CN/API参考/云助手/StopInvocation.md#)|停止实例中正在进行中（`Running`）的云助手命令进程。|
 |[DeleteCommand](intl.zh-CN/API参考/云助手/DeleteCommand.md#)|删除已创建的云助手命令。|
