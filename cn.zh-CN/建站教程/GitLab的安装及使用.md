@@ -1,84 +1,18 @@
 # GitLab的安装及使用 {#concept_myh_s5s_2fb .concept}
 
-## 前言 {#section_hjs_55s_2fb .section}
+本篇文档介绍了在阿里云上如何使用弹性云服务器的Linux实例手工部署GitLab。GitLab 是 Ruby 开发的自托管的 Git 项目仓库，可通过Web界面进行访问公开的或者私人项目。
 
-GitLab是利用 Ruby on Rails 一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。
+## 前提条件 {#section_hlm_zhc_5gb .section}
 
-它拥有与Github类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。
+-   部署GitLab的实例要求至少使用2个vCPU和4GB的内存。
+-   参考[添加安全组规则](../../../../../cn.zh-CN/安全/安全组/添加安全组规则.md#)，添加如下表所示的安全组规则。
 
-团队成员可以利用内置的简单聊天程序\(Wall\)进行交流。
+    |方向|协议/应用|端口/范围|源地址|
+    |--|-----|-----|---|
+    |入方向|HTTP\(80\)|80|0.0.0.0/0|
 
-它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。
-
-**Git的家族成员**
-
-Git：是一种版本控制系统，是一个命令，是一种工具。
-
-Gitlib：是用于实现Git功能的开发库。
-
-Github：是一个基于Git实现的在线代码托管仓库，包含一个网站界面，向互联网开放。
-
-GitLab：是一个基于Git实现的在线代码仓库托管软件，你可以用gitlab自己搭建一个类似于Github一样的系统，一般用于在企业、学校等内部网络搭建git私服。
-
-**Gitlab的服务构成**
-
-Nginx：静态web服务器。
-
-gitlab-shell：用于处理Git命令和修改authorized keys列表。
-
-gitlab-workhorse:轻量级的反向代理服务器。
-
-logrotate：日志文件管理工具。
-
-postgresql：数据库。
-
-redis：缓存数据库。
-
-sidekiq：用于在后台执行队列任务（异步执行）。
-
-unicorn：An HTTP server for Rack applications，GitLab Rails应用是托管在这个服务器上面的。
-
-**GitLab工作流程**
-
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556412255_zh-CN.png)
-
-**GitLab Shell**
-
-GitLab Shell有两个作用：为GitLab处理Git命令、修改authorized keys列表。
-
-当通过SSH访问GitLab Server时，GitLab Shell会：
-
-限制执行预定义好的Git命令（git push, git pull, git annex）
-
-调用GitLab Rails API 检查权限
-
-执行pre-receive钩子（在GitLab企业版中叫做Git钩子）
-
-执行你请求的动作 处理GitLab的post-receive动作
-
-处理自定义的post-receive动作
-
-当通过http\(s\)访问GitLab Server时，工作流程取决于你是从Git仓库拉取\(pull\)代码还是向git仓库推送\(push\)代码。
-
-如果你是从Git仓库拉取\(pull\)代码，GitLab Rails应用会全权负责处理用户鉴权和执行Git命令的工作；
-
-如果你是向Git仓库推送\(push\)代码，GitLab Rails应用既不会进行用户鉴权也不会执行Git命令，它会把以下工作交由GitLab Shell进行处理：
-
-```
-调用GitLab Rails API 检查权限
-执行pre-receive钩子（在GitLab企业版中叫做Git钩子）
-执行你请求的动作
-处理GitLab的post-receive动作
-处理自定义的post-receive动作
-```
-
-**GitLab Workhorse**
-
-GitLab Workhorse是一个敏捷的反向代理。它会处理一些大的HTTP请求，比如文件上传、文件下载、Git push/pull和Git包下载。其它请求会反向代理到GitLab Rails应用，即反向代理给后端的unicorn。
 
 ## Gitlab环境部署 {#section_lbj_kws_2fb .section}
-
-ECS配置要求：内存2G以上
 
 **方法一：镜像部署**
 
@@ -92,54 +26,55 @@ ECS配置要求：内存2G以上
 
 **方法二：手动部署**
 
-1.  配置yum源。
+1.  安装依赖包。
 
     ```
-    vim /etc/yum.repos.d/gitlab-ce.repo
+    sudo yum install -y curl policycoreutils-python openssh-server
     ```
 
-    复制以下内容：
+2.  设置SSH开机自启动并启动SSH服务。
 
     ```
-    [gitlab-ce]
-    name=gitlab-ce
-    baseurl=http://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6
-    Repo_gpgcheck=0
-    Enabled=1
-    Gpgkey=https://packages.gitlab.com/gpg.key
+    sudo systemctl enable sshd
+    sudo systemctl start sshd
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556412256_zh-CN.png)
-
-2.  更新本地yum缓存。
+3.  安装Postfix来发送通知邮件。
 
     ```
-    sudo yum makecache
+    sudo yum install postfix
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556412257_zh-CN.png)
-
-3.  安装GitLab社区版。
+4.  设置Postfix开机自启动。
 
     ```
-    sudo yum install gitlab-ce        #自动安装最新版
-    sudo yum install gitlab-ce-x.x.x    #安装指定版本
+    sudo systemctl enable postfix
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512258_zh-CN.png)
+5.  启动Postfix服务。
+    1.  输入命令`vim /etc/postfix/main.cf`打开main.cf文件并找到下图内容：
 
-    GitLab常用命令：
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/155125473138837_zh-CN.png)
+
+    2.  将这行代码改为`inet_interfaces = all`，然后按`Esc`键，然后输入`:wq`并回车以保存并关闭main.cf文件。
+    3.  输入命令`sudo systemctl start postfix`启动Postfix服务。
+6.  添加GitLab软件包仓库。
 
     ```
-    sudo gitlab-ctl start    # 启动所有 gitlab 组件；
-    sudo gitlab-ctl stop        # 停止所有 gitlab 组件；
-    sudo gitlab-ctl restart        # 重启所有 gitlab 组件；
-    sudo gitlab-ctl status        # 查看服务状态；
-    sudo gitlab-ctl reconfigure        # 启动服务；
-    sudo vim /etc/gitlab/gitlab.rb        # 修改默认的配置文件；
-    gitlab-rake gitlab:check SANITIZE=true --trace    # 检查gitlab；
-    sudo gitlab-ctl tail        # 查看日志；
+     curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
     ```
+
+7.  安装GitLab。
+
+    ```
+    sudo EXTERNAL_URL="GitLab服务器的公网IP地址" yum install -y gitlab-ce
+    ```
+
+    **说明：** 您可从ECS 管理控制台的实例列表页找到GitLab服务器的公网IP地址。
+
+8.  使用浏览器访问GitLab服务器的公网IP地址，显示如下页面，说明环境搭建成功。
+
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/155125473112259_zh-CN.png)
 
 
 ## GitLab使用 {#section_hmj_gxs_2fb .section}
@@ -147,14 +82,11 @@ ECS配置要求：内存2G以上
 **登录GitLab**
 
 1.  在浏览器的地址栏中输入ECS服务器的公网IP即可登录GitLab的界面，第一次登录使用的用户名和密码为 root 和 5iveL!fe。
-
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512259_zh-CN.png)
-
 2.  首次登录会强制用户修改密码。密码修改成功后，输入新密码进行登录。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512260_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/155125473112260_zh-CN.png)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512261_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/155125473112261_zh-CN.png)
 
 
 **创建Project**
@@ -165,35 +97,35 @@ ECS配置要求：内存2G以上
     yum install git
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512262_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/155125473112262_zh-CN.png)
 
 2.  生成密钥文件。
 
-    使用ssh-keygen生成密钥文件.ssh/id\_rsa.pub。
+    使用ssh-keygen生成密钥文件.ssh/id\_rsa.pub，再将公钥文件id-rsa.pub中的内容粘帖到GitLab服务器的SSH-key的配置中。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512263_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/155125473212263_zh-CN.png)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512264_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/155125473212264_zh-CN.png)
 
 3.  在GitLab的主页中新建一个Project。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512265_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/155125473212265_zh-CN.png)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512274_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/155125473212274_zh-CN.png)
 
 4.  添加ssh key导入步骤2中生成的密钥文件内容：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512266_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/155125473212266_zh-CN.png)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512275_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/155125473212275_zh-CN.png)
 
     ssh key添加完成：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512267_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/155125473212267_zh-CN.png)
 
     项目地址，该地址在进行clone操作时需要用到：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512268_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/155125473212268_zh-CN.png)
 
 
 **简单配置**
@@ -216,7 +148,7 @@ ECS配置要求：内存2G以上
     git clone git@iZbp1h7fx16gkr9u4gk8v3Z:root/test.git
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556512269_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/155125473212269_zh-CN.png)
 
 
 **上传文件**
@@ -239,7 +171,7 @@ ECS配置要求：内存2G以上
     cp /root/test.sh ./ 
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556612270_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/155125473212270_zh-CN.png)
 
 4.  将test.sh文件加入到索引中。
 
@@ -259,11 +191,11 @@ ECS配置要求：内存2G以上
     git push -u origin master
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556612271_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/155125473212271_zh-CN.png)
 
 7.  在网页中查看上传的test.sh文件已经同步到GitLab中。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/154817556612272_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9777/155125473212272_zh-CN.png)
 
 
 ## 相关链接 {#section_rqd_4zs_2fb .section}
