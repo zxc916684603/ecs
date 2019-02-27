@@ -13,7 +13,7 @@
 
     **说明：** 如果您不需要切换ECS实例的交换机，则直接修改私网IP即可。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9658/15510729615483_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9658/15512574015483_zh-CN.png)
 
 7.  返回到实例列表页面，在 **操作** 列中，单击 **更多** \> **实例状态** \> **启动**，ECS实例重新启动后，修改的私网IP就生效了。 
 
