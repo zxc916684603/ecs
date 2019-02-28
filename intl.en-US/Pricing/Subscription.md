@@ -12,19 +12,6 @@ Currently, Subscription-based billing is applicable to the following ECS resourc
 
 If you want to create a Subscription ECS instance, the **Total** price shown in the lower left corner of the page includes the costs of the preceding resources.
 
-You can use the ECS [TCO Calculator](https://cart.alibabacloud.com/calculator) to quickly analyze your cloud migration costs.
-
-## Payment methods {#section_klw_jv2_zdb .section}
-
-You can pay for Subscription resources by using either of the following methods:
-
--   Your credit card or PayPal account associated to your Alibaba Cloud account. For more information, see [Add a payment method](https://www.alibabacloud.com/help/doc-detail/50517.htm) in *Account Management*.
-
--   Coupons that can be used to pay for Subscription resources.
-
-    **Note:** You can log on to the ECS console, and then choose **Expenses center** \> **Coupon Management** to view the **Applicable Scenarios** to determine whether your coupons apply to Subscription resources.
-
-
 ## Billing cycle {#section_mlw_jv2_zdb .section}
 
 Subscription resources are billed on a monthly basis. The billing cycle is based on UTC+8:00, starting at the time when the resources are activated, and ending at 00:00:00 on the second day after the month or the year \(depending on the billing cycle that is selected\).
@@ -40,11 +27,11 @@ The price unit varies depending on different resources. The following table list
 |System disk|USD/\(GiB x month\)|
 |Data disk|USD/\(GiB x month\)|
 
-After a billing cycle expires, you can renew your ECS instance to continue using the resources. For more information, see [Manual renewal](intl.en-US/Pricing/Renew instances/Manual renewal.md#) or [Auto-renewal](intl.en-US/Pricing/Renew instances/Auto-renewal.md#).
+After a billing cycle expires, you can renew your ECS instance to continue using the resources. For more information, see [Manual renewal](reseller.en-US/Pricing/Renew instances/Manual renewal.md#) or [Auto-renewal](reseller.en-US/Pricing/Renew instances/Auto-renewal.md#).
 
 ## Resource status changes after expiration {#section_qlw_jv2_zdb .section}
 
-After a Subscription instance expires, the status of its corresponding resources changes depending on whether you have enabled [Auto-renewal](intl.en-US/Pricing/Renew instances/Auto-renewal.md#).
+After a Subscription instance expires, the status of its corresponding resources changes depending on whether you have enabled [Auto-renewal](reseller.en-US/Pricing/Renew instances/Auto-renewal.md#).
 
 -   **If you have not enabled automatic renewal:**
 
@@ -71,7 +58,7 @@ After a Subscription instance expires, the status of its corresponding resources
 
     \* After the instance is **unavailable**, you cannot connect to the instance remotely, and websites deployed on the instance cannot be accessed. Service errors will occur.
 
-    **Note:** [Automatic renewal](intl.en-US/Pricing/Renew instances/Auto-renewal.md#) cannot be enabled for expired instances.
+    **Note:** [Auto-renewal](reseller.en-US/Pricing/Renew instances/Auto-renewal.md#) cannot be enabled for expired instances.
 
 -   **If you have enabled automatic renewal:**
 
@@ -91,7 +78,7 @@ After a Subscription instance expires, the status of its corresponding resources
 
  The shared block storage will be automatically detached.
 
- | For an Classic network instance, the assigned Internet IP address will be released.
+ | For a Classic network instance, the assigned Internet IP address will be released.
 
  For a VPC instance, the assigned Internet IP address will be released and the attached EIP address will be automatically detached.
 
