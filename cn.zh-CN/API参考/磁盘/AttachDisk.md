@@ -1,75 +1,100 @@
-# AttachDisk {#AttachDisk .reference}
+# AttachDisk {#doc_api_1030732 .reference}
 
 为一台ECS实例挂载一块数据盘。
 
-## 描述 {#section_vgf_j45_xdb .section}
+## 接口说明 {#description .section}
 
 调用该接口时，您需要注意：
 
--   待挂载的ECS实例的状态必须为**运行中**（`Running`）或者**已停止**（`Stopped`）。
--   挂载数据盘时，云盘的状态必须为**待挂载**（`Available`）。
--   被[安全控制](../cn.zh-CN/API参考/附录/安全锁定时的API行为.md#)的ECS实例的`OperationLocks`不能标记为`"LockReason" : "security"`。
--   即使您在挂载云盘时，将`DeleteWithInstance`置为`false`，一旦ECS实例被安全控制，且 `OperationLocks`中标记了`"LockReason" : "security"`，释放ECS实例时会忽略云盘的`DeleteWithInstance`属性而被同时释放。
+-   待挂载的ECS实例的状态必须为运行中（Running）或者已停止（Stopped）。
+-   挂载数据盘时，云盘的状态必须为待挂载（Available）。
+-   被 [安全控制](~~25695~~) 的ECS实例的OperationLocks不能标记为"LockReason" : "security"。
+-   即使您在挂载云盘时，将DeleteWithInstance置为false，一旦ECS实例被安全控制，且 OperationLocks中标记了"LockReason" : "security"，释放ECS实例时会忽略云盘的DeleteWithInstance属性而被同时释放。
 
-## 请求参数 {#RequestParameter .section}
+## 调试 {#apiExplorer .section}
 
-|名称|类型|是否必需|描述|
-|:-|:-|:---|:-|
-|Action|String|是|系统规定参数。取值：AttachDisk|
-|InstanceId|String|是|待挂载的ECS实例ID。|
-|DiskId|String|是|待挂载的云盘ID。云盘（`DiskId`）和实例（`InstanceId`）必须在同一个可用区。|
-|DeleteWithInstance|Boolean|否|释放实例时，该云盘是否随实例一起释放。默认值：False|
+前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=AttachDisk)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
-## 返回参数 {#ResponseParameter .section}
+## 请求参数 {#parameters .section}
 
-全是公共返回参数。参阅[公共返回参数](../cn.zh-CN/API参考/HTTP调用方式/公共参数.md#commonResponseParameters)。
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|DiskId|String|是|d-23jbf2v5m|待挂载的云盘ID。云盘（DiskId）和实例（InstanceId）必须在同一个可用区。
 
-## 示例 { .section}
+ |
+|InstanceId|String|是|i-instance1|待挂载的ECS实例ID。
 
-**请求示例**
+ |
+|Action|String|否|AttachDisk|系统规定参数。取值：AttachDisk
 
-```
+ |
+|DeleteWithInstance|Boolean|否|false|释放实例时，该云盘是否随实例一起释放。默认值：False
+
+ |
+|Device|String|否|/dev/xvda|磁盘设备名称。该参数即将被弃用，为提高兼容性，请尽量使用其他参数。
+
+ |
+|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
+
+ |
+
+## 返回参数 {#resultMapping .section}
+
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID
+
+ |
+
+## 示例 {#demo .section}
+
+请求示例
+
+``` {#request_demo}
+
 https://ecs.aliyuncs.com/?Action=AttachDisk
-&InstanceId=i-23jggx34b
 &DiskId=d-23jbf2v5m
+&InstanceId=i-instance1
+&DeleteWithInstance=false
 &<公共请求参数>
-```
-
-**返回示例**
-
-**XML格式**
 
 ```
+
+正常返回示例
+
+`XML` 格式
+
+``` {#xml_return_success_demo}
 <AttachDiskResponse>
-    <RequestId>473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E</RequestId>
+  <RequestId>473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E</RequestId>
 </AttachDiskResponse>
-```
-
-**JSON格式**
 
 ```
+
+`JSON` 格式
+
+``` {#json_return_success_demo}
 {
-    "RequestId": "473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E"
+	"RequestId":"473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E"
 }
 ```
 
-## 错误码 {#ErrorCode .section}
+## 错误码 { .section}
 
-以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+|HttpCode|错误码|错误信息|描述|
+|--------|---|----|--|
+|400|InvalidDevice.Malformed|The specified device is not valid.|指定的磁盘设备名不存在。|
+|403|InstanceDiskLimitExceeded|The amount of the disk on instance in question reach its limits.|指定实例已经达到可挂载磁盘的最大值。|
+|403|InvalidDevice.InUse|The specified device has been occupied.|指定的设备已经挂载了磁盘。|
+|403|InstanceLockedForSecurity|The instance is locked due to security.|您的资源被安全锁定，拒绝操作。|
+|403|InstanceExpiredOrInArrears|The specified operation is denied as your prepay instance is expired \(prepay mode\) or in arrears \(afterpay mode\).|包年包月实例已过期，请您续费后再进行操作。|
+|400|IncorrectInstanceStatus|The current status of the resource does not support this operation.|该资源目前的状态不支持此操作。|
+|403|DiskError|IncorrectDiskStatus.|指定的磁盘状态不合法。|
+|403|DiskId.ValueNotSupported|The specified parameter diskid is not supported.|当前磁盘类型不支持此操作|
+|403|DiskId.StatusNotSupported|The specified disk status is not supported.|不支持指定的磁盘状态。|
+|404|InvalidDisk.InUse|The specified disk has been occupied.|指定的磁盘已占用。|
+|403|UserNotInTheWhiteList|The user is not in disk white list.|您暂时不能使用该磁盘服务。|
+|400|InvalidOperation.InstanceTypeNotSupport|The instance type of the specified instance does not support hot attach disk.|磁盘挂载的实例不支持磁盘热插拔操作。|
 
-|错误代码|错误信息|HTTP状态码|说明|
-|:---|:---|:------|:-|
-|IncorrectInstanceStatus|The current status of the resource does not supportthis operation.|400|待挂载的ECS实例的状态必须为**运行中**（`Running`）或者**已停止**（`Stopped`）。|
-|InvalidParameter|The input parameter is mandatory for processing thisrequest is empty.|400|缺少必填参数。|
-|DiskError|IncorrectDiskStatus.|403|云盘的状态必须为**待挂载**（`Available`）。|
-|DiskId.ValueNotSupported|The specified parameter diskid is not supported.|403|指定的磁盘不支持挂载。|
-|DiskInArrears|The specified operation is denied as your disk owingfee.|403|指定的云盘已欠费。|
-|DiskNotPortable|The specified disk is not a portable disk.|403|指定云盘不是可卸载的云盘。|
-|IncorrectDiskStatus|The operation is not supported in this status.|403|挂载数据盘时，云盘的状态必须为**待挂载**（`Available`）。|
-|InstanceExpiredOrInArrears|The specified operation is denied as your prepay instance is expired \(prepay mode\) or in arrears \(afterpay mode\).|403|指定的实例已欠费。|
-|InstanceLockedForSecurity|The instance is locked due to security.|403|指定的实例被安全锁定。|
-|InvalidDevice.InUse|The specified device has been occupied.|403|指定的云盘已经被挂载到其他实例上。|
-|ResourcesNotInSameZone|The specified instance and disk are not in the samezone.|403|指定云盘和实例必须在同一个可用区。|
-|InvalidDiskId.NotFound|The specified disk does not exist.|404|指定的云盘不存在。|
-|InvalidInstanceId.NotFound|The specified InstanceId does not exist.|404|指定的实例不存在。|
+[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
