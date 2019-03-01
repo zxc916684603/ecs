@@ -1,8 +1,8 @@
-# ConvertNatPublicIpToEip {#doc_api_1000066 .reference}
+# ConvertNatPublicIpToEip {#doc_api_1030609 .reference}
 
 将一台网络类型为专有网络VPC的ECS实例的公网 IP（NatPublicIp）转化为弹性公网IP（EIP）。
 
-## 描述 {#description .section}
+## 接口说明 {#description .section}
 
 请确保在使用该接口前，已充分了解 [EIP的计费方式](~~27767~~)。
 
@@ -39,7 +39,7 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。无论调用接口成功与否，我们都会返回请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
 
  |
 
@@ -79,9 +79,13 @@ https://ecs.aliyuncs.com/?Action=ConvertNatPublicIpToEip
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
+|403|InvalidInstanceId.PlanedChange|%s|实例的已经预约了表更操作，不支持该操作。|
+|403|InvalidInstanceStatus.Released|%s|指定的实例状态无效。|
 |403|IncorrectInstanceStatus|%s|实例当前的状态不支持该操作。|
 |404|InvalidInstanceId.NotFound|%s|指定的实例不存在。|
 |403|InvalidInternetChargeType.ValueNotSupported|%s|参数不支持。|
+|403|MaxEIPQuotaExceeded|The number of EIP exceeds the limit per region.|已超出当前地域下的EIP数量。|
+|403|InvalidInstance.OverduePayment|%s|您的账号已欠费，请充值后重试。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
