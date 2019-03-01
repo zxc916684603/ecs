@@ -12,11 +12,13 @@
     ```
 
 
+DTS提供的数据迁移功能能够支持同异构数据源之间的数据迁移，同时提供了库表列三级映射、数据过滤多种ETL特性。您可以使用DTS进行零停机迁移，在迁移过程中，源数据库正常持续提供服务，最大程度降低迁移对业务的影响。DTS支持的数据库类型请参考[数据迁移](https://help.aliyun.com/document_detail/26594.html)[数据迁移](https://www.alibabacloud.com/help/zh/doc-detail/26594.html)。
+
 1.  登录[数据传输DTS控制台](https://dts.console.aliyun.com/)。 
 2.  在左侧导航栏，选择**数据迁移**。 
 3.  选择目标ECS实例所在地域，并单击**创建迁移任务**。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/128824/155133261239275_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/128824/155140620439275_zh-CN.png)
 
 4.  配置迁移任务。 
     1.  配置任务名称。 
@@ -74,10 +76,10 @@
 
     在迁移任务正式启动之前，会预检查连通性、权限及日志格式等。下图表示预检查成功通过。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/128824/155133261239304_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/128824/155140620539304_zh-CN.png)
 
     预检查通过后，您可以在**迁移任务列表**中查看迁移任务的迁移状态及进度。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/128824/155133261239321_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/128824/155140620539321_zh-CN.png)
 
 
