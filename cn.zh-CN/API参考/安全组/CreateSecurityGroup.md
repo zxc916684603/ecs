@@ -1,84 +1,112 @@
-# CreateSecurityGroup {#CreateSecurityGroup .reference}
+# CreateSecurityGroup {#doc_api_1031570 .reference}
 
-新建一个安全组。新建的安全组，默认只允许安全组内实例互相访问，安全组外的一切通信请求会被拒绝。若您想允许其他安全组实例的通信请求，或者来自互联网的访问请求，需要授权安全组权限（[AuthorizeSecurityGroup](cn.zh-CN/API参考/安全组/AuthorizeSecurityGroup.md#)）。
+新建一个安全组。新建的安全组，默认只允许安全组内实例互相访问，安全组外的一切通信请求会被拒绝。若您想允许其他安全组实例的通信请求，或者来自互联网的访问请求，需要授权安全组权限（AuthorizeSecurityGroup）。
 
-## 描述 {#section_w5n_p21_ydb .section}
+## 接口说明 {#description .section}
 
 调用该接口时，您需要注意：
 
 -   在一个阿里云地域下，您最多可创建100个安全组。
+-   创建专有网络VPC类型的安全组时，您必须指定参数VpcId。
 
--   创建专有网络VPC类型的安全组时，您必须指定参数`VpcId`。
+## 调试 {#apiExplorer .section}
 
+前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=CreateSecurityGroup)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
-## 请求参数 {#RequestParameter .section}
+## 请求参数 {#parameters .section}
 
-|名称|类型|是否必需|描述|
-|:-|:-|:---|:-|
-|Action|String|是|系统规定参数。取值：CreateSecurityGroup|
-|RegionId|String|是|安全组所属地域ID。您可以调用[DescribeRegions](../cn.zh-CN/API参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
-|SecurityGroupName|String|否|安全组名称。长度为 \[2, 128\] 个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值：空。
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|RegionId|String|是|cn-hangzhou|安全组所属地域ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
 
-|
-|Description|String|否|安全组描述信息。长度为 \[2, 256\] 个英文或中文字符，不能以 http:// 和 https:// 开头。默认值：空。
+ |
+|Action|String|否|CreateSecurityGroup|系统规定参数。取值：CreateSecurityGroup
 
-|
-|VpcId|String|否|安全组所属VPC ID。|
-|Tag.n.Key|String|否|安全组的标签键。n 的取值范围：\[1, 20\]。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。|
-|Tag.n.Value|String|否|安全组的标签值。n的取值范围：\[1, 20\]。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。|
-|ClientToken|String|否| 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅[如何保证幂等性](../cn.zh-CN/API参考/附录/如何保证幂等性.md#)。
+ |
+|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
+
+ |
+|Description|String|否|FinanceDept|安全组描述信息。长度为2~256个英文或中文字符，不能以 http:// 和 https:// 开头。默认值：空。
+
+ |
+|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
+
+ |
+|ResourceGroupId|String|否|rg-resourcegrouid|安全组所在的企业资源组ID。
+
+ |
+|SecurityGroupName|String|否|FinanceJoshua|安全组名称。长度为2~128个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值：空。
+
+ |
+|Tag.N.Key|String|否|FinanceDept|安全组的标签键。n的取值范围为 1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http:// 或者 https:// 开头。
+
+ |
+|Tag.N.Value|String|否|FinanceDeptJoshua|安全组的标签值。n的取值范围为 1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http:// 或者 https:// 开头。
+
+ |
+|Tag.N.key|String|否|FinanceDept|安全组的标签键。n的取值范围为 1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http:// 或者 https:// 开头。
+
+ |
+|Tag.N.value|String|否|FinanceDeptJoshua|安全组的标签值。n的取值范围为 1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http:// 或者 https:// 开头。
+
+ |
+|VpcId|String|否|v-vpcid1|安全组所属VPC ID。
 
  |
 
-## 返回参数 {#ResponseParameter .section}
+## 返回参数 {#resultMapping .section}
 
-|名称|类型|描述|
-|:-|:-|:-|
-|SecurityGroupId|String|安全组ID|
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
 
-## 示例 { .section}
+ |
+|SecurityGroupId|String|sg-F876FF7BA|安全组 ID。
 
-**请求示例**
+ |
 
-```
+## 示例 {#demo .section}
+
+请求示例
+
+``` {#request_demo}
+
 https://ecs.aliyuncs.com/?Action=CreateSecurityGroup
 &RegionId=cn-hangzhou
 &Description=for_demo
 &<公共请求参数>
-```
-
-**返回示例**
-
-**XML格式** 
 
 ```
+
+正常返回示例
+
+`XML` 格式
+
+``` {#xml_return_success_demo}
 <CreateSecurityGroupResponse>
-    <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
-    <SecurityGroupId>sg-F876FF7BA</SecurityGroupId>
+  <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
+  <SecurityGroupId>sg-F876FF7BA</SecurityGroupId>
 </CreateSecurityGroupResponse>
-```
-
-**JSON格式** 
 
 ```
+
+`JSON` 格式
+
+``` {#json_return_success_demo}
 {
-    "RequestId":"CEF72CEB-54B6-4AE8-B225-F876FF7BA984",
-    "SecurityGroupId":"sg-F876FF7BA"
+	"SecurityGroupId":"sg-F876FF7BA",
+	"RequestId":"CEF72CEB-54B6-4AE8-B225-F876FF7BA984"
 }
 ```
 
-## 错误码 {#ErrorCode .section}
+## 错误码 { .section}
 
-以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+|HttpCode|错误码|错误信息|描述|
+|--------|---|----|--|
+|404|InvalidVpcId.NotFound|Specified VPC does not exist.|指定的专有网络 VPC ID 不存在，请您检查 regionId 是否存在。|
+|403|InvalidVpcId.NotFound|vpc id must not empty when only support vpc vm.|指定的 VPC ID 不能为空。|
+|400|InvalidTagKey.Malformed|Specified tag key is not valid.|指定的标签键无效。|
+|400|InvalidTagValue.Malformed|Specified tag value is not valid.|指定的标签值无效。|
 
-|错误代码|错误信息|HTTP状态码|说明|
-|:---|:---|:------|:-|
-|IncorrectVpcStatus|Current VPC status does not support this operation.|400|指定的VPC正在被创建、编辑或者删除，请稍后再试。|
-|InvalidDescription.Malformed|The specified parameter “Description” is not valid.|400|指定的`Description`不合法。|
-|InvalidSecurityGroupDiscription.Malformed|Specified security group description is not valid.|400|指定的`Description`不合法。|
-|InvalidSecurityGroupName.Malformed|Specified security group name is not valid.|400|指定的`SecurityGroupName`不合法。|
-|InvalidVpcId.NotFound|vpc id must not empty when only support vpc vm.|403|参数`VpcId`不能为空。|
-|QuotaExceed.SecurityGroup|The maximum number of security groups is reached.|403|在指定地域下，您最多可以创建100个安全组。|
-|InvalidRegionId.NotFound|The specified RegionId does not exist.|404|指定的`RegionId`不存在。|
-|InvalidVpcId.NotFound|Specified VPC does not exist.|404|指定的VPC不存在。|
+[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
