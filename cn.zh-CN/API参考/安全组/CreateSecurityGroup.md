@@ -1,4 +1,4 @@
-# CreateSecurityGroup {#doc_api_1031570 .reference}
+# CreateSecurityGroup {#doc_api_1032078 .reference}
 
 新建一个安全组。新建的安全组，默认只允许安全组内实例互相访问，安全组外的一切通信请求会被拒绝。若您想允许其他安全组实例的通信请求，或者来自互联网的访问请求，需要授权安全组权限（AuthorizeSecurityGroup）。
 
@@ -44,10 +44,14 @@
 |Tag.N.Value|String|否|FinanceDeptJoshua|安全组的标签值。n的取值范围为 1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http:// 或者 https:// 开头。
 
  |
-|Tag.N.key|String|否|FinanceDept|安全组的标签键。n的取值范围为 1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.key|String|否|FinanceDept|安全组的标签键。
+
+ **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Key参数。
 
  |
-|Tag.N.value|String|否|FinanceDeptJoshua|安全组的标签值。n的取值范围为 1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.value|String|否|FinanceDeptJoshua|安全组的标签值。
+
+ **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Value参数。
 
  |
 |VpcId|String|否|v-vpcid1|安全组所属VPC ID。
