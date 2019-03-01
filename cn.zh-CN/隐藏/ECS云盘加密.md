@@ -6,7 +6,7 @@
 
 ## 什么是ECS云盘加密 {#concept .section}
 
-使用ECS云盘加密功能，系统会将从ECS实例传输到云盘的数据自动加密，并在读取数据时自动解密。在加密解密的过程中，云盘的性能几乎没有衰减。关于性能测试方式，请参见[块存储性能](../../../../../cn.zh-CN/块存储/块存储概述/块存储性能.md#)。
+使用ECS云盘加密功能，系统会将从ECS实例传输到云盘的数据自动加密，并在读取数据时自动解密。在加密解密的过程中，云盘的性能几乎没有衰减。关于性能测试方式，请参见[块存储性能](../../../../../cn.zh-CN/块存储/块存储性能.md#)。
 
 在创建加密云盘并将其挂载到ECS实例后，系统将对以下数据进行加密：
 
@@ -49,6 +49,7 @@ ECS云盘加密功能通过行业标准的AES-256算法，利用数据密钥加�
 -   不支持导出带有加密快照的镜像。
 -   如果使用系统自动创建的（CMK），该CMK不收取费用，但您不能删除它。
 -   云盘加密后，不支持更换该云盘关联的用户主密钥。
+-   不支持弹性裸金属服务器（神龙）。
 
 ## 费用 {#section_r4l_5r5_q8y .section}
 
@@ -60,12 +61,12 @@ ECS云盘加密功能通过行业标准的AES-256算法，利用数据密钥加�
 |对云盘的所有读写操作，包括 mount/umount、分区、格式化等|不产生费用。|
 |涉及云盘本身的管理操作，无论是通过ECS管理控制台还是通过API，均会以API的形式使用KMS，将会记入到您在该地域的KMS服务API调用次数。对加密云盘的管理操作包括：
 
--   创建加密盘（[CreateInstance](../../../../../cn.zh-CN/API参考/实例/CreateInstance.md#)、[RunInstances](../../../../../cn.zh-CN/API参考/实例/RunInstances.md#)或[CreateDisk](../../../../../cn.zh-CN/API参考/磁盘/CreateDisk.md#)）
--   挂载云盘（[AttachDisk](../../../../../cn.zh-CN/API参考/磁盘/AttachDisk.md#)\)
+-   创建加密盘（[../../../../../dita-oss-bucket/SP\_2/DNA0011860945/ZH-CN\_TP\_9857.md\#](../../../../../cn.zh-CN/API参考/实例/CreateInstance.md#)、[RunInstances](../../../../../cn.zh-CN/API参考/实例/RunInstances.md#)或[CreateDisk](../../../../../cn.zh-CN/API参考/磁盘/CreateDisk.md#)）
+-   挂载云盘（[../../../../../dita-oss-bucket/SP\_2/DNA0011860945/ZH-CN\_TP\_9886.md\#](../../../../../cn.zh-CN/API参考/磁盘/AttachDisk.md#)\)
 -   卸载云盘（[DetachDisk](../../../../../cn.zh-CN/API参考/磁盘/DetachDisk.md#)）
 -   创建快照（[CreateSnapshot](../../../../../cn.zh-CN/API参考/快照/CreateSnapshot.md#)）
--   回滚云盘（[ResetDisk](../../../../../cn.zh-CN/API参考/磁盘/ResetDisk.md#)）
--   重新初始化云盘（[ReInitDisk](../../../../../cn.zh-CN/API参考/磁盘/ReInitDisk.md#)）
+-   回滚云盘（[../../../../../dita-oss-bucket/SP\_2/DNA0011860945/ZH-CN\_TP\_9891.md\#](../../../../../cn.zh-CN/API参考/磁盘/ResetDisk.md#)）
+-   重新初始化云盘（[../../../../../dita-oss-bucket/SP\_2/DNA0011860945/ZH-CN\_TP\_9890.md\#](../../../../../cn.zh-CN/API参考/磁盘/ReInitDisk.md#)）
 
  | 目前每个用户每月可以免费使用20000次KMS，如果高频率大量操作超过免费额度，则会产生费用。详情请参见[密钥管理服务计费方式](https://help.aliyun.com/document_detail/52608.html)。
 
@@ -79,17 +80,17 @@ ECS云盘加密功能通过行业标准的AES-256算法，利用数据密钥加�
 
 您可以在[创建实例](../../../../../cn.zh-CN/实例/实例生命周期/创建实例/使用向导创建实例.md#)时，通过加密快照添加加密的数据盘，或者使用CMK来添加加密数据盘，如下图所示。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/127723/155125464139704_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/127723/155142804239704_zh-CN.png)
 
 **方式二：单独创建加密云盘**
 
-您可以在云盘页面通过加密快照创建加密数据盘，或者使用CMK来创建加密数据盘。如何单独创建数据盘，请参见[创建按量付费云盘](../../../../../cn.zh-CN/块存储/使用云盘/创建云盘/创建按量付费云盘.md#)。
+您可以在云盘页面通过加密快照创建加密数据盘，或者使用CMK来创建加密数据盘。如何单独创建数据盘，请参见[创建按量付费云盘](../../../../../cn.zh-CN/块存储/云盘/创建云盘/创建按量付费云盘.md#)。
 
 ## 通过API创建加密云盘 {#section_ern_2w4_xgb .section}
 
--   随实例创建时添加数据盘：调用[RunInstances](../../../../../cn.zh-CN/API参考/实例/RunInstances.md#)或[CreateInstance](../../../../../cn.zh-CN/API参考/实例/CreateInstance.md#)时，指定参数DataDisk.n.Encrypted为true，并同时指定一个KMSKeyId。
+-   随实例创建时添加数据盘：调用[RunInstances](../../../../../cn.zh-CN/API参考/实例/RunInstances.md#)或[../../../../../dita-oss-bucket/SP\_2/DNA0011860945/ZH-CN\_TP\_9857.md\#](../../../../../cn.zh-CN/API参考/实例/CreateInstance.md#)时，指定参数DataDisk.n.Encrypted为true，并同时指定一个KMSKeyId。
 -   单独创建数据盘：调用[CreateDisk](../../../../../cn.zh-CN/API参考/磁盘/CreateDisk.md#)时，指定参数Encrypted为true，并同时指定一个KMSKeyId。
--   使用加密快照创建数据盘：调用[RunInstances](../../../../../cn.zh-CN/API参考/实例/RunInstances.md#)、[CreateInstance](../../../../../cn.zh-CN/API参考/实例/CreateInstance.md#)或[CreateDisk](../../../../../cn.zh-CN/API参考/磁盘/CreateDisk.md#)时，指定加密快照的 SnapshotId。
+-   使用加密快照创建数据盘：调用[RunInstances](../../../../../cn.zh-CN/API参考/实例/RunInstances.md#)、[../../../../../dita-oss-bucket/SP\_2/DNA0011860945/ZH-CN\_TP\_9857.md\#](../../../../../cn.zh-CN/API参考/实例/CreateInstance.md#)或[CreateDisk](../../../../../cn.zh-CN/API参考/磁盘/CreateDisk.md#)时，指定加密快照的 SnapshotId。
 
 ## 转换加密状态 {#convert .section}
 
