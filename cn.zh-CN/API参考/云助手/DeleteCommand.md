@@ -1,79 +1,74 @@
-# DeleteCommand {#DeleteCommand .reference}
+# DeleteCommand {#doc_api_1030542 .reference}
 
 删除一条云助手命令。
 
-## 请求参数 {#RequestParameter .section}
+## 调试 {#apiExplorer .section}
 
-|名称|类型|是否必需|描述|
-|:-|:-|:---|:-|
-|Action|String|是|系统规定参数。取值：DeleteCommand|
-|RegionId|String|是|地域 ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
-|CommandId|String|是|命令 ID。您可以通过接口 [DescribeCommands](cn.zh-CN/API参考/云助手/DescribeCommands.md#) 查询所有可用的 `CommandId`。|
+前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=DeleteCommand)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
-## 返回参数 {#section_f54_lk5_xdb .section}
+## 请求参数 {#parameters .section}
 
-全是公共返回参数。参阅 [公共返回参数](cn.zh-CN/API参考/HTTP调用方式/公共参数.md#commonResponseParameters)。
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|CommandId|String|是|c-4d34302d02424c5c8e10281e3a315a05|命令 ID。您可以通过接口 [DescribeCommands](~~64843~~) 查询所有可用的 CommandId。
 
-## 示例 { .section}
+ |
+|RegionId|String|是|cn-hangzhou|地域 ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
 
-**请求示例** 
+ |
+|Action|String|否|DeleteCommand|系统规定参数。取值：DeleteCommand
 
-```
+ |
+|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
+
+ |
+
+## 返回参数 {#resultMapping .section}
+
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
+
+ |
+
+## 示例 {#demo .section}
+
+请求示例
+
+``` {#request_demo}
+
 https://ecs.aliyuncs.com/?Action=DeleteCommand
+&CommandId=c-4d34302d02424c5c8e10281e3a315a05
 &RegionId=cn-hangzhou
-&InvokeId=c-f0902c0972984e31aaf2129fd48a9c6d
 &<公共请求参数>
-```
-
-**正常返回示例** 
-
-**XML 格式**
 
 ```
+
+正常返回示例
+
+`XML` 格式
+
+``` {#xml_return_success_demo}
 <DeleteCommandResponse>
-    <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
+  <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
 </DeleteCommandResponse>
-```
-
-**JSON 格式** 
 
 ```
+
+`JSON` 格式
+
+``` {#json_return_success_demo}
 {
-    "RequestId":"E69EF3CC-94CD-42E7-8926-F133B86387C0",
+	"RequestId":"E69EF3CC-94CD-42E7-8926-F133B86387C0"
 }
 ```
 
-**异常返回示例** 
+## 错误码 { .section}
 
-**XML 格式**
+|HttpCode|错误码|错误信息|描述|
+|--------|---|----|--|
+|500|InternalError.Dispatch|An error occurred when you dispatched the request.|发生未知错误。|
+|403|InvalidRegionId.NotFound|Current region is not available.|指定的地域暂不可用。|
 
-```
-<Error>
-    <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
-    <HostId>ecs.aliyuncs.com</HostId>
-    <Code>InvalidInstance.NoClient</Code>
-    <Message>The specified instances have no cloud assistant client installed.</Message>
-</Error>
-```
-
-**JSON 格式** 
-
-```
-{
-    "RequestId": "E69EF3CC-94CD-42E7-8926-F133B86387C0",
-    "HostId": "ecs.aliyuncs.com"
-    "Code": "InvalidInstance.NoClient"
-    "Message": "The specified instances have no cloud assistant client installed."
-}
-```
-
-## 错误码 {#ErrorCode .section}
-
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
-
-|错误代码|错误信息|HTTP 状态码|说明|
-|:---|:---|:-------|:-|
-|InvalidCmdId.NotFound|The specified commandId does not exist.|404|指定的 `CommandId` 不存在。|
-|InvalidRegionId.NotFound|The RegionId provided does not exist in our items.|404|指定的 `RegionId` 不存在。|
-|InternalError.Dispatch|An internal error occurred when dispath the request|500|内部错误，请稍后尝试。|
+[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
