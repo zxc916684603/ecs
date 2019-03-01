@@ -1,8 +1,8 @@
-# ModifyInstanceVpcAttribute {#doc_api_1025864 .reference}
+# ModifyInstanceVpcAttribute {#doc_api_1030744 .reference}
 
 修改一台 ECS 实例的专有网络 VPC 属性。
 
-## 描述 {#description .section}
+## 接口说明 {#description .section}
 
 当您使用该接口时，请注意：
 
@@ -43,7 +43,7 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。无论调用接口成功与否，我们都会返回请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
 
  |
 
@@ -83,12 +83,12 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceVpcAttribute
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
+|400|InvalidPrivateIpAddress.Malformed|Specified private IP address is malformed.|指定的私有IP不合法。|
 |400|IncorrectVSwitchStatus|The current status of virtual switch does not support this operation.|指定的虚拟交换机处于pending状态，无法删除。|
+|404|InvalidVSwitchId.NotFound|Specified virtual switch does not exist.|指定的虚拟交换机ID不存在。|
 |400|IncorrectInstanceStatus|The current status of instance does not support this operation.|目前实例状态不支持此类操作。|
 |400|OperationDenied|Specified operation is denied as your instance is not in VPC.|实例不存在于 VPC 中，指定的操作被拒绝。|
-|400|InvalidVSwitchId.Mismatch|Specified instance and virtual switch are not in the same zone.|指定的实例和指定的虚拟交换机不属于同一个可用区。|
 |400|InvalidPrivateIpAddress.Mismatch|Specified private IP address is not in the CIDR block of virtual switch.|指定的私网IP不在指定虚拟交换机的网段中。|
-|404|InvalidVSwitchId.NotFound|Specified virtual switch is not found in current VPC.|当前 VPC 中不存在指定的虚拟交换机。|
 |404|NoSuchResource|The specified resource is not found.|指定的资源不存在|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
