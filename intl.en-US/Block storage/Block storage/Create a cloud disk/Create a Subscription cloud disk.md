@@ -23,15 +23,15 @@ Before you create a cloud disk, note the following:
 1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, click **Instances**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/79763/155140482438501_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/79763/155140597238501_en-US.png)
 
 3.  On the Instances page, find the target Subscription instance, and then click **More** in the **Actions** column.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/79763/155140482438504_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/79763/155140597238504_en-US.png)
 
 4.  Click **Configuration Change** \> **Add Subscription Cloud Disk**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/79763/155140482438505_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/79763/155140597238505_en-US.png)
 
 5.  In the **Disk** area of the displayed page, complete the following configurations:
     -   Cloud disk type: Select a [cloud disk type](../../../../../reseller.en-US/Block storage/Block storage/Cloud disks and Shared Block Storage.md#) in the drop-down box.
@@ -44,7 +44,8 @@ Before you create a cloud disk, note the following:
     -   Disk Name: Optional. You can enter a disk name in the text box. A disk name can contain 2 to 128 English letters or Chinese characters in length. It can also contain numbers, periods \(.\), colons \(:\), underscores \(\_\), and hyphens \(-\).
     -   Description: Optional. You can enter a disk description in the text box. The description information can contain 2 to 256 English letters or Chinese characters. It cannot start with http:// or https://.
     -   If you need to [create a cloud disk from a snapshot](reseller.en-US/Block storage/Block storage/Create a cloud disk/Create a cloud disk from a snapshot.md#), click **Create from snapshot**.
-    -   ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/79763/155140482438506_en-US.png)
+
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/79763/155140597238506_en-US.png)
 
 6.  Select the *ECS Service Level Agreement* check box.
 7.  Click **Preview**.
@@ -53,6 +54,6 @@ Before you create a cloud disk, note the following:
 10. Click **ECS console** to return to the **Instances** page. In the instance list, click the instance for which the Subscription cloud disk has just been added.
 11. Click **Disks** to view the newly added Subscription cloud disk.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/79763/155140482438507_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/79763/155140597238507_en-US.png)
 
 
