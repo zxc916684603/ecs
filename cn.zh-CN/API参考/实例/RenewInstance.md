@@ -1,8 +1,8 @@
-# RenewInstance {#doc_api_1021650 .reference}
+# RenewInstance {#doc_api_1032305 .reference}
 
 续费一台预付费 ECS 实例。
 
-## 描述 {#description .section}
+## 接口说明 {#description .section}
 
 请确保在使用该接口前，您已充分了解 [云服务器 ECS](https://www.aliyun.com/price/product#/ecs/detail) 的计费方式和产品定价。
 
@@ -41,7 +41,7 @@
 -   Month（默认）
 
  |
-|ClientToken|String|否|084 104 105 115 073 115 084 104 101 070 105 114 115 116 082 101 113 117 101 115 116|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
+|ClientToken|String|否|0c593ea1-3bea-11e9-b96b-88e9fe637760|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
 
  |
 
@@ -63,7 +63,7 @@ https://ecs.aliyuncs.com/?Action=RenewInstance
 &InstanceId=i-instance1
 &Period=1
 &PeriodUnit=Month
-&ClientToken=084 104 105 115 073 115 084 104 101 070 105 114 115 116 082 101 113 117 101 115 116
+&ClientToken=0c593ea1-3bea-11e9-b96b-88e9fe637760
 &<公共请求参数>
 
 ```
@@ -91,13 +91,13 @@ https://ecs.aliyuncs.com/?Action=RenewInstance
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
-|400|InvalidInstanceChargeType.NotFound|The InstanceChargeType does not exist in our records.|指定的实例计费方式不存在。|
-|400|InvalidRebootTime.ValueNotSupported|The specified RebootTime is out of the permitted range.|指定的重启时间超出取值范围。|
+|400|IdempotenceParamNotMatch|Request uses a client token in a previous request but is not identical to that request.|与相同 ClientToken 的请求参数不符合。|
 |403|ChargeTypeViolation|The operation is not permitted due to charge type of the instance.|付费方式不支持该操作，请您检查实例的付费类型是否与该操作冲突。|
 |400|InvalidInstanceType.ValueNotSupported|The specified InstanceType does not exist or beyond the permitted range.|指定的实例规格不支持。|
-|400|InvalidInstanceType.codeUnauthorized|The specified InstanceType is not authorized.|指定的 InstanceType 不合法。|
+|403|IncorrectInstanceStatus|The current status of the resource does not support this operation.|该资源目前的状态不支持此操作。|
+|400|InvalidInternetChargeType.InstanceNotSupported|The specified instance which is in vpc is not support the parameter InternetChargeType.|指定的 VPC 网络实例不支持指定的网络计费方式。|
 |400|InvalidPeriod|The specified period is not valid.|指定的时段不合法。|
-|400|Upgrade.NotSupported|Upgrade operation is not supported.|升级操作不合法。|
+|403|Instance.UnPaidOrder|The specified instance has unpaid order.|该实例有未完成的账单。|
 |400|OperationDenied|Specified instance is in VPC.|指定实例存在于 VPC。|
 |400|InvalidParameter|The specified parameter " InternetMaxBandwidthOut " is not valid.|InternetMaxBandwidthOut参数设置无效。|
 |400|DependencyViolation.InstanceType|Current instancetype cannot be changed to the specified one.|当前实例规格不能更改为指定规格。|
