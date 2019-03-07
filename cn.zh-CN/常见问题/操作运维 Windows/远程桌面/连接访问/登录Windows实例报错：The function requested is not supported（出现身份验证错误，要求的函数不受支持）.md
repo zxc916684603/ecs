@@ -1,16 +1,16 @@
 # 登录Windows实例报错：The function requested is not supported（出现身份验证错误，要求的函数不受支持） {#WindowsAuthenticationFailureAndCredSSPEdit .concept}
 
-本文提供通过微软的RDP协议客户端远程连接Windows实例时报错：出现身份验证错误，要求的函数不受支持（The function requested is not supported）的解决方法。
+本文提供通过微软的RDP协议本地客户端远程连接Windows实例时报错：出现身份验证错误，要求的函数不受支持（The function requested is not supported）的解决方法。
 
-![The function requested is not supported](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10592/154691718236309_zh-CN.png)
+![The function requested is not supported](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10592/155194052636309_zh-CN.png)
 
 ## 问题原因 { .section}
 
 微软官方2018年5月更新了凭据安全支持提供程序协议（CredSSP）相关补丁和身份验证请求方式。当出现以下任一情景时会出现该连接错误：
 
--   **情景一**：客户端未更新该补丁，服务器端已更新该补丁且加密Oracle修正的策略为强制更新的客户端。
--   **情景二**：客户端已更新该补丁且加密Oracle修正的策略为强制更新的客户端，服务器端未更新该补丁。
--   **情景三**：客户端已更新该补丁且加密Oracle修正的策略为缓解，服务器端未更新该补丁。
+-   **情景一**：本地客户端未更新该补丁，服务器端已更新该补丁且加密Oracle修正的策略为强制更新的客户端。
+-   **情景二**：本地客户端已更新该补丁且加密Oracle修正的策略为强制更新的客户端，服务器端未更新该补丁。
+-   **情景三**：本地客户端已更新该补丁且加密Oracle修正的策略为缓解，服务器端未更新该补丁。
 
     **说明：** 
 
@@ -24,7 +24,7 @@
 
 **Windows Server 2008 R2**
 
-1.  通过[远程连接功能](../../../../../cn.zh-CN/用户指南/连接实例/使用管理终端连接ECS实例.md#)登录Windows实例。
+1.  通过[远程连接功能](../../../../../cn.zh-CN/实例/实例生命周期/连接实例/使用管理终端连接Linux实例.md#)登录Windows实例。
 2.  打开**开始**，右键单击**计算机**，选择**属性**。
 
     ![The function requested is not supported](images/36446_zh-CN.jpeg)
@@ -36,7 +36,7 @@
 
 **Windows Server 2012 R2**
 
-1.  通过[远程连接功能](../../../../../cn.zh-CN/用户指南/连接实例/使用管理终端连接ECS实例.md#)登录Windows实例。
+1.  通过[远程连接功能](../../../../../cn.zh-CN/实例/实例生命周期/连接实例/使用管理终端连接Linux实例.md#)登录Windows实例。
 2.  在开始界面，右键单击**这台电脑**，选择**属性**。
 
     ![The function requested is not supported](images/36448_zh-CN.jpeg)
@@ -48,7 +48,7 @@
 
 **Windows Server 2016**
 
-1.  通过[远程连接功能](../../../../../cn.zh-CN/用户指南/连接实例/使用管理终端连接ECS实例.md#)登录Windows实例。
+1.  通过[远程连接功能](../../../../../cn.zh-CN/实例/实例生命周期/连接实例/使用管理终端连接Linux实例.md#)登录Windows实例。
 2.  打开**开始** \> **Windows系统** \> **此电脑**，右键单击**此电脑**，选择**更多** \> **属性**。
 
     ![The function requested is not supported](images/36450_zh-CN.jpeg)
@@ -60,19 +60,19 @@
 
 ## 解决方法二：下载Windows安全更新 {#WindowsUpdate .section}
 
-1.  通过[远程连接功能](../../../../../cn.zh-CN/用户指南/连接实例/使用管理终端连接ECS实例.md#)登录Windows实例。
+1.  通过[远程连接功能](../../../../../cn.zh-CN/实例/实例生命周期/连接实例/使用管理终端连接Linux实例.md#)登录Windows实例。
 
-    **说明：** 如果您的客户端是Windows系统，请同样执行如下操作。
+    **说明：** 如果您的本地客户端是Windows系统，请同样执行如下操作。
 
 2.  搜索并打开Windows更新。
 3.  单击**检查更新**下载积累的更新。
 
-    ![The function requested is not supported](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10592/154691718236452_zh-CN.png)
+    ![The function requested is not supported](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10592/155194052636452_zh-CN.png)
 
 4.  等待更新下载和安装。
 5.  重启实例以完成安装更新。
 
-您也可以根据自己的操作系统，在Windows实例和客户端上安装CredSSP对应的安全更新安装包：
+您也可以根据自己的操作系统，在Windows实例和本地客户端上安装CredSSP对应的安全更新安装包：
 
 -   [Windows Server 2008 32位下载](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/71931/cn_zh/1528889331663/windows6.0-kb4056564-v2-x86.msu?spm=a2c63.o282931.a3.18.43ed50f1Dm2XgE&file=windows6.0-kb4056564-v2-x86.msu)
 -   [Windows Server 2008 R2 64位安全更新下载](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/71931/cn_zh/1528861821268/windows6.1-kb4103712-x64.msu?spm=a2c63.o282931.a3.19.43ed50f1Dm2XgE&file=windows6.1-kb4103712-x64.msu)
@@ -84,11 +84,11 @@
 
 ## 解决方法三：修改注册表 {#RegEdit .section}
 
-针对已经更新CredSSP相关补丁的客户端或者服务器端，您可以手动修改注册表，也可以运行我们为您准备的PowerShell脚本。
+针对已经更新CredSSP相关补丁的本地客户端或者服务器端，您可以手动修改注册表，也可以运行我们为您准备的PowerShell脚本。
 
 **警告：** 
 
--   使用注册表编辑器或其他方法修改注册表不当，可能会出现严重问题，您需要自行承担修改注册表风险。修改注册表之前，建议您先通过[创建快照](../../../../../cn.zh-CN/用户指南/快照/创建快照.md#)备份数据，以免数据丢失。
+-   使用注册表编辑器或其他方法修改注册表不当，可能会出现严重问题，您需要自行承担修改注册表风险。修改注册表之前，建议您先通过[创建快照](../../../../../cn.zh-CN/快照/使用快照/创建快照.md#)备份数据，以免数据丢失。
 -   本方法会降低您本地计算机或实例的安全性，我们建议您使用[方法二](#WindowsUpdate)。
 
 **手动修改**
@@ -98,7 +98,7 @@
 3.  定位到HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\CredSSP\\Parameters键，如果CredSSP或者Parameters键不存在，请新建CredSSP或者Parameters键。
 4.  在Parameters键下新建DWORD值AllowEncryptionOracle，并设置数据为2。
 
-    ![The function requested is not supported](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10592/154691718236453_zh-CN.png)
+    ![The function requested is not supported](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10592/155194052636453_zh-CN.png)
 
 5.  重启实例或者本地计算机。
 
@@ -117,7 +117,7 @@
 
 4.  重启实例或者本地计算机。
 
-    **说明：** 若您优先使用本方法修改了注册表，随后又更新了客户端和ECS实例安全补丁，我们建议您将AllowEncryptionOracle的值设为0或者1以获得更高的安全性。
+    **说明：** 若您优先使用本方法修改了注册表，随后又更新了本地客户端和ECS实例安全补丁，我们建议您将AllowEncryptionOracle的值设为0或者1以获得更高的安全性。
 
 
 ## 相关文档 {#Reference .section}
