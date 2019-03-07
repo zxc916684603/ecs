@@ -1,4 +1,4 @@
-# DescribeSecurityGroups {#doc_api_1032079 .reference}
+# DescribeSecurityGroups {#doc_api_1049674 .reference}
 
 查询您创建的安全组的基本信息，例如安全组ID和安全组描述等。返回列表按照安全组ID降序排列。
 
@@ -22,12 +22,6 @@
 -   false：发送正常请求，通过检查后返回2XX HTTP状态码并直接查询资源状况。
 
  默认值：false
-
- |
-|FuzzyQuery|Boolean|否|true|是否支持模糊查询。
-
- |
-|IsQueryEcsCount|Boolean|否|true|查询安全组内的实例数量。
 
  |
 |NetworkType|String|否|vpc|网络类型。
@@ -97,16 +91,10 @@
 |SecurityGroups| | |安全组信息集合
 
  |
-|└AvailableInstanceAmount|Integer|880|安全组内还能加入的实例配额
-
- |
 |└CreationTime|String|2017-12-05T22:40:00Z|创建时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间。格式为：yyyy-MM-ddThh:mmZ
 
  |
 |└Description|String|FinanceDept|描述信息
-
- |
-|└EcsCount|Integer|120|安全组内的ECS实例数量。
 
  |
 |└ResourceGroupId|String|rg-resourcegroupid1|安全组所在的企业资源组 ID。
