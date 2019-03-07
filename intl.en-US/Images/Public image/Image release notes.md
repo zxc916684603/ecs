@@ -6,7 +6,7 @@ This topic describes the release notes of images and relevant updates.
 
 |Release|Description|
 |:------|:----------|
-|Ubuntu16.04| -   Image ID: ubuntu\_16\_04\_64\_20G\_alibase\_20190301.vhd
+|Ubuntu 16.04| -   Image ID: ubuntu\_16\_04\_64\_20G\_alibase\_20190301.vhd
 -   Kernal version: 4.4.0-142-generic
 -   Released in: all regions
 -   What's new: Updated to the latest system patches.
@@ -17,7 +17,7 @@ This topic describes the release notes of images and relevant updates.
 
 |Release|Description|
 |:------|:----------|
-|Ubuntu18.04| -   Image ID: ubuntu\_18\_04\_64\_20G\_alibase\_20190223.vhd
+|Ubuntu 18.04| -   Image ID: ubuntu\_18\_04\_64\_20G\_alibase\_20190223.vhd
 -   Kernel version: 4.15.0-45-generic
 -   Released in: all regions
 -   What's new: Updated to the latest system patches.
