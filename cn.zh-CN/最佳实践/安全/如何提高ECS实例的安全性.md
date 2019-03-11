@@ -110,7 +110,7 @@ ECS实例放置在云上，除了置身于阿里云自身的安全平台外，�
 
 -   **操作步骤**
 
-    1.  服务器安全\(安骑士\)Agent插件目前集成于安全镜像中，在购买ECS后，一般都已经默认安装，您可以进入[安骑士控制台-配置中心](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fyundun.console.aliyun.com%2F%3Fp%3Daqs%2522%25E5%25AE%2589%25E9%25AA%2591%25E5%25A3%25AB%25E6%258E%25A7%25E5%2588%25B6%25E5%258F%25B0-%25E9%2585%258D%25E7%25BD%25AE%25E4%25B8%25AD%25E5%25BF%2583%2522)，查看每台服务器的在线状态。
+    1.  服务器安全\(安骑士\)Agent插件目前集成于安全镜像中，在创建实例时选择安全加固后，您可以进入[安骑士控制台-配置中心](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fyundun.console.aliyun.com%2F%3Fp%3Daqs%2522%25E5%25AE%2589%25E9%25AA%2591%25E5%25A3%25AB%25E6%258E%25A7%25E5%2588%25B6%25E5%258F%25B0-%25E9%2585%258D%25E7%25BD%25AE%25E4%25B8%25AD%25E5%25BF%2583%2522)，查看每台服务器的在线状态。
 
         ![](images/12737_zh-CN_source.png)
 
