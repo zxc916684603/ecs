@@ -1,4 +1,4 @@
-# DescribeInstances {#doc_api_1032304 .reference}
+# DescribeInstances {#doc_api_1058423 .reference}
 
 查询一台或多台实例的详细信息。
 
@@ -20,11 +20,6 @@
 |Action|String|否|DescribeInstances|系统规定参数。取值：DescribeInstances
 
  |
-|DeviceAvailable|Boolean|否|false|实例是否还有空余挂载点。
-
- **说明：** 该参数即将被弃用，为提高兼容性，请尽量使用其他参数。
-
- |
 |DryRun|Boolean|否|false|是否只预检此次请求。
 
  -   true：发送检查请求，不会查询资源状况。检查项包括AccessKey是否有效、RAM用户的授权情况和是否填写了必需参数。如果检查不通过，则返回对应错误。如果检查通过，会返回错误码DryRunOperation。
@@ -32,46 +27,6 @@
 
  |
 |EipAddresses|String|否|\["42.1.1.1", "42.1.2.1", … "42.1.10.1"\]|实例的弹性公网IP列表。当InstanceNetworkType=vpc时该参数生效，取值可以由多个IP组成一个JSON数组，最多支持100个IP，IP之间用半角逗号（,）隔开。
-
- |
-|Filter.1.Key|String|否|CreationStartTime|通过取值范围筛选返回结果，取值必须是CreationStartTime。
-
- **说明：** 该参数即将被弃用，为提高兼容性，请尽量使用其他参数。
-
- |
-|Filter.1.Value|String|否|2017-12-05T22:40:00Z|通过取值范围筛选返回结果，取值必须是Filter.1.Key对应的值。
-
- **说明：** 该参数即将被弃用，为提高兼容性，请尽量使用其他参数。
-
- |
-|Filter.2.Key|String|否|CreationEndTime|通过取值范围筛选返回结果，取值必须是CreationEndTime。
-
- **说明：** 该参数即将被弃用，为提高兼容性，请尽量使用其他参数。
-
- |
-|Filter.2.Value|String|否|2017-12-06T22:40:00Z|通过取值范围筛选返回结果，取值必须是Filter.2.Key对应的值。
-
- **说明：** 该参数即将被弃用，为提高兼容性，请尽量使用其他参数。
-
- |
-|Filter.3.Key|String|否|ExpiredStartTime|通过取值范围筛选返回结果，取值必须是ExpiredStartTime。
-
- **说明：** 该参数即将被弃用，为提高兼容性，请尽量使用其他参数。
-
- |
-|Filter.3.Value|String|否|2017-12-07T22:40:00Z|通过取值范围筛选返回结果，取值必须是Filter.3.Key对应的值。
-
- **说明：** 该参数即将被弃用，为提高兼容性，请尽量使用其他参数。
-
- |
-|Filter.4.Key|String|否|ExpiredEndTime|通过取值范围筛选返回结果，取值必须是ExpiredEndTime。
-
- **说明：** 该参数即将被弃用，为提高兼容性，请尽量使用其他参数。
-
- |
-|Filter.4.Value|String|否|2017-12-08T22:40:00Z|通过取值范围筛选返回结果，取值必须是Filter.4.Key对应的值。
-
- **说明：** 该参数即将被弃用，为提高兼容性，请尽量使用其他参数。
 
  |
 |HpcClusterId|String|否|hpc-hpclusterid1|实例所在的HPC集群ID。
@@ -86,7 +41,7 @@
 |InstanceChargeType|String|否|PostPaid|实例的计费方式。取值范围：
 
  -   PostPaid：按量付费
--   PostPaid：按量付费
+-   PrePaid：包年包月
 
  |
 |InstanceIds|String|否|\["i-xxxxxxxxx", "i-yyyyyyyyy", … "i-zzzzzzzzz"\]|实例ID。取值可以由多个实例ID组成一个JSON数组，最多支持100个ID，ID之间用半角逗号（,）隔开。
@@ -163,16 +118,6 @@
 |Tag.N.Value|String|否|FinanceDeptJoshua|实例的标签值。n的取值范围 1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
 
  |
-|Tag.N.key|String|否|FinanceDept|实例的标签键。
-
- **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Key参数。
-
- |
-|Tag.N.value|String|否|FinanceDeptJoshua|实例的标签值。
-
- **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Value参数。
-
- |
 |VSwitchId|String|否|vsw-vswitchid1|虚拟交换机ID。
 
  |
@@ -233,7 +178,7 @@
 |└Description|String|FinanceJoshua|实例描述。
 
  |
-|└DeviceAvailable|Boolean|true|实例是否还可以挂载数据盘。
+|└EcsCapacityReservationAttr| | |容量预留相关参数
 
  |
 |└EipAddress| | |弹性公网 IP 绑定信息。
@@ -517,7 +462,6 @@ https://ecs.aliyuncs.com/?Action=DescribeInstances
         <VpcId>vpc-2zeuphj08tt7q3brdb36x</VpcId>
       </VpcAttributes>
       <InternetMaxBandwidthOut>1</InternetMaxBandwidthOut>
-      <DeviceAvailable>true</DeviceAvailable>
       <SecurityGroupIds>
         <SecurityGroupId>sg-2ze21r9qb638hvtrvsus</SecurityGroupId>
       </SecurityGroupIds>
@@ -605,7 +549,6 @@ https://ecs.aliyuncs.com/?Action=DescribeInstances
 					}
 				},
 				"InternetMaxBandwidthOut":"1",
-				"DeviceAvailable":"true",
 				"SecurityGroupIds":{
 					"SecurityGroupId":[
 						"sg-94kd0cyg0"
@@ -631,8 +574,6 @@ https://ecs.aliyuncs.com/?Action=DescribeInstances
 |404|InvalidInstanceChargeType.NotFound|The InstanceChargeType does not exist in our records|指定的实例升降配规格不存在。|
 |404|InvalidInternetChargeType.ValueNotSupported|The specified InternetChargeType is not valid|指定的网络计费方式不合法。|
 |404|InvalidNetworkType.NotFound|The specified InstanceNetworkType is not found|指定的带宽类型不存在。|
-|404|InvalidStatus.NotFound|The specified Status is not found|指定的资源状态不存在。|
-|400|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|指定的 Tag.n.Key 和 Tag.n.Value 不匹配。|
 |400|InvalidHpcClusterId.NotFound|The specified HpcClusterId is not found.|指定的HPC集群ID不存在。|
 |400|InvalidHpcClusterId.Creating|The specified HpcClusterId is creating.|指定的HPC集群正在创建中。|
 
