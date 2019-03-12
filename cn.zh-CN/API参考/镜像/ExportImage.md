@@ -1,13 +1,12 @@
-# ExportImage {#doc_api_1003489 .reference}
+# ExportImage {#doc_api_1061139 .reference}
 
 导出您的自定义镜像到与该自定义镜像同一地域的 OSS Bucket 里。
 
-## 描述 {#description .section}
-
-您需要 [提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm)联系阿里云，为您开启导出镜像功能。
+## 接口说明 {#description .section}
 
 -   不支持导出使用市场镜像的系统盘快照创建的自定义镜像。
 -   支持导出镜像中包括数据盘快照的信息的自定义镜像，其中数据盘数不能超过 4 块，单块数据盘容量最大不能超过 500 GB。
+-   您需要[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm)联系阿里云，为您开启导出镜像功能。
 -   需要通过 RAM 授权云服务器 ECS 官方服务账号写入 OSS 的权限：
 
     1. 创建角色：`AliyunECSImageExportDefaultRole`（其他任何角色名称无效），为该角色设置以下角色策略：
@@ -31,7 +30,7 @@
             
     ```
 
-    2. 在角色 `AliyunECSImageExportDefaultRole` 下加入默认的系统权限策略：`AliyunECSImageExportRolePolicy`，该策略是云服务器 ECS 提供导出镜像的默认策略。用户也可以创建自定义策略，权限需要包含：
+    2. 在角色 `AliyunECSImageExportDefaultRole` 下加入默认的系统权限策略：`AliyunECSImageExportRolePolicy`，该策略是云服务器 ECS 提供导出镜像的默认策略。更多详情，请参见[云资源访问授权](https://ram.console.aliyun.com/?spm=5176.2020520101.0.0.64c64df5dfpmdY#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunECSImageImportDefaultRole%22,%20%22TemplateId%22:%20%22ECSImportRole%22%7D,%20%22request2%22:%20%7B%22RoleName%22:%20%22AliyunECSImageExportDefaultRole%22,%20%22TemplateId%22:%20%22ECSExportRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fecs.console.aliyun.com%2F%22,%20%22Service%22:%20%22ECS%22%7D)。用户也可以创建自定义策略，权限需要包含：
 
     ```
     
@@ -44,6 +43,7 @@
                      "oss:PutObject",
                      "oss:DeleteObject",
                      "oss:GetBucketLocation",
+                     "oss:GetBucketInfo",
                      "oss:AbortMultipartUpload",
                      "oss:ListMultipartUploads",
                      "oss:ListParts"
@@ -77,17 +77,7 @@
 |Action|String|否|ExportImage|系统规定参数。取值：ExportImage
 
  |
-|ImageFormat|String|否|raw|导出镜像时指定的镜像格式。
-
- **说明：** 该参数即将下线，为保持兼容性，请您尽量使用其他参数。
-
- |
 |OSSPrefix|String|否|EcsExport|您的 OSS Object 的前缀。可以由数字或者字母组成，字符长度为 1~30。
-
- |
-|RoleName|String|否|FinanceJoshua|导出镜像时的角色名称。
-
- **说明：** 该参数即将下线，为保持兼容性，请您尽量使用其他参数。
 
  |
 
@@ -149,7 +139,6 @@ https://ecs.aliyuncs.com/?Action=ExportImage
 |--------|---|----|--|
 |400|MissingParameter|An input parameter "RegionId" that is mandatory for processing the request is not supplied.|参数 RegionId 不得为空。|
 |400|MissingParameter|An input parameter "ImageId" that is mandatory for processing the request is not supplied.|参数 ImageId 不得为空。|
-|400|MissingParameter|An input parameter "OSSBucket" that is mandatory for processing the request is not supplied.|参数 OSSBucket 不得为空。|
 |400|InvalidRegionId.NotFound|The specified RegionId does not exist.|指定的 RegionId 不存在，请您检查此产品在该地域是否可用。|
 |400|InvalidRegion.NotSupport|The specified region does not support image import or export.|指定的地域暂时不支持此操作。|
 |404|InvalidImageId.NotFound|The specified ImageId does not exist.|指定的镜像在该用户账号下不存在，请您检查镜像id是否正确。|
@@ -157,13 +146,9 @@ https://ecs.aliyuncs.com/?Action=ExportImage
 |403|ImageNotSupported|The specified image from the image market, do not support export image.|不支持导出镜像市场里的镜像。|
 |400|InvalidImageFormat.Malformed|The specified Image Format is wrongly formed.|参数 AssociateInstanceType 格式错误。|
 |403|ExportImageFailed|Exporting image is failed, Please contact the administrator.|导出镜像失败，请联系系统管理员。|
-|400|InvalidOSSBucket.NotFound|The specified OSS bucket does not exist in this region.|指定的bucket不存在。|
-|400|OperationDenied|The specified image contains the snapshot of the data disk,does not support this operation.|指定的镜像包含了数据盘快照的映射，不支持导出。|
 |400|InvalidImage.DiskAmountOrSize|The diskSize or diskAmount of the image exceeds the limitation.|磁盘大小和磁盘数量不能超过导出镜像的使用限制。|
 |400|ImageNotSupported|The specified Image contains encrypted snapshots, do not support export.|指定的镜像包含了加密快照，不支持导出。|
 |400|ImageNotSupported|Image from image market does not support exporting.|不支持导出镜像市场里的镜像。|
-|403|ConcurrentQuotaExceed.ExportImage|%s|当前在处理中的任务数已超过配额，请耐心等待前面任务完成。|
-|403|WeeklyQuotaExceed.ExportImage|%s|本周提交任务已经超出配额，请耐心等候再次分配可用额度。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
