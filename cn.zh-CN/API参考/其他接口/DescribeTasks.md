@@ -1,4 +1,4 @@
-# DescribeTasks {#doc_api_1057995 .reference}
+# DescribeTasks {#doc_api_1063660 .reference}
 
 查询一个或多个异步请求的进度。
 
@@ -16,7 +16,7 @@
 |Action|String|否|DescribeTasks|系统规定参数。取值：DescribeTasks
 
  |
-|EndTime|String|否|2015-11-23T15:16:00Z|按创建时间查询，创建时间区间的终止点。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为YYYY-MM-DDTHH:mm:ssZ。
+|EndTime|String|否|2015-11-23T15:16:00Z|按创建时间查询，创建时间区间的终止点。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
  |
 |OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
@@ -28,16 +28,16 @@
 |PageSize|Integer|否|2|分页查询时设置的每页记录数，最大值100行，默认值为10。
 
  |
-|StartTime|String|否|2015-11-23T15:10:00Z|按创建时间查询，创建时间区间的起始点。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为YYYY-MM-DDTHH:mm:ssZ。
+|StartTime|String|否|2015-11-23T15:10:00Z|按创建时间查询，创建时间区间的起始点。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
  |
 |TaskAction|String|否|ImportImage|任务操作的接口名称。取值范围：
 
- -   ImportImage：导入镜像（ImportImage）
--   ExportImage：导出镜像（ExportImage）
+ -   ImportImage：导入镜像
+-   ExportImage：导出镜像
 
  |
-|TaskIds|String|否|t-bp10e8orkpqm0lc74o8X|任务ID，单次最多支持指定100个，ID之间使用半角逗号（,）分隔。
+|TaskIds|String|否|\["t-bp10e8orkpqm0lc74o8x","t-bp10e8orkpqm0lc74o8y"\]|任务ID，单次最多支持指定100个，ID之间使用半角逗号（,）分隔。
 
  |
 |TaskStatus|String|否|Finished|任务状态。取值范围：
@@ -47,10 +47,9 @@
 -   Waiting：多任务排队中
 -   Deleted：已取消
 -   Paused：暂停
+-   Failed：失败
 
- 默认值：无
-
- 目前，只支持查询状态为Finished和Processing的任务，填入其他取值将不会生效。
+ 默认值：无。只支持查询状态为Finished、Processing和Failed的任务，填入其他取值将不会生效。
 
  |
 
