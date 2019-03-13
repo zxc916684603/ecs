@@ -1,10 +1,10 @@
-# DescribeDemands {#doc_api_1063869 .reference}
+# DescribeDemands {#doc_api_1064588 .reference}
 
-查询报备资源的交付以及使用状态。您可通过该接口查询客户经理为您报备的资源详情，包括报备资源类型、资源的交付情况、资源的消费情况。
+查询报备资源的交付及使用状态。您可通过该接口查询客户经理为您报备的资源详情，包括报备资源类型、资源的交付情况、资源的消费情况。
 
 ## 接口说明 {#description .section}
 
-仅支持查询I/O优化ECS实例的报备资源。网络类型必须是VPC。
+仅支持报备I/O优化，VPC网络类型的ECS实例。默认查询I/O优化，VPC网络类型的ECS实例的报备单状态。
 
 **说明：** 该接口正在内测调整中，尚未正式上线，暂时不建议使用，请您耐心等待。
 
@@ -22,11 +22,11 @@
 |Action|String|否|DescribeDemands|接口名称。取值：DescribeDemands
 
  |
-|DemandStatus.N|RepeatList|否|Active|报备单状态
+|DemandStatus.N|RepeatList|否|Active|报备单状态。N的取值范围为1~5。状态值范围：
 
- -   Creating：报备单创建中
+ -   Creating：创建中
 -   Active：供应中
--   Expired：截止可用时间前未消费完毕
+-   Expired：已过期
 -   Finished：消费完毕
 -   Cancelled：报备取消
 
@@ -78,22 +78,22 @@
  报备资源中待交付实例数量
 
  |
-|└DemandStatus|String|Active|报备单的状态
+|└DemandStatus|String|Active|报备单的状态。可能值：
 
- -   Creating：创建中
--   Active：供应中
--   Expired：过期。报备时期望购买时间已到期；过期后报备资源会释放，交付状态无效
--   Finished：完成。报备资源已消费完毕
--   Cancelled：已取消。报备取消后，资源交付状态无效
-
- |
-|└DemandTime|String|2019-02-26T12:00Z|报备单创建时间。按照ISO8601标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mmZ
+ -   Creating：报备资源创建中
+-   Active：报备资源供应中
+-   Finished：报备资源已消费完毕
+-   Expired：报备时期望购买时间已过期，过期后报备资源会释放，资源交付状态无效
+-   Cancelled：报备资源已取消，报备取消后，资源交付状态无效
 
  |
-|└EndTime|String|2019-03-03T15:00Z|报备资源预期截止购买时间。按照ISO8601标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mmZ
+|└DemandTime|String|2019-02-26T12:00Z|报备单创建时间。按照ISO8601标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mmZ。
 
  |
-|└InstanceChargeType|String|PostPaid|报备资源的计费方式。可能值：
+|└EndTime|String|2019-03-03T15:00Z|报备资源预期截止购买时间。按照ISO8601标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mmZ。
+
+ |
+|└InstanceChargeType|String|Prepaid|报备资源的计费方式。可能值：
 
  -   Prepaid
 -   Postpaid
@@ -108,7 +108,7 @@
 |└Period|Integer|3|报备资源的使用时长
 
  |
-|└PeriodUnit|String|Month|报备资源的使用时长单位。可能值：
+|└PeriodUnit|String|Month|报备资源的使用时长单位。
 
  -   Hour
 -   Day
@@ -116,22 +116,22 @@
 -   Month
 
  |
-|└StartTime|String|2019-02-27T12:00Z|报备资源预期开始购买时间。按照ISO8601标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mmZ
+|└StartTime|String|2019-02-27T12:00Z|报备资源预期开始购买时间。按照ISO8601标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mmZ。
 
  |
 |└SupplyInfos| | |报备资源的交付状态
 
  |
-|└Amount|Integer|30|当次交付的实例数量
+|└Amount|Integer|30|本次交付的实例数量
 
  |
-|└SupplyEndTime|String|2019-03-03T15:00Z|资源交付可用的截止时间。按照ISO8601标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mmZ
+|└SupplyEndTime|String|2019-03-03T15:00Z|资源交付可用的截止时间。按照ISO8601标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mmZ。
 
  |
-|└SupplyStartTime|String|2019-03-01T14:00Z|资源交付可用的开始时间。按照ISO8601标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mmZ
+|└SupplyStartTime|String|2019-03-01T14:00Z|资源交付可用的开始时间。按照ISO8601标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mmZ。交付状态为SupplyStatus=Delivering时，该参数返回的时间仅供参考。
 
  |
-|└SupplyStatus|String|Delivering|资源交付状态。可能值：
+|└SupplyStatus|String|Delivering|资源交付状态。
 
  -   Delivered ：已交付
 -   Delivering：交付中
@@ -257,7 +257,10 @@ https://ecs.aliyuncs.com/?Action=DescribeDemands
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
+ 
+
 -   缺失RegionId时会报错400-MissingParamter.RegionId-The regionId should not be null.
+
 -   计费方式取值错误时会报错404-InvalidInstanceChargeType.NotFound-The InstanceChargeType does not exist in our records
 -   DemandStatus取值错误时会报错404-InvalidStatus.ValueNotSupported-The DemandStatus does not exist in our records
 -   阿里云地域ID取值错误时会报错400-InvalidRegion.NotFound-The RegionId provided does not exist in our records.
