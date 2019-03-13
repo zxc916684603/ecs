@@ -1,6 +1,6 @@
-# DescribeDemands {#doc_api_1063470 .reference}
+# DescribeDemands {#doc_api_1063869 .reference}
 
-查询报备资源的交付及使用状态。您可通过该接口查询客户经理为您报备的资源详情，包括报备资源类型、资源的交付情况、资源的消费情况。
+查询报备资源的交付以及使用状态。您可通过该接口查询客户经理为您报备的资源详情，包括报备资源类型、资源的交付情况、资源的消费情况。
 
 ## 接口说明 {#description .section}
 
@@ -16,13 +16,13 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|RegionId|String|是|cn-hangzhou|目标地域 ID。您可以调用 [DescribeRegions](https://help.aliyun.com/document_detail/25609.html?spm=a2c4g.11186623.2.14.5044431dYU5SoJ) 查看最新的阿里云地域列表。
+|RegionId|String|是|cn-hangzhou|目标地域 ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
 
  |
 |Action|String|否|DescribeDemands|接口名称。取值：DescribeDemands
 
  |
-|DemandStatus.N|RepeatList|否|Active|报备单状态。取值范围：
+|DemandStatus.N|RepeatList|否|Active|报备单状态
 
  -   Creating：报备单创建中
 -   Active：供应中
@@ -59,12 +59,6 @@
  默认值：10
 
  |
-|Tag.N.Key|String|否|FinanceDept|标签键。n的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http:// 或者 https:// 开头。
-
- |
-|Tag.N.Value|String|否|FinanceDeptJoshua|标签值。n的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http:// 或者 https:// 开头。
-
- |
 |ZoneId|String|否|cn-hangzhou-g|可用区ID。
 
  |
@@ -84,7 +78,7 @@
  报备资源中待交付实例数量
 
  |
-|└DemandStatus|String|Active|报备单的状态。可能值：
+|└DemandStatus|String|Active|报备单的状态
 
  -   Creating：创建中
 -   Active：供应中
@@ -99,7 +93,7 @@
 |└EndTime|String|2019-03-03T15:00Z|报备资源预期截止购买时间。按照ISO8601标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mmZ
 
  |
-|└InstanceChargeType|String|Prepaid|报备资源的计费方式。可能值：
+|└InstanceChargeType|String|PostPaid|报备资源的计费方式。可能值：
 
  -   Prepaid
 -   Postpaid
@@ -114,7 +108,7 @@
 |└Period|Integer|3|报备资源的使用时长
 
  |
-|└PeriodUnit|String|Month|报备资源的使用时长计费单位。可能值：
+|└PeriodUnit|String|Month|报备资源的使用时长单位。可能值：
 
  -   Hour
 -   Day
@@ -128,7 +122,7 @@
 |└SupplyInfos| | |报备资源的交付状态
 
  |
-|└Amount|Integer|30|本次交付的实例数量
+|└Amount|Integer|30|当次交付的实例数量
 
  |
 |└SupplyEndTime|String|2019-03-03T15:00Z|资源交付可用的截止时间。按照ISO8601标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mmZ
@@ -139,7 +133,7 @@
  |
 |└SupplyStatus|String|Delivering|资源交付状态。可能值：
 
- -   Delivered ：已交付，资源可用
+ -   Delivered ：已交付
 -   Delivering：交付中
 
  |
@@ -152,7 +146,7 @@
 |└ZoneId|String|cn-hangzhou-g|报备资源所在的可用区
 
  |
-|PageNumber|Integer|1|报备单列表的页码。
+|PageNumber|Integer|1|报备单列表的页码
 
  |
 |PageSize|Integer|10|输入时设置的每页行数
@@ -265,9 +259,9 @@ https://ecs.aliyuncs.com/?Action=DescribeDemands
 
 -   缺失RegionId时会报错400-MissingParamter.RegionId-The regionId should not be null.
 -   计费方式取值错误时会报错404-InvalidInstanceChargeType.NotFound-The InstanceChargeType does not exist in our records
--   DemandStatus取值错误时会报错-404-InvalidStatus.ValueNotSupported-The DemandStatus does not exist in our records
--   阿里云地域ID取值错误时会报错-400-InvalidRegion.NotFound-The RegionId provided does not exist in our records.
--   可用区ID取值错误时会报错-404-InvalidZone.NotFound-The ZoneId provided does not exist in our records.
--   实例规格取值错误时会报错-404-InvalidInstanceType.NotFound-The InstanceType provided does not exist in our records.
--   实例规格与规格族不匹配时会报错-404-InvalidInstanceType.NotMatch-The InstanceType provided does match the InstanceTypeFamily in our records.
+-   DemandStatus取值错误时会报错404-InvalidStatus.ValueNotSupported-The DemandStatus does not exist in our records
+-   阿里云地域ID取值错误时会报错400-InvalidRegion.NotFound-The RegionId provided does not exist in our records.
+-   可用区ID取值错误时会报错404-InvalidZone.NotFound-The ZoneId provided does not exist in our records.
+-   实例规格取值错误时会报错404-InvalidInstanceType.NotFound-The InstanceType provided does not exist in our records.
+-   实例规格与规格族不匹配时会报错404-InvalidInstanceType.NotMatch-The InstanceType provided does match the InstanceTypeFamily in our records.
 
