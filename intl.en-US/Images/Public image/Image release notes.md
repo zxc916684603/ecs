@@ -13,6 +13,17 @@ This topic describes the release notes of images and relevant updates.
 
  |
 
+## February 25, 2019 {#section_ofz_qkq_bhb .section}
+
+|Release|Description|
+|:------|:----------|
+|Debian 9.8| -   Image ID: debian\_9\_08\_64\_20G\_alibase\_20190225.vhd
+-   Kernal version: 4.9.0-8-amd64
+-   Released in: all regions
+-   What's new: Updated to the latest system patches.
+
+ |
+
 ## February 23, 2019 {#section_fsj_ddg_xgb .section}
 
 |Release|Description|
@@ -39,7 +50,7 @@ This topic describes the release notes of images and relevant updates.
 
 |Release|Description|
 |:------|:----------|
-|Debian 9.6| -   Image ID: debian\_9\_06\_64\_20G\_alibase\_20190103.vhd
+|Debian9.6| -   Image ID: debian\_9\_06\_64\_20G\_alibase\_20190103.vhd
 -   Kernel version: 4.9.0-8-amd64
 -   Released in: all regions
 -   What's new: Enabled the systemd-networkd service.
