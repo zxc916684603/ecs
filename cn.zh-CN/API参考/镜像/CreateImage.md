@@ -1,21 +1,21 @@
-# CreateImage {#doc_api_1023340 .reference}
+# CreateImage {#doc_api_1083220 .reference}
 
 创建一份自定义镜像。您可以使用创建的自定义镜像创建ECS实例（RunInstances）或者更换实例的系统盘（ReplaceSystemDisk）。
 
-## 描述 {#description .section}
+## 接口说明 {#description .section}
 
 调用该接口时，您需要注意：
 
--   您需要等待镜像状态变为可用（Available）后才能使用镜像资源。
+-   等待镜像状态变为可用（Available）后才能使用镜像资源。
 -   被 [安全控制](~~25695~~) 的ECS实例的OperationLocks不能标记为"LockReason" : "security"。
 
-以下描述了三种通过该接口创建自定义镜像的方法。
+以下描述了三种通过该接口创建自定义镜像的方法。请求参数的优先级为：InstanceId \> DiskDeviceMapping \> SnapshotId，若您的请求中同时含有两个及以上参数，默认以优先级更高的参数为准创建镜像。
 
-**方法一**：针对某一台实例的系统盘创建自定义镜像，只需要指定实例系统盘的一份历史快照ID（SnapshotId）。其中，指定的快照不能是2013年7月15日（含）之前创建的快照。
+-   **方法一**：使用一台实例做模板，只需要指定实例ID（InstanceId）。该台实例的状态必须为运行中（Running）或者已停止（Stopped）。接口调用成功后，该台实例的每块磁盘均会新增一份快照。
+-   **方法二**：针对某一台实例的系统盘创建自定义镜像，只需要指定实例系统盘的一份历史快照ID（SnapshotId）。其中，指定的快照不能是2013年7月15日（含）之前创建的快照。
+-   **方法三**：将多份磁盘快照组合成一个镜像模板，需要建立几块磁盘的数据关联（DiskDeviceMapping）。
 
-**方法二**：使用一台实例做模板，只需要指定实例ID（InstanceId）。该台实例的状态必须为运行中（Running）或者已停止（Stopped）。接口调用成功后，该台实例的每块磁盘均会新增一份快照。
-
-**方法三**：将多份磁盘快照组合成一个镜像模板，需要建立几块磁盘的数据关联（DiskDeviceMapping）。通过这种方法创建自定义镜像时，您需要注意：
+使用方法三创建自定义镜像时，请注意：
 
 -   只能指定一个系统盘快照，系统盘的设备名必须为/dev/xvda。
 -   可以指定多个数据盘快照，数据盘设备名默认由系统有序分配，从/dev/xvdb依次排序到/dev/xvdz，不能重复。
@@ -70,13 +70,7 @@
 |ImageName|String|否|FinanceDeptJoshuaCentOS|镜像名称。长度为2~128个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值：空。
 
  |
-|ImageVersion|String|否|2017011017|镜像版本号。长度为1~40个英文字符。
-
- |
 |InstanceId|String|否|i-instanceid|实例ID。
-
- |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
 
  |
 |Platform|String|否|CentOS|指定数据盘快照做镜像的系统盘后，需要通过Platform确定系统盘的的操作系统发行版。取值范围：
@@ -184,25 +178,23 @@ https://ecs.aliyuncs.com/?Action=CreateImage
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
 |400|InvalidImageName.Duplicated|The specified Image name has already bean used.|镜像名称已经重复。|
-|400|InvalidDescription.Malformed|The specified description is wrongly formed.|指定的资源描述格式不合法。长度为2-256个字符，不能以 http:// 和 https:// 开头。|
 |403|OperationDenied|The specified snapshot is not allowed to create image.|指定快照不允许创建镜像。|
 |403|QuotaExceed.Image|The Image Quota exceeds.|自定义镜像额度已用完。|
 |403|OperationDenied|The specified snapshot is not from system disk.|指定的快照不是系统盘快照。|
 |403|InvalidParamter.Conflict|The specified same token is trying to make requests with different parameters.|同一个 Token 正在请求处理两个不同的参数。|
 |400|IncorrectInstanceStatus|The current status of the instance does not support this operation.|当前实例状态不支持此操作。|
-|400|MissingParameter|The input parameter SnapshotId or InstanceId or DiskDeviceMapping that is mandatory for processing this request is not supplied.|参数 SnapshotId，InstanceId 和 DiskDeviceMapping 不得为空。|
 |400|InvalidSize.ValueNotSupported|The specified parameter DiskDeviceMapping.n.Size beyond the permitted range.|指定的参数 DiskDeviceMapping.n.Size 超出取值范围。|
 |400|InvalidDevice.InUse|The specified parameter DiskDeviceMapping.n.Device has been occupied.|指定的参数 DiskDeviceMapping.n.Device 已被占用。|
 |400|OperationDenied|The specified parameter DiskDeviceMapping.n.SnapshotId does not contain system disk snapshot.|系统盘快照中不存在指定的 DiskDeviceMapping 快照 ID。|
 |400|OperationDenied|The specified parameter DiskDeviceMapping.n.SnapshotId contains two or more system disk snapshots.|指定的 DiskDeviceMapping 快照 ID 中已存在系统盘快照。|
 |400|InvalidDiskCategory.CreateImage|The specified diskCategory is not allowed to create image.|指定的磁盘类型无法创建镜像。|
 |403|InvalidAccountStatus.NotEnoughBalance|Your account does not have enough balance.|账号余额不足，请您先充值再进行该操作。|
-|403|UserNotInTheWhiteList|The user is not in the white list of create image by data disk snapshot.|您未被允许根据数据盘创建镜像。|
-|400|InvalidArchitecture.Malformed|The specified Architecture is wrongly formed.|参数 Architecture 格式错误。|
-|400|OperationDenied|Not support creating system image from an encrypted snapshot/disk.|加密快照或加密磁盘不能创建自定义镜像。|
+|400|InvalidParameter.AllEmpty|%s|缺失必需参数。|
 |403|IncorrectDiskStatus.Invalid|Device status is invalid, please restart instance and try again.|设备状态无效，请重启实例后再试。|
+|403|OperationDenied.InvalidSnapshotCategory|%s|无效的快照类型。|
 |403|QuotaExceed.Snapshot|The snapshot quota exceeds.|快照额度超过限制，若要存储新快照，在不影响业务的情况下，请您删除已有的老快照。|
 |403|IncorrectDiskStatus.Transferring|The specified device is transferring, you can retry after the process is finished.|指定磁盘正在迁移中，请在迁移完毕后重试。|
+|403|InvalidSystemSnapshot.Missing|?s|创建该系统盘的源快照已被删除。|
 |500|InternalError|The process of creating snapshot has failed due to some unknown error.|发生未知错误。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
