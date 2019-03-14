@@ -1,8 +1,8 @@
-# ModifyInstanceNetworkSpec {#doc_api_999428 .reference}
+# ModifyInstanceNetworkSpec {#doc_api_1072927 .reference}
 
 修改实例的带宽配置。当实例现有网络规格不满足要求时，可以通过修改实例的带宽配置提高网络性能。
 
-## 描述 {#description .section}
+## 接口说明 {#description .section}
 
 调用该接口时，您需要注意：
 
@@ -49,7 +49,7 @@
 |ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
 
  |
-|EndTime|String|否|2017-12-06T22:40:00Z|临时带宽升级结束时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
+|EndTime|String|否|2017-12-06T22:40:00Z|临时带宽升级结束时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddThhZ 。
 
  |
 |InternetMaxBandwidthIn|Integer|否|10|设置公网入带宽最大值，单位：Mbps（Megabit per second）。取值范围：1~200
@@ -67,7 +67,7 @@
 |OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
 
  |
-|StartTime|String|否|2017-12-05T22:40:00Z|临时带宽升级开始时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
+|StartTime|String|否|2017-12-05T22:40:00Z|临时带宽升级开始时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddThh:mmZ 。
 
  |
 
@@ -125,19 +125,20 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceNetworkSpec
 |403|IncorrectInstanceStatus|The current status of the instance does not support this operation.|当前实例状态不支持此操作。|
 |403|InstanceExpiredOrInArrears|The specified operation is denied as your prepay instance is expired \(prepay mode\) or in arrears \(afterpay mode\).|包年包月实例已过期，请您续费后再进行操作。|
 |403|ChargeTypeViolation|The operation is not permitted due to billing method of the instance.|实例的计费方式不支持该操作。|
-|403|OperationDenied|The operation is denied due to the instance is PrePaid.|实例的计费方式不支持该操作。|
 |400|OperationDenied|Specified instance is in VPC.|指定实例存在于 VPC。|
 |400|InvalidParameter.Bandwidth|%s|参数不支持。|
 |400|InvalidParameter.Conflict|%s|参数冲突。|
+|400|InvalidStartTime.ValueNotSupported|%s|结束时间不得早于开始时间。|
 |400|Account.Arrearage|Your account has an outstanding payment.|账号存在未支付款项。|
 |400|InvalidInternetChargeType.ValueNotSupported|The specified InternetChargeType is invalid.|指定的公网带宽计费方式无效。|
+|400|DecreasedBandwidthNotAllowed|%s|不允许降低公网带宽。|
 |400|BandwidthUpgradeDenied.EipBoundInstance|The specified VPC instance has bound EIP, temporary bandwidth upgrade is denied.|该实例已经绑定EIP，不能进行临时升级。|
 |403|InvalidAccountStatus.NotEnoughBalance|Your account does not have enough balance.|账号余额不足，请您先充值再进行该操作。|
 |403|InvalidInstance.UnPaidOrder|The specified Instance has unpaid order.|指定的实例有未支付的订单，请您先支付再进行操作。|
-|400|Throttling|Request was denied due to request throttling, please try again after 5 minutes.|请求被流控。|
 |400|IpAllocationError|Allocate public ip failed.|公网IP地址分配失败。|
 |400|InvalidParam.AllocatePublicIp|The specified param AllocatePublicIp is invalid.|指定的AllocatePublicIp无效。|
 |400|InstanceDowngrade.QuotaExceed|Quota of instance downgrade is exceed.|该实例降配已达到最大允许次数。|
+|400|InvalidBandwidth.ValueNotSupported|Instance upgrade bandwidth of temporary not allow less then existed.|临时升级带宽值不能低于已有带宽值。|
 |403|InvalidInstance.InstanceNotSupported|The special vpc instance with eip not need bandwidth.|VPC类型实例绑定EIP后不需要指定公网带宽。|
 |400|InvalidInstanceStatus|The specified instance status does not support this action.|实例的当前状态不支持该操作。|
 |403|InvalidInstanceStatus|The current status of the instance does not support this operation.|实例当前状态不支持该操作。|
