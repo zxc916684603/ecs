@@ -8,7 +8,7 @@ You can use [Express Connect](https://help.aliyun.com/product/27782.html) and [V
 
 The V1.2.8 Cloud Migration tool and later versions support VPC-based migration. To perform a VPC-based migration, you need to set the net\_mode field of client\_data to 1 or 2.
 
-![](images/33339_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65304/155256185033339_en-US.png)
 
 The options of the net\_mode parameter are described as follows:
 
@@ -29,7 +29,7 @@ If you set net\_mode to 1, follow these steps to migrate the system:
     3.  Set the target vpc\_id, vswitch\_id, and zone\_id in the client\_data file. For more information, see [Configure the client\_data file to the specified VPC](#).
     4.  Run the Cloud Migration tool until the message `Stage 1 is done!` is displayed.
 
-        ![](images/33354_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65304/155256185033354_en-US.png)
 
 2.  Transfer system data in the VPC.
 
@@ -40,7 +40,7 @@ If you set net\_mode to 1, follow these steps to migrate the system:
 
     3.  Run the Cloud Migration tool until the message `Stage 2 is done!` is displayed.
 
-        ![](images/33355_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65304/155256185133355_en-US.png)
 
 3.  Create an image in the Internet environment.
 
@@ -50,7 +50,7 @@ If you set net\_mode to 1, follow these steps to migrate the system:
 
     2.  Run the Cloud Migration tool until the message `Stage 3 is done!` is displayed, which indicates the cloud migration is finished.
 
-        ![](images/33356_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65304/155256185133356_en-US.png)
 
 
 ## Method 2 {#section_jtg_jwp_yfb .section}
@@ -70,20 +70,20 @@ To configure the client\_data file to the specified VPC, follow these steps:
 
 1.  Set vpc\_id to the ID of the specified VPC.
 
-    ![](images/33357_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65304/155256185133357_en-US.png)
 
 2.  Set vswitch\_id to the ID of the specified VSwitch.
 
-    ![](images/33358_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65304/155256185133358_en-US.png)
 
 3.  Set zone\_id to the ID of the specified zone.
 
-    ![](images/33359_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65304/155256185133359_en-US.png)
 
 4.  \(Optional\) Set security\_group\_id to the ID of the specified security group. If you do not set this parameter, it will be automatically created.
 
     **Note:** The specified security group must enable port 8080 and port 8703 in the inbound direction.
 
-    ![](images/33360_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65304/155256185133360_en-US.png)
 
 
