@@ -37,11 +37,11 @@ This topic describes how to purchase a Reserved Instance \(RI\).
 
         The Reserved Instance can match the specified count of Pay-As-You-Go instances with the specified Instance Type. For example, if the Instance Type is ecs.g5.large and Reserved Instance Count is 3, the Reserved Instance can match 3 Pay-As-You-Go instances with Instance Type as ecs.g5.large.
 
-7.  Read and confirm that you agree to the *Reserved Instance Service Agreement*, and then click **Buy**.
+7.  Read and confirm that you agree to the *ECS Service Level Agreement*, and then click **Buy**.
 8.  In the confirmation dialog box, confirm the parameters, and then click **Create Order**.
 9.  Confirm the payment information, and then click **Pay**.
 
 ## What to do next {#section_mdh_vyj_ggb .section}
 
-After you have successfully purchased an RI, you can immediately benefit from the billing discount when the RI matches one or more Pay-As-You-Go instances. You can also[Manage Reserved Instances](reseller.en-US/Instances/Instance purchasing options/Reserved Instances/Manage Reserved Instances.md#) to quickly adjust to any changes made to your Pay-As-You-Go instances.
+After you have successfully purchased an RI, you can immediately benefit from the billing discount when the RI matches one or more Pay-As-You-Go instances. You can also [Manage Reserved Instances](reseller.en-US/Instances/Instance purchasing options/Reserved Instances/Manage Reserved Instances.md#) to quickly adjust to any changes made to your Pay-As-You-Go instances.
 
