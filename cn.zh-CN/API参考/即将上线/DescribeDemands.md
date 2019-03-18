@@ -1,4 +1,4 @@
-# DescribeDemands {#doc_api_1064588 .reference}
+# DescribeDemands {#doc_api_1088324 .reference}
 
 查询报备资源的交付及使用状态。您可通过该接口查询客户经理为您报备的资源详情，包括报备资源类型、资源的交付情况、资源的消费情况。
 
@@ -22,7 +22,7 @@
 |Action|String|否|DescribeDemands|接口名称。取值：DescribeDemands
 
  |
-|DemandStatus.N|RepeatList|否|Active|报备单状态。N的取值范围为1~5。状态值范围：
+|DemandStatus.N|RepeatList|否|Active|报备单状态。N的取值范围为1~5，DemandStatus的取值范围：
 
  -   Creating：创建中
 -   Active：供应中
@@ -37,7 +37,7 @@
 -   false（默认值）：发送正常请求，通过检查后返回2XX HTTP状态码并直接查询报备单状况。
 
  |
-|InstanceChargeType|String|否|PostPaid|实例的计费方式。取值范围：
+|InstanceChargeType|String|否|PrePaid|实例的计费方式。取值范围：
 
  -   PostPaid：按量付费
 -   PrePaid：包年包月
@@ -93,7 +93,7 @@
 |└EndTime|String|2019-03-03T15:00Z|报备资源预期截止购买时间。按照ISO8601标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mmZ。
 
  |
-|└InstanceChargeType|String|Prepaid|报备资源的计费方式。可能值：
+|└InstanceChargeType|String|PrePaid|报备资源的计费方式。可能值：
 
  -   Prepaid
 -   Postpaid
@@ -108,7 +108,7 @@
 |└Period|Integer|3|报备资源的使用时长
 
  |
-|└PeriodUnit|String|Month|报备资源的使用时长单位。
+|└PeriodUnit|String|Month|报备资源的使用时长单位。可能值：
 
  -   Hour
 -   Day
@@ -122,7 +122,7 @@
 |└SupplyInfos| | |报备资源的交付状态
 
  |
-|└Amount|Integer|30|本次交付的实例数量
+|└Amount|Integer|30|本次交付的实例数量。
 
  |
 |└SupplyEndTime|String|2019-03-03T15:00Z|资源交付可用的截止时间。按照ISO8601标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mmZ。
@@ -146,7 +146,7 @@
 |└ZoneId|String|cn-hangzhou-g|报备资源所在的可用区
 
  |
-|PageNumber|Integer|1|报备单列表的页码
+|PageNumber|Integer|1|报备单列表的页码。
 
  |
 |PageSize|Integer|10|输入时设置的每页行数
@@ -180,33 +180,36 @@ https://ecs.aliyuncs.com/?Action=DescribeDemands
 
 ``` {#xml_return_success_demo}
 <DescribeDemandsResponse>
-  <Demands>
-    <AvailableAmount>0</AvailableAmount>
-    <DeliveringAmount>50</DeliveringAmount>
-    <DemandStatus>Expired</DemandStatus>
-    <DemandTime>2019-02-26T12:00Z</DemandTime>
-    <EndTime>2019-03-03T15:00Z</EndTime>
-    <InstanceChargeType>PrePaid</InstanceChargeType>
-    <InstanceType>ecs.g5.4xlarge</InstanceType>
-    <InstanceTypeFamily>ecs.g5</InstanceTypeFamily>
-    <Period>3</Period>
-    <PeriodUnit>Month</PeriodUnit>
-    <StartTime>2019-02-27T12:00Z</StartTime>
-    <SupplyInfos>
-      <Amount>50</Amount>
-      <SupplyEndTime>2019-03-03T15:00Z</SupplyEndTime>
-      <SupplyStartTime>2019-03-01T14:00Z</SupplyStartTime>
-      <SupplyStatus>Delivering</SupplyStatus>
-    </SupplyInfos>
-    <TotalAmount>50</TotalAmount>
-    <UsedAmount>0</UsedAmount>
-    <ZoneId>cn-hangzhou-g</ZoneId>
-  </Demands>
   <PageNumber>1</PageNumber>
+  <TotalCount>1</TotalCount>
+  <Demands>
+    <Demand>
+      <Period>3</Period>
+      <DemandTime>2019-02-26T12:00Z</DemandTime>
+      <InstanceTypeFamily>ecs.n1</InstanceTypeFamily>
+      <AvailableAmount>50</AvailableAmount>
+      <ZoneId>cn-hangzhou-g</ZoneId>
+      <UsedAmount>0</UsedAmount>
+      <InstanceType>ecs.n1.small</InstanceType>
+      <DemandStatus>Expired</DemandStatus>
+      <EndTime>2019-03-03T15:00Z</EndTime>
+      <TotalAmount>50</TotalAmount>
+      <SupplyInfos>
+        <SupplyInfo>
+          <Amount>50</Amount>
+          <SupplyEndTime>2019-03-03T15:00Z</SupplyEndTime>
+          <SupplyStartTime>2019-03-01T14:00Z</SupplyStartTime>
+          <SupplyStatus>Delivering</SupplyStatus>
+        </SupplyInfo>
+      </SupplyInfos>
+      <StartTime>2019-02-27T12:00Z</StartTime>
+      <InstanceChargeType>PrePaid</InstanceChargeType>
+      <PeriodUnit>Month</PeriodUnit>
+    </Demand>
+  </Demands>
   <PageSize>10</PageSize>
   <RegionId>cn-hangzhou</RegionId>
-  <RequestId>04066112-BF3A-4FCD-ABBD-B4B5EDAE9DXX</RequestId>
-  <TotalCount>1</TotalCount>
+  <RequestId>A6CCD8FE-A074-4F7B-B206-7D0478EABADX</RequestId>
 </DescribeDemandsResponse>
 
 ```
@@ -218,33 +221,36 @@ https://ecs.aliyuncs.com/?Action=DescribeDemands
 	"PageNumber":1,
 	"TotalCount":1,
 	"PageSize":10,
-	"Demands":[
-		{
-			"Period":3,
-			"DemandTime":"2019-02-26T12:00Z",
-			"InstanceTypeFamily":"ecs.g5",
-			"AvailableAmount":0,
-			"ZoneId":"cn-hangzhou-g",
-			"UsedAmount":0,
-			"DeliveringAmount":50,
-			"InstanceType":"ecs.g5.4xlarge",
-			"DemandStatus":"Expired",
-			"EndTime":"2019-03-03T15:00Z",
-			"TotalAmount":50,
-			"StartTime":"2019-02-27T12:00Z",
-			"SupplyInfos":[
-				{
-					"Amount":"50",
-					"SupplyStartTime":"2019-03-01T14:00Z",
-					"SupplyEndTime":"2019-03-03T15:00Z",
-					"SupplyStatus":"Delivering"
-				}
-			],
-			"InstanceChargeType":"PrePaid",
-			"PeriodUnit":"Month"
-		}
-	],
-	"RequestId":"04066112-BF3A-4FCD-ABBD-B4B5EDAE9DXX",
+	"Demands":{
+		"Demand":[
+			{
+				"Period":"3",
+				"DemandTime":"2019-02-26T12:00Z",
+				"InstanceTypeFamily":"ecs.n1",
+				"AvailableAmount":50,
+				"ZoneId":"cn-hangzhou-g",
+				"UsedAmount":0,
+				"InstanceType":"ecs.n1.small",
+				"DemandStatus":"Expired",
+				"EndTime":"2019-03-03T15:00Z",
+				"TotalAmount":50,
+				"SupplyInfos":{
+					"SupplyInfo":[
+						{
+							"Amount":50,
+							"SupplyStartTime":"2019-03-01T14:00Z",
+							"SupplyEndTime":"2019-03-03T15:00Z",
+							"SupplyStatus":"Delivering"
+						}
+					]
+				},
+				"StartTime":"2019-02-27T12:00Z",
+				"PeriodUnit":"Month",
+				"InstanceChargeType":"PrePaid"
+			}
+		]
+	},
+	"RequestId":"A6CCD8FE-A074-4F7B-B206-7D0478EABADX",
 	"RegionId":"cn-hangzhou"
 }
 ```
@@ -257,10 +263,7 @@ https://ecs.aliyuncs.com/?Action=DescribeDemands
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
- 
-
 -   缺失RegionId时会报错400-MissingParamter.RegionId-The regionId should not be null.
-
 -   计费方式取值错误时会报错404-InvalidInstanceChargeType.NotFound-The InstanceChargeType does not exist in our records
 -   DemandStatus取值错误时会报错404-InvalidStatus.ValueNotSupported-The DemandStatus does not exist in our records
 -   阿里云地域ID取值错误时会报错400-InvalidRegion.NotFound-The RegionId provided does not exist in our records.
