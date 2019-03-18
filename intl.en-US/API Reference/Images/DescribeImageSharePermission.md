@@ -7,7 +7,7 @@ Queries all the authorized users to whom one of your custom image is shared. The
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: DescribeImageSharePermission.|
-|RegionId|String|Yes|ID of the region to where the custom image belongs. You can call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|ID of the region to where the custom image belongs. You can call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |ImageId|String|Yes|ID of your custom image.|
 |PageNumber|Integer|No|The page number of the responded information. Initial value: 1.Default value: 1.
 
@@ -22,8 +22,8 @@ Queries all the authorized users to whom one of your custom image is shared. The
 |:---|:---|:----------|
 |ImageId|String|ID of the custom image.|
 |RegionId|String|Region ID of the custom image.|
-|ShareGroups|[ShareGroupType](intl.en-US/API Reference/Data type/ShareGroupType.md#)|Type of the shared group.|
-|Accounts|[AccountType](intl.en-US/API Reference/Data type/AccountType.md#)|Type of the Alibaba Cloud user account.|
+|ShareGroups|[ShareGroupType](reseller.en-US/API Reference/Data type/ShareGroupType.md#)|Type of the shared group.|
+|Accounts|[AccountType](reseller.en-US/API Reference/Data type/AccountType.md#)|Type of the Alibaba Cloud user account.|
 |TotalCount|Integer|Total number of entries.|
 |PageNumber|Integer|Page number.|
 |PageSize|Integer|Maximum number of entries on each page.|
@@ -58,7 +58,7 @@ https://ecs.aliyuncs.com/?Action=DescribeImageSharePermission
     </ShareGroups>
     <Accounts>
         <Account>
-            <AliyunId>1886508529898586</AliyunId>
+            <AliyunId>18865085298XXXXXX</AliyunId>
         </Account>
     </Accounts>
 </DescribeImageSharePermissionResponse>
@@ -78,7 +78,7 @@ https://ecs.aliyuncs.com/?Action=DescribeImageSharePermission
     "Accounts": {
         "Account": [
             {
-                "AliyunId": "1886508529898586"
+                "AliyunId": "18865085298XXXXXX"
             }
         ]
     },
@@ -92,8 +92,6 @@ https://ecs.aliyuncs.com/?Action=DescribeImageSharePermission
 ```
 
 ## Error codes {#ErrorCode .section}
-
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message |HTTP status code |Meaning|
 |:---------|:-------------|:----------------|:------|
