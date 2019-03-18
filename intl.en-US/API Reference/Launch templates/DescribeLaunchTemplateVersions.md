@@ -253,7 +253,7 @@ https://ecs.aliyuncs.com/?Action=DescribeLaunchTemplateVersions
 						"AutoReleaseTime":"2019-10-21T00:00:00Z"
 					},
 					"LaunchTemplateName":"wd-1526308145065",
-					"CreatedBy":"1942111349714263",
+					"CreatedBy":"1942111349714xxx",
 					"VersionDescription":"wwwdesc",
 					"ModifiedTime":"2018-05-14T14:29:05Z",
 					"CreateTime":"2018-05-14T14:29:05Z",
