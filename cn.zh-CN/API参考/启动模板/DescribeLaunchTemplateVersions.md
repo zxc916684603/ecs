@@ -1,4 +1,4 @@
-# DescribeLaunchTemplateVersions {#doc_api_1032308 .reference}
+# DescribeLaunchTemplateVersions {#doc_api_1090646 .reference}
 
 查询实例启动模板版本。
 
@@ -365,7 +365,7 @@ https://ecs.aliyuncs.com/?Action=DescribeLaunchTemplateVersions
 			{
 				"LaunchTemplateId":"lt-bp16jovvln1cgaaqg01X",
 				"CreateTime":"2018-10-17T07:36:22Z",
-				"CreatedBy":"231401226535600442",
+				"CreatedBy":"1942111349714xxx",
 				"ModifiedTime":"2018-10-17T07:36:22Z",
 				"VersionNumber":1,
 				"LaunchTemplateData":{
