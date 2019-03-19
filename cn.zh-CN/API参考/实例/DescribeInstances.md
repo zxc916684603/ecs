@@ -1,8 +1,8 @@
-# DescribeInstances {#doc_api_1058423 .reference}
+# DescribeInstances {#doc_api_1094202 .reference}
 
 查询一台或多台实例的详细信息。
 
-## 描述 {#description .section}
+## 接口说明 {#description .section}
 
 请求参数的作用类似于一个过滤器，过滤器为逻辑与（AND）关系。如果某一参数为空，则过滤器不起作用。但是参数InstanceIds如果是一个空JSON数组，则视为该过滤器有效，且返回空。
 
@@ -270,7 +270,7 @@
 |└LocalStorageCapacity|Long|1000|实例挂载的本地存储容量。
 
  |
-|└Memory|Integer|1024|内存大小，单位 GiB。
+|└Memory|Integer|1024|内存大小，单位 MiB。
 
  |
 |└NetworkInterfaces| | |实例包含的弹性网卡集合
