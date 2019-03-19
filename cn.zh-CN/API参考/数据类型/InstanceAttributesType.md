@@ -20,7 +20,7 @@
 |Cpu|Integer|vCPU 核数|
 |GPUSpec|String|实例规格附带的 GPU 类型|
 |GPUAmount|Integer|实例规格附带的 GPU 数量|
-|Memory|Float|内存大小，单位 GiB|
+|Memory|Float|内存大小，单位 MiB|
 |InstanceType|String|实例资源规格|
 |InstanceTypeFamily|String|实例规格族|
 |HostName|String|实例主机名|
