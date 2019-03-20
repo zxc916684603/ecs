@@ -1,12 +1,11 @@
-# StopInvocation {#doc_api_1000158 .reference}
+# StopInvocation {#doc_api_1101311 .reference}
 
 停止一台或多台ECS实例中一条正在进行中（Running）的云助手命令进程。
 
-## 描述 {#description .section}
+## 接口说明 {#description .section}
 
-停止单次命令进程后，已经开始执行的实例会继续执行，未开始执行的实例将不再执行。
-
-停止周期命令进程后，已经开始执行的命令将继续执行，但后续将不会再进行下一次的执行。
+-   停止单次命令进程后，已经开始执行的实例会继续执行，未开始执行的实例将不再执行。
+-   停止周期命令进程后，已经开始执行的命令将继续执行，但后续将不会再进行下一次的执行。
 
 ## 调试 {#apiExplorer .section}
 
@@ -25,10 +24,7 @@
 |Action|String|否|StopInvocation|系统规定参数。取值：StopInvocation
 
  |
-|InstanceId.N|RepeatList|否|i-uf614fhehhzmxdqx|要停止执行命令的实例列表，最多能指定20台实例ID。N的取值范围为1~20。
-
- |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
+|InstanceId.N|RepeatList|否|i-uf614fhehhzmxdqx|要停止执行命令的实例列表，最多能指定20台实例ID。N的取值范围为1~50。
 
  |
 
@@ -36,7 +32,7 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。无论调用接口成功与否，我们都会返回请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
 
  |
 
@@ -78,6 +74,7 @@ https://ecs.aliyuncs.com/?Action=StopInvocation
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
 |500|InternalError.Dispatch|An error occurred when you dispatched the request.|发生未知错误。|
+|404|InvalidInvokeId.NotFound|The specified invoke ID does not exist.|指定的InvokeId不存在。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
