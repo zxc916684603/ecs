@@ -122,7 +122,7 @@ In addition to the preceding limits, the following table details further limits 
 |Item|Limit|Can I open a ticket to change the limit?|
 |:---|:----|:---------------------------------------|
 |Quota of cloud assistant scripts in one region for one account|100|Yes|
-|Quota to invoke cloud assistant scripts in one region for one account|100|Yes|
+|Quota to invoke cloud assistant scripts in one region for one account|500|Yes|
 
 ## ENIs {#section_gfq_v2x_wdb .section}
 
