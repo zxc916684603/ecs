@@ -1,8 +1,8 @@
-# DescribeAvailableResource {#doc_api_1006117 .reference}
+# DescribeAvailableResource {#doc_api_1105040 .reference}
 
 查询某一可用区的资源列表。例如，您可以在某一可用区创建实例（RunInstances）时查询该可用区的资源列表。
 
-## 描述 {#description .section}
+## 接口说明 {#description .section}
 
 调用该接口时，您需要注意：
 
@@ -80,9 +80,6 @@
 -   classic：经典网络
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
-
- |
 |ResourceType|String|否|Instance|资源类型
 
  |
@@ -132,6 +129,13 @@
 -   SoldOut：资源已售罄
 
  |
+|└StatusCategory|String|WithStock|根据库存详细分类资源类别。目前的可能值有：
+
+ -   WithStock：库存充足
+-   ClosedWithStock：库存接近水位低线
+-   WithoutStock：库存告罄
+
+ |
 |└Unit|String|null|资源规格单位，该参数值为空时将不返回
 
  |
@@ -155,6 +159,13 @@
 
  -   Available：资源充足
 -   SoldOut：资源已售罄
+
+ |
+|└StatusCategory|String|WithStock|根据库存详细分类资源类别。目前的可能值有：
+
+ -   WithStock：库存充足
+-   ClosedWithStock：库存接近水位低线
+-   WithoutStock：库存告罄
 
  |
 |└ZoneId|String|cn-hangzhou-e|可用区 ID
@@ -269,7 +280,6 @@ https://ecs.aliyuncs.com/?Action=DescribeAvailableResource
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
 |404|Invalid.RegionId|The specified RegionId does not exist.|地域参数不合法。|
-|404|Unavailable.Regions|The available regions does not exists|地域参数不合法。|
 |400|Invalid.InstanceChargeType|The specified InstanceChargeType is not valid.|付费类型参数不合法。|
 |400|Invalid.Param|The input parameter DestinationResource that is mandatory for processing this request is not supplied.|目标资源类型不合法。|
 |404|Invalid.ResourceType|The ResourceType provided does not exist in our records.|资源类型不合法。|
@@ -283,6 +293,7 @@ https://ecs.aliyuncs.com/?Action=DescribeAvailableResource
 |403|InvalidParam.TypeAndCpuMem.Conflict|The specified 'InstanceType' and 'Cores','Memory' are not blank at the same time.|cpu参数无效。|
 |403|InvalidParam.Cores|The specified parameter 'Cores' should be empty|内存参数无效。|
 |403|InvalidParam.Memory|The specified parameter 'Memory' should be empty|资源在当前地域不存在或者已释放。|
+|400|InvalidRegionId.MalFormed|The specified parameter RegionId is not valid.|指定的 RegionId 不合法。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
