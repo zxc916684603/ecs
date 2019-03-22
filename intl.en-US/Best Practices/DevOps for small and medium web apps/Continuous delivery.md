@@ -22,7 +22,7 @@ The goal is to be able to serve our web application to users even in case of har
 
 The following diagram shows a simplified view of our architecture:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324828339367_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324850139367_en-US.png)
 
 As you can see we are duplicating each cloud resource into two availability zones \(zone A and zone B\): since these zones are independents, a problem in one zone \(for example, machine/network failure\) can be compensated via the other one.
 
@@ -38,7 +38,7 @@ Until now our development workflow was simple: modify some source code, commit i
 
 The following diagram illustrates how we will use GitLab Flow in this tutorial:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324828339368_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324850139368_en-US.png)
 
 The long horizontal arrows corresponds to long-lived branches \(master, pre-production and production\), a circle represents a commit, and the timeline goes from the left to the right \(a commit on the left is older than a commit on the right\).
 
@@ -90,7 +90,7 @@ export ALICLOUD_REGION="your-region-id"
 terraform apply
 ```
 
-**Note:** The values to set in `ALICLOUD_ACCESS_KEY` and `ALICLOUD_SECRET_KEY` are your access key ID and secret, you have already used them when you configured automatic backup for GitLab in [GitLab installation and configuration](reseller.en-US/Best Practices/DevOps for small and medium web apps/GitLab installation and configuration.md#). For `ALICLOUD_REGION`, the available values can be found in [Regions and Zones](../../../../../reseller.en-US/General Reference/Regions and Zones.md#).
+**Note:** The values to set in `ALICLOUD_ACCESS_KEY` and `ALICLOUD_SECRET_KEY` are your access key ID and secret, you have already used them when you configured automatic backup for GitLab in [GitLab installation and configuration](intl.en-US/Best Practices/DevOps for small and medium web apps/GitLab installation and configuration.md#). For `ALICLOUD_REGION`, the available values can be found in [Regions and Zones](../../../../../intl.en-US/General Reference/Regions and Zones.md#).
 
 The last command should print something like this:
 
@@ -135,11 +135,11 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 Let’s check the result:
 
-1.  Log on to the [VPC console](https://partners-intl.console.aliyun.com/#/vpc).
+1.  Log on to the [VPC console](https://vpc.console.aliyun.com/).
 2.  Select your region on top of the page.
 3.  Check the VPC table, and you can see **sample-vpc**:
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324828339371_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324850139371_en-US.png)
 
 
 A very interesting feature of Terraform is its idempotence. We can check that with the following command:
@@ -245,14 +245,14 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 Check it worked with the console:
 
-1.  Refresh your web browser tab with the [VPC console](https://partners-intl.console.aliyun.com/#/vpc).
+1.  Refresh your web browser tab with the [VPC console](https://vpc.console.aliyun.com/).
 2.  If necessary, select your region on top of the page.
 3.  Click the ID of your VPC **sample-vpc**.
 4.  Scroll down and click **1** next to **VSwitch**.
 
 You should be able to see your sample VSwitch:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324828339389_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324850139389_en-US.png)
 
 Congratulation if you managed to get this far! For more information about available resources and datasources, please read the [Alicloud provider documentation](https://www.terraform.io/docs/providers/alicloud/index.html).
 
@@ -493,17 +493,17 @@ The last line contains the ID of the image we have just created \(here **m-t4n93
 7.  Wait for 10 seconds \(to make sure Nginx is started\).
 8.  Test Nginx by sending a HTTP request to http://localhost \(`curl http://localhost`\).
 9.  Stop the ECS instance.
-10. [Create a snapshot](../../../../../reseller.en-US/Snapshots/Use snapshots/Create a snapshot.md#) of the system disk and convert it to an image.
+10. [Create a snapshot](../../../../../intl.en-US/Snapshots/Use snapshots/Create a snapshot.md#) of the system disk and convert it to an image.
 11. Release all cloud resources \(EIP, ECS, security group, VSwitch, VPC, and key pair\).
 
 You can check the newly created image using the console:
 
-1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/).
 2.  Select **Images** from the left-side navigation pane.
 3.  If necessary, select your region on the top of the page.
 4.  You can see your new image:
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324828339699_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324850139699_en-US.png)
 
 5.  If you want, you can test this image by clicking **Create Instance** on the left.
 6.  When you are done, you can delete this image by selecting its checkbox and by clicking **Delete** at the bottom of the page.
@@ -747,7 +747,7 @@ resource "alicloud_slb_listener" "app_slb_listener_http" {
 
 **Note:** 
 
--   The SLB architecture is composed of a master and a slave. The `vswitch_id` corresponds to the availability zone where the master is located, the slave is automatically created in another zone. If the master fails, HTTP requests are transferred to the slave \(within a delay of 30 sec\). For more information about failover scenarios, see [Scenarios](../../../../../reseller.en-US/Product Introduction/Scenarios.md#).
+-   The SLB architecture is composed of a master and a slave. The `vswitch_id` corresponds to the availability zone where the master is located, the slave is automatically created in another zone. If the master fails, HTTP requests are transferred to the slave \(within a delay of 30 sec\). For more information about failover scenarios, see [Scenarios](../../../../../intl.en-US/Product Introduction/Scenarios.md#).
 -   As you can see, the port redirection \(80 to 8080\) is defined in the SLB listener. You can also see how the SLB uses our [Health check web service](#section_dtl_rbn_qgb) to determine whether a particular ECS instance is behaving normally or not.
 
 The last part of the **main.tf** file declares an EIP, attaches it to our SLB and registers a DNS entry:
@@ -1092,10 +1092,9 @@ packer build app_image.json
 
 You can check the newly created image using the console:
 
-1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
-2.  Select **Images** from the left-side navigation pane.
-3.  If necessary, select your region on the top of the page.
-4.  You should be able to see your new image named **sample-app-image-dev-1**.
+1.  Select **Images** from the left-side navigation pane.
+2.  If necessary, select your region on the top of the page.
+3.  You should be able to see your new image named **sample-app-image-dev-1**.
 
 Now comes the final step: to create ECS instances with our image and attach them to the SLB. Open the file **10\_webapp/15\_ecs/main.tf**:
 
@@ -1157,32 +1156,31 @@ terraform apply  \
 
 Let’s check the deployment of our application:
 
-1.  Log on to the [SLB console](https://partners-intl.console.aliyun.com/#/slb).
-2.  Select your region if necessary.
+1.  Select your region if necessary.
 
 Your new SLB looks like this:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324828439726_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324850139726_en-US.png)
 
 Click the chevron icon next to **Default Server Group 2** and click the first ECS instance. You should see some information about this instance. The **Network \(Internal\)** graph is interesting:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324828439727_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324850139727_en-US.png)
 
 The small waves are the result of the SLB health check \(HTTP requests to the **/health** endpoint\).
 
 Let’s play with the application! Open a new web browser tab and navigate to your domain \(like http://dev.my-sample-domain.xyz/\). You should obtain something like this:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324828439728_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324850139728_en-US.png)
 
 Look at the top-right of the page: the hostname and instance ID allow you to know which ECS instance responded to your HTTP request. Refresh the page several times and look what happens:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324828439729_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324850139729_en-US.png)
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324828439730_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324850139730_en-US.png)
 
 As you can see, your HTTP requests are distributed among your two ECS instances.
 
-**Note:** If you wish, you can enable [Add an HTTP listener](../../../../../reseller.en-US/User Guide/Listeners/Add an HTTP listener.md#) when configuring your SLB listener. That would allow a user to stick to the same ECS instance for all his HTTP requests, which is nice if you want to better exploit a local cache on your application server. However the disadvantage of this solution is that it might unbalance the load on your ECS instances. There are other solutions for caching, such as [Memcached](https://memcached.org/) or [Redis](https://redis.io/).
+**Note:** If you wish, you can enable [Add an HTTP listener](../../../../../intl.en-US/User Guide/Listeners/Add an HTTP listener.md#) when configuring your SLB listener. That would allow a user to stick to the same ECS instance for all his HTTP requests, which is nice if you want to better exploit a local cache on your application server. However the disadvantage of this solution is that it might unbalance the load on your ECS instances. There are other solutions for caching, such as [Memcached](https://memcached.org/) or [Redis](https://redis.io/).
 
 After you have finished to study your environment, you need to delete it \(it will be the responsibility of the CI/CD pipeline to re-create and update it\). Open a terminal and run:
 
@@ -1217,20 +1215,19 @@ The tfstate files are managed by [Terraform backends](https://www.terraform.io/d
 
 To implement this solution, we need to give the permissions to our Docker containers \(the ones that run our pipeline jobs\) to use [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace), the underlying technology used by OSSFS:
 
-1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
-2.  Click **Instance** from the left-side navigation pane.
-3.  Select your region if necessary.
-4.  Search for your instance named **devops-simple-app-gitlab-runner**.
-5.  Click **Connect** on the right side of your instance.
-6.  The VNC console should appear: copy the VNC password displayed in the popup and paste it to the next one.
-7.  Authenticate yourself with the root user and the password you set when you [configured GitLab](https://alibabacloud-howto.github.io/devops/tutorials/devops_for_small_to_medium_web_applications/part_01_gitlab_installation_and_configuration.html#gitlab-runner-installation-and-configuration).
-8.  Edit the GitLab Runner configuration file with this command:
+1.  Click **Instance** from the left-side navigation pane.
+2.  Select your region if necessary.
+3.  Search for your instance named **devops-simple-app-gitlab-runner**.
+4.  Click **Connect** on the right side of your instance.
+5.  The VNC console should appear: copy the VNC password displayed in the popup and paste it to the next one.
+6.  Authenticate yourself with the root user and the password you set when you [configured GitLab](https://alibabacloud-howto.github.io/devops/tutorials/devops_for_small_to_medium_web_applications/part_01_gitlab_installation_and_configuration.html#gitlab-runner-installation-and-configuration).
+7.  Edit the GitLab Runner configuration file with this command:
 
     ```
     nano /etc/gitlab-runner/config.toml
     ```
 
-9.  The configuration file should look like this:
+8.  The configuration file should look like this:
 
     ```
     concurrent = 1
@@ -1258,7 +1255,7 @@ To implement this solution, we need to give the permissions to our Docker contai
         [runners.cache.gcs]
     ```
 
-10. Change privileged = false to privileged = true. The file should now look like this:
+9.  Change privileged = false to privileged = true. The file should now look like this:
 
     ```
     concurrent = 1
@@ -1286,14 +1283,14 @@ To implement this solution, we need to give the permissions to our Docker contai
           [runners.cache.gcs]
     ```
 
-11. Save and quit by pressing CTRL + X.
-12. Restart the GitLab Runner using the following command:
+10. Save and quit by pressing CTRL + X.
+11. Restart the GitLab Runner using the following command:
 
     ```
     gitlab-runner restart
     ```
 
-13. Quit the VNC session by entering the command exit and by closing the web browser tab.
+12. Quit the VNC session by entering the command exit and by closing the web browser tab.
 
 ## Delivery pipeline stage {#section_qvl_rbn_qgb .section}
 
@@ -1610,7 +1607,7 @@ Before we commit these scripts, we first need to add new variables in our GitLab
     -   ALICLOUD\_REGION = your Alibaba Cloud region \(for example, ap-southeast-1\)
     -   GITLAB\_BUCKET\_NAME = your OSS bucket name \(for example, gitlab-my-sample-domain-xyz\)
     -   GITLAB\_BUCKET\_ENDPOINT = the OSS bucket endpoint \(for example, http://oss-ap-southeast-1-internal.aliyuncs.com\). You can get it from the [OSS console](https://oss.console.aliyun.com/), by selecting your bucket and by copying the endpoint next to **VPC Network Access from ECS \(Internal Network\)**
-    -   ECS\_ENDPOINT = the ECS Service endpoint. You can find the complete list in [Request structure](../../../../../reseller.en-US/API Reference/Getting started/Request structure.md#). If you are unsure, set it to **ecs.aliyuncs.com**. This variable is used by Packer when it creates a VM image. Setting this variable to your region improves the performance and reduces the probability of timeout errors.
+    -   ECS\_ENDPOINT = the ECS Service endpoint. You can find the complete list in [Request structure](../../../../../intl.en-US/API Reference/Getting started/Request structure.md#). If you are unsure, set it to **ecs.aliyuncs.com**. This variable is used by Packer when it creates a VM image. Setting this variable to your region improves the performance and reduces the probability of timeout errors.
     -   DOMAIN\_NAME = your domain name \(for example, my-sample-domain.xyz\)
     -   DB\_ACCOUNT\_PASSWORD = the password of the **todolist** user in the MySQL database \(for example, YourSecretPassw0rdForRds\)
     -   ECS\_ROOT\_PASSWORD = the root password of your ECS instances \(for example, YourSecretPassw0rdForEcs\)
@@ -1638,7 +1635,7 @@ git push origin master
 
 In your GitLab web browser tab, select **CI/CD** \> **Pipelines** from the left-side navigation pane. You should get something like this:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324828439834_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324850139834_en-US.png)
 
 Check that your cloud resources have been successfully created by browsing to the VPC console and by following links to related resources.
 
@@ -1686,13 +1683,13 @@ Congratulation: you have 3 environments! From now on, the process to follow to d
 1.  Regularly commit improvements and new features into the master branch \(through feature branches\).
 2.  When the master branch is stable enough for a release, create a [merge request](https://docs.gitlab.com/ee/gitlab-basics/add-merge-request.html) from the master branch into the pre-production one:
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324828439836_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324850139836_en-US.png)
 
 3.  Let another person to check and accept the merge request to start the deployment into pre-production.
 4.  Test the pre-production version, fix bugs and re-test. Note that it may be necessary to merge the master into the pre-production branch several times until the bugs are fixed.
 5.  When the pre-production branch is ready, create a [merge request](https://docs.gitlab.com/ee/gitlab-basics/add-merge-request.html) from the pre-production branch into the production one:
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324828439837_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123242/155324850239837_en-US.png)
 
 6.  Let another person to check and accept the merge request to start the deployment into production.
 
