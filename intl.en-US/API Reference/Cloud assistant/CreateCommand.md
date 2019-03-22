@@ -8,16 +8,16 @@ Creates a command. You can perform the command by using cloud assistant.
     -   Bat scripts for Windows instances \(`RunBatScript`\).
     -   PowerShell scripts for Windows instances \(`RunPowerShellScript`\).
     -   Shell scripts for Linux instances \(`RunShellScript`\).
--   You can specify the `TimeOut` parameter to set the maximum timeout value for command invocation on ECS instances. When the command invocation times out, the [client](../reseller.en-US/User Guide/Cloud assistant/Cloud assistant client.md#) forces the command process to stop.
-    -   For one-time invocation, after an invocation timeout, the command invocation status \([`InvokeRecordStatus`](reseller.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#InvokeRecordStatusRequest)\) for the specified ECS instance becomes `Failed`.
+-   You can specify the `TimeOut` parameter to set the maximum timeout value for command invocation on ECS instances. When the command invocation times out, the [client](../intl.en-US/Deployment & Maintenance/Cloud assistant/Cloud assistant client.md#) forces the command process to stop.
+    -   For one-time invocation, after an invocation timeout, the command invocation status \([`InvokeRecordStatus`](intl.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#InvokeRecordStatusRequest)\) for the specified ECS instance becomes `Failed`.
     -   For periodical invocation:
         -   The timeout value of periodical invocation is effective for every invocation record.
-        -   After one invocation operation times out, the status for the invocation record \([`InvokeRecordStatus`](reseller.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#InvokeRecordStatusRequest)\) becomes `Failed`.
+        -   After one invocation operation times out, the status for the invocation record \([`InvokeRecordStatus`](intl.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#InvokeRecordStatusRequest)\) becomes `Failed`.
         -   The timeout status of last invocation does not affect the next invocation.
 -   You can specify the `WorkingDir` parameter to specify the invocation path of the command. For Linux instances, commands are performed in the `/root` directory by default. For Windows instances, commands are performed in the directory where the cloud assistant client process is located, such as `C:\ProgramData\aliyun\assist\$(version)`.
--   You can create 100 commands at maximum under a Alibaba Cloud Region.
+-   You can have 100 commands at maximum under a Alibaba Cloud Region.
 
-    **Note:** If you require a higher quota of commands, please submit a ticket to apply for.
+    **Note:** If you require a higher quota of commands, please [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to apply for.
 
 
 ## Request parameters {#RequestParameter .section}
@@ -25,7 +25,7 @@ Creates a command. You can perform the command by using cloud assistant.
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: CreateCommand.|
-|RegionId|String|Yes|The region ID. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|The region ID. For more information, call [DescribeRegions](../intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |Name|String|Yes|Command name. Supporting all the character encoding sets.|
 |Type|String|Yes|Command type. RunBatScript: Creates a Bat script for Windows instances. RunPowerShellScript: Creates a PowerShell script for Windows instances. RunShellScript: Creates a Shell script for Linux instances. Optional values:-   RunBatScript: Creates a Bat script for Windows instances.
 -   RunPowerShellScript: Creates a PowerShell script for Windows instances.
@@ -106,6 +106,8 @@ https://ecs.aliyuncs.com/?Action=CreateCommand
 ```
 
 ## Error codes {#ErrorCode .section}
+
+Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
 
 |Error code|Error message|HTTP status code|Meaning|
 |:---------|:------------|:---------------|:------|
