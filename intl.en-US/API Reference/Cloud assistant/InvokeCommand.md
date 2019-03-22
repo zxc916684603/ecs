@@ -6,7 +6,7 @@ Performs a specified command on one or more ECS instances.
 
 When you call this interface, consider the following:
 
--   You can call this InvokeCommand action 100 times at maximum per day.
+-   You can call this InvokeCommand action 500 times at maximum per day.
 
     **Note:** If you require a higher quota of invocations, please [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to apply for.
 
