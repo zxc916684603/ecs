@@ -8,11 +8,11 @@ When you call this interface, consider the following:
 
 -   You can call this InvokeCommand action 100 times at maximum per day.
 
-    **Note:** If you require a higher quota of invocations, please submit a ticket to apply for.
+    **Note:** If you require a higher quota of invocations, please [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to apply for.
 
 -   The network type of the specified instances must be VPC.
 -   The target ECS instance must be in the **Running** \(`Running`\) status.
--   The target ECS instance must have the [cloud assistant client](../reseller.en-US/User Guide/Cloud assistant/Cloud assistant client.md#) installed in advance.
+-   The target ECS instance must have the [cloud assistant client](../intl.en-US/Deployment & Maintenance/Cloud assistant/Cloud assistant client.md#) installed in advance.
 -   To perform a PowerShell command, make sure that the target Windows ECS instance has been configured with the PowerShell module.
 -   For one-time invocation \(`Timed=False`\), the command is performed only once.
 -   For periodical invocation \(`Timed=True`\), the first invocation task starts at the time specified in the `Frequency` parameter. Subsequent invocations follow the frequency specified in the `Frequency` parameter. The result of last invocation does not affect the next invocation.
@@ -25,14 +25,16 @@ When you call this interface, consider the following:
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: InvokeCommand.|
-|RegionId|String|Yes|The region ID. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|RegionId|String|Yes|The region ID. For more information, call [DescribeRegions](../intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
 |InstanceIds|Array|Yes|List of instances for command invocation. The parameter value is a formatted JSON array in the format of \[`InstanceId1`, `instanceId2`, …\]. You can specify a maximum of 100 instance IDs separated by commas \(,\).|
-|CommandId|String|Yes.|Command ID. You can call the [DescribeCommands](reseller.en-US/API Reference/Cloud assistant/DescribeCommands.md#) API to check all the available `CommandId`.|
+|CommandId|String|Yes.|Command ID. You can call the [DescribeCommands](intl.en-US/API Reference/Cloud assistant/DescribeCommands.md#) API to check all the available `CommandId`.|
 |Timed|Boolean|No|Whether the command is periodically performed or not. Optional values:-   True: Periodical invocation.
 -   False: Non-periodical invocation.
 
 Default value: False|
-|Frequency|String|No|The invocation period of a periodical task. When the [`Timed`](#Timed) parameter value is `True`, the `Frequency` parameter is required.|
+|Frequency|String|No|The invocation period of a periodical task. When the [`Timed`](#Timed) parameter value is `True`, the `Frequency` parameter is required.The parameter value observes the Cron expression. For more information, see [Cron expressions](https://www.alibabacloud.com/help/faq-detail/64769.htm).
+
+|
 
 ## Response parameters {#ResponseParameter .section}
 
@@ -100,9 +102,11 @@ https://ecs.aliyuncs.com/?Action=InvokeCommand
 
 ## Error codes {#ErrorCode .section}
 
+Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
+
 |Error code|Error message |HTTP status code|Meaning|
 |:---------|:-------------|:---------------|:------|
-|InvalidInstance.NoClient|The specified instances have no cloud assistant client installed.|400|The target ECS instance must have the cloud assistant client installed in advance. For more information, see [Cloud assistant client](../reseller.en-US/User Guide/Cloud assistant/Cloud assistant client.md#).|
+|InvalidInstance.NoClient|The specified instances have no cloud assistant client installed.|400|The target ECS instance must have the cloud assistant client installed in advance. For more information, see [Cloud assistant client](../intl.en-US/Deployment & Maintenance/Cloud assistant/Cloud assistant client.md#).|
 |InvalidInstance.NotVpc|The specified instances must be VPC instances.|400|The network type of the specified `InstanceIds` must be VPC.|
 |InvalidInstanceStatus|The specified instance’s status can not execute this operation|400|The specified instance must be in the Running status. Or the specified instance has abnormal network connection.|
 |MissingParameter.CommandId|The input parameter “CommandId” that is required for processing this request is not supplied.|400|You must specify the required parameter `CommandId`.|
