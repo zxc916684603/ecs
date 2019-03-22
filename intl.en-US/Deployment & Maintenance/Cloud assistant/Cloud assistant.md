@@ -26,7 +26,7 @@ The following table describes relevant concepts of the cloud assistant client.
 The cloud assistant client has the following limitations:
 
 -   You must install and manage the cloud assistant client as the administrator. Specifically, the Linux instance administrator is root and the Windows instance administrator is administrator.
--   In each Alibaba Cloud region, you can create up to 100 cloud assistant client commands.
+-   In each Alibaba Cloud region, you can have up to 100 cloud assistant commands.
 -   In each Alibaba Cloud region, you can run up to 500 cloud assistant client commands per day.
 -   ECS instances in the Cloud Assistant service is available in all Alibaba Cloud regions.
 -   For Timed Invocation commands, the `Timed` interval cannot be less than 10 seconds.
