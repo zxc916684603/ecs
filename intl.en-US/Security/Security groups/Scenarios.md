@@ -1,252 +1,207 @@
 # Scenarios {#concept_ngr_vht_xdb .concept}
 
-This topic describes several scenarios that use security groups. The scenarios include instances of both VPC and Classic network types.
+This topic describes several typical scenarios in which VPC security groups and classic network security groups are used.
 
 **Note:** 
 
--   For information about how to create security groups and add security group rules, see [Create a security group](reseller.en-US/Security/Security groups/Create a security group.md#) and [Add a security group rule](reseller.en-US/Security/Security groups/Add security group rules.md#).
--   For information about relevant ports, see [Introduction to common ECS instance ports](reseller.en-US/Security/Security groups/Introduction to common ECS instance ports.md#).
--   For security group rule configurations of relevant ports, see [Typical applications of security group rules](reseller.en-US//Typical applications of security group rules.md#).
+-   For information about how to create security groups and add security group rules, see [EN-US\_TP\_9717.md\#](reseller.en-US/Security/Security groups/Create a security group.md#) and [Add security group rules](reseller.en-US/Security/Security groups/Add security group rules.md#).
+-   For information about commonly used ports, see [Typical applications of commonly used ports](../../../../../reseller.en-US/Security/Security groups/Typical applications of commonly used ports.md#).
 
--   [Scenario 1: Enable intranet communication](#) 
+-   [Scenario 1: Establish intranet communication between two instances in the same region and under the same account](#)
 
-    If you want to copy files between two Classic network-connected ECS instances owned by different accounts or located in different security groups, you can configure security group rules to enable communication between the instances through the intranet.
+    If you need to copy resources between two ECS instances in the same region and under the same account, you can configure security group settings to establish intranet communication between the two ECS instances.
 
--   [Scenario 2: Allow remote connection to your ECS instance from specified IP addresses only](#) 
+-   [Scenario 2: Establish intranet communication between two instances in the same region and under different accounts](#)
 
-    You can modify the remote connection port and then configure security group rules to only allow access specified IP address access to your ECS instance.
+    If you need to copy resources between two ECS instances in the same region and different accounts, you can configure security group settings to establish intranet communication between the two ECS instances.<span data-goldlog="/cat.main.addNote" class="next-icon next-icon-AddNote next-icon-medium add-note-icon" data-spm-anchor-id="a2762.11472859.0.i28.5a97203b9WNnBb"\>
 
--   [Scenario 3: Allow your ECS instance to access specified IP addresses only](#) 
+-   [Scenario 3: Allow remote access to your instance from only specified IP addresses](#) 
 
-    You can configure security group rules to allow your instance to access only specified IP addresses or ports.
+    You can remotely modify the logon port number and only allow specified IP addresses to log on to your ECS instance.
 
--   [Scenario 4: Allow remote connection to your ECS instance](#) 
+-   [Scenario 4: Allow your instance to access specified external IP addresses only](#) 
 
-    You can configure security group rules to allow remote access to your ECS instance through the Internet or intranet.
+    You can configure security group rules to allow your instance to access specified external IP addresses only.
 
--   [Scenario 5: Allow access to your ECS instance by using HTTP or HTTPS](#) 
+-   [Scenario 5: Deny your instance to access specified external IP addresses](#)
 
-    If you have built a website on your ECS instance, you can configure security group rules to allow users to access the website.
+    You can configure security group settings to deny your instance to access specified external IP addresses.
 
--   [Scenario 6: Deny your ECS instance to access specified external IP addresses](reseller.en-US/Security/Security groups/Scenarios.md#section_qtl_vhz_ngb)
+-   [Scenario 6: Allow remote access to your instance through the Internet](#) 
 
-    If you do not want your ECS instance to access specified external IP addresses, you can configure security group rules accordingly.
+    You can remotely connect to your ECS instance through the Internet.
+
+-   [Scenario 7: Allow an ECS instance in a security group under another account in the same intranet to remotely connect to your instance](#)
+
+    You can remotely connect to your instance by using an ECS instance in a security group under another account in the same intranet.
+
+-   [Scenario 8: Allow access to your instance through HTTP and HTTPS](#) 
+
+    If you host a website on your instance, you can add security group rules to allow your users to access the website through HTTP or HTTPS.
 
 
-## Scenario 1: Enable intranet communication {#intranetCommunication .section}
+## Scenario 1: Establish intranet communication between two instances in the same region and under the same account {#section_i35_nll_ngb .section}
 
-You can create security group rules to allow communication between instances through the intranet in the following cases:
+For two instances in the same region and under the same account:
 
--   Case 1: The ECS instances belong to the same region and account.
--   Case 2: The ECS instances belong to the same region but to different accounts.
+-   If the two instances are in the same security group, they can communicate with each other. Configuration is not required.
+-   If the two instances are in different security groups, they cannot communicate with each other. You can add a rule to the security groups respectively to authorize the instances in the security groups to access each other through the intranet. Security rule settings vary among different network types, as shown in the following table.
+
+    |Network type|NIC|Rule direction|Authorization policy|Protocol type|Port range|Priority|Authorization type|Authorization object|
+    |:-----------|:--|:-------------|:-------------------|:------------|:---------|:-------|:-----------------|:-------------------|
+    |VPC|Configuration is not required.|Inbound|Allow|Set the applicable protocol.|Set the port range.|1|Security group access \(authorize this account\).|Select the ID of the security group in which the allowed instance is located.|
+    |Classic network|Intranet|
+
 
 **Note:** 
 
--   For VPC-Connected ECS instances, if they are in the same VPC, you can configure their security group rules to implement intranet communication. If they are in different VPCs \(regardless of whether they are owned by the same account or located in the same region\), you can use Express Connect to implement intranet communication. For more information, see [**Interconnect two VPCs under different accounts**](https://www.alibabacloud.com/help/doc-detail/44842.htm).
+For ECS instances that belong to a VPC, if they are in the same VPC, you can configure their security group rules to establish intranet communication. If they are in different VPCs \(regardless of whether they belong to the same account or in the same region\), you can use Express Connect to establish VPC communication. For more information, see [Connect two VPCs under different accounts](https://partners-intl.aliyun.com/help/doc-detail/44842.htm).
 
-**Case 1: The ECS instances belong to the same region and account**
+## Scenario 2: Establish intranet communication between two instances in the same region and under different accounts {#section_sfg_zll_ngb .section}
 
-By default, two instances located in the same region and owned by the same account can communicate with each other through the intranet. If the instances are in different security groups, you can configure security group rules to enable intranet communication according to the network type.
+This scenario applies only to ECS instances in a classic network.
 
--   VPC
+For example, User A owns an ECS instance in a classic network in China East 1, named Instance A \(The intranet IP address is A.A.A.A\), which belongs to a security group named Group A.
 
-    If the instances are in the same VPC, add a rule to each security group to authorize mutual access between the security groups. The rule settings are described as follows.
+User B owns an ECS instance in a classic network in China East 1, named Instance B \(The intranet IP address is B.B.B.B\), which belongs to a security group named Group B.
 
-    |NIC|Rule direction|Authorization policy|Protocol type|Port range|Priority|Authorization type|Authorization object|
-    |:--|:-------------|:-------------------|:------------|:---------|:-------|:-----------------|:-------------------|
-    |Not required|Inbound|Allow|Select the required protocol.|Set the required port range.|1|Security group access \(authorize this account\)|Select the ID of the security group to which the instance to be accessed belongs.|
+You must add security group rules in Group A and Group B to authorize intranet communication between Instance A and Instance B.
 
--   Classic network
-
-    Add a rule to each security group to authorize mutual access between the security groups. The rule settings are described as follows.
-
-    |NIC|Rule Direction|Authorization Policy|Protocol Type|Port Range|Priority|Authorization Type|Authorization Object|
-    |:--|:-------------|:-------------------|:------------|:---------|:-------|:-----------------|:-------------------|
-    |Intranet|Inbound|Allow|Select the required protocol.|Set the required port range.|1|Security group access \(authorize this account\)|Select the ID of the security group to which the instance to be accessed belongs.|
-
-
-**Case 2: The ECS instances belong to the same region but to different accounts**
-
-The information in this case is for Classic network-connected ECS instances only.
-
-Add a rule to each security group to authorize mutual access between the security groups. For example:
-
--   User A owns a Classic network-connected ECS instance in China East 1, named Instance A \(The intranet IP address is A.A.A.A\), which belongs to the security group A \(Group A\).
--   User B owns a Classic network-connected ECS instance in China East 1, named Instance B \(The intranet IP address is B.B.B.B\), which belongs to the security group B \(Group B\).
-
-1.  Add a rule to Group A to authorize Instance B to access Instance A. The rule settings are described as follows.
+-   Add a rule to Group A to authorize Instance B to access Instance A. The rule settings are described in the following table.
 
     |NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
     |:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
-    |Intranet|Inbound|Allow|Select the required protocol.|Set the required port range.|Security group access \(authorize other accounts\) |Enter the account ID of User B and the security group ID of Group B.|1|
+    |Intranet|Inbound|Allow|Select the applicable protocol type.|Set the port range.|Security group access \(authorize other accounts\).|The ID of Group B. Enter the User B's ID specified in **Account ID**.|1|
 
-2.  Add a rule to Group B to authorize Instance A to access Instance B. The rule settings are described as follows.
+-   Add a rule to Group B to authorize Instance A to access Instance B. The rule settings are described in the following table.
 
     |NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
     |:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
-    |Intranet|Inbound|Allow |Select the required protocol.|Set the required port range.|Security group access \(authorize other accounts\)|Enter the account ID of User A and the security group ID of Group A|1|
+    |Intranet|Inbound|Allow|Select the applicable protocol type.|Set the port range.|Security group access \(authorize other accounts\).|The ID of Group A. Enter the User A's ID specified in **Account ID**.|1|
 
-    **Note:** To guarantee instance security, when you set an intranet inbound rule for the Classic network, **Security Group Access** is the top priority for **Authorization Type**. If you select **Address Field Access**, only a single IP address can be authorized and the authorized object must be in the format of a.b.c.d/32. The IP address can be set as needed, but only IPv4 is supported. The subnet mask must be /32.
+    **Note:** To guarantee instance security, when you set an intranet inbound rule for the classic network, **Security Group Access** is preferred for the authorization type. If you select **CIDR block Access**, only a single IP address can be authorized, and the authorization object must be in the format of `a.b.c.d/32`. The IP address can be set as needed, but the subnet mask must be /32.
 
 
-## Scenario 2: Allow remote connection to your ECS instance from specified IP addresses only {#specifyIpAccess .section}
+## Scenario 3: Allow remote access to your instance from only specified IP addresses {#specifyIpAccess .section}
 
-If you want to allow remote connection to your instance from specified IP addresses only, add the following rule. In this example, remote connection to an instance on TCP port 22 from a specified IP address is allowed.
+If you only want a specified IP address to remotely log on to your instance, add a rule to the security group to which your instance belongs by using the settings described in the following examples.
+
+-   Linux instance
+
+    |Network type|NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
+    |:-----------|:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
+    |VPC|Configuration is not required.| Inbound|Allow|SSH \(22\)|22/22|CIDR block access|The IP address that allows remote access \(for example, 1.2.3.4\)|1|
+    |Classic network|Internet|
+
+-   Windows instance
+
+    |Network type|NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
+    |:-----------|:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
+    |VPC|Configuration is not required.| Inbound|Allow|RDP \(3389\)|3389/3389|CIDR block access|The IP address that allows remote access \(for example, 1.2.3.4\)|1|
+    |Classic network|Internet|
+
+
+## Scenario 4: Allow your instance to access specified external IP addresses only {#specifyInstanceAccess .section}
+
+If you only want your instance to access only a specified IP address, add a rule to the security group to which your instance belongs by using the settings described in the following examples.
+
+-   To deny your instance to access all Internet IP addresses through any protocol, set a priority lower than the priority of the security group rule that allows access to Internet IP addresses. In this example, set the priority to 2. The security group rule settings are described in the following table.
+
+    |Network type|NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
+    |:-----------|:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
+    |VPC|Configuration is not required.|Outbound|Deny|All|-1/-1|CIDR block access|0.0.0.0/0|2|
+    |Classic network|Internet|
+
+-   To allow your instance to access specified Internet IP addresses, set a priority higher than the priority of the security group rule used to deny access to Internet IP addresses. In this example, set the priority to 1.
+
+    |Network Type|NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
+    |:-----------|:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
+    |VPC|Configuration is not required.|Outbound|Allow|Select the applicable protocol type.|Set the port range.|CIDR block access|The specified Internet IP address that you allow to be accessed by your instance \(for example, 1.2.3.4\)|1|
+    |Classic network|Internet|
+
+
+After adding a security group rule, connect to the instance, and then conduct a `ping` or `telnet` test. If the instance can access only the allowed IP address, it means that the security group rule takes effect.
+
+## Scenario 5: Deny your instance to access specified external IP addresses {#section_qtl_vhz_ngb .section}
+
+If you do not want your instance to access a specified external IP address, add a rule to the security group to which your instance belongs by using the settings described in the following tables.
 
 |Network type|NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
 |:-----------|:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
-|VPC|Not required|Inbound|Allow|SSH\(22\)|22/22|Address field access|IP addresses that allow remote access, such as 1.2.3.4|1|
+|VPC|Configuration is not required.|Outbound|Deny|All|-1/-1|CIDR block access|The specified Internet IP address that you deny to be accessed by your instance \(for example, 1.2.3.4\)|1|
 |Classic network|Internet|
 
-## Scenario 3: Allow your ECS instance to access specified IP addresses only {#specifyInstanceAccess .section}
+## Scenario 6: Allow remote access to your instance through the Internet {#allowRemoteAccess .section}
 
-If you want your ECS instance to access specified IP addresses, add the following rules to its security group.
+To allow remote access to your instance through the Internet, add the security group rule described in the following table.
 
-1.  Add the following rule to deny your instance to access any public IP addresses. The priority \(for example, 2\) must be lower than the rule in step 2.
+|Network type|NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
+|:-----------|:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
+|VPC|Configuration is not required.| Inbound|Allow|Windows: RDP \(3389\)|3389/3389|CIDR block access|If you allow all Internet IP addresses to connect to your instance, enter 0.0.0.0/0. If you only allow specified IP addresses to remotely connect to your instance, see[Scenario 3: Allow remote access to your instance from specified IP addresses only](#).|1|
+|Linux: SSH \(22\)|22/22|
+|Custom TCP|Custom \(for example, 8080/8080\)|
+|Classic network|Internet|Inbound|Allow|Windows: RDP \(3389\)|3389/3389|CIDR block access|If you allow all Internet IP addresses to connect to your instance, enter 0.0.0.0/0. If you only allow specified IP addresses to remotely connect to your instance, see[Scenario 3: Allow remote access to your instance from only specified IP addresses](#).|1|
+|Linux: SSH \(22\)|22/22|
+|Custom TCP|Custom \(for example, 8080/8080\)|
+
+For information about how to customize remote access ports, see [Modify the default remote access port](https://partners-intl.aliyun.com/help/doc-detail/51644.htm).
+
+## Scenario 7: Allow an ECS instance in a security group under another account in the same intranet to remotely connect to your instance {#section_tkx_fyq_ngb .section}
+
+If your account is in the same intranet as another account in the same region, and you want to allow remote access to an ECS instance in a security group of that account, add a security group rule by using the settings described in the following examples.
+
+-   To allow an intranet IP address of an instance under another account to connect to your instance, add the security group rule described in the following table. For VPC instances, ensure that the instances under the two accounts can communicate with each other through Express Connect before you add a security group rule. For more information, see [Interconnect two VPCs under the same account](../../../../../reseller.en-US/Getting Started (New Console)/Interconnect two VPCs under the same account.md#).
 
     |Network type|NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
     |:-----------|:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
-    |VPC|Not required|Outbound|Drop|All|-1/-1|Address field access|0.0.0.0/0|2|
-    |Classic network|Internet|
-
-2.  Add the following rule to allow your instance to access the specified IP address, with a higher priority than that in step 1.
-
-    |Network type|NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
-    |:-----------|:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
-    |VPC|Not required|Outbound|Allow|Select the required protocol.|Set the required port range.|Address field access|Enter the specified IP address, for example, 1.2.3.4|1|
-    |Classic network|Internet|
-
-
-After you add the rules, connect to the instance and try to `ping` it or `telnet` to the instance from the specified IP address. If the instance can be accessed, the rule is successfully applied.
-
-## Scenario 4: Allow remote connection to your ECS instance {#allowRemoteAccess .section}
-
-You can allow remote connection to your instance in the following cases:
-
--   Case 1: Allow remote connection to your instance from the Internet.
--   Case 2: Allow remote connection to your instance from the intranet.
-
-**Case 1: Allow remote connection to your instance from the Internet**
-
-To allow remote connection to your instance from the Internet, add the following rule based on the network type and the operating system of your instance:
-
--   VPC
-
-    |NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
-    |:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
-    |Not required|Inbound|Allow|Windows: RDP\(3389\)|3389/3389|Address field access|To allow Internet access from any public IP address, enter 0.0.0.0/0. To allow Internet access from a specified public IP address, see [Scenario 2](#).|1|
+    |VPC|Configuration is not required.| Inbound|Allow|Windows: RDP \(3389\)|3389/3389|CIDR block access|The private IP address of the peer instance|1|
     |Linux: SSH \(22\)|22/22|
-    |Custom TCP|Custom|
+    |Custom TCP|Custom, for example, 8080/8080|
+    |Classic network|Intranet|Inbound|Allow|Windows: RDP \(3389\)|3389/3389|CIDR block access|The intranet IP address of the peer instance. For security purposes, only single IP address authorization is supported \(for example, a.b.c.d/32\).|1|
+    |Linux: SSH \(22\)|22/22|
+    |Custom TCP|Custom, for example, 8080/8080|
 
--   Classic network
+-   To allow all ECS instances in a security group under another intranet account to connect to your instance, add the security group rule described in the following table. For VPC instances, ensure that the instances under the two accounts can communicate with each other through Express Connect before you add a security group rule. For more information, see [Connect two VPCs under the same account](../../../../../reseller.en-US/Getting Started (New Console)/Interconnect two VPCs under the same account.md#).
 
-    |NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
-    |:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
-    |Internet|Inbound|Allow|Windows: RDP\(3389\)|3389/3389|Address field access|To allow Internet access from any public IP address, enter 0.0.0.0/0. To allow Internet access from a specified public IP address, see [Scenario 2](#).|1|
-    |Linux: SSH\(22\)|22/22|
-    |Custom TCP|Custom|
-
-
-To customize the port for remote connection, see [Modify the default remote access port](https://partners-intl.aliyun.com/help/doc-detail/51644.htm).
-
-**Case 2: Allow remote connection to your instance from the intranet**
-
-If you have enabled intranet communication between instances that belong to the same region but to different accounts, and you want to allow the instances in a security group under a different account to connect to your instance, add the following rules as needed.
-
--   To allow an intranet IP address to connect to your instance:
-    -   VPC
-
-        Make sure that you have established intranet communication between both accounts by using [Express Connect](https://www.alibabacloud.com/help/doc-detail/44843.htm), and then add the following rule.
-
-        |NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
-        |:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
-        |Not required|Inbound|Allow|Windows: RDP\(3389\)|3389/3389|Address field access|Specify the private IP address of the peer instance.|1|
-        |Linux: SSH \(22\)|22/22|
-        |Custom TCP|Custom|
-
-    -   Classic network
-
-        Add the following rule.
-
-        |NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
-        |:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
-        |Intranet|Inbound|Allow|Windows: RDP \(3389\)|3389/3389|Address field access|Specify the private IP address of the peer instance. To guarantee instance security, only an IP address with the CIDR prefix `/32` in the format of a.b.c.d/32 is allowed.|1|
-        |Linux: SSH \(22\)|22/22|
-        |Custom TCP|Custom|
-
--   To allow all instances in a security group under a different account to connect to your instance:
-    -   VPC
-
-        Make sure that you have established intranet communication between both accounts by using [Express Connect](https://www.alibabacloud.com/help/doc-detail/44843.htm), and then add the following rule.
-
-        |NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
-        |:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
-        |Not required|Inbound|Allow|Windows: RDP \(3389\)|3389/3389|Security group access \(authorize other accounts\)|Enter the account ID and the security group ID of the peer instance.|1|
-        |Linux: SSH\(22\)|22/22|
-        |Custom TCP|Custom|
-
-    -   Classic network
-
-        Add the following rule.
-
-        |NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
-        |:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
-        |Intranet|Inbound|Allow|Windows: RDP \(3389\)|3389/3389|Security group access \(authorize other accounts\)|Enter the account ID and the security group ID of the peer instance.|1|
-        |Linux: SSH\(22\)|22/22|
-        |Custom TCP|Custom|
+    |Network type|NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
+    |:-----------|:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
+    |VPC|Configuration is not required.| Inbound|Allow|Windows: RDP \(3389\)|3389/3389|Security group access \(authorize other accounts\)|The ID of the security group to which the peer instance belongs. Enter the ID of the peer account.|1|
+    |Linux: SSH \(22\)|22/22|
+    |Custom TCP|Custom, for example, 8080/8080|
+    |Classic network|Intranet| Inbound|Allow|Windows: RDP \(3389\)|3389/3389|Security group access \(authorize other accounts\).|The ID of the security group to which the peer instance belongs. Enter the ID of the peer account.|1|
+    |Linux: SSH \(22\)|22/22|
+    |Custom TCP|Custom \(for example, 8080/8080\)|
 
 
-## Scenario 5: Allow access to your ECS instance by using HTTP or HTTPS {#allowHttp .section}
+## Scenario 8: Allow access to your instance through HTTP and HTTPS {#allowHttp .section}
 
-If you have built a website on your instance and want to allow users to visit the website through HTTP or HTTPS, add the following rules as needed.
+If you host a website on your instance, you can add a security group rule to allow your users to access the website through HTTP or HTTPS.
 
--   To allow all IP addresses to access your website:
-    -   VPC: Add the following rule.
+-   To allow all Internet IP addresses to access your website, add the security rule described in the following table.
 
-        |NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
-        |:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
-        |Not required|Inbound|Allow|HTTP\(80\)|80/80|Address field access|0.0.0.0/0|1|
-        |HTTPS\(443\)|443/443|
-        |Custom TCP|Custom, for example, 8080/8080|
+    |Network type|NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
+    |:-----------|:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
+    |VPC|Configuration is not required.| Inbound|Allow|HTTP \(80\)|80/80|CIDR block access|0.0.0.0/0|1|
+    |HTTPS \(443\)|443/443|
+    |Custom TCP|Custom \(for example, 8080/8080\)|
+    |Classic network|Internet|Inbound|Allow|HTTP \(80\)|80/80|CIDR block access|0.0.0.0/0|1|
+    |HTTPS \(443\)|443/443|
+    |Custom TCP|Custom, for example, 8080/8080|
 
-    -   Classic network: Add the following rule.
+-   To allow specified Internet IP addresses to access your website, add the security group rule described in the following table.
 
-        |NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
-        |:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
-        |Internet|Inbound|Allow|HTTP\(80\)|80/80|Address field access|0.0.0.0/0|1|
-        |HTTPS \(443\)|443/443|
-        |Custom TCP|Custom, for example, 8080/8080|
-
--   To allow some public IP addresses to access your website:
-
-    -   VPC: Add the following rule.
-
-        |NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
-        |:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
-        |Not required|Inbound|Allow|HTTP\(80\)|80/80|Address field access|Specify one or more public IP addresses that you allow to access your website.|1|
-        |HTTPS\(443\)|443/443|
-        |Custom TCP|Custom, for example, 8080/8080|
-
-    -   Classic network: Add the following rule.
-
-        |NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
-        |:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
-        |Internet|Inbound|Allow|HTTP\(80\)|80/80|Address field access|Specify one or more public IP addresses that you allow to access your website.|1|
-        |HTTPS \(443\)|443/443|
-        |Custom TCP|Custom, for example, 8080/8080|
+    |Network type|NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
+    |:-----------|:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
+    |VPC|Configuration is not required.|Inbound|Allow|HTTP \(80\)|80/80|CIDR block access|One or more Internet IP addresses of the hosts that you allow to access your website|1|
+    |HTTPS \(443\)|443/443|
+    |Custom TCP|Custom \(for example, 8080/8080\)|
+    |Classic network|Internet|Inbound|Allow|HTTP \(80\)|80/80|CIDR block access|One or more Internet IP addresses of the hosts that you allow to access your website|1|
+    |HTTPS \(443\)|443/443|
+    |Custom TCP|Custom \(for example, 8080/8080\)|
 
 
 **Note:** 
 
--   If users cannot access your instance by using `http://Public IP address`, [verify if TCP port 80 works properly](https://partners-intl.aliyun.com/help/faq-detail/59367.htm).
--   TCP port 80 is the default port for HTTP services. If you want to use other ports, such as port 8080, you must modify the listening port settings in the configuration file of the Web server.
-
-## Scenario 6: Deny your ECS instance to access specified external IP addresses {#section_qtl_vhz_ngb .section}
-
-If you do not want your ECS instance to access an external IP address, add the following rule to the security group to which your instance belongs:
-
-|Network type|NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
-|:-----------|:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
-|VPC|Not required|Outbound|Drop|All|-1/-1|Address field access|Specify the public IP address that you deny your instance to access, for example, 1.2.3.4.|1|
-|Classic network|Internet|
+-   If your users cannot access your instance by using the `http://Internet IP address`, [verify if TCP port 80 works properly](https://partners-intl.aliyun.com/help/faq-detail/59367.htm).
+-   Port 80 is the default port for the HTTP service. If you want to use another port \(for example, port 8080\), you must modify the listening port settings in the configuration file of the Web server.
 
