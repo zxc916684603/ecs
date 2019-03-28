@@ -1,8 +1,8 @@
-# DescribeAccountAttributes {#doc_api_1006119 .reference}
+# DescribeAccountAttributes {#doc_api_1154045 .reference}
 
 查询您在一个阿里云地域下能创建的ECS资源上限。包括您能创建的安全组数量、弹性网卡数量、按量付费vCPU核数、抢占式实例vCPU核数、专用宿主机数量、地域网络类型以及账号是否已完成实名认证。
 
-## 描述 {#description .section}
+## 接口说明 {#description .section}
 
 [注册](https://account.aliyun.com/register/register.htm) 了阿里云账号后，您可以在不同的阿里云地域中创建一定数量的ECS资源，更多详情，请参阅 [使用限制](~~25412~~)。
 
@@ -22,6 +22,9 @@
 |Action|String|否|DescribeAccountAttributes|系统规定参数。取值：DescribeAccountAttributes
 
  |
+|ZoneId|String|否|cn-hangzhou-b|可用区ID。
+
+ |
 |AttributeName.N|RepeatList|否|max-security-groups|查询某类资源的使用上限，N的取值范围为1~8。取值范围：
 
  -   instance-network-type：当前地域可选择的网络类型。
@@ -37,9 +40,6 @@
 
 
  默认值：空
-
- |
-|ZoneId|String|否|cn-hangzhou-b|可用区ID。
 
  |
 
@@ -68,13 +68,23 @@
 |└Count|Integer|3|特权属性类型的数量。
 
  |
-|└InstanceChargeType|String|PrePaid|付费方式
+|└ExpiredTime|String|2019-01-01T12:30:00Z|特权到期时间， 仅存在到期时间的账号特权会返回该参数。按照 [ISO8601](~~25696~~) 标准表示，并需要使用 UTC 时间。格式为yyyy-MM-ddTHH:mm:ssZ。
+
+ |
+|└InstanceChargeType|String|PrePaid|实例计费方式
 
  |
 |└InstanceType|String|\["ecs.g5.large"\]|实例规格
 
  |
-|└Value|String|800| |
+|└Value|String|800|当前地域或全部地域下某类资源的使用上限具体数值。可能值:
+
+ -   分类为 max-security-groups、max-elastic-network-interfaces、max-postpaid-instance-vcpu-count、max-delicated-hosts、max-spot-instance-vcpu-count时：返回0或正整数。
+-   分类为 supported-postpay-instance-types 时：返回实例规格取值。参阅 [实例规格族](~~25378~~)。
+-   分类为 real-name-authentications时：返回 yes | none | unnecessary
+-   分类为 为instance-network-type 时：返回 vpc | classic
+
+ |
 |└ZoneId|String|cn-hangzhou-b|可用区ID
 
  |
