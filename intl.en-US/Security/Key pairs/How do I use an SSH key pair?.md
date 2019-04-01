@@ -4,10 +4,10 @@ This topic describes how to use an SSH key pair in the ECS console. Note that on
 
 ## Create an SSH key pair {#section_f5c_h31_ydb .section}
 
-1.  登录ECS管理控制台。
-2.  在左侧导航栏中，单击**密钥对**。
-3.  选择地域。
-4.  单击**创建密钥对**。
+1.  Log on to the ECS console.
+2.  In the left-side navigation pane, choose **Networks and Security** \> **SSH Key Pair**.
+3.  Select the target region.
+4.  Click **Create SSH Key Pair**.
 5.  Enter a name for the SSH key pair, and then select **Auto-Create SSH Key Pair**.
 
     **Note:** Do not enter an SSH key pair name that already exists. Otherwise, the ECS console prompts you that the key already exists.
@@ -74,10 +74,10 @@ An imported public key must be `Base64` encoded and must support any of the foll
 -   ecdsa-sha2-nistp521-cert-v01@openssh.com
 
 1.  Obtain public key information. For more information, see [查看公钥信息](#).
-2.  登录ECS管理控制台。
-3.  在左侧导航栏中，单击**密钥对**。
-4.  选择地域。
-5.  单击**创建密钥对**。
+2.  Log on to the ECS console.
+3.  In the left-side navigation pane, choose **Networks and Security** \> **SSH Key Pair**.
+4.  Select the target region.
+5.  Click **Create SSH Key Pair**.
 6.  Enter a name for the SSH key pair, select **Import SSH Key Pair**, and then enter public key information in the **Public Key**box.
 
     **Note:** Do not specify a name that is the same as an existing one or as one that is deleted while remains attached to an instance. Otherwise, the ECS console prompts you that the key already exists.
@@ -95,9 +95,9 @@ You can attach an SSH key pair to an instance during or after instance creation.
 -   Each ECS instance can only be associated with one SSH key pair. If an ECS instance is already associated with an SSH key pair, the old key is automatically replaced with the new key.
 -   If an ECS instance uses password authentication, the password authentication mode is automatically disabled after a key pair is associated with the instance. However, if you [重置实例密码](../reseller.en-US/Instances/Manage instances/Reset an instance password.md#) after attaching a key pair to an instance, you can use both the password and the key pair to log on to the instance.
 
-1.  登录ECS管理控制台。
-2.  在左侧导航栏中，单击**密钥对**。
-3.  选择地域。
+1.  Log on to the ECS console.
+2.  In the left-side navigation pane, choose **Networks and Security** \> **SSH Key Pair**.
+3.  Select the target region.
 4.  Find the target key pair, and click **Bind** in the **Actions** column.
 5.  In the **Select Instance** box, select the target ECS instance, and click **\>** to move it to the **Selected** box.
 
@@ -114,9 +114,9 @@ Related API: [AttachKeyPair](../reseller.en-US/API Reference/SSH key pairs/Attac
 
 ## Detach an SSH key pair {#section_lqq_yp1_ydb .section}
 
-1.  登录ECS管理控制台。
-2.  在左侧导航栏中，单击**密钥对**。
-3.  选择地域。
+1.  Log on to the ECS console.
+2.  In the left-side navigation pane, choose **Networks and Security** \> **SSH Key Pair**.
+3.  Select the target region.
 4.  Find the target key pair, and click **Unbind** in the **Actions** column.
 5.  In the **Select Instance** box, select the target ECS instance, and click **\>** to move it to the **Selected** box.
 
@@ -165,9 +165,9 @@ An SSH key pair cannot be restored once it is deleted. However, the delete opera
 -   If your key pair has been attached to an instance, and it is not detached from that instance before the deletion, you cannot create a key pair of the same name after the deletion. Otherwise, if you create or import such a key pair, the ECS console prompts you that the key pair already exists when you enter this key pair name.
 -   If your key pair is not attached to an instance, or is detached from an instance before the deletion, you can create a key pair of the same name after the deletion.
 
-1.  登录ECS管理控制台。
-2.  在左侧导航栏中，单击**密钥对**。
-3.  选择地域。
+1.  Log on to the ECS console.
+2.  In the left-side navigation pane, choose **Networks and Security** \> **SSH Key Pair**.
+3.  Select the target region.
 4.  Select one or more key pairs to be deleted.
 5.  Click **Delete**.
 
