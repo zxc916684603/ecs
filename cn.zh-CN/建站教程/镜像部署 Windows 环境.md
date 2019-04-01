@@ -3,7 +3,7 @@
 您可以根据业务需要，选择下列任意一种方式部署云服务器 ECS 实例的使用环境：
 
 -   镜像部署
--   [手动部署](intl.zh-CN/建站教程/搭建WordPress网站.md#)
+-   [手动部署](cn.zh-CN/建站教程/部署Web环境（Windows）.md#)
 
 下表列出了两种部署方式的特点。一般推荐镜像部署。如果您需要个性化定制部署，建议使用手动部署。
 
@@ -25,7 +25,7 @@
 
 **说明：** 
 
--   本节介绍的方法适用于已经购买实例、但想使用镜像重新部署环境的用户。此外，您也可以在创建实例的时候就选择镜像，请参考 [创建实例](../../../../intl.zh-CN/个人版快速入门/步骤 2：创建ECS实例.md#)。
+-   本节介绍的方法适用于已经购买实例、但想使用镜像重新部署环境的用户。此外，您也可以在创建实例的时候就选择镜像，请参考 [创建实例](../../../../../cn.zh-CN/个人版快速入门/步骤 2：创建ECS实例.md#)。
 -   如果您想使用镜像市场的镜像来替换当前实例的操作系统，可以通过本节介绍的更换系统盘的方法来实现。
 -   更换系统盘的时候，**数据盘** 的数据则不会受到影响。因此建议您将系统盘的个人数据备份到数据盘中，或采用其他方式进行备份。
 -   更换系统盘后，IP 地址不会改变。
@@ -36,37 +36,37 @@
 2.  找到需要重新部署环境的实例。
 3.  如果该实例刚刚创建，可以直接停止实例。如果实例已经运行了一段时间，您想保留其中的数据，请在操作前将数据备份到数据盘中。
 
-    **说明：** 在更换镜像后，系统盘的数据会全部被清空，服务器的自动备份的快照也可能会被删除（取决于您的设置，请参见 [自动快照随云盘释放](../../../../intl.zh-CN/用户指南/快照/设置自动快照随云盘释放.md#)）。因此务必做好数据备份工作。
+    **说明：** 在更换镜像后，系统盘的数据会全部被清空，服务器的自动备份的快照也可能会被删除（取决于您的设置，请参见 [自动快照随云盘释放](../../../../../cn.zh-CN/隐藏/新架构后需要隐藏的文档汇总/快照/设置自动快照随云盘释放.md#)）。因此务必做好数据备份工作。
 
 4.  停止实例。
 5.  确认停止实例。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9762/154440785512076_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9762/155408491112076_zh-CN.png)
 
 6.  实例停止后，单击实例名称，或者单击右侧的 **管理**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9762/154440785512077_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9762/155408491112077_zh-CN.png)
 
 7.  在左侧的 **配置信息** 中，单击 **更换系统盘**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9772/154440785512978_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9772/155408491112978_zh-CN.png)
 
 8.  在提示消息中，单击 **确定，更换系统盘**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9762/154440785512079_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9762/155408491212079_zh-CN.png)
 
 9.  单击 **镜像市场**，然后单击 **从镜像市场选择（含操作系统）**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9762/154440785512080_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9762/155408491212080_zh-CN.png)
 
 10. 镜像市场列表的左侧是镜像的分类。您可以根据分类，选择想使用的镜像。找到需要的镜像后，单击镜像右下方的 **使用**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9772/154440785612979_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9772/155408491212979_zh-CN.jpg)
 
 11. 继续选择系统盘，输入登录密码，然后单击 **确定更换**。
 12. 您会看到更换操作系统的提示。单击 **确定**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9762/154440785612083_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9762/155408491212083_zh-CN.png)
 
 
 您成功使用镜像部署了环境。现在可以启动、并登录实例，开始使用您的环境了。
