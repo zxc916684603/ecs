@@ -16,22 +16,12 @@
 |Action|String|否|DescribeImageSupportInstanceTypes|系统规定参数。取值：DescribeImageSupportInstanceTypes
 
  |
-|ActionType|String|否|\*|镜像适用的操作类型。取值范围：
+|ActionType|String|否|\*|实例规格需要使用到的场景。取值范围：
 
- -   \*
--   Create
--   CreateEcs
--   Trail
--   ChangeOS
--   Upgrade
--   Downgrade
--   RenewDowngrade
--   ConvertToAfterPay
--   ConvertToPrePay
--   ResourceMigratre
--   Migrate
--   Renew
--   Resize
+ -   CreateEcs（默认）：创建实例
+-   Upgrade：升级实例规格
+-   Downgrade：降级实例规格
+-   RenewDowngrade：续费降配
 
  |
 |Filter.N.Key|String|否|CreationStartTime|指定过滤条件 Key。
