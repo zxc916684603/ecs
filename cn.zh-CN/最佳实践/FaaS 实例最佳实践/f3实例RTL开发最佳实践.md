@@ -71,7 +71,7 @@
             sh /root/xbinst_oem/tool/faas_upload_and_create_image.sh <bit.tar.gz需要上传的压缩包文件名>
             ```
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419070012110_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419093012110_zh-CN.png)
 
         2.  下载镜像文件。
 
@@ -99,9 +99,9 @@
             
             ```
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419070012112_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419093012112_zh-CN.png)
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419070012113_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419093112113_zh-CN.png)
 
         2.  运行命令查看FPGA镜像是否处于可下载状态。
 
@@ -111,7 +111,7 @@
 
             在返回结果中，如果`State`为 `compiling`，表示FPGA镜像处于编译状态，您需要继续等待。如果 `State` 为 `success`，表示FPGA镜像已经可以下载。您需要找到并记录FpgaImageUUID。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419070012115_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419093112115_zh-CN.png)
 
         3.  运行以下命令。在命令返回结果中，您需要找到并记录FpgaUUID。
 
@@ -127,7 +127,7 @@
             # hereIsYourInstanceId替换为f3的实例ID，hereIsFpgaUUID替换为您获取的FpgaUUID，hereIsImageUUID替换为您获取的FpgaImageUUID
             ```
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419070012116_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419093112116_zh-CN.png)
 
         5.  运行以下命令查看镜像是否下载成功。
 
@@ -137,7 +137,7 @@
 
             以下为返回结果示例。如果显示的FpgaImageUUID与您获取的FpgaImageUUID一致，并且显示 `"TaskStatus":"valid"`，说明镜像下载成功。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419070112117_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419093112117_zh-CN.png)
 
 
 ## 新建RAM用户并授权 {#section_e5y_ybg_hhb .section}
@@ -148,18 +148,18 @@
 2.  在用户管理页面，单击**新建用户**。
 3.  填写用户名、显示名、邮箱等信息，并勾选**为该用户自动生成AccessKey**，单击**确定**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419070142229_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419093142229_zh-CN.png)
 
 4.  单击**保存AK信息**。
 
     **说明：** 每对AK仅一次下载机会，请妥善保管**AccessKeyID**和**AccessKeySecret**。如果AK丢失，您只能重新创建AK。更多信息，请参见[RAM用户AK说明](../../../../../cn.zh-CN/快速入门/创建 RAM 用户.md#ul_d54_dcf_xdb)。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419070142230_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419093142230_zh-CN.png)
 
 5.  在用户管理页面，在新建的RAM用户**操作**列下，单击**授权**。
 6.  为该RAM用户授予权限，至少包括：AliyunOSSFullAccess、 AliyunECSFullAccess、AliyunRAMFullAccess和AliyunSTSAssumeRoleAccess，然后单击**确定**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419070142232_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419093142232_zh-CN.png)
 
 
 ## FAQ { .section}
