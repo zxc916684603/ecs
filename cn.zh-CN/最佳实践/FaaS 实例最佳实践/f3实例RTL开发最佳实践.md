@@ -5,24 +5,24 @@
 **说明：** 
 
 -   本文所述所有操作必须由同一个账号在同一个地域执行。
--   强烈建议您使用RAM用户操作FPGA实例。 基于最小授权原则，建议您不要对RAM用户过度授权，而只授予RAM用户刚好满足其工作所需的权限。 使用FaaS服务，需要您授权FaaS服务账号访问您指定的OSS bucket，所以您需要在RAM控制台创建一个服务角色faasRole，并授予其faasPolicy权限。 如果您需要使用KMS服务对IP进行加密，必须在faasPolicy里授予KMS相关的权限。
+-   强烈建议您使用RAM用户操作FPGA实例。基于最小授权原则，建议您不要对RAM用户过度授权，而只授予RAM用户刚好满足其工作所需的权限，比如访问OSS bucket获取原始DCP/xclbin文件、上传Vivado编译log、操作指定的ECS实例等。您还需要指定RAM角色AliyunFAASDefaultRole，FaaS服务默认使用此角色来访问您在其他云产品中的资源，其权限策略AliyunFAASRolePolicy还包括KMS相关的权限，以便您使用KMS服务对IP进行加密。
 
 ## 前提条件 {#section_agy_vy3_dfb .section}
 
--   您已经 [创建f3实例](../../../../../intl.zh-CN/用户指南/实例/创建实例/创建f3实例.md)，实例能访问公网，并且实例所在安全组中已经添加对SSH（22）端口访问放行的规则。
+-   您已经 [创建f3实例](../../../../../cn.zh-CN/实例/实例规格族/FPGA计算型/创建f3实例.md)，实例能访问公网，并且实例所在安全组中已经添加对SSH（22）端口访问放行的规则。
 -   登录 [云服务器ECS管理控制台](https://ecs.console.aliyun.com/#/home)，在f3实例的详情页上，获取实例ID。
--   在华东2 [创建一个OSS Bucket](../../../../../intl.zh-CN/快速入门/创建存储空间.md)，专门用于FaaS服务。
+-   在华东2 [创建一个OSS Bucket](../../../../../cn.zh-CN/快速入门/创建存储空间.md)，专门用于FaaS服务。
 
     **说明：** 这个Bucket会对FaaS管理账号开通读写权限，因此不建议您存储与FaaS无关的内容。
 
 -   如果使用RAM用户操作FPGA，必须完成以下操作：
-    -    [创建RAM用户](../../../../../intl.zh-CN/快速入门/创建 RAM 用户.md) 并 [授权](../../../../../intl.zh-CN/快速入门/为 RAM 用户授权.md)。
-    -    [创建RAM角色](../../../../../intl.zh-CN//身份管理/角色.md) 并 [授权](../../../../../intl.zh-CN//授权管理/授权.md)。
+    -    [新建RAM用户并授权](cn.zh-CN/最佳实践/FaaS 实例最佳实践/f3实例RTL开发最佳实践.md#section_e5y_ybg_hhb)。
+    -    [授权FaaS服务角色](https://ram.console.aliyun.com/#/role/authorize?request=%7B%22Requests%22%3A%20%7B%22request1%22%3A%20%7B%22RoleName%22%3A%20%22AliyunFAASDefaultRole%22%2C%20%22TemplateId%22%3A%20%22DefaultRole%22%7D%7D%2C%20%22ReturnUrl%22%3A%20%22https%3A//ecs.console.aliyun.com/%23/home%22%2C%20%22Service%22%3A%20%22FAAS%22%7D)。
     -   获取AccessKey ID和AccessKey Secret。
 
 ## 操作步骤 { .section}
 
-1.   [远程连接Linux实例](../../../../../intl.zh-CN/用户指南/连接实例/使用用户名密码验证连接Linux实例.md)。
+1.   [远程连接Linux实例](../../../../../cn.zh-CN/实例/实例生命周期/连接实例/使用用户名密码验证连接Linux实例.md)。
 
     **说明：** 编译工程时需要 2 ~ 3 小时。建议您使用nohup或者VNC连接实例，以免编译时意外退出。
 
@@ -71,7 +71,7 @@
             sh /root/xbinst_oem/tool/faas_upload_and_create_image.sh <bit.tar.gz需要上传的压缩包文件名>
             ```
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/154777965312110_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419070012110_zh-CN.png)
 
         2.  下载镜像文件。
 
@@ -90,7 +90,7 @@
             sh /root/xbinst_oem/tool/faas_download_image.sh <bit.tar.gz压缩包的文件名> 3
             ```
 
-    -   **单步操作流程**：[使用faascmd工具](intl.zh-CN/最佳实践/FaaS 实例最佳实践/faascmd工具/使用faascmd.md#) 进行操作。
+    -   **单步操作流程**：[使用faascmd工具](cn.zh-CN/最佳实践/FaaS 实例最佳实践/faascmd工具/使用faascmd.md#) 进行操作。
         1.  运行以下命令，将压缩包上传到您个人的OSS Bucket，再将存放在您个人OSS Bucket中的gbs上传到FaaS管理单元的OSS Bucket中。
 
             ```language-bash
@@ -99,9 +99,9 @@
             
             ```
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/154777965312112_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419070012112_zh-CN.png)
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/154777965312113_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419070012113_zh-CN.png)
 
         2.  运行命令查看FPGA镜像是否处于可下载状态。
 
@@ -111,7 +111,7 @@
 
             在返回结果中，如果`State`为 `compiling`，表示FPGA镜像处于编译状态，您需要继续等待。如果 `State` 为 `success`，表示FPGA镜像已经可以下载。您需要找到并记录FpgaImageUUID。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/154777965312115_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419070012115_zh-CN.png)
 
         3.  运行以下命令。在命令返回结果中，您需要找到并记录FpgaUUID。
 
@@ -127,7 +127,7 @@
             # hereIsYourInstanceId替换为f3的实例ID，hereIsFpgaUUID替换为您获取的FpgaUUID，hereIsImageUUID替换为您获取的FpgaImageUUID
             ```
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/154777965312116_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419070012116_zh-CN.png)
 
         5.  运行以下命令查看镜像是否下载成功。
 
@@ -137,7 +137,29 @@
 
             以下为返回结果示例。如果显示的FpgaImageUUID与您获取的FpgaImageUUID一致，并且显示 `"TaskStatus":"valid"`，说明镜像下载成功。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/154777965312117_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419070112117_zh-CN.png)
+
+
+## 新建RAM用户并授权 {#section_e5y_ybg_hhb .section}
+
+请按照以下步骤新建一个RAM用户并授予必要的权限。
+
+1.  登录[RAM控制台](https://ram.console.aliyun.com/overview)。
+2.  在用户管理页面，单击**新建用户**。
+3.  填写用户名、显示名、邮箱等信息，并勾选**为该用户自动生成AccessKey**，单击**确定**。
+
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419070142229_zh-CN.png)
+
+4.  单击**保存AK信息**。
+
+    **说明：** 每对AK仅一次下载机会，请妥善保管**AccessKeyID**和**AccessKeySecret**。如果AK丢失，您只能重新创建AK。更多信息，请参见[RAM用户AK说明](../../../../../cn.zh-CN/快速入门/创建 RAM 用户.md#ul_d54_dcf_xdb)。
+
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419070142230_zh-CN.png)
+
+5.  在用户管理页面，在新建的RAM用户**操作**列下，单击**授权**。
+6.  为该RAM用户授予权限，至少包括：AliyunOSSFullAccess、 AliyunECSFullAccess、AliyunRAMFullAccess和AliyunSTSAssumeRoleAccess，然后单击**确定**。
+
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155419070142232_zh-CN.png)
 
 
 ## FAQ { .section}
