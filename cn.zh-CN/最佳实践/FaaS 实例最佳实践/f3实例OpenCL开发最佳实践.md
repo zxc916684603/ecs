@@ -6,10 +6,11 @@
 
 -   本文所述所有操作都必须由同一个账号在同一地域里执行。
 -   建议您使用RAM用户操作FaaS实例。您需要为FaaS管理账号创建一个角色，并授予临时权限，让FaaS管理账号能访问指定的OSS Bucket。
+-   本文所述步骤和命令均基于2018.2版本Sdaccel开发环境。若您使用其他版本Sdaccel开发环境，步骤和命令可能会稍有差异。
 
 ## 前提条件 {#section_j5c_ctl_2fb .section}
 
--   已[创建f3实例](../../../../../intl.zh-CN/用户指南/实例/创建实例/创建f3实例.md)。
+-   已[创建f3实例](../../../../../cn.zh-CN/实例/实例规格族/FPGA计算型/创建f3实例.md)。
 
     **说明：** 
 
@@ -17,10 +18,10 @@
     -   创建实例时选择分配公网IP，确保实例能访问公网。
     -   实例所在安全组中已经添加规则放行SSH（22）端口的访问。
 -   已在ECS控制台f3实例的详情页上，获取实例ID。
--   使用同一个账号创建了与f3实例在同一地域的OSS Bucket。详细信息参见开通OSS服务和[创建一个OSS Bucket](../../../../../intl.zh-CN/快速入门/创建存储空间.md)。
+-   使用同一个账号创建了与f3实例在同一地域的OSS Bucket。详细信息参见开通OSS服务和[创建一个OSS Bucket](../../../../../cn.zh-CN/快速入门/创建存储空间.md)。
 -   如果您使用RAM用户操作FPGA，确保已经完成以下操作：
-    -    [创建RAM用户](../../../../../intl.zh-CN/快速入门/创建 RAM 用户.md)并[授权](../../../../../intl.zh-CN/快速入门/为 RAM 用户授权.md)。
-    -    [创建RAM角色](../../../../../intl.zh-CN//身份管理/角色.md)并[授权](../../../../../intl.zh-CN//授权管理/授权.md)。
+    -    [创建RAM用户](../../../../../cn.zh-CN/快速入门/创建 RAM 用户.md)并[授权](../../../../../cn.zh-CN/快速入门/为 RAM 用户授权.md)。
+    -    [创建RAM角色](../../../../../cn.zh-CN/用户指南/身份管理/角色.md)并[授权](../../../../../cn.zh-CN/用户指南/授权管理/授权.md)。
     -   获取AccessKey ID和AccessKey Secret。
 
 ## 操作步骤 {#section_eyg_ltl_2fb .section}
@@ -31,7 +32,7 @@
 
 您需要按以下步骤配置环境：
 
-1.  [远程连接f3实例](../../../../../intl.zh-CN/用户指南/连接实例/使用用户名密码验证连接Linux实例.md)。
+1.  [远程连接f3实例](../../../../../cn.zh-CN/实例/实例生命周期/连接实例/使用用户名密码验证连接Linux实例.md)。
 
     **说明：** 后面步骤中的编译工程可能会持续数小时，建议您使用screen或者nohub等方式登录，防止ssh超时退出。
 
@@ -83,7 +84,7 @@
         2.  在第 61 行代码（参数可能在 60-62 行，视您的文件而定）的末尾添加编译参数 `--xp param:compiler.acceleratorBinaryContent=dcp`，修改后的代码为：
 
             ```
-            CLCC_OPT += $(CLCC_OPT_LEVEL) ${DEVICE_REPO_OPT} --platform ${XDEVICE} -o ${XCLBIN} ${KERNEL_DEFS} ${KERNEL_INCS} --xp param:compiler.acceleratorBinaryContent=dcp
+            CLCC_OPT += $(CLCC_OPT_LEVEL) ${DEVICE_REPO_OPT} --platform ${XDEVICE} ${KERNEL_DEFS} ${KERNEL_INCS} --xp param:compiler.acceleratorBinaryContent=dcp
             ```
 
             **说明：** 由于您必须向编译服务器提交DCP文件，所以需要添加`--xp param:compiler.acceleratorBinaryContent=dcp`编译参数，使得Xilinx® OpenCL™ Compiler（xocc）编译生成一个布局布线后的DCP文件，而不是bit文件。
@@ -96,7 +97,7 @@
 
         如果您看到如下界面，说明二进制文件编译已经开始。编译过程可能会持续数个小时，请您耐心等待。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21515/154777960912150_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21515/155427561112150_zh-CN.png)
 
 -   **示例二：kernel\_global\_bandwidth**
 
@@ -130,7 +131,7 @@
 
         如果您看到该界面，说明二进制文件编译已经开始。编译工程可能会持续数小时，请您耐心等待。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21515/154777960936971_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21515/155427561136971_en-US.png)
 
 
 ## 步骤 3. 检查打包脚本 {#section_rjl_d5l_2fb .section}
@@ -160,7 +161,7 @@ wget http://fpga-tools.oss-cn-shanghai.aliyuncs.com/sdaccel_package.sh
 
 2.  运行`ls`，获取后缀为`.xclbin`的文件名。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21515/154777960912152_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21515/155427561112152_zh-CN.png)
 
 3.  打包二进制文件。
 
@@ -170,7 +171,7 @@ wget http://fpga-tools.oss-cn-shanghai.aliyuncs.com/sdaccel_package.sh
 
     打包完成后，您会在同一目录下看到一个打包好的文件，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21515/154777960912154_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21515/155427561112154_zh-CN.png)
 
 
 ## 步骤 5. 下载镜像 {#section_ft5_k5l_2fb .section}
@@ -185,7 +186,7 @@ wget http://fpga-tools.oss-cn-shanghai.aliyuncs.com/sdaccel_package.sh
         sh /root/xbinst_oem/tool/faas_upload_and_create_image.sh <bit.tar.gz需要上传的压缩包文件名>
         ```
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/154777960912110_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155427561112110_zh-CN.png)
 
     2.  下载镜像文件。
 
@@ -204,7 +205,7 @@ wget http://fpga-tools.oss-cn-shanghai.aliyuncs.com/sdaccel_package.sh
         sh /root/xbinst_oem/tool/faas_download_image.sh <bit.tar.gz压缩包的文件名> 3
         ```
 
--   **单步操作流程**：[使用faascmd工具](intl.zh-CN/最佳实践/FaaS 实例最佳实践/faascmd工具/使用faascmd.md#)进行操作。
+-   **单步操作流程**：[使用faascmd工具](cn.zh-CN/最佳实践/FaaS 实例最佳实践/faascmd工具/使用faascmd.md#)进行操作。
     1.  运行以下命令，将压缩包上传到您个人的OSS Bucket，再将存放在您个人OSS Bucket中的gbs上传到FaaS管理单元的OSS Bucket中。
 
         ```language-bash
@@ -213,9 +214,9 @@ wget http://fpga-tools.oss-cn-shanghai.aliyuncs.com/sdaccel_package.sh
         
         ```
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/154777960912112_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155427561112112_zh-CN.png)
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/154777960912113_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155427561112113_zh-CN.png)
 
     2.  运行命令查看FPGA镜像是否处于可下载状态。
 
@@ -225,7 +226,7 @@ wget http://fpga-tools.oss-cn-shanghai.aliyuncs.com/sdaccel_package.sh
 
         在返回结果中，如果`State`为`compiling`，表示FPGA镜像处于编译状态，您需要继续等待。如果`State` 为`success`，表示FPGA镜像已经可以下载。您需要找到并记录FpgaImageUUID。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/154777960912115_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155427561112115_zh-CN.png)
 
     3.  运行以下命令。在命令返回结果中，您需要找到并记录FpgaUUID。
 
@@ -241,7 +242,7 @@ wget http://fpga-tools.oss-cn-shanghai.aliyuncs.com/sdaccel_package.sh
         # hereIsYourInstanceId替换为f3的实例ID，hereIsFpgaUUID替换为您获取的FpgaUUID，hereIsImageUUID替换为您获取的FpgaImageUUID
         ```
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/154777960912116_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155427561112116_zh-CN.png)
 
     5.  运行以下命令查看镜像是否下载成功。
 
@@ -251,7 +252,7 @@ wget http://fpga-tools.oss-cn-shanghai.aliyuncs.com/sdaccel_package.sh
 
         以下为返回结果示例。如果显示的FpgaImageUUID与您获取的FpgaImageUUID一致，并且显示 `"TaskStatus":"valid"`，说明镜像下载成功。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/154777961012117_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9830/155427561212117_zh-CN.png)
 
 
 ## 步骤 6. 运行Host程序 {#section_tft_w5l_2fb .section}
