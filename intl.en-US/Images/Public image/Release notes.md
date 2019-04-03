@@ -2,12 +2,63 @@
 
 This topic describes the release notes of images and relevant updates.
 
+## March 27, 2019 {#section_ztj_3ym_hhb .section}
+
+|Release|Description|
+|:------|:----------|
+|Aliyun Linux 2| -   Image ID: aliyun-2.1903-x64-20G-alibase-20190327.vhd
+-   Kernel version: 4.19.24-9.al7.x86\_64
+-   Released in: China North 2, China North 3, China North 5, and Dubai
+-   What's new: released Aliyun Linux 2
+
+ |
+
 ## March 19, 2019 {#section_znr_p3r_dhb .section}
 
 |Release|Description|
 |:------|:----------|
 |CoreOS 2023.4.0| -   Image ID: coreos\_2023\_4\_0\_64\_30G\_alibase\_20190319.vhd
 -   Kernel version: 4.19.25-coreos
+-   Released in: all regions
+-   What's new: updated to the latest system patches
+
+ |
+
+## March 18, 2019 {#section_bpz_fdv_fhb .section}
+
+|Release|Description|
+|:------|:----------|
+|Windows Server 2019 Datacenter Edition| -   Image ID:
+    -   win2019\_64\_dtc\_1809\_zh-cn\_40G\_alibase\_20190318.vhd \(Chinese edition\)
+    -   win2019\_64\_dtc\_1809\_en-us\_40G\_alibase\_20190318.vhd \(English edition\)
+-   Released in: China North 1, China East 2, and China South 1
+-   What's new: new release
+
+ |
+|Windows Server 2016 Datacenter Edition| -   Image ID:
+    -   win2016\_64\_dtc\_1607\_zh-cn\_40G\_alibase\_20190318.vhd \(Chinese edition\)
+    -   win2016\_64\_dtc\_1607\_en-us\_40G\_alibase\_20190318.vhd \(English edition\)
+-   Released in: all regions
+-   What's new: updated to the latest system patches
+
+ |
+|Windows Server 2012 R2 Datacenter Edition| -   Image ID:
+    -   win2012r2\_64\_dtc\_9600\_zh-cn\_40G\_alibase\_20190318.vhd \(Chinese edition\)
+    -   win2012r2\_64\_dtc\_9600\_en-us\_40G\_alibase\_20190318.vhd \(English edition\)
+-   Released in: all regions
+-   What's new: updated to the latest system patches
+
+ |
+|Windows Server 2008 R2 Enterprise Edition| -   Image ID:
+    -   win2008r2\_64\_ent\_sp1\_zh-cn\_40G\_alibase\_20190318.vhd \(Chinese edition\)
+    -   win2008r2\_64\_ent\_sp1\_en-us\_40G\_alibase\_20190318.vhd \(English edition\)
+-   Released in: all regions
+-   What's new: updated to the latest system patches
+
+ |
+|Windows Server Version 1809 Datacenter Edition| -   Image ID:
+    -   winsvr\_64\_dtcC\_1809\_zh-cn\_40G\_alibase\_20190318.vhd \(Chinese edition\)
+    -   winsvr\_64\_dtcC\_1809\_en-us\_40G\_alibase\_20190318.vhd \(English edition\)
 -   Released in: all regions
 -   What's new: updated to the latest system patches
 
@@ -43,7 +94,7 @@ This topic describes the release notes of images and relevant updates.
 |:------|:----------|
 |Debian 9.8| -   Image ID: debian\_9\_08\_64\_20G\_alibase\_20190225.vhd
 -   Kernel version: 4.9.0-8-amd64
--   Released in: China North 2,China North 3,China North 5
+-   Released in: China North 2, China North 3, and China North 5
 -   What's new: updated to the latest system patches
 
  |
@@ -85,7 +136,7 @@ This topic describes the release notes of images and relevant updates.
 
 |Release|Description|
 |:------|:----------|
-|Windows Server version 1809| -   Image ID:
+|Windows Server version 1809 Datacenter Edition| -   Image ID:
     -   winsvr\_64\_dtcC\_1809\_zh-cn\_40G\_alibase\_20181222.vhd \(Chinese version\)
     -   winsvr\_64\_dtcC\_1809\_en-us\_40G\_alibase\_20181222.vhd \(English version\)
 -   Released in: all regions
@@ -94,7 +145,7 @@ This topic describes the release notes of images and relevant updates.
     -   Used Sysprep tool to generalize the image.
 
  |
-|Windows Server 2008 R2| -   Image ID: win2008r2\_64\_ent\_sp1\_en-us\_40G\_alibase\_20181222.vhd \(English version\)
+|Windows Server 2008 R2 Enterprise Edition| -   Image ID: win2008r2\_64\_ent\_sp1\_en-us\_40G\_alibase\_20181222.vhd \(English version\)
 -   Released in: all regions
 -   What's new:
     -   Updated the image to the latest patch KB3371318 \(released in December 2018\). As a result, Windows clients need to be updated with the latest patches to establish RDP connections.
@@ -107,7 +158,7 @@ This topic describes the release notes of images and relevant updates.
 
 |Release|Description|
 |:------|:----------|
-|Windows Server 2008 R2| -   Image ID: win2008r2\_64\_ent\_sp1\_zh-cn\_40G\_alibase\_20181220.vhd \(Chinese version\)
+|Windows Server 2008 R2 Enterprise Edition| -   Image ID: win2008r2\_64\_ent\_sp1\_zh-cn\_40G\_alibase\_20181220.vhd \(Chinese version\)
 -   Released in: all regions
 -   What's new:
     -   Updated the image to the latest patch KB4471318 \(released in December 2018\). As a result, Windows clients need to be updated with the latest patches to establish RDP connections.
@@ -115,7 +166,7 @@ This topic describes the release notes of images and relevant updates.
     -   Used Sysprep tool to generalize the image.
 
  |
-|Windows Server 2012 R2| -   Image ID:
+|Windows Server 2012 R2 Datacenter Edition| -   Image ID:
     -   win2012r2\_64\_dtc\_9600\_zh-cn\_40G\_alibase\_20181220.vhd \(Chinese version\)
     -   win2012r2\_64\_dtc\_9600\_en-us\_40G\_alibase\_20181220.vhd \(English version\)
 -   Released in: all regions
@@ -125,7 +176,7 @@ This topic describes the release notes of images and relevant updates.
     -   Used Sysprep tool to generalize the image.
 
  |
-|Windows Server 2016| -   Image ID:
+|Windows Server 2016 Datacenter Edition| -   Image ID:
     -   win2016\_64\_dtc\_1607\_zh-cn\_40G\_alibase\_20181220.vhd \(Chinese version\)
     -   win2016\_64\_dtc\_1607\_en-us\_40G\_alibase\_20181220.vhd \(English version\)
 -   Released in: all regions
