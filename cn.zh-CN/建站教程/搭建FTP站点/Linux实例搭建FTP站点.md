@@ -9,12 +9,16 @@ Linux 实例搭建 FTP 站点具体操作步骤如下：
 -   [步骤三： 设置安全组](#)
 -   [步骤四： 客户端测试](#)
 
+## 视频教程 {#section_ug4_jh5_hhb .section}
+
+  
+
 ## 步骤一： 安装 vsftpd {#section_d55_c23_ffb .section}
 
 1.  [远程连接](../../../../../cn.zh-CN/实例/实例生命周期/连接实例/使用用户名密码验证连接Linux实例.md#)并登录到 Linux 实例。
 2.  运行命令`yum install -y vsftpd`安装 vsftpd。出现下图表示安装成功。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/155226772312598_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/155434705512598_zh-CN.png)
 
 3.  运行以下命令进入`/etc/vsftpd`目录，并查看该目录下的文件。
 
@@ -23,7 +27,7 @@ Linux 实例搭建 FTP 站点具体操作步骤如下：
     ls
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/155226772312599_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/155434705512599_zh-CN.png)
 
     **说明：** 
 
@@ -48,7 +52,7 @@ Linux 实例搭建 FTP 站点具体操作步骤如下：
     netstat -antup | grep ftp
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/155226772312600_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/155434705512600_zh-CN.png)
 
 
 ## 步骤二： 配置 vsftpd {#section_wpy_x23_ffb .section}
@@ -60,7 +64,7 @@ vsftpd 安装后默认开启了匿名访问 FTP 服务器的功能。使用匿�
 -   配置匿名用户上传文件权限
 -   配置本地用户登录
 
-**配置匿名用户上传文件权限**
+ **配置匿名用户上传文件权限** 
 
 匿名访问FTP服务器是一种不安全的访问模式，任何人无需密码验证就可以登录到FTP服务器，这种模式一般只用来保存不重要的公开文件，不推荐在生产环境中使用。如果您需要配置匿名用户上传文件的权限，可以参考以下步骤配置：
 
@@ -71,7 +75,7 @@ vsftpd 安装后默认开启了匿名访问 FTP 服务器的功能。使用匿�
     4.  将匿名上传权限修改为`anon_upload_enable=YES`。
     5.  按**Esc**键退出编辑模式，然后输入`:wq`保存并退出文件。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/155226772312602_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/155434705512602_zh-CN.png)
 
 2.  运行以下命令更改`/var/ftp/pub`目录的权限，为 FTP 用户添加写权限，并重新加载配置文件。
 
@@ -80,10 +84,10 @@ vsftpd 安装后默认开启了匿名访问 FTP 服务器的功能。使用匿�
     systemctl restart vsftpd.service
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/155226772312603_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21756/155434705512603_zh-CN.png)
 
 
-**配置本地用户登录**
+ **配置本地用户登录** 
 
 本地用户登录是指用户使用 Linux 操作系统的账号和密码登录 FTP 服务器。
 
@@ -199,7 +203,7 @@ vsftpd 安装后默认只支持匿名访问 FTP 服务器，如果您试图使�
     ```
 
 
-**vsftpd.conf 的配置文件参数说明**
+ **vsftpd.conf 的配置文件参数说明** 
 
 运行命令`cat /etc/vsftpd/vsftpd.conf`查看配置文件内容。
 
@@ -238,17 +242,17 @@ vsftpd 安装后默认只支持匿名访问 FTP 服务器，如果您试图使�
 
 您可以通过 FTP 客户端或浏览器访问 FTP 服务器进行测试。本教程以windows自带的IE（Internet Explorer）浏览器为例，分别为您介绍 FTP 服务器配置为主动模式或被动模式时的访问步骤。
 
-**FTP服务器为主动模式**
+**FTP服务器为主动模式** 
 
 1.  打开客户端的 IE 浏览器。
-2.  将浏览器设置为主动访问模式。选择**设置** \> **Internet 选项** \> **高级**。勾选 **启用 FTP 文件夹视图**，取消勾选 **使用被动 FTP**。
+2.  将浏览器设置为主动访问模式。选择 **设置** \> **Internet 选项** \> **高级** 。勾选 **启用 FTP 文件夹视图**，取消勾选 **使用被动 FTP**。
 3.  在地址栏中输入`ftp://<FTP服务器IP地址>:FTP端口`，例如：`ftp://39.10.0.28:21`。
 4.  在弹出的对话框中，输入用户名和密码，即可对 FTP 文件进行相应权限的操作。
 
-**FTP服务器为被动模式**
+**FTP服务器为被动模式** 
 
 1.  打开客户端的 IE 浏览器。
-2.  将浏览器设置为被动访问模式。选择**设置** \> **Internet 选项** \> **高级**。勾选 **启用 FTP 文件夹视图**，勾选 **使用被动 FTP**。
+2.  将浏览器设置为被动访问模式。选择 **设置** \> **Internet 选项** \> **高级** 。勾选 **启用 FTP 文件夹视图**，勾选 **使用被动 FTP**。
 3.  在地址栏中输入`ftp://<FTP服务器IP地址>:FTP端口`，例如：`ftp://39.10.0.28:21`。
 4.  在弹出的对话框中，输入用户名和密码，即可对 FTP 文件进行相应权限的操作。
 
