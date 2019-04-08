@@ -5,7 +5,7 @@ Aliyun Linux 2是阿里云研发的新一代Aliyun Linux操作系统，旨在为
 ## 适用范围 {#section_pqg_rzh_fhb .section}
 
 -   各种云场景工作负载。例如，您可以在Aliyun Linux 2上运行数据库、数据分析、Web应用程序，以及生产环境中的其他工作负载。
--   [各规格系列实例](../../../../../cn.zh-CN/实例/实例规格族/实例规格族汇总.md#)，包括弹性裸金属服务器。支持的实例规格vCPU为1 vCPU~160 vCPU，内存大小为0.5 GiB~3840 GiB。
+-   [各规格系列实例](../../../../../cn.zh-CN/实例/实例规格族汇总.md#)，包括弹性裸金属服务器。支持的实例规格vCPU为1 vCPU~160 vCPU，内存大小为0.5 GiB~3840 GiB。
 
     **说明：** Aliyun Linux 2不支持使用Xen虚拟架构的实例以及使用经典网络的实例。
 
@@ -107,7 +107,7 @@ Aliyun Linux 2提供了Kdump服务。开启该服务后可捕获内核错误，�
     sudo systemctl restart kdump.service
     ```
 
-    **说明：** 所选[实例规格](../../../../../cn.zh-CN/实例/实例规格族/实例规格族汇总.md#)的内存小于或等于2GiB，无法使用Kdump服务。
+    **说明：** 所选[实例规格](../../../../../cn.zh-CN/实例/实例规格族汇总.md#)的内存小于或等于2GiB，无法使用Kdump服务。
 
 -   运行以下命令可将Kdump服务预留的内存地址空间归还给操作系统，并彻底关闭Kdump服务。
 
@@ -163,7 +163,7 @@ Aliyun Linux 2默认使用`systemd-networkd`配置网络。配置网络时，注
     1.  运行以下命令打开YUM仓库支持。
 
         ```
-        sudo yum install -y alinux-release-experimental
+        sudo yum install -y alinux-release-experimentals
         ```
 
     2.  运行以下命令安装软件包。
@@ -182,7 +182,7 @@ Aliyun Linux 2默认使用`systemd-networkd`配置网络。配置网络时，注
     2.  运行以下命令打开YUM仓库支持。
 
         ```
-        sudo yum install -y alinux-release-experimental
+        sudo yum install -y alinux-release-experimentals
         ```
 
     3.  从YUM源安装您需要的软件包。以下命令同时安装了GCC、GDB、Binutils和Make工具。
