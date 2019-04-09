@@ -1,4 +1,4 @@
-# DescribeDisks {#doc_api_1032129 .reference}
+# DescribeDisks {#doc_api_Ecs_DescribeDisks .reference}
 
 查询您已经创建的磁盘。
 
@@ -60,7 +60,7 @@
  默认值：false
 
  |
-|DiskChargeType|String|否|PostPai|磁盘的计费方式。取值范围：
+|DiskChargeType|String|否|PostPaid|磁盘的计费方式。取值范围：
 
  -   PrePaid：包年包月
 -   PostPaid：按量付费
@@ -147,9 +147,6 @@
 -   dedicatedhostfinancial：因为专有宿主机欠费导致 ECS 实例被锁定
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
-
- |
 |PageNumber|Integer|否|1|磁盘状态列表的页码，起始值：1
 
  默认值：1
@@ -160,7 +157,7 @@
  默认值：10
 
  |
-|Portable|Boolean|否|true|要查询的磁盘是否支持卸载，该属性为不可修改属性。取值范围：
+|Portable|Boolean|否|false|要查询的磁盘是否支持卸载，该属性为不可修改属性。取值范围：
 
  -   true：可卸载磁盘，可以独立存在且可以自由在可用区内挂载和卸载
 -   false：不可卸载磁盘，不可以独立存在且不可以自由在可用区内挂载和卸载
@@ -181,7 +178,7 @@
 |SnapshotId|String|否|s-snaoshotid1|创建磁盘使用的快照。
 
  |
-|Status|String|否|all|磁盘状态，参考文档[普通云盘状态](~~25689~~)。取值范围：
+|Status|String|否|All|磁盘状态，参考文档[普通云盘状态](~~25689~~)。取值范围：
 
  -   In\_use
 -   Available
@@ -221,7 +218,7 @@
 |Disks| | |磁盘信息组成的集合
 
  |
-|└AttachedTime|String|2018-01-01T01:04:22Z|卸载时间。按照 ISO8601 标准表示，并需要使用 UTC 时间。格式为：YYYY-MM-DDThh:mmZ只有在Status 为 Available 时才有意义。
+|└AttachedTime|String|2018-01-01T01:04:22Z|挂载时间。按照 ISO8601 标准表示，并需要使用 UTC 时间。格式为：YYYY-MM-DDThh:mmZ只有在Status 为 Available 时才有意义。
 
  |
 |└AutoSnapshotPolicyId|String|s-23f2i9s4t|磁盘采用的自动快照策略 ID。
@@ -565,13 +562,25 @@ https://ecs.aliyuncs.com/?Action=DescribeDisks
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
+|400|InvalidDiskType.ValueNotSupported|The specified disk type is not supported.|指定的磁盘属性不支持。|
+|400|InvalidCategory.ValueNotSupported|The specified disk category is not supported.|不支持指定的磁盘种类。|
+|400|InvalidStatus.ValueNotSupported|The specified disk status is not supported.|指定的磁盘状态不支持此类操作。|
 |403|InvalidDiskIds.Malformed|The amount of specified disk Ids exceeds the limit.|指定的磁盘ID格式不正确。|
 |404|InvalidDiskChargeType.NotFound|The DiskChargeType does not exist in our records|指定的磁盘类型不存在。|
+|404|InvalidLockReason.NotFound|The specified LockReason is not found|指定的锁定类型不存在。|
+|404|InvalidFilterKey.NotFound| |指定的起始时间或到期时间参数错误。|
+|404|InvalidFilterValue| |您输了的时间格式不合法。|
 |400|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|指定的 Tag.n.Key 和 Tag.n.Value 不匹配。|
+|400|InvalidTagCount|The specified tags are beyond the permitted range.|指定的标记超出取值范围。|
 |400|InvalidRegion.NotFound|The specified parameter RegionId is not valid.|RegionId参数不合法|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
 |400|InvalidZoneId.NotFound|The zoneId provided does not exist in our records.|提供的 ZoneId 不存在。|
+|400|MissingParamter.RegionId|The regionId should not be null.|参数 RegionId 不得为空。|
+|400|InvalidParameter.DiskIds|The specified parameter diskIds is not valid.|指定的参数diskIds无效。|
+|400|IncompleteParamter|Some fields can not be null in this request.|请求中缺失参数。|
 |400|InvalidParamter|Some parameters are invalid in this request.|请求中包含非法参数。|
 |400|InvalidSnapshot.NotFound|The specified parameter SnapshotId is not valid.|指定的 SnapshotId 不合法。|
+|403|UserNotInTheWhiteList|The user is not in volume white list.|用户不在共享块存储白名单中，请您提交工单申请白名单。|
 |404|InvalidDiskIds.ValueNotSupported|The specified parameter "DiskIds" is not supported.|指定的磁盘ID无效。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
