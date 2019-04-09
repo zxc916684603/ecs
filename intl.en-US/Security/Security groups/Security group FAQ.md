@@ -18,7 +18,7 @@
 
 A security group is a virtual firewall that is used to set the network access control for one or more ECS instances. More specifically, security groups logically isolate security domains in the cloud.
 
-Each instance must belong to at least one security group, which is specified when you create an instance. Instances in the same security group can communicate through the intranet. In contrast, instances in different security groups are isolated from each other. However, you can set security group rules to authorize mutual access between two security groups. For more information, see [Security group overview](reseller.en-US/Security/Security groups/Security groups.md#).
+Each instance must belong to at least one security group, which is specified when you create an instance. Instances in the same security group can communicate through the intranet. In contrast, instances in different security groups are isolated from each other. However, you can set security group rules to authorize mutual access between two security groups. For more information, see [Security group overview](reseller.en-US/Security/Security groups/Security group overview.md#).
 
 ## Why do I need to select a security group when I create an ECS instance? {#section_jym_lxz_lgb .section}
 
@@ -32,7 +32,7 @@ You are unable to set Internet security group rules for a instance in a VPC beca
 
 ## Why am I unable to access TCP port 25? {#section_kmc_yxz_lgb .section}
 
-TCP port 25 is the default email service port. For security purposes, port 25 of ECS is disabled by default. We recommend that you use port 465 instead to send emails. For more information, see [Scenarios](https://help.aliyun.com/document_detail/25475.html).
+TCP port 25 is the default email service port. For security purposes, port 25 of ECS is disabled by default. We recommend that you use port 465 instead to send emails. For more information, see [Scenarios](reseller.en-US/Security/Security groups/Scenarios.md#).
 
 ## Why am I unable to access port 80? {#section_avg_cyz_lgb .section}
 
