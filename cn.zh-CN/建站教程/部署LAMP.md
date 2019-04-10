@@ -28,22 +28,22 @@
 
 **步骤一：准备编译环境。**
 
-本文主要说明手动安装LAMP平台的操作步骤，您也可以在 [云市场](https://marketplace.alibabacloud.com/) 购买LAMP镜像直接启动ECS，以便快速建站。
+本文主要说明手动安装LAMP平台的操作步骤，您也可以在 [云市场](https://market.aliyun.com/software) 购买LAMP镜像直接启动ECS，以便快速建站。
 
-1.  [使用向导创建实例](../intl.zh-CN/用户指南/实例/创建实例/使用向导创建实例.md#)。
+1.  [使用向导创建实例](../cn.zh-CN/实例/创建实例/使用向导创建实例.md#)。
 
     **说明：** 本篇教程创建的ECS实例选用了CentOS 7.2 64位的操作系统，专有网络和公网IP。
 
-2.  [使用管理终端连接ECS实例](../intl.zh-CN/用户指南/连接实例/使用管理终端连接ECS实例.md#)。
+2.  [../DNA0011894323/ZH-CN\_TP\_9619.md\#](../cn.zh-CN/实例/连接实例/连接Linux实例/使用管理终端连接Linux实例.md#)。
 3.  输入命令`cat /etc/redhat-release`查看系统版本。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/154779049432170_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/155488714632170_zh-CN.png)
 
 4.  关闭防火墙。
 
     输入`systemctl status firewalld`命令查看当前防火墙的状态。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/154779049432172_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/155488714632172_zh-CN.png)
 
     如果防火墙的状态参数是active，则防火墙为开启状态。如果防火墙的状态参数是inactive，则防火墙为关闭状态。如上图所示，此处防火墙为开启状态，需要运行如下命令关闭防火墙：
 
@@ -58,7 +58,7 @@
 5.  关闭SELinux。
     1.  输入getenforce命令查看当前SELinux的状态。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/154779049421065_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/155488714721065_zh-CN.png)
 
     2.  如果SELinux状态参数是Enforcing，则SELinux为开启状态。如果SELinux状态参数是Disabled， 则SELinux为关闭状态。如上图所示，此处SELinux为开启状态，需要运行如下命令关闭SELinux：
         -   如果您想临时关闭SELinux，输入命令`setenforce 0`。
@@ -70,7 +70,7 @@
             **说明：** 您可参考redhat关于[SELinux的官方文档](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/deployment_guide/ch-selinux#s1-SELinux-resources)来决定何时开启SELinux。
 
     3.  重启系统使设置生效。
-6.  参考[添加安全组规则](../intl.zh-CN/用户指南/安全组/添加安全组规则.md#)，放行所需端口入方向规则。
+6.  参考[添加安全组规则](../cn.zh-CN/安全/安全组/添加安全组规则.md#)，放行所需端口入方向规则。
 
 **步骤二：安装Apache。**
 
@@ -129,7 +129,7 @@
 
 6.  输入命令`httpd -v`可查看Apache的版本号。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154779049533483_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/155488714733483_zh-CN.png)
 
 7.  添加Apache的启动配置文件。
 
@@ -163,7 +163,7 @@
 
 9.  登录[ECS管理控制台](https://ecs.console.aliyun.com/)，单击左侧导航栏中的**实例**，在**实例列表**中找到正在部署环境的实例，从这个实例的**IP地址**项中复制它的公网IP，用浏览器访问这个IP地址可看到默认欢迎页面。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154779049512353_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/155488714712353_zh-CN.png)
 
 
 **步骤三：安装MySQL。**
@@ -198,21 +198,21 @@
     tar xvf mysql-5.6.24.tar.gz -C  /usr/local/src
     cd /usr/local/src/mysql-5.6.24
     cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \
-    > -DMYSQL_DATADIR=/mnt/data \
-    > -DSYSCONFDIR=/etc \
-    > -DWITH_INNOBASE_STORAGE_ENGINE=1 \
-    > -DWITH_ARCHIVE_STORAGE_ENGINE=1 \
-    > -DWITH_BLACKHOLE_STORAGE_ENGINE=1 \
-    > -DWITH_READLINE=1 \
-    > -DWITH_SSL=system \
-    > -DWITH_ZLIB=system \
-    > -DWITH_LIBWRAP=0 \
-    > -DMYSQL_TCP_PORT=3306 \
-    > -DDEFAULT_CHARSET=utf8 \
-    > -DMYSQL_UNIX_ADDR=/usr/local/mysql/mysql.sock \
-    > -DDEFAULT_COLLATION=utf8_general_ci \
-    > -DWITH_SYSTEMD=1 \
-    > -DINSTALL_SYSTEMD_UNITDIR=/usr/lib/systemd/system 
+    -DMYSQL_DATADIR=/mnt/data \
+    -DSYSCONFDIR=/etc \
+    -DWITH_INNOBASE_STORAGE_ENGINE=1 \
+    -DWITH_ARCHIVE_STORAGE_ENGINE=1 \
+    -DWITH_BLACKHOLE_STORAGE_ENGINE=1 \
+    -DWITH_READLINE=1 \
+    -DWITH_SSL=system \
+    -DWITH_ZLIB=system \
+    -DWITH_LIBWRAP=0 \
+    -DMYSQL_TCP_PORT=3306 \
+    -DDEFAULT_CHARSET=utf8 \
+    -DMYSQL_UNIX_ADDR=/usr/local/mysql/mysql.sock \
+    -DDEFAULT_COLLATION=utf8_general_ci \
+    -DWITH_SYSTEMD=1 \
+    -DINSTALL_SYSTEMD_UNITDIR=/usr/lib/systemd/system 
     make && make install
     ```
 
@@ -287,7 +287,7 @@
     mysql -uroot -p
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154779049533592_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/155488714733592_zh-CN.png)
 
 13. 运行 `\q` 退出MySQL。
 
@@ -327,6 +327,8 @@
     make && make install
     ```
 
+    **说明：** 若ECS实例规格内存较小，配置时可关闭不需要的PHP扩展，节省内存。例如，在`./configure`命令中添加`--disable-fileinfo`选项，关闭fileinfo扩展。
+
 3.  复制PHP的配置文件。
 
     ```
@@ -336,19 +338,19 @@
 4.  输入命令`vi /usr/local/apache2/conf/httpd.conf`打开Apache配置文件，按下`i`键开始编辑。
     1.  找到`ServerName`参数，添加`ServerName localhost:80`。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154779049512350_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/155488714712350_zh-CN.png)
 
     2.  找到`Directory`参数，注释掉`Require all denied`，添加`Require all granted`。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154779049512349_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/155488714712349_zh-CN.png)
 
     3.  找到`DirectoryIndex index.html`，将它替换为`DirectoryIndex index.php index.html`。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154779049533711_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/155488714733711_zh-CN.png)
 
     4.  找到如下内容：
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154779049533713_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/155488714833713_zh-CN.png)
 
         在后面添加如下内容：
 
@@ -357,7 +359,7 @@
         AddType application/x-httpd-php-source .phps
         ```
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154779049533714_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/155488714833714_zh-CN.png)
 
     5.  按下`Esc`键，然后输入`:wq`并回车以保存并关闭Apache配置文件。
 5.  添加Apache对解析PHP的支持。
@@ -384,7 +386,7 @@
 
     5.  登录 [ECS管理控制台](https://ecs.console.aliyun.com/)，单击左侧导航栏中的**实例**，在**实例列表**中复制正在部署环境的实例的公网IP地址。在本地机器的浏览器里输入`http://实例公网 IP`，如您看见如下图所示页面，则表示PHP解析成功。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154779049533715_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/155488714833715_zh-CN.png)
 
 
 **步骤五：安装phpMyAdmin。**
@@ -411,14 +413,14 @@
 
 4.  在本地机器浏览器输入 `http://实例公网 IP/phpmyadmin` 访问phpMyAdmin登录页面。如果出现以下页面，说明phpMyAdmin安装成功。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154779049533718_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/155488714833718_zh-CN.png)
 
 5.  输入MySQL的用户名和密码，单击**执行**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154779049533716_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/155488714833716_zh-CN.png)
 
 6.  如果出现以下页面，说明连接MySQL成功。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/154779049533719_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/155488714833719_zh-CN.png)
 
 
