@@ -18,7 +18,7 @@ ROS 模版是一个 JSON 格式文本文件，您可以在这个文本中定义�
 3.  在控制台左侧导航栏中，单击 **模版样例**，页面显示 ROS 提供的常用模版。
 4.  从模版示例中找到 **wordpress\_instance**，本篇教程将通过这个模版创建基于 ECS 和 RDS 的 WordPress 环境。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9767/154883710732242_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9767/155488139232242_zh-CN.png)
 
 5.  单击 **预览** 按钮查看模板的JSON文件。JSON文件各个顶级字段的解释如下表所示。
 
@@ -39,7 +39,7 @@ ROS 模版是一个 JSON 格式文本文件，您可以在这个文本中定义�
     -   **创建超时**：设置一个时间。如果在设置的时间段内资源未创建成功，则判断超时。您可以选择是否 **失败回滚**。如果选择失败回滚，那么创建过程中发生任何失败（包括创建超时），ROS都会删除已经创建成功的资源。
     -   **ImageId**：填写创建ECS实例时使用的镜像ID。详见第2步。
     -   **InstanceType**：填写您需要的ECS实例规格。详见第2步。
-    -   **InstancePassword** 和 **Please Confirm InstancePassword**：设置并确认实例的登录密码。根据模板定义，密码由大写字母、小写字母、数字、特殊字符中的任意三种组成，特殊字符为`()` ~!@#$%^&*-_+=|{}[]:; '<>,.?/`，密码长度范围是8到30个字符。
+    -   **InstancePassword** 和 **Please Confirm InstancePassword**：设置并确认实例的登录密码。根据模板定义，密码由大写字母、小写字母、数字、特殊字符中的任意三种组成，特殊字符为`()`~!@#$%^&*-_+=|{}[]:;'<>,.?/`，密码长度范围是8到30个字符。
 
         **说明：** Windows实例不能以斜线号（/）为密码首字符。
 
@@ -53,12 +53,12 @@ ROS 模版是一个 JSON 格式文本文件，您可以在这个文本中定义�
     -   **DBName**：填写MySQL数据库名。
     -   **DBUser**：填写MySQL数据库的用户名。
     -   **DBPassword** ：设置访问MySQL数据库的密码。根据模板定义，密码长度范围是8到32个字符。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9767/154883710732251_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9767/155488139232251_zh-CN.png)
 
 9.  单击 **创建**。
 10. 单击左侧导航栏的 **资源栈管理**，从下拉菜单中选取您创建的栈所在的地域，即可找到您刚创建的栈。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9767/154883710732490_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9767/155488139332490_zh-CN.png)
 
 11. 单击栈名，再单击左侧导航栏中的以下几项可以了解已创建栈的相关信息：
     -   **概览**：可查看栈的基本信息、启动参数、状态、输出值和栈参数。
