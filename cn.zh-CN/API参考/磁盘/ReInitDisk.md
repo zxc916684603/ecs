@@ -1,4 +1,4 @@
-# ReInitDisk {#doc_api_1030734 .reference}
+# ReInitDisk {#doc_api_Ecs_ReInitDisk .reference}
 
 重新初始化云盘到创建时的初始状态。
 
@@ -23,7 +23,7 @@
 |DiskId|String|是|d-diskid1|指定的云盘 ID。
 
  |
-|Action|String|否|ReInitDisk|系统规定参数。取值：ReInitDisk。
+|Action|String|否|ReInitDisk|系统规定参数。取值：ReInitDisk
 
  |
 |AutoStartInstance|Boolean|否|true|重新初始化云盘后是否启动实例。
@@ -32,10 +32,17 @@
 |KeyPairName|String|否|JoshuaCentOS|密钥对名称。
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
+|Password|String|否|EcsV587!|实例的密码。长度为 8 至 30 个字符，必须同时包含大小写英文字母、数字和特殊符号中的三类字符。特殊符号可以是：
 
- |
-|Password|String|否|EcsV587!|密码。
+ ```
+
+()`~!@#$%^&*-_+=|{}[]:;'<>,.?/
+
+```
+
+ 其中，Windows 实例不能以斜线号（/）为密码首字符。
+
+ **说明：** 如果传入`Password`参数，建议您使用HTTPS协议发送请求，避免密码泄露。
 
  |
 |SecurityEnhancementStrategy|String|否|Active|当指定的云盘为系统盘时，您可以设置是否开启安全加固，加载云服务器 ECS 安全组件云盾等。取值范围：
@@ -92,6 +99,8 @@ https://ecs.aliyuncs.com/?Action=ReInitDisk
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
+|404|InvalidDiskId.NotFound|The specified disk does not exist.|指定的磁盘不存在。请您检查磁盘 ID 是否正确。|
+|403|IncorrectDiskStatus|The current disk status does not support this operation.|当前的磁盘不支持此操作，请您确认磁盘处于正常使用状态，是否欠费。|
 |403|IncorrectInstanceStatus|The current status of the resource does not support this operation.|该资源目前的状态不支持此操作。|
 |403|InstanceLockedForSecurity|The instance is locked due to security.|您的资源被安全锁定，拒绝操作。|
 |403|InvalidSnapshot.TooOld|The disk is created from a snapshotId made before 2013-07-15, it cannot be re-initiated the specified disk any more since the detached first time.|指定的快照创建时间不能晚于2013年7月15日。|
@@ -100,6 +109,13 @@ https://ecs.aliyuncs.com/?Action=ReInitDisk
 |403|DiskCreatingSnapshot|The operation is denied due to a snapshot of the specified disk is not completed yet.|指定的磁盘正在创建快照。|
 |403|InvalidSourceSnapshot|The snapshot which is used to create the specified disk has been deleted.|用于创建指定磁盘的快照已被删除。|
 |404|InvalidImageId.NotFound|The specified ImageId does not exist.|指定的镜像在该用户账号下不存在，请您检查镜像id是否正确。|
+|403|SharedImageDeleted|The specified image by others shared is deleted.|指定的共享镜像已删除。|
+|400|InvalidPassword.Malformed|The specified parameter "Password" is not valid.|指定的 Password 参数不合法。|
+|400|DiskCategory.OperationNotSupported|The operation is not supported to the specified disk due to its disk category|由于磁盘种类限制，指定的磁盘不支持该操作。|
+|400|InvalidKeyPairName.NotFound|The specified KeyPairName does not exist.|指定的 KeyPairName 不存在。|
+|400|DependencyViolation.IoOptimize|The specified parameter InstanceId is not valid.|指定的实例 ID 不合法。|
+|403|UserNotInTheWhiteList|The user is not in volume white list.|用户不在共享块存储白名单中，请您提交工单申请白名单。|
+|400|InvalidRegionId.MalFormed|The specified RegionId is not valid|指定的 RegionId 不合法。|
 |404|InvalidDiskId.OperationNotSupported|The operation is not supported due to image not exist.|指定的镜像不存在。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
