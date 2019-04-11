@@ -1,4 +1,4 @@
-# UntagResources {#doc_api_1057766 .reference}
+# UntagResources {#doc_api_Ecs_UntagResources .reference}
 
 为指定的ECS资源列表统一解绑并删除标签。
 
@@ -36,10 +36,7 @@
 |All|Boolean|否|false|是否删除资源上全部的标签，当请求中未设置TagKey.N时该参数有效。默认值：false
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
-
- |
-|TagKey.N|RepeatList|否|FinanceDept|资源的标签键。N的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|TagKey.N|RepeatList|否|FinanceDept|资源的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
 
@@ -91,6 +88,7 @@ https://ecs.aliyuncs.com/?Action=UntagResources
 |--------|---|----|--|
 |404|MissingParameter.TagOwnerUid|The parameter - TagOwnerUid should not be null|标签归属用户不存在。|
 |404|MissingParameter.TagOwnerBid|The parameter - TagOwnerBid should not be null|标签归属渠道不存在。|
+|404|MissingParameter.ResourceType|The parameter - ResourceType should not be null|资源类型不存在。|
 |404|MissingParameter.Tags|The parameter - Tags should not be null|标签参数不存在。|
 |404|MissingParameter.RegionId|The parameter - RegionId should not be null|地域参数不存在。|
 |403|PermissionDenied.TagOwnerUid|The specified operator not have permission to set TagOwnerUid value.|无权设置标签归属者。|
@@ -100,7 +98,12 @@ https://ecs.aliyuncs.com/?Action=UntagResources
 |400|Duplicate.TagKey|The Tag.N.Key contain duplicate key.|标签键中存在重复的键。|
 |404|InvalidResourceId.NotFound|The specified ResourceIds are not found in our records.|资源不存在。|
 |404|InvalidResourceType.NotFound|The ResourceType provided does not exist in our records.|指定的资源类型不存在。|
+|400|InvalidTagKey.Malformed|The specified Tag.n.Key is not valid.|指定的标签键不合法。|
 |400|InvalidTagValue.Malformed|The specified Tag.n.Value is not valid.|指定的标签值不合法。|
+|400|OperationDenied.QuotaExceed|The quota of tags on resource is beyond permitted range.|资源标签已达上限。|
+|403|InvalidResourceId.NotSupported|The specified ResourceId does not support tagging.|指定的资源 ID 不支持标记。|
+|400|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|指定的 Tag.n.Key 和 Tag.n.Value 不匹配。|
+|400|InvalidTagCount|The specified tags are beyond the permitted range.|指定的标记超出取值范围。|
 |404|InvalidRegionId.NotFound|The specified RegionId does not exist.|指定的 RegionId 不存在，请您检查此产品在该地域是否可用。|
 |400|Invalid.Scope|The specified scope is invalid.|可见范围参数非法。|
 |403|NoPermission.Tag|The operator is not permission for the tag.|没有操作该资源标签的权限。|
