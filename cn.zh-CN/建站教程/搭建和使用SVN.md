@@ -21,20 +21,20 @@ Subversion\(SVN\) 是一个开源的版本控制系統, 也就是说 Subversion 
 
 **使用SVN版本控制镜像**
 
-您可以在云市场购买使用 [SVN版本控制镜像](https://market.aliyun.com/products/55530001/jxsc000061.html) 的ECS实例。
+您可以在云市场购买使用[SVN版本控制镜像](https://market.aliyun.com/products/55530001/jxsc000061.html)的ECS实例。
 
 创建了实例后，按以下步骤操作：
 
-1.  登录 [ECS管理控制台](https://ecs.console.aliyun.com/#/home)。
-2.  在左侧导航栏里，单击 **实例**。
+1.  登录[ECS管理控制台](https://ecs.console.aliyun.com/#/home)。
+2.  在左侧导航栏里，单击**实例**。
 3.  选择地域。
-4.  找到新创建的ECS实例，在 **IP地址** 列获取实例的公网IP地址。
+4.  找到新创建的ECS实例，在**IP地址**列获取实例的公网IP地址。
 
 **手动安装SVN**
 
 本文以CentOS 7.2 64位系统为例，说明如何在CentOS 7.2上安装SVN。
 
-1.  [远程连接Linux实例](../../../../intl.zh-CN/用户指南/连接实例/使用用户名密码验证连接Linux实例.md#)。
+1.  [远程连接Linux实例](../../../../../cn.zh-CN/实例/连接实例/连接Linux实例/使用用户名密码验证连接Linux实例.md#)。
 2.  运行以下命令安装SVN。
 
     ```
@@ -47,10 +47,10 @@ Subversion\(SVN\) 是一个开源的版本控制系統, 也就是说 Subversion 
     svnserve --version
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/154441191912528_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155497851112528_zh-CN.png)
 
 4.  按以下步骤创建版本库：
-    1.  运行以下命令创建目录。
+    1.  运行以下命令创建版本库根目录。
 
         ```
         mkdir /var/svn
@@ -59,18 +59,18 @@ Subversion\(SVN\) 是一个开源的版本控制系統, 也就是说 Subversion 
     2.  依次运行以下命令创建版本库。
 
         ```
-        cd /var/svn
-        svnadmin create /var/svn/svnrepos
+        # cd /var/svn
+        # svnadmin create /var/svn/svnrepos
         ```
 
     3.  依次运行以下命令查看自动生成的版本库文件。
 
         ```
-        cd svnrepos
-        ls
+        # cd svnrepos
+        # ls
         ```
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/154441191912529_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155497851112529_zh-CN.png)
 
         Subversion目录说明：
 
@@ -79,21 +79,21 @@ Subversion\(SVN\) 是一个开源的版本控制系統, 也就是说 Subversion 
         -   locks目录：用来追踪存取文件库的客户端。
         -   format文件：是一个文本文件，里面只放了一个整数，表示当前文件库配置的版本号。
         -   conf目录：是这个仓库的配置文件（仓库的用户访问账号、权限等）。
-    4.  运行命令 `cd conf/` 进入conf目录（该SVN版本库配置文件）。返回结果如下：
+    4.  运行命令`cd conf/`进入conf目录（该SVN版本库配置文件）。返回结果如下：
         -   authz：是权限控制文件。
         -   passwd：是账号密码文件。
         -   svnserve.conf：SVN服务配置文件。
     5.  按以下步骤设置账号密码：
-        1.  运行 `vi passwd`。
-        2.  按 `i` 键进入编辑模式。
-        3.  在 `[users]` 块中添加用户账号和密码，格式：账号=密码，比如示例中的suzhan = redhat（注意等号两端要有一个空格）。
-        4.  按 `Esc` 键退出编辑模式，并输入 `:wq` 保存并退出。
+        1.  运行`vi passwd`。
+        2.  按`i`键进入编辑模式。
+        3.  在`[users]`块中添加用户账号和密码，格式：账号=密码，比如示例中的suzhan = redhat（注意等号两端要有一个空格）。
+        4.  按`Esc`键退出编辑模式，并输入`:wq`保存并退出。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/154441191912530_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155497851112530_zh-CN.png)
 
     6.  按以下步骤设置权限：
-        1.  运行 `vi authz`。
-        2.  按 `i` 键进入编辑模式。
+        1.  运行`vi authz`。
+        2.  按`i`键进入编辑模式。
         3.  在末尾添加如下代码（其中，r表示读，w表示写）：
 
             ```
@@ -101,13 +101,13 @@ Subversion\(SVN\) 是一个开源的版本控制系統, 也就是说 Subversion 
             suzhan=rw
             ```
 
-        4.  按 `Esc` 键退出编辑模式，并输入 `:wq` 保存并退出。
+        4.  按`Esc`键退出编辑模式，并输入`:wq`保存并退出。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/154441191912531_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155497851112531_zh-CN.png)
 
     7.  按以下步骤修改svnserve.conf文件。
-        1.  运行命令 `vi svnserve.conf`。
-        2.  按 `i` 键进入编辑模式。
+        1.  运行命令`vi svnserve.conf`。
+        2.  按`i`键进入编辑模式。
         3.  打开以下几个注释（注意每行不能以空格开始，等号两端要有一个空格）：
 
             ```
@@ -118,21 +118,21 @@ Subversion\(SVN\) 是一个开源的版本控制系統, 也就是说 Subversion 
             realm = /var/svn/svnrepos #认证空间名，版本库所在目录
             ```
 
-        4.  按 `Esc` 键退出编辑模式，并输入 `:wq` 保存并退出。
+        4.  按`Esc`键退出编辑模式，并输入`:wq`保存并退出。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/154441191912532_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155497851112532_zh-CN.png)
 
     8.  运行以下命令启动SVN版本库。
 
         ```
-        svnserve -d -r /var/svn/svnrepos
+        svnserve -d -r /var/svn/
         ```
 
-    9.  运行命令 `ps -ef |grep svn` 查看SVN服务是否开启。
+    9.  运行命令`ps -ef |grep svn`查看SVN服务是否开启。
 
         如果返回结果如下图所示，表示SVN服务已经开启。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/154441191912533_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155497851212533_zh-CN.png)
 
 
 **说明：** 运行以下命令停止SVN命令。
@@ -143,24 +143,24 @@ killall svnserve
 
 ## 添加安全组规则 {#section_crh_12b_ffb .section}
 
-SVN服务的默认端口为TCP 3690。您需要登录 [ECS管理控制台](https://ecs.console.aliyun.com/#/home)，[添加安全组规则](../../../../intl.zh-CN/用户指南/安全组/添加安全组规则.md#) 放行TCP 3690端口。
+SVN服务的默认端口为TCP 3690。您需要登录[ECS管理控制台](https://ecs.console.aliyun.com/#/home)，[添加安全组规则](../../../../../cn.zh-CN/安全/安全组/添加安全组规则.md#)放行TCP 3690端口。
 
 ## 在Windows上测试 {#section_wm5_b2b_ffb .section}
 
 这部分说明如何从本地（Windows操作系统）访问ECS实例上安装的SVN服务。
 
-1.  在本地机器上安装 [TortoiseSVN客户端](http://tortoisesvn.net/downloads.html)。
-2.  在您的本地项目文件夹（如示例中的C:\\KDR），右键空白处弹出菜单，选择 **SVN检出**。
+1.  在本地机器上安装[TortoiseSVN客户端](http://tortoisesvn.net/downloads.html)。
+2.  在您的本地项目文件夹（如示例中的C:\\KDR），右键空白处弹出菜单，选择**SVN检出**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/154441191912534_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155497851212534_zh-CN.png)
 
-3.  指定资源库URL，格式为 `svn://实例公网IP地址/资源库名`；指定 **检出至目录**（如本示例中的C:\\KDR）；再单击 **确定**。
+3.  指定资源库URL，格式为`svn://实例公网IP地址/资源库名`；指定**检出至目录**（如本示例中的C:\\KDR）；再单击**确定**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/154441191912535_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155497851312535_zh-CN.png)
 
     如果出现以图所示信息，表示检出成功。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/154441191912536_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155497851312536_zh-CN.png)
 
 
 **说明：** 第一次登录需要输入密码，一切以passwd文件里面的账户密码为主。
@@ -173,18 +173,18 @@ SVN服务的默认端口为TCP 3690。您需要登录 [ECS管理控制台](https
 
 按以下步骤提交修改：
 
-1.  在项目文件空白处单击右键，选择 **SVN提交**。
+1.  在项目文件空白处单击右键，选择**SVN提交**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/154441191912537_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155497851312537_zh-CN.png)
 
-2.  输入本次提交的版本更新信息（所作修改的注释）、勾选要提交的操作内容，单击 **确定**，即可把本机项目提交到SVN服务器资源库，覆盖掉资源库项目从而实现更新。
+2.  输入本次提交的版本更新信息（所作修改的注释）、勾选要提交的操作内容，单击**确定**，即可把本机项目提交到SVN服务器资源库，覆盖掉资源库项目从而实现更新。
 
     **说明：** 
 
     -   如果发生提交冲突，即两人都提交修改，后提交者由于版本落后会提交失败。这时可以先备份自己的项目，从服务端下载最新的项目后，再将自己的项目覆盖到本地项目文件夹，最后SVN提交即可成功提交。
     -   假设您刚刚删掉了一个文件，这里就会显示如下截图所示信息。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/154441191912538_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155497851312538_zh-CN.png)
 
 
 **获取更新**
@@ -198,17 +198,17 @@ SVN服务的默认端口为TCP 3690。您需要登录 [ECS管理控制台](https
 1.  打开一个文件夹，右键检出数据。
 2.  删掉数据。
 3.  根据您是否已经提交修改采取不同的操作：
-    -   未提交时，右键单击空白处，选择 **TortoiseSVN** \> **SVN 还原**。
+    -   未提交时，右键单击空白处，选择**TortoiseSVN** \> **SVN 还原**。
     -   已提交时，系统库里的数据也会得到同步，系统也会把它存的数据删掉。此时，您需要采取以下方法还原数据：
         1.  查看日志，确认删除了哪些文件。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/154441191912539_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155497851312539_zh-CN.png)
 
         2.  将删掉的文件保存版本到删掉的位置。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/154441191912540_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155497851312540_zh-CN.png)
 
-4.  打开原文件夹，选择 **SVN提交**，系统库里的数据就和这个文件同步了。
+4.  打开原文件夹，选择**SVN提交**，系统库里的数据就和这个文件同步了。
 
 ## 相关链接 {#section_qrq_w2b_ffb .section}
 
