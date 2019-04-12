@@ -23,18 +23,18 @@ After you resize a system disk in the ECS console, you need to connect to the in
 3.  In the left-side navigation pane, choose **Storage** \> **Disk Management**.
 4.  Choose **Action** \> **Refresh** or **Action** \> **Rescan Disks**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/155505796341660_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/155505804741660_en-US.png)
 
 5.  In the Disk Management area, view the unallocated capacity. In this example, **Disk 0** is the resized system disk.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/155505796341658_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/155505804741658_en-US.png)
 
 6.  Right-click the blank space in the **Disk 0** area, and then select **Extend Volume**.
 7.  Follow the instructions provided by the Extend Volume Wizard to extend the volume.
 
     The new disk space is automatically added to the original volume.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/155505796341657_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/155505804841657_en-US.png)
 
 
 ## Extend a data disk partition {#section_hbw_5lw_dhb .section}
@@ -46,33 +46,33 @@ After you resize a data disk in the ECS console, you need to connect to the inst
 3.  In the left-side navigation pane, choose **Storage** \> **Disk Management**.
 4.  Choose **Action** \> **Refresh** or **Action** \> **Rescan Disks**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/155505796341660_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/155505804741660_en-US.png)
 
 5.  In the Disk Management area, view the unallocated capacity. In this example, **Disk 1** is the resized data disk.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/155505796441665_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/155505804841665_en-US.png)
 
 6.  Extend **Disk 1**.
     -   To use the new disk space to extend the existing partition, follow these steps:
         1.  Right-click the blank space in the **Disk 1** area, and then select **Extend Volume**.
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/155505796441661_en-US.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/155505804841661_en-US.png)
 
         2.  Follow the instructions provided by the Extend Volume Wizard to extend the volume.
 
             The new disk space is automatically added to the original volume.
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/155505796441662_en-US.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/155505804841662_en-US.png)
 
     -   To use the new disk space to add a new partition, follow these steps:
         1.  Right-click the bank space in the **Disk 1** area, and then select **New Simple Volume**.
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/155505796441663_en-US.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/155505805041663_en-US.png)
 
         2.  Follow the instructions provided by the New Simple Volume Wizard to extend the volume.
 
             The new disk space is added to a new partition.
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/155505796541664_en-US.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9678/155505805041664_en-US.png)
 
 
