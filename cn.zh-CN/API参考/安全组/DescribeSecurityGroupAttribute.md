@@ -1,4 +1,4 @@
-# DescribeSecurityGroupAttribute {#doc_api_1031571 .reference}
+# DescribeSecurityGroupAttribute {#doc_api_Ecs_DescribeSecurityGroupAttribute .reference}
 
 查询安全组详情。
 
@@ -34,9 +34,6 @@
 -   intranet：内网
 
  默认值：internet
-
- |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
 
  |
 
@@ -155,7 +152,7 @@ http(s)://ecs.aliyuncs.com/?RegionId=cn-hangzhou
   <RequestId>A72322C1-47C0-491E-8088-8B17E4EA859F</RequestId>
   <Permissions>
     <Permission>
-      <SourceCidrIp>0.0.0.0/0</SourceCidrIp>
+      <SourceCidrIp>10.0.0.0/8</SourceCidrIp>
       <Description/>
       <DestCidrIp/>
       <NicType>intranet</NicType>
@@ -257,7 +254,7 @@ http(s)://ecs.aliyuncs.com/?RegionId=cn-hangzhou
 	"Permissions":{
 		"Permission":[
 			{
-				"SourceCidrIp":"0.0.0.0/0",
+				"SourceCidrIp":"10.0.0.0/8",
 				"Description":"",
 				"DestCidrIp":"",
 				"NicType":"intranet",
@@ -352,6 +349,9 @@ http(s)://ecs.aliyuncs.com/?RegionId=cn-hangzhou
 |--------|---|----|--|
 |404|InvalidRegionId.NotFound|The specified RegionId does not exist.|指定的 RegionId 不存在，请您检查此产品在该地域是否可用。|
 |404|InvalidSecurityGroupId.NotFound|The specified SecurityGroupId does not exist.|指定的安全组在该用户账号下不存在，请您检查安全组id是否正确。|
+|400|InvalidNicType.ValueNotSupported|The specified NicType does not exist.|指定的网络类型不存在，请您检查网络类型是否正确。|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
+|400|InvalidParamter|Invalid Parameter|指定的参数不合法。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
