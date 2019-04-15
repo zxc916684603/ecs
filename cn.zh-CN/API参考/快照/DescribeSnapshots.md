@@ -1,4 +1,4 @@
-# DescribeSnapshots {#doc_api_1023709 .reference}
+# DescribeSnapshots {#doc_api_Ecs_DescribeSnapshots .reference}
 
 查询一台ECS实例或一块磁盘设备所有的快照列表。InstanceId、DiskId和SnapshotIds不是必需参数，但是可以构建过滤器逻辑，参数之间为逻辑与（And）关系。
 
@@ -54,9 +54,6 @@
 |KMSKeyId|String|否|0e478b7a-4262-4802-b8cb-00d3fb40826X|数据盘对应的KMS密钥ID。
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
-
- |
 |PageNumber|Integer|否|1|快照列表的页码。起始值：1
 
  默认值：1
@@ -100,10 +97,10 @@
 -   all（默认）：所有快照状态
 
  |
-|Tag.N.Key|String|否|FinanceDept|快照的标签键。n的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.Key|String|否|FinanceDept|快照的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.Value|String|否|FinanceDeptJoshua|快照的标签值。n的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.Value|String|否|FinanceDeptJoshua|快照的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
 |Tag.N.key|String|否|FinanceDept|快照的标签键。
@@ -331,10 +328,12 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshots
 |404|InvalidFilterKey.NotFound| |指定的起始时间或到期时间参数错误。|
 |404|InvalidFilterValue| |您输了的时间格式不合法。|
 |404|InvalidUsage|The specifed Usage is not valid|指定有引用关系的资源类型（image、disk、image\_disk、none）不合法。|
+|404|InvalidSourceDiskType|The specifed SourceDiskType is not valid|指定的快照源磁盘的磁盘类型不合法。|
 |404|InvalidStatus.NotFound|The specified Status is not found|指定的资源状态不存在。|
 |404|InvalidSnapshotType.NotFound|The specfied SnapshotType is not found|指定的快照类型不存在。|
 |400|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|指定的 Tag.n.Key 和 Tag.n.Value 不匹配。|
 |400|InvalidTagCount|The specified tags are beyond the permitted range.|指定的标记超出取值范围。|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
 |404|InvalidSnapshotLinkId.NotFound|The specified snapshot link is not found.|指定的快照链不存在。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
