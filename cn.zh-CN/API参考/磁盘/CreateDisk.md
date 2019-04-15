@@ -1,4 +1,4 @@
-# CreateDisk {#doc_api_1032131 .reference}
+# CreateDisk {#doc_api_Ecs_CreateDisk .reference}
 
 创建一块按量付费数据盘。磁盘类型包括普通云盘、高效云盘和SSD云盘。
 
@@ -53,9 +53,6 @@
 |KMSKeyId|String|否|0e478b7a-4262-4802-b8cb-00d3fb40826X|磁盘使用的KMS密钥ID。
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
-
- |
 |ResourceGroupId|String|否|rg-resourcegroupid1|磁盘所在的企业资源组 ID。
 
  |
@@ -70,10 +67,10 @@
 |SnapshotId|String|否|s-snaoshot1|创建磁盘使用的快照。指定该参数后，Size会被忽略，实际创建的磁盘大小为指定快照的大小。2013年7月15日及以前的快照不能用来创建磁盘。
 
  |
-|Tag.N.Key|String|否|FinanceDept|磁盘的标签键。n 的取值范围为 1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.Key|String|否|FinanceDept|磁盘的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.Value|String|否|FinanceDeptJoshua|磁盘的标签值。n的取值范围为 1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.Value|String|否|FinanceDeptJoshua|磁盘的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
 |Tag.N.key|String|否|FinanceDept|磁盘的标签键。
@@ -147,34 +144,52 @@ https://ecs.aliyuncs.com/?Action=CreateDisk
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
+|400|InvalidSize.ValueNotSupported|The specified parameter Size is not valid.|指定的 Size 不合法。|
 |403|InvalidDataDiskCategory.NotSupported|Specified disk category is not supported.|不支持指定的磁盘种类。|
 |404|InvalidRegionId.NotFound|The specified RegionId does not exist.|指定的 RegionId 不存在，请您检查此产品在该地域是否可用。|
 |404|InvalidZoneId.NotFound|The specified zone does not exist.|指定的可用区不存在。|
+|404|InvalidSnapshotId.NotFound|The specified SnapshotId does not exist.|指定的快照不存在，请您检查快照是否正确。|
+|400|InvalidDiskName.Malformed|The specified disk name is wrongly formed.|磁盘名称格式不正确。长度为2-128个字符，以英文字母或中文开头，可包含数字，"."，"\_"或"-"。 不能以 http:// 和 https:// 开头。|
+|400|InvalidDescription.Malformed|The specified description is wrongly formed.|指定的资源描述格式不合法。长度为2-256个字符，不能以 http:// 和 https:// 开头。|
+|403|InstanceDiskCategoryLimitExceed|The total size of specified disk category in an instance exceeds.|磁盘种类总容量超过实例限制。|
+|403|InvalidSnapshot.NotReady|The specified snapshot creation is not completed yet.|指定快照未创建。|
 |403|InvalidSnapshot.TooOld|This operation is forbidden because the specified snapshot is created before 2013-07-15.|指定磁盘的源快照创建于2013年7月15日（含）之前，不能重新初始化。|
 |403|InvalidSnapshot.TooLarge|The capacity of snapshot exceeds 2000GB.|快照容量超过 2000 GB。|
 |403|OperationDenied|The specified snapshot is not allowed to create disk.|指定快照不支持创建磁盘。|
+|403|QuotaExceed.PortableCloudDisk|The quota of portable cloud disk exceeds.|可卸载磁盘数量已达上限。|
 |400|MissingParameter|The input parameter either "SnapshotId" or "Size" should be specified.|参数 SnapshotId 或 Size 至少一项不得为空。|
 |403|InvalidDiskCategory.ValueUnauthorized|The disk category is not authorized.|该磁盘种类未经授权。|
 |403|InvalidSnapshotId.NotReady|The specified snapshot has not completed yet.|指定的快照未完成。|
+|403|InvalidSnapshotId.NotDataDiskSnapshot|The specified snapshot is system disk snapshot.|指定的快照为系统磁盘快照。|
 |403|InvalidDiskSize.TooSmall|Specified disk size is less than the size of snapshot.|指定的磁盘容量小于快照容量。|
 |403|OperationDenied|The type of the disk does not support the operation.|此磁盘种类不支持指定的操作。|
 |403|InvalidDataDiskCategory.NotSupported|%s|不支持指定的数据盘类型。|
+|403|InvalidDiskSize.NotSupported|disk size is not supported.|磁盘大小不合法。|
+|400|InvalidDiskCategory.NotSupported|The specified disk category is not support.|不支持的磁盘种类。|
 |400|Account.Arrearage|Your account has an outstanding payment.|账号存在未支付款项。|
 |400|InvalidDiskCategory.ValueNotSupported|The specified parameter "DiskCategory" is not valid.|参数 DiskCategory 不合法。|
 |403|InvalidAccountStatus.NotEnoughBalance|Your account does not have enough balance.|账号余额不足，请您先充值再进行该操作。|
+|403|InvalidAccountStatus.SnapshotServiceUnavailable|Snapshot service has not been opened yet.|快照服务未开通，操作无法执行。|
 |400|InvalidDataDiskCategory.ValueNotSupported|%s|参数不支持。|
 |400|InvalidParameter.Conflict|%s|参数冲突。|
+|400|RegionUnauthorized|%s|指定地域不支持。|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
+|400|Zone.NotOnSale|%s|可用区关闭。|
 |400|InvalidDataDiskSize.ValueNotSupported|%s|参数不支持。|
+|403|InvalidPayMethod|The specified pay method is not valid.|没有可用的付费方式|
 |400|OperationDenied|The specified Zone is not available or not authorized.|指定的可用区不可用或未授权。|
+|404|InvalidResourceGroup.NotFound|The ResourceGroup provided does not exist in our records.|资源组并不在记录中。|
 |403|InvalidDiskCategory.NotSupported|The specified disk category is not supported.|该云盘类型不支持。|
 |403|InvalidDiskSize.NotSupported|The specified disk size is not supported.|指定的磁盘容量不支持。|
 |400|InvalidDiskSize.NotSupported|The specified parameter size is not valid.|指定的容量参数无效。|
 |403|UserNotInTheWhiteList|The user is not in disk white list.|您暂时不能使用该磁盘服务。|
+|400|InvalidDiskSizeOrCategory|The specified disk category or size is invalid.|指定的磁盘类别或大小无效。|
 |400|InvalidParameter.EncryptedIllegal|%s|参数不支持（加密盘）。|
 |400|InvalidParameter.EncryptedNotSupported|%s|参数不支持（加密盘）。|
 |400|EncryptedOption.Conflict|%s|参数不支持（加密盘）。|
 |400|InvalidParameter.Encrypted.KmsNotEnabled|The encrypted disk need enable KMS|加密磁盘需要启用密钥管理服务。|
 |500|InternalError|The request processing has failed due to some unknown error, exception or failure.|发生未知错误。|
+|403|QuotaExceed.PostPaidDisk|Living postPaid disks quota exceeded.|按量付费磁盘数量已超出允许数量。|
 |403|InvalidRegion.NotSupport|The specified region does not support byok.|该地域不支持BYOK。|
 |403|UserNotInTheWhiteList|The user is not in byok white list.|您暂时不能使用BYOK服务。|
 |400|InvalidParameter.EncryptedIllegal|The specified parameter Encrypted must be true when kmsKeyId is not empty.|设置KmsKeyId后，您必须开启加密属性。|
