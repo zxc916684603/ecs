@@ -191,10 +191,10 @@
  默认值：All
 
  |
-|Tag.N.Key|String|否|FinanceJoshua|磁盘的标签键。
+|Tag.N.Key|String|否|FinanceJoshua|磁盘的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.Value|String|否|FinanceDept|磁盘的标签值。
+|Tag.N.Value|String|否|FinanceDept|磁盘的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
 |Tag.N.key|String|否|FinanceJoshua|磁盘的标签键。
