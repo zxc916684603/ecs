@@ -1,10 +1,10 @@
-# DescribeTags {#doc_api_1006035 .reference}
+# DescribeTags {#doc_api_Ecs_DescribeTags .reference}
 
 查询可以供您使用的标签。您可以根据资源类型、资源ID、标签键或标签值等条件查询标签，筛选条件之间为逻辑与（&&）关系，返回满足所有筛选条件的标签。
 
-## 描述 {#description .section}
+## 接口说明 {#description .section}
 
-如果您指定了标签键（Tag.n.Key）但没有指定标签值（Tag.n.Value），我们将查询该标签键对应的所有标签键值对。如果您指定了标签键值对，就查询精确匹配该键值对的标签。
+如果您指定了标签键（Tag.N.Key）但没有指定标签值（Tag.N.Value），我们将查询该标签键对应的所有标签键值对。如果您指定了标签键值对，就查询精确匹配该键值对的标签。
 
 ## 调试 {#apiExplorer .section}
 
@@ -44,18 +44,18 @@
  以上取值均为小写。
 
  |
-|Tag.N.Key|String|否|Finance|资源的标签键。N的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.Key|String|否|Finance|资源的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.Value|String|否|Finance|资源的标签值。N的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.Value|String|否|Finance|资源的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.key|String|否|Finance|资源的标签键。N的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.key|String|否|Finance|资源的标签键。
 
  **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Key参数。
 
  |
-|Tag.N.value|String|否|Finance|资源的标签值。N的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.value|String|否|Finance|资源的标签值。
 
  **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Value参数。
 
@@ -187,6 +187,7 @@ https://ecs.aliyuncs.com/?Action=DescribeTags
 |404|InvalidResourceType.NotFound|The ResourceType provided does not exist in our records.|指定的资源类型不存在。|
 |400|InvalidTagCount|The specified tags are beyond the permitted range.|指定的标记超出取值范围。|
 |400|InvalidTagKey.Malformed|The parameter Tag.n.Key is illegal.|Tag.n.Key 不合法。|
+|400|InvalidTagValue.Malformed|The parameter Tag.n.Value is illegal.|Tag.n.Value 不合法。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
