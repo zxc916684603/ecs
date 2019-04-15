@@ -1,4 +1,4 @@
-# DescribeSecurityGroups {#doc_api_1049674 .reference}
+# DescribeSecurityGroups {#doc_api_Ecs_DescribeSecurityGroups .reference}
 
 查询您创建的安全组的基本信息，例如安全组ID和安全组描述等。返回列表按照安全组ID降序排列。
 
@@ -27,9 +27,6 @@
 |NetworkType|String|否|vpc|网络类型。
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
-
- |
 |PageNumber|Integer|否|1|安全组列表的页码。起始值：1
 
  默认值：1
@@ -52,13 +49,13 @@
 |SecurityGroupName|String|否|test1|安全组名称。
 
  |
-|Tag.N.Key|String|否|FinanceDept|安全组的标签键。n 的取值范围为 1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.Key|String|否|FinanceDept|安全组的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.Value|String|否|FinanceJoshua|安全组的标签值。n的取值范围为 1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.Value|String|否|FinanceJoshua|安全组的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.key|String|否|FinanceDept|安全组的标签键。n 的取值范围为 1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.key|String|否|FinanceDept|安全组的标签键。
 
  **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Key参数。
 
@@ -68,7 +65,7 @@
  **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Value参数。
 
  |
-|VpcId|String|否|v-vpcid1|安全组所在的专有网络ID。
+|VpcId|String|否|vpc-vpcid1|安全组所在的专有网络ID。
 
  |
 
@@ -200,6 +197,10 @@ https://ecs.aliyuncs.com/?Action=DescribeSecurityGroups
 ```
 
 ## 错误码 { .section}
+
+|HttpCode|错误码|错误信息|描述|
+|--------|---|----|--|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
