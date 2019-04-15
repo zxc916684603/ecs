@@ -1,4 +1,4 @@
-# AuthorizeSecurityGroup {#doc_api_1031569 .reference}
+# AuthorizeSecurityGroup {#doc_api_Ecs_AuthorizeSecurityGroup .reference}
 
 增加一条安全组入方向规则。指定安全组入方向的访问权限，允许或者拒绝其他设备发送入方向流量到安全组里的实例。
 
@@ -20,7 +20,7 @@
         
                 https://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
                 &SecurityGroupId=sg-F876FF7BA
-                &SourceCidrIp=0.0.0.0/0
+                &SourceCidrIp=10.0.0.0/8
                 &IpProtocol=tcp
                 &PortRange=1/65535
                 &NicType=intranet
@@ -87,7 +87,7 @@
 |Description|String|否|FinanceJoshua|安全组规则的描述信息。长度为 1~512 个字符。
 
  |
-|DestCidrIp|String|否|0.0.0.0/0|目的端 IPv4 CIDR 地址段。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。 默认值：无。
+|DestCidrIp|String|否|10.0.0.0/8|目的端 IPv4 CIDR 地址段。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。 默认值：无。
 
  |
 |Ipv6DestCidrIp|String|否|2001:db8:1234:1a00::XXX|目的端 IPv6 CIDR 地址段。支持 CIDR 格式和 IPv6 格式的 IP 地址范围。
@@ -112,9 +112,6 @@
  当设置安全组之间互相访问时，即指定了 SourceGroupId 且没有指定 SourceCidrIp 时，参数 NicType 取值只能为 intranet。 默认值：internet
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
-
- |
 |Policy|String|否|accept|设置访问权限。取值范围：
 
  -   accept（默认）：接受访问。
@@ -124,7 +121,7 @@
 |Priority|String|否|1|安全组规则优先级。取值范围：1~100 默认值：1
 
  |
-|SourceCidrIp|String|否|0.0.0.0/0|源端 IPv4 CIDR 地址段。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。 默认值：无。
+|SourceCidrIp|String|否|10.0.0.0/8|源端 IPv4 CIDR 地址段。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。 默认值：无。
 
  |
 |SourceGroupId|String|否|sg-securitygroupid2|需要设置访问权限的源端安全组 ID。至少设置一项 SourceGroupId 或者 SourceCidrIp 参数。
@@ -171,7 +168,7 @@
 
 https://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
 &SecurityGroupId=sg-F876FF7BA
-&SourceCidrIp=0.0.0.0/0
+&SourceCidrIp=10.0.0.0/8
 &IpProtocol=tcp
 &PortRange=1/65535
 &NicType=intranet
@@ -204,15 +201,26 @@ https://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
 |404|InvalidSecurityGroupId.NotFound|The specified SecurityGroupId does not exist.|指定的安全组在该用户账号下不存在，请您检查安全组id是否正确。|
+|404|InvalidSourceGroupId.NotFound|The SourceGroupId provided does not exist in our records.|指定的入方向安全组不存在|
 |400|OperationDenied|The specified IpProtocol does not exist or IpProtocol and PortRange do not match.|指定的 IP 协议不存在，或与端口范围不匹配。|
 |400|InvalidIpProtocol.Malformed|The specified parameter "PortRange" is not valid.|IP协议参数格式不正确。|
+|403|InvalidSourceGroupId.Mismatch|NicType is required or NicType expects intranet.|需要提供 NicType，NicType 仅在内网中使用。|
+|400|InvalidSourceCidrIp.Malformed|The specified parameter "SourceCidrIp" is not valid.|源IP地址范围参数格式不正确。|
 |403|MissingParameter|The input parameter "SourceGroupId" or "SourceCidrIp" cannot be both blank.|源ip或者源安全组不能同时为空。|
 |400|InvalidPolicy.Malformed|The specified parameter "Policy" is not valid.|指定的参数无效，请您检查该参数是否正确。|
+|400|InvalidNicType.ValueNotSupported|The specified NicType does not exist.|指定的网络类型不存在，请您检查网络类型是否正确。|
 |400|InvalidNicType.Mismatch|Specified nic type conflicts with the authorization record.|指定的 NIC 类型不存在。|
+|403|AuthorizationLimitExceed|The limit of authorization records in the security group reaches.|安全组授权规则数达到上限，请您检查授权规则是否合理。|
 |403|InvalidParamter.Conflict|The specified SecurityGroupId should be different from the SourceGroupId.|授权与被授权安全组必须不同|
+|400|InvalidSourceGroupId.Mismatch|Specified security group and source group are not in the same VPC.|指定的安全组和源安全组不在一个 VPC 内。|
+|400|InvalidSourceGroup.NotFound|Specified source security group does not exist.|指定的入方向安全组不存在|
+|400|VPCDisabled|Can't use the SecurityGroup in VPC.|VPC 不支持安全组。|
 |400|InvalidPriority.Malformed|The parameter Priority is invalid.|无效的规则优先级。|
 |400|InvalidPriority.ValueNotSupported|The parameter Priority is invalid.|无效的规则优先级。|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
+|403|InvalidNetworkType.Mismatch|The specified SecurityGroup network type should be same with SourceGroup network type \(vpc or classic\).|指定的 SecurityGroup 的网络类型必须与 SouceGroup 的网络类型一致。|
 |403|InvalidNetworkType.Conflict|The specified SecurityGroup network type should be same with SourceGroup network type \(vpc or classic\).|指定的 SecurityGroup 的网络类型必须与 SouceGroup 的网络类型一致。|
+|400|InvalidNicType.ValueNotSupported|The specified NicType is not valid.|指定的网络类型不存在，请您检查网络类型是否正确。|
 |400|InvalidSecurityGroupDiscription.Malformed|The specified security group rule description is not valid.|指定的安全组规则描述不合法。|
 |400|InvalidSecurityGroup.InvalidNetworkType|The specified security group network type is not support this operation, please check the security group network types. For VPC security groups, ClassicLink must be enabled.|无效的网络类型。|
 |400|MissingParameter.Source|Either SourceCidrIp or SourceGroupId must be specified.|源ip或者源安全组不能同时为空。|
