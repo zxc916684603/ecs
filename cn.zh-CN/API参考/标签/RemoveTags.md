@@ -1,4 +1,4 @@
-# RemoveTags {#doc_api_1006136 .reference}
+# RemoveTags {#doc_api_Ecs_RemoveTags .reference}
 
 从实例、磁盘、快照、镜像或者安全组等解绑一个或多个标签。
 
@@ -30,16 +30,20 @@
 |Action|String|否|RemoveTags|系统规定参数。取值：RemoveTags
 
  |
-|Tag.N.Key|String|否|Finance|资源的标签键。N的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.Key|String|否|Finance|资源的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.Value|String|否|FinanceJoshua|资源的标签值。N的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.Value|String|否|FinanceJoshua|资源的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.key|String|否|Finance|资源的标签键。N的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.key|String|否|Finance|资源的标签键。
+
+ **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Key参数。
 
  |
-|Tag.N.value|String|否|FinanceJoshua|资源的标签值。N的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.value|String|否|FinanceJoshua|资源的标签值。
+
+ **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Value参数。
 
  |
 
@@ -92,9 +96,12 @@ https://ecs.aliyuncs.com/?Action=RemoveTags
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
+|404|InvalidResourceId.NotFound|The specified ResourceId is not found in our records.|指定的资源不存在，请您检查该资源是否正确。|
 |404|InvalidRegionId.NotFound|The specified RegionId does not exist.|指定的 RegionId 不存在，请您检查此产品在该地域是否可用。|
 |404|InvalidResourceType.NotFound|The ResourceType provided does not exist in our records.|指定的资源类型不存在。|
+|403|InvalidResourceId.NotSupported|The specified ResourceId does not support tagging.|指定的资源 ID 不支持标记。|
 |400|InvalidTagCount|The specified tags are beyond the permitted range.|指定的标记超出取值范围。|
+|400|InvalidTagKey.Malformed|The specified Tag.n.Key is not valid.|指定的标签键不合法。|
 |400|InvalidResourceType.NotFound|The specified ResourceType does not exist.|资源类型不合法。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
