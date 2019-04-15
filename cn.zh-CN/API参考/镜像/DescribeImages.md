@@ -2,7 +2,7 @@
 
 查询您可以使用的镜像资源。
 
-## 描述 {#description .section}
+## 接口说明 {#description .section}
 
 -   您可以查询的镜像资源包括您的自定义镜像、阿里云提供的公共镜像、云市场镜像以及其他阿里云用户主动共享给您的共享镜像。
 -   支持分页查询，查询结果包括可使用的镜像资源的总数和当前页的镜像资源。每页的数量默认为10条。
@@ -21,22 +21,10 @@
 |Action|String|否|DescribeImages|系统规定参数。取值：DescribeImages
 
  |
-|ActionType|String|否|\*|镜像参与过的操作活动。取值范围：
+|ActionType|String|否|CreateEcs|镜像需要被使用到的场景。取值范围：
 
- -   \*
--   Create
--   CreateEcs
--   Trail
--   ChangeOS
--   Upgrade
--   Downgrade
--   RenewDowngrade
--   ConvertToAfterPay
--   ConvertToPrePay
--   ResourceMigrate
--   Migrate
--   Renew
--   Resize
+ -   CreateEcs（默认）：创建实例
+-   ChangeOS：更换系统盘/更换操作系统
 
  |
 |Architecture|String|否|i386|镜像的体系架构。取值范围：
@@ -90,9 +78,6 @@
 -   linux
 
  |
-|OwnerAccount|String|否|155780923770|RAM用户的账号登录名称。
-
- |
 |PageNumber|Integer|否|1|镜像资源列表的页码。起始值：1
 
  默认值：1
@@ -125,10 +110,10 @@
  支持同时取多个值，值之间以半角逗号（,）隔开。
 
  |
-|Tag.N.Key|String|否|FinanceJoshua|镜像的标签键。n的取值范围为 1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.Key|String|否|FinanceJoshua|镜像的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.Value|String|否|FinanceDept|镜像的标签值。n的取值范围为 1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.Value|String|否|FinanceDept|镜像的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
 |Tag.N.key|String|否|FinanceJoshua|镜像的标签键。
