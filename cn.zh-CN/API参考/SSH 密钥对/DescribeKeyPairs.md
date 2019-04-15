@@ -1,4 +1,4 @@
-# DescribeKeyPairs {#doc_api_1006038 .reference}
+# DescribeKeyPairs {#doc_api_Ecs_DescribeKeyPairs .reference}
 
 查询一个或多个密钥对。
 
@@ -40,10 +40,10 @@
 |ResourceGroupId|String|否|rg-resourcegroupid1|密钥对所在的企业资源组ID。
 
  |
-|Tag.N.Key|String|否|FinanceDept|密钥对的标签键。n 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.Key|String|否|FinanceDept|密钥对的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.Value|String|否|FinanceDept.Joshua|密钥对的标签值。n的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.Value|String|否|FinanceDept.Joshua|密钥对的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
 
