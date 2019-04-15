@@ -19,7 +19,7 @@
 -   创建实例时，默认自动启动实例，直到实例状态变成运行中（`Running`）。
 -   创建专有网络VPC类型实例前，您需要预先在相应的阿里云地域 [创建 VPC](~~65430~~)。
 -   与 [CreateInstance](~~25499~~) 相比，通过 `RunInstances` 创建的实例如果参数 `InternetMaxBandwidthOut` 的值大于0，则自动为实例分配公网IP。
--   提交创建任务后，参数不合法或者库存不足的情况下会报错，具体的报错原因参阅错误码。**最佳实践**`RunInstances` 可以执行批量创建任务，为便于管理与检索，建议您为每批次启动的实例指定标签（`Tag.n.Key` 和 `Tag.n.Value`），并且为主机名（`HostName`）和实例名称（`InstanceName`）添加有序后缀（`UniqueSuffix`）。
+-   提交创建任务后，参数不合法或者库存不足的情况下会报错，具体的报错原因参阅错误码。**最佳实践**`RunInstances` 可以执行批量创建任务，为便于管理与检索，建议您为每批次启动的实例指定标签（`Tag.N.Key` 和 `Tag.N.Value`），并且为主机名（`HostName`）和实例名称（`InstanceName`）添加有序后缀（`UniqueSuffix`）。
 
 实例启动模板能免除您每次创建实例时都需要填入大量配置参数，您可以创建实例启动模板（[CreateLaunchTemplate](~~74686~~)）后，在`RunInstances`请求中指定 `LaunchTemplateId` 和 `LaunchTemplateVersion` 使用启动模板。
 
@@ -141,7 +141,7 @@
  该参数的取值必须大于等于参数 `SnapshotId` 指定的快照的大小。
 
  |
-|DataDisk.N.SnapshotId|String|否|s-bp17441ohwka0yuhx3h0|创建数据盘n使用的快照。n的取值范围为 1~16。指定参数 `DataDisk.n.SnapshotId` 后，参数`DataDisk.n.Size`会被忽略，实际创建的磁盘大小为指定的快照的大小。不能使用早于2013年7月15日（含）创建的快照，请求会报错被拒绝。
+|DataDisk.N.SnapshotId|String|否|s-bp17441ohwka0yuhx3h0|创建数据盘n使用的快照。n的取值范围为 1~16。指定参数 `DataDisk.N.SnapshotId` 后，参数`DataDisk.N.Size`会被忽略，实际创建的磁盘大小为指定的快照的大小。不能使用早于2013年7月15日（含）创建的快照，请求会报错被拒绝。
 
  |
 |DataDisk.N.Category|String|否|cloud\_ssd|数据盘n的磁盘种类。取值范围：
@@ -246,10 +246,10 @@
  由于专有宿主机不支持创建抢占式实例，指定 `DedicatedHostId`参数后，会自动忽略请求中的 `SpotStrategy`和 `SpotPriceLimit`设置。
 
  |
-|Tag.N.Key|String|否|FinanceDept|实例、磁盘和主网卡的标签键。n 的取值范围为 1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.Key|String|否|FinanceDept|实例、磁盘和主网卡的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.Value|String|否|FinanceDept.Joshua|实例、磁盘和主网卡的标签值。n的取值范围为 1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.Value|String|否|FinanceDept.Joshua|实例、磁盘和主网卡的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
 |HpcClusterId|String|否|hpc-clusterid|实例所属的EHPC集群ID。
