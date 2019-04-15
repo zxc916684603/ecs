@@ -1,14 +1,14 @@
-# AddTags {#doc_api_1014556 .reference}
+# AddTags {#doc_api_Ecs_AddTags .reference}
 
 添加或者覆盖一个或者多个标签到云服务器ECS的各项资源上。您可以添加标签到实例、磁盘、快照、镜像、安全组等，便于管理资源。
 
-## 描述 {#description .section}
+## 接口说明 {#description .section}
 
 调用该接口时，您需要注意：
 
 -   单项云服务器ECS资源最多可以添加20个标签。
--   标签键（`Tag.n.Key`）与标签值（`Tag.n.Value`）必须键值匹配。
--   如果标签键（`Tag.n.Key`）在指定的资源上已经存在，则使用新的标签值（`Tag.n.Value`）自动覆盖原标签值。
+-   标签键（`Tag.N.Key`）与标签值（`Tag.N.Value`）必须键值匹配。
+-   如果标签键（`Tag.N.Key`）在指定的资源上已经存在，则使用新的标签值（`Tag.N.Value`）自动覆盖原标签值。
 
 ## 调试 {#apiExplorer .section}
 
@@ -38,16 +38,20 @@
 |Action|String|否|AddTags|系统规定参数。取值：AddTags
 
  |
-|Tag.N.Key|String|否|Finance|资源的标签键。N的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.Key|String|否|Finance|资源的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.Value|String|否|FinanceJoshua|资源的标签值。N的取值范围：1~20。一旦使用标签，该值可以为空字符串。最多支持128个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.Value|String|否|FinanceJoshua|资源的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.key|String|否|Finance|资源的标签键。N的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.key|String|否|Finance|资源的标签键。
+
+ **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Key参数。
 
  |
-|Tag.N.value|String|否|FinanceJoshua|资源的标签值。N的取值范围：1~20。一旦使用标签，该值可以为空字符串。最多支持128个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|Tag.N.value|String|否|FinanceJoshua|资源的标签值。
+
+ **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Value参数。
 
  |
 
@@ -101,7 +105,12 @@ https://ecs.aliyuncs.com/?Action=AddTags
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
 |404|InvalidRegionId.NotFound|The specified RegionId does not exist.|指定的 RegionId 不存在，请您检查此产品在该地域是否可用。|
+|404|InvalidResourceId.NotFound|The specified ResourceId is not found in our records.|指定的资源不存在，请您检查该资源是否正确。|
 |404|InvalidResourceType.NotFound|The ResourceType provided does not exist in our records.|指定的资源类型不存在。|
+|400|InvalidTagKey.Malformed|The specified Tag.n.Key is not valid.|指定的标签键不合法。|
+|400|InvalidTagValue.Malformed|The specified Tag.n.Value is not valid.|指定的标签值不合法。|
+|400|OperationDenied.QuotaExceed|The quota of tags on resource is beyond permitted range.|资源标签已达上限。|
+|403|InvalidResourceId.NotSupported|The specified ResourceId does not support tagging.|指定的资源 ID 不支持标记。|
 |400|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|指定的 Tag.n.Key 和 Tag.n.Value 不匹配。|
 |400|InvalidTagCount|The specified tags are beyond the permitted range.|指定的标记超出取值范围。|
 
