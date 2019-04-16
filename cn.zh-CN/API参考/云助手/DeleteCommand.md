@@ -1,4 +1,4 @@
-# DeleteCommand {#doc_api_1030542 .reference}
+# DeleteCommand {#doc_api_Ecs_DeleteCommand .reference}
 
 删除一条云助手命令。
 
@@ -17,9 +17,6 @@
 
  |
 |Action|String|否|DeleteCommand|系统规定参数。取值：DeleteCommand
-
- |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
 
  |
 
