@@ -1,4 +1,4 @@
-# DescribeInvocations {#doc_api_1030424 .reference}
+# DescribeInvocations {#doc_api_Ecs_DescribeInvocations .reference}
 
 查询云助手命令的执行列表和状态。
 
@@ -46,9 +46,6 @@
     -   周期执行：命令进程不可能为 部分失败（PartialFailed）。
     -   单次执行：指定命令管理的所有目标实例中个别有 执行失败（Failed）的命令进程，总的执行状态为 部分失败（PartialFailed）。
 -   Stopped：命令进程被手动停止
-
- |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
 
  |
 |PageNumber|Long|否|1|当前页码，起始值：1
@@ -133,7 +130,7 @@
 |PageSize|Long|10|每页行数。
 
  |
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。无论调用接口成功与否，我们都会返回请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
 
  |
 |TotalCount|Long|2|命令总个数。
