@@ -1,4 +1,4 @@
-# InstallCloudAssistant {#doc_api_1031584 .reference}
+# InstallCloudAssistant {#doc_api_Ecs_InstallCloudAssistant .reference}
 
 为一台或多台实例安装云助手客户端。调用 InstallCloudAssistant 后再调用 RebootInstance，云助手客户端即可生效。
 
@@ -17,9 +17,6 @@
 
  |
 |Action|String|否|InstallCloudAssistant|系统规定参数。取值：InstallCloudAssistant
-
- |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
 
  |
 
