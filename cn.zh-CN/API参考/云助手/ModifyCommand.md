@@ -1,4 +1,4 @@
-# ModifyCommand {#doc_api_1030540 .reference}
+# ModifyCommand {#doc_api_Ecs_ModifyCommand .reference}
 
 修改一条云助手命令相关参数以及命令内容。
 
@@ -32,9 +32,6 @@
 
  |
 |Name|String|否|AlibabaCommand|命令名称，支持全字符集。长度不得超过 30 个字符。
-
- |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
 
  |
 |Timeout|Long|否|120|超时时间。
