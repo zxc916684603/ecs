@@ -1,4 +1,4 @@
-# InvokeCommand {#doc_api_1101312 .reference}
+# InvokeCommand {#doc_api_Ecs_InvokeCommand .reference}
 
 为一台或多台ECS实例触发一条云助手命令。
 
@@ -36,9 +36,6 @@
 
  |
 |Frequency|String|否|0 \*/20 \* \* \* \*|周期任务的执行周期，两次周期任务的时间间隔不能低于10秒。当参数 Timed 的值为 True 时，参数 Frequency 为必需参数。 该参数取值遵循Cron表达式，参阅 [Cron 表达式](~~64769~~)。
-
- |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
 
  |
 |Timed|Boolean|否|true|命令是否为周期执行。 默认值：False
