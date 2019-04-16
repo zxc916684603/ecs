@@ -1,4 +1,4 @@
-# DescribeCloudAssistantStatus {#doc_api_1032107 .reference}
+# DescribeCloudAssistantStatus {#doc_api_Ecs_DescribeCloudAssistantStatus .reference}
 
 查询一台或者多台实例是否安装了云助手客户端。
 
@@ -17,9 +17,6 @@
 
  |
 |Action|String|否|DescribeCloudAssistantStatus|系统规定参数。取值：DescribeCloudAssistantStatus
-
- |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
 
  |
 
