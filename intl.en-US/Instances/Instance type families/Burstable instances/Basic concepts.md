@@ -69,17 +69,17 @@ t5 instances come with two running modes: [Standard](reseller.en-US/Instances/In
 
 ## How stopping an instance impacts CPU credits {#section_xt5_fx5_ydb .section}
 
-After you stop a t5 through the [view CPU utilization and CPU credits](reseller.en-US/Instances/Instance type families/Burstable instances/Manage t5 instances.md#section_imz_wx5_ydb) feature or the [StopInstance API](../../../../../reseller.en-US/API Reference/Instances/StopInstance.md#), CPU credits change according to the billing method and network type, as shown in the following table.
+After you stop a t5 through the [view CPU utilization and CPU credits](reseller.en-US/Instances/Instance type families/Burstable instances/Manage t5 instances.md#section_imz_wx5_ydb) feature or the [StopInstance API](../../../../reseller.en-US/API Reference/Instances/StopInstance.md#), CPU credits change according to the billing method and network type, as shown in the following table.
 
 |Network type|Billing method|How CPU credits change after the instance is stopped|
 |:-----------|:-------------|:---------------------------------------------------|
 |VPC|Subscription|The existing CPU credits are valid, and the credit accrual continues.|
-|Pay-As-You-Go \(with the [no fees for stopped VPC instances](../../../../../reseller.en-US/Pricing/No fees for stopped VPC instances.md#) function disabled\)|
-|Pay-As-You-Go \(with [no fees for stopped VPC instances](../../../../../reseller.en-US/Pricing/No fees for stopped VPC instances.md#) function enabled\)|CPU credits accrued before the stoppage become invalid. The instance acquires initial CPU credits again after it is restarted.|
+|Pay-As-You-Go \(with the [no fees for stopped VPC instances](../../../../reseller.en-US/Pricing/No fees for stopped VPC instances.md#) function disabled\)|
+|Pay-As-You-Go \(with [no fees for stopped VPC instances](../../../../reseller.en-US/Pricing/No fees for stopped VPC instances.md#) function enabled\)|CPU credits accrued before the stoppage become invalid. The instance acquires initial CPU credits again after it is restarted.|
 
 The instance continues to accrue CPU credits after it is restarted.
 
-If a Pay-As-You-Go instance has overdue payment or a Subscription instance expires, its CPU credits remain valid, but no new CPU credits will be accrued. After you [reactivate](../../../../../reseller.en-US/Instances/Manage instances/Reactivate an instance.md#) or [renew](../../../../../reseller.en-US/Pricing/Renew instances/Renewal overview.md#) the instance, it automatically accrues CPU credits.
+If a Pay-As-You-Go instance has overdue payment or a Subscription instance expires, its CPU credits remain valid, but no new CPU credits will be accrued. After you [reactivate](../../../../reseller.en-US/Instances/Manage instances/Reactivate an instance.md#) or [renew](../../../../reseller.en-US/Pricing/Renew instances/Renewal overview.md#) the instance, it automatically accrues CPU credits.
 
 ## Instance types {#section_c55_fx5_ydb .section}
 
@@ -136,5 +136,5 @@ t5 instances use Intel Xeon processors. The following table lists instance types
 
 ## Billing methods {#section_u55_fx5_ydb .section}
 
-t5 instances support both the Pay-As-You-Go and Subscription billing methods. For differences between the billing methods, see [billing method comparison](../../../../../reseller.en-US/Pricing/Billing method comparison.md#).
+t5 instances support both the Pay-As-You-Go and Subscription billing methods. For differences between the billing methods, see [billing method comparison](../../../../reseller.en-US/Pricing/Billing method comparison.md#).
 
