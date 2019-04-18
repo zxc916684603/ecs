@@ -13,7 +13,7 @@ For information about image release notes, see [Release notes](../../../../resel
 |The Cloud Migration tool is updated to v1.3.2.5.|2019-02-02|[Cloud Migration tool overview](../../../../reseller.en-US/Migration service/Cloud Migration tool for P2V and V2V/Cloud Migration tool overview.md#)|
 |ECS instances support status change events and preemptible instances recycle alarm events.|2019-01-29|[System events](../../../../reseller.en-US/Deployment & Maintenance/System events/System events.md#)|
 |The cloud assistant client supports the UK \(London\) region.|2018-12-31|[Cloud assistant](../../../../reseller.en-US/Deployment & Maintenance/Cloud assistant/Cloud assistant.md#)|
-|Preemptible instances are billed by the second.|2018-12-17|[抢占式实例](../../../../reseller.en-US/Instances/Instance purchasing options/Preemptible instances/Preemptible instances.md#)|
+|Preemptible instances are billed by the second.|2018-12-17|[Preemptible instances](../../../../reseller.en-US/Instances/Instance purchasing options/Preemptible instances/Preemptible instances.md#)|
 |Instance release protection is supported.|2018-12-14|[Enable instance release protection](../../../../reseller.en-US/Instances/Manage instances/Enable instance release protection.md#)|
 |IPv6 addressing in ECS is supported.|2018-12-06|[IPv6](../../../../reseller.en-US/Network/Instance IP addresses/IPv6.md#)|
 |The DescribeNetworkInterfaces API outputs the public IP address to which an ENI is attached.|2018-12-04|[../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9954.md\#](../../../../reseller.en-US/API Reference/Elastic network interfaces/DescribeNetworkInterfaces.md#)|
