@@ -1,22 +1,22 @@
 # Install the GPU driver {#concept_ecy_qrz_wgb .concept}
 
-This topic describes how to download and install the GPU driver manually. If the GPU driver is not automatically installed during instance creation, you must install it manually after the creation.
+This topic describes how to download and install the GPU driver. If you do not configure automatic installation of the GPU driver when you create a GPU instance, you must install it manually after the creation.
 
 ## Download the GPU driver {#installDrive .section}
 
 1.  Go to [NVIDIA website](http://www.nvidia.com/Download/index.aspx?lang=en).
 2.  Find the drivers for your NVIDIA products, and click **Search**. The following table shows relevant metrics.
 
-    |Item|gn4|gn5|gn5i|gn6v|
-    |:---|:--|:--|:---|:---|
-    |Product type:|Tesla|Tesla|Tesla|Tesla|
-    |Product series|M-Class|P-Series|P-Series|V-Series|
-    |Product|M40|Tesla P100|Tesla P4|Tesla V100|
-    |Operating system \(OS\)|Select a release according to the image of your instance.**Note:** 
+    |Item|gn4|gn5|gn5i|gn6v|vgn5i|gn6i|
+    |:---|:--|:--|:---|:---|-----|----|
+    |Product type:|Tesla|Tesla|Tesla|Tesla|Tesla|Tesla|
+    |Product series|M-Class|P-Series|P-Series|V-Series|P-Series|T-Series|
+    |Product|M40|Tesla P100|Tesla P4|Tesla V100|Tesla P4|Tesla T4|
+    |Operating system \(OS\)|Select a release according to the image of your instance. **Note:** 
 
-    -   If your OS is not in the drop-down list. Click **Select All Operating Systems** at the bottom of the list.
+    -   If your OS is not in the drop-down list, click **Select All Operating Systems** at the bottom of the list.
     -   For Debian, select **Linux 64-bit**.
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15541988375114_en-US.png)
+ ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15555809825114_en-US.png)
 
 |
 
@@ -45,7 +45,7 @@ This topic describes how to download and install the GPU driver manually. If the
 
     Take Linux 64-bit Ubuntu 14.04 for example:
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15541988375117_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15555809835117_en-US.png)
 
 
 ## Install the GPU driver for a Windows instance {#section_o2j_hrs_qgb .section}
