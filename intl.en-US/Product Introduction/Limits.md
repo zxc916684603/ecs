@@ -7,7 +7,7 @@ When using ECS, note the following limitations:
 -   ECS does not support external hardware devices directly \(such as dongles, USB drives, or external hard drives\). Instead, it supports a software protection dongle or two-step verification with dynamic passwords.
 -   ECS does not support IP address translation services such as SNAT. Instead, it supports a VPN or proxy.
 -   ECS does not support multicast protocols. If multicasting services are required, we recommend that you use point-to-point unicast instead.
--   Currently, Log Service does not support 32-bit Linux ECS instances. For information about regions that support Log Service, see [Service endpoint](../../../../../reseller.en-US/API Reference/Service endpoint.md#). For information about operating systems that support Log Service, see [Overview](../../../../../reseller.en-US/User Guide/Logtail collection/Overview/Overview.md#).
+-   Currently, Log Service does not support 32-bit Linux ECS instances. For information about regions that support Log Service, see [Service endpoint](../../../../reseller.en-US/API Reference/Service endpoint.md#). For information about operating systems that support Log Service, see [Overview](../../../../reseller.en-US/User Guide/Logtail collection/Overview/Overview.md#).
 
 In addition to the preceding limits, the following table details further limits of ECS and states whether you can open a ticket to request changing the limits.
 
@@ -15,7 +15,10 @@ In addition to the preceding limits, the following table details further limits 
 
 |Item|Limitation|Can I open a ticket to change the limitation?|
 |:---|:---------|:--------------------------------------------|
+|Permission to create instances|Complete real-name registration before creating ECS instances in any mainland China regions.|No|
 |Instance types for which you can create Pay-As-You-Go instances|Instance types with less than 16 vCPUs|Yes|
+|Default quota of Pay-As-You-Go instances in each region for one account|50 vCPUs \(increases with membership levels\)|Yes|
+|Default quota of preemptible instances in each region for one account|Up to 50 vCPUs are allowed after the permission is granted. The quota increases with membership levels.|Yes|
 |Default quota of launch templates in each region for one account|30|No|
 |Default quota of versions of one launch template|30|No|
 |Switch from Pay-As-You-Go to Subscription|The following instance types \(families\) are not supported: t1, s1, s2, s3, c1, c2, m1, m2, n1, n2, and e3.|No|
@@ -29,6 +32,7 @@ In addition to the preceding limits, the following table details further limits 
 
 |Item|Limitation|Can I open a ticket to change the limitation?|
 |:---|:---------|:--------------------------------------------|
+|Create Pay-As-You-Go cloud disks|Complete [real-name registration](https://www.alibabacloud.com/help/doc-detail/52595.htm) before creating cloud disks in any Mainland China regions.|No|
 |Default quota of Pay-As-You-Go cloud disks in all regions for one account|Number of Pay-As-You-Go instances in all regions under the user account × 5|Yes|
 |Default quota of system disks for one instance|1|No|
 |Default quota of data disks for one instance|16 \(including cloud disks and Shared Block Storage\)|No|
@@ -91,6 +95,11 @@ In addition to the preceding limits, the following table details further limits 
 
 |Item|Limitation|Can I open a ticket to change the limit?|
 |:---|:---------|:---------------------------------------|
+|Maximum inbound Internet bandwidth|200 Mbit/s|No|
+|Maximum outbound Internet bandwidth| -   Subscription instance: up to 200 Mbit/s
+-   Pay-As-You-Go instance: up to 100 Mbit/s
+
+ |No|
 |Change the assigned Internet address for one instance|The instance has existed for less than six hours. You can change the Internet address of an instance three times.|No|
 
 ## Security groups {#section_mzr_52x_wdb .section}
@@ -106,7 +115,7 @@ In addition to the preceding limits, the following table details further limits 
  |No|
 |Quota of security groups to which each Elastic Network Interface \(ENI\) belongs for one instance|500|No|
 |Quota of security groups to which each Elastic Network Interface \(ENI\) belongs for one instance|5|Open a ticket to raise the upper limit to 10 or 16|
-|Quota of rules for one security group|100|No It decreases as the security group quota increases. For detailed restrictions, see [Security groups](reseller.en-US/Security/Security groups/Security groups.md#)|
+|Quota of rules for one security group|100|No It decreases as the security group quota increases. For detailed restrictions, see [Security groups](reseller.en-US/Security/Security groups/Security group overview.md#)|
 |Port|For the outbound Internet traffic, the default STMP port is 25, which is disabled by default and cannot be enabled through security group rules.|Open a ticket to enable it. For more information, see [Request for enabling TCP port 25.](https://partners-intl.aliyun.com/help/doc-detail/56130.htm)|
 
 ## Deployment sets {#section_wcf_hbs_2fb .section}
@@ -144,5 +153,5 @@ In addition to the preceding limits, the following table details further limits 
 |:---|:----|:---------------------------------------|
 |Quota of CreateInstance calls|200 times per minute|Yes|
 
-**Note:** For the limits of VPC products, see [Limits](../../../../../reseller.en-US/Product Introduction/Limits.md#).
+**Note:** For the limits of VPC products, see [Limits](../../../../reseller.en-US/Product Introduction/Limits.md#).
 
