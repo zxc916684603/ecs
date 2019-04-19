@@ -55,7 +55,7 @@ To ensure that one or more server migrations are successful, we recommend that y
 
 -   Do not operate the intermediate instance. During a migration, a temporary intermediate instance named `INSTANCE_FOR_GOTOALIYUN` is created automatically under your Alibaba Cloud account. Do not stop, restart, or release the intermediate instance. After the migration, the intermediate instance is released automatically.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9833/155565978438950_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9833/155566379238950_en-US.png)
 
 -   Incremental data migration is not allowed. We recommend that you pause such applications as databases and containers, or filter specified data directories before a migration and then synchronize these data directories after the migration.
 
