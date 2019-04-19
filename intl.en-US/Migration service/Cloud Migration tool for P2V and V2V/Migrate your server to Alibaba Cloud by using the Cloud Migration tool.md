@@ -55,7 +55,7 @@ To ensure that one or more server migrations are successful, we recommend that y
 
 -   Do not operate the intermediate instance. During a migration, a temporary intermediate instance named `INSTANCE_FOR_GOTOALIYUN` is created automatically under your Alibaba Cloud account. Do not stop, restart, or release the intermediate instance. After the migration, the intermediate instance is released automatically.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9833/155566379238950_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9833/155566776338950_en-US.png)
 
 -   Incremental data migration is not allowed. We recommend that you pause such applications as databases and containers, or filter specified data directories before a migration and then synchronize these data directories after the migration.
 
@@ -388,7 +388,7 @@ The configuration files are located in the Excludes directory, including:
 
 **Note:** After you run the Cloud Migration tool, you do not need to perform any other operation.
 
-After you run the Cloud Migration tool, it automatically obtains source server information such as the number of CPU cores, memory size, disk size, and storage space usage, and prints the information on the GUI. Additionally, the migration status is also printed on the GUI as a log stream.
+After you run the Cloud Migration tool, it automatically obtains source server information \(the number of CPU cores, CPU usage, memory size, memory usage, disk size, and disk usage\) and prints the information on the terminal. Additionally, the migration status is also printed on the terminal as a log stream.
 
 ## What to do next {#section_qzt_t21_kfb .section}
 
