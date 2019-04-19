@@ -1,10 +1,10 @@
-# ModifyPrepayInstanceSpec {#doc_api_1032106 .reference}
+# ModifyPrepayInstanceSpec {#doc_api_Ecs_ModifyPrepayInstanceSpec .reference}
 
 升级或者降低预付费（包年包月）实例规格，新实例规格将会覆盖实例的整个生命周期。
 
 ## 接口说明 {#description .section}
 
-请确保在使用该接口前，您已充分了解 [云服务器 ECS](https://www.aliyun.com/price/product#/ecs/detail) 的计费方式和产品定价。更多有关资源变配的详情，请参阅云栖社区 [查询ECS变配的可用资源实践](https://yq.aliyun.com/articles/500164)。
+请确保在使用该接口前，您已充分了解 [云服务器 ECS](https://www.aliyun.com/price/product#/ecs/detail) 的计费方式和产品定价。更多有关资源变配的详情，请参阅[查询ECS变配的可用资源实践](~~109517~~)。
 
 调用该接口时，您需要注意：
 
@@ -63,9 +63,6 @@
 
  -   cloud\_efficiency：高效云盘
 -   cloud\_ssd：SSD 云盘
-
- |
-|OwnerAccount|String|否|happyCustomer|RAM用户的账号登录名称。
 
  |
 |SystemDisk.Category|String|否|cloud\_efficiency|更换系统盘类型。该参数只有在从 [已停售的实例规格](~~55263~~) 升级到 [正常售卖的实例规格族](~~25378~~)，并将非 I/O 优化实例规格升级为 I/O 优化实例规格时有效。取值范围：
@@ -132,15 +129,22 @@ https://ecs.aliyuncs.com/?Action=ModifyPrepayInstanceSpec
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
 |404|InvalidRegionId.NotFound|The specified RegionId does not exist.|指定的 RegionId 不存在，请您检查此产品在该地域是否可用。|
+|400|InvalidInstanceType.ValueUnauthorized|The specified InstanceType is not authorized.|指定的实例规格未授权使用。|
 |400|InvalidInstanceType.ValueNotSupported|The specified InstanceType does not exist or beyond the permitted range.|指定的实例规格不支持。|
 |500|InternalError|The request processing has failed due to some unknown error, exception or failure.|发生未知错误。|
 |404|BillingMethodNotFound|The account has not chosen any billing method.|该帐户没有选择任何计费方法。|
+|403|OperationDenied.NoStock|The specified instance is out of usage.|库存不足。|
 |400|InvalidBillingMethod.ValueNotSupported|The operation is not permitted due to an invalid billing method of the instance.|由于实例的计费方式无效，该操作不允许。|
 |400|InvalidInstanceId.Released|The specified instance has been released.|该实例已经被释放。|
 |400|InvalidInstance.PurchaseNotFound|The specified instance has no purchase history.|该实例的订购记录不存在。|
+|400|InvalidInstanceType.NotSupported|The specified InstanceType is not Supported.|不支持指定的 InstanceType。|
+|400|OrderCreationFailed|Order creation failed, please check your params and try it again later.|订单创建失败，请核查参数并重试。|
+|400|Throttling|You have made too many requests within a short time; your request is denied due to request throttling.|请求被流控。|
 |400|Account.Arrearage|Your account has an outstanding payment.|账号存在未支付款项。|
 |403|InvalidUser.PassRoleForbidden|The RAM user does not have privilege to pass a role.|RAM子账号不具备授予ECS RAM角色的权利。|
+|400|InvalidInstanceId.NotFound|The specified InstanceId does not exist.|指定的实例不存在，请您检查实例ID是否正确。|
 |400|InvalidRebootTime.MalFormed|The specified rebootTime is not valid.|指定的 RebootTime 不合法。|
+|400|InvalidRebootTime.ValueNotSupported|The specified RebootTime is not valid.|指定的重启时间不合法。|
 |403|ImageNotSupportInstanceType|The specified image does not support the specified InstanceType.|指定的镜像不支持改实例规格。|
 |403|InstanceType.Offline|%s|实例规格不能使用。|
 |400|IdempotenceParamNotMatch|Request uses a client token in a previous request but is not identical to that request.|与相同 ClientToken 的请求参数不符合。|
