@@ -8,7 +8,7 @@ This topic describes the release notes of images and relevant updates.
 |:------|:----------|
 |Aliyun Linux 2| -   Image ID: aliyun-2.1903-x64-20G-alibase-20190327.vhd
 -   Kernel version: 4.19.24-9.al7.x86\_64
--   Released in: China North 2, China North 3, China North 5, and Dubai
+-   Released in: all regions
 -   What's new: released Aliyun Linux 2
 
  |
@@ -31,7 +31,7 @@ This topic describes the release notes of images and relevant updates.
 |Windows Server 2019 Datacenter Edition| -   Image ID:
     -   win2019\_64\_dtc\_1809\_zh-cn\_40G\_alibase\_20190318.vhd \(Chinese edition\)
     -   win2019\_64\_dtc\_1809\_en-us\_40G\_alibase\_20190318.vhd \(English edition\)
--   Released in: China North 1, China East 2, and China South 1
+-   Released in: all regions
 -   What's new: new release
 
  |
@@ -72,7 +72,7 @@ This topic describes the release notes of images and relevant updates.
 -   Kernel version: 3.16.0-7-amd64
 -   Released in: all regions
 -   What's new:
-    -   updated to the latest system patches
+    -   Updated to the latest system patches
     -   Fixed invalid apt source configurations in Debian 8.9
 
  |
@@ -94,7 +94,7 @@ This topic describes the release notes of images and relevant updates.
 |:------|:----------|
 |Debian 9.8| -   Image ID: debian\_9\_08\_64\_20G\_alibase\_20190225.vhd
 -   Kernel version: 4.9.0-8-amd64
--   Released in: China North 2, China North 3, and China North 5
+-   Released in: China North 2,China North 3, and China North 5
 -   What's new: updated to the latest system patches
 
  |
@@ -128,7 +128,7 @@ This topic describes the release notes of images and relevant updates.
 |Debian9.6| -   Image ID: debian\_9\_06\_64\_20G\_alibase\_20190103.vhd
 -   Kernel version: 4.9.0-8-amd64
 -   Released in: all regions
--   What's new: Enabled the systemd-networkd service.
+-   What's new: enabled the systemd-networkd service
 
  |
 
@@ -141,16 +141,16 @@ This topic describes the release notes of images and relevant updates.
     -   winsvr\_64\_dtcC\_1809\_en-us\_40G\_alibase\_20181222.vhd \(English version\)
 -   Released in: all regions
 -   What's new:
-    -   Updated the image to the latest patch KB4483235 \(released in December 2018\).
-    -   Used Sysprep tool to generalize the image.
+    -   Updated the image to the latest patch KB4483235 \(released in December 2018\)
+    -   Used the Sysprep tool to generalize the image
 
  |
 |Windows Server 2008 R2 Enterprise Edition| -   Image ID: win2008r2\_64\_ent\_sp1\_en-us\_40G\_alibase\_20181222.vhd \(English version\)
 -   Released in: all regions
 -   What's new:
     -   Updated the image to the latest patch KB3371318 \(released in December 2018\). As a result, Windows clients need to be updated with the latest patches to establish RDP connections.
-    -   Upgraded NET Framework to 4.7.2.
-    -   Used Sysprep tool to generalize the image.
+    -   Upgraded NET Framework to 4.7.2
+    -   Used the Sysprep tool to generalize the image
 
  |
 
@@ -162,8 +162,8 @@ This topic describes the release notes of images and relevant updates.
 -   Released in: all regions
 -   What's new:
     -   Updated the image to the latest patch KB4471318 \(released in December 2018\). As a result, Windows clients need to be updated with the latest patches to establish RDP connections.
-    -   Upgraded NET Framework to 4.7.2.
-    -   Used Sysprep tool to generalize the image.
+    -   Upgraded NET Framework to 4.7.2
+    -   Used the Sysprep tool to generalize the image
 
  |
 |Windows Server 2012 R2 Datacenter Edition| -   Image ID:
@@ -172,8 +172,8 @@ This topic describes the release notes of images and relevant updates.
 -   Released in: all regions
 -   What's new:
     -   Updated the image to the latest patch KB4471320 \(released in December 2018\). As a result, Windows clients need to be updated with the latest patches to establish RDP connections.
-    -   Upgraded NET Framework to 4.7.2.
-    -   Used Sysprep tool to generalize the image.
+    -   Upgraded NET Framework to 4.7.2
+    -   Used the Sysprep tool to generalize the image
 
  |
 |Windows Server 2016 Datacenter Edition| -   Image ID:
@@ -182,8 +182,8 @@ This topic describes the release notes of images and relevant updates.
 -   Released in: all regions
 -   What's new:
     -   Updated the image to the latest patch KB4471321 \(released in December 2018\). As a result, Windows clients need to be updated with the latest patches to establish RDP connections.
-    -   Upgraded NET Framework to 4.7.2.
-    -   Used Sysprep tool to generalize the image.
+    -   Upgraded NET Framework to 4.7.2
+    -   Used the Sysprep tool to generalize the image
 
  |
 
@@ -201,21 +201,21 @@ This topic describes the release notes of images and relevant updates.
 -   Kernel version: 4.9.0-8-amd64
 -   Released in: all regions
 -   What's new:
-    -   Updated to the latest system patches.
-    -   Updated the cloud-init version.
-    -   Enabled the chrony service \(time synchronization\).
-    -   Set GRUB\_TIMEOUT=1.
--   Known issues: [Classic network configuration issues](intl.en-US/Images/Public image/Known issues.md#section_zyc_kxl_jgb)
+    -   Updated to the latest system patches
+    -   Updated the cloud-init version
+    -   Enabled the chrony service \(time synchronization\)
+    -   Set GRUB\_TIMEOUT=1
+-   Known issues: [Classic network configuration issues](reseller.en-US/Images/Public image/Known issues.md#section_zyc_kxl_jgb)
 
  |
 |Ubuntu 18.04| -   Image ID: ubuntu\_18\_04\_64\_20G\_alibase\_20181212.vhd
 -   Kernel version: 4.15.0-42-generic
 -   Released in: all regions
 -   What's new:
-    -   Updated to the latest system patches.
-    -   Updated the cloud-init version.
-    -   Enabled the chrony service \(time synchronization\).
-    -   Set GRUB\_TIMEOUT=1.
+    -   Updated to the latest system patches
+    -   Updated the cloud-init version
+    -   Enabled the chrony service \(time synchronization\)
+    -   Set GRUB\_TIMEOUT=1
 
  |
 
@@ -227,11 +227,11 @@ This topic describes the release notes of images and relevant updates.
 -   Kernel version: 3.10.0-862.3.3.el7.x86\_64
 -   Released in: all regions
 -   What's new:
-    -   Updated to the latest system patches.
-    -   Updated the cloud-init version.
-    -   Enabled the chrony service \(time synchronization\).
-    -   Disabled password logon by default.
-    -   Set GRUB\_TIMEOUT=1.
+    -   Updated to the latest system patches
+    -   Updated the cloud-init version
+    -   Enabled the chrony service \(time synchronization\)
+    -   Disabled password logon by default
+    -   Set GRUB\_TIMEOUT=1
 
  |
 
