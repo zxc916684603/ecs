@@ -28,10 +28,10 @@
 |Action|String|否|CreateDisk|系统规定参数。取值：CreateDisk
 
  |
-|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
+|SnapshotId|String|否|s-snapshot1|创建磁盘使用的快照。指定该参数后，Size会被忽略，实际创建的磁盘大小为指定快照的大小。2013年7月15日及以前的快照不能用来创建磁盘。
 
  |
-|Description|String|否|FinanceDisk|磁盘描述。长度为 2~256 个英文或中文字符，不能以 http:// 和 https:// 开头。默认值：空。
+|DiskName|String|否|FinanceJoshua|磁盘名称。长度为 2~128 个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值：空。
 
  |
 |DiskCategory|String|否|cloud\_ssd|数据盘的磁盘种类。取值范围：
@@ -44,18 +44,6 @@
  默认值：cloud
 
  |
-|DiskName|String|否|FinanceJoshua|磁盘名称。长度为 2~128 个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值：空。
-
- |
-|Encrypted|Boolean|否|false|是否加密云盘。默认值：false
-
- |
-|KMSKeyId|String|否|0e478b7a-4262-4802-b8cb-00d3fb40826X|磁盘使用的KMS密钥ID。
-
- |
-|ResourceGroupId|String|否|rg-resourcegroupid1|磁盘所在的企业资源组 ID。
-
- |
 |Size|Integer|否|2000|容量大小，以GiB为单位。指定该参数后，其取值必须≥指定快照ID的容量大小。取值范围：
 
  -   cloud：5~2000
@@ -64,13 +52,25 @@
 -   cloud\_essd：20~32768
 
  |
-|SnapshotId|String|否|s-snaoshot1|创建磁盘使用的快照。指定该参数后，Size会被忽略，实际创建的磁盘大小为指定快照的大小。2013年7月15日及以前的快照不能用来创建磁盘。
+|Description|String|否|FinanceDisk|磁盘描述。长度为 2~256 个英文或中文字符，不能以 http:// 和 https:// 开头。默认值：空。
+
+ |
+|Encrypted|Boolean|否|false|是否加密云盘。默认值：false
+
+ |
+|ResourceGroupId|String|否|rg-resourcegroupid1|磁盘所在的企业资源组 ID。
 
  |
 |Tag.N.Key|String|否|FinanceDept|磁盘的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
 |Tag.N.Value|String|否|FinanceDeptJoshua|磁盘的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
+
+ |
+|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
+
+ |
+|KMSKeyId|String|否|0e478b7a-4262-4802-b8cb-00d3fb40826X|磁盘使用的KMS密钥ID。
 
  |
 
@@ -94,15 +94,13 @@
 https://ecs.aliyuncs.com/?Action=CreateDisk
 &RegionId=cn-hangzhou
 &ZoneId=cn-hangzhou-g
-&SnapshotId=s-snaoshot1
+&SnapshotId=s-snapshot1
 &DiskName=FinanceJoshua
 &Size=2000
 &DiskCategory=cloud_ssd
 &Description=FinanceDisk
 &Encrypted=false
 &ClientToken=123e4567-e89b-12d3-a456-426655440000
-&Tag.1.value=FinanceDeptJoshua
-&Tag.1.key=FinanceDept
 &Tag.1.Key=FinanceDept
 &Tag.1.Value=FinanceDeptJoshua
 &<公共请求参数>
