@@ -73,16 +73,6 @@
 |Tag.N.Value|String|否|FinanceDeptJoshua|磁盘的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.key|String|否|FinanceDept|磁盘的标签键。
-
- **说明：** 该参数即将被弃用，为提高兼容性，请尽量使用 Tag.N.Key。
-
- |
-|Tag.N.value|String|否|FinanceDeptJoshua|磁盘的标签值。
-
- **说明：** 该参数即将被弃用，为提高兼容性，请尽量使用 Tag.N.Value。
-
- |
 
 ## 返回参数 {#resultMapping .section}
 
