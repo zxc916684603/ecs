@@ -1,12 +1,57 @@
 # Authentication rules {#EcsApiAuthorizationRules .reference}
 
-When a RAM user requests access to ECS resources owned by an Alibaba Cloud user by using ECS APIs, ECS sends a request to RAM service to check access permission and make sure that the resource owner allows the caller to access the resources. Each ECS API requires different authentication rules for the requested resources according to the resources specification and the definition of the API. See the following table for specific authentication rules.
+This topic describes how to use Aliyun Resource Name \(ARN\) values as a method of access control to authorize different user operations in ECS.
 
-|Action|Authentication rule|
-|:-----|:------------------|
+## Background information {#section_0ph_k63_iqp .section}
+
+**Note:** If you can access resources without the need for authorization, you can skip this topic.
+
+By default, you can use your Alibaba Cloud account or RAM user account to operate on ECS resources by calling ECS API actions. Operation permissions are required when:
+
+-   You create a RAM user account that have no permission to operate on ECS resources under your Alibaba Cloud account.
+-   You want to access ECS resources from other Alibaba Cloud services, or access other Alibaba Cloud services from ECS.
+-   You want to operate on ECS resources that require prior permissions to be granted by the resource owner.
+
+When an account requests access to resources under your Alibaba Cloud account by calling ECS APIs, Alibaba Cloud ECS checks the permissions granted by using RAM to ensure that the required permissions have been granted to the requester. Depending on the requested resources and API syntax, ECS determines which resources require a permission check for ECS APIs. For more information about authorization policies and permission control, see [What is RAM?](../../../../reseller.en-US/Product Introduction/What is RAM?.md#) and [API overview](../../../../reseller.en-US/API Reference/API overview.md#).
+
+## Use ARN values {#section_0co_wyh_qff .section}
+
+The following procedure describes how to create a custom policy to use Aliyun Resource Name \(ARN\) values in the RAM console. Note that you can also call the [CreatePolicy](../../../../reseller.en-US/API Reference/Policy management APIs/CreatePolicy.md#) API action to use ARN values.
+
+1.  Log on to the [RAM console](https://partners-intl.console.aliyun.com/#/ram).
+2.  In the left-side navigation pane, choose **Permissions** \> **Policies**.
+3.  Click **Create Policy**.
+4.  Set the **Policy Name** and **Note**.
+5.  Select **Script**.
+
+    **Note:** You can also select **Visualized**, in which case you can skip the [Authentication list](#section_d07_a67_vfx) to configure the policy.
+
+6.  Set the **Policy Document** according to the JSON template file, and set the Resource parameter to one of the ARN values in the [Authentication list](#section_d07_a67_vfx). For the setting of other parameters, see [Policy elements](../../../../reseller.en-US/User Guide/Permission management/Policy language/Policy elements.md#).
+
+    ```
+    {
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": "",
+                "Resource": ""
+            }
+        ],
+        "Version": "1"
+    }
+    ```
+
+7.  Click **OK**.
+
+## Authentication list {#section_d07_a67_vfx .section}
+
+The following table describes commonly used ARN values that correspond to API actions used in Alibaba Cloud ECS. For information about the ARN format, see [Terms](../../../../reseller.en-US/Product Introduction/Terms.md#).
+
+|Action|ARN value|
+|:-----|:--------|
 |AddTags|acs:ecs:$regionid:$accountid:$resourceType/$resourceId|
 |AllocatePublicIpAddress|acs:ecs:$regionid:$accountid:instance/$instanceId|
-|ApplyAutoSnapshotPolicy| acs:ecs:\*:$accountid:snapshot/\*|
+|ApplyAutoSnapshotPolicy|acs:ecs:\*:$accountid:snapshot/\*|
 |AttachClassicLinkVpc|acs:ecs:$regionid:$accountid:instance/$instanceId|
 |AttachDisk| -   acs:ecs:$regionid:$accountid:instance/$instanceId
 -   acs:ecs:$regionid:$accountid:instance/$diskId
@@ -20,7 +65,7 @@ When a RAM user requests access to ECS resources owned by an Alibaba Cloud user 
 |AuthorizeSecurityGroupEgress|acs:ecs:$regionid:$accountid:securitygroup/$groupNo|
 |CancelAutoSnapshotPolicy|acs:ecs:\*:$accountid:snapshot/\*|
 |CancelCopyImage|acs:ecs:$regionid:$accountid:image/$imageNo|
-|CopyImage| -    acs:ecs:$fromRegionid:$accountid:image/$imageNo
+|CopyImage| -   acs:ecs:$fromRegionid:$accountid:image/$imageNo
 -   acs:ecs:$toRegionid:$accountid:image/\*
 
  |
@@ -45,8 +90,8 @@ When a RAM user requests access to ECS resources owned by an Alibaba Cloud user 
 
  |
 |CreateKeyPair|acs:ecs:$regionid:$accountid:keypair/\*|
-|CreateSecurityGroup|acs:ecs:$regionid:$accountid:securitygroup/|
-|CreateSnapshot| -   acs:ecs:$regionid:$accountid:snapshot/
+|CreateSecurityGroup|acs:ecs:$regionid:$accountid:securitygroup/\*|
+|CreateSnapshot| -   acs:ecs:$regionid:$accountid:snapshot/\*
 -   acs:ecs:$regionid:$accountid:disk/$diskId
 -   acs:ecs:$regionid:$accountid:volume/$volumeId
 
@@ -68,7 +113,6 @@ When a RAM user requests access to ECS resources owned by an Alibaba Cloud user 
 -   acs:ecs:$regionid:$accountid:image/\*
 
  |
-|DescribeInstanceAttribute|acs:ecs:$regionid:$accountid:instance/$instanceId|
 |DescribeInstanceMonitorData|acs:ecs:$regionid:$accountid:instance/$instanceId|
 |DescribeInstances| -   acs:ecs:$regionid:$accountid:instance/$instanceId
 -   acs:ecs:$regionid:$accountid:instance/\*
@@ -110,7 +154,7 @@ When a RAM user requests access to ECS resources owned by an Alibaba Cloud user 
  |
 |ExportImage|acs:ecs:$regionid:$accountid:image/$imageNo|
 |ImportImage|acs:ecs:$regionid:$accountid:image/\*|
-|ImportKeyPair|ACS: ECs: $ regionid: $ accounting: keypair /\*|
+|ImportKeyPair|acs:ecs:$regionid:$accountid:keypair/\*|
 |JoinSecurityGroup| -   acs:ecs:$regionid:$accountid:instance/$instanceId
 -   acs:ecs:$regionid:$accountid:securitygroup/$groupNo
 
@@ -126,26 +170,27 @@ When a RAM user requests access to ECS resources owned by an Alibaba Cloud user 
 |ModifyInstanceAutoReleaseTime|acs:ecs:$regionid:$accountid:instance/$instanceId|
 |ModifyInstanceChargeType|acs:ecs:$regionid:$accountid:instance/$instanceId|
 |ModifyInstanceNetworkSpec|acs:ecs:$regionid:$accountid:instance/$instanceId|
-|Modifyinstancevncpasswd|acs:ecs:$regionid:$accountid:instance/$instanceId|
+|ModifyInstanceVncPasswd|acs:ecs:$regionid:$accountid:instance/$instanceId|
 |ModifyInstanceVpcAttribute| -   acs:ecs:$regionid:$accountid:instance/$instanceId
 -   acs:ecs:$regionid:$accountid:vswitch/$vSwitchId
 
  |
 |ModifySecurityGroupAttribute|acs:ecs:$regionid:$accountid:securitygroup/$groupNo|
-|ModifySecurityGroupEgressRule|ACS: ECs: $ regionid: $ accounting: securitygroup/$ groupno|
+|ModifySecurityGroupEgressRule|acs:ecs:$regionid:$accountid:securitygroup/$groupNo|
 |ModifySecurityGroupRule|acs:ecs:$regionid:$accountid:securitygroup/$groupNo|
-|ModifyPrepayInstanceSpec |acs:ecs:$regionid:$accountid:|
+|ModifyPrepayInstanceSpec|acs:ecs:$regionid:$accountid:|
 |ModifySnapshotAttribute|acs:ecs:$regionid:$accountid:snapshot/$snapshotId|
-|Rebootinstance|acs:ecs:$regionid:$accountid:instance/$instanceId|
+|RebootInstance|acs:ecs:$regionid:$accountid:instance/$instanceId|
 |ReInitDisk|acs:ecs:$regionid:$accountid:disk/$diskId|
 |ReleasePublicIpAddress|acs:ecs:$regionid:$accountid:instance/$instanceId|
 |RemoveTags|acs:ecs:$regionid:$accountid:$resourceType/$resourceId|
+|RenewInstance|acs:ecs:$regionid:$accountid:instance/$instanceId|
 |ReplaceSystemDisk| -   acs:ecs:$regionid:$accountid:instance/$instanceId
 -   acs:ecs:$regionid:$accountid:image/$imageNo
 
  |
 |ResetDisk|acs:ecs:$regionid:$accountid:disk/$diskId|
-|Resizedisk|acs:ecs:$regionid:$accountid:disk/$diskId|
+|ResizeDisk|acs:ecs:$regionid:$accountid:disk/$diskId|
 |RevokeSecurityGroup|acs:ecs:$regionid:$accountid:securitygroup/$groupNo|
 |RevokeSecurityGroupEgress|acs:ecs:$regionid:$accountid:securitygroup/$groupNo|
 |RunInstances| -   acs:ecs:$regionid:$accountid:instance/\*
