@@ -1,13 +1,13 @@
-# DescribeSnapshotLinks {#doc_api_999634 .reference}
+# DescribeSnapshotLinks {#doc_api_Ecs_DescribeSnapshotLinks .reference}
 
-查询磁盘快照链。快照链是一个磁盘所有快照组成的关系链，一个磁盘对应一条快照链，所以快照链 ID 即磁盘 ID。
+查询磁盘快照链。快照链是一个磁盘所有快照组成的关系链，一个磁盘对应一条快照链。
 
-## 描述 {#description .section}
+## 接口说明 {#description .section}
 
 调用该接口时，您需要注意：
 
--   请求参数 RegionId、DiskIds 和 InstanceId 等充当过滤器功能，参数间是逻辑与关系。
--   如果不指定任何参数，则过滤器不起作用。当 DiskIds 和 SnapshotLinkIds 都为空数组时，同样视该过滤器有效，但是返回结果为空。
+-   请求参数 `RegionId`、`DiskIds` 和 `InstanceId` 等充当过滤器功能，参数间是逻辑与关系。
+-   如果不指定任何参数，则过滤器不起作用。当 `DiskIds` 和 `SnapshotLinkIds` 都为空数组时，同样视该过滤器有效，但是返回结果为空。
 
 ## 调试 {#apiExplorer .section}
 
@@ -29,9 +29,6 @@
 |InstanceId|String|否|i-instanceid1|实例 ID。
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
-
- |
 |PageNumber|Integer|否|1|磁盘状态列表的页码。起始值：1
 
  默认值：1
@@ -42,7 +39,7 @@
  默认值：10
 
  |
-|SnapshotLinkIds|String|否|\["p-xxxxxxxxx", "p-yyyyyyyyy", … "p-zzzzzzzzz"\]|快照 ID。一次最多指定 100 个快照 ID。SnapshotLinkIds参数取值格式为 JSON 数组，ID 之间用半角逗号（,）隔开。
+|SnapshotLinkIds|String|否|\["sl-xxxxxxxxx", "sl-yyyyyyyyy", … "sl-zzzzzzzzz"\]|快照链 ID。一次最多指定 100 个快照 ID。SnapshotLinkIds参数取值格式为 JSON 数组，ID 之间用半角逗号（,）隔开。
 
  |
 
@@ -56,7 +53,7 @@
 |PageSize|Integer|10|输入时设置的每页行数
 
  |
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。无论调用接口成功与否，我们都会返回请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID
 
  |
 |SnapshotLinks| | |快照链信息组成的集合
@@ -71,7 +68,7 @@
 |└RegionId|String|cn-hangzhou|快照链源磁盘所属地域 ID
 
  |
-|└SnapshotLinkId|String|p-2ze0y1jwzpb1geqxkroq|快照链 ID
+|└SnapshotLinkId|String|sl-2ze0y1jwzpb1geqxk\*\*\*|快照链 ID
 
  |
 |└SourceDiskId|String|d-diskid1|源磁盘 ID，如果快照的源磁盘已经被删除，该字段仍旧保留
@@ -112,7 +109,7 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshotLinks
 &RegionId=cn-hangzhou
 &InstanceId=i-instanceid1
 &DiskIds=["d-xxxxxxxxx", "d-yyyyyyyyy", … "d-zzzzzzzzz"]
-&SnapshotLinkIds=["p-xxxxxxxxx", "p-yyyyyyyyy", … "p-zzzzzzzzz"]
+&SnapshotLinkIds=["sl-xxxxxxxxx", "sl-yyyyyyyyy", … "sl-zzzzzzzzz"]
 &PageNumber=1
 &PageSize=10
 &<公共请求参数>
@@ -127,7 +124,7 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshotLinks
 <DescribeSnapshotLinksResponse>
   <SnapshotLinks>
     <SnapshotLink>
-      <SnapshotLinkId>d-25okbh2pj</SnapshotLinkId>
+      <SnapshotLinkId>sl-25okbh2pj</SnapshotLinkId>
       <SourceDiskId>d-25okbh2pj</SourceDiskId>
       <SourceDiskType>data</SourceDiskType>
       <SourceDiskSize>20</SourceDiskSize>
@@ -136,8 +133,8 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshotLinks
       <TotalSize>2097152</TotalSize>
     </SnapshotLink>
     <SnapshotLink>
-      <SnapshotLinkId>d-2ze0y1jwzpb1geqxkroq</SnapshotLinkId>
-      <SourceDiskId>d-2ze0y1jwzpb1geqxkroq</SourceDiskId>
+      <SnapshotLinkId>sl-2ze0y1jwz</SnapshotLinkId>
+      <SourceDiskId>d-2ze0y1jwz</SourceDiskId>
       <SourceDiskType>system</SourceDiskType>
       <SourceDiskSize>40</SourceDiskSize>
       <RegionId> cn-beijing-btc-a01</RegionId>
@@ -148,7 +145,7 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshotLinks
   <PageNumber>1</PageNumber>
   <PageSize>2</PageSize>
   <TotalCount>9</TotalCount>
-  <RequestId>ED5CF6DD-71CA-462C-9C94-A61A78A01479</RequestId>
+  <RequestId>473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E</RequestId>
 </DescribeSnapshotLinksResponse>
 
 ```
@@ -160,7 +157,7 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshotLinks
 	"PageNumber":1,
 	"TotalCount":9,
 	"PageSize":2,
-	"RequestId":"ACD9BBB0-A9D1-46D7-9630-B7A69889E110",
+	"RequestId":"473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E",
 	"SnapshotLinks":{
 		"SnapshotLink":[
 			{
@@ -169,16 +166,16 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshotLinks
 				"SourceDiskId":"d-25okbh2pj",
 				"RegionId":"cn-beijing-btc-a01",
 				"SourceDiskSize":20,
-				"SnapshotLinkId":"d-25okbh2pj",
+				"SnapshotLinkId":"sl-25okbh2pj",
 				"TotalSize":2097152
 			},
 			{
 				"TotalCount":1,
 				"SourceDiskType":"data",
-				"SourceDiskId":"d-2ze0y1jwzpb1geqxkroq",
+				"SourceDiskId":"d-2ze0y1jw",
 				"RegionId":"cn-beijing-btc-a01",
 				"SourceDiskSize":40,
-				"SnapshotLinkId":"d-2ze0y1jwzpb1geqxkroq",
+				"SnapshotLinkId":"sl-2ze0y1jwz",
 				"TotalSize":2097152
 			}
 		]
@@ -190,7 +187,10 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshotLinks
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
+|400|InvalidRegionId|The specified regionId is invalid.|指定的 RegionId 不合法。|
+|400|InvalidSnapshotLinkIds|The specified snapshotLinkIds is invalid.|指定的 SnapshotLinkId 不合法。|
 |400|InvalidDiskIds|The specified diskIds is invalid.|指定的磁盘无效。|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
