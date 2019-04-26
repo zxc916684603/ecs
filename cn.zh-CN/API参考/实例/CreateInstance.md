@@ -257,16 +257,6 @@
 |PeriodUnit|String|否|Month|购买资源的时长。可选值：Week和Month（默认）。
 
  |
-|Tag.N.value|String|否|FinanceDeptJoshua|实例、磁盘和主网卡的标签值。
-
- **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Value参数。
-
- |
-|Tag.N.key|String|否|FinanceDept|实例、磁盘和主网卡的标签键。
-
- **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Key参数。
-
- |
 |Tag.N.Key|String|否|FinanceDept|实例、磁盘和主网卡的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
