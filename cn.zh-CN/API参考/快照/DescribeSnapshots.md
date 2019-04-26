@@ -33,7 +33,7 @@
  **说明：** 该参数即将被弃用，为提高兼容性，请尽量使用其他参数。
 
  |
-|Filter.1.Value|String|否|2017-12-05T22:40:00Z|查询资源时的筛选键。取值必须为 CreationStartTime。
+|Filter.1.Value|String|否|2017-12-05T22:40:00Z|查询资源时的筛选值。取值必须为资源创建的开始时间点（CreationStartTime）。
 
  **说明：** 该参数即将被弃用，为提高兼容性，请尽量使用其他参数。
 
@@ -101,16 +101,6 @@
 
  |
 |Tag.N.Value|String|否|FinanceDeptJoshua|快照的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
-
- |
-|Tag.N.key|String|否|FinanceDept|快照的标签键。
-
- **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Key参数。
-
- |
-|Tag.N.value|String|否|FinanceDeptJoshua|快照的标签值。
-
- **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Value参数。
 
  |
 |Usage|String|否|none|有引用关系的资源类型。取值范围：
@@ -231,8 +221,6 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshots
 &SnapshotType=all
 &Usage=none
 &SourceDiskType=Data
-&Tag.1.value=FinanceDeptJoshua
-&Tag.1.key=FinanceDept
 &Tag.1.Key=FinanceDept
 &Tag.1.Value=FinanceDeptJoshua
 &Encrypted=false
