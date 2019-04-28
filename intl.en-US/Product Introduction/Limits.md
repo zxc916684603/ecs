@@ -1,8 +1,10 @@
 # Limits {#concept_gvb_h1w_tdb .concept}
 
-When using ECS, note the following limitations:
+This topic describes the limits on ECS product features and service performance and provides the method to apply for a higher quota.
 
--   ECS does not support virtual application installation or revirtualization \(such as installation of VMware\). Currently, only [ECS Bare Metal Instance and Super Computing Clusters](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/ECS Bare Metal Instance and Super Computing Clusters.md#) support revirtualization.
+When you use ECS, the following limits apply:
+
+-   ECS does not support virtual application installation or revirtualization \(such as installation of VMware Workstation\). Currently, only [ECS Bare Metal Instance and Super Computing Clusters](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/ECS Bare Metal Instance and Super Computing Clusters.md#) support revirtualization.
 -   ECS does not support sound card applications.
 -   ECS does not support external hardware devices directly \(such as dongles, USB drives, or external hard drives\). Instead, it supports a software protection dongle or two-step verification with dynamic passwords.
 -   ECS does not support IP address translation services such as SNAT. Instead, it supports a VPN or proxy.
@@ -13,25 +15,28 @@ In addition to the preceding limits, the following table details further limits 
 
 ## ECS instances {#section_tbg_zdx_wdb .section}
 
-|Item|Limitation|Can I open a ticket to change the limitation?|
-|:---|:---------|:--------------------------------------------|
+|Item|Limit|Can I open a ticket to change the limit?|
+|:---|:----|:---------------------------------------|
 |Permission to create instances|Complete real-name registration before creating ECS instances in any mainland China regions.|No|
 |Instance types for which you can create Pay-As-You-Go instances|Instance types with less than 16 vCPUs|Yes|
-|Default quota of Pay-As-You-Go instances in each region for one account|50 vCPUs \(increases with membership levels\)|Yes|
-|Default quota of preemptible instances in each region for one account|Up to 50 vCPUs are allowed after the permission is granted. The quota increases with membership levels.|Yes|
+|Default quota of Pay-As-You-Go instances in each region for one account| 50 vCPUs
+
+ You can click **Privileges & Quota Management** on the Overview page of the ECS console to view the quota.
+
+ |Yes|
 |Default quota of launch templates in each region for one account|30|No|
 |Default quota of versions of one launch template|30|No|
 |Switch from Pay-As-You-Go to Subscription|The following instance types \(families\) are not supported: t1, s1, s2, s3, c1, c2, m1, m2, n1, n2, and e3.|No|
-|Switch from Subscription to Pay-As-You-Go| -   Depends on the membership level
--   5,000 vCPUs × hours for each month. The quota increases with membership levels.
--   Maximum refund limit per month \(varies with the membership level\).
+|Switch from Subscription to Pay-As-You-Go| -   Some accounts support this feature \(based on your ECS usage\).
+-   5,000 vCPUs × hours for each month.
+-   The maximum refund per month is limited, and is displayed on the switch page.
 
  |No|
 
 ## Block storage {#section_xlb_32x_wdb .section}
 
-|Item|Limitation|Can I open a ticket to change the limitation?|
-|:---|:---------|:--------------------------------------------|
+|Item|Limit|Can I open a ticket to change the limit?|
+|:---|:----|:---------------------------------------|
 |Create Pay-As-You-Go cloud disks|Complete [real-name registration](https://www.alibabacloud.com/help/doc-detail/52595.htm) before creating cloud disks in any Mainland China regions.|No|
 |Default quota of Pay-As-You-Go cloud disks in all regions for one account|Number of Pay-As-You-Go instances in all regions under the user account × 5|Yes|
 |Default quota of system disks for one instance|1|No|
@@ -71,30 +76,30 @@ In addition to the preceding limits, the following table details further limits 
 
 ## Snapshots {#section_bxk_n2x_wdb .section}
 
-|Item|Limitation|Can I open a ticket to change the limit?|
-|:---|:---------|:---------------------------------------|
-|Quota of snapshots|Each cloud disk and Shared Block Storage can have up to 64 snapshots|No|
+|Item|Limit|Can I open a ticket to change the limit?|
+|:---|:----|:---------------------------------------|
+|The number of snapshots that can be created for each cloud disk and Shared Block Storage|64|No|
 
 ## Images {#section_jnw_r2x_wdb .section}
 
-|Item|Limitation|Can I open a ticket to change the limit?|
-|:---|:---------|:---------------------------------------|
-|Quota of custom images in one region for one account|100 \(increases with membership levels\)|Yes|
+|Item|Limit|Can I open a ticket to change the limit?|
+|:---|:----|:---------------------------------------|
+|Quota of custom images in one region for one account|100|Yes|
 |Maximum number of users with whom a single image can be shared|50|Yes|
 |Usage of images on instance types|32-bit images are not supported on an instance with 4 GiB or more RAM.|No|
 
 ## Key pairs {#section_dxw_s2x_wdb .section}
 
-|Item|Limitation|Can I open a ticket to change the limit?|
-|:---|:---------|:---------------------------------------|
+|Item|Limit|Can I open a ticket to change the limit?|
+|:---|:----|:---------------------------------------|
 |Quota of key pairs in one region for one account|500|No|
 |Instance types supporting key pairs|All instance types except non-I/O optimized instance types in Generation I|No|
 |Images supporting key pairs|Linux images only|No|
 
 ## Internet bandwidth {#section_og5_t2x_wdb .section}
 
-|Item|Limitation|Can I open a ticket to change the limit?|
-|:---|:---------|:---------------------------------------|
+|Item|Limit|Can I open a ticket to change the limit?|
+|:---|:----|:---------------------------------------|
 |Maximum inbound Internet bandwidth|200 Mbit/s|No|
 |Maximum outbound Internet bandwidth| -   Subscription instance: up to 200 Mbit/s
 -   Pay-As-You-Go instance: up to 100 Mbit/s
@@ -104,9 +109,11 @@ In addition to the preceding limits, the following table details further limits 
 
 ## Security groups {#section_mzr_52x_wdb .section}
 
-|Item|Limitation|Can I open a ticket to change the limit?|
-|:---|:---------|:---------------------------------------|
-|Quota of security groups in one region for an account| 100 \(increases with membership levels\)
+|Item|Limit|Can I open a ticket to change the limit?|
+|:---|:----|:---------------------------------------|
+|Quota of security groups in one region for an account| 100
+
+ You can click **Privileges & Quota Management** on the Overview page of the ECS console to view the quota.
 
  |Yes|
 |Quota of instances/IP addresses for one security group| -   Security groups for classic network instances: 1,000 classic network instances
@@ -137,7 +144,9 @@ In addition to the preceding limits, the following table details further limits 
 
 |Item|Limit|Can I open a ticket to change the limit?|
 |:---|:----|:---------------------------------------|
-|Quota of ENIs in one region for one account| 100 \(increases with membership levels\)
+|Quota of ENIs in one region for one account| 100
+
+ You can click **Privileges & Quota Management** on the Overview page of the ECS console to view the quota.
 
  |Yes|
 
