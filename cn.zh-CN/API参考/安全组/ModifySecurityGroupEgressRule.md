@@ -1,4 +1,4 @@
-# ModifySecurityGroupEgressRule {#doc_api_1031577 .reference}
+# ModifySecurityGroupEgressRule {#doc_api_Ecs_ModifySecurityGroupEgressRule .reference}
 
 修改安全组出方向规则的描述信息。如果您还没有增加过安全组规则，可以调用 AuthorizeSecurityGroupEgress 增加。
 
@@ -73,9 +73,6 @@
 -   intranet：内网网卡。
 
  当设置安全组之间互相访问时，即指定了 DestGroupId且没有指定 DestCidrIp 时，参数 NicType 取值只能为 intranet。
-
- |
-|OwnerAccount|String|否|EcsforCloud@Alibaba.com|RAM用户的账号登录名称。
 
  |
 |Policy|String|否|accept|访问权限。取值范围：
@@ -156,14 +153,24 @@ https://ecs.aliyuncs.com/?Action=ModifySecurityGroupEgressRule
 |404|InvalidDestGroupId.NotFound|The DestGroupId provided does not exist in our records.|指定的出方向安全组不存在|
 |400|OperationDenied|The specified IpProtocol does not exist or IpProtocol and PortRange do not match.|指定的 IP 协议不存在，或与端口范围不匹配。|
 |400|InvalidIpProtocol.Malformed|The specified parameter "PortRange" is not valid.|IP协议参数格式不正确。|
+|403|InvalidDestGroupId.Mismatch|NicType is required or NicType expects intranet.|请指定 NicType，或使用内网模式。|
 |400|InvalidDestCidrIp.Malformed|The specified parameter "DestCidrIp" is not valid.|指定的 DestCidrIp 无效，请您检查该参数是否正确。|
+|403|MissingParameter|The input parameter "DestGroupId" or "DestCidrIp" cannot be both blank.|参数 DestGroupId 和 DestCidrIp 不得为空。|
 |400|InvalidPolicy.Malformed|The specified parameter "Policy" is not valid.|指定的参数无效，请您检查该参数是否正确。|
+|400|InvalidNicType.ValueNotSupported|The specified NicType does not exist.|指定的网络类型不存在，请您检查网络类型是否正确。|
 |400|InvalidNicType.Mismatch|Specified nic type conflicts with the authorization record.|指定的 NIC 类型不存在。|
+|403|AuthorizationLimitExceed|The limit of authorization records in the security group reaches.|安全组授权规则数达到上限，请您检查授权规则是否合理。|
 |403|InvalidParamter.Conflict|The specified SecurityGroupId should be different from the SourceGroupId.|授权与被授权安全组必须不同|
+|400|InvalidDestGroupId.Mismatch|Specified security group and destination group are not in the same VPC.|指定的安全组和目标组不在同一个 VPC 下。|
 |400|InvalidDestGroup.NotFound|Specified destination security group does not exist.|指定的出方向安全组不存在|
+|400|VPCDisabled|Can't use the SecurityGroup in VPC.|VPC 不支持安全组。|
+|400|InvalidPriority.Malformed|The specified parameter "Priority" is not valid.|指定的 Priority 参数不合法。|
 |400|InvalidPriority.ValueNotSupported|The specified Priority is invalid.|无效的规则优先级。|
 |400|InvalidDestCidrIp.Malformed|The specified parameter DestCidrIp is not valid.|指定的 DestCidrIp 无效，请您检查该参数是否正确。|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
 |403|InvalidNetworkType.Conflict|The specified SecurityGroup network type should be same with SourceGroup network type \(vpc or classic\).|指定的 SecurityGroup 的网络类型必须与 SouceGroup 的网络类型一致。|
+|403|InvalidSecurityGroup.IsSame|The authorized SecurityGroupId should be different from the DestGroupId.|已授权的 SecurityGroupId 不能与 DestGroupId 相同。|
+|400|InvalidNicType.ValueNotSupported|The specified NicType is not valid.|指定的网络类型不存在，请您检查网络类型是否正确。|
 |400|InvalidSecurityGroupDiscription.Malformed|The specified security group rule description is not valid.|指定的安全组规则描述不合法。|
 |404|SecurityGroupRule.NotFound|The target security group rule do not exist.|目标安全组规则不存在。|
 |400|InvalidSecurityGroup.InvalidNetworkType|The specified security group network type is not support this operation, please check the security group network types. For VPC security groups, ClassicLink must be enabled.|无效的网络类型。|
