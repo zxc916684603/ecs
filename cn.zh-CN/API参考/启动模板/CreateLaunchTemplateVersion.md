@@ -219,10 +219,10 @@
  该参数的取值必须大于或者等于max\{20, ImageSize\}。
 
  |
-|Tag.N.Key|String|否|FinanceDept|实例、磁盘和主网卡的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
+|Tag.N.Key|String|否|FinanceDept|实例、磁盘和主网卡的标签键。N 的取值范围：1~5。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.Value|String|否|FinanceDept.Joshua|实例、磁盘和主网卡的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
+|Tag.N.Value|String|否|FinanceDept.Joshua|实例、磁盘和主网卡的标签值。N 的取值范围：1~5。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
 |UserData|String|否|ZWNobyBoZWxsbyBlY3Mh|实例自定义数据，需要以Base64方式编码，原始数据最多为16 KB。
