@@ -19,9 +19,11 @@ After you submit a splitting, merging, or modification request:
 
 After an RI is split, merged, or modified:
 
--   The target RI becomes valid immediately. If it matches one or more new Pay-As-You-Go instances, the billing discount is applied within the same hour.
--   The original RI becomes invalid immediately. The price is updated to 0 USD.
+-   The target RI becomes valid on the hour. If it matches one or more new Pay-As-You-Go instances, the billing discount is applied within the same hour.
+-   The original RI becomes invalid on the hour, and its price is updated to USD 0.
 -   If the target RI is a zonal RI, the type of resource reservation is also updated automatically.
+
+For example, you successfully split an ecs.g5.2xlarge zonal RI \(RI1\) into two ecs.g5.xlarge zonal RIs \(RI2 and RI3\) at 2019-02-26 13:45:00. In this case, RI1 becomes invalid at 2019-02-26 13:00:00, while RI2 and RI3 take effect also at 2019-02-26 13:00:00. Starting 2019-02-26 13:00:00, the reserved instance type eligible for billing discount is also changed from ecs.g5.2xlarge to ecs.g5.xlarge. If RI2 and RI3 match instances immediately after they take effect, the hourly bill discount for ecs.g5.xlarge instances is also applied starting 2019-02-26 13:00:00.
 
 If the original RI fails to be split, merged, or modified, it will remain valid.
 
