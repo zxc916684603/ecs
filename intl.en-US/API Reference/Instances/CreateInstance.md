@@ -135,7 +135,7 @@ For example, [CLI](https://www.alibabacloud.com/help/doc-detail/29993.htm) and [
 -   For other operating systems: The host name can be \[2, 64\] characters in length. It can be segments separated by periods \(.\). It can contain A-Z, a-z, numbers, and hyphens \(-\).
 
  |
-|Password|String|No|Password of the ECS instance. The password can be \[8, 30\] characters in length. It must contain uppercase letters, lowercase letters, and numbers. The following special characters are allowed: \(\)\`~! @\#$%^&amp;\*-+=|\{\}\[\]:;‘&lt;\>,.? /. A slash \(/\) cannot be the first character of Windows instances administrative password. **Note:** If you specify a value for parameter `Password`, use HTTPS to call the API to avoid data breach.
+|Password|String|No|Password of the ECS instance. The password can be \[8, 30\] characters in length. It must contain uppercase letters, lowercase letters, and numbers. The following special characters are allowed: \(\)\`~! @\#$%^&\*-\_+=|\{\}\[\]:;‘<\>,.? /. A slash \(/\) cannot be the first character of Windows instances administrative password. **Note:** If you specify a value for parameter `Password`, use HTTPS to call the API to avoid data breach.
 
  |
 |PasswordInherit|Boolean|No|Whether to use the password pre-configured in the image you select or not. When PasswordInherit is specified, the `Password` must be null. For a secure access, make sure that the selected image has password configured.|
