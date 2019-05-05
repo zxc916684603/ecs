@@ -19,7 +19,7 @@ In addition to the preceding limits, the following table details further limits 
 |:---|:----|:---------------------------------------|
 |Permission to create instances|Complete real-name registration before creating ECS instances in any mainland China regions.|No|
 |Instance types for which you can create Pay-As-You-Go instances|Instance types with less than 16 vCPUs|Yes|
-|Default quota of Pay-As-You-Go instances in each region for one account| 50 vCPUs
+|Default quota of preemptible instances in each region for one account| 50 vCPUs
 
  You can click **Privileges & Quota Management** on the Overview page of the ECS console to view the quota.
 
