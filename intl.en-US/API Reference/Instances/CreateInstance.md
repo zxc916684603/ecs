@@ -4,9 +4,9 @@ Create an ECS instance.
 
 ## Description {#section_nnh_jcy_wdb .section}
 
-**Note:** Before creating an instance, you can call [DescribeAvailableResource](reseller.en-US/API Reference/Regions/DescribeAvailableResource.md#) to view the available resources in a specified region. [RunInstances](reseller.en-US/API Reference/Instances/RunInstances.md#) is recommended if you are going to create multiple instances in a single request.
+**Note:** Before creating an instance, you can call [DescribeAvailableResource](intl.en-US/API Reference/Regions/DescribeAvailableResource.md#) to view the available resources in a specified region. [RunInstances](intl.en-US/API Reference/Instances/RunInstances.md#) is recommended if you are going to create multiple instances in a single request.
 
-You are billed when you launch ECS services, so make sure that you understand the billing methods of ECS instances \(`InstanceChargeType`\). And, you must maintain a sufficient balance in your linked credit card or PayPal account to complete the payment or preauthorization. For more information, see [Subscription](../reseller.en-US/Pricing/Subscription.md#) \(`PrePaid`\) and [Pay-As-You-Go](../reseller.en-US/Pricing/Pay-As-You-Go.md#) \(`PostPaid`\). For a subscribed \(`PrePaid`\) instance, your available coupons are the first payment options by default.
+You are billed when you launch ECS services, so make sure that you understand the billing methods of ECS instances \(`InstanceChargeType`\). And, you must maintain a sufficient balance in your linked credit card or PayPal account to complete the payment or preauthorization. For more information, see [Subscription](../intl.en-US/Pricing/Subscription.md#) \(`PrePaid`\) and [Pay-As-You-Go](../intl.en-US/Pricing/Pay-As-You-Go.md#) \(`PostPaid`\). For a subscribed \(`PrePaid`\) instance, your available coupons are the first payment options by default.
 
 When you call this interface, consider the following:
 
@@ -15,7 +15,7 @@ When you call this interface, consider the following:
 -   When you create an instance, you can choose an I/O optimized instance.
 -   Once an instance is created with ephemeral SSDs, the instance type cannot be changed after the instance is created.
 
-**Image**
+**Image** 
 
 When you create an ECS instance, you must select an image for the system disk configuration. After an instance is created, the instance system disk becomes a clone of that image.
 
@@ -24,7 +24,7 @@ When you create an ECS instance, you must select an image for the system disk co
 -   If the instance memory is 4 GB or larger, a 32-bit OS is not supported.
 
 
-**Network**
+**Network** 
 
 -   To create an instance for a VPC network, you must specify the VPC network and a VSwitch when creating the instance. One instance can only belong to one VSwitch.
 
@@ -34,7 +34,7 @@ When you create an ECS instance, you must select an image for the system disk co
 
 -   `PrivateIpAddress` depends on `VSwitchId` and you must specify the VSwitch when you modify the `PrivateIpAddress` of your instance.
 
--   You can call [AllocatePublicIpAddress](reseller.en-US/API Reference/Networks/AllocatePublicIpAddress.md#) to assign a public IP address.
+-   You can call [AllocatePublicIpAddress](intl.en-US/API Reference/Networks/AllocatePublicIpAddress.md#) to assign a public IP address.
 
 -   When you create an instance, `InternetChargeType` and `InternetMaxBandwidthOut` determine the bandwidth costs. `InternetMaxBandwidthIn` is not related to billing, and the inbound data traffic for the instance is free.
 
@@ -45,18 +45,18 @@ When you create an ECS instance, you must select an image for the system disk co
     |Values|`PayByTraffic`|You are billed according to actual traffic usage.|
 
 
-**Security groups**
+**Security groups** 
 
--   The security group must be created in advance by using the [CreateSecurityGroup](reseller.en-US/API Reference/Security groups/CreateSecurityGroup.md#) interface.
+-   The security group must be created in advance by using the [CreateSecurityGroup](intl.en-US/API Reference/Security groups/CreateSecurityGroup.md#) interface.
 
--   You can specify the security group when creating the instance and change the instance security group by using the [ModifyInstanceAttribute](reseller.en-US/API Reference/Instances/ModifyInstanceAttribute.md#) interface.
+-   You can specify the security group when creating the instance and change the instance security group by using the [ModifyInstanceAttribute](intl.en-US/API Reference/Instances/ModifyInstanceAttribute.md#) interface.
 
--   Mutual access is allowed between instances in the same security group in the intranet. By default, firewalls are deployed between security groups, and mutual access between security groups is disabled. However, security group firewall permissions can be set through security group authorization \(by using the interface for granting security group permissions\). For more information, see [AuthorizeSecurityGroup](reseller.en-US/API Reference/Security groups/AuthorizeSecurityGroup.md#) and [AuthorizeSecurityGroupEgress](reseller.en-US/API Reference/Security groups/AuthorizeSecurityGroupEgress.md#).
+-   Mutual access is allowed between instances in the same security group in the intranet. By default, firewalls are deployed between security groups, and mutual access between security groups is disabled. However, security group firewall permissions can be set through security group authorization \(by using the interface for granting security group permissions\). For more information, see [AuthorizeSecurityGroup](intl.en-US/API Reference/Security groups/AuthorizeSecurityGroup.md#) and [AuthorizeSecurityGroupEgress](intl.en-US/API Reference/Security groups/AuthorizeSecurityGroupEgress.md#).
 
 -   The maximum number of instances in one security group is 1,000. If the security group exceeds this limit, an error message is displayed.
 
 
-**Block Storage**
+**Block Storage** 
 
 -   The maximum capacity of cloud disks varies according to disk categories:
 
@@ -70,196 +70,196 @@ When you create an ECS instance, you must select an image for the system disk co
 
 -   ECS allocates a system disk of an appropriate size for the instance based on the the size of the specified image\}. The available disk categories for system disk are basic cloud disk \(`cloud`\), ultra cloud disk \(`cloud_efficiency`\), SSD cloud disk \(`cloud_ssd`\), and ephemeral SSD disk \(`ephemeral_ssd`\).
 
--   You must be authorized to create ephemeral SSD disk \(ephemeral\_ssd\). By default, new users are not authorized.
+-   You must be authorized to create ephemeral SSD disk \(ephemeral\_ssd\). By default, new users are not authorized.
 
 -   When an I/O optimized instance is selected, the system disk can choose only ultra cloud disk \(`cloud_efficiency`\) or SSD cloud disk \(`cloud_ssd`\).
 
 -   A maximum of 16 data disks can be added to one instance. By default, device names of data disks are allocated in order, starting from /dev/xvdb to /dev/xvdz. If you choose ephemeral SSD \(`ephemeral_ssd`\) as the data disks of an instance, the system disk must be ephemeral SSD also. The total ephemeral SSD capacity of an instance, excluding the system disk, cannot exceed 1 TiB \(1,024 GiB\).
 
--   ECS does not allow users to separately create or add an ephemeral SSD. Therefore, the ephemeral SSD must be specified during instance creation. For more information of disk category and size limits, see [Instance type families](../reseller.en-US/Product Introduction/Instance type families.md#).
+-   ECS does not allow users to separately create or add an ephemeral SSD. Therefore, the ephemeral SSD must be specified during instance creation. For more information of disk category and size limits, see [Instance type families](../intl.en-US/Instances/Instance type families.md#).
 
 
-**User data**
+**User data** 
 
-[User data](../reseller.en-US/User Guide/Instances/User-defined data and metadata/User data.md#) is provided by ECS for you to customize the startup behaviors of an ECS instance and to pass data into an ECS instance. UserData is encoded in Base64 format. User data transmission is not encrypted. We recommend that you do not contain confidential information, such as passwords or private keys, in plaintext.
+[User data](../intl.en-US/Instances/Manage instances/User-defined data/User data.md#) is provided by ECS for you to customize the startup behaviors of an ECS instance and to pass data into an ECS instance. UserData is encoded in Base64 format. User data transmission is not encrypted. We recommend that you do not contain confidential information, such as passwords or private keys, in plaintext.
 
-**Others**
+**Others** 
 
-When you call API in the Alibaba Cloud CLI and SDK, remove the period \(.\) from the request parameters that contain periods \(.\), such as `SystemDisk.Category`, `SystemDisk.Size`, `SystemDisk.Description`, `DataDisk.n.Size`, `DataDisk.n.Category`, `DataDisk.n.SnapshotId`, `DataDisk.n.DiskName`, `DataDisk.n.Description`, `DataDisk.n.DeleteWithInstance`.
+When you call API in the Alibaba Cloud CLI and SDK, remove the period \(.\) from the request parameters that contain periods \(.\), such as `SystemDisk.Category`, `SystemDisk.Size`, `SystemDisk.Description`, `DataDisk.n.Size`, `DataDisk.n.Category`, `DataDisk.n.SnapshotId`, `DataDisk.n.DiskName`, `DataDisk.n.Description`, `DataDisk.n.DeleteWithInstance`.
 
-For example, [CLI](https://partners-intl.aliyun.com/help/doc-detail/29993.htm)  and [SDK](https://github.com/aliyun), use `SystemDiskCategory` instead of `SystemDisk.Category`.
+For example, [CLI](https://www.alibabacloud.com/help/doc-detail/29993.htm) and [SDK](https://github.com/aliyun), use `SystemDiskCategory` instead of `SystemDisk.Category`.
 
 ## Request parameters {#section_cx1_3cy_wdb .section}
 
 |Name|Type|Required|Description|
 |:---|:---|:-------|:----------|
 |Action|String|Yes|The name of this interface. Value: CreateInstance.|
-|RegionId|String|Yes|Region ID of an instance. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|ImageId|String|Yes|ID of an image file. An image is a running environment template for ECS instances. The image ID. You can call [DescribeImages](reseller.en-US/API Reference/Images/DescribeImages.md#) Describes your available image. If you want to select image from the Alibaba Cloud marketplace, you can view the ImageId on the related image details page.
+|RegionId|String|Yes|Region ID of an instance. For more information, call [DescribeRegions](../intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+|ImageId|String|Yes|ID of an image file. An image is a running environment template for ECS instances. The image ID. You can call [DescribeImages](intl.en-US/API Reference/Images/DescribeImages.md#) Describes your available image. If you want to select image from the Alibaba Cloud marketplace, you can view the ImageId on the related image details page.
 
-|
-|InstanceType|String|Yes|Instance type. For more information, see [Instance Type Family](../reseller.en-US/Product Introduction/Instance type families.md#), or call [DescribeInstanceTypes](reseller.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to view the latest instance type list.|
+ |
+|InstanceType|String|Yes|Instance type. For more information, see [Instance Type Family](../intl.en-US/Instances/Instance type families.md#), or call [DescribeInstanceTypes](intl.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to view the latest instance type list.|
 |CreditSpecification|String|No| Modifies the running mode of an unlimited credit enabled t5 instance. Optional values:
 
- -   Standard: The standard running mode. For more information, see [t5 standard instances](../reseller.en-US/Product Introduction/Instances/Burstable instances/t5 standard instances.md#).
--   Unlimited: The unlimited running mode. For more information, see [t5 unlimited instances](../reseller.en-US/Product Introduction/Instances/Burstable instances/t5 unlimited instances.md#).
+ -   Standard: The standard running mode. For more information, see [t5 standard instances](../intl.en-US/Instances/Instance type families/Burstable instances/t5 standard instances.md#).
+-   Unlimited: The unlimited running mode. For more information, see [t5 unlimited instances](../intl.en-US/Instances/Instance type families/Burstable instances/t5 unlimited instances.md#).
 
  Default value: null.
 
  |
 |SecurityGroupId|String|Yes|ID of the security group to which an ECS instance belongs. A security group is a firewall group that manages instances in the same region with the same security requirements and mutual trust.|
-|ZoneId|String|No|ID of a zone to which an instance belongs. If it is null, a zone is selected by the system. Default value: null.|
-|InstanceName|String|No|Name of an ECS instance.-   It can contain \[2, 128\] characters in length, must begin with an English or Chinese character, and can contain digits, periods \(.\), colons \(:\), underscores \(\_\), and hyphens \(-\).
+|ZoneId|String|No|ID of a zone to which an instance belongs. If it is null, a zone is selected by the system. Default value: null.|
+|InstanceName|String|No|Name of an ECS instance. -   It can contain \[2, 128\] characters in length, must begin with an English or Chinese character, and can contain digits, periods \(.\), colons \(:\), underscores \(\_\), and hyphens \(-\).
 -   The instance name is displayed in the ECS console.
 -   If this parameter is not specified, the default value is the InstanceId of the instance.
 -   It cannot begin with "http://" or "https://".
 
-|
-|Description|String|No|Description of an ECS instance.-   It can be \[2, 256\] characters in length.
+ |
+|Description|String|No|Description of an ECS instance. -   It can be \[2, 256\] characters in length.
 -   The description is displayed in the ECS console.
 -   Default value: null.
 -   It cannot begin with "http://" or "https://".
 
-|
-|InternetChargeType|String|No|Internet billing method. Optional value:-   PayByTraffic: You are billed based on the traffic usage.
+ |
+|InternetChargeType|String|No|Internet billing method. Optional value: -   PayByTraffic: You are billed based on the traffic usage.
 
-Default: PayByTraffic.|
-|InternetMaxBandwidthIn|String|No|Maximum inbound bandwidth from the Internet, its unit of measurement is Mbit/s. Value range:-   \[1, 200\].
+ Default: PayByTraffic.|
+|InternetMaxBandwidthIn|String|No|Maximum inbound bandwidth from the Internet, its unit of measurement is Mbit/s. Value range: -   \[1, 200\].
 
-Default value: 200.|
-|InternetMaxBandwidthOut|String|No|Maximum outbound bandwidth to the Internet, its unit of measurement is Mbit/s. If this parameter is not specified, an error is returned. If necessary, you can open a ticket to request to change the bandwidth range to \[1, 200\] Mbit/s. Value range:-   PayByTraffic: \[0,100\]
+ Default value: 200.|
+|InternetMaxBandwidthOut|String|No|Maximum outbound bandwidth to the Internet, its unit of measurement is Mbit/s. If this parameter is not specified, an error is returned. If necessary, you can open a ticket to request to change the bandwidth range to \[1, 200\] Mbit/s. Value range: -   PayByTraffic: \[0,100\]
 
-Default value: 0.|
+ Default value: 0.|
 |HostName|String|No| -   It cannot start or end with a period \(.\) or a hyphen \(-\) and it cannot have two or more consecutive periods \(.\) or hyphens \(-\).
 -   For Windows: The host name can be \[2, 15\] characters in length. It can contain A-Z, a-z, numbers, periods \(.\), and hyphens \(-\). It cannot only contain numbers.
 -   For other operating systems: The host name can be \[2, 64\] characters in length. It can be segments separated by periods \(.\). It can contain A-Z, a-z, numbers, and hyphens \(-\).
 
  |
-|Password|String|No|Password of the ECS instance. The password can be \[8, 30\] characters in length. It must contain uppercase letters, lowercase letters, and numbers. The following special characters are allowed: \(\)\`~! @\#$%^&amp;\*-+=|\{\}\[\]:;‘&lt;\>,.? /. A slash \(/\) cannot be the first character of Windows instances administrative password.**Note:** If you specify a value for parameter `Password`, use HTTPS to call the API to avoid data breach.
+|Password|String|No|Password of the ECS instance. The password can be \[8, 30\] characters in length. It must contain uppercase letters, lowercase letters, and numbers. The following special characters are allowed: \(\)\`~! @\#$%^&amp;\*-+=|\{\}\[\]:;‘&lt;\>,.? /. A slash \(/\) cannot be the first character of Windows instances administrative password. **Note:** If you specify a value for parameter `Password`, use HTTPS to call the API to avoid data breach.
 
-|
+ |
 |PasswordInherit|Boolean|No|Whether to use the password pre-configured in the image you select or not. When PasswordInherit is specified, the `Password` must be null. For a secure access, make sure that the selected image has password configured.|
-|IoOptimized|String|No|Whether it is an I/O-optimized instance or not. Optional values:-   none
+|IoOptimized|String|No|Whether it is an I/O-optimized instance or not. Optional values: -   none
 -   optimized
 
-For [phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm), the default value is none.For other instance types, the default value is optimized.
+ For [phased-out instance types](https://www.alibabacloud.com/help/faq-detail/55263.htm), the default value is none. For other instance types, the default value is optimized.
 
-|
-|SystemDisk.Category|String|No|The category of the system disk. Optional values:-   Cloud: Basic cloud disk.
+ |
+|SystemDisk.Category|String|No|The category of the system disk. Optional values: -   Cloud: Basic cloud disk.
 -   cloud\_efficiency: Ultra cloud disk.
 -   cloud\_ssd: Cloud SSD.
 -   ephemeral\_ssd: Ephemeral SSD.
 
-For [phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm) and non-I/O optimized instances, the default value is cloud.Otherwise, the default value is cloud\_efficiency.
+ For [phased-out instance types](https://www.alibabacloud.com/help/faq-detail/55263.htm) and non-I/O optimized instances, the default value is cloud. Otherwise, the default value is cloud\_efficiency.
 
-|
+ |
 |SystemDisk.Size|Integer|No|Size of the system disk, measured in GiB. Value range: \[20, 500\]. The specified value must be equal to or greater than max\{20, Imagesize\}. Default value: max\{40, ImageSize\}.|
-|SystemDisk.DiskName|String|No|Name of the system disk.-   It can be \[2, 128\] characters in length, must begin with an English letter or Chinese character, and can contain digits, colons \(:\), underscores \(\_\), or hyphens \(-\).
+|SystemDisk.DiskName|String|No|Name of the system disk. -   It can be \[2, 128\] characters in length, must begin with an English letter or Chinese character, and can contain digits, colons \(:\), underscores \(\_\), or hyphens \(-\).
 -   The name is displayed in the ECS console.
 -   It cannot begin with http:// or https://.
 -   Default value: null.
 
-|
-|SystemDisk.Description|String|No|Description of a system disk.-   It can be \[2, 256\] characters in length.
+ |
+|SystemDisk.Description|String|No|Description of a system disk. -   It can be \[2, 256\] characters in length.
 -   The description is displayed in the ECS console.
 -   It cannot begin with http:// or https://.
 -   Default value: null.
 
-|
-|DataDisk.n.Size|Integer|No|Size of the n data disk in GBs, n starts from 1. Optional values:-   cloud: \[5, 2000\]
+ |
+|DataDisk.n.Size|Integer|No|Size of the n data disk in GBs, n starts from 1. Optional values: -   cloud: \[5, 2000\]
 -   cloud\_efficiency: \[20, 32768\]
 -   cloud\_ssd: \[20, 32768\]
 -   ephemeral\_ssd: \[5, 800\]
 
-The value must be equal to or greater than the specific snapshot \(`SnapshotId`\).|
-|DataDisk.n.Category|String|No|Category of the data disk n, the valid range of n is \[1, 16\]. Optional values:-   cloud: Basic cloud disk.
+ The value must be equal to or greater than the specific snapshot \(`SnapshotId`\).|
+|DataDisk.n.Category|String|No|Category of the data disk n, the valid range of n is \[1, 16\]. Optional values: -   cloud: Basic cloud disk.
 -   cloud\_efficiency: Ultra cloud disk.
 -   cloud\_ssd: Cloud SSD.
 -   ephemeral\_ssd: Ephemeral SSD.
 
-Default value: cloud.|
-|DataDisk.n.Encrypted|Boolean |No|Whether the data disk n is encrypted or not. Optional values:-   true: Encrypted.
+ Default value: cloud.|
+|DataDisk.n.Encrypted|Boolean|No|Whether the data disk n is encrypted or not. Optional values: -   true: Encrypted.
 -   false: Not encrypted.
 
-Default value: false.|
+ Default value: false.|
 |DataDisk.n.SnapshotId|String|No|Snapshot is used to create the data disk. After the parameter `DataDisk.n.SnapshotId` is specified, parameter `DataDisk.n.Size` is ignored, and the size of a new disk is the size of the specified snapshot. If the specified snapshot was created on or before July 15, 2013, this invocation is denied, and an error `InvalidSnapshot.TooOld` is returned.|
-|DataDisk.n.DiskName|String|No|Name of a data disk.-   It can be \[2, 128\] characters in length. Must begin with an English letter or Chinese character. It can contain digits, colons \(:\), underscores \(\_\), or hyphens \(-\).
+|DataDisk.n.DiskName|String|No|Name of a data disk. -   It can be \[2, 128\] characters in length. Must begin with an English letter or Chinese character. It can contain digits, colons \(:\), underscores \(\_\), or hyphens \(-\).
 -   The data disk name is displayed in the ECS console.
 -   Cannot begin with "http://" or "https://".
 -   Default value: null.
 
-|
-|DataDisk.n.Description|String|No|Description of a data disk.-   It can be \[2, 256\] characters in length.
+ |
+|DataDisk.n.Description|String|No|Description of a data disk. -   It can be \[2, 256\] characters in length.
 -   The disk description is displayed in the console.
 -   It cannot begin with http:// or https://.
 -   Default value: null.
 
-|
-|DataDisk.n.DeleteWithInstance|Boolean|No|Whether a data disk is released along with the instance or not. Optional values:-   true: The disk is released with the instance.
+ |
+|DataDisk.n.DeleteWithInstance|Boolean|No|Whether a data disk is released along with the instance or not. Optional values: -   true: The disk is released with the instance.
 -   false: The disk is not released with the instance.
 
-Default value: true. This parameter is only valid for an independent cloud disk, whose value of parameter `DataDisk.n.Category` is `cloud`, `cloud_efficiency`, or `cloud_ssd`. If you specify a value to DataDisk.n.DeleteWithInstance for ephemeral\_ssd, an error is returned.|
+ Default value: true. This parameter is only valid for an independent cloud disk, whose value of parameter `DataDisk.n.Category` is `cloud`, `cloud_efficiency`, or `cloud_ssd`. If you specify a value to DataDisk.n.DeleteWithInstance for ephemeral\_ssd, an error is returned.|
 |HpcClusterId|String|No|The cluster ID to which the instance belongs.|
 |VSwitchId|String|No|The VSwitch ID must be specified when you create a VPC-connected instance.|
 |PrivateIpAddress|String|No|Private IP address of an ECS instance. PrivateIpAddress depends on `VSwitchId` and cannot be specified separately.|
-|InstanceChargeType|String|No|Billing methods. Optional values:-   PrePaid: Monthly, or annual subscription. Make sure that your registered credit card is invalid or you have insufficient balance in your PayPal account. Otherwise, `InvalidPayMethod` error may occur.
+|InstanceChargeType|String|No|Billing methods. Optional values: -   PrePaid: Monthly, or annual subscription. Because the subscription payment is made immediately after the instance creation, make sure that your registered credit card is invalid or you have insufficient balance in your PayPal account. Otherwise, `InvalidPayMethod` error may occur.
 -   PostPaid: Pay-As-You-Go.
 
-Default value: PostPaid.|
-|SpotStrategy|String|No|The spot price you are willing to accept for a preemptible instance. It takes effect only when parameter `InstanceChargeType` is `PostPaid`. Optional values:-   NoSpot: A normal Pay-As-You-Go instance.
+ Default value: PostPaid.|
+|SpotStrategy|String|No|The spot price you are willing to accept for a preemptible instance. It takes effect only when parameter `InstanceChargeType` is `PostPaid`. Optional values: -   NoSpot: A normal Pay-As-You-Go instance.
 -   SpotWithPriceLimit: Sets the price threshold for a preemptible instance.
 -   SpotAsPriceGo: A price that is based on the highest Pay-As-You-Go instance.
 
-Default value: NoSpot.|
+ Default value: NoSpot.|
 |SpotPriceLimit|Float|No|The hourly price threshold for a preemptible instance, and it takes effect only when parameter `SpotStrategy` is `SpotWithPriceLimit`. Three decimal places are allowed at most.|
-|Period|Integer|No|Unit: month. This parameter is valid and required only when `InstanceChargeType` is set to `PrePaid`. Optional values:-   1-9
+|Period|Integer|No|Unit: month. This parameter is valid and required only when `InstanceChargeType` is set to `PrePaid`. Optional values: -   1-9
 -   12
 -   24
 -   36
 -   48
 -   60
 
-|
-|Periodunit|String|No|Value: Optional values: week | month. When `PeriodUnit` is `Week`, -   Period can be one of \{“1”, “2”, “3”, “4”\}
+ |
+|Periodunit|String|No|Value: Optional values: week | month. When `PeriodUnit` is `Week`, -   Period can be one of \{“1”, “2”, “3”, “4”\}
 -   AutoRenewPeriod can be one of \{“1”, “2”, “3”\}
 
-When `PeriodUnit` is `Month`,-   Period can be one of \{ “1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “12”, “24”, “36”,”48”,”60”\}
+ When `PeriodUnit` is `Month`, -   Period can be one of \{ “1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “12”, “24”, “36”,”48”,”60”\}
 -   AutoRenewPeriod can be one of \{“1”, “2”, “3”, “6”, “12”\}
 
-Default value: Month.|
-|AutoRenew|String|No|Whether to set AutoRenew. Whether to set AutoRenew. This parameter is valid when `InstanceChargeType` is `PrePaid`. Optional values:-   True: Enable automatic renewal.
+ Default value: Month.|
+|AutoRenew|String|No|Whether to set AutoRenew. Whether to set AutoRenew. This parameter is valid when `InstanceChargeType` is `PrePaid`. Optional values: -   True: Enable automatic renewal.
 -   False: Disable automatic renewal.
 
-Default value: false.|
-|AutoRenewPeriod|Integer|No|When `AutoRenew` is set to `True`, this parameter is required. Optional values:-   1
+ Default value: false.|
+|AutoRenewPeriod|Integer|No|When `AutoRenew` is set to `True`, this parameter is required. Optional values: -   1
 -   2
 -   3
 -   6
 -   12
 
-|
+ |
 |UserData|String|No|The user data for an instance must be encoded in Base64 format. The maximum size of the user-defined data is 16 KB.|
-|ClientToken|String|No| Guarantees the idempotence of the request.  The value is generated by a client and must be globally unique. Only ASCII characters are allowed. It can contain a maximum of 64 ASCII characters. For more information, see [How to ensure idempotence](../reseller.en-US/API Reference/Appendix/How to ensure idempotence.md#).
+|ClientToken|String|No| Guarantees the idempotence of the request.  The value is generated by a client and must be globally unique. Only ASCII characters are allowed. It can contain a maximum of 64 ASCII characters. For more information, see [How to ensure idempotence](../intl.en-US/API Reference/Appendix/How to ensure idempotence.md#).
 
  |
-|KeyPairName|String|No|The name of the key pair.-   This parameter is valid only for a Linux instance. For a Windows ECS instance, if a value is set for parameter KeyPairName, the password still takes effect. Default value: null. If a value is set for parameter KeyPairName, the `Password` still takes effect.
+|KeyPairName|String|No|The name of the key pair. -   This parameter is valid only for a Linux instance. For a Windows ECS instance, if a value is set for parameter KeyPairName, the password still takes effect. Default value: null. If a value is set for parameter KeyPairName, the `Password` still takes effect.
 -   The user name and password authentication method is disabled if a value is set for parameter KeyPairName for a Linux instance.
 
-|
+ |
 |DeploymentSetId|String|No|Deployment Set ID. If you do not enter the value, 1 is used.|
-|RamRoleName|String|No|The RAM role name of the instance. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../../../reseller.en-US/API Reference/Role management APIs/ListRoles.md#). For more information, see [CreateRole](../../../../../../reseller.en-US/API Reference/Role management APIs/CreateRole.md#) and [ListRoles](../../../../../../reseller.en-US/API Reference/Role management APIs/ListRoles.md#).|
-|SecurityEnhancementStrategy|String|No|Whether or not to enable security enhancement. Optional values:-   Active: Enables the security enhancement feature and installs a free network security software. Only applicable to the Alibaba Cloud official images.
--   Deactive: Disables the security enhancement feature. No network security software is installed. Applicable to all kinds of images.
+|RamRoleName|String|No|The RAM role name of the instance. The name is provided and maintained by *RAM* and can be queried using [ListRoles](../../../../../intl.en-US/API Reference/Role management APIs/ListRoles.md#). For more information, see [CreateRole](../../../../../intl.en-US/API Reference/Role management APIs/CreateRole.md#) and [ListRoles](../../../../../intl.en-US/API Reference/Role management APIs/ListRoles.md#).|
+|SecurityEnhancementStrategy|String|No|Whether or not to enable security enhancement. Optional values: -   Active: Enables the security enhancement feature and installs a free network security software. Only applicable to the Alibaba Cloud official images.
+-   Deactive: Disables the security enhancement feature. No network security software is installed. Applicable to all kinds of images.
 
-|
+ |
 |Tag.n.Key|String|No|The key of a tag of which n is from 1 to 20. Once you use this parameter, it cannot be a null string. It can be up to 64 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
 |Tag.n.Value|String|No|The value of a tag of which n is a number from 1 to 20. Once you use this parameter, it can be a null string. It can be up to 128 characters in length. It cannot begin with "aliyun", "acs:", "http://", or "https://".|
-|DeletionProtection|Boolean|No|Whether an instance can be released manually through the console or API \([DeleteInstance](reseller.en-US/API Reference/Instances/DeleteInstance.md#)\).-   true: Enable deletion protection.
+|DeletionProtection|Boolean|No|Whether an instance can be released manually through the console or API \([DeleteInstance](intl.en-US/API Reference/Instances/DeleteInstance.md#)\). -   true: Enable deletion protection.
 -   false \(default value\): Disable deletion protection.
 
-**Note:** This attribute applies to the Pay-As-You-Go instances. However, it can only restrict the manual release operation, not the release operation by Alibaba Cloud.
+ **Note:** This attribute applies to the Pay-As-You-Go instances. However, it can only restrict the manual release operation, not the release operation by Alibaba Cloud.
 
-|
+ |
 
 ## Response parameters {#section_m5f_rjm_xdb .section}
 
@@ -269,7 +269,7 @@ Default value: false.|
 
 ## Examples {#section_y3g_sjm_xdb .section}
 
-**Request example**
+**Request example** 
 
 ```
 https://ecs.aliyuncs.com/?Action=CreateInstance
@@ -281,7 +281,7 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 &<Common Response Parameters>
 ```
 
-**XML format**
+**XML format** 
 
 ```
 <CreateInstanceResponse>
@@ -290,7 +290,7 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 </CreateInstanceResponse>
 ```
 
-**JSON format**
+ **JSON format** 
 
 ```
 {
@@ -301,9 +301,11 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 
 ## Error codes {#section_oxx_skm_xdb .section}
 
-|Error code|Error message|HTTP status code |Description|
-|:---------|:------------|:----------------|:----------|
-|Account.Arrearage|Your account has an outstanding payment. |400|Your account has an overdue payment.|
+Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
+
+|Error code|Error message|HTTP status code|Description|
+|:---------|:------------|:---------------|:----------|
+|Account.Arrearage|Your account has an outstanding payment.|400|Your account has an overdue payment.|
 |IncorrectVSwitchStatus|The current status of virtual switch does not support this operation.|400|The status of the specified VSwitch does not support the operation.|
 |InstanceDiskCategoryLimitExceed|The specified DataDisk.n.Size beyond the permitted range, or the capacity of snapshot exceeds the size limit of the specified disk category.|400|The specified DataDisk.n.Size exceeds the maximum size of the specified disk category.|
 |InstanceDiskNumber.LimitExceed|The total number of specified disk in an instance exceeds.|400|The number of data disks attached to one ECS exceeds 16.|
@@ -327,8 +329,8 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |InvalidIoOptimizedValue.ValueNotSupported|IoOptimized value not supported.|400|The specified `IoOptimized` is invalid or does not exist.|
 |InvalidIPAddress.AlreadyUsed|The specified IPAddress is already used by other resource.|400|The specified PrivateIpAddress already exists.|
 |InvalidNetworkType.Mismatch|Specified parameter InternetMaxBandwidthIn or InternetMaxBandwidthOut conflict with instance network type.|400|The specified `InternetMaxBandwidthIn` or `InternetMaxBandwidthOut` does not match the network type of the instance.|
-|InvalidSpotStrategy|The specified SpotStrategy is not valid.|400|The parameter `SpotStrategy` is invalid.|
-|InvalidSpotPriceLimit|The specified SpotPriceLimitis not valid.|400|The parameter `SpotPriceLimit` is invalid.|
+|InvalidSpotStrategy|The specified SpotStrategy is not valid.|400|The parameter`SpotStrategy` is invalid.|
+|InvalidSpotPriceLimit|The specified SpotPriceLimitis not valid.|400|The parameter `SpotPriceLimit` is invalid.|
 |InvalidSpotAuthorized|The specified Spot param is unauthorized.|400|You cannot create a preemptible instance.|
 |InvalidSpotPrepaid|The specified Spot type is not support PrePay Instance.|400|The billing method Subscription is not applicable for preemptible instance.|
 |InvalidSpotPriceLimit.LowerThanPublicPrice|The specified parameter spotPriceLimit can’t be lower than current public price.|400|The specified SpotPriceLimit must be equal to or greater than the official price of the specified instance.|
@@ -382,7 +384,7 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |InvalidSnapshotId.NotDataDiskSnapshot|The specified snapshot is system disk snapshot.|403|A data disk cannot be created from the system disk snapshot.|
 |InvalidSnapshotId.NotReady|The specified snapshot has not completed yet.|403|The snapshot has not been completed yet.|
 |InvalidSystemDiskCategory.ValueUnauthorized|The disk category is not authorized.|403|You are not allowed to create a disk of the specified category.|
-|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|A RAM user must be [granted](../../../../../../reseller.en-US/Quick Start/Authorize RAM users.md#) with a pass role permission before he or she specify RamRoleName for a new ECS instance.|
+|InvalidUser.PassRoleForbidden|The RAM user does not have the privilege to pass a role.|403|A RAM user must be [granted](../../../../../intl.en-US/Quick Start/Authorize RAM users.md#) with a pass role permission before he or she specify RamRoleName for a new ECS instance.|
 |InvalidVSwitchId.NotFound|The VSwitchId provided does not exist in our records.|403|The specified `VSwitchId` does not exist.|
 |IoOptimized.NotSupported|The specified image is not support IoOptimized Instance.|403|The instances of the specified instance type are not I/O optimized.|
 |IoOptimized.NotSupported|Vpc is not support IoOptimized instance.|403|I/O optimized instances are not supported in VPC.|
