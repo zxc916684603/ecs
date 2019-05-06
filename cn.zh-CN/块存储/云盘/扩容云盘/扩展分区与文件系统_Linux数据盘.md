@@ -4,7 +4,7 @@
 
 ## 使用限制 {#LimitationCommon .section}
 
-本文仅适用于扩容前已挂载到实例的数据盘。对于**待挂载**数据盘，请参见[挂载云盘](intl.zh-CN/块存储/云盘/挂载云盘.md#)和[分区格式化数据盘](intl.zh-CN/块存储/云盘/分区格式化数据盘/Linux 格式化数据盘.md#)。
+本文仅适用于扩容前已挂载到实例的数据盘。对于**待挂载**数据盘，请参见[挂载云盘](intl.zh-CN/块存储/云盘/挂载云盘.md#)和[分区格式化数据盘](../../../../intl.zh-CN/个人版快速入门/步骤 4：格式化数据盘/Linux格式化数据盘.md#)。
 
 ## 扩容指引 {#section_cbw_wxs_qgb .section}
 
@@ -403,7 +403,7 @@
         Devices:
            ID        SIZE  PATH
             1    20.00GiB  /dev/vdb2
-            
+        
         [root@localhost ~]# blkid /dev/vdb2
         /dev/vdb2: UUID="6fb5779b-57d7-4aaf-bf09-82b46f54a429" UUID_SUB="9bdd889a-ab69-4653-a583-d1b6b8723378" TYPE="btrfs"
         ```
