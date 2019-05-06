@@ -32,7 +32,7 @@
 
     -   **Zone名称**：设置一个已支持云解析PrivateZone的云服务器ECS接入地址，如ecs.cn-hangzhou.aliyuncs.com。
     -   **子域名递归解析代理**：勾选后，当DNS查询的域名以Zone名称为后缀，但是在Zone文件里未配置时，会以公网的权威解析为准。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/155712243946151_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/155713052946151_zh-CN.png)
 
 5.  找到已创建的PrivateZone，在**操作**列，单击**解析设置**。
 6.  在**解析设置**页面，单击**添加记录**。
@@ -42,23 +42,34 @@
     -   **主机记录**：填写@可以解析@.exmaple.com域名。
     -   **记录值**：设置为对应地域下的CNAME记录值。更多详情，请参见[使用说明章节](#)。
     -   **TTL值**：生存时间，本文选择了**1 分钟**。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/155712243946154_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/155713052946154_zh-CN.png)
 
 8.  返回**云解析DNS** \> **PrivateZone**页面，找到已创建的PrivateZone，在**操作**列，单击**关联VPC**。
 9.  在关联VPC弹窗中，选择与PrivateZone相同的地域，勾选实例所在的专有网络VPC，可多选，单击**确定**。
 
     **说明：** 请选择您的ECS实例所在的专有网络VPC。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/155712243946161_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/155713052946161_zh-CN.png)
 
 
 ## 执行结果 {#section_mzc_end_wml .section}
 
-为专有网络VPC关联了云解析PrivateZone后，您可以通过[远程连接](../../../../cn.zh-CN/实例/连接实例/连接Linux实例/使用管理终端连接Linux实例.md#)登录实例，在ECS实例内部测试是否能访问对应地域的接入地址。
+为专有网络VPC关联了云解析PrivateZone后，您可以通过[远程连接](../../../../cn.zh-CN/实例/连接实例/连接Linux实例/使用管理终端连接Linux实例.md#)登录实例，在ECS实例内部测试是否能访问对应地域的接入地址。 以ecs.cn-hangzhou.aliyuncs.com为例：
 
-``` {#codeblock_npc_lg8_imk}
-ping ecs.cn-hangzhou.aliyuncs.com
-```
+-   使用ping功能测试数据包收发状况。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/155712243946338_zh-CN.png)
+    ``` {#codeblock_744_z6z_zhk}
+    ping ecs.cn-hangzhou.aliyuncs.com
+    ```
+
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/155713052946338_zh-CN.png)
+
+-   使用阿里云CLI调用[DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#)，并通过--endpoint字段修改接入地址。
+
+    ``` {#codeblock_g7i_i2p_t0q}
+    aliyun ecs DescribeRegions --endpoint ecs.cn-hangzhou.aliyuncs.com
+    ```
+
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/155713052946404_zh-CN.png)
+
 
