@@ -4,7 +4,7 @@ This topic describes the limits on ECS product features and service performance 
 
 When you use ECS, the following limits apply:
 
--   ECS does not support virtual application installation or revirtualization \(such as installation of VMware Workstation\). Currently, only [ECS Bare Metal Instance and Super Computing Clusters](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/ECS Bare Metal Instance and Super Computing Clusters.md#) support revirtualization.
+-   ECS does not support virtual application installation or revirtualization \(such as installation of VMware Workstation\). Currently, only [ECS Bare Metal Instance and Super Computing Clusters](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/ECS Bare Metal Instance.md#) support revirtualization.
 -   ECS does not support sound card applications.
 -   ECS does not support external hardware devices directly \(such as dongles, USB drives, or external hard drives\). Instead, it supports a software protection dongle or two-step verification with dynamic passwords.
 -   ECS does not support IP address translation services such as SNAT. Instead, it supports a VPN or proxy.
@@ -19,9 +19,12 @@ In addition to the preceding limits, the following table details further limits 
 |:---|:----|:---------------------------------------|
 |Permission to create instances|Complete real-name registration before creating ECS instances in any mainland China regions.|No|
 |Instance types for which you can create Pay-As-You-Go instances|Instance types with less than 16 vCPUs|Yes|
-|Default quota of preemptible instances in each region for one account| 50 vCPUs
+|Total vCPU quota of Pay-As-You-Go instances in each region for one account| 50 vCPUs
 
  You can click **Privileges & Quota Management** on the Overview page of the ECS console to view the quota.
+
+ |Yes|
+|Default quota of preemptible instances in each region for one account|Up to 50 vCPUs are allowed after you open a ticket to obtain the permission. You can click **Privileges & Quota Management** on the Overview page of the ECS console to view the quota.
 
  |Yes|
 |Default quota of launch templates in each region for one account|30|No|
