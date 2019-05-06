@@ -1,4 +1,4 @@
-# DescribeInstances {#doc_api_1094202 .reference}
+# DescribeInstances {#doc_api_Ecs_DescribeInstances .reference}
 
 查询一台或多台实例的详细信息。
 
@@ -20,34 +20,13 @@
 |Action|String|否|DescribeInstances|系统规定参数。取值：DescribeInstances
 
  |
-|DryRun|Boolean|否|false|是否只预检此次请求。
-
- -   true：发送检查请求，不会查询资源状况。检查项包括AccessKey是否有效、RAM用户的授权情况和是否填写了必需参数。如果检查不通过，则返回对应错误。如果检查通过，会返回错误码DryRunOperation。
--   false（默认值）：发送正常请求，通过检查后返回2XX HTTP状态码并直接查询资源状况。
-
- |
-|EipAddresses|String|否|\["42.1.1.1", "42.1.2.1", … "42.1.10.1"\]|实例的弹性公网IP列表。当InstanceNetworkType=vpc时该参数生效，取值可以由多个IP组成一个JSON数组，最多支持100个IP，IP之间用半角逗号（,）隔开。
-
- |
-|HpcClusterId|String|否|hpc-hpclusterid1|实例所在的HPC集群ID。
-
- |
-|ImageId|String|否|m-imageid1|镜像ID。
-
- |
-|InnerIpAddresses|String|否|\["10.1.1.1", "10.1.2.1", … "10.1.10.1"\]|经典网络类型实例的内网IP列表。当InstanceNetworkType=classic时生效，取值可以由多个IP组成一个JSON数组，最多支持100个IP，IP之间用半角逗号（,）隔开。
-
- |
-|InstanceChargeType|String|否|PostPaid|实例的计费方式。取值范围：
-
- -   PostPaid：按量付费
--   PrePaid：包年包月
-
- |
 |InstanceIds|String|否|\["i-xxxxxxxxx", "i-yyyyyyyyy", … "i-zzzzzzzzz"\]|实例ID。取值可以由多个实例ID组成一个JSON数组，最多支持100个ID，ID之间用半角逗号（,）隔开。
 
  |
-|InstanceName|String|否|\*Joshua|实例名称，支持使用通配符\*进行模糊搜索。
+|VpcId|String|否|v-vpcid1|专有网络VPC ID。
+
+ |
+|VSwitchId|String|否|vsw-vswitchid1|虚拟交换机ID。
 
  |
 |InstanceNetworkType|String|否|vpc|实例网络类型。取值范围：
@@ -56,31 +35,10 @@
 -   vpc：VPC
 
  |
-|InstanceType|String|否|ecs.g5.larger|实例的规格。
+|SecurityGroupId|String|否|sg-securitygroupid1|实例所属的安全组。
 
  |
-|InstanceTypeFamily|String|否|ecs.g5|实例的规格族。
-
- |
-|InternetChargeType|String|否|PayByTraffic|网络计费方式。取值范围：
-
- -   PayByTraffic：按流量计费
--   PayByBandwidth：按带宽计费
-
- |
-|IoOptimized|Boolean|否|true|是否是I/O优化型实例。
-
- |
-|KeyPairName|String|否|FinanceJoshua|实例使用的 SSH 密钥对名称。
-
- |
-|LockReason|String|否|security|资源被锁定的原因。
-
- |
-|NeedSaleCycle|Boolean|否|false|是否返回包年包月实例售卖周期。默认值：false
-
- |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
+|ZoneId|String|否|cn-hangzhou-g|可用区ID。
 
  |
 |PageNumber|Integer|否|1|实例状态列表的页码。起始值：1 默认值：1
@@ -89,19 +47,34 @@
 |PageSize|Integer|否|10|分页查询时设置的每页行数。最大值：100 默认值：10
 
  |
+|InnerIpAddresses|String|否|\["10.1.1.1", "10.1.2.1", … "10.1.10.1"\]|经典网络类型实例的内网IP列表。当InstanceNetworkType=classic时生效，取值可以由多个IP组成一个JSON数组，最多支持100个IP，IP之间用半角逗号（,）隔开。
+
+ |
 |PrivateIpAddresses|String|否|\["172.16.1.1", "172.16.2.1", … "172.16.10.1"\]|VPC网络类型实例的私有IP。当InstanceNetworkType=vpc时生效，取值可以由多个IP组成一个JSON数组，最多支持100个IP，IP之间用半角逗号（,）隔开。
 
  |
 |PublicIpAddresses|String|否|\["42.1.1.1", "42.1.2.1", … "42.1.10.1"\]|实例的公网IP列表。当InstanceNetworkType=classic时生效，取值可以由多个IP组成一个JSON数组，最多支持100个IP，IP之间用半角逗号（,）隔开。
 
  |
-|RdmaIpAddresses|String|否|10.10.10.102|HPC实例的Rdma网络IP。
+|EipAddresses|String|否|\["42.1.1.1", "42.1.2.1", … "42.1.10.1"\]|实例的弹性公网IP列表。当InstanceNetworkType=vpc时该参数生效，取值可以由多个IP组成一个JSON数组，最多支持100个IP，IP之间用半角逗号（,）隔开。
 
  |
-|ResourceGroupId|String|否|rg-resourcegroupid1|实例所在的企业资源组 ID。
+|InstanceChargeType|String|否|PostPaid|实例的计费方式。取值范围：
+
+ -   PostPaid：按量付费
+-   PrePaid：包年包月
 
  |
-|SecurityGroupId|String|否|sg-securitygroupid1|实例所属的安全组。
+|InternetChargeType|String|否|PayByTraffic|网络计费方式。取值范围：
+
+ -   PayByTraffic：按流量计费
+-   PayByBandwidth：按带宽计费
+
+ |
+|InstanceName|String|否|\*Joshua|实例名称，支持使用通配符\*进行模糊搜索。
+
+ |
+|ImageId|String|否|m-imageid1|镜像ID。
 
  |
 |Status|String|否|Running|实例状态。取值范围：
@@ -112,19 +85,43 @@
 -   Stopped：已停止
 
  |
-|Tag.N.Key|String|否|FinanceDept|实例的标签键。n 的取值范围 1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|LockReason|String|否|security|资源被锁定的原因。
 
  |
-|Tag.N.Value|String|否|FinanceDeptJoshua|实例的标签值。n的取值范围 1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
+|IoOptimized|Boolean|否|true|是否是I/O优化型实例。
 
  |
-|VSwitchId|String|否|vsw-vswitchid1|虚拟交换机ID。
+|NeedSaleCycle|Boolean|否|false|是否返回包年包月实例售卖周期。默认值：false
 
  |
-|VpcId|String|否|v-vpcid1|专有网络VPC ID。
+|Tag.N.Key|String|否|FinanceDept|实例的标签键。n 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|ZoneId|String|否|cn-hangzhou-g|可用区ID。
+|Tag.N.Value|String|否|FinanceDeptJoshua|实例的标签值。n的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
+
+ |
+|InstanceType|String|否|ecs.g5.larger|实例的规格。
+
+ |
+|InstanceTypeFamily|String|否|ecs.g5|实例的规格族。
+
+ |
+|KeyPairName|String|否|FinanceJoshua|实例使用的 SSH 密钥对名称。
+
+ |
+|ResourceGroupId|String|否|rg-resourcegroupid1|实例所在的企业资源组 ID。
+
+ |
+|HpcClusterId|String|否|hpc-hpclusterid1|实例所在的HPC集群ID。
+
+ |
+|RdmaIpAddresses|String|否|10.10.10.102|HPC实例的Rdma网络IP。
+
+ |
+|DryRun|Boolean|否|false|是否只预检此次请求。
+
+ -   true：发送检查请求，不会查询资源状况。检查项包括AccessKey是否有效、RAM用户的授权情况和是否填写了必需参数。如果检查不通过，则返回对应错误。如果检查通过，会返回错误码DryRunOperation。
+-   false（默认值）：发送正常请求，通过检查后返回2XX HTTP状态码并直接查询资源状况。
 
  |
 
@@ -288,6 +285,9 @@
 |└OSName|String|Ubuntu 16.04 64|实例的操作系统名称。
 
  |
+|└OSNameEn|String|Ubuntu 16.04 64|实例操作系统的英文名称。
+
+ |
 |└OSType|String|linux|实例的操作系统类型，分为 Windows 和 Linux 两种。
 
  |
@@ -355,7 +355,7 @@
 
  -   KeepCharging：停机后继续收费，为您继续保留库存资源。
 -   StopCharging：停机后不收费。停机后，我们释放实例对应的资源，例如 vCPU、内存和公网 IP 等资源。重启是否成功依赖于当前地域中是否仍有资源库存。
--   Not-applicable：本实例支持停机不收费功能。
+-   Not-applicable：本实例不支持停机不收费功能。
 
  |
 |└Tags| | |实例的标签集合。
@@ -573,7 +573,13 @@ https://ecs.aliyuncs.com/?Action=DescribeInstances
 |--------|---|----|--|
 |404|InvalidInstanceChargeType.NotFound|The InstanceChargeType does not exist in our records|指定的实例升降配规格不存在。|
 |404|InvalidInternetChargeType.ValueNotSupported|The specified InternetChargeType is not valid|指定的网络计费方式不合法。|
+|404|InvalidLockReason.NotFound|The specified LockReason is not found|指定的锁定类型不存在。|
+|404|InvalidFilterKey.NotFound| |指定的起始时间或到期时间参数错误。|
+|404|InvalidFilterValue| |您输了的时间格式不合法。|
 |404|InvalidNetworkType.NotFound|The specified InstanceNetworkType is not found|指定的带宽类型不存在。|
+|404|InvalidStatus.NotFound|The specified Status is not found|指定的资源状态不存在。|
+|400|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|指定的 Tag.n.Key 和 Tag.n.Value 不匹配。|
+|400|InvalidTagCount|The specified tags are beyond the permitted range.|指定的标记超出取值范围。|
 |400|InvalidHpcClusterId.NotFound|The specified HpcClusterId is not found.|指定的HPC集群ID不存在。|
 |400|InvalidHpcClusterId.Creating|The specified HpcClusterId is creating.|指定的HPC集群正在创建中。|
 
