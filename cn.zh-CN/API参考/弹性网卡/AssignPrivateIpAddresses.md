@@ -1,10 +1,8 @@
-# AssignPrivateIpAddresses {#doc_api_1023028 .reference}
+# AssignPrivateIpAddresses {#doc_api_Ecs_AssignPrivateIpAddresses .reference}
 
 为一块弹性网卡分配一个或多个辅助私有IP地址。可以为网卡指定在所属虚拟交换机（VSwitch）的CIDR私有IP地址，或者通过指定私有网络地址数量自动创建私有IP地址。
 
 ## 接口说明 {#description .section}
-
-请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm)申请开启分配辅助私有IP地址的功能。
 
 -   只支持可用（Available）或者已绑定（InUse）状态下的弹性网卡。
 -   操作主网卡时，网卡附加的实例必须处于运行中（Running）或者已停止（Stopped）状态。
@@ -27,9 +25,6 @@
 |Action|String|否|AssignPrivateIpAddresses|系统规定参数。取值：AssignPrivateIpAddresses
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
-
- |
 |PrivateIpAddress.N|RepeatList|否|172.17.XX.XXX|从弹性网卡所属虚拟交换机的CIDR地址段中选择一个或多个辅助私有IP地址。N 的取值范围：
 
  -   弹性网卡处于可用（Available）状态：1~10
@@ -46,7 +41,7 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。无论调用接口成功与否，我们都会返回请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
 
  |
 
@@ -55,14 +50,12 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=AssignPrivateIpAddresses
 &NetworkInterfaceId=eni-myeni
 &RegionId=cn-hangzhou
 &PrivateIpAddress.1=172.17.XX.XXX
 &SecondaryPrivateIpAddressCount=1
 &<公共请求参数>
-
 ```
 
 正常返回示例
