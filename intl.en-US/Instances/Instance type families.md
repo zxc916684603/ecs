@@ -859,7 +859,7 @@ See [other instance type families](#).
 |:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:---------------------|
 |ecs.ebmhfg5.2xlarge|8|32.0|N/A|6.0|2,000|8|6|
 
-**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/ECS Bare Metal Instance and Super Computing Clusters.md#).
+**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/ECS Bare Metal Instance.md#).
 
 See [other instance type families](#).
 
@@ -887,7 +887,7 @@ See [other instance type families](#).
 |:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
 |ecs.ebmc4.8xlarge|32|64.0|N/A|10.0|4,000|8|12|
 
-**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/ECS Bare Metal Instance and Super Computing Clusters.md#).
+**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/ECS Bare Metal Instance.md#).
 
 See [other instance type families](#).
 
@@ -915,7 +915,7 @@ See [other instance type families](#).
 |:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
 |ecs.ebmg5.24xlarge|96|384.0|N/A|10.0|4,000|8|32|
 
-**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance and Super Computing Clusters](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/ECS Bare Metal Instance and Super Computing Clusters.md#).
+**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/ECS Bare Metal Instance.md#).
 
 See [other instance type families](#).
 
@@ -936,11 +936,11 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|GPU|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|RoCE \(Inbound/Outbound\) \(Gbit/s\)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:--|:------------------------------|:---------------------------------------------------|:-----------------------------------|:------------------------|:--------------------|
-|ecs.scch5.16xlarge|64|192.0|N/A|10.0|4,500|46|8|32|
+|Instance type|vCPU|Physical core|Memory \(GiB\)|GPU|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|RoCE \(Inbound/Outbound\) \(Gbit/s\)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
+|:------------|:---|-------------|:-------------|:--|:------------------------------|:---------------------------------------------------|:-----------------------------------|:------------------------|:--------------------|
+|ecs.scch5.16xlarge|64|32|192.0|N/A|10.0|4,500|46|8|32|
 
-**Note:** For more information about SCC, see [ECS Bare Metal Instance and Super Computing Clusters](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/ECS Bare Metal Instance and Super Computing Clusters.md#).
+**Note:** The ecs.scch5.16xlarge instance type provides 64 logical processors on 32 physical cores. For more information about SCC, see [Super Computing Clusters](reseller.en-US/Instances/Instance type families/Super Computing Cluster instance type family/Super Computing Clusters.md#).
 
 See [other instance type families](#).
 
@@ -961,11 +961,11 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|GPU|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|RoCE \(Inbound/Outbound\) \(Gbit/s\)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:--|:------------------------------|:---------------------------------------------------|:-----------------------------------|:------------------------|:--------------------|
-|ecs.sccg5.24xlarge|96|384.0|N/A|10.0|4,500|46|8|32|
+|Instance type|vCPU|Physical core|Memory \(GiB\)|GPU|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|RoCE \(Inbound/Outbound\) \(Gbit/s\)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
+|:------------|:---|-------------|:-------------|:--|:------------------------------|:---------------------------------------------------|:-----------------------------------|:------------------------|:--------------------|
+|ecs.sccg5.24xlarge|96|48|384.0|N/A|10.0|4,500|46|8|32|
 
-**Note:** For more information about SCC, see [ECS Bare Metal Instance and Super Computing Clusters](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/ECS Bare Metal Instance and Super Computing Clusters.md#).
+**Note:** The ecs.sccg5.24xlarge instance type provides 96 logical processors on 48 physical cores. For more information about SCC, see [Super Computing Clusters](reseller.en-US/Instances/Instance type families/Super Computing Cluster instance type family/Super Computing Clusters.md#).
 
 See [other instance type families](#).
 
@@ -1112,7 +1112,7 @@ See [other instance type families](#).
 
 See [other instance type families](#).
 
- \* Cache disks, or Local disks, are the disks located on the physical servers \(host machines\) that ECS instances are hosted on. They provide temporary block level storage for instances. Block storage capacity is measured in binary units. In some cases, such as when the computing resources of an instance, including CPU and memory, are released, or an instance is inactive while migration occurs, data on the local disks is erased. For more information, see [EN-US\_TP\_9561.md\#](reseller.en-US/Block storage/Local disks.md#).
+ \* Cache disks, or Local disks, are the disks located on the physical servers \(host machines\) that ECS instances are hosted on. They provide temporary block level storage for instances. Block storage capacity is measured in binary units. In some cases, such as when the computing resources of an instance, including CPU and memory, are released, or an instance is inactive while migration occurs, data on the local disks is erased. For more information, see [EN-US\_TP\_9561.md\#](reseller.en-US/Block Storage/Local disks.md#).
 
  \*\* The maximum sum of inbound and outbound bandwidth.
 
