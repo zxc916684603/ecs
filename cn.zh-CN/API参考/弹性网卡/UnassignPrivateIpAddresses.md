@@ -1,10 +1,8 @@
-# UnassignPrivateIpAddresses {#doc_api_1023027 .reference}
+# UnassignPrivateIpAddresses {#doc_api_Ecs_UnassignPrivateIpAddresses .reference}
 
 从一块弹性网卡删除一个或多个辅助私有IP地址。
 
 ## 接口说明 {#description .section}
-
-请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm)申请开启分配和删除辅助私有IP地址的功能。
 
 -   只支持可用（Available）或者已绑定（InUse）状态下的弹性网卡。
 -   操作主网卡时，网卡附加的实例必须处于运行中（Running）或者已停止（Stopped）状态。
@@ -32,15 +30,12 @@
 |Action|String|否|UnassignPrivateIpAddresses|系统规定参数。取值：UnassignPrivateIpAddresses
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
-
- |
 
 ## 返回参数 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。无论调用接口成功与否，我们都会返回请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
 
  |
 
@@ -49,13 +44,11 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=UnassignPrivateIpAddresses
 &NetworkInterfaceId=eni-myeni
 &PrivateIpAddress.1=192.168.0.1
 &RegionId=cn-hangzhou
 &<公共请求参数>
-
 ```
 
 正常返回示例
