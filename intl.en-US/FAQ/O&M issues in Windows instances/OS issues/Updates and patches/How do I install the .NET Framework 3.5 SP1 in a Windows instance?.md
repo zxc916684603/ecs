@@ -6,7 +6,7 @@ When you install the .NET Framework 3.5 SP1 through Server Manager or by other m
 
 When .NET Framework 3.5 is being installed in a Windows instance, the following error is displayed:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/87175/155410406336006_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/87175/155721451736006_en-US.png)
 
 ## Cause {#section_kqr_hqk_3gb .section}
 
@@ -14,8 +14,8 @@ To use a Feature on Demand \(FOD\) in Windows Server 2012 and higher, you need t
 
 **Note:** 
 
--   The PowerShell commands described in this topic can all be executed through the Cloud Assistant. For more information, see [Cloud Assistant](../../../../../reseller.en-US/Deployment & Maintenance/Cloud assistant/Cloud assistant.md#).
--   If you want to automatically install the .NET Framework 3.5 by running PowerShell commands during instance creation, we recommend that you do it with the help of instance user data. For more information, see [User data](../../../../../reseller.en-US/Instances/Configure instances/User-defined data/User data.md#).
+-   The PowerShell commands described in this topic can all be executed through the Cloud Assistant. For more information, see [Cloud Assistant](../../../../reseller.en-US/Deployment & Maintenance/Cloud assistant/Cloud assistant.md#).
+-   If you want to automatically install the .NET Framework 3.5 by running PowerShell commands during instance creation, we recommend that you do it with the help of instance user data. For more information, see [User data](../../../../reseller.en-US/Instances/Manage instances/User-defined data/User data.md#).
 
 ## Windows Server 2008 {#section_xm5_wlk_3gb .section}
 
@@ -36,7 +36,7 @@ cmd /c start /w ocsetup NET-Framework-Core
     ```
 
 
-## Windows Server 2012 R2/2016/1709/1809 {#section_c4f_vnk_3gb .section}
+## Windows Server 2012 R2/2016/2019/1709/1809 {#section_c4f_vnk_3gb .section}
 
 1.  Open the CMD utility as an administrator and run powershell to switch to interactive mode.
 2.  Run the following commands to modify the registry to set the update source to Windows Update:
