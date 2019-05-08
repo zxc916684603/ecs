@@ -1,4 +1,4 @@
-# ModifyInstanceNetworkSpec {#doc_api_1072927 .reference}
+# ModifyInstanceNetworkSpec {#doc_api_Ecs_ModifyInstanceNetworkSpec .reference}
 
 修改实例的带宽配置。当实例现有网络规格不满足要求时，可以通过修改实例的带宽配置提高网络性能。
 
@@ -49,7 +49,7 @@
 |ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
 
  |
-|EndTime|String|否|2017-12-06T22:40:00Z|临时带宽升级结束时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddThhZ 。
+|EndTime|String|否|2017-12-06T22Z|临时带宽升级结束时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddThhZ 。
 
  |
 |InternetMaxBandwidthIn|Integer|否|10|设置公网入带宽最大值，单位：Mbps（Megabit per second）。取值范围：1~200
@@ -64,10 +64,7 @@
 -   PayByBandwidth：按固定带宽计费
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
-
- |
-|StartTime|String|否|2017-12-05T22:40:00Z|临时带宽升级开始时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddThh:mmZ 。
+|StartTime|String|否|2017-12-05T22:40Z|临时带宽升级开始时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddThh:mmZ 。
 
  |
 
@@ -87,14 +84,12 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=ModifyInstanceNetworkSpec
 &RegionId=cn-hangzhou
 &InstanceId=i-xxxxx1
 &InternetMaxBandwidthOut=10
 &ClientToken=xxxxxxxxxxxxxx
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -120,11 +115,15 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceNetworkSpec
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
+|404|InvalidInstanceId.NotFound|The specified InstanceId does not exist.|指定的实例不存在，请您检查实例ID是否正确。|
 |400|InvalidInternetMaxBandwidthIn.ValueNotSupported|The specified InternetMaxBandwidthIn is beyond the permitted range.|指定的公网入方向最大带宽超出允许值。|
 |400|InvalidInternetMaxBandwidthOut.ValueNotSupported|The specified InternetMaxBandwidthOut is beyond the permitted range.|指定的公网出方向最大带宽超出允许值。|
 |403|IncorrectInstanceStatus|The current status of the instance does not support this operation.|当前实例状态不支持此操作。|
+|403|InstanceLockedForSecurity|The specified operation is denied as your instance is locked for security reasons.|实例被安全锁定，指定的操作无法完成。|
 |403|InstanceExpiredOrInArrears|The specified operation is denied as your prepay instance is expired \(prepay mode\) or in arrears \(afterpay mode\).|包年包月实例已过期，请您续费后再进行操作。|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
 |403|ChargeTypeViolation|The operation is not permitted due to billing method of the instance.|实例的计费方式不支持该操作。|
+|403|OperationDenied|The operation is denied due to the instance is PrePaid.|实例的计费方式不支持该操作。|
 |400|OperationDenied|Specified instance is in VPC.|指定实例存在于 VPC。|
 |400|InvalidParameter.Bandwidth|%s|参数不支持。|
 |400|InvalidParameter.Conflict|%s|参数冲突。|
@@ -133,8 +132,11 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceNetworkSpec
 |400|InvalidInternetChargeType.ValueNotSupported|The specified InternetChargeType is invalid.|指定的公网带宽计费方式无效。|
 |400|DecreasedBandwidthNotAllowed|%s|不允许降低公网带宽。|
 |400|BandwidthUpgradeDenied.EipBoundInstance|The specified VPC instance has bound EIP, temporary bandwidth upgrade is denied.|该实例已经绑定EIP，不能进行临时升级。|
+|400|InvalidClientToken.ValueNotSupported|The ClientToken provided is invalid.|指定的 ClientToken 不合法。|
 |403|InvalidAccountStatus.NotEnoughBalance|Your account does not have enough balance.|账号余额不足，请您先充值再进行该操作。|
 |403|InvalidInstance.UnPaidOrder|The specified Instance has unpaid order.|指定的实例有未支付的订单，请您先支付再进行操作。|
+|400|Throttling|Request was denied due to request throttling, please try again after 5 minutes.|请求被流控。|
+|400|InvalidAction|Specified action is not valid.|该操作无效。|
 |400|IpAllocationError|Allocate public ip failed.|公网IP地址分配失败。|
 |400|InvalidParam.AllocatePublicIp|The specified param AllocatePublicIp is invalid.|指定的AllocatePublicIp无效。|
 |400|InstanceDowngrade.QuotaExceed|Quota of instance downgrade is exceed.|该实例降配已达到最大允许次数。|
