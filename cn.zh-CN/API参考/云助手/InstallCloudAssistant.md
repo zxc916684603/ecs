@@ -10,7 +10,7 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|InstanceId.N|RepeatList|是|InstanceID1|实例 ID，N的取值范围为 1~20。
+|InstanceId.N|RepeatList|是|InstanceID1|实例 ID，N的取值范围为 1~50。
 
  |
 |RegionId|String|是|cn-hangzhou|实例所在地域ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
