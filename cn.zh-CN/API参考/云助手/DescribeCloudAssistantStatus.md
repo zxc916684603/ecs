@@ -10,7 +10,7 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|InstanceId.N|RepeatList|是|i-bp1iudwa5b1tqaxxxxxx|实例ID列表。单次请求最多支持20台实例，N的取值范围为1~50。
+|InstanceId.N|RepeatList|是|i-bp1iudwa5b1tqaxxxxxx|实例ID列表。单次请求最多支持50台实例，N的取值范围为1~50。
 
  |
 |RegionId|String|是|cn-hangzhou|实例所在地域ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
