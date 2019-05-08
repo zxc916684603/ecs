@@ -249,10 +249,10 @@
 -   PayByTraffic：按流量计费
 
  |
-|└InternetMaxBandwidthIn|Integer|100|公网入带宽最大值。
+|└InternetMaxBandwidthIn|Integer|100|公网入带宽最大值，单位为 Mpbs。
 
  |
-|└InternetMaxBandwidthOut|Integer|5|公网出带宽最大值。
+|└InternetMaxBandwidthOut|Integer|5|公网出带宽最大值，单位为 Mpbs。
 
  |
 |└IoOptimized|Boolean|true|是否为 I/O 优化型实例。
