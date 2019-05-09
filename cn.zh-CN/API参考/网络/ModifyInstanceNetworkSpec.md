@@ -16,7 +16,7 @@
     -   支持将带宽计费方式按使用流量（PayByTraffic）转换为按固定带宽（PayByBandwidth）。
     -   支持将带宽计费方式按固定带宽（PayByBandwidth）转换为按使用流量（PayByTraffic）。
 -   对于经典网络（Classic）类型实例，当公网出带宽（InternetMaxBandwidthOut）从0 Mbps升级到一个非零值时，实例必须处于已停止（Stopped）状态。
--   升级带宽后，默认自动扣费。您需要确保账户余额充足，否则会生成异常订单，此时只能作废订单。如果您的账户余额不足，可以将参数AutoPay置为false，此时会生成正常的未支付订单，您可以登录 [ECS管理控制台](https://ecs.console.aliyun.com) 支付。
+-   升级带宽后，默认自动扣费。您需要确保支付方式余额充足，否则会生成异常订单，此时只能作废订单。如果您的账户余额不足，可以将参数AutoPay置为false，此时会生成正常的未支付订单，您可以登录 [ECS管理控制台](https://ecs.console.aliyun.com) 支付。
 -   每台预付费（包年包月）实例降低公网带宽的次数不能超过三次，即价格差退款不会超过三次。
 -   修改带宽配置前后的价格差退款会退还到您的原付费方式中，已使用的代金券不退回。
 -   单个实例每成功操作一次，五分钟内不能继续操作。
@@ -35,23 +35,6 @@
 |Action|String|否|ModifyInstanceNetworkSpec|系统规定参数。取值：ModifyInstanceNetworkSpec
 
  |
-|AllocatePublicIp|Boolean|否|false|是否分配公网 IP 地址。默认值：false
-
- |
-|AutoPay|Boolean|否|true|是否自动支付。取值范围：
-
- -   true：变更带宽配置后，自动扣费。当您将参数 Autopay 置为 true 时，您需要确保账户余额充足，如果账户余额不足会生成异常订单，此订单暂时不支持通过ECS控制台支付，只能作废。
--   false：变更带宽配置后，只生成订单不扣费。如果您的账户余额不足，可以将参数 Autopay 置为 false，即取消自动支付，此时调用该接口会生成正常的未支付订单，此订单可登录 [ECS管理控制台](https://ecs.console.aliyun.com) 支付。
-
- 默认值：true
-
- |
-|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
-
- |
-|EndTime|String|否|2017-12-06T22Z|临时带宽升级结束时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddThhZ 。
-
- |
 |InternetMaxBandwidthIn|Integer|否|10|设置公网入带宽最大值，单位：Mbps（Megabit per second）。取值范围：1~200
 
  |
@@ -64,7 +47,24 @@
 -   PayByBandwidth：按固定带宽计费
 
  |
-|StartTime|String|否|2017-12-05T22:40Z|临时带宽升级开始时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddThh:mmZ 。
+|StartTime|String|否|2017-12-05T22:40Z|临时带宽升级开始时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddThh:mmZ，精确到**分钟**（mm）。
+
+ |
+|EndTime|String|否|2017-12-06T22Z|临时带宽升级结束时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddThhZ，精确到**小时**（hh）。
+
+ |
+|AllocatePublicIp|Boolean|否|false|是否分配公网 IP 地址。默认值：false
+
+ |
+|AutoPay|Boolean|否|true|是否自动支付。取值范围：
+
+ -   true：变更带宽配置后，自动扣费。当您将参数 Autopay 置为 true 时，您需要确保账户余额充足，如果账户余额不足会生成异常订单，此订单暂时不支持通过ECS控制台支付，只能作废。
+-   false：变更带宽配置后，只生成订单不扣费。如果您的支付方式余额不足，可以将参数 Autopay 置为 false，即取消自动支付，此时调用该接口会生成正常的未支付订单，此订单可登录 [ECS管理控制台](https://ecs.console.aliyun.com) 支付。
+
+ 默认值：true
+
+ |
+|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
 
  |
 
