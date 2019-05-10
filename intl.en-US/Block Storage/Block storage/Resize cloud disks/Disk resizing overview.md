@@ -6,7 +6,7 @@ In Alibaba Cloud, you can resize the disk volume of a system disk or a data disk
 
 You can resize the volume of a disk to meet the needs of different scenarios, including the need to:
 
--   [Increase the system disk size](reseller.en-US/Block Storage/Block storage/Resize cloud disks/Resize a cloud disk offline.md#). You can extend the existing partitions or newly added partitions.
+-   [Increase the system disk size](reseller.en-US/Block Storage/Block storage/Resize cloud disks/Resize a cloud disk.md#). You can extend the existing partitions or newly added partitions.
 -   [Create a cloud disk](reseller.en-US/Block Storage/Block storage/Create a cloud disk/Create a cloud disk.md#) and [attach the cloud disk](reseller.en-US/Block Storage/Block storage/Attach a cloud disk.md#) to the instance as a data disk. After, you need to [partition and format the cloud disk](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Windows instances.md#).
 -   [Replace the system disk](reseller.en-US/Block Storage/Block storage/Change the operating system/Replace the system disk (public image).md#) and specify a higher system disk capacity.
 
@@ -15,21 +15,21 @@ You can resize the volume of a disk to meet the needs of different scenarios, in
 The following table describes the process of how to resize a cloud disk based on its current status.
 
 |**Cloud disk status**|Cloud disk that is not attached or partitioned|Cloud disk that is attached but is not partitioned|Cloud disk that is attached and partitioned|
-|**Resizing procedure**| 1.  Use the ECS console or call the API action ResizeDisk to [resize the cloud disk](reseller.en-US/Block Storage/Block storage/Resize cloud disks/Resize a cloud disk offline.md#).
+|**Resizing procedure**| 1.  Use the ECS console or call the API action ResizeDisk to [resize the cloud disk](reseller.en-US/Block Storage/Block storage/Resize cloud disks/Resize a cloud disk.md#).
 2.  Use the ECS console or call the API action AttachDisk to [attach the cloud disk](reseller.en-US/Block Storage/Block storage/Attach a cloud disk.md#).
 3.  Partition and format the cloud disk:
     -   [Partition and format a Windows data disk less than 2 TiB](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Windows instances.md#).
     -   [Partition and format a Linux data disk less than 2 TiB](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk of a Linux instance.md#).
     -   [Partition and format a cloud disk greater than 2 TiB](reseller.en-US/Block Storage/Block storage/Format a data disk/Partition and format data disk more than 2 TiB.md#).
 
- | 1.  Use the ECS console or call the API action ResizeDisk to [resize the cloud disk](reseller.en-US/Block Storage/Block storage/Resize cloud disks/Resize a cloud disk offline.md#).
+ | 1.  Use the ECS console or call the API action ResizeDisk to [resize the cloud disk](reseller.en-US/Block Storage/Block storage/Resize cloud disks/Resize a cloud disk.md#).
 2.  Use the ECS console or call the API action RebootInstance to [restart the instance](../../../../reseller.en-US/Instances/Manage instances/Restart an instance.md#).
 3.  Partition and format the cloud disk:
     -   [Partition and format a Windows data disk less than 2 TiB](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Windows instances.md#).
     -   [Partition and format a Linux data disk less than 2 TiB](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk of a Linux instance.md#).
     -   [Partition and format a cloud disk greater than 2 TiB](reseller.en-US/Block Storage/Block storage/Format a data disk/Partition and format data disk more than 2 TiB.md#).
 
- | 1.  Use the ECS console or call the API action ResizeDisk to [resize the cloud disk](reseller.en-US/Block Storage/Block storage/Resize cloud disks/Resize a cloud disk offline.md#).
+ | 1.  Use the ECS console or call the API action ResizeDisk to [resize the cloud disk](reseller.en-US/Block Storage/Block storage/Resize cloud disks/Resize a cloud disk.md#).
 2.  Use the ECS console or call the API action RebootInstance to [restart the instance](../../../../reseller.en-US/Instances/Manage instances/Restart an instance.md#).
 3.  Extend the partitions of the attached system disk or data disk:
     -   [Extend a Windows file system](reseller.en-US/Block Storage/Block storage/Resize cloud disks/Extend a Windows file system.md#).
@@ -57,7 +57,6 @@ After being resized, the new size of the data disk must be greater than its curr
 |Cloud disk type|Current size \(GiB\)|Upper limit of data disk resizing \(GiB\)|
 |:--------------|:-------------------|:----------------------------------------|
 |Basic Cloud Disk|< 2,000|2,000|
-|SSD Cloud Disk or Ultra Disk|< 6,144|6,144|
-|SSD Cloud Disk or Ultra Disk|≥ 6,144|N/A|
-|ESSD Cloud Disk|< 32,768|32,768|
+|SSD Cloud Disk, Ultra Disk, or ESSD Cloud Disk|< 2,048|2,048|
+|SSD Cloud Disk, Ultra Disk, or ESSD Cloud Disk|≥ 2,048|N/A|
 
