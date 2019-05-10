@@ -1,10 +1,16 @@
 # 在gn5实例上部署NGC环境 {#concept_69102_zh .concept}
 
+本文以搭建TensorFlow深度学习框架为例详细介绍如何在gn5实例上搭建NGC环境。
+
+## 背景信息 {#section_bhf_f4l_qgb .section}
+
 NGC（NVIDIA GPU CLOUD）是NVIDIA开发的一套深度学习生态系统，可以使开发者免费访问深度学习软件堆栈，建立适合深度学习的开发环境。
 
 目前NGC在阿里云gn5实例作了全面部署，并且在镜像市场提供了针对NVIDIA Pascal GPU优化的NGC容器镜像。通过部署镜像市场的NGC容器镜像，开发者能简单快速地搭建NGC容器环境，即时访问优化后的深度学习框架，大大缩减产品开发以及业务部署的时间，实现开发环境的预安装；同时支持调优后的算法框架，并且保持持续更新。
 
- [NGC网站](https://ngc.nvidia.com) 提供了目前主流深度学习框架不同版本的镜像（比如Caffe、Caffe2、CNTK、MxNet、TensorFlow、Theano、Torch），您可以选择需要的镜像搭建环境。本文以搭建TensorFlow深度学习框架为例详细介绍如何在gn5实例上搭建NGC环境。
+ [NGC网站](https://ngc.nvidia.com) 提供了目前主流深度学习框架不同版本的镜像（比如Caffe、Caffe2、CNTK、MxNet、TensorFlow、Theano、Torch），您可以选择需要的镜像搭建环境。
+
+## 前提条件 {#section_wjx_fq5_qgb .section}
 
 在开始搭建TensorFlow环境之前，必须先完成以下工作：
 
@@ -12,7 +18,7 @@ NGC（NVIDIA GPU CLOUD）是NVIDIA开发的一套深度学习生态系统，可�
 -   登录 [NGC网站](https://ngc.nvidia.com/signup/register)，注册NGC账号。
 -   登录 [NGC网站](https://ngc.nvidia.com/signin/email)，获取NGC API key并保存到本地。登录NGC容器环境时需要验证您的NGC API Key。
 
-## 操作步骤 { .section}
+## 操作步骤 {#section_lfd_ztk_ngb .section}
 
 1.  创建gn5实例。参考 [创建ECS实例](../../../../intl.zh-CN/个人版快速入门/步骤 2：创建ECS实例.md#) 创建一台gn5实例，注意以下配置信息：
 
@@ -29,19 +35,19 @@ NGC（NVIDIA GPU CLOUD）是NVIDIA开发的一套深度学习生态系统，可�
     -   **安全组**：选择一个安全组。安全组里必须开放 TCP 22 端口。如果您的实例需要支持HTTPS或 [DIGITS 6](https://developer.nvidia.com/digits) 服务，必须开放TCP 443（用于HTTPS）或TCP 5000（用于DIGITS 6）端口。
     ECS实例创建成功后，[登录ECS管理控制台](https://ecs.console.aliyun.com/#/home)，记录实例的公网IP地址。
 
-2.  连接ECS实例：根据创建实例时选择的登录凭证，[使用密码验证连接ECS实例](../../../../intl.zh-CN/用户指南/连接实例/使用用户名密码验证连接Linux实例.md#) 或者 [使用SSH密钥对验证连接ECS实例](../../../../intl.zh-CN/用户指南/连接实例/使用SSH密钥对连接Linux实例.md#) 。
+2.  连接ECS实例：根据创建实例时选择的登录凭证，[使用密码验证连接ECS实例](../../../../intl.zh-CN/实例/连接实例/连接Linux实例/使用用户名密码验证连接Linux实例.md#) 或者 [使用SSH密钥对验证连接ECS实例](../../../../intl.zh-CN/实例/连接实例/连接Linux实例/使用SSH密钥对连接Linux实例.md#) 。
 3.  按界面提示输入NGC官网获取的NGC API Key后按回车键，即可登录NGC容器环境。
 
-    ![输入NGC API Key](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/154408644311904_zh-CN.png)
+    ![输入NGC API Key](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/155748613111904_zh-CN.png)
 
 4.  运行 `nvidia-smi`。您能查看当前GPU的信息，包括GPU型号、驱动版本等，如下图所示。
 
-    ![nvidia-smi运行结果](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/154408644311905_zh-CN.png)
+    ![nvidia-smi运行结果](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/155748613111905_zh-CN.png)
 
 5.  按以下步骤搭建TensorFlow环境：
     1.  登录 [NGC网站](https://ngc.nvidia.com/signin/email)，找到TensorFlow镜像页面，获取 `docker pull` 命令。
 
-        ![TensorFlow镜像页面](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/154408644311906_zh-CN.png)
+        ![TensorFlow镜像页面](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/155748613111906_zh-CN.png)
 
     2.  下载TensorFlow镜像。
 
@@ -64,7 +70,7 @@ NGC（NVIDIA GPU CLOUD）是NVIDIA开发的一套深度学习生态系统，可�
         
         ```
 
-        ![运行容器](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/154408644311907_zh-CN.png)
+        ![运行容器](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/155748613111907_zh-CN.png)
 
 6.  选择以下任一种方式测试TensorFlow：
     -   简单测试TensorFlow。
@@ -84,7 +90,7 @@ NGC（NVIDIA GPU CLOUD）是NVIDIA开发的一套深度学习生态系统，可�
 
         如果TensorFlow正确加载了GPU设备，返回结果如下图所示。
 
-        ![简单测试结果](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/154408644311908_zh-CN.png)
+        ![简单测试结果](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/155748613111908_zh-CN.png)
 
     -   下载TensorFlow模型并测试TensorFlow。
 
@@ -97,7 +103,7 @@ NGC（NVIDIA GPU CLOUD）是NVIDIA开发的一套深度学习生态系统，可�
 
         运行状态如下图所示。
 
-        ![模型测试](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/154408644411909_zh-CN.png)
+        ![模型测试](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/155748613111909_zh-CN.png)
 
 7.  保存TensorFlow镜像的修改。否则，下次登录时配置会丢失。
 

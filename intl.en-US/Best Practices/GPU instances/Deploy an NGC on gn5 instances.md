@@ -26,19 +26,19 @@ Before building a TensorFlow environment, you must do the following:
     -   **Security Group**: Select a security group. Access to TCP port 22 must be allowed in the security group. If your instance needs to support HTTPS or [DIGITS 6](https://developer.nvidia.com/digits), access to TCP port 443 \(for HTTPS\) or TCP port 5000 \(for DIGITS 6\) must be allowed.
     After the ECS instance is created successfully, [log on to the ECS console](https://partners-intl.console.aliyun.com/#/ecs) and note down the public IP address of the instance.
 
-2.  Connect to the ECS instance: Based on the logon credentials selected during instance creation, you can [connect to an ECS instance by using a password](../../../../reseller.en-US/User Guide/Connect to instances/Connect to a Linux instance by using a password.md#) or [connect to an ECS instance by using an SSH key pair](../../../../reseller.en-US/User Guide/Connect to instances/Connect to a Linux instance by using an SSH key pair.md#).
+2.  Connect to the ECS instance: Based on the logon credentials selected during instance creation, you can [connect to an ECS instance by using a password](../../../../reseller.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to a Linux instance by using a password.md#) or [connect to an ECS instance by using an SSH key pair](../../../../reseller.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to a Linux instance by using an SSH key pair.md#).
 3.  Enter the NGC API Key obtained from the NGC website, and then press the Enter key to log on to the NGC container environment.
 
-    ![Enter the NGC API Key](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/154269652611904_en-US.png)
+    ![Enter the NGC API Key](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/155748613711904_en-US.png)
 
 4.  Run `nvidia-smi`. You can view the information about the current GPU, including the GPU model, the driver version, and more, as shown below.
 
-    ![Results of running nvidia-smi](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/154269652611905_en-US.png)
+    ![Results of running nvidia-smi](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/155748613711905_en-US.png)
 
 5.  Follow the steps below to build the TensorFlow environment:
     1.  Log on to the [NGC website](https://ngc.nvidia.com/signin/email), go to the TensorFlow image page, and then get the `docker pull` command.
 
-        ![TensorFlow mirror page](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/154269652611906_en-US.png)
+        ![TensorFlow mirror page](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/155748613711906_en-US.png)
 
     2.  Download the TensorFlow image.
 
@@ -61,7 +61,7 @@ Before building a TensorFlow environment, you must do the following:
         
         ```
 
-        ![Run the container](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/154269652611907_en-US.png)
+        ![Run the container](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/155748613711907_en-US.png)
 
 6.  Test TensorFlow by using one of the following methods:
     -   Simple test of TensorFlow.
@@ -81,7 +81,7 @@ Before building a TensorFlow environment, you must do the following:
 
         If TensorFlow loads the GPU device correctly, the result is as shown below.
 
-        ![Results of the simple test](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/154269652611908_en-US.png)
+        ![Results of the simple test](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/155748613711908_en-US.png)
 
     -   Download the TensorFlow model and test TensorFlow.
 
@@ -94,7 +94,7 @@ Before building a TensorFlow environment, you must do the following:
 
         The running status is as shown below.
 
-        ![Model test](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/154269652611909_en-US.png)
+        ![Model test](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/155748613711909_en-US.png)
 
 7.  Save the changes made to the TensorFlow image. Otherwise, the configuration will be lost the next time you log on.
 
