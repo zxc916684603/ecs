@@ -30,7 +30,7 @@ Dask是一款轻量级大数据框架，可以提升并行计算效率。
 
     5.  复制API Key并保存到本地。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155748577946989_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155782240846989_zh-CN.png)
 
 
 ## 步骤一：获取RAPIDS镜像下载命令 {#section_6nn_fh6_3ro .section}
@@ -38,13 +38,25 @@ Dask是一款轻量级大数据框架，可以提升并行计算效率。
 1.  登录[NGC网站](https://ngc.nvidia.com/signin/email)。
 2.  打开MACHINE LEARNING页面，单击**RAPIDS**镜像。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155748577946841_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155782240846841_zh-CN.png)
 
-3.  复制docker pull命令。
+3.  获取docker pull命令。
 
-    本文中使用支持CUDA10的Ubuntu16.04镜像。如果您使用其它镜像，将docker pull命令中的`cuda10.0-runtime-ubuntu16.04`更换为Tags页签下对应的版本即可。
+    本文示例代码基于RAPIDS 0.6版本镜像编写，因此在运行本示例代码时，使用Tag为0.6版本的镜像。实际操作时，请选择您匹配的版本。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155748577946842_zh-CN.png)
+    1.  选择Tags页签。
+
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155782240847242_zh-CN.png)
+
+    2.  找到并复制Tag信息。本示例中，选择`0.6-cuda10.0-runtime-ubuntu16.04-gcc5-py3.6`。
+
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155782240847223_zh-CN.png)
+
+    3.  返回页面顶部，复制**Pull Command**中的命令到文本编辑器，将镜像版本替换为对应的Tag信息，并保存。 本示例中，将`cuda9.2-runtime-ubuntu16.04`替换为`0.6-cuda10.0-runtime-ubuntu16.04-gcc5-py3.6`。
+
+        保存的docker pull命令用于在[步骤二](#section_4tf_rho_1gy)中下载RAPIDS镜像。
+
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155782240846842_zh-CN.png)
 
 
 ## 步骤二：部署RAPIDS环境 {#section_4tf_rho_1gy .section}
@@ -56,7 +68,7 @@ Dask是一款轻量级大数据框架，可以提升并行计算效率。
     -   **实例**：RAPIDS仅适用于特定的GPU型号（采用NVIDIA Pascal及以上架构），因此您需要选择GPU型号符合要求的实例规格，目前有gn6i、gn6v、gn5和gn5i，详细的GPU型号请参见[实例规格族](../../../../cn.zh-CN/实例/实例规格族.md#)。建议您选择显存更大的gn6i、gn6v或gn5实例。本示例中，选用了显存为16 GB的GPU实例。
     -   **镜像**：在镜像市场中搜索并使用`NVIDIA GPU Cloud VM Image`。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155748577946839_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155782240846839_zh-CN.png)
 
     -   **公网带宽**：选择**分配公网IPv4地址**或者在实例创建成功后[绑定EIP地址](../../../../cn.zh-CN/网络/弹性网卡/绑定弹性网卡.md#)。
     -   **安全组**：选择的安全组需要开放以下端口：
@@ -69,16 +81,16 @@ Dask是一款轻量级大数据框架，可以提升并行计算效率。
 
 3.  输入NGC API Key后按回车键，登录NGC容器环境。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155748577946840_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155782240846840_zh-CN.png)
 
 4.  （可选）运行nvidia-smi查看GPU型号、GPU驱动版本等GPU信息。
 
-    建议您了解GPU信息，预判规避潜在问题。比如，如果NGC的驱动版本太低，新Docker镜像版本可能会不支持。
+    建议您了解GPU信息，预判规避潜在问题。例如，如果NGC的驱动版本太低，新Docker镜像版本可能会不支持。
 
-5.  运行docker pull命令下载RAPIDS镜像。
+5.  运行在[步骤一](#section_6nn_fh6_3ro)中获取的docker pull命令下载RAPIDS镜像。
 
     ``` {#codeblock_rcd_vmp_ael}
-    docker pull nvcr.io/nvidia/rapidsai/rapidsai:cuda10.0-runtime-ubuntu16.04
+    docker pull nvcr.io/nvidia/rapidsai/rapidsai:0.6-cuda10.0-runtime-ubuntu16.04-gcc5-py3.6
     ```
 
 6.  （可选）查看下载的镜像。
@@ -89,8 +101,6 @@ Dask是一款轻量级大数据框架，可以提升并行计算效率。
     docker images
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155748577946843_zh-CN.png)
-
 7.  运行容器部署RAPIDS环境。
 
     ``` {#codeblock_dej_q4v_i2t}
@@ -99,7 +109,7 @@ Dask是一款轻量级大数据框架，可以提升并行计算效率。
             -p 8888:8888 \
             -p 8787:8787 \
             -p 8786:8786 \
-            nvcr.io/nvidia/rapidsai/rapidsai:cuda10.0-runtime-ubuntu16.04
+            nvcr.io/nvidia/rapidsai/rapidsai:0.6-cuda10.0-runtime-ubuntu16.04-gcc5-py3.6
     ```
 
 
@@ -122,7 +132,7 @@ Dask是一款轻量级大数据框架，可以提升并行计算效率。
 
     下载成功后的文件结构如下图，共5个文件夹、16个文件：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155748577946844_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155782240846844_zh-CN.png)
 
 2.  在GPU实例上启动JupyterLab服务。
 
@@ -145,7 +155,7 @@ Dask是一款轻量级大数据框架，可以提升并行计算效率。
 
     如果您在启动JupyterLab服务时设置了登录密码，会跳转到密码输入界面。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155748577946852_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155782240846852_zh-CN.png)
 
 4.  运行NoteBook代码。
 
@@ -154,7 +164,7 @@ Dask是一款轻量级大数据框架，可以提升并行计算效率。
     -   mortgage\_2000\_1gb文件夹：存储解压后的训练数据。该文件夹下包含：acq文件夹、perf文件夹和names.csv文件。
     -   xgboost\_E2E.ipynb文件： XGBoost Demo文件。双击文件可以查看文件详情，单击下图中的执行按钮可以逐步执行代码，每次执行一个Cell。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155748577946845_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155782240846845_zh-CN.png)
 
     -   mortgage\_2000\_1gb.tgz文件： 2000年的抵押贷款回归训练数据（1G分割的perf文件夹下的文件不会大于1G，使用1G分割的数据可以更有效的利用GPU显存）。
 
@@ -176,7 +186,7 @@ NoteBook代码的执行过程如下：
 
     示例效果如下 ：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155748577946846_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155782240846846_zh-CN.png)
 
 2.  设定相关参数。
 
@@ -190,7 +200,7 @@ NoteBook代码的执行过程如下：
 
     示例效果如下：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155748577946847_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155782240946847_zh-CN.png)
 
 3.  启动Dask服务。
 
@@ -198,7 +208,7 @@ NoteBook代码的执行过程如下：
 
     示例效果如下：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155748578046848_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155782240946848_zh-CN.png)
 
 4.  启动ETL。
 
@@ -206,7 +216,7 @@ NoteBook代码的执行过程如下：
 
     示例效果如下：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155748578046849_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155782240946849_zh-CN.png)
 
 5.  启动Data Conversion。
 
@@ -214,7 +224,7 @@ NoteBook代码的执行过程如下：
 
     示例效果如下：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155748578046850_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155782240946850_zh-CN.png)
 
 6.  启动ML Training。
 
@@ -222,7 +232,7 @@ NoteBook代码的执行过程如下：
 
     示例效果如下：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155748578046851_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/155782240946851_zh-CN.png)
 
 
 ## 相关函数 {#section_whh_v8f_nnc .section}
