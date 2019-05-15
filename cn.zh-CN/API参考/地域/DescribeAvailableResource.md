@@ -1,4 +1,4 @@
-# DescribeAvailableResource {#doc_api_1105040 .reference}
+# DescribeAvailableResource {#doc_api_Ecs_DescribeAvailableResource .reference}
 
 查询某一可用区的资源列表。例如，您可以在某一可用区创建实例（RunInstances）时查询该可用区的资源列表。
 
@@ -80,7 +80,12 @@
 -   classic：经典网络
 
  |
-|ResourceType|String|否|Instance|资源类型
+|ResourceType|String|否|Instance|资源类型。取值范围：
+
+ -   instance：ECS实例
+-   disk：云盘
+-   reservedinstance：预留实例券
+-   ddh：专有宿主机
 
  |
 |SpotStrategy|String|否|NoSpot|按量付费实例的竞价策略。取值范围：
@@ -280,6 +285,7 @@ https://ecs.aliyuncs.com/?Action=DescribeAvailableResource
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
 |404|Invalid.RegionId|The specified RegionId does not exist.|地域参数不合法。|
+|404|Unavailable.Regions|The available regions does not exists|地域参数不合法。|
 |400|Invalid.InstanceChargeType|The specified InstanceChargeType is not valid.|付费类型参数不合法。|
 |400|Invalid.Param|The input parameter DestinationResource that is mandatory for processing this request is not supplied.|目标资源类型不合法。|
 |404|Invalid.ResourceType|The ResourceType provided does not exist in our records.|资源类型不合法。|
