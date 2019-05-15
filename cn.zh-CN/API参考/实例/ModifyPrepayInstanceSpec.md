@@ -54,15 +54,10 @@
  专有网络VPC类型实例：对于已停售的实例规格\]，非 I/O 优化实例变配到 I/O 优化实例时，云服务器磁盘设备名和软件授权码会发生变化。Linux 实例的普通云盘（cloud）会被识别为 xvda 或者 xvdb 等，高效云盘（cloud\_efficiency） 和SSD云盘（cloud\_ssd）会被识别为 vda 或者 vdb 等。
 
  |
-|OperatorType|String|否|downgrade|操作类型。取值范围：
+|OperatorType|String|否|upgrade|操作类型。取值范围：
 
- -   upgrade：升级实例规格。当参数`OperatorType`被置为`upgrade`时，请确保您的账户支付方式余额充足。
--   downgrade（默认）：降配实例规格。
-
- 更换系统盘类型。该参数只有在从 [已停售的实例规格](~~55263~~) 升级到 [正常售卖的实例规格族](~~25378~~)，并将非 I/O 优化实例规格升级为 I/O 优化实例规格时有效。取值范围：
-
- -   cloud\_efficiency：高效云盘
--   cloud\_ssd：SSD 云盘
+ -   upgrade（默认）：升级实例规格。当参数`OperatorType`被置为`upgrade`时，请确保您的账户支付方式余额充足。
+-   downgrade：降配实例规格。
 
  |
 |SystemDisk.Category|String|否|cloud\_efficiency|更换系统盘类型。该参数只有在从 [已停售的实例规格](~~55263~~) 升级到 [正常售卖的实例规格族](~~25378~~)，并将非 I/O 优化实例规格升级为 I/O 优化实例规格时有效。取值范围：
