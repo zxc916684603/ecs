@@ -1,12 +1,12 @@
 # CreateDisk {#doc_api_Ecs_CreateDisk .reference}
 
-创建一块按量付费数据盘。磁盘类型包括普通云盘、高效云盘和SSD云盘。
+创建一块按量付费或预付费数据盘。磁盘类型包括普通云盘、高效云盘和SSD云盘。
 
 ## 接口说明 {#description .section}
 
-创建磁盘需要通过实名认证。请前往会员信息中 [实名认证](https://account.console.aliyun.com/#/auth/home)。
+创建磁盘需要通过实名认证。请前往会员信息中[实名认证](https://account.console.aliyun.com/#/auth/home)。
 
--   创建磁盘会涉及到资源计费，建议您提前了解云服务器ECS的计费方式。更多详情，请参阅 [计费概述](~~25398~~)。
+-   创建磁盘会涉及到资源计费，建议您提前了解云服务器ECS的计费方式。更多详情，请参阅[计费概述](~~25398~~)。
 -   创建磁盘时，默认在删除磁盘时删除其自动快照，即DeleteAutoSnapshot取值为true，可以通过 [ModifyDiskAttribute](~~25517~~)修改该参数。
 -   创建的磁盘默认Portable属性为true，计费方式默认为按量付费。
 -   必须指定一项请求参数Size或SnapshotId。请求参数Size指定磁盘容量大小，请求参数SnapshotId使用快照创建磁盘。
@@ -22,16 +22,24 @@
 |RegionId|String|是|cn-hangzhou|所属的地域ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
 
  |
-|ZoneId|String|是|cn-hangzhou-g|可用区ID。
-
- |
 |Action|String|否|CreateDisk|系统规定参数。取值：CreateDisk
 
  |
-|SnapshotId|String|否|s-snapshot1|创建磁盘使用的快照。指定该参数后，Size会被忽略，实际创建的磁盘大小为指定快照的大小。2013年7月15日及以前的快照不能用来创建磁盘。
+|ZoneId|String|否|cn-hangzhou-g|在指定可用区内创建一块按量付费磁盘。
+
+ -   如果您不设置InstanceId，则ZoneId为必填参数。
+-   您不能同时指定ZoneId和InstanceId。
 
  |
-|DiskName|String|否|FinanceJoshua|磁盘名称。长度为 2~128 个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值：空。
+|InstanceId|String|否|i-bp1g6zv0ce8og\*\*\*\*\*\*p|创建一块预付费磁盘，并自动挂载到指定的预付费实例（InstanceId）上。
+
+ -   设置实例ID后，会忽略您设置的ResourceGroupId、Tag.N.Key、Tag.N.Value、ClientToken和KMSKeyId参数。
+-   您不能同时指定ZoneId和InstanceId。
+
+ 默认值：空，代表创建的是按量付费磁盘，磁盘所属地由RegionId和ZoneId确定。
+
+ |
+|SnapshotId|String|否|s-snapshot1|创建磁盘使用的快照。指定该参数后，Size会被忽略，实际创建的磁盘大小为指定快照的大小。2013年7月15日及以前的快照不能用来创建磁盘。
 
  |
 |DiskCategory|String|否|cloud\_ssd|数据盘的磁盘种类。取值范围：
@@ -52,13 +60,13 @@
 -   cloud\_essd：20~32768
 
  |
-|Description|String|否|FinanceDisk|磁盘描述。长度为 2~256 个英文或中文字符，不能以 http:// 和 https:// 开头。默认值：空。
+|DiskName|String|否|FinanceJoshua|磁盘名称。长度为 2~128 个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值：空。
 
  |
 |Encrypted|Boolean|否|false|是否加密云盘。默认值：false
 
  |
-|ResourceGroupId|String|否|rg-resourcegroupid1|磁盘所在的企业资源组 ID。
+|Description|String|否|FinanceDisk|磁盘描述。长度为 2~256 个英文或中文字符，不能以 http:// 和 https:// 开头。默认值：空。
 
  |
 |Tag.N.Key|String|否|FinanceDept|磁盘的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
@@ -67,10 +75,13 @@
 |Tag.N.Value|String|否|FinanceDeptJoshua|磁盘的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
+|ResourceGroupId|String|否|rg-resourcegroupid1|磁盘所在的企业资源组 ID。
 
  |
 |KMSKeyId|String|否|0e478b7a-4262-4802-b8cb-00d3fb40826X|磁盘使用的KMS密钥ID。
+
+ |
+|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
 
  |
 
@@ -78,7 +89,7 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|DiskId|String|d-bp131n0q38u3a4ziXXXXX|磁盘ID。
+|DiskId|String|d-bp131n0q38u3a4zi\*\*\*\*\*|磁盘ID。
 
  |
 |RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
@@ -114,7 +125,7 @@ https://ecs.aliyuncs.com/?Action=CreateDisk
 ``` {#xml_return_success_demo}
 <CreateDiskResponse>
   <RequestId>473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E</RequestId>
-  <DiskId>d-bp131n0q38u3a4ziXXXXX</DiskId>
+  <DiskId>d-bp131n0q38u3a4zi*****</DiskId>
 </CreateDiskResponse>
 
 ```
@@ -124,7 +135,7 @@ https://ecs.aliyuncs.com/?Action=CreateDisk
 ``` {#json_return_success_demo}
 {
 	"RequestId":"473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E",
-	"DiskId":"d-bp131n0q38u3a4ziXXXXX"
+	"DiskId":"d-bp131n0q38u3a4zi*****"
 }
 ```
 
@@ -183,6 +194,12 @@ https://ecs.aliyuncs.com/?Action=CreateDisk
 |400|InvalidParameter.EncryptedIllegal|The specified parameter Encrypted must be true when kmsKeyId is not empty.|设置KmsKeyId后，您必须开启加密属性。|
 |404|InvalidParameter.KMSKeyId.NotFound|The specified KMSKeyId does not exist.|指定的参数值不存在。|
 |403|InvalidParameter.KMSKeyId.KMSUnauthorized|ECS service have no right to access your KMS.|ECS未被授权访问您的KMS资源。|
+|403|SecurityRisk.3DVerification|We have detected a security risk with your default credit or debit card. Please proceed with verification via the link in your email.|您的支付方式有安全风险，请根据通知指导排查。|
+|400|Duplicate.TagKey|The Tag.N.Key contain duplicate key.|标签键中存在重复的键。|
+|400|InvalidTagKey.Malformed|The specified Tag.n.Key is not valid.|指定的标签键不合法。|
+|400|InvalidTagValue.Malformed|The specified Tag.n.Value is not valid.|指定的标签值不合法。|
+|404|InvalidInstanceId.NotFound|The InstanceId provided does not exist in our records.|指定的实例不存在，请您检查实例ID是否正确。|
+|403|InvalidStatus.Upgrading|The instance is upgrading; please try again later.|实例正在升级，请稍后重试。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
