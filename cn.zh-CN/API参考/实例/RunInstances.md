@@ -19,7 +19,11 @@
 -   创建实例时，默认自动启动实例，直到实例状态变成运行中（`Running`）。
 -   创建专有网络VPC类型实例前，您需要预先在相应的阿里云地域 [创建 VPC](~~65430~~)。
 -   与 [CreateInstance](~~25499~~) 相比，通过 `RunInstances` 创建的实例如果参数 `InternetMaxBandwidthOut` 的值大于0，则自动为实例分配公网IP。
--   提交创建任务后，参数不合法或者库存不足的情况下会报错，具体的报错原因参阅错误码。**最佳实践**`RunInstances` 可以执行批量创建任务，为便于管理与检索，建议您为每批次启动的实例指定标签（`Tag.N.Key` 和 `Tag.N.Value`），并且为主机名（`HostName`）和实例名称（`InstanceName`）添加有序后缀（`UniqueSuffix`）。
+-   提交创建任务后，参数不合法或者库存不足的情况下会报错，具体的报错原因参阅错误码。
+
+ **最佳实践** 
+
+`RunInstances` 可以执行批量创建任务，为便于管理与检索，建议您为每批次启动的实例指定标签（`Tag.N.Key` 和 `Tag.N.Value`），并且为主机名（`HostName`）和实例名称（`InstanceName`）添加有序后缀（`UniqueSuffix`）。
 
 实例启动模板能免除您每次创建实例时都需要填入大量配置参数，您可以创建实例启动模板（[CreateLaunchTemplate](~~74686~~)）后，在`RunInstances`请求中指定 `LaunchTemplateId` 和 `LaunchTemplateVersion` 使用启动模板。
 
@@ -229,7 +233,7 @@
  -   Standard：标准模式，实例性能请参阅 [t5性能约束实例](~~90635~~)。
 -   Unlimited：无性能约束模式，实例性能请参阅 [t5无性能约束实例](~~90581~~)。
 
- 默认值：无。
+ 默认值：无
 
  |
 |SecurityEnhancementStrategy|String|否|Active|是否开启安全加固。取值范围：
@@ -346,6 +350,25 @@
 
  |
 |ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
+
+ |
+|Affinity|String|否|default|专有宿主机（DDH）上的实例是否固定在当前DDH上。取值范围：
+
+ -   default：DDH实例不固定在当前DDH上。实例重启后，可能会迁移至自动资源部署池中的其它DDH上。
+-   host：DDH实例固定在当前DDH上。无论是否重启，实例都固定在当前DDH上。
+
+ 默认值：default
+
+ |
+|SecurityGroupIds.N|RepeatList|否|sg-bp15ed6xe1yxeycg7o\*\*\*|将实例同时加入多个安全组。N的取值范围与实例能够加入安全组上限有关，更多详情，请参见[安全组限制](~~101348~~)。
+
+ |
+|Tenancy|String|否|default|是否在专有宿主机（DDH）上创建实例。取值范围：
+
+ -   default：创建非DDH实例。
+-   host：创建DDH实例。若您不指定`DedicatedHostId`，则由阿里云自动选择DDH部署实例。
+
+ 默认值：default
 
  |
 
@@ -615,9 +638,6 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |403|InvalidParameter.NotMatch|%s|参数冲突。|
 |403|InvalidVSwitch.DefaultVSwitchNotSupport|The specified zone in vpc can't support create default vSwitch.|可用区内的VPC不支持创建默认交换机。|
 |400|InvalidParameter.CreditSpecification|The specified CreditSpecification is not supported in this region.|当前地域不支持指定的CreditSpecification。|
-|403|OperationDenied.ImageNotValid|the specified image is not published in the region.|当前地域暂未提供该镜像。|
-|403|OperationDenied.ImageNotValid|the specified image is not authorized.|您未被授权使用该镜像。|
-|403|OperationDenied.ImageNotValid|the specified image is not found in marketplace.|云市场不存在指定的镜像。|
 |404|InvalidMarketImage.NotFound|The specified marketplace image does not exist, please change the imageId and try again.|云市场不存在指定的镜像。|
 |400|IncorrectVpcStatus|Current VPC status does not support this operation.|当前专有网络VPC的状态无法支持这个操作。|
 |400|InvalidInstanceType.NotSupported|The specified instanceType is not supported by the deployment set.|部署集不支持该实例规格。|
@@ -640,6 +660,7 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |400|OperationDenied|The current user does not support this operation.|当前用户不支持该操作。|
 |400|IncorrectImageStatus|The specified marketplace image is not available.|指定的市场镜像不可用。|
 |403|InsufficientBalance|Your account does not have enough balance.|账户余额不足，请先充值再操作。|
+|400|InvalidInstanceType.ValueNotSupported|The specified InstanceType does not exist or beyond the permitted range.|指定的实例规格不支持。|
 |403|MaxEniIpv6IpsCountExceeded|%s|弹性网卡挂载 IPv6 个数达到上限。|
 |403|InvalidIp.IpRepeated|%s|指定的 IP 重复。|
 |403|InvalidIp.IpAssigned|%s|指定的 IP 已被分配。|
@@ -661,6 +682,8 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |404|InvalidParameter.KMSKeyId.NotFound|The specified KMSKeyId does not exist.|指定的参数值不存在。|
 |403|InvalidParameter.KMSKeyId.KMSUnauthorized|ECS service have no right to access your KMS.|ECS未被授权访问您的KMS资源。|
 |403|SecurityRisk.3DVerification|We have detected a security risk with your default credit or debit card. Please proceed with verification via the link in your email.|您的支付方式有安全风险，请根据通知指导排查。|
+|400|Duplicate.TagKey|The Tag.N.Key contain duplicate key.|标签键中存在重复的键。|
+|404|InvalidSecurityGroupId.NotFound|%s|指定的安全组ID不存在。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
