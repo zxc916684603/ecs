@@ -352,10 +352,10 @@
 |ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
 
  |
-|Affinity|String|否|default|专有宿主机（DDH）上的实例是否固定在当前DDH上。取值范围：
+|Affinity|String|否|default|专有宿主机实例是否与专有宿主机关联。取值范围：
 
- -   default：DDH实例不固定在当前DDH上。实例重启后，可能会迁移至自动资源部署池中的其它DDH上。
--   host：DDH实例固定在当前DDH上。无论是否重启，实例都固定在当前DDH上。
+ -   default：实例不与专有宿主机关联。已开启停机不收费功能的实例，停机后再次启动时，若原专有宿主机可用资源不足，则实例被放置在自动部署资源池的其它专有宿主机上。
+-   host：实例与专有宿主机关联。已开启停机不收费功能的实例，停机后再次启动时，仍放置在原专有宿主机上。若原专有宿主机可用资源不足，则实例重启失败。
 
  默认值：default
 
@@ -363,10 +363,10 @@
 |SecurityGroupIds.N|RepeatList|否|sg-bp15ed6xe1yxeycg7o\*\*\*|将实例同时加入多个安全组。N的取值范围与实例能够加入安全组上限有关，更多详情，请参见[安全组限制](~~101348~~)。
 
  |
-|Tenancy|String|否|default|是否在专有宿主机（DDH）上创建实例。取值范围：
+|Tenancy|String|否|default|是否在专有宿主机上创建实例。取值范围：
 
- -   default：创建非DDH实例。
--   host：创建DDH实例。若您不指定`DedicatedHostId`，则由阿里云自动选择DDH部署实例。
+ -   default：创建非专有宿主机实例。
+-   host：创建专有宿主机实例。若您不指定`DedicatedHostId`，则由阿里云自动选择专有宿主机放置实例。
 
  默认值：default
 
@@ -661,6 +661,9 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |400|IncorrectImageStatus|The specified marketplace image is not available.|指定的市场镜像不可用。|
 |403|InsufficientBalance|Your account does not have enough balance.|账户余额不足，请先充值再操作。|
 |400|InvalidInstanceType.ValueNotSupported|The specified InstanceType does not exist or beyond the permitted range.|指定的实例规格不支持。|
+|400|InvalidDedicatedHost.NotEnoughResource|No dedicated host is available.|无可用的专有宿主机。|
+|400|InvalidParam.Tenancy|The specified Tenancy is invalid.|您指定的Tenancy参数值无效。|
+|400|LackResource|A dedicated host with sufficient available resources cannot be found.|无法找到具有足够可用资源的专有宿主机。|
 |403|MaxEniIpv6IpsCountExceeded|%s|弹性网卡挂载 IPv6 个数达到上限。|
 |403|InvalidIp.IpRepeated|%s|指定的 IP 重复。|
 |403|InvalidIp.IpAssigned|%s|指定的 IP 已被分配。|
