@@ -1,4 +1,4 @@
-# DescribeRegions {#doc_api_1006043 .reference}
+# DescribeRegions {#doc_api_Ecs_DescribeRegions .reference}
 
 查询您可以使用的阿里云地域。
 
@@ -10,13 +10,13 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|AcceptLanguage|String|否|null|根据汉语、英语和日语筛选返回结果。更多详情，请参阅 [RFC7231](https://tools.ietf.org/html/rfc7231)。取值范围：
+|AcceptLanguage|String|否|zh-CN|根据汉语、英语和日语筛选返回结果。更多详情，请参阅 [RFC7231](https://tools.ietf.org/html/rfc7231)。取值范围：
 
- -   zh-CN
--   en-US
--   ja
+ -   zh-CN：中文
+-   en-US：英文
+-   ja：日文
 
- 默认值：null。
+ 默认值：zh-CN。
 
  |
 |Action|String|否|DescribeRegions|系统规定参数。取值：DescribeRegions
@@ -28,10 +28,7 @@
 -   PostPaid（默认）：按量付费。
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
-
- |
-|ResourceType|String|否|Instance|资源类型
+|ResourceType|String|否|Instance|资源类型。
 
  |
 
@@ -42,7 +39,7 @@
 |Regions| | |地域信息集合
 
  |
-|└LocalName|String|弹内生产环境-上海|地域名称
+|└LocalName|String|华北 1|地域名称
 
  |
 |└RegionEndpoint|String|ecs.aliyuncs.com|地域对应的接入地址（Endpoint）
@@ -51,7 +48,12 @@
 |└RegionId|String|cn-shanghai-et2-bo1|地域 ID
 
  |
-|└Status|String|available| |
+|└Status|String|available|集群是否售罄，可能值：
+
+ -   available
+-   soldOut
+
+ |
 |RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID
 
  |
@@ -81,7 +83,7 @@ https://ecs.aliyuncs.com/?Action=DescribeRegions
     <Region>
       <RegionId>cn-shanghai-et2-bo1</RegionId>
       <RegionEndpoint>ecs.aliyuncs.com</RegionEndpoint>
-      <LocalName>弹内生产环境-上海</LocalName>
+      <LocalName>China (Qingdao)</LocalName>
     </Region>
     <Region>
       <RegionId>cn-qingdao-nebula</RegionId>
@@ -103,7 +105,7 @@ https://ecs.aliyuncs.com/?Action=DescribeRegions
 			{
 				"RegionId":"cn-shanghai-et2-b01",
 				"RegionEndpoint":"ecs.aliyuncs.com",
-				"LocalName":"弹内生产环境-上海"
+				"LocalName":"China (Qingdao)"
 			},
 			{
 				"RegionId":"cn-qingdao-nebula",
@@ -119,6 +121,7 @@ https://ecs.aliyuncs.com/?Action=DescribeRegions
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
+|403|Unauthorized.EmptyRegion|The specified account has no access authority to any region.|当前账号未被授权访问任何地域，请您授权后再重试。|
 |404|InvalidAcceptLanguage.NotFound|Only Chinese \(zh-CN\), English \(en-US\), and Japanese \(ja\) are allowed.|不支持指定的语言。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
