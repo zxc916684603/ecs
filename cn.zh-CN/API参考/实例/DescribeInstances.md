@@ -161,6 +161,21 @@
 |└DedicatedHostName|String|FinanceDept|专有宿主机名称
 
  |
+|└DedicatedInstanceAttribute| | |专有宿主机实例的属性
+
+ |
+|└Affinity|String|default|专有宿主机实例是否与专有宿主机关联。取值范围：
+
+ -   default：专有宿主机实例不与专有宿主机关联。停机不收费实例重启后，可能会放置在自动资源部署池中的其它专有宿主机上。
+-   host：专有宿主机实例与专有宿主机关联。停机不收费实例重启后，仍放置在原专有宿主机上。
+
+ |
+|└Tenancy|String|default|实例的宿主机类型是否为专有宿主机。取值范围：
+
+ -   default：实例的宿主机类型不是专有宿主机。
+-   host：实例的宿主机类型为专有宿主机。
+
+ |
 |└DeletionProtection|Boolean|false|实例释放保护属性，指定是否支持通过控制台或API（DeleteInstance）释放实例。
 
  -   true：已开启实例释放保护。
@@ -172,10 +187,16 @@
 |└DeploymentSetId|String|ds-deploymentid1|部署集 ID。
 
  |
-|└Description|String|FinanceJoshua|实例描述。
+|└Description|String|description|实例描述。
 
  |
-|└EcsCapacityReservationAttr| | |容量预留相关参数
+|└EcsCapacityReservationAttr| | |云服务器ECS的容量预留相关参数。
+
+ |
+|└CapacityReservationId|String|cr-abcd1234|容量预留ID。
+
+ |
+|└CapacityReservationPreference|String|cr-abcd1234|容量预留偏好。
 
  |
 |└EipAddress| | |弹性公网 IP 绑定信息。
@@ -297,11 +318,11 @@
 |└LockMsg|String|The specified instance is locked due to financial reason.|实例被锁定的描述信息。
 
  |
-|└LockReason|String|recycling|锁定类型。可能值：
+|└LockReason|String|Recycling|锁定类型。可能值：
 
  -   financial：因欠费被锁定
 -   security：因安全原因被锁定
--   recycling：抢占式实例的待释放锁定状态
+-   Recycling：抢占式实例的待释放锁定状态
 -   dedicatedhostfinancial：因为专有宿主机欠费导致 ECS 实例被锁定
 
  |
