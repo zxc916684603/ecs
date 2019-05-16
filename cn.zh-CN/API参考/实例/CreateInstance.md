@@ -327,6 +327,22 @@
  **说明：** 该属性适用于预付费（包年包月）、按量付费和抢占式实例，但只能限制手动释放操作，对系统释放操作不生效。
 
  |
+|Affinity|String|否|default|专有宿主机实例是否与专有宿主机关联。取值范围：
+
+ -   default：实例不与专有宿主机关联。已开启停机不收费功能的实例，停机后再次启动时，若原专有宿主机可用资源不足，则实例被放置在自动部署资源池的其它专有宿主机上。
+-   host：实例与专有宿主机关联。已开启停机不收费功能的实例，停机后再次启动时，仍放置在原专有宿主机上。若原专有宿主机可用资源不足，则实例重启失败。
+
+ 默认值：default
+
+ |
+|Tenancy|String|否|default|是否在专有宿主机上创建实例。取值范围：
+
+ -   default：在非专有宿主机上创建实例。
+-   host：在专有宿主机上创建实例。若您不指定`DedicatedHostId`，则由阿里云自动选择专有宿主机放置实例。
+
+ 默认值：default
+
+ |
 
 ## 返回参数 {#resultMapping .section}
 
@@ -524,13 +540,13 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |404|InvalidRamRole.NotFound|The specified RAMRoleName does not exist.|指定的 RamRoleName 不存在。|
 |400|OperationDenied|The specified InstanceType or Zone is not available or not authorized.|指定的实例规格或可用区不可用或者未授权。|
 |403|InvalidAccountStatus.NotEnoughBalance|Your account does not have enough balance.|账号余额不足，请您先充值再进行该操作。|
+|500|InternalError|The request processing has failed due to some unknown error, exception or failure.|发生未知错误。|
 |404|InvalidResourceGroup.NotFound|The ResourceGroup provided does not exist in our records.|资源组并不在记录中。|
 |403|IncorrectVpcStatus|Current VPC status does not support this operation.|当前专有网络VPC的状态无法支持这个操作。|
 |400|InvalidParameter.EncryptedIllegal|%s|参数不支持（加密盘）。|
 |400|InvalidParameter.EncryptedNotSupported|%s|参数不支持（加密盘）。|
 |400|EncryptedOption.Conflict|%s|参数不支持（加密盘）。|
 |400|InvalidParameter.Encrypted.KmsNotEnabled|The encrypted disk need enable KMS|加密磁盘需要启用密钥管理服务。|
-|500|InternalError|The request processing has failed due to some unknown error, exception or failure.|发生未知错误。|
 |400|InvalidSpotPriceLimit.LowerThanPublicPrice|The specified parameter "soptPriceLimit" can't be lower than current public price.|SpotPriceLimit参数不能低于当前价。|
 |400|InvalidHpcClusterId.Unnecessary|The specified HpcClusterId is unnecessary.|HpcClusterId参数不支持。|
 |400|InvalidVSwitchId.Necessary|The VSwitchId is necessary.|必须指定VSwitch。|
@@ -563,18 +579,40 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |400|ChargeTypeViolation.PostPaidDedicatedHost|Prepaid instance onto postpaid dedicated host is not allowed.|专有宿主机不支持更换计费方式。|
 |403|OperationDenied.ImageNotValid|%s|镜像不支持此操作。|
 |403|QuotaExceed.PostPaidDisk|Living postPaid disks quota exceeded.|按量付费磁盘数量已超出允许数量。|
-|403|Throttling|Request was denied due to request throttling.|当前的操作太过频繁，请稍后重试。|
+|403|QuotaExceed.DeploymentSetInstanceQuotaFull|instance quota in one deployment set exceeded.|当前部署集内的实例数量已满额。|
+|403|InvalidDiskCategory.NotSupported|The specified disk category is not supported.|该云盘类型不支持。|
 |403|InvalidVSwitch.DefaultVSwitchNotSupport|The specified zone in vpc can't support create default vSwitch.|可用区内的VPC不支持创建默认交换机。|
 |400|InvalidParameter.CreditSpecification|The specified CreditSpecification is not supported in this region.|当前地域不支持指定的CreditSpecification。|
 |400|IncorrectImageStatus|The specified Image is not available.|指定的源镜像状态不正确。|
 |403|OperationDenied.ImageNotValid|the specified image is not published in the region.|当前地域暂未提供该镜像。|
-|403|OperationDenied.ImageNotValid|the specified image is not authorized.|您未被授权使用该镜像。|
 |403|OperationDenied.ImageNotValid|the specified image is not found in marketplace.|云市场不存在指定的镜像。|
 |404|InvalidMarketImage.NotFound|The specified marketplace image does not exist, please change the imageId and try again.|云市场不存在指定的镜像。|
 |400|InvalidInstanceType.NotSupported|The specified instanceType is not supported by the deployment set.|部署集不支持该实例规格。|
 |400|InvalidVpcZone.NotSupported|Zone of the specified VSwitch is not available for creating, please try in other zones.|指定的可用区不支持创建DefaultVswitch。|
 |400|IncorrectDefaultVpcStatus|The status of the default VPC is invalid.|默认VPC的状态不正确。|
 |404|DeploymentSet.NotFound|The specified deployment set does not exist.|指定的部署集不存在。|
+|403|OperationDenied.LocalDiskUnsupported|The configuration change is not allowed when the specified instance has local disks mounted.|实例挂载本地盘后不支持规格变配。|
+|403|OperationDenied.InconsistentNetwork|The specified security group and vswitch are not in the same vpc.|安全组和交换机的VPC必须相同。|
+|403|OperationDenied|If the network segment of the vswitch is the same as that of its VPC. Therefore, the VPC cannot create other vswitchs across the region.|VPC与虚拟交换机的网段相同，无法在多可用区内创建其他交换机。|
+|403|DefaultVswitch.Existed|The default vswitch for VPC already exists.|VPC已存在默认交换机。|
+|403|InvalidChargeType.ValueNotSupported|The operation is not permitted due to deletion protection only support postPaid instance|仅按量付费实例支持释放保护。|
+|403|IncorrectInstanceStatus|The current status of the resource does not support this operation.|该资源目前的状态不支持此操作。|
+|403|CategoryViolation|The specified instance does not support this operation because of its disk category.|挂载有本地磁盘的实例不支持升降配。|
+|403|ResourcesNotInSameZone|The specified instance and dedicated host are not in the same zone.|实例和专有宿主机必须在同一地域下。|
+|403|InvalidRegion.NotSupport|The specified region does not support byok.|该地域不支持BYOK。|
+|403|UserNotInTheWhiteList|The user is not in byok white list.|您暂时不能使用BYOK服务。|
+|400|InvalidParameter.EncryptedIllegal|The specified parameter Encrypted must be true when kmsKeyId is not empty.|设置KmsKeyId后，您必须开启加密属性。|
+|400|IoOptimized.NotSupported|The specified instance must be IoOptimized instance when kmsKeyId is not empty.|设置KmsKeyId后，您必须使用I/O优化实例。|
+|404|InvalidParameter.KMSKeyId.NotFound|The specified KMSKeyId does not exist.|指定的参数值不存在。|
+|403|InvalidParameter.KMSKeyId.KMSUnauthorized|ECS service have no right to access your KMS.|ECS未被授权访问您的KMS资源。|
+|403|SecurityRisk.3DVerification|We have detected a security risk with your default credit or debit card. Please proceed with verification via the link in your email.|您的支付方式有安全风险，请根据通知指导排查。|
+|403|InvalidDisk.SystemDiskSize|The specified SystemDiskSize beyond the permitted range.|系统盘大小超出最大允许值。|
+|400|InvalidClientToken.ValueNotSupported|The ClientToken provided is invalid.|指定的 ClientToken 不合法。|
+|400|OperationDenied|The current user does not support this operation.|当前用户不支持该操作。|
+|403|InsufficientBalance|Your account does not have enough balance.|账户余额不足，请先充值再操作。|
+|400|Duplicate.TagKey|The Tag.N.Key contain duplicate key.|标签键中存在重复的键。|
+|400|InvalidParam.Tenancy|The specified Tenancy is invalid.|您指定的Tenancy参数值无效。|
+|400|LackResource|A dedicated host with sufficient available resources cannot be found.|无法找到具有足够可用资源的专有宿主机。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
