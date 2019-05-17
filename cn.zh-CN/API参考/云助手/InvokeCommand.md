@@ -4,7 +4,7 @@
 
 ## 接口说明 {#description .section}
 
--   在一个阿里云地域下，您每天能调用 500 次 InvokeCommand 接口。如果您想调整调用次数上限，请 [提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm) 申请。
+-   在一个阿里云地域下，您每天能调用 5000 次 InvokeCommand 接口。如果您想调整调用次数上限，请 [提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm) 申请。
 -   目标实例的网络类型必须是 [专有网络VPC](~~34217~~)。
 -   目标实例的状态必须为 运行中（Running）。
 -   目标实例必须预先安装 [云助手客户端](~~64921~~)。
@@ -14,6 +14,7 @@
 -   周期执行的时间设置基准为UTC +08:00，且该时间以实例的系统时间为准，您需要确保您的 ECS 实例的时间或者时区与您预期的时间一致。 更多关于时区的详情，Linux 实例请参阅 [时间设置：设置Linux实例时区和NTP服务](~~92803~~)，Windows 实例请参阅 [时间设置：设置Windows实例NTP服务](~~51890~~)。
 -   您可以选择多台ECS实例，若其中某台实例不满足执行条件时，您需要重新选择。
 -   命令的执行可能会因为目标实例的状态异常、网络异常或云助手客户端异常而出现无法执行的情况，无法执行时不会生成执行信息。
+-   当您创建命令时启用了自定义参数功能，需要在执行命令时传入自定义参数（Parameters）。
 
 ## 调试 {#apiExplorer .section}
 
@@ -38,6 +39,16 @@
 |Frequency|String|否|0 \*/20 \* \* \* \*|周期任务的执行周期，两次周期任务的时间间隔不能低于10秒。当参数 Timed 的值为 True 时，参数 Frequency 为必需参数。 该参数取值遵循Cron表达式，参阅 [Cron 表达式](~~64769~~)。
 
  |
+|Parameters|Json|否|\{"name":"Jack", "accessKey":"LTAIdyv\*\*\*\*\*\*aRY"\}|启用自定义参数功能时，执行命令时传入的自定义参数的键值对。自定义参数的个数范围：0~10
+
+ -   Map的键不允许为空字符串，最多支持64个字符。
+-   Map的值允许为空字符串。
+-   自定义参数与原始命令内容在Base64编码后，综合长度不能超过16KB。
+-   设置的自定义参数名集合必须为创建命令时定义的参数集的子集。对于未传入的参数，您可以使用空字符串代替。
+
+ 您可以取消设置该参数从而禁用自定义参数。
+
+ |
 |Timed|Boolean|否|true|命令是否为周期执行。 默认值：False
 
  |
@@ -58,15 +69,14 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=InvokeCommand
 &CommandId=c-e996287206324975b5fbe1dxxxxxxxxx
 &InstanceId.1=i-bp185dy2o3o6nxxxxxxx
 &RegionId=cn-hangzhou
 &Timed=true
 &Frequency=0 */20 * * * *
+&Parameters={"name":"Jack"}
 &<公共请求参数>
-
 ```
 
 正常返回示例
