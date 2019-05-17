@@ -216,7 +216,7 @@ Aliyun Linux 2属于与CentOS 7同源的操作系统。CentOS 7的管理员可�
 
 ## 目前镜像支持哪些服务器环境和应用场景？ {#section_lfh_rrx_fhb .section}
 
-镜像市场提供上百款优质第三方镜像，不仅全面支持PHP/.NET/JAVA/LAMP/Docke虚拟容器等运行环境的部署，而且满足建站、应用开发、可视化管理等个性化 需求。
+镜像市场提供上百款优质第三方镜像，不仅全面支持PHP/.NET/JAVA/LAMP/Docke虚拟容器等运行环境的部署，而且满足建站、应用开发、可视化管理等个性化需求。
 
 ## 镜像是否安全？ {#section_sdd_srx_fhb .section}
 
@@ -315,7 +315,7 @@ Terraform中通过参数encrypted指定，详情请参见[alicloud\_disks](https
 
 您可以通过df命令查看数据盘的使用情况，以及文件系统被挂载的位置。例如：df –lh。
 
-您可以通过fdisk命令获取数据盘的分区情况。例如：fdisk -l
+您可以通过fdisk命令获取数据盘的分区情况。例如：fdisk -l。
 
 ## 如何卸载（umount）和删除disk table里的数据？ {#section_lzy_rgx_fhb .section}
 
@@ -404,17 +404,17 @@ Linux其他较重要的配置文件如下：
 
 下面以ECS实例数据盘未分区，且创建该实例的自定义镜像中未注释掉/etc/fstab中的磁盘挂载条目为例，介绍数据盘挂载失败的原因：
 
-1.  ECS实例数据盘未分区，如下图所示：
+1.  ECS实例数据盘未分区，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155728769146300_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155807272546300_zh-CN.png)
 
-2.  使用自定义镜像创建的ECS实例中，未注释掉/etc/fstab中的磁盘挂载条目，如下图所示 ：
+2.  使用自定义镜像创建的ECS实例中，未注释掉/etc/fstab中的磁盘挂载条目，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155728769146301_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155807272546301_zh-CN.png)
 
-3.  实例启动时，会按照/etc/fstab文件中的配置挂载磁盘，但由于数据盘未分区导致挂载失败，如下图所示：
+3.  实例启动时，会按照/etc/fstab文件中的配置挂载磁盘，但由于数据盘未分区导致挂载失败，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155728769146302_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155807272546302_zh-CN.png)
 
 
 不用注释磁盘挂载条目的情况：一般只有在创建ECS实例时，选择了数据盘且数据盘是通过已分区、已格式化的数据盘快照生成。
@@ -647,7 +647,7 @@ Linux其他较重要的配置文件如下：
 
 1.  确认使用的镜像ID是镜像市场镜像或者是来源为镜像市场的镜像，调用DescribeImages查询到镜像的相关信息。
 
-    如果您使用的镜像的镜像商品标示（`ProductCode`）不为空，表示该镜像是镜像市场的镜像或者来源于镜像市场的自定义镜像或者共享镜像。如果使用的镜像的商品标示ProductCode为abcd000111，您可以访问镜像商品的地址`http://market.aliyun.com/products/123/abcd000111.html`
+    如果您使用的镜像的镜像商品标示（`ProductCode`）不为空，表示该镜像是镜像市场的镜像或者来源于镜像市场的自定义镜像或者共享镜像。如果使用的镜像的商品标示ProductCode为abcd000111，您可以访问镜像商品的地址`http://market.aliyun.com/products/123/abcd000111.html`。
 
 2.  需要选择镜像的版本和正确地域，只购买ECS镜像。
 
@@ -774,7 +774,7 @@ Windows Server 公共镜像默认最多允许2个会话（Session）[远程连�
 
 ## 我能自己安装或者升级操作系统吗？ {#section_zhs_twc_ghb .section}
 
-不能自行安装或升级。ECS实例需要使用阿里云官方提供的镜像，您无法自行添加或升级。但是您可以
+不能自行安装或升级。ECS实例需要使用阿里云官方提供的镜像，您无法自行添加或升级。但是您可以进行下列操作：
 
 -   更换系统盘重新选择操作系统。具体操作步骤，请参见[更换操作系统](../../../../cn.zh-CN/镜像/更换操作系统.md#)。
 -   从本地导入自己的镜像后使用自定义镜像创建ECS实例。导入镜像的操作步骤，请参见[导入镜像必读](../../../../cn.zh-CN/镜像/自定义镜像/导入镜像/导入镜像必读.md#)。使用自定义镜像创建ECS实例的操作步骤，请参见[使用自定义镜像创建实例](../../../../cn.zh-CN/实例/创建实例/使用自定义镜像创建实例.md#)。
@@ -888,7 +888,7 @@ CentOS 6和CentOS 7的DNS解析机制，使用相同的网络五元组发送IPV4
 
         默认使用阿里云`options`配置`options timeout:2 attempts:3 rotate single-request-reopen`。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155728769146335_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155807272546335_zh-CN.png)
 
     -   如果存在`options`配置：
         -   不存在`single-request-reopen`配置，则在`options`配置中追加该项。
