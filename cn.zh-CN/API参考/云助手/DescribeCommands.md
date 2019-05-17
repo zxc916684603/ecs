@@ -1,4 +1,4 @@
-# DescribeCommands {#doc_api_1030541 .reference}
+# DescribeCommands {#doc_api_Ecs_DescribeCommands .reference}
 
 查询您已经创建的云助手命令。只输入参数 Action 和 RegionId，不输入其他任何请求参数，则默认查询您所有可用的命令（CommandId）。
 
@@ -23,9 +23,6 @@
 
  |
 |Name|String|否|Test1|命令的名称，暂不支持模糊查询。
-
- |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
 
  |
 |PageNumber|Long|否|1|当前页码，起始值：1
@@ -53,37 +50,46 @@
 |Commands| | |命令数据集类型（CommandSetType）
 
  |
-|└CommandContent|String|Y2QgL3Jvb3Q=|命令内容，以 Base64 编码后传输
+|└CommandContent|String|Y2QgL3Jvb3Q=|命令内容，以 Base64 编码后传输。
 
  |
-|└CommandId|String|c-7d2a745b412b4601b2d47f6a768d3a14|命令 ID
+|└CommandId|String|c-7d2a745b412b4601b2d47f6a768d3a14|命令 ID。
 
  |
-|└Description|String|test|命令描述
+|└CreationTime|String|2018-01-05T15:45:02Z|命令创建时间。
 
  |
-|└Name|String|Test1|命令名称
+|└Description|String|test|命令描述。
 
  |
-|└Timeout|Long|3600|超时时间
+|└EnableParameter|Boolean|true|该命令是否启用自定义参数。
 
  |
-|└Type|String|RunShellScript|命令类型
+|└Name|String|Test1|命令名称。
 
  |
-|└WorkingDir|String|/home/|执行路径
+|└ParameterNames| |\['parameter1','parameter2'\]|通过创建命令时的CommandContent解析出的自定义参数名列表，以列表（List）的形式返回。如未使用自定义参数功能，则返回空值列表。
 
  |
-|PageNumber|Long|1|命令列表页码
+|└Timeout|Long|3600|超时时间。
 
  |
-|PageSize|Long|10|每页行数
+|└Type|String|RunShellScript|命令类型。
+
+ |
+|└WorkingDir|String|/home/|执行路径。
+
+ |
+|PageNumber|Long|1|命令列表页码。
+
+ |
+|PageSize|Long|10|每页行数。
 
  |
 |RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
 
  |
-|TotalCount|Long|5|命令总个数
+|TotalCount|Long|5|命令总个数。
 
  |
 
@@ -111,57 +117,67 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
 
 ``` {#xml_return_success_demo}
 <DescribeCommandsResponse>
-    <TotalCount>5</TotalCount>
-    <Commands>
-        <Command>
-                <Name>Test</Name>
-                <WorkingDir></WorkingDir>
-                <CommandContent>ZWNobyAxMjM=</CommandContent>
-                <Timeout>3600</Timeout>
-                <Type>RunShellScript</Type>
-                <CommandId>c-7d2a745b412b4601b2d47f6a768d3a14</CommandId>
-                <Description>test</Description>
-        </Command>
-        <Command>
-                <Name>Test1</Name>
-                <WorkingDir></WorkingDir>
-                <CommandContent>Y2QgL3Jvb3Q=</CommandContent>
-                <Timeout>3600</Timeout>
-                <Type>RunShellScript</Type>
-                <CommandId>c-7d2a745b412b4601b2d47f6a768d3a15</CommandId>
-                <Description>test1</Description>
-        </Command>
-        <Command>
-                <Name>Test2</Name>
-                <WorkingDir></WorkingDir>
-                <CommandContent>eXVtIHVwZGF0ZQ==</CommandContent>
-                <Timeout>3600</Timeout>
-                <Type>RunShellScript</Type>
-                <CommandId>c-7d2a745b412b4601b2d47f6a768d3a16</CommandId>
-                <Description>test2</Description>
-        </Command>
-        <Command>
-                <Name>Test3</Name>
-                <WorkingDir></WorkingDir>
-                <CommandContent>c2VydmljZSBuZ2lueCByZWxvYWQ=</CommandContent>
-                <Timeout>3600</Timeout>
-                <Type>RunShellScript</Type>
-                <CommandId>c-7d2a745b412b4601b2d47f6a768d3a17</CommandId>
-                <Description>test3</Description>
-        </Command>
-        <Command>
-                <Name>Test4</Name>
-                <WorkingDir></WorkingDir>
-                <CommandContent>bHM=</CommandContent>
-                <Timeout>120</Timeout>
-                <Type>RunShellScript</Type>
-                <CommandId>c-7d2a745b412b4601b2d47f6a768d3a18</CommandId>
-                <Description>test4</Description>
-        </Command>
-    <PageNumber>1</PageNumber>
-    <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
-    <PageSize>10</PageSize>
+  <TotalCount>5</TotalCount>
+  <Commands>
+    <Command>
+      <Name>Test</Name>
+      <WorkingDir/>
+      <CommandContent>ZWNobyAxMjM=</CommandContent>
+      <Timeout>3600</Timeout>
+      <Type>RunShellScript</Type>
+      <CommandId>c-7d2a745b412b4601b2d47f6a768d3a14</CommandId>
+      <Description>test</Description>
+      <EnableParameter>false</EnableParameter>
+      <ParameterNames>[]</ParameterNames>
+    </Command>
+    <Command>
+      <Name>Test1</Name>
+      <WorkingDir/>
+      <CommandContent>Y2QgL3Jvb3Q=</CommandContent>
+      <Timeout>3600</Timeout>
+      <Type>RunShellScript</Type>
+      <CommandId>c-7d2a745b412b4601b2d47f6a768d3a15</CommandId>
+      <Description>test1</Description>
+      <EnableParameter>false</EnableParameter>
+      <ParameterNames>[]</ParameterNames>
+    </Command>
+    <Command>
+      <Name>Test2</Name>
+      <WorkingDir/>
+      <CommandContent>eXVtIHVwZGF0ZQ==</CommandContent>
+      <Timeout>3600</Timeout>
+      <Type>RunShellScript</Type>
+      <CommandId>c-7d2a745b412b4601b2d47f6a768d3a16</CommandId>
+      <Description>test2</Description>
+      <EnableParameter>false</EnableParameter>
+      <ParameterNames>[]</ParameterNames>
+    </Command>
+    <Command>
+      <Name>Test3</Name>
+      <WorkingDir/>
+      <CommandContent>c2VydmljZSBuZ2lueCByZWxvYWQ=</CommandContent>
+      <Timeout>3600</Timeout>
+      <Type>RunShellScript</Type>
+      <CommandId>c-7d2a745b412b4601b2d47f6a768d3a17</CommandId>
+      <Description>test3</Description>
+    </Command>
+    <Command>
+      <Name>Test4</Name>
+      <WorkingDir/>
+      <CommandContent>ZWNobyB7e25hbWV9fSA=</CommandContent>
+      <Timeout>120</Timeout>
+      <Type>RunShellScript</Type>
+      <CommandId>c-7d2a745b412b4601b2d47f6a768d3a18</CommandId>
+      <Description>test4</Description>
+      <EnableParameter>true</EnableParameter>
+      <ParameterNames>["name"]</ParameterNames>
+    </Command>
+  </Commands>
+  <PageNumber>1</PageNumber>
+  <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
+  <PageSize>10</PageSize>
 </DescribeCommandsResponse>
+
 ```
 
 `JSON` 格式
@@ -180,6 +196,8 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
 				"Timeout":3600,
 				"CommandContent":"ZWNobyAxMjM=",
 				"Type":"RunShellScript",
+				"EnableParameter":false,
+				"ParameterNames":[],
 				"CommandId":"c-7d2a745b412b4601b2d47f6a768d3a14",
 				"WorkingDir":""
 			},
@@ -189,6 +207,8 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
 				"Timeout":3600,
 				"CommandContent":"Y2QgL3Jvb3Q=",
 				"Type":"RunShellScript",
+				"EnableParameter":false,
+				"ParameterNames":[],
 				"CommandId":"c-7d2a745b412b4601b2d47f6a768d3a15",
 				"WorkingDir":""
 			},
@@ -207,6 +227,8 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
 				"Timeout":3600,
 				"CommandContent":"c2VydmljZSBuZ2lueCByZWxvYWQ=",
 				"Type":"RunShellScript",
+				"EnableParameter":false,
+				"ParameterNames":[],
 				"CommandId":"c-7d2a745b412b4601b2d47f6a768d3a17",
 				"WorkingDir":""
 			},
@@ -214,8 +236,12 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
 				"Name":"Test4",
 				"Description":"test4",
 				"Timeout":3600,
-				"CommandContent":"bHM=",
+				"CommandContent":"ZWNobyB7e25hbWV9fSA=",
 				"Type":"RunShellScript",
+				"EnableParameter":true,
+				"ParameterNames":[
+					"name"
+				],
 				"CommandId":"c-7d2a745b412b4601b2d47f6a768d3a18",
 				"WorkingDir":""
 			}
@@ -231,7 +257,6 @@ https://ecs.aliyuncs.com/?Action=DescribeCommands
 |500|InternalError.Dispatch|An error occurred when you dispatched the request.|发生未知错误。|
 |403|InvalidParam.PageNumber|The specified parameter is invalid.|指定的参数无效。|
 |403|InvalidParam.PageSize|The specified parameter is invalid.|指定的参数无效。|
-|403|InvalidRegionId.CloudAssistant|Current region is not available.|指定的地域暂不可用。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
