@@ -69,6 +69,9 @@
 |Invocations| | |命令执行记录集类型（InvocationSetType）。
 
  |
+|└CommandContent|String|ZWNobyBKYWNr|返回本次执行的命令内容。如果您使用了自定义参数，则返回添加了自定义参数后的命令内容。
+
+ |
 |└CommandId|String|c-4d34302d02424c5c8e10281e3a315a05|命令 ID。
 
  |
@@ -121,6 +124,9 @@
 -   Stopped：命令进程被手动停止 。
 
  |
+|└Parameters|String|\{"name":"Jack"\}|以JSON字符串的形式，返回本次执行传入的自定义参数。如果您的命令禁用了自定义参数功能，则返回空字符串。
+
+ |
 |└Timed|Boolean|false|是否为周期执行。
 
  |
@@ -171,6 +177,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInvocations
     <Invocation>
       <InvokeStatus>Running</InvokeStatus>
       <InvokeId>t-7d2a745b412b4601b2d47f6a768d3b53</InvokeId>
+      <CommandContent>ZWNobyBKYWNr</CommandContent>
       <CommandName>Test1</CommandName>
       <CommandType>RunShellScript</CommandType>
       <Frequency>0 */20 * * * *</Frequency>
@@ -184,12 +191,14 @@ https://ecs.aliyuncs.com/?Action=DescribeInvocations
           <InstanceInvokeStatus>Running</InstanceInvokeStatus>
         </InvokeInstance>
       </InvokeInstances>
+      <Parameters>{"name":"Jack"}</Parameters>
       <Timed>True</Timed>
       <CommandId>c-7d2a745b412b4601b2d47f6a768d3a14</CommandId>
     </Invocation>
     <Invocation>
       <InvokeStatus>Finished</InvokeStatus>
       <InvokeId>t-7d2a745b412b4601b2d47f6a768d3b55</InvokeId>
+      <CommandContent>ZWNobyBuYW1l</CommandContent>
       <CommandName>Test3</CommandName>
       <CommandType>RunShellScript</CommandType>
       <Frequency/>
@@ -203,6 +212,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInvocations
           <InstanceInvokeStatus>Finished</InstanceInvokeStatus>
         </InvokeInstance>
       </InvokeInstances>
+      <Parameters/>
       <Timed>False</Timed>
       <CommandId>c-7d2a745b412b4601b2d47f6a768d3a16</CommandId>
     </Invocation>
@@ -220,6 +230,8 @@ https://ecs.aliyuncs.com/?Action=DescribeInvocations
 	"Invocations":{
 		"Invocation":[
 			{
+				"Parameters":"{\"name\":\"Jack\"}",
+				"CommandContent":"ZWNobyBKYWNr",
 				"CommandType":"RunShellScript",
 				"CommandName":"Test1",
 				"InvokeStatus":"Running",
@@ -241,6 +253,8 @@ https://ecs.aliyuncs.com/?Action=DescribeInvocations
 				"Frequency":"0 */20 * * * *"
 			},
 			{
+				"Parameters":"",
+				"CommandContent":"ZWNobyBuYW1l",
 				"CommandType":"RunShellScript",
 				"CommandName":"Test3",
 				"InvokeStatus":"Finished",
@@ -275,7 +289,6 @@ https://ecs.aliyuncs.com/?Action=DescribeInvocations
 |500|InternalError.Dispatch|An error occurred when you dispatched the request.|发生未知错误。|
 |403|InvalidParam.PageNumber|The specified parameter is invalid.|指定的参数无效。|
 |403|InvalidParam.PageSize|The specified parameter is invalid.|指定的参数无效。|
-|403|InvalidRegionId.CloudAssistant|Current region is not available.|指定的地域暂不可用。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
