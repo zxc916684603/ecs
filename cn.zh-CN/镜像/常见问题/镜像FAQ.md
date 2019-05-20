@@ -81,6 +81,8 @@
     -   [更换系统盘时，选择的镜像中包含数据盘的话，能通过更换系统盘实现更换镜像吗？](#section_053_0tw_h6a)
     -   [我目前有一台ECS服务器，想用现有的镜像来更换这台ECS的操作系统，怎么操作？](#section_69i_52e_jfd)
     -   [账号A的服务器制作镜像后，能给账号B更换磁盘用吗？](#section_oww_crp_0j9)
+-   镜像费用FAQ
+    -   [为什么创建实例时自定义镜像的配置费用高于公共镜像？](#section_k04_yg7_uoa)
 -   镜像商业化FAQ
     -   [如何购买镜像市场镜像？](#section_hxc_rqc_ghb)
     -   [按次购买的镜像的使用期限是多久？](#section_hqw_prc_ghb)
@@ -406,15 +408,15 @@ Linux其他较重要的配置文件如下：
 
 1.  ECS实例数据盘未分区，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155807272546300_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155833345946300_zh-CN.png)
 
 2.  使用自定义镜像创建的ECS实例中，未注释掉/etc/fstab中的磁盘挂载条目，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155807272546301_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155833345946301_zh-CN.png)
 
 3.  实例启动时，会按照/etc/fstab文件中的配置挂载磁盘，但由于数据盘未分区导致挂载失败，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155807272546302_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155833346046302_zh-CN.png)
 
 
 不用注释磁盘挂载条目的情况：一般只有在创建ECS实例时，选择了数据盘且数据盘是通过已分区、已格式化的数据盘快照生成。
@@ -590,6 +592,13 @@ Linux其他较重要的配置文件如下：
 您可以共享镜像给账号B，具体步骤请参见[共享镜像](cn.zh-CN/镜像/自定义镜像/共享镜像.md#)。
 
 **说明：** 用于更换系统盘的镜像中，只能包含系统盘。
+
+## 为什么创建实例时自定义镜像的配置费用高于公共镜像？ {#section_k04_yg7_uoa .section}
+
+以下任一原因均可导致自定义镜像的配置费用高于公共镜像：
+
+-   自定义镜像中包含数据盘。创建实例时，数据盘产生的费用，导致自定义镜像总费用高于相应的公共镜像。
+-   自定义镜像基于付费公共镜像（如Windows Server、Redhat Enterprise Linux等）创建。
 
 ## 如何购买镜像市场镜像？ {#section_hxc_rqc_ghb .section}
 
@@ -888,7 +897,7 @@ CentOS 6和CentOS 7的DNS解析机制，使用相同的网络五元组发送IPV4
 
         默认使用阿里云`options`配置`options timeout:2 attempts:3 rotate single-request-reopen`。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155807272546335_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155833346046335_zh-CN.png)
 
     -   如果存在`options`配置：
         -   不存在`single-request-reopen`配置，则在`options`配置中追加该项。
