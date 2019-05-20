@@ -44,7 +44,7 @@
 |[DeleteLaunchTemplate](cn.zh-CN/API参考/启动模板/DeleteLaunchTemplate.md#)|删除一个实例启动模板。|
 |[DeleteLaunchTemplateVersion](cn.zh-CN/API参考/启动模板/DeleteLaunchTemplateVersion.md#)|删除指定实例启动模板的一个版本。不支持删除默认版本，您需要通过[DeleteLaunchTemplate](cn.zh-CN/API参考/启动模板/DeleteLaunchTemplate.md#)删除整个实例启动模板才能删除默认版本。|
 |[DescribeLaunchTemplates](cn.zh-CN/API参考/启动模板/DescribeLaunchTemplates.md#)|查询可用的实例启动模板。|
-|[DescribeLaunchTemplateVersions](cn.zh-CN/API参考/启动模板/DescribeLaunchTemplateVersions.md#) |查询实例启动模板版本。|
+|[DescribeLaunchTemplateVersions](cn.zh-CN/API参考/启动模板/DescribeLaunchTemplateVersions.md#)|查询实例启动模板版本。|
 |[ModifyLaunchTemplateDefaultVersion](cn.zh-CN/API参考/启动模板/ModifyLaunchTemplateDefaultVersion.md#)|切换启动模板的某个版本为该模板的默认版本。如果您在创建实例（[RunInstances](cn.zh-CN/API参考/实例/RunInstances.md#)）时不指定模板版本号，会采用默认版本。|
 
 ## 磁盘相关接口 {#section_t3s_t2h_vdb .section}
@@ -187,14 +187,13 @@
 
 |接口|描述|
 |:-|:-|
-|[CreateCommand](cn.zh-CN/API参考/云助手/CreateCommand.md#)|新建[云助手](../../../../../cn.zh-CN/部署与运维/云助手/云助手概述.md#)命令。|
+|[CreateCommand](cn.zh-CN/API参考/云助手/CreateCommand.md#)|新建[云助手](../../../../cn.zh-CN/部署与运维/云助手/云助手概述.md#)命令。|
 |[InvokeCommand](cn.zh-CN/API参考/云助手/InvokeCommand.md#)|为目标实例触发指定的命令。|
 |[StopInvocation](cn.zh-CN/API参考/云助手/StopInvocation.md#)|停止实例中正在进行中（`Running`）的云助手命令进程。|
 |[DeleteCommand](cn.zh-CN/API参考/云助手/DeleteCommand.md#)|删除已创建的云助手命令。|
 |[DescribeCommands](cn.zh-CN/API参考/云助手/DescribeCommands.md#)|查询您已经创建的云助手命令。|
 |[DescribeInvocations](cn.zh-CN/API参考/云助手/DescribeInvocations.md#)|查询您的实例中的云助手命令执行列表及状态。|
 |[DescribeInvocationResults](cn.zh-CN/API参考/云助手/DescribeInvocationResults.md#)|查看云助手命令的执行结果，即在指定实例中的实际输出信息（Output）。|
-|[ModifyCommand](cn.zh-CN/API参考/云助手/ModifyCommand.md#)|修改已创建的云助手命令相关参数以及命令内容。|
 
 ## 标签相关接口 {#section_tag_t2h_vdb .section}
 
