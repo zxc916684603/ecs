@@ -4,7 +4,7 @@
 
 ## 接口说明 {#description .section}
 
-请确保在使用该接口前，您已充分了解 [云服务器 ECS](https://www.aliyun.com/price/product#/ecs/detail) 的计费方式和产品定价。更多有关资源变配的详情，请参阅[查询ECS变配的可用资源实践](~~109517~~)。
+请确保在使用该接口前，您已充分了解 [云服务器 ECS](https://www.alibabacloud.com/product/ecs#pricing) 的计费方式和产品定价。
 
 调用该接口时，您需要注意：
 
