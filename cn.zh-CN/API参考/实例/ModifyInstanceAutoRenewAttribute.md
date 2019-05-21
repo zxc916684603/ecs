@@ -4,7 +4,7 @@
 
 ## 接口说明 {#description .section}
 
-请确保在使用该接口前，您已充分了解 [云服务器 ECS](https://www.aliyun.com/price/product#/ecs/detail) 的计费方式和产品定价。
+请确保在使用该接口前，您已充分了解 [云服务器 ECS](https://www.alibabacloud.com/product/ecs#pricing) 的计费方式和产品定价。
 
 -   自动续费扣款日为实例到期前第 9 天，扣费在北京时间 （UTC +8） 08:00:00 开始执行。
 -   如果前一日执行自动扣费失败，将会继续下一日定时继续执行，直到扣费成功或者 9 天之后实例到期锁定。您只需要保证自己的账号的余额或者信用额度充足即可。
@@ -33,13 +33,11 @@
 
  -   `PeriodUnit`为`year`（年）时，`Duration`的取值范围为：\{"1", "2", "3"\}
 -   `PeriodUnit`为`month`（月）时，`Duration`的取值范围为：\{"1", "2", "3", "6", "12"\}
--   `PeriodUnit`为`week`（周）时，`Duration`的取值范围为：\{"1", "2", "3", "4"\}
 
  |
 |PeriodUnit|String|否|week|续费时长的时间单位，即参数 `Period` 的单位。取值范围：
 
- -   week
--   month（默认）
+ -   month（默认）
 -   year
 
  |
