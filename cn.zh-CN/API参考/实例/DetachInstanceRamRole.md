@@ -1,4 +1,4 @@
-# DetachInstanceRamRole {#doc_api_1006033 .reference}
+# DetachInstanceRamRole {#doc_api_1161585 .reference}
 
 收回一台或多台ECS实例的实例RAM角色。
 
