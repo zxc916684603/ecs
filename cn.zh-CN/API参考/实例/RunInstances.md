@@ -313,7 +313,7 @@
 |AutoRenewPeriod|Integer|否|1|单次自动续费的续费时长。取值范围：
 
  -   `PeriodUnit=Week` 时：\{“1”, “2”, “3”\}
--   `PeriodUnit=Month` 时：\{“1”, “2”, “3”, “6”, “12”\}
+-   `PeriodUnit=Month` 时：\{“1”, “2”, “3”, “6”, “12”, "24", "36", "48", "60"\}
 
  默认值：1
 
