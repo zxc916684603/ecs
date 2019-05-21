@@ -1,4 +1,4 @@
-# ModifyInstanceAutoReleaseTime {#doc_api_999427 .reference}
+# ModifyInstanceAutoReleaseTime {#doc_api_1161583 .reference}
 
 为一台按量付费 实例设定或者取消自动释放时间。设置自动释放时请谨慎操作，配置的时间到期后将自动释放 ECS 实例。
 
