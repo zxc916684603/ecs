@@ -68,7 +68,6 @@
 |InternetChargeType|String|否|PayByTraffic|网络计费方式。取值范围：
 
  -   PayByTraffic：按流量计费
--   PayByBandwidth：按带宽计费
 
  |
 |InstanceName|String|否|\*Joshua|实例名称，支持使用通配符\*进行模糊搜索。
@@ -266,8 +265,7 @@
  |
 |└InternetChargeType|String|PayByTraffic|网络计费类型。可能值：
 
- -   PayByBandwidth：按带宽计费
--   PayByTraffic：按流量计费
+ -   PayByTraffic：按流量计费
 
  |
 |└InternetMaxBandwidthIn|Integer|100|公网入带宽最大值，单位为 Mbps。
