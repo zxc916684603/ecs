@@ -8,8 +8,6 @@
 
 创建实例会涉及到资源计费，建议您提前了解云服务器ECS的计费方式。更多详情，请参阅 [计费概述](~~25398~~)。若实例付费类型为预付费的包年包月实例（`PrePaid`），则在付款时默认会使用您可用的优惠券。
 
-创建实例需要通过实名认证。您可以参阅 [账号实名认证相关文档](https://help.aliyun.com/knowledge_list/37170.html) 完成认证。
-
 根据请求参数创建实例时，您需要注意以下几类请求参数的使用说明。
 
 使用说明：**实例规格**
@@ -101,13 +99,10 @@
  |
 |InternetChargeType|String|否|PayByTraffic|网络计费类型。取值范围：
 
- -   PayByBandwidth：按固定带宽计费
--   PayByTraffic（默认）：按使用流量计费
+ -   PayByTraffic（默认）：按使用流量计费
 
  |
 |AutoRenewPeriod|Integer|否|2|每次自动续费的时长，当参数AutoRenew取值True时为必填。
-
- PeriodUnit 为 Week 时，AutoRenewPeriod 取值 \{“1”, “2”, “3”\}
 
  PeriodUnit 为 Month 时，AutoRenewPeriod 取值 \{“1”, “2”, “3”, “6”, “12”\}
 
@@ -248,8 +243,6 @@
 
  |
 |Period|Integer|否|1|购买资源的时长，单位为：月。当参数 `InstanceChargeType` 取值为 `PrePaid` 时才生效且为必选值。一旦指定了 DedicatedHostId，则取值范围不能超过专有宿主机的订阅时长。取值范围：
-
- PeriodUnit 为 Week 时，Period取值：\{“1”, “2”, “3”, “4”\}
 
  PeriodUnit 为 Month 时，Period取值：\{ “1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “12”, “24”, “36”,”48”,”60”\}
 
