@@ -1,10 +1,10 @@
-# ModifyInstanceChargeType {#doc_api_1032208 .reference}
+# ModifyInstanceChargeType {#doc_api_Ecs_ModifyInstanceChargeType .reference}
 
 更换一台或者多台实例的计费方式。支持在按量付费实例和预付费（包年包月）实例间相互转换，同时可以将实例挂载的所有按量付费云盘转换为预付费（包年包月）云盘。
 
 ## 接口说明 {#description .section}
 
-请确保在使用该接口前，您已充分了解 [云服务器 ECS](https://www.aliyun.com/price/product#/ecs/detail) 的计费方式和产品定价。
+请确保在使用该接口前，您已充分了解 [云服务器 ECS](https://www.alibabacloud.com/product/ecs#pricing) 的计费方式和产品定价。
 
 调用该接口时，您需要注意：
 
@@ -61,14 +61,12 @@
  |
 |Period|Integer|否|2|预付费续费时长。一旦指定了 DedicatedHostId，则取值范围不能超过专有宿主机的订阅时长。取值范围：
 
- -   `PeriodUnit=Week` 时，`Period` 取值：\{“1”, “2”, “3”, “4”\}
--   `PeriodUnit=Month` 时，`Period` 取值：\{ “1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “12”, “24”, “36”,”48”,”60”\}
+ -   `PeriodUnit=Month` 时，`Period` 取值：\{ “1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “12”, “24”, “36”,”48”,”60”\}
 
  |
 |PeriodUnit|String|否|month|续费时长的时间单位，即参数 `Period` 的单位。取值范围：
 
- -   Week
--   Month（默认）
+ -   Month（默认）
 
  |
 |ClientToken|String|否|155780923770 084 104 105 115 073 115 084 104 101 070 105 114 115 116 082 101 113 117 101 115 116|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
@@ -133,7 +131,10 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceChargeType
 |400|InvalidParameter|%s|参数格式不正确。|
 |400|InvalidStatus.ValueNotSupported|%s|该资源当前的状态不支持该操作。|
 |400|InvalidInstanceChargeType.ValueNotSupported|%s|该计费方式取值不存在。|
+|400|ExpiredInstance|The specified instance has expired.|指定的实例已过期。|
 |403|InvalidInstance.TempBandwidthUpgrade|Cannot switch to Pay-As-You-Go during the period of temporary bandwidth upgrade.|临时带宽升级期间不能转换为按量付费。|
+|400|InstancesIdQuotaExceed|The maximum number of Instances is exceeded.|超过了实例数的上限。|
+|400|InvalidClientToken.ValueNotSupported|The ClientToken provided is invalid.|指定的 ClientToken 不合法。|
 |400|InvalidInternetChargeType.ValueNotSupported|%s|参数不支持。|
 |403|InvalidInstanceType.ValueNotSupported|The specified InstanceType does not exist or beyond the permitted range.|指定的实例规格不支持。|
 |403|InstanceType.Offline|%s|实例规格不能使用。|
@@ -141,14 +142,17 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceChargeType
 |400|ReleaseTimeHaveBeenSet|The specified instance has been set released time.|指定的实例已设置释放时间。|
 |403|InvalidAccountStatus.NotEnoughBalance|Your account does not have enough balance.|账号余额不足，请您先充值再进行该操作。|
 |403|Account.Arrearage|Your account has an outstanding payment.|账号存在未支付款项。|
+|400|Throttling|Request was denied due to request throttling, please try again after 5 minutes.|请求被流控。|
 |403|InvalidParameter.NotMatch|%s|参数冲突。|
 |403|InvalidAction|%s|操作不合法。|
 |400|Throttling|%s|请求被流控。|
+|400|QuotaExceed.AfterpayInstance|The maximum number of Pay-As-You-Go instances is exceeded: %s|已经达到允许创建按量实例数量的最大值。|
 |400|InvalidParameter.Bandwidth|%s|参数不支持。|
 |400|InvalidPeriod.UnitMismatch|The specified Period must be correlated with the PeriodUnit.|指定的时长必须得。|
 |400|InvalidImageType.NotSupported|%s|指定的镜像类型无效。|
 |400|InvalidPeriod.ExceededDedicatedHost|Instance expired date can't exceed dedicated host expired date.|实例的自动订阅时长不能晚于专有宿主机订阅时长。|
 |400|InvalidMarketImageChargeType.NotSupport|The specified chargeType of marketImage is unsupported.|云市场镜像的计费方式无效。|
+|403|QuotaExceed.PostPaidDisk|Living postPaid disks quota exceeded.|按量付费磁盘数量已超出允许数量。|
 |403|ImageNotSupportInstanceType|The specified instanceType is not supported by instance with marketplace image.|指定的市场镜像不支持该实例规格。|
 |403|InvalidInstanceType.PhasedOut|This instanceType is no longer offered.|该实例规格已下线。|
 |400|InvalidSystemDiskCategory.ValueNotSupported|%s|参数不支持。|
