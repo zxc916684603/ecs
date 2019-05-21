@@ -1,10 +1,8 @@
-# ModifyInstanceSpec {#doc_api_1032306 .reference}
+# ModifyInstanceSpec {#doc_api_1161587 .reference}
 
 调整一台按量付费实例的实例规格和公网带宽大小。
 
 ## 接口描述 {#description .section}
-
-请确保在使用该接口前，您已充分了解 [云服务器 ECS](https://www.aliyun.com/price/product#/ecs/detail) 的计费方式和产品定价。更多有关资源变配的信息，请参阅云栖社区 [查询 ECS 变配的可用资源实践](https://yq.aliyun.com/articles/500164)。
 
 调用该接口时，您需要注意：
 
@@ -130,14 +128,15 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceSpec
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
+|400|InvalidInternetChargeType.ValueNotSupported|The specified InternetChargeType is not valid.|指定的实例升降配规格不存在。|
 |400|InvalidInstanceType.ValueUnauthorized|The specified InstanceType does not exist or beyond the permitted range.|不支持指定的实例规格。|
 |400|InvalidInstanceType.ValueNotSupported|The specified InstanceType does not exist or beyond the permitted range.|指定的实例规格不支持。|
+|400|InvalidParameter.Mismatch|Too many parameters in one request.|请求中包含的参数过多。|
 |403|CategoryViolation|The specified instance does not support this operation because of its disk category.|挂载有本地磁盘的实例不支持升降配。|
 |403|InvalidStatus.ValueNotSupported|The current status of the resource does not support this operation.|资源当前状态不支持该操作。|
 |500|InternalError|The request processing has failed due to some unknown error, exception or failure.|发生未知错误。|
 |403|InvalidAccountStatus.NotEnoughBalance|Your account does not have enough balance.|账号余额不足，请您先充值再进行该操作。|
 |403|ChargeTypeViolation|The operation is not permitted due to charge type of the instance.|付费方式不支持该操作，请您检查实例的付费类型是否与该操作冲突。|
-|403|OperationDenied|The specified instance is out of usage.|库存不足。|
 |400|BandwidthUpgradeDenied.EipBoundInstance|The specified VPC instance has bound EIP, temporary bandwidth upgrade is denied.|该实例已经绑定EIP，不能进行临时升级。|
 |404|MissingTemporary.StartTime|Temporary.StartTime is not specified.|未指定临时升级开始时间。|
 |404|MissingTemporary.EndTime|Temporary.EndTime is not specified.|未指定临时升级结束时间。|
