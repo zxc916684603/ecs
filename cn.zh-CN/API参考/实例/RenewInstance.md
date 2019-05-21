@@ -1,10 +1,10 @@
-# RenewInstance {#doc_api_1032305 .reference}
+# RenewInstance {#doc_api_1161591 .reference}
 
 续费一台预付费 ECS 实例。
 
 ## 接口说明 {#description .section}
 
-请确保在使用该接口前，您已充分了解 [云服务器 ECS](https://www.aliyun.com/price/product#/ecs/detail) 的计费方式和产品定价。
+请确保在使用该接口前，您已充分了解 [云服务器 ECS](https://www.alibabacloud.com/product/ecs#pricing) 的计费方式和产品定价。
 
 调用该接口时，您需要注意：
 
@@ -25,8 +25,7 @@
  |
 |Period|Integer|是|1|预付费续费时长。一旦指定了 **DedicatedHostId**，则取值范围不能超过专有宿主机的订阅时长。取值范围：
 
- -   PeriodUnit=Week 时，Period 取值：1~4
--   PeriodUnit=Month 时，Period 取值：1~12, 24, 36, 48, 60
+ -   PeriodUnit=Month 时，Period 取值：1~12, 24, 36, 48, 60
 
  |
 |Action|String|否|RenewInstance|接口名称，取值：**RenewInstance**
@@ -37,8 +36,7 @@
  |
 |PeriodUnit|String|否|Month|续费时长的时间单位，即参数 **Period** 的单位。取值范围：
 
- -   Week
--   Month（默认）
+ -   Month（默认）
 
  |
 |ClientToken|String|否|0c593ea1-3bea-11e9-b96b-88e9fe637760|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
@@ -91,6 +89,7 @@ https://ecs.aliyuncs.com/?Action=RenewInstance
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
+|400|InvalidInternetChargeType.ValueNotSupported|The specified InternetChargeType is not valid.|指定的实例升降配规格不存在。|
 |400|IdempotenceParamNotMatch|Request uses a client token in a previous request but is not identical to that request.|与相同 ClientToken 的请求参数不符合。|
 |403|ChargeTypeViolation|The operation is not permitted due to charge type of the instance.|付费方式不支持该操作，请您检查实例的付费类型是否与该操作冲突。|
 |400|InvalidInstanceType.ValueNotSupported|The specified InstanceType does not exist or beyond the permitted range.|指定的实例规格不支持。|
