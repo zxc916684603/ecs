@@ -1,4 +1,4 @@
-# ModifyInstanceVncPasswd {#doc_api_999440 .reference}
+# ModifyInstanceVncPasswd {#doc_api_1161588 .reference}
 
 修改一台 ECS 实例的 Web 管理终端 密码。
 
@@ -17,19 +17,19 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|InstanceId|String|是|i-AY121018033933eae8689|ECS 实例。
+|InstanceId|String|是|i-AY121018033933eae8689| ECS 实例。
 
  |
-|RegionId|String|是|cn-hangzhou|ECS 实例所在的地域。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
+|RegionId|String|是|cn-hangzhou| ECS 实例所在的地域。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
 
  |
-|VncPassword|String|是|123456|新的 ECS 实例管理终端连接密码。
+|VncPassword|String|是|123456| 新的 ECS 实例管理终端连接密码。
 
  |
-|Action|String|否|ModifyInstanceVncPasswd|接口名称。取值：**ModifyInstanceVncPasswd**
+|Action|String|否|ModifyInstanceVncPasswd| 接口名称。取值：**ModifyInstanceVncPasswd**
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
+|OwnerAccount|String|否|ECSforCloud@Alibaba.com| RAM用户的账号登录名称。
 
  |
 
@@ -37,7 +37,7 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。无论调用接口成功与否，我们都会返回请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| 请求 ID。无论调用接口成功与否，我们都会返回请求 ID。
 
  |
 
@@ -78,7 +78,8 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceVncPasswd
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
-|404|InvalidRegionId.NotFound|The specified RegionId does not exist.|指定的 RegionId 不存在，请您检查此产品在该地域是否可用。|
+|403|IncorrectInstanceStatus|The current status of the resource does not support this operation.|该资源目前的状态不支持此操作。|
+|400|IncorrectVncPassword.Malformed|The specified parameter VncPassword is not valid.|指定的 VNC 密码不合法。|
 |404|NoSuchResource|The specified resource is not found.|指定的资源不存在|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
