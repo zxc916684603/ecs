@@ -26,13 +26,12 @@ For **network configuration**:
 
 -   To create a VPC-Connected instance, you must specify the VPC network and a VSwitch. One instance can only belong to one VSwitch.
 -   When you specify `VSwitchId`, `SecurityGroupId` must be in the same VPC as `VSwitchId`.
--   ``If you specify both and `PrivateIpAddress`, `PrivateIpAddress` must be in the same CIDR block as the VSwitch.
--   `` depends on `VSwitchId`, so you cannot specify only `PrivateIpAddress`.
+-   If you specify both and `PrivateIpAddress`, `PrivateIpAddress` must be in the same CIDR block as the VSwitch.
+-   `PrivateIpAddress` depends on `VSwitchId`, so you cannot specify only `PrivateIpAddress`.
 -   When you call this operation to create an instance, no public IP address is allocated to the instance. You can call the [AllocatePublicIpAddress](~~25544~~) operation to allocate a public IP address to the instance.
 -   You can use the `InternetChargeType` and `InternetMaxBandwidthOut` parameters to limit the bandwidth fees.`InternetMaxBandwidthIn` is not related to bandwidth billing, because the inbound data traffic for the instance is free.
 -   The relationship between `InternetChargeType` and `InternetMaxBandwidthOut` is as follows:
-    -   `` indicates that the instance is charged based on a fixed bandwidth, so `InternetMaxBandwidthOut` is the selected bandwidth value.
-    -   `` indicates that the instance is charged based on actual traffic, so `InternetMaxBandwidthOut` is the upper limit of the specified bandwidth. The Pay-As-You-Go billing method is used.
+    -   `InternetChargeType=PayByTraffic` indicates that the instance is charged based on actual traffic, so `InternetMaxBandwidthOut` is the upper limit of the specified bandwidth. The Pay-As-You-Go billing method is used.
 
 For **security groups**:
 
