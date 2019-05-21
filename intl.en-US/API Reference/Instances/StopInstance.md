@@ -1,75 +1,95 @@
-# StopInstance {#StopInstance .reference}
+# StopInstance {#doc_api_1161592 .reference}
 
 Stops an ECS instance.
 
-## Description {#section_tcm_s4m_xdb .section}
+## Description {#description .section}
 
--   You can only stop an instance in **Running**\(`Running`\) status.
--   The instance becomes **Stopping** \(`Stopping`\) after a successful API request, and the instance becomes **Stopped** \(`Stopped`\) after it is stopped successfully.
--   You can force an instance to stop, and the force stop operation is same as the power failure. The temporary files and data in the instance may be lost.
--   If the specified instance is [locked](reseller.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#), and the `OperationLocks` of the instance indicates `LockReason: security`, you cannot stop the instance.
--   If a [local disk](../../../../reseller.en-US/Product Introduction/Block storage/Local disks.md#) is configured in an instance from the [I1 type family](../../../../reseller.en-US/Product Introduction/Instance type families.md#i1), the request parameter `ConfirmStop` is required. The interface can only be called successfully when the parameter ConfirmStop is set to `True`.
--   For an instance from the I1 type family that has a local disk configured, after it is stopped, the data of the local disk is cleared. We recommend that you implement data redundancy at the application layer to guarantee the data availability.
--   This API automatically ignores the parameter `ConfirmStop` for all of the instance types except the instance of I1 type family.
--   After you enable the feature of **[No fees for stopped instances](../../../../reseller.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#)** for a VPC instance, you can set `StoppedMode=KeepCharging` to disable the feature, you are billed after the instance is stopped,  and its resource and Internet IP address are reserved.
+-   You can only stop an instance which is in the **running** \(`Running`\) state.
+-   After you call this operation, the instance enters the **stopping** \(`Stopping`\) state. After the instance is stopped, it is in the **stopped** \(`Stopped`\) state.
+-   You can force stop an instance. However, this operation can cause data loss if data in the instance is not yet written to the disk.
+-   You cannot stop an ECS instance on which [Security Control](~~25695~~) is enabled and whose `OperationLocks` is tagged as `"LockReason" : "security"`.
+-   For an instance on which [Local Disk Storage](~~63138~~) \(Local\_storage\) is configured and which is of the [I1 instance type family](~~25378#i1~~), you must specify `ConfirmStop` and set its value to `True`. Otherwise, an error is returned.
+-   For the I1 instance type family, data in the local disk is cleared after the instance is stopped. We recommend that you implement data redundancy at the application layer to guarantee data availability.
+-   For instances of other instance type families, the `ConfirmStop` parameter is ignored.
+-   If [StopCharging](~~63353~~) is selected, you can configure `StoppedMode=KeepCharging` to KeepCharging. Then the instance is charged after it is stopped. The instance type in stock and public IP address are reserved for this instance.
 
-## Request parameters { .section}
+## Debugging {#apiExplorer .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: StopInstance.|
-|InstanceId|String|Yes|The specified instance ID.|
-|ForceStop|String|No|Whether to force shutdown upon device restart. Value range:-   true: Force the instance to shut down.
--   false: The instance shuts down normally.
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=StopInstance) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-Default value: false.|
-|ConfirmStop|Boolean|No|Whether to stop an I1 ECS instance or not.  A required parameter for I1 type family instance, it only takes effect when the instance is of I1 type family. Optional values:-   true
--   false
+## Request parameters {#parameters .section}
 
-Default value: false.|
-|StoppedMode|String|No|Whether a VPC ECS instance is billed after it is stopped or not. Optional value: KeepCharging.After you enable the feature of **[No fees for stopped instances for a VPC instance](../../../../reseller.en-US/Pricing/No fees for stopped instances (VPC-Connected).md#)**, you can set `StoppedMode=KeepCharging` to disable the feature, the ECS instance will be billed after it is stopped, and its resource and Internet IP address are reserved.
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|InstanceId|String|Yes|i-instanceid1| The ID of the instance.
 
-|
+ |
+|Action|String|No|StopInstance| The operation that you want to perform. Set the value to StopInstance.
 
-## Response parameters {#section_edm_s4m_xdb .section}
+ |
+|StoppedMode|String|No|KeepCharging| Indicates whether the ECS instance is still charged after it is stopped. Valid values: KeepCharging
 
-All parameters are common response parameters. For more information, see [Common parameters](reseller.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
+ If [StopCharging](~~63353~~) is selected, you can configure `StoppedMode=KeepCharging` to KeepCharging. Then the instance is charged after it is stopped. The instance type in stock and public IP address are reserved for this instance.
 
-## Examples { .section}
+ |
+|ForceStop|Boolean|No|false| Indicates whether to stop the instance forcibly. Default values: false.
 
-**Request example** 
+ |
+|ConfirmStop|Boolean|No|true| Indicates whether to confirm the stop operation. This parameter is required and applies only to instances of the I1 instance type family. Default value: false.
 
-```
+ |
+
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The request ID.
+
+ |
+
+## Examples {#demo .section}
+
+Sample request
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=StopInstance
-&InstanceId=i-instance1
-&<Common Request Parameters>
+&InstanceId=i-instanceid1
+&ConfirmStop=true
+&ForceStop=false
+&StoppedMode=keepcharging
+&<Common request parameters>
 ```
 
-**Response example**
+Successful response examples
 
- **XML format** 
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <StopInstanceResponse>
-    <RequestId>1C488B66-B819-4D14-8711-C4EAAA13AC01</RequestId>
+  <RequestId>1C488B66-B819-4D14-8711-C4EAAA13AC01</RequestId>
 </StopInstanceResponse>
 ```
 
- **JSON format ** 
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-    "RequestId": "1C488B66-B819-4D14-8711-C4EAAA13AC01"
+	"RequestId":"1C488B66-B819-4D14-8711-C4EAAA13AC01"
 }
 ```
 
 ## Error codes { .section}
 
-|Error code|Error message|HTTP status code|Meaning|
-|:---------|:------------|:---------------|:------|
-|DiskError|IncorrectDiskStatus|403|The specified ForceStop is invalid, the parameter is not in the enumerated range.|
-|InstanceLockedForSecurity|The specified operation is denied as your instance is locked for security reasons.|403|The resource is currently locked down and the operation is denied.|
-|IncorrectInstanceStatus|The current status of the resource does not support this operation.|403|The current status of the resource does not support the operation.|
-|InstanceType.ParameterMismatch|The input parameter ConfirmStop must be true when an instance have localstorage.|403|The instance is locked for security reasons.|
-|InvalidInstanceId.NotFound|The specified InstanceId does not exist.|404|The specified InstanceId does not exist.|
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|403|IncorrectInstanceStatus|The current status of the resource does not support this operation.|The error message returned when the operation is not supported while the resource is in the current state.|
+|403|InstanceType.ParameterMismatch|The input parameter ConfirmStop must be true when an instance have localstorage.|The error message returned when Local Disk Storage is configured for the instance. The ConfirmStop parameter must be set to true.|
+|403|InstanceExpiredOrInArrears|The specified operation is denied as your prepay instance is expired \(prepay mode\) or in arrears \(afterpay mode\).|The error message returned when the subscription instance has expired. Renew the instance first.|
+|403|InvalidInstanceId.NotSupport|Classic network Instance does not support this operation.|The error message returned when the operation is not supported in classic instances.|
+|403|InvalidInstanceId.NotSupport|Pre pay instance does not support this operation.|The error message returned when the operation is not supported in subscription instances.|
+|403|InvalidInstanceId.NotSupport|Local disk instance does not support this operation.|The error message returned when the operation is not supported in local disk instances.|
+|403|InvalidInstanceId.NotSupport|Spot instance does not support this operation.|The error message returned when the operation is not supported in preemptible instances.|
+|403|IncorrectInstanceStatus|%s|The error message returned when the operation is not supported while the instance is in the current state.|
+
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
