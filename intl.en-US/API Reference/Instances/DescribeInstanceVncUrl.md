@@ -1,94 +1,102 @@
-# DescribeInstanceVncUrl {#DescribeInstanceVncUrl .reference}
+# DescribeInstanceVncUrl {#doc_api_1161580 .reference}
 
-Queries the [management terminal URL](../reseller.en-US/User Guide/Connect to instances/Connect to an instance by using the Management Terminal.md#) before connecting to an instance.
+Queries the Web management terminal URL of an ECS instance.
 
-## Description {#section_nkr_mss_xdb .section}
+## Description {#description .section}
 
-When you call this interface, consider the following:
+When you call this operation, note that:
 
--   A management terminal URL is valid for 15 seconds. If a connection is not established within 15 seconds after a successful query, the URL expires and you must query it again.
+-   A management terminal URL is only valid for 15 seconds. If a connection is not established within 15 seconds after a successful query, the URL expires and you must query it again.
+-   The **KeepAlive** time of a management terminal connection is 60 seconds. If the user does not interact with the management terminal within 60 seconds, the management terminal will be automatically disconnected.
+-   When the management terminal is disconnected, you can only reconnect to the management terminal up to 30 times a minute.
+-   At the end of [https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?](https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?), add `vncUrl=xxxx`, `instanceId=xxx`, `isWindows=True`, `isWindows=False`, and`password=XXXXXX`. Connect these parameters with `&`. Where:
+    -   `vncUrl`: The value of `vncUrl` is returned after a successful query.
+    -   `instanceId`: the ID of instance.
+    -   `isWindows`: indicates whether the operating system of the instance is Windows. The value of `true` indicates the Windows system. The value of `false` indicates that it is not the Windows system.
+    -   `password`: Optional. The password to establish a remote connection from an instance. It must be 6 characters in length and can contain digits and uppercase and lowercase letters. You can use this parameter to eliminate the need to enter your password when the connection is being established.
 
--   The **KeepAlive** time of an individual management terminal connection is 60 seconds. If you do not interact with the management terminal window within 60 seconds, the connection is automatically closed.
+        Example:
 
--   If the connection is interrupted, you cannot reconnect for more than 30 times per minute.
+        ```
+        
+        https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?vncUrl=ws%3A%2F%xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true 
+                
+        ```
 
+        or
 
-**How to use the response parameter**
-
-At the end of the fixed URL [https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?](https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?), add `vncUrl=xxxx`, `instanceId=xxx`, `isWindows=true`, `isWindows=false` and `password=XXXXXX`, and use symbol `&` between the parameters. Wherein:
-
--   Parameter `vncUrl`: The value of `VncUrl` is responded after calling the interface successfully.
-
--   Parameter `instanceId`: The ID of your instance to which you are about to connect.
-
--   Parameter `isWindows`: Whether the operating system of an instance is Windows or not. The value `true` indicates a Windows instance, and the value `false` indicates other operating system, for example, Linux.
-
--   \(Optional\). Parameter `password`: The instance connection password in the Management Terminal. It consists of 6 numbers or uppercase/lowercase letters. This parameter eliminates the need to enter the password before the connection establishes.
-
-    **Sample**:
-
-    ```
-    https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?vncUrl=ws%3A%2F%xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true
-    ```
-
-    Or
-
-    ```
-    https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?vncUrl=ws%3A%2F%xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true&Password=111111
-    ```
+        ```
+        
+        https://g.alicdn.com/aliyun/ecs-console-vnc/0.0.7/index.html?vncUrl=ws%3A%2F%xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true&password=111111 
+                
+        ```
 
 
-## Request parameters {#RequestParameter .section}
+## Debugging {#apiExplorer .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DescribeInstanceVncUrl|
-|RegionId|String|Yes|The region ID of the instance. For more information, call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|InstanceId|String|Yes|The ID of an instance.|
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeInstanceVncUrl) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-## Response parameters {#ResponseParameter .section}
+## Request parameters {#parameters .section}
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|VncUrl|String|The management terminal URL.|
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|InstanceId|String|Yes|i-AY121018033933eaxxxxxxx| The ID of the instance.
 
-## Examples { .section}
+ |
+|RegionId|String|Yes|cn-hangzhou| The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to view the latest region list.
 
-**Request example**
+ |
+|Action|String|No|DescribeInstanceVncUrl| The operation that you want to perform. Set the value to DescribeInstanceVncUrl.
 
-```
+ |
+
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The request ID.
+
+ |
+|VncUrl|String|ws%3A%2F%2Fhz01-vncproxy.aliyun.com%2Fwebsockify%2F%3Fs%3DDvh%252FIA%252BYc73gWO48cBx2gBxUDVzaAnSKr74pq30mzqUYgeUMcB%252FbkNixDxdEA996| The management terminal URL.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=DescribeInstanceVncUrl
-&RegionId=cn-qingdao
-&InstanceId=AY121018033933eaxxxxxxx
-&<Common Request Parameters>
+&InstanceId=i-AY121018033933eaxxxxxxx
+&RegionId=cn-hangzhou 
+&<Common request parameters>
 ```
 
-**Response example**
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <DescribeInstanceVncUrlResponse>
-    <RequestId>1450F2D7-5435-4420-BBC9-49C5xxxxxxxx</RequestId>
-    <VncUrl>ws%3A%2F%2Fhz01-vncproxy.aliyun.com%2Fwebsockify%2F%3Fs%3DDvh%252FIA%252BYc73gWO48cBx2gBxUDVzaAnSKr74pq30mzqUYgeUMcB%252FbkNixDxdEA996</VncUrl>
+  <RequestId>1450F2D7-5435-4420-BBC9-49C5xxxxxxxx</RequestId>
+  <VncUrl>ws%3A%2F%2Fhz01-vncproxy.aliyun.com%2Fwebsockify%2F%3Fs%3DDvh%252FIA%252BYc73gWO48cBx2gBxUDVzaAnSKr74pq30mzqUYgeUMcB%252FbkNixDxdEA996</VncUrl>
 </DescribeInstanceVncUrlResponse>
 ```
 
-**JSON format**
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-    "RequestId": "1450F2D7-5435-4420-BBC9-49C514B0157E", 
-    "VncUrl": "ws%3A%2F%2Fhz01-vncproxy.aliyun.com%2Fwebsockify%2F%3Fs%3DDvh%252FIA%252BYc73gWO48cBx2gBxUDVzaAnSKr74pq30mzqUYgeUMcB%252FbkNixDxdEA996"
+	"VncUrl":"ws%3A%2F%2Fhz01-vncproxy.aliyun.com%2Fwebsockify%2F%3Fs%3DDvh%252FIA%252BYc73gWO48cBx2gBxUDVzaAnSKr74pq30mzqUYgeUMcB%252FbkNixDxdEA996",
+	"RequestId":"1450F2D7-5435-4420-BBC9-49C514B0157E"
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes { .section}
 
-|Error code|Error message|HTTP status code|Description|
-|:---------|:------------|:---------------|:----------|
-|IncorrectInstanceStatus|The current status of the resource does not support this operation.|403|The specified instance must be in the **Running** status.|
-|InstanceNotReady|The specified instance is not ready for use|403|The specified instance is being created. Please try again later.|
-|InvalidInstanceId.NotFound|The specified InstanceId does not exist.|404|The specified `InstanceId` does not exist.|
-|InvalidRegionId.NotFound|The specified RegionId does not exist.|404|The specified `RegionId` does not exist.|
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|403|IncorrectInstanceStatus|The current status of the resource does not support this operation.|The error message returned when the operation is not supported while the resource is in the current state.|
+
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 

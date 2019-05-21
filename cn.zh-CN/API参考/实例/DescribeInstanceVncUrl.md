@@ -1,4 +1,4 @@
-# DescribeInstanceVncUrl {#doc_api_1022181 .reference}
+# DescribeInstanceVncUrl {#doc_api_1161580 .reference}
 
 查询一台 ECS 实例的 Web 管理终端地址。
 
@@ -102,8 +102,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceVncUrl
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
-|404|InvalidRegionId.NotFound|The specified RegionId does not exist.|指定的 RegionId 不存在，请您检查此产品在该地域是否可用。|
-|403|InstanceNotReady|The specified instance is not ready for use|该资源目前的状态不支持此操作，请您等待一段时间再进行操作，并确认实例目前状态与操作是否冲突。|
+|403|IncorrectInstanceStatus|The current status of the resource does not support this operation.|该资源目前的状态不支持此操作。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
