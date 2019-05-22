@@ -35,7 +35,7 @@
 
 下图描述了云服务器ECS的常用功能模块之间的关系，图中涉及的功能模块的详细介绍请参见相应的帮助文档：
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/155792950844516_zh-CN.jpg)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/155849247744516_zh-CN.jpg)
 
 ## 产品定价 {#section_vq5_brj_ydb .section}
 
