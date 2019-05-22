@@ -4,8 +4,6 @@
 
 ## 接口说明 {#description .section}
 
-创建实例前，您需要通过实名认证。更多详情，请参阅 [账号实名认证相关文档](https://help.aliyun.com/knowledge_list/37170.html)。
-
 创建实例前，您可以调用 [DescribeAvailableResource](~~66186~~) 查看指定地域或者可用区内的资源供给情况。
 
 创建实例会涉及到资源计费，建议您提前了解云服务器 ECS 的计费方式。更多详情，请参阅 [计费概述](~~25398~~)。
@@ -288,8 +286,7 @@
  |
 |InternetChargeType|String|否|PayByTraffic|网络计费类型。取值范围：
 
- -   PayByBandwidth：按固定带宽计费
--   PayByTraffic（默认）：按使用流量计费
+ -   PayByTraffic（默认）：按使用流量计费
 
  |
 |Period|Integer|否|1|购买资源的时长，单位为：月。当参数 `InstanceChargeType` 取值为 `PrePaid` 时才生效且为必选值。一旦指定了 DedicatedHostId，则取值范围不能超过专有宿主机的订阅时长。取值范围：
@@ -323,7 +320,7 @@
  -   PrePaid：预付费，包年包月。
 -   PostPaid（默认）：按量付费。
 
- 选择预付费时，您必须确认自己的账号支持余额支付或者信用支付，否则将返回 `InvalidPayMethod` 的错误提示。
+ 选择预付费时，您必须确认自己的账号支持信用支付，否则将返回 `InvalidPayMethod` 的错误提示。
 
  |
 |Ipv6AddressCount|Integer|否|1|为弹性网卡指定随机生成的 IPv6 地址数量。
