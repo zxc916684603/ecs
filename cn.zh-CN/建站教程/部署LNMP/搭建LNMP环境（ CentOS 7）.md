@@ -47,7 +47,7 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件,可以帮助您在
 2.  关闭防火墙。
     1.  输入`systemctl status firewalld`命令查看当前防火墙的状态。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/155566019532172_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/155851836532172_zh-CN.png)
 
     2.  如果防火墙的状态参数是inactive，则防火墙为关闭状态， 可跳过此步骤。如果防火墙的状态参数是active，则防火墙为开启状态。如上图所示，此处防火墙为开启状态，需要运行如下命令关闭防火墙：
         -   如果您想临时关闭防火墙，输入命令`systemctl stop firewalld`。
@@ -61,7 +61,7 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件,可以帮助您在
 3.  关闭SELinux。
     1.  运行`getenforce`命令查看SELinux的当前状态。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/155566019521065_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/155851836521065_zh-CN.png)
 
     2.  如果SELinux状态参数是Disabled， 则SELinux为关闭状态，可跳过此步骤。如果SELinux状态参数是Enforcing，则SELinux为开启状态。如上图所示，此处SELinux为开启状态，需要运行如下命令关闭SELinux：
         -   如果您想临时关闭SELinux，输入命令`setenforce 0`。
@@ -85,13 +85,13 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件,可以帮助您在
 2.  运行以下命令查看Nginx版本。
 
     ``` {#codeblock_pzg_a2b_k9a}
-    nginx -v							
+    nginx -v                            
     ```
 
     返回结果如下所示，表示Nginx安装成功。
 
     ``` {#codeblock_cy7_8co_14b}
-    nginx version: nginx/1.12.2							
+    nginx version: nginx/1.12.2                            
     ```
 
 
@@ -127,9 +127,11 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件,可以帮助您在
 1.  依次运行以下命令更新YUM源。
 
     ``` {#codeblock_93c_b7q_s2k}
-    # yum install -y http://dl.iuscommunity.org/pub/ius/stable/CentOS/7/x86_64/ius-release-1.0-14.ius.centos7.noarch.rpm
+    # yum install -y http://dl.iuscommunity.org/pub/ius/stable/CentOS/7/x86_64/ius-release-1.0-15.ius.centos7.noarch.rpm
     # rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
     ```
+
+    **说明：** 本教程以`ius-release-1.0-15.ius.centos7.noarch.rpm`版本为例。实际安装过程中，请您使用最新版本ius-release软件包。
 
 2.  运行以下命令安装PHP。
 
@@ -149,7 +151,7 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件,可以帮助您在
     PHP 7.0.33 (cli) (built: Dec  6 2018 22:30:44) ( NTS )
     Copyright (c) 1997-2017 The PHP Group
     Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies
-        with Zend OPcache v7.0.33, Copyright (c) 1999-2017, by Zend Technologies				
+        with Zend OPcache v7.0.33, Copyright (c) 1999-2017, by Zend Technologies                
     ```
 
 
@@ -180,7 +182,7 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件,可以帮助您在
                 fastcgi_index index.php;
                 fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
                 include fastcgi_params;
-            }				
+            }                
     ```
 
 5.  运行以下命令启动Nginx服务。
@@ -308,7 +310,7 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件,可以帮助您在
 
     返回结果如下图所示，表示LNMP环境部署成功。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/155566019544922_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/155851836544922_zh-CN.png)
 
 
 ## 下一步 {#section_pbt_ozb_ge7 .section}
