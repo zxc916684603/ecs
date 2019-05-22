@@ -239,7 +239,7 @@ You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=RunInstances)
 -   Deactive: disables security hardening. It is applicable to all images.
 
  |
-|DeploymentSetId|String|No|ds-bp1brhwhoqinyjd6tnXX| The ID of the deployment set.
+|DeploymentSetId|String|No|ds-bp1brh\*\*\*\*\*nyjd6tnXX| The ID of the deployment set.
 
  |
 |DedicatedHostId|String|No|dh-dedicatedhost1| Indicates whether to create an ECS instance on the specified Dedicated Host \(DDH\). You can call the [DescribeDedicatedHosts](~~94572~~) operation to view the DDH list.
@@ -259,7 +259,7 @@ You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=RunInstances)
 |ResourceGroupId|String|No|rg-resourcegroupid1| The ID of the resource group to which the instance belongs.
 
  |
-|LaunchTemplateId|String|No|lt-bp1apo0bbbkuy0rj3b9X| The ID of the instance launch template. For more information, call [DescribeLaunchTemplates](~~73759~~). You must use `LaunchTemplateId` or `LaunchTemplateName` to specify the instance launch template.
+|LaunchTemplateId|String|No|lt-bp1apo\*\*\*\*\*uy0rj3b9X| The ID of the instance launch template. For more information, call [DescribeLaunchTemplates](~~73759~~). You must use `LaunchTemplateId` or `LaunchTemplateName` to specify the instance launch template.
 
  |
 |LaunchTemplateName|String|No|JoshuaWinPostPaid| The name of the instance launch template. You must use `LaunchTemplateId` or `LaunchTemplateName` to specify the instance launch template.
@@ -308,8 +308,8 @@ You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=RunInstances)
  |
 |AutoRenewPeriod|Integer|No|1| The automatic renewal period of the instance. Valid values:
 
- -   ``\{“1”, “2”, “3”\} if PeriodUnit is set to Week.
--   ``\{“1”, “2”, “3”, “6”, “12”, "24", "36", "48", "60"\} if PeriodUnit is set to Month.
+ -   \{“1”, “2”, “3”\} if PeriodUnit is set to Week.
+-   \{“1”, “2”, “3”, “6”, “12”, "24", "36", "48", "60"\} if PeriodUnit is set to Month.
 
  Default value: 1.
 
