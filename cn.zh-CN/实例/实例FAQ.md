@@ -71,7 +71,7 @@
 
 ## 新创建的预付费实例在5天内转为按量付费，属于5天无理由退款吗？ {#section_v3v_agu_nv3 .section}
 
-不属于。预付费转按量付费后您依旧在使用实例。关于5天无理由退款的规则请参见[5天无理由退款说明（ECS）](https://expense.console.aliyun.com/?spm=a2c4g.11186623.2.8.8oI1Ug#/refund/product/ecs)。
+不属于。预付费转按量付费后您依旧在使用实例。关于5天无理由退款的规则请参见[5天无理由退款说明（ECS）](https://help.aliyun.com/knowledge_detail/37096.html)。
 
 ## 管理终端是独享的吗？ {#section_6q9_jbp_zz9 .section}
 
