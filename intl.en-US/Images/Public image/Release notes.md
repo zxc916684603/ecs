@@ -2,6 +2,67 @@
 
 This topic describes the release notes of images and relevant updates.
 
+## May 17, 2019 {#section_4pq_y1g_omv .section}
+
+|Release|Description|
+|:------|:----------|
+|Windows Server 2008 Standard Edition SP2| -   Image ID: win2008\_32\_std\_sp2\_zh-cn\_40G\_alibase\_20190517.vhd \(Chinese edition\)
+-   Released in: all regions
+-   Changes:
+    -   Updated to the latest system patches
+    -   Fixed a remote code execution vulnerability \(CVE-2019-0708\) in Microsoft Windows Remote Desktop Services
+
+ |
+
+## May 15, 2019 {#section_swy_b21_a86 .section}
+
+|Release|Description|
+|:------|:----------|
+|Windows Server 2008 R2 Enterprise Edition| -   Image ID:
+    -   win2008r2\_64\_ent\_sp1\_zh-cn\_40G\_alibase\_20190515.vhd \(Chinese edition\)
+    -   win2008r2\_64\_ent\_sp1\_en-us\_40G\_alibase\_20190515.vhd \(English edition\)
+-   Released in: all regions
+-   Changes:
+    -   Updated to the latest system patches
+    -   Fixed a remote code execution vulnerability \(CVE-2019-0708\) in Microsoft Windows Remote Desktop Services
+
+ |
+
+## May 13, 2019 {#section_bs8_1ij_1g1 .section}
+
+|Release|Description|
+|:------|:----------|
+|Ubuntu 16.04| -   Image ID: ubuntu\_16\_04\_64\_20G\_alibase\_20190513.vhd
+-   Kernel version: 4.4.0-146-generic
+-   Released in: all regions
+-   Changes: updated to the latest system patches
+
+ |
+
+## May 10, 2019 {#section_z9h_c07_0pk .section}
+
+|Release|Description|
+|:------|:----------|
+|Debian 9.9| -   Image ID: debian\_9\_09\_64\_20G\_alibase\_20190510.vhd
+-   Kernel version: 4.9.0-9-amd64
+-   Released in: all regions
+-   Changes: updated to the latest system patches
+
+ |
+
+## May 9, 2019 {#section_1p7_ott_exw .section}
+
+|Release|Description|
+|:------|:----------|
+|Ubuntu 18.04| -   Image ID: ubuntu\_18\_04\_64\_20G\_alibase\_20190509.vhd
+-   Kernel version: 4.15.0-48-generic
+-   Released in: all regions
+-   Changes:
+    -   Updated cloud-init to speed up boot time
+    -   Updated to the latest system patches
+
+ |
+
 ## May 7, 2019 {#section_u6x_qmv_tn8 .section}
 
 |Release|Description|
