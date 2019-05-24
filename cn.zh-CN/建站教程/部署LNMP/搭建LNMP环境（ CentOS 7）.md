@@ -47,7 +47,7 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件,可以帮助您在
 2.  关闭防火墙。
     1.  输入`systemctl status firewalld`命令查看当前防火墙的状态。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/155851836532172_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/155869165032172_zh-CN.png)
 
     2.  如果防火墙的状态参数是inactive，则防火墙为关闭状态， 可跳过此步骤。如果防火墙的状态参数是active，则防火墙为开启状态。如上图所示，此处防火墙为开启状态，需要运行如下命令关闭防火墙：
         -   如果您想临时关闭防火墙，输入命令`systemctl stop firewalld`。
@@ -61,7 +61,7 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件,可以帮助您在
 3.  关闭SELinux。
     1.  运行`getenforce`命令查看SELinux的当前状态。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/155851836521065_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/155869165021065_zh-CN.png)
 
     2.  如果SELinux状态参数是Disabled， 则SELinux为关闭状态，可跳过此步骤。如果SELinux状态参数是Enforcing，则SELinux为开启状态。如上图所示，此处SELinux为开启状态，需要运行如下命令关闭SELinux：
         -   如果您想临时关闭SELinux，输入命令`setenforce 0`。
@@ -170,20 +170,23 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件,可以帮助您在
     ```
 
 3.  按`i`进入编辑模式。
-4.  在server大括号内，添加下列配置信息。
+4.  在server大括号内，添加下列配置信息，使Nginx支持PHP请求。
 
-    ``` {#codeblock_st9_xqy_yb6}
+    ``` {#codeblock_p2t_fz5_mxa}
             location / {
                 index index.php index.html index.htm;
             }
+            #配置Nginx通过fastcgi方式处理您的PHP请求
             location ~ .php$ {
                 root /usr/share/php;
-                fastcgi_pass 127.0.0.1:9000;
+                fastcgi_pass 127.0.0.1:9000; #Nginx通过本机的9000端口将PHP请求转发给PHP-FPM进行处理。
                 fastcgi_index index.php;
                 fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-                include fastcgi_params;
+                include fastcgi_params;  #Nginx调用fastcgi接口处理PHP请求
             }                
     ```
+
+    **说明：** 若不添加此配置信息，则会导致Nginx无法处理您的PHP请求，即您请求的PHP页面将无法打开。
 
 5.  运行以下命令启动Nginx服务。
 
@@ -310,7 +313,7 @@ Nginx是一个小巧而高效的Linux下的Web服务器软件,可以帮助您在
 
     返回结果如下图所示，表示LNMP环境部署成功。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/155851836544922_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/155869165044922_zh-CN.png)
 
 
 ## 下一步 {#section_pbt_ozb_ge7 .section}
