@@ -403,15 +403,15 @@ Linux其他较重要的配置文件如下：
 
 1.  ECS实例数据盘未分区，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155859584246300_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155868234146300_zh-CN.png)
 
 2.  使用自定义镜像创建的ECS实例中，未注释掉/etc/fstab中的磁盘挂载条目，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155859584246301_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155868234246301_zh-CN.png)
 
 3.  实例启动时，会按照/etc/fstab文件中的配置挂载磁盘，但由于数据盘未分区导致挂载失败，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155859584246302_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155868234246302_zh-CN.png)
 
 
 不用注释磁盘挂载条目的情况：一般只有在创建ECS实例时，选择了数据盘且数据盘是通过已分区、已格式化的数据盘快照生成。
@@ -487,7 +487,7 @@ Linux其他较重要的配置文件如下：
 上述过程可能涉及以下费用：
 
 -   不同地域之间的数据传输流量费。阿里云目前暂未对这部分流量收费，具体收费时间请以官网公告为准。
--   复制过来的快照会占用快照容量。目前快照容量已经收费，详情请参见[快照计费方式](../../../../intl.zh-CN/产品定价/快照计费方式.md#)。
+-   复制过来的快照会占用快照容量。阿里云目前暂未对快照收费，具体收费时间请以官网公告为准 。
 
 ## 在复制镜像过程中，源镜像和目标镜像有什么限制？ {#section_inj_s4c_ghb .section}
 
@@ -892,7 +892,7 @@ CentOS 6和CentOS 7的DNS解析机制，使用相同的网络五元组发送IPV4
 
         默认使用阿里云`options`配置`options timeout:2 attempts:3 rotate single-request-reopen`。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155859584246335_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155868234246335_zh-CN.png)
 
     -   如果存在`options`配置：
         -   不存在`single-request-reopen`配置，则在`options`配置中追加该项。
