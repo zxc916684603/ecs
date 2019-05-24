@@ -8,13 +8,13 @@
 
     在Windows Server 2012 R2、Windows Server 2016或Windows Server 2019系统中安装.NET Framework 3.5.1时报如下图所示的错误：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10530/155729921245359_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10530/155869239545359_zh-CN.png)
 
 -   问题现象二：无法安装语言包
 
     在控制面板切换语言或者Windows Update中查询语言选项时，无法选择或者安装语言包。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10530/155729921245360_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10530/155869239545360_zh-CN.png)
 
 
 ## 原因分析 { .section}
@@ -49,6 +49,6 @@
 
 ## 补充说明 { .section}
 
--   Windows Server 2012与Windows Server 2016内存占用较高，安装其他应用程序使内存消耗更高，可能会导致内存不足引起安装.NET Framework失败，因此建议增加物理内存，如果是I/O优化实例，可以酌情[开启系统虚拟内存](https://help.aliyun.com/knowledge_detail/40995.html)。
+-   Windows Server 2012与Windows Server 2016内存占用较高，安装其他应用程序使内存消耗更高，可能会导致内存不足引起安装.NET Framework失败，因此建议增加物理内存，如果是I/O优化实例，可以酌情[开启系统虚拟内存](https://www.alibabacloud.com/help/faq-detail/40995.htm)。
 -   如果安装.NET Framework报错`0x800f081f`，请检查公网网络是否正常。如果正常，可能是连接Windows Update服务器链路不稳定导致更新失败，建议更换时间段重试。
 
