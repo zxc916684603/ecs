@@ -54,7 +54,7 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|IpProtocol|String|是|all|传输层协议。不区分大小写。取值范围：
+|IpProtocol|String|是|all|传输层协议。取值大小写敏感。取值范围：
 
  -   icmp
 -   gre
@@ -124,9 +124,6 @@
 -   intranet：内网网卡。
 
  当设置安全组之间互相访问时，即指定了 DestGroupId 且没有指定 DestCidrIp 时，参数 NicType 取值只能为 intranet。 默认值：internet
-
- |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
 
  |
 |Policy|String|否|accept|设置访问权限。取值范围：
