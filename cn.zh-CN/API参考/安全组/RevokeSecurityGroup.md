@@ -1,6 +1,6 @@
 # RevokeSecurityGroup {#doc_api_Ecs_RevokeSecurityGroup .reference}
 
-删除一条安全组入方向规则,撤销安全组出方向的权限设置。
+删除一条安全组入方向规则，撤销安全组出方向的权限设置。
 
 ## 接口说明 {#description .section}
 
@@ -8,8 +8,8 @@
 
 以下任意一组参数可以确定一条安全组入方向规则，只指定一个参数无法确定一条安全组规则。
 
--   撤销指定 IP 地址段的权限设置：IpProtocol、PortRange、（可选）SourcePortRange、NicType、Policy、DestCidrIp 和 （可选）SourceCidrIp
--   撤销其他安全组的权限设置：IpProtocol、PortRange、（可选）SourcePortRange、NicType、Policy、（可选）DestCidrIp、DestGroupOwnerAccount 和 DestGroupId
+-   撤销指定 IP 地址段的权限设置：IpProtocol、PortRange、（可选）SourcePortRange、NicType、Policy、DestCidrIp 和 （可选）SourceCidrIp。
+-   撤销其他安全组的权限设置：IpProtocol、PortRange、（可选）SourcePortRange、NicType、Policy、（可选）DestCidrIp、DestGroupOwnerAccount 和 DestGroupId。
 
 ## 调试 {#apiExplorer .section}
 
@@ -76,9 +76,6 @@
  当撤销安全组之间互相访问时，即指定了 SourceGroupId 且没有指定 SourceCidrIp 时，参数 NicType 取值只能为 intranet。 默认值：internet
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
-
- |
 |Policy|String|否|accept|访问权限。取值范围：
 
  -   accept：接受访问。
@@ -136,7 +133,6 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=RevokeSecurityGroup
 &SecurityGroupId=C0003E8B-B930-4F59-ADC0-0E209A9012B0
 &SourceGroupId=sg-F876FF7BA
@@ -145,7 +141,6 @@ https://ecs.aliyuncs.com/?Action=RevokeSecurityGroup
 &PortRange=1/65535
 &Priority=1
 &<公共请求参数>
-
 ```
 
 正常返回示例
