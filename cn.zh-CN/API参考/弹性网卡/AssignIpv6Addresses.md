@@ -1,17 +1,17 @@
-# AssignIpv6Addresses {#doc_api_1000137 .reference}
+# AssignIpv6Addresses {#doc_api_Ecs_AssignIpv6Addresses .reference}
 
 使用 AssignIpv6Addresses 为弹性网卡分配一个或多个 IPv6 地址。
 
 ## 描述 {#description .section}
 
-ECS 支持 IPv6 地址目前处于公测阶段，您可以提交 [公测申请](https://page.aliyun.com/form/act608662110/index.htm)。
+IPv6 地址目前处于公测阶段，您可以提交 [公测申请](https://page.aliyun.com/form/act608662110/index.htm)。
 
 您可以指定弹性网卡所属交换机下 CIDR 的 IPv6 地址，也可以指定IPv6地址数量自动创建 IPv6 地址。
 
--   弹性网卡必须处于可用（Available）或已挂载（InUse）状态。
--   主网卡关联的 ECS 实例必须处于运行中（Running）或已停止（Stopped）状态。
+-   弹性网卡必须处于**可用**（Available）或**已挂载**（InUse）状态。
+-   主网卡关联的 ECS 实例必须处于**运行中**（Running）或**已停止**（Stopped）状态。
 -   单个网卡能够分配的 IPv6 地址数量和网卡附加的实例规格有关。
-    -   如果弹性网卡处于 Available 状态，最多可以分配 10 个 IPv6 地址。
+    -   如果弹性网卡处于**可用**（Available）状态，最多可以分配 10 个 IPv6 地址。
     -   如果弹性网卡挂载到实例上，能够分配的 IPv6 地址数将受到实例规格限制。更多详情，请参阅 [实例规格族](~~25378~~)。
 
 ## 调试 {#apiExplorer .section}
@@ -43,15 +43,12 @@ ECS 支持 IPv6 地址目前处于公测阶段，您可以提交 [公测申请](
  **说明：** 您不能同时指定参数 Ipv6Addresses.N 和 Ipv6AddressCount。
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
-
- |
 
 ## 返回参数 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。无论调用接口成功与否，我们都会返回请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
 
  |
 
@@ -60,14 +57,12 @@ ECS 支持 IPv6 地址目前处于公测阶段，您可以提交 [公测申请](
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=AssignIpv6Addresses
 &NetworkInterfaceId=eni-test
 &RegionId=cn-hangzhou
 &Ipv6Address.1=2001:db8:1234:1a00::XXX
 &Ipv6AddressCount=1
 &<公共请求参数>
-
 ```
 
 正常返回示例
