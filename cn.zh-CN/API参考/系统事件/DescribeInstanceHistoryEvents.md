@@ -1,4 +1,4 @@
-# DescribeInstanceHistoryEvents {#doc_api_1033074 .reference}
+# DescribeInstanceHistoryEvents {#doc_api_Ecs_DescribeInstanceHistoryEvents .reference}
 
 查询指定实例的系统事件信息，默认查询处于非活跃状态的历史系统事件。目前，您最多可以查询最近一周的历史系统事件。通过指定InstanceEventCycleStatus参数，可以查询处于Scheduled（计划中）和Executing（执行中）状态的系统事件。
 
@@ -76,9 +76,6 @@
 |NotBefore.Start|String|否|2017-11-30T06:32:31Z|查询系统事件计划执行时间的开始时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
-
- |
 |PageNumber|Integer|否|1|查询结果的页码。取值范围：正整数
 
  默认值：1
@@ -145,7 +142,7 @@
 |PageSize|Integer|10|输入时设置的每页行数。
 
  |
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。无论调用接口成功与否，我们都会返回请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
 
  |
 |TotalCount|Integer|2|实例状态总个数。
@@ -157,7 +154,6 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=DescribeInstanceHistoryEvents
 &RegionId=cn-hangzhou
 &InstanceId=i-myInstance
@@ -173,7 +169,6 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceHistoryEvents
 &PageNumber=1
 &PageSize=10
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -275,6 +270,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceHistoryEvents
 |403|InvalidParameter|%s|参数格式不正确。|
 |403|EventIdLimitExceeded|%s|一次最多能指定100个模拟事件ID。|
 |403|InvalidParameter.TimeEndBeforeStart|%s|结束时间不得早于开始时间。|
+|403|OperationDenied.NotInWhiteList|%s|无权限执行此操作。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
