@@ -8,15 +8,15 @@
     -   Windows 实例适用的 Bat 脚本（RunBatScript）
     -   Windows 实例适用的 PowerShell 脚本（RunPowerShellScript）
     -   Linux 实例适用的 Shell 脚本（RunShellScript）
--   您可以通过指定参数 TimeOut 为命令设置在 ECS 实例中执行时最大的超时时间，命令执行超时后，[云助手客户端](~~64921~~) 会强制终止命令进程，即取消命令的 PID。
+-   您可以通过指定参数 `TimeOut` 为命令设置在 ECS 实例中执行时最大的超时时间，命令执行超时后，[云助手客户端](~~64921~~) 会强制终止命令进程，即取消命令的 PID。
     -   对于单次执行，超时后，该命令针对指定的 ECS 实例的执行状态（[InvokeRecordStatus](~~64845~~)\) 变为执行失败（Failed）。
     -   对于周期执行：
         -   周期执行的超时时间对每一次执行记录均有效。
         -   某次执行超时后，该次执行记录的状态（[InvokeRecordStatus](~~64845~~)）变为执行失败（Failed）。
         -   上次执行超时与否不影响下一次执行。
 -   在一个地域下，您最多可以保有 100 条云助手命令。您也可以 [提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm) 调整保有量上限。
--   您可以通过指定参数 WorkingDir 为命令指定执行路径。对于 Linux 实例，默认在管理员 root 用户的 home 目录下，具体为 /root 目录。对于 Windows 实例，默认在云助手客户端进程所在目录，例如，C:\\ProgramData\\aliyun\\assist\\$\(version\)。
--   您可以通过指定参数 `EnableParameter=true` 启用自定义参数功能。在设置 CommandContent 时可以通过 \{\{$\(parameter\)\}\} 的形式表示自定义参数，并在运行命令（[InvokeCommand](~~64841~~) ）时，传入自定义参数键值对。例如，您在创建命令时，创建了`echo {{name}}`命令，在 InvokeCommand 时，通过 Parameter 参数传入键值对 `<name, Jack>`。则自定义参数将自动替换命令，您会得到一条新的命令，并在实例中执行 `echo Jack`。
+-   您可以通过指定参数 `WorkingDir` 为命令指定执行路径。对于 Linux 实例，默认在管理员 root 用户的 home 目录下，具体为 /root 目录。对于 Windows 实例，默认在云助手客户端进程所在目录，例如，C:\\ProgramData\\aliyun\\assist\\$\(version\)。
+-   您可以通过指定参数 `EnableParameter=true` 启用自定义参数功能。在设置 CommandContent 时可以通过 `{{$(parameter)}}` 的形式表示自定义参数，并在运行命令（[InvokeCommand](~~64841~~) ）时，传入自定义参数键值对。例如，您在创建命令时，创建了`echo {{name}}`命令，在 InvokeCommand 时，通过 Parameter 参数传入键值对 `<name, Jack>`。则自定义参数将自动替换命令，您会得到一条新的命令，并在实例中执行 `echo Jack`。
 
 ## 调试 {#apiExplorer .section}
 
@@ -130,6 +130,9 @@ https://ecs.aliyuncs.com/?Action=CreateCommand
 |403|CmdName.ExceedLimit|The length of the command name exceeds the upper limit.|请精简您的命令名称。|
 |403|CmdDesc.ExceedLimit|The length of the command description exceeds the upper limit.|请精简您的命令描述内容。|
 |403|CmdCount.ExceedQuota|The total number of commands in the current region exceeds the quota.|当前地域下的云助手命令数量已超出限。|
+|403|CmdParam.EmptyKey|You must specify the parameter names.|自定义参数的参数名不能为空。|
+|403|CmdParam.InvalidParamName|Invalid parameter name. The name can contain only lowercase letters \(a to z\), uppercase letters \(A to Z\), numbers \(0 to 9\), hyphens \(-\), and underscores \(\_\).|自定义参数的参数名不合法，只允许a-zA-Z0-9-\_ 的组合。|
+|403|CmdParamName.ExceedLimit|The maximum length of a parameter name is exceeded.|您的自定义参数的参数名长度超过限制。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
