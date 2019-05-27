@@ -107,6 +107,12 @@ https://ecs.aliyuncs.com/?Action=InvokeCommand
 |500|InternalError.Dispatch|An error occurred when you dispatched the request.|发生未知错误。|
 |404|InvalidInstance.NotFound|The specified instance does not exist.|指定的实例不存在。|
 |403|MissingParam.Frequency|The frequency must be specified when you create a timed task.|请为周期任务设置执行频率。|
+|404|Parameter.Disabled|Parameters cannot be passed in when the command customization function is disabled.|当您禁用命令自定义参数功能时，请不要传递自定义参数。|
+|403|ParameterCount.ExceedLimit|The maximum number of parameters is exceeded.|您的自定义参数个数超过限制。|
+|403|ParameterKey.ExceedLimit|The maximum length of a parameter name is exceeded.|您的自定义参数的参数名长度超过限制。|
+|403|CmdContent.ExceedLimit|The maximum length of a command is exceeded.|您的命令内容过长，请精简您的命令内容。|
+|403|ParameterKey.Duplicate|Parameter names cannot be duplicated.|请不要传递重复的参数名。|
+|403|Parameter.NotMatched|The passed-in parameters do not match the parameters defined when you created the command.|传入的自定义参数与创建命令时定义的自定义参数不匹配。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
