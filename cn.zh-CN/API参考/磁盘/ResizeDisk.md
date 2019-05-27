@@ -1,20 +1,15 @@
-# ResizeDisk {#doc_api_1111179 .reference}
+# ResizeDisk {#doc_api_Ecs_ResizeDisk .reference}
 
-扩容一块数据盘。
+扩容一块云盘。
 
 ## 接口说明 {#description .section}
 
-调用该接口时，您需要注意：
-
--   该接口暂时仅支持扩容数据盘，不支持扩容系统盘。
--   仅支持扩容磁盘类型为普通云盘（cloud）、高效云盘（cloud\_efficiency）和 SSD 云盘（cloud\_ssd）的数据盘。
--   当磁盘正在创建快照时，不允许扩容。
--   对于已挂载的数据盘：
-    -   磁盘挂载的实例的状态必须为 运行中（Running）或者 已停止（Stopped）。
-    -   扩容后，您需要在控制台 [重启实例](~~25440~~) 或者调用 API [RebootInstance](~~25502~~) 使操作生效。
--   磁盘挂载的实例的状态必须为 运行中（Running）或者 已停止（Stopped）。
--   扩容后，您需要在控制台 [重启实例](~~25440~~) 或者调用 API [RebootInstance](~~25502~~) 使操作生效。
--   扩容时，不会修改磁盘分区和文件系统，您需要在扩容后自行分配存储空间。
+-   支持扩容系统盘和数据盘。
+-   支持扩容的云盘类型包括普通云盘（cloud）、高效云盘（cloud\_efficiency）、SSD云盘（cloud\_ssd）和ESSD（cloud\_essd）云盘。
+-   当云盘正在创建快照时，不允许扩容。
+-   云盘挂载的实例的状态必须为运行中（Running）或者已停止（Stopped）。
+-   扩容后，您需要在控制台[重启实例](~~25440~~)或者调用API [RebootInstance](~~25502~~)使操作生效。
+-   扩容时，不会修改云盘分区和文件系统，您需要在扩容后自行分配存储空间。
 
 ## 调试 {#apiExplorer .section}
 
@@ -24,28 +19,29 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|DiskId|String|是|d-diskid1|磁盘 ID。
+|DiskId|String|是|d-diskid|云盘ID。
 
  |
-|NewSize|Integer|是|2100|希望扩容到的磁盘容量大小。单位为 GiB。取值范围：
+|NewSize|Integer|是|1900|希望扩容到的云盘容量大小。单位为GiB。取值范围：
 
- -   普通云盘（Cloud）：5~2000
--   高效云盘（Cloud\_efficiency）：5~2000
--   SSD 云盘（Cloud\_ssd）：5~2000
+ -   普通云盘（cloud）：5~2000
+-   高效云盘（cloud\_efficiency）：5~6144
+-   SSD云盘（cloud\_ssd）：5~6144
+-   ESSD云盘（cloud\_essd）：5~32768
 
- 指定的新磁盘容量必须比原磁盘容量大。且 2 TB 以下的磁盘不能扩容到 2 TB 以上。
+ 指定的新云盘容量必须比原云盘容量大。且6 TiB以下的云盘不能扩容到6 TiB以上。
 
  |
 |Action|String|否|ResizeDisk|系统规定参数。取值：ResizeDisk
 
  |
-|Type|String|否|online|是否在线扩容磁盘。取值范围：
+|Type|String|否|offline|扩容云盘的方式。取值范围：
 
- -   online：在线扩容，实例无需重启便能完成扩容。
--   offline（默认）：离线扩容，您需要重启实例以完成扩容。
+ -   offline（默认）：离线扩容，您需要重启实例以完成扩容。
+-   online：在线扩容，无需重启实例即可完成扩容。仅支持高效云盘与SSD云盘。
 
  |
-|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
+|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken**只支持ASCII字符，且不能超过64个字符。更多详情，请参阅[如何保证幂等性](~~25693~~)。
 
  |
 
@@ -53,7 +49,7 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID。
 
  |
 
@@ -64,8 +60,8 @@
 ``` {#request_demo}
 
 https://ecs.aliyuncs.com/?Action=ResizeDisk
-&DiskId=d-diskid1
-&NewSize=2000
+&DiskId=d-diskid
+&NewSize=1900
 &ClientToken=123e4567-e89b-12d3-a456-426655440000
 &<公共请求参数>
 
@@ -95,18 +91,28 @@ https://ecs.aliyuncs.com/?Action=ResizeDisk
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
 |403|InvalidDataDiskSize.ValueNotSupported|The specified DataDisk.n.Size beyond the permitted range, or the capacity of snapshot exceeds the size limit of the specified disk category.|指定的数据盘大小已超过最大允许值。|
+|404|InvalidDiskId.NotFound|The specified disk does not exist.|指定的磁盘不存在。请您检查磁盘 ID 是否正确。|
+|404|InvalidInstanceId.NotFound|The specified InstanceId does not exist.|指定的实例不存在，请您检查实例ID是否正确。|
 |403|OperationDenied|The type of the disk does not support the operation.|此磁盘种类不支持指定的操作。|
 |403|OperationDenied|The status of the disk or the instance that the disk is attaching with does not support the operation.|此磁盘或实例状态无法执行指定的操作。|
 |403|InvalidDiskSize.TooSmall|Specified new disk size is less than the original disk size.|指定的新磁盘小于原始磁盘。|
+|403|InvalidDiskSize.TooLarge|Specified new disk size is beyond the permitted range.|指定的新磁盘大小超过限制。|
 |403|InstanceExpiredOrInArrears|The specified operation is denied as your prepay instance is expired \(prepay mode\) or in arrears \(afterpay mode\).|包年包月实例已过期，请您续费后再进行操作。|
+|403|DiskError|IncorrectDiskStatus|指定的磁盘状态不合法。|
+|403|DiskInArrears|The specified operation is denied as your disk owing fee.|指定的磁盘已欠费。|
 |403|IncorrectInstanceStatus|The current status of the resource does not support this operation.|该资源目前的状态不支持此操作。|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
 |403|DiskCreatingSnapshot|The operation is denied due to a snapshot of the specified disk is not completed yet.|指定的磁盘正在创建快照。|
 |400|InvalidDataDiskCategory.ValueNotSupported|%s|参数不支持。|
 |400|InvalidParameter.Conflict|%s|参数冲突。|
 |400|InvalidDataDiskSize.ValueNotSupported|%s|参数不支持。|
+|403|InvalidDiskSize|Specified new disk size is less than or equal the original disk size.|指定的新磁盘大小必须要小于或等于原始磁盘大小。|
+|400|IncompleteParamter|Some fields can not be null in this request.|请求中缺失参数。|
 |403|Operation.Conflict|The operation may conflicts with others.|该操作与其他操作冲突。|
 |403|InstanceLockedForSecurity|The instance is locked due to security.|您的资源被安全锁定，拒绝操作。|
+|403|IncorrectDiskStatus|The current disk status does not support this operation.|当前的磁盘不支持此操作，请您确认磁盘处于正常使用状态，是否欠费。|
 |403|UserNotInTheWhiteList|The user is not in disk white list.|您暂时不能使用该磁盘服务。|
+|400|InvalidRegionId.MalFormed|The specified RegionId is not valid|指定的 RegionId 不合法。|
 |403|InvalidDiskCategory.NotSupported|The specified disk category is not supported.|该云盘类型不支持。|
 |400|InvalidParam.Type|The specified type is not supported.|指定的参数无效。|
 |403|InvalidRegion.NotSupport|The specified region does not support resize online.|该地域不支持在线扩容。|
