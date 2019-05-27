@@ -1,14 +1,12 @@
-# GetInstanceConsoleOutput {#doc_api_999421 .reference}
+# GetInstanceConsoleOutput {#doc_api_Ecs_GetInstanceConsoleOutput .reference}
 
 获取一台实例的系统命令行输出，数据以Base64编码后返回。
 
-## 描述 {#description .section}
+## 接口说明 {#description .section}
 
-云服务器ECS是虚拟化的云上服务，无法接入显示设备，也无法手动截屏。但是我们缓存了实例最近一次启动、重启或者关机时的系统命令行输出，您可以调用GetInstanceConsoleOutput获取。
-
-[已停售的实例规格](~~55263~~) 无法获取系统命令行输出。
-
-Windows实例暂不支持获取系统命令行输出。
+-   云服务器ECS是虚拟化的云上服务，无法接入显示设备，也无法手动截屏。但是我们缓存了实例最近一次启动、重启或者关机时的系统命令行输出，您可以调用GetInstanceConsoleOutput获取。
+-   [已停售的实例规格](~~55263~~) 无法获取系统命令行输出。
+-   Windows实例暂不支持获取系统命令行输出。
 
 ## 调试 {#apiExplorer .section}
 
@@ -27,9 +25,6 @@ Windows实例暂不支持获取系统命令行输出。
 |Action|String|否|GetInstanceConsoleOutput|系统规定参数。取值：GetInstanceConsoleOutput
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
-
- |
 
 ## 返回参数 {#resultMapping .section}
 
@@ -44,7 +39,7 @@ Windows实例暂不支持获取系统命令行输出。
 |LastUpdateTime|String|2018-03-22 10:04:57|实例最近一次启动、重启或者关机的时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
  |
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。无论调用接口成功与否，我们都会返回请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
 
  |
 
@@ -53,12 +48,10 @@ Windows实例暂不支持获取系统命令行输出。
 请求示例
 
 ``` {#request_demo}
-
 http://ecs-cn-hangzhou.aliyuncs.com/?Action=GetInstanceConsoleOutput
 &InstanceId=i-myInstance
 &RegionId=cn-shenzhen-finance-1
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -93,6 +86,8 @@ http://ecs-cn-hangzhou.aliyuncs.com/?Action=GetInstanceConsoleOutput
 |400|MissingParameter|%s|缺失必需参数。|
 |404|InvalidParameter|%s|参数格式不正确。|
 |405|IncorrectInstanceStatus|%s|实例当前的状态不支持该操作。|
+|405|NotSupported|%s|HPC集群不存在。|
+|429|Throttling|%s|请求被流控。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
