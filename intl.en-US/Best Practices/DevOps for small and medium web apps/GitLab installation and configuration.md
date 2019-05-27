@@ -4,17 +4,17 @@
 
 [GitLab CE edition](https://about.gitlab.com/) is a free open-source tool that will help us to host Git repositories and run our CI/CD pipeline.
 
-To keep it simple, we will install GitLab on an ECS instance with a direct access to internet. Although the servers will be protected via [encryption](https://en.wikipedia.org/wiki/Transport_Layer_Security) and restrictive [security group rules](../../../../../reseller.en-US/Security/Security groups/Add security group rules.md#), you might also want to isolate your virtual machines from internet by using a [VPN Gateway](../../../../../reseller.en-US/Product Overview/What is VPN Gateway?.md#).
+To keep it simple, we will install GitLab on an ECS instance with a direct access to internet. Although the servers will be protected via [encryption](https://en.wikipedia.org/wiki/Transport_Layer_Security) and restrictive [security group rules](../../../../intl.en-US/Security/Security groups/Add security group rules.md#), you might also want to isolate your virtual machines from internet by using a [VPN Gateway](../../../../intl.en-US/Product Overview/What is VPN Gateway?.md#).
 
 The following diagram illustrates the architecture we will put in place for GitLab:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155324780038457_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155892085038457_en-US.png)
 
 ## Cloud resources creation {#section_fcr_jm2_qgb .section}
 
 The first step is to buy a domain name. This is necessary if you want to enable security on your servers:
 
-1.  Log on to the [Domain console](https://partners-intl.console.aliyun.com/#/dc).
+1.  Log on to the [Domain console](https://dc.console.aliyun.com/).
 2.  Click **Purchase**.
 3.  Choose a domain, such as **my-sample-domain.xyz** and follow the instructions to buy it.
 4.  Return to the console and refresh the page in order to see your new domain.
@@ -23,7 +23,7 @@ The first step is to buy a domain name. This is necessary if you want to enable 
 
 The second step is to create ECS instances and related resources:
 
-1.  Log on to the [VPC console](https://partners-intl.console.aliyun.com/#/vpc).
+1.  Log on to the [VPC console](https://vpc.console.aliyun.com/).
 2.  Select the region where you want to create the VPC on top of the page, for example, Singapore.
 3.  Click **Create VPC**.
 4.  Fill in the new form with the following information:
@@ -42,7 +42,7 @@ The second step is to create ECS instances and related resources:
     -   Network Type = VPC
     -   VPC = select the VPC you just created \(with the name devops-simple-app-vpc\)
 10. Click **OK** to create the security group and the rules from the template. Note that the rules open the ports for [SSH](https://en.wikipedia.org/wiki/Secure_Shell), [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol), [HTTPS](https://en.wikipedia.org/wiki/HTTPS) and [ICMP](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol) to any computer on Internet.
-11. Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+11. Log on to the [ECS console](https://ecs.console.aliyun.com/).
 12. Click **Create Instance**.
 13. If needed, select **Advanced Purchase** \(also named **Custom**\).
 14. Fill in the wizard with the following information:
@@ -77,7 +77,7 @@ The second step is to create ECS instances and related resources:
 
 The ECS instance is ready for GitLab. Now register a sub-domain for this machine:
 
-1.  Log on to the [Domain console](https://partners-intl.console.aliyun.com/#/dc).
+1.  Log on to the [Domain console](https://dc.console.aliyun.com/).
 2.  On the row corresponding to your domain \(for example, my-sample-domain.xyz\), click **Resolve**.
 3.  Click **Add Record**.
 4.  Fill in the new form with the following information:
@@ -124,7 +124,7 @@ gitlab-ctl reconfigure
 
 Open your web browser on `http://gitlab.my-sample-domain.xyz`. You can see the following screen:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155324780038568_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155892085038568_en-US.png)
 
 Congratulation if you get a similar screen! In case it does not work, first make sure you did not miss a step, and then [raise an issue](https://github.com/alibabacloud-howto/devops/issues) if the problem persists.
 
@@ -182,13 +182,13 @@ Before going further we still need to configure two things:
 
 Go back to the Alibaba Cloud web console and execute the following instructions:
 
-1.  Log on to the [Direct Mail console](https://partners-intl.console.aliyun.com/#/dm).
+1.  Log on to the [Direct Mail console](https://dm.console.aliyun.com/).
 2.  Select the region on top of the page.
 3.  Click **Email Domains** from the left-side navigation pane.
 4.  Click **New Domain**.
 5.  In the new form, set the `domain as mail.my-sample-domain.xyz` \(the domain you chose earlier with the prefix `mail`\).
 6.  The page must be refreshed with your new email domain. Click **Configure** link on its right side.
-7.  The new page explains you how to configure your domain. Keep this web browser tab opened, open a new one and go to the [Domain console](https://partners-intl.console.aliyun.com/#/dc).
+7.  The new page explains you how to configure your domain. Keep this web browser tab opened, open a new one and go to the [Domain console](https://dc.console.aliyun.com/).
 8.  Click **Resolve** link next to your domain.
 9.  Click **Add Record**.
 10. Fill the new form with the following information:
@@ -224,7 +224,7 @@ Go back to the Alibaba Cloud web console and execute the following instructions:
 
 You should probably have a domain configuration that looks like that:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155324780038861_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155892085038861_en-US.png)
 
 Continue the email server configuration:
 
@@ -310,7 +310,7 @@ In order to run backups automatically, please open a terminal and run the follow
 
 Let’s now create an OSS bucket where we will store our backups:
 
-1.  Log on to the [OSS console](https://partners-intl.console.aliyun.com/#/oss).
+1.  Log on to the [OSS console](https://oss.console.aliyun.com/).
 2.  Click **Create Bucket**.
 3.  Fill the new form with the following information:
     -   Bucket Name = gitlab-my-sample-domain-xyz \(you can set the name you want, but it must be unique\)
@@ -322,7 +322,7 @@ Let’s now create an OSS bucket where we will store our backups:
 
 You will also need an access key id and secret:
 
-1.  Log on to the [user management center](https://partners-intl.console.aliyun.com/#/usercenter) by clicking on your user on the top-right of the page and by selecting AccessKey.
+1.  Log on to the [user management center](https://usercenter.console.aliyun.com/) by clicking on your user on the top-right of the page and by selecting AccessKey.
 2.  Click **Create Access Key**.
 3.  Note the AccessKeyID and the AccessKeySecret and click **Save AccessKey Information**.
 
@@ -350,7 +350,7 @@ umount /mnt/gitlab-bucket
 
 Check that the test file is present in your bucket:
 
-1.  Log on to the [OSS console](https://partners-intl.console.aliyun.com/#/oss).
+1.  Log on to the [OSS console](https://oss.console.aliyun.com/).
 2.  Click your bucket name from the left-side navigation pane.
 3.  Click **Files** from the top menu.
 4.  The file test.txt should be present and should contain **It works**.
@@ -362,7 +362,7 @@ Adapt and copy the following content:
 
 Make sure you set the right bucket name and endpoint. Quit and save by pressing CTRL + X. Configure Systemd to run this script at startup:
 
-Log on to the [OSS console](https://partners-intl.console.aliyun.com/#/oss), and check that the test2.txt file is present in your bucket and delete it.
+Log on to the [OSS console](https://oss.console.aliyun.com/), and check that the test2.txt file is present in your bucket and delete it.
 
 Let’s now configure GitLab to put its backup files in the mounted folder. Open the terminal and run:
 
@@ -418,7 +418,7 @@ It is [a best practice](https://docs.gitlab.com/ce/install/requirements.html#git
 
 Thus, we need to setup one [runner](https://docs.gitlab.com/ce/ci/runners/) on a new ECS instance. Please execute the following instructions:
 
-1.  Log on to the [VPC console](https://partners-intl.console.aliyun.com/#/vpc).
+1.  Log on to the [VPC console](https://vpc.console.aliyun.com/).
 2.  Select the region of the GitLab ECS instance \(on top of the screen\).
 3.  Click the VPC **devops-simple-app-vpc**.
 4.  Click **1** next to **Security Group**.
@@ -429,7 +429,7 @@ Thus, we need to setup one [runner](https://docs.gitlab.com/ce/ci/runners/) on a
     -   Network Type = VPC
     -   VPC = select the VPC **devops-simple-app-vpc**
 7.  Click **OK** to create the group. We will not add any rule in order to be as restrictive as possible \(to improve security\).
-8.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+8.  Log on to the [ECS console](https://ecs.console.aliyun.com/).
 9.  Click **Create Instance**.
 10. If needed, select **Advanced Purchase** \(also named **Custom**\).
 11. Fill the wizard with the following information:
@@ -492,7 +492,7 @@ Now we need to connect the runner with GitLab:
 
 The bottom of the page contains an URL and a token:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155324780138984_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155892085038984_en-US.png)
 
 Go back to the web-terminal connected to the runner machine, and type:
 
@@ -511,7 +511,7 @@ This tool needs several information to register the runner. Enter the following 
 
 After the tool gives you back the hand, you should be able to see this runner in the GitLab web browser tab. Refresh the page and check at the bottom, you should see something like this:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155324780138986_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155892085038986_en-US.png)
 
 Our GitLab is now ready to be used! But there are few more points to consider before creating our first project:
 
