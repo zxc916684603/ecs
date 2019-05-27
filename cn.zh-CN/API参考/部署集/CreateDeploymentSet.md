@@ -1,4 +1,4 @@
-# CreateDeploymentSet {#doc_api_999647 .reference}
+# CreateDeploymentSet {#doc_api_Ecs_CreateDeploymentSet .reference}
 
 在指定的地域内创建一个部署集。
 
@@ -25,9 +25,7 @@
 |Description|String|否|FinanceJoshua|部署集描述信息。长度为 2~256 个英文或中文字符，不能以 http:// 和 https:// 开头。
 
  |
-|Domain|String|否|Defalut|部署域。
-
- 默认值：Defalut。
+|Domain|String|否|Default|部署域。
 
  **说明：** 该参数即将弃用，为提高兼容性，请尽量使用其他参数。
 
@@ -43,9 +41,6 @@
 -   KeepStopped：保持异常状态等待补货充足后再启动实例。
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
-
- |
 |Strategy|String|否|StrictDispersion|部署策略。
 
  **说明：** 该参数即将弃用，为提高兼容性，请尽量使用其他参数。
@@ -59,7 +54,7 @@
 |DeploymentSetId|String|ds-bp1frxuzdg87zh4pzqkcm|部署集ID
 
  |
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。无论调用接口成功与否，我们都会返回请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
 
  |
 
@@ -68,13 +63,11 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=CreateDeploymentSet
 &RegionId=cn-hangzhou
 &DeploymentStrategy=Availability
 &DeploymentSetName=AvailMySet
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -103,8 +96,16 @@ https://ecs.aliyuncs.com/?Action=CreateDeploymentSet
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
 |400|MissingParameter|The input parameter RegionId that is mandatory for processing this request is not supplied.|参数 RegionID 不得为空。|
+|400|InvalidDeploymentSetName.Malformed|Specified deployment set name is not valid.|指定的参数 DeploymentSetName 不合法。|
 |400|InvalidDescription.Malformed|The specified parameter Description is not valid.|指定的资源描述格式不合法。长度为2-256个字符，不能以 http:// 和 https:// 开头。|
+|400|InvalidDeploymentSetId.NotFound|The specified DeploymentSetId does not exist.|指定的参数 DeploymentSetId 不存在，请您检查 DeploymentSetId 是否正确。|
 |400|MissingParameter|The input parameter DeploymentSetId that is mandatory for processing this request is not supplied.|未提供必需的 DeploymentSetId。|
+|400|InvalidParameter.Domain|The specified parameter Domain is not valid.|指定的 Domain 参数不合法。|
+|400|InvalidParameter.Strategy|The specified parameter Strategy is not valid|指定的 Strategy 不合法。|
+|400|InvalidParameter.granularity|The specified parameter Granularity is not valid.|指定的 Granularity 参数不合法。|
+|400|DependencyViolation.domain.granularity|The DeploymentSet domain and granularity is violation.|部署集域与数据粒度冲突。|
+|400|DependencyViolation.strategy.granularity|The DeploymentSet strategy and granularity is violation.|部署集策略与数据粒度冲突。|
+|400|DEPLOYMENTSET.QUOTA\_FULL|The deploymentSet quota is full|部署集配额已满，请您减少部署集数量。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
