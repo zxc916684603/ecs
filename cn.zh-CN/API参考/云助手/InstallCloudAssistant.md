@@ -1,6 +1,6 @@
 # InstallCloudAssistant {#doc_api_Ecs_InstallCloudAssistant .reference}
 
-为一台或多台实例安装云助手客户端。调用 InstallCloudAssistant 后再调用 RebootInstance，云助手客户端即可生效。
+为一台或多台实例安装云助手客户端。
 
 ## 调试 {#apiExplorer .section}
 
@@ -18,6 +18,8 @@
  |
 |Action|String|否|InstallCloudAssistant|系统规定参数。取值：InstallCloudAssistant
 
+ **说明：** 调用 InstallCloudAssistant 后再调用 [RebootInstance](~~25502~~)，云助手客户端即可生效。
+
  |
 
 ## 返回参数 {#resultMapping .section}
@@ -33,12 +35,10 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=InstallCloudAssistant
 &InstanceId.1=["i-bp11f7trr4hbi1xxxxxx", "i-bp1iudwa5b1tqaxxxxxx"]
 &RegionId=cn-hangzhou
 &<公共请求参数>
-
 ```
 
 正常返回示例
