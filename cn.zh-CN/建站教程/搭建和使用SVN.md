@@ -71,7 +71,7 @@ SVN管理源代码的单位为行。如果您与其他程序员同时修改了�
         svnserve --version
         ```
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155833488912528_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155902974712528_zh-CN.png)
 
 
  **步骤二：配置SVN** 
@@ -96,7 +96,7 @@ SVN管理源代码的单位为行。如果您与其他程序员同时修改了�
     # ls
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155833488912529_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155902974712529_zh-CN.png)
 
     Subversion目录说明：
 
@@ -118,7 +118,7 @@ SVN管理源代码的单位为行。如果您与其他程序员同时修改了�
 
     5.  按`Esc`键退出编辑模式，并输入`:wq`保存并退出。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155833488912530_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155902974712530_zh-CN.png)
 
 5.  按以下步骤为账号设置读写权限：
     1.  运行`vi authz`命令，打开权限控制文件。
@@ -132,7 +132,7 @@ SVN管理源代码的单位为行。如果您与其他程序员同时修改了�
 
     4.  按`Esc`键退出编辑模式，并输入`:wq`保存并退出。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155833488912531_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155902974712531_zh-CN.png)
 
 6.  按以下步骤修改SVN服务配置。
     1.  运行`vi svnserve.conf`打开SVN服务配置文件。
@@ -151,7 +151,7 @@ SVN管理源代码的单位为行。如果您与其他程序员同时修改了�
 
     4.  按`Esc`键退出编辑模式，并输入`:wq`保存并退出。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155833488912532_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155902974712532_zh-CN.png)
 
 7.  运行以下命令启动SVN版本库。
 
@@ -163,7 +163,7 @@ SVN管理源代码的单位为行。如果您与其他程序员同时修改了�
 
     如果返回结果如下图所示，表示SVN服务已经开启。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155833488912533_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155902974712533_zh-CN.png)
 
     **说明：** 运行`killall svnserve`命令可停止SVN服务。
 
@@ -178,17 +178,17 @@ SVN服务的默认端口为TCP 3690。您需要登录[ECS管理控制台](https:
 2.  右键单击本地项目文件夹。本示例中，项目文件夹为C:\\KDR。
 3.  在弹出菜单中，选择**SVN检出**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155833488912534_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155902974712534_zh-CN.png)
 
 4.  填写如下信息后，单击**确定**。
 
     -   指定资源库URL，格式为`svn://实例公网IP地址/SVN仓库名`。本示例中，SVN仓库名为svnrepos。
     -   指定**检出至目录**。本示例中，目录为C:\\KDR。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155833488912535_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155902974712535_zh-CN.png)
 
     如果出现下图所示信息，表示检出成功。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155833488912536_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155902974712536_zh-CN.png)
 
     **说明：** 第一次登录需输入账号和密码，即您在passwd文件中设置的账户和密码。
 
@@ -280,7 +280,7 @@ SVN服务的默认端口为TCP 3690。您需要登录[ECS管理控制台](https:
 6.  运行以下命令创建用户访问权限文件。
 
     ``` {#codeblock_gyy_g49_5ef}
-    cp /var/svn/snvrepo/conf/authz /var/svn/authz
+    cp /var/svn/svnrepo/conf/authz /var/svn/authz
     ```
 
 
@@ -323,7 +323,7 @@ SVN服务的默认端口为TCP 3690。您需要登录[ECS管理控制台](https:
 
     返回结果如下图所示，表示成功访问之前新建的SVN仓库。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155833488944304_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155902974844304_zh-CN.png)
 
 
 ## 下一步 {#section_bxy_32b_ffb .section}
@@ -336,7 +336,7 @@ SVN部署完成后，您可以下载项目到本地机器，还可以提交本�
 
 1.  在项目文件空白处单击右键，选择**SVN提交**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155833488912537_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155902974812537_zh-CN.png)
 
 2.  输入本次提交的版本更新信息（所作修改的注释）、勾选要提交的操作内容，单击**确定**，即可把本机项目提交到SVN服务器资源库，覆盖掉资源库项目从而实现更新。
 
@@ -345,7 +345,7 @@ SVN部署完成后，您可以下载项目到本地机器，还可以提交本�
     -   如果发生提交冲突，即两人都提交修改，后提交者由于版本落后会提交失败。这时，您可以先备份自己的项目，然后从服务端下载最新的项目，并将自己的项目覆盖到本地项目文件夹，再单击SVN提交即可成功提交。
     -   若您提交的项目中删除了某个文件，则会显示如下图所示信息。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155833488912538_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155902974812538_zh-CN.png)
 
 
  **获取更新** 
@@ -363,11 +363,11 @@ SVN服务端系统库上的项目更新后，您可在本机项目文件空白�
     -   已提交时，服务端系统库中数据已得到同步，系统也会将其保存的数据删除。此时，您需要采取以下方法还原数据：
         1.  查看日志，确认删除了哪些文件。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155833488912539_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155902974812539_zh-CN.png)
 
         2.  将删掉的文件保存版本至删除前的位置。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155833488912540_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/155902974812540_zh-CN.png)
 
 4.  打开原文件夹，选择**SVN提交**，即可同步文件和系统库中的数据。
 
