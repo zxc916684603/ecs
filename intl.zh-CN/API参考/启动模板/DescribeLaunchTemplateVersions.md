@@ -1,4 +1,4 @@
-# DescribeLaunchTemplateVersions {#doc_api_1090646 .reference}
+# DescribeLaunchTemplateVersions {#doc_api_Ecs_DescribeLaunchTemplateVersions .reference}
 
 查询实例启动模板版本。
 
@@ -19,11 +19,6 @@
 |DefaultVersion|Boolean|否|true|是否查询默认版本。
 
  |
-|DetailFlag|Boolean|否|true|是否支持详情标记。
-
- **说明：** 该参数即将被弃用，为提高兼容性，请尽量使用其他参数。
-
- |
 |LaunchTemplateId|String|否|lt-launchtemplateid1|实例启动模板 ID。您必须指定 LaunchTemplateId 或 LaunchTemplateName 以确定模板。
 
  |
@@ -37,9 +32,6 @@
 
  |
 |MinVersion|Long|否|1|通过范围指定版本时的最小版本号。
-
- |
-|OwnerAccount|String|否|EcsforCloud@Alibaba.com|RAM用户的账号登录名称。
 
  |
 |PageNumber|Integer|否|1|实例启动模板列表的页码。起始值：1
