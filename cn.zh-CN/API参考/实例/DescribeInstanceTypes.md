@@ -1,14 +1,12 @@
-# DescribeInstanceTypes {#doc_api_1161571 .reference}
+# DescribeInstanceTypes {#doc_api_Ecs_DescribeInstanceTypes .reference}
 
 查询云服务器 ECS 提供的实例规格资源。
 
-## 描述 {#description .section}
+## 接口说明 {#description .section}
 
-根据 **DescribeInstanceTypes** 查询的实例规格列表与创建实例时按量付费实例列表一致。更多详情，请参阅 [按量付费](~~40653~~) 和 [使用限制](~~25412~~)。
+DescribeInstanceTypes仅查询所有[ECS实例规格](~~25378~~)的详情。如果您需要查询具体地域下可购买的实例规格，请使用 [DescribeAvailableResource](~~66186~~)。
 
-更多详情，请参阅 [实例规格族](~~25378~~)。
-
-如果您需要使用更多实例规格资源，可以 [提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) 联系我们。
+如果您需要使用更多实例规格资源，可以 [提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm) 联系我们。
 
 ## 调试 {#apiExplorer .section}
 
@@ -22,9 +20,6 @@
 
  |
 |InstanceTypeFamily|String|否|ecs.t1|实例规格所属的规格族。更多详情，请参阅 [实例规格族](~~25378~~)。
-
- |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
 
  |
 
