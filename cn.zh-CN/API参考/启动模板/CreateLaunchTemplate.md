@@ -94,14 +94,14 @@
  -   system：阿里云提供的公共镜像。
 -   self：您创建的自定义镜像。
 -   others：其他阿里云用户共享给您的镜像。
--   marketplace：[镜像市场](https://market.aliyun.com/) 提供的镜像。您查询到的云市场镜像可以直接使用，无需提前订阅。您需要自行留意云市场镜像的收费详情。
+-   marketplace：[云市场](https://marketplace.alibabacloud.com/) 提供的镜像。您查询到的云市场镜像可以直接使用，无需提前订阅。您需要自行留意云市场镜像的收费详情。
 
  默认值：空，空表示返回取值为system、self以及others的结果。
 
  |
 |InstanceChargeType|String|否|PrePaid|实例的付费方式。取值范围：
 
- -   PrePaid：预付费，包年包月。选择该类付费方式时，您必须确认自己的账号支持余额支付和信用支付，否则将返回 `InvalidPayMethod` 的错误提示。
+ -   PrePaid：预付费，包年包月。选择该类付费方式时，您必须确认自己的账号支持信用支付，否则将返回 `InvalidPayMethod` 的错误提示。
 -   PostPaid：按量付费。
 
  |
@@ -113,8 +113,7 @@
  |
 |InternetChargeType|String|否|PayByTraffic|网络计费类型。取值范围：
 
- -   PayByBandwidth：按固定带宽计费
--   PayByTraffic：按使用流量计费
+ -   PayByTraffic：按使用流量计费
 
  |
 |InternetMaxBandwidthIn|Integer|否|200|公网入带宽最大值，单位为 Mbit/s。取值范围：1~200
@@ -227,10 +226,10 @@
  该参数的取值必须大于或者等于max\{20, ImageSize\}。
 
  |
-|Tag.N.Key|String|否|FinanceDept|实例、磁盘和主网卡的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
+|Tag.N.Key|String|否|FinanceDept|实例、磁盘和主网卡的标签键。N 的取值范围：1~5。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.Value|String|否|FinanceDept.Joshua|实例、磁盘和主网卡的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
+|Tag.N.Value|String|否|FinanceDept.Joshua|实例、磁盘和主网卡的标签值。N 的取值范围：1~5。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
 |TemplateResourceGroupId|String|否|rg-resourcegroupid2|启动模板所在的企业资源组 ID。
