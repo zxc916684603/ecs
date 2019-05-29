@@ -27,12 +27,12 @@
     1.  [远程连接实例](cn.zh-CN/实例/连接实例/连接方式导航.md#section_mjm_rgx_wdb)。
     2.  右击桌面，然后单击**NVIDIA 控制面板**。 
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/217881/155910756747965_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/217881/155911446047965_zh-CN.png)
 
     3.  选择**许可** \> **管理许可证**。
     4.  输入License服务器的IP和端口，然后单击**应用**。 
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/217881/155910756747967_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/217881/155911446047967_zh-CN.png)
 
         显示**您的系统已获取GRID vGPU许可**，表示License激活成功。
 
