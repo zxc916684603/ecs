@@ -32,7 +32,7 @@
     -   ECS实例的可用区会发生变化。受影响的关联服务有云数据库RDS、Redis或者MongoDB，请及时调整您的应用配置迁移可用区，确保您的业务能够持续提供服务。
     -   物理机升级的同时会升级底层虚拟化技术，您的ECS磁盘识别名称会发生变化。在Linux实例中，磁盘会被识别为vda、vdb和vdc等。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10947/155861069243662_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10947/155909815143662_zh-CN.png)
 
         阿里云会为Linux实例自动修复/etc/fstab文件，但您仍需关注其他应用是否对设备名有依赖。
 
