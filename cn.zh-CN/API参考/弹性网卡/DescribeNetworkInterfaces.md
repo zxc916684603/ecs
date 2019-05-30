@@ -2,12 +2,6 @@
 
 查看弹性网卡（ENI）列表。
 
-## 接口说明 {#description .section}
-
--   查询时，我们通过您指定属性值过滤结果。
--   不指定属性值就不过滤该属性，返回所有类目结果。
--   一次最多查看100个弹性网卡。
-
 ## 调试 {#apiExplorer .section}
 
 前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeNetworkInterfaces)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
@@ -22,13 +16,40 @@
 |Action|String|否|DescribeNetworkInterfaces|系统规定参数。取值：DescribeNetworkInterfaces
 
  |
-|InstanceId|String|否|i-bpm21018033933eaxxxxx|弹性网卡当前关联的实例ID。
-
- |
 |NetworkInterfaceId.N|RepeatList|否|eni-bp17pdijfczaxZZZZxxxxx|弹性网卡ID。一次最多查看100个。
 
  |
+|Tag.N.Key|String|否|test|弹性网卡的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
+
+ |
+|Tag.N.Value|String|否|api-test|弹性网卡的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
+
+ |
+|ResourceGroupId|String|否|rg-resourcegroupid1|资源组ID。
+
+ |
+|VSwitchId|String|否|vsw-bp16usj2p27htro3xxxxx|VPC的虚拟交换机ID。
+
+ |
+|VpcId|String|否|vsw-bp16usj2p27htro3xxxxx|网卡所属的专有网络VPC ID。
+
+ |
+|SecurityGroupId|String|否|sg-bp144yr32sx6ndwxxxxx|安全组ID。
+
+ |
 |NetworkInterfaceName|String|否|my-eni-name|弹性网卡的名称。
+
+ |
+|Type|String|否|Secondary|弹性网卡类型。取值范围：
+
+ -   Primary
+-   Secondary
+
+ |
+|InstanceId|String|否|i-bpm21018033933eaxxxxx|弹性网卡当前关联的实例ID。
+
+ |
+|PrimaryIpAddress|String|否|172.17.XX.XXX|弹性网卡主私有IP地址。
 
  |
 |PageNumber|Integer|否|1|查询结果的页码。取值为正整数。
@@ -39,33 +60,6 @@
 |PageSize|Integer|否|100|查询结果的分页大小。取值范围：1~100
 
  默认值：10
-
- |
-|PrimaryIpAddress|String|否|172.17.XX.XXX|弹性网卡主私有IP地址。
-
- |
-|ResourceGroupId|String|否|rg-resourcegroupid1|资源组ID。
-
- |
-|SecurityGroupId|String|否|sg-bp144yr32sx6ndwxxxxx|安全组ID。
-
- |
-|Tag.N.Key|String|否|test|弹性网卡的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
-
- |
-|Tag.N.Value|String|否|api-test|弹性网卡的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
-
- |
-|Type|String|否|Secondary|弹性网卡类型。取值范围：
-
- -   Primary
--   Secondary
-
- |
-|VSwitchId|String|否|vsw-bp16usj2p27htro3xxxxx|VPC的虚拟交换机ID。
-
- |
-|VpcId|String|否|vsw-bp16usj2p27htro3xxxxx|网卡所属的专有网络VPC ID。
 
  |
 
@@ -91,7 +85,9 @@
 |└Description|String|test1|描述
 
  |
-|└InstanceId|String|AY121018033933eaxxxxx|实例ID
+|└InstanceId|String|i-instanceId|弹性网卡绑定的实例ID
+
+ **说明：** 由其他阿里云服务管理和控制的弹性网卡不会返回实例ID。
 
  |
 |└Ipv6Sets| | |为弹性网卡分配的IPv6地址集合。
@@ -178,7 +174,6 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=DescribeNetworkInterfaces
 &RegionId=cn-hangzhou
 &Tag.1.Key=test
@@ -195,7 +190,6 @@ https://ecs.aliyuncs.com/?Action=DescribeNetworkInterfaces
 &PageNumber=1
 &PageSize=100
 &<公共请求参数>
-
 ```
 
 正常返回示例
