@@ -1,73 +1,79 @@
-# DetachDisk {#DetachDisk .reference}
+# DetachDisk {#doc_api_999557 .reference}
 
-Detaches a cloud disk from a specified instance. The disk category can be basic cloud disk, efficiency cloud disk, and cloud SSD disk.
+Detaches a Pay-As-You-Go disk from an instance. The disk types that support Pay-As-You-Go billing are basic disks, ultra disks, and SSDs.
 
-## Description {#section_udt_fp5_xdb .section}
+## Description {#description .section}
 
-When you call this interface, consider the following:
+When you call this operation, note that:
 
--   The `Portable` attribute of the cloud disk must be `True`.
--   The status of the specified cloud disk must be **In Use** \(`In_Use`\).
--   The status of the specified instance must be **Running** \(`Running`\) or **Stopped** \(`Stopped`\).
--   If the specified instance is [locked](reseller.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#), `OperationLocks` of the instance cannot be `"LockReason" : "security"`.
--   After a cloud disk is detached, the `DeleteWithInstance` attribute of the target cloud disk is automatically set to `false`.
+-   The Portable attribute of the disk must be set to true.
+-   The disk to be detached must be in the In\_use state.
+-   The instance that the disk is attached to must be in the Running or Stopped state.
+-   The instance must not be locked by [security control](~~25695~~). The OperationLocks parameter of the ECS instance must not be set to "LockReason": "security".
+-   After the disk is detached from an instance, its DeleteWithInstance attribute will be set to false. Because it is no longer attached to the instance, it can no longer be released together with the instance.
+-   The DetachDisk operation is asynchronous. After a response is returned, it will take about a minute before the disk is detached.
 
--   The actions are asynchronous tasks, you may wait for a few minutes before the action is completed, and the duration is about one minutes.
+## Debugging {#apiExplorer .section}
 
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DetachDisk) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-## Request parameters {#RequestParameter .section}
+## Request parameters {#parameters .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DetachDisk.|
-|InstanceId|String|Yes|The ID of the target ECS instance.|
-|DiskId|String|Yes|The ID of the disk.|
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|DiskId|String|Yes|d-diskid1| The ID of the disk to be detached.
 
-## Response parameters {#section_c2t_fp5_xdb .section}
+ |
+|InstanceId|String|Yes|i-instanceid1| The ID of the ECS instance from which the disk is to be detached.
 
-All are common response parameters. For more information, see [common parameters](reseller.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
+ |
+|Action|String|No|DetachDisk| The operation that you want to perform. Set the value to DetachDisk.
 
-## Examples { .section}
+ |
 
-**Request example** 
+## Response parameters {#resultMapping .section}
 
-```
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=DetachDisk
-&InstanceId=i-23jggx34b
-&DiskId=d-23jbf2v5m
-&<Common Request Parameters>
+&DiskId=d-diskid1
+&InstanceId=i-instanceid1
+&<Common request parameters>
 ```
 
-**Response example** 
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <DetachDiskResponse>
-    <RequestId>473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E</RequestId>
+  <RequestId>473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E</RequestId> 
 </DetachDiskResponse>
 ```
 
- **JSON format** 
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-        "RequestId": "473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E"
+	"RequestId":"473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E"
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_9pa_776_y2b .section}
 
-|Error code|Error message|HTTP status code|Meaning|
-|:---------|:------------|:---------------|:------|
-|MissingParameter|The input parameter InstanceId that is mandatory for processing this request is  not supplied.|400|You must specify a InstanceId.|
-|DependencyViolation|The specified disk has not been attached on the specified instance.|403|The specified disk is not attached to the specified instance.|
-|DiskNotPortable|The specified disk is not a portable disk.|403|The specified disk cannot be detached.|
-|DiskTypeViolation|The specified disk is a system disk and cannot support the operation.|403|You cannot detach a system disk from your instance.|
-|IncorrectDiskStatus|The current disk status does not support this operation.|403|The status of the specified cloud disk must be **In Use** \(`In_Use`\).|
-|IncorrectInstanceStatus|The current status of the resource does not support this operation.|403|The status of the specified instance must be **Running** \(`Running`\) or **Stopped** \(`Stopped`\).|
-|InstanceLockedForSecurity|The instance is locked due to security.|403|The specified instance is [locked](reseller.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#) for the sake of security.|
-|InvalidDiskId.Released|The specified disk has been released.|403|The specified disk has been released.|
-|InvalidDiskId.NotFound|The specified DiskId does not exist.|404|The specified disk does not exist.|
-|InvalidInstanceId.NotFound|The specified InstanceId does not exist.|404|The specified disk does not exist.|
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|403|InstanceLockedForSecurity|The instance is locked due to security.|The error message returned when the specified instance is locked for security reasons and the operation cannot be completed.|
+|400|InvalidOperation.InstanceTypeNotSupport|The instance type of the specified instance does not support hot detach disk.|The error message returned when the instance that the disk is attached to does not support the hot swapping of disks.|
+
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
