@@ -1,55 +1,73 @@
-# DescribeSnapshotsUsage {#DescribeSnapshotsUsage .reference}
+# DescribeSnapshotsUsage {#doc_api_999637 .reference}
 
-Queries the number of snapshots stored in a region and the total size of the snapshots. If you want to view the snapshot usage information on each disk in the current region, we recommend that you call the DescribeSnapshotLinks operation to query snapshot chain information.
+Queries the number of snapshots stored in a region as well as their total size. If you want to view the snapshot usage information for each disk in a region, we recommend that you call the DescribeSnapshotLinks operation to query snapshot chain information.
 
-## Request parameters {#RequestParameter .section}
+## Debugging {#apiExplorer .section}
 
-|Parameter|Type|Required|Description|
-|:--------|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DescribeSnapshotsUsage.|
-|RegionId|String|Yes|The ID of the region where the snapshot is stored.For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeSnapshotsUsage) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-## Response parameters {#ResponseParameter .section}
+## Request parameters {#parameters .section}
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|SnapshotCount|Integer|The number of snapshots stored in the current region.|
-|SnapshotSize|Long|The size of snapshots stored in the current region. Unit: Bytes.|
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|RegionId|String|Yes|cn-hangzhou| The ID of the region to which the snapshot belongs. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
 
-## Examples {#Samples .section}
+ |
+|Action|String|No|DescribeSnapshotsUsage| The operation that you want to perform. Set the value to DescribeSnapshotsUsage.
 
-**Request example** 
+ |
 
-```
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+|SnapshotCount|Integer|5| The number of snapshots stored in the current region.
+
+ |
+|SnapshotSize|Long|122| The total size of snapshots stored in the current region. Unit: Byte.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=DescribeSnapshotsUsage
 &RegionId=cn-hangzhou
-&<Common Request Parameters>
+&<Common request parameters>
 ```
 
-**Response examples**
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <DescribeSnapshotsUsageResponse>
-	<SnapshotCount>5</SnapshotCount>
-	<SnapshotSize>122</SnapshotSize>
-    
-    <RequestId>ED5CF6DD-71CA-462C-9C94-A61A78A01479</RequestId>
+  <SnapshotCount>5</SnapshotCount>
+  <SnapshotSize>122</SnapshotSize>
+  <RequestId>ED5CF6DD-71CA-462C-9C94-A61A78A01479</RequestId>
 </DescribeSnapshotsUsageResponse>
 ```
 
-**JSON format**
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-	"SnapshotCount": "5",
-	"SnapshotSize": "122",
-	"RequestId": "ACD9BBB0-A9D1-46D7-9630-B7A69889E110"
+	"SnapshotSize":"122",
+	"RequestId":"ACD9BBB0-A9D1-46D7-9630-B7A69889E110",
+	"SnapshotCount":"5"
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_fsi_pre_b14 .section}
 
-All are common error codes. For more information, see [Common error codes](../reseller.en-US/API Reference/Getting started/Response results.md#commonErrorCodes).
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|403|InvalidParam. RegionId|The specified region does not exist.|The error message returned when the specified region does not exist.|
+
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
