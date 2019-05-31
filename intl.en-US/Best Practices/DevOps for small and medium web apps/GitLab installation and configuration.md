@@ -4,17 +4,17 @@
 
 [GitLab CE edition](https://about.gitlab.com/) is a free open-source tool that will help us to host Git repositories and run our CI/CD pipeline.
 
-To keep it simple, we will install GitLab on an ECS instance with a direct access to internet. Although the servers will be protected via [encryption](https://en.wikipedia.org/wiki/Transport_Layer_Security) and restrictive [security group rules](../../../../intl.en-US/Security/Security groups/Add security group rules.md#), you might also want to isolate your virtual machines from internet by using a [VPN Gateway](../../../../intl.en-US/Product Overview/What is VPN Gateway?.md#).
+To keep it simple, we will install GitLab on an ECS instance with a direct access to internet. Although the servers will be protected via [encryption](https://en.wikipedia.org/wiki/Transport_Layer_Security) and restrictive [security group rules](../../../../reseller.en-US/Security/Security groups/Add security group rules.md#), you might also want to isolate your virtual machines from internet by using a [VPN Gateway](../../../../reseller.en-US/Product Overview/What is VPN Gateway?.md#).
 
 The following diagram illustrates the architecture we will put in place for GitLab:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155892085038457_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155928288038457_en-US.png)
 
 ## Cloud resources creation {#section_fcr_jm2_qgb .section}
 
 The first step is to buy a domain name. This is necessary if you want to enable security on your servers:
 
-1.  Log on to the [Domain console](https://dc.console.aliyun.com/).
+1.  Log on to the [Domain console](https://partners-intl.console.aliyun.com/#/dc).
 2.  Click **Purchase**.
 3.  Choose a domain, such as **my-sample-domain.xyz** and follow the instructions to buy it.
 4.  Return to the console and refresh the page in order to see your new domain.
@@ -23,7 +23,7 @@ The first step is to buy a domain name. This is necessary if you want to enable 
 
 The second step is to create ECS instances and related resources:
 
-1.  Log on to the [VPC console](https://vpc.console.aliyun.com/).
+1.  Log on to the [VPC console](https://partners-intl.console.aliyun.com/#/vpc).
 2.  Select the region where you want to create the VPC on top of the page, for example, Singapore.
 3.  Click **Create VPC**.
 4.  Fill in the new form with the following information:
@@ -32,7 +32,7 @@ The second step is to create ECS instances and related resources:
     -   VSwitch name = devops-simple-app-vswitch
     -   VSwitch zone = first zone of the list
     -   VSwitch destination CIDR Block = “192.168.0.0/24”
-5.  Click **OK** the create the VPC and the VSwitch.
+5.  Click **OK**the create the VPC and the VSwitch.
 6.  In the VPC list, click the VPC you have just created.
 7.  Scroll down and click **0** at the right of **Security Group**.
 8.  In the new page, click **Create Security Group**.
@@ -42,7 +42,7 @@ The second step is to create ECS instances and related resources:
     -   Network Type = VPC
     -   VPC = select the VPC you just created \(with the name devops-simple-app-vpc\)
 10. Click **OK** to create the security group and the rules from the template. Note that the rules open the ports for [SSH](https://en.wikipedia.org/wiki/Secure_Shell), [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol), [HTTPS](https://en.wikipedia.org/wiki/HTTPS) and [ICMP](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol) to any computer on Internet.
-11. Log on to the [ECS console](https://ecs.console.aliyun.com/).
+11. Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 12. Click **Create Instance**.
 13. If needed, select **Advanced Purchase** \(also named **Custom**\).
 14. Fill in the wizard with the following information:
@@ -77,7 +77,7 @@ The second step is to create ECS instances and related resources:
 
 The ECS instance is ready for GitLab. Now register a sub-domain for this machine:
 
-1.  Log on to the [Domain console](https://dc.console.aliyun.com/).
+1.  Log on to the [Domain console](https://partners-intl.console.aliyun.com/#/dc).
 2.  On the row corresponding to your domain \(for example, my-sample-domain.xyz\), click **Resolve**.
 3.  Click **Add Record**.
 4.  Fill in the new form with the following information:
@@ -92,7 +92,7 @@ The ECS instance is ready for GitLab. Now register a sub-domain for this machine
 
 We can now finally install GitLab! Open a terminal on your computer and type:
 
-```
+``` {#codeblock_9o6_4ur_00l}
 # Connect to the ECS instance
 ssh root@gitlab.my-sample-domain.xyz # Use the password you set when you have created the ECS instance
 
@@ -118,13 +118,13 @@ In the GitLab configuration file, replace the value of `external_url` by `http:/
 
 Now start GitLab and try it. In your terminal, run the following command:
 
-```
+``` {#codeblock_78a_65f_lr3}
 gitlab-ctl reconfigure
 ```
 
 Open your web browser on `http://gitlab.my-sample-domain.xyz`. You can see the following screen:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155892085038568_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155928288038568_en-US.png)
 
 Congratulation if you get a similar screen! In case it does not work, first make sure you did not miss a step, and then [raise an issue](https://github.com/alibabacloud-howto/devops/issues) if the problem persists.
 
@@ -134,7 +134,7 @@ Do not enter your new password yet because you are using an unencrypted connecti
 
 Open your terminal and enter the following commands:
 
-```
+``` {#codeblock_9go_4rl_32r}
 # Connect to the ECS instance
 ssh root@gitlab.my-sample-domain.xyz # Use the password you set when you have created the ECS instance
 
@@ -151,7 +151,7 @@ The last command allows you to edit GitLab configuration:
 1.  Modify the value of `external_url` by adding an `s` to `http://` into `https://` \(for eample, https://gitlab.my-sample-domain.xyz\).
 2.  Scroll to **Let’s Encrypt integration** and insert the following lines:
 
-    ```
+    ``` {#codeblock_8sy_ke9_bro}
     letsencrypt['enable'] = true
     letsencrypt['contact_emails'] = ["john.doe@your-company.com"] # Your email address
     letsencrypt['auto_renew'] = true
@@ -162,7 +162,7 @@ The last command allows you to edit GitLab configuration:
 
     Quit and save the file by pressing Ctrl + X, and then apply the configuration change and restart GitLab with:
 
-    ```
+    ``` {#codeblock_myq_7nv_h1i}
     gitlab-ctl reconfigure
     ```
 
@@ -182,13 +182,13 @@ Before going further we still need to configure two things:
 
 Go back to the Alibaba Cloud web console and execute the following instructions:
 
-1.  Log on to the [Direct Mail console](https://dm.console.aliyun.com/).
+1.  Log on to the [Direct Mail console](https://partners-intl.console.aliyun.com/#/dm).
 2.  Select the region on top of the page.
 3.  Click **Email Domains** from the left-side navigation pane.
 4.  Click **New Domain**.
 5.  In the new form, set the `domain as mail.my-sample-domain.xyz` \(the domain you chose earlier with the prefix `mail`\).
 6.  The page must be refreshed with your new email domain. Click **Configure** link on its right side.
-7.  The new page explains you how to configure your domain. Keep this web browser tab opened, open a new one and go to the [Domain console](https://dc.console.aliyun.com/).
+7.  The new page explains you how to configure your domain. Keep this web browser tab opened, open a new one and go to the [Domain console](https://partners-intl.console.aliyun.com/#/dc).
 8.  Click **Resolve** link next to your domain.
 9.  Click **Add Record**.
 10. Fill the new form with the following information:
@@ -224,7 +224,7 @@ Go back to the Alibaba Cloud web console and execute the following instructions:
 
 You should probably have a domain configuration that looks like that:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155892085038861_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155928288038861_en-US.png)
 
 Continue the email server configuration:
 
@@ -249,7 +249,7 @@ Continue the email server configuration:
 
 Now that the email server is ready, let’s configure GitLab to use it. Open a terminal on your computer and enter the following commands:
 
-```
+``` {#codeblock_m4s_etx_hjn}
 # Connect to the ECS instance
 ssh root@gitlab.my-sample-domain.xyz # Use the password you set when you have created the ECS instance
 
@@ -259,7 +259,7 @@ nano /etc/gitlab/gitlab.rb
 
 Scroll down to **\#\#\# Email Settings** and insert the following lines:
 
-```
+``` {#codeblock_v2v_7v0_l5u}
 gitlab_rails['gitlab_email_enabled'] = true
 gitlab_rails['gitlab_email_from'] = 'gitlab@mail.my-sample-domain.xyz' # The sender address you have just created
 gitlab_rails['gitlab_email_display_name'] = 'GitLab'
@@ -268,7 +268,7 @@ gitlab_rails['gitlab_email_reply_to'] = 'gitlab@mail.my-sample-domain.xyz'
 
 Scroll down to **\#\#\# GitLab email server settings** and insert the following lines:
 
-```
+``` {#codeblock_ces_jto_427}
 gitlab_rails['smtp_enable'] = true
 gitlab_rails['smtp_address'] = "smtpdm-ap-southeast-1.aliyun.com"   # SMTP address written in the Direct Mail console
 gitlab_rails['smtp_port'] = 465                                     # SMTP port written in the Direct Mail console
@@ -282,7 +282,7 @@ gitlab_rails['smtp_tls'] = true
 
 Apply the configuration change and restart GitLab:
 
-```
+``` {#codeblock_g4h_v19_fa1}
 gitlab-ctl reconfigure
 ```
 
@@ -310,7 +310,7 @@ In order to run backups automatically, please open a terminal and run the follow
 
 Let’s now create an OSS bucket where we will store our backups:
 
-1.  Log on to the [OSS console](https://oss.console.aliyun.com/).
+1.  Log on to the [OSS console](https://partners-intl.console.aliyun.com/#/oss).
 2.  Click **Create Bucket**.
 3.  Fill the new form with the following information:
     -   Bucket Name = gitlab-my-sample-domain-xyz \(you can set the name you want, but it must be unique\)
@@ -322,16 +322,16 @@ Let’s now create an OSS bucket where we will store our backups:
 
 You will also need an access key id and secret:
 
-1.  Log on to the [user management center](https://usercenter.console.aliyun.com/) by clicking on your user on the top-right of the page and by selecting AccessKey.
+1.  Log on to the [user management center](https://partners-intl.console.aliyun.com/#/usercenter) by clicking on your user on the top-right of the page and by selecting AccessKey.
 2.  Click **Create Access Key**.
 3.  Note the AccessKeyID and the AccessKeySecret and click **Save AccessKey Information**.
 
 In your terminal, mount your OSS bucket as a folder:
 
-```
+``` {#codeblock_kkt_nnt_hp7}
 # Save your bucket name, access key id and access key secret in the file /etc/passwd-ossfs
 # The format is my-bucket:my-access-key-id:my-access-key-secret
-echo gitlab-my-sample-domain-xyz:LTAIsP66uJ8zujwZ:rc15yggaCX08AiYKe2BGnX49wNUGpk > /etc/passwd-ossfs
+echo gitlab-my-sample-domain-xyz:LTAI********ujwZ:rc15yggaCX08A********X49wNUGpk > /etc/passwd-ossfs
 chmod 640 /etc/passwd-ossfs
 
 # Create a folder where we will mount the OSS bucket
@@ -350,7 +350,7 @@ umount /mnt/gitlab-bucket
 
 Check that the test file is present in your bucket:
 
-1.  Log on to the [OSS console](https://oss.console.aliyun.com/).
+1.  Log on to the [OSS console](https://partners-intl.console.aliyun.com/#/oss).
 2.  Click your bucket name from the left-side navigation pane.
 3.  Click **Files** from the top menu.
 4.  The file test.txt should be present and should contain **It works**.
@@ -362,24 +362,24 @@ Adapt and copy the following content:
 
 Make sure you set the right bucket name and endpoint. Quit and save by pressing CTRL + X. Configure Systemd to run this script at startup:
 
-Log on to the [OSS console](https://oss.console.aliyun.com/), and check that the test2.txt file is present in your bucket and delete it.
+Log on to the [OSS console](https://partners-intl.console.aliyun.com/#/oss), and check that the test2.txt file is present in your bucket and delete it.
 
 Let’s now configure GitLab to put its backup files in the mounted folder. Open the terminal and run:
 
-```
+``` {#codeblock_mhj_76u_ddw}
 # Open GitLab configuration
 nano /etc/gitlab/gitlab.rb
 ```
 
 Scroll to **\#\#\# Backup Settings** and insert the following line:
 
-```
+``` {#codeblock_mca_nlh_gkq}
 gitlab_rails['backup_path'] = "/mnt/gitlab-bucket/backup/"
 ```
 
 Quit and save by pressing CTRL + X, and then check if it works:
 
-```
+``` {#codeblock_p1n_jyt_a70}
 # Apply GitLab configuration
 gitlab-ctl reconfigure
 
@@ -393,14 +393,14 @@ Let’s now configure automatic backup to be executed automatically every night.
 
 Open your terminal and execute:
 
-```
+``` {#codeblock_ng2_j99_gk1}
 # Edit the CRON configuration file. Select nano as the editor.
 crontab -e
 ```
 
 Enter the following lines into this file:
 
-```
+``` {#codeblock_zkr_y67_qxu}
 0 2 * * * /opt/gitlab/bin/gitlab-rake gitlab:backup:create CRON=1
 0 2 * * * /bin/cp /etc/gitlab/gitlab.rb "/mnt/gitlab-bucket/backup/$(/bin/date '+\%s_\%Y_\%m_\%d')_gitlab.rb"
 0 2 * * * /bin/cp /etc/gitlab/gitlab-secrets.json "/mnt/gitlab-bucket/backup/$(/bin/date '+\%s_\%Y_\%m_\%d')_gitlab-secrets.json"
@@ -418,7 +418,7 @@ It is [a best practice](https://docs.gitlab.com/ce/install/requirements.html#git
 
 Thus, we need to setup one [runner](https://docs.gitlab.com/ce/ci/runners/) on a new ECS instance. Please execute the following instructions:
 
-1.  Log on to the [VPC console](https://vpc.console.aliyun.com/).
+1.  Log on to the [VPC console](https://partners-intl.console.aliyun.com/#/vpc).
 2.  Select the region of the GitLab ECS instance \(on top of the screen\).
 3.  Click the VPC **devops-simple-app-vpc**.
 4.  Click **1** next to **Security Group**.
@@ -429,7 +429,7 @@ Thus, we need to setup one [runner](https://docs.gitlab.com/ce/ci/runners/) on a
     -   Network Type = VPC
     -   VPC = select the VPC **devops-simple-app-vpc**
 7.  Click **OK** to create the group. We will not add any rule in order to be as restrictive as possible \(to improve security\).
-8.  Log on to the [ECS console](https://ecs.console.aliyun.com/).
+8.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 9.  Click **Create Instance**.
 10. If needed, select **Advanced Purchase** \(also named **Custom**\).
 11. Fill the wizard with the following information:
@@ -452,7 +452,7 @@ Thus, we need to setup one [runner](https://docs.gitlab.com/ce/ci/runners/) on a
 
 Execute the following commands in this web-terminal:
 
-```
+``` {#codeblock_46e_rs2_xhf}
 # Update the machine
 apt-get update
 apt-get upgrade
@@ -481,7 +481,7 @@ apt-get install apt-transport-https ca-certificates curl software-properties-com
 apt-get install docker-ce
 ```
 
-As you can see we setup two applications: [GitLab Runner](https://docs.gitlab.com/ce/ci/runners/) and [Docker](https://www.docker.com/). We will keep things very simple with Docker: it is a [very](https://docs.docker.com/engine/swarm/key-concepts/) [powerful](https://kubernetes.io/) tool, but for the moment we will just use it as a super installer, for example we will not setup any tool, compiler or SDK on this machine. instead we will be lazy and let Docker to download the right [images](https://docs.docker.com/get-started/) for us. Things will become more clear later in this tutorial when we will configure our CI/CD pipeline.
+As you can see we setup two applications: [GitLab Runner](https://docs.gitlab.com/ce/ci/runners/) and [Docker](https://www.docker.com/). We will keep things very simple with Docker: it is a [very](https://docs.docker.com/engine/swarm/key-concepts/)[powerful](https://kubernetes.io/) tool, but for the moment we will just use it as a super installer, for example we will not setup any tool, compiler or SDK on this machine. instead we will be lazy and let Docker to download the right [images](https://docs.docker.com/get-started/) for us. Things will become more clear later in this tutorial when we will configure our CI/CD pipeline.
 
 Now we need to connect the runner with GitLab:
 
@@ -492,11 +492,11 @@ Now we need to connect the runner with GitLab:
 
 The bottom of the page contains an URL and a token:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155892085038984_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155928288138984_en-US.png)
 
 Go back to the web-terminal connected to the runner machine, and type:
 
-```
+``` {#codeblock_9l9_uam_pyj}
 gitlab-runner register
 ```
 
@@ -511,7 +511,7 @@ This tool needs several information to register the runner. Enter the following 
 
 After the tool gives you back the hand, you should be able to see this runner in the GitLab web browser tab. Refresh the page and check at the bottom, you should see something like this:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155892085038986_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/122916/155928288138986_en-US.png)
 
 Our GitLab is now ready to be used! But there are few more points to consider before creating our first project:
 
@@ -541,7 +541,7 @@ Linux servers need to be upgraded from time to time: security patches must be in
 
 On Ubuntu instances, the following commands allow you to safely update your server:
 
-```
+``` {#codeblock_cvu_655_9et}
 apt-get update
 apt-get upgrade
 ```
@@ -562,7 +562,7 @@ For more complex upgrade it may be more practical to replace the ECS instance:
 
 Security updates can be automatically installed thanks to `unattended-upgrades`. For each ECS instance \(GitLab and its runner\), open a terminal \(using SSH or the web-terminal console\) and enter the following commands:
 
-```
+``` {#codeblock_x86_jhf_zh1}
 # Install unattended-upgrades
 apt-get install unattended-upgrades
 
@@ -578,7 +578,7 @@ nano /etc/apt/apt.conf.d/20auto-upgrades
 
 The last configuration file can be modified in order to look like this:
 
-```
+``` {#codeblock_lzm_05x_nbz}
 APT::Periodic::Update-Package-Lists "1";
 APT::Periodic::Unattended-Upgrade "1";
 APT::Periodic::Download-Upgradeable-Packages "1";
@@ -587,7 +587,7 @@ APT::Periodic::AutocleanInterval "7";
 
 Save and quit by pressing CTRL + X. You can launch `unattended-upgrades` manually for testing:
 
-```
+``` {#codeblock_2e4_jjz_4zr}
 unattended-upgrade -d
 ```
 
