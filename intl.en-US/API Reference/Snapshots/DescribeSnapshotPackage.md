@@ -1,87 +1,117 @@
-# DescribeSnapshotPackage {#DescribeSnapshotPackage .reference}
+# DescribeSnapshotPackage {#doc_api_1006029 .reference}
 
-Queries your purchased OSS storage plans in your specified Alibaba Cloud region. These storage plans can be used for snapshot storage.
+Queries the storage plans that you have purchased within an Alibaba Cloud region. These storage plans can be used to store snapshots.
 
-## Request parameters {#RequestParameter .section}
+## Debugging {#apiExplorer .section}
 
-|Parameter|Type|Required|Description|
-|:--------|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DescribeSnapshotPackage.|
-|RegionId|String|Yes|The ID of the region where the snapshot is stored.For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|PageNumber|Integer|No|The page number of the OSS storage plans list. Initial value: 1.Default value: 1.
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeSnapshotPackage) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-|
-|PageSize|Integer|No|The maximum number of entries on a page. Maximum value: 100.Default value: 10.
+## Request parameters {#parameters .section}
 
-|
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|RegionId|String|Yes|cn-hangzhou| The ID of the region to which the snapshot belongs. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
 
-## Response parameters {#ResponseParameter .section}
+ |
+|Action|String|No|DescribeSnapshotPackage| The operation that you want to perform. Set the value to DescribeSnapshotPackage.
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|TotalCount|Integer|The total number of OSS storage plans.|
-|PageNumber|Integer|The page number of the OSS storage plans list.|
-|PageSize|Integer|The maximum number of entries on a page.|
-|SnapshotPackages|Array of [SnapshotPackage](#)|An array of OSS storage plan parameters.|
+ |
+|PageNumber|Integer|No|1| The page number that you query in the OSS storage plan list. Starting value: 1.
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|StartTime|String|The time when the OSS storage plan was purchased.The time format follows the [ISO8601](../reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.|
-|EndTime|String|The time when the OSS storage plan expires.The time format follows the [ISO8601](../reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.|
-|InitCapacity|Long|The storage space offered by the OSS storage plan.|
-|DisplayName|String|The name of the OSS storage plan.|
+ Default value: 1.
 
-## Examples {#Samples .section}
+ |
+|PageSize|Integer|No|10| The number of entries per page. Maximum value: 100.
 
-**Request example** 
+ Default value: 10.
 
-```
+ |
+
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|PageNumber|Integer|1| The page number that you query in the OSS storage plan list.
+
+ |
+|PageSize|Integer|10| The number of entries per page.
+
+ |
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+|SnapshotPackages| | | The OSS storage plan information.
+
+ |
+|└DisplayName|String|FinanceJoshua| The name of the OSS storage plan.
+
+ |
+|└EndTime|String|2018-11-30T06:32:31Z| The time when the OSS storage plan expires. The time follows the [ISO 8601](~~25696~~) standard and uses UTC time. The format is yyyy-MM-ddTHH:mm:ssZ.
+
+ |
+|└InitCapacity|Long|500| The storage space offered by the OSS storage plan.
+
+ |
+|└StartTime|String|2017-11-30T06:32:31Z| The time when the OSS storage plan was purchased. The time follows the [ISO 8601](~~25696~~) standard and uses UTC time. The format is yyyy-MM-ddTHH:mm:ssZ.
+
+ |
+|TotalCount|Integer|1| The total number of OSS storage plans.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=DescribeSnapshotPackage
 &RegionId=cn-hangzhou
-&<Common Request Parameters>
+&<Common request parameters>
 ```
 
-**Response examples**
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <DescribeSnapshotPackageResponse>
-	<TotalCount>1</TotalCount>
-	<PageNumber>1</PageNumber>
-	<PageSize>5</PageSize>
-	<SnapshotPackages>
-		<SnapshotPackage>
-			<StartTime>2017-11-30T06:32:31Z</StartTime>
-			<EndTime>2018-11-30T06:32:31Z</EndTime>
-			<InitCapacity>500</InitCapacity>
-			<DisplayName>sp-snapshotpackage1</DisplayName>
-		</SnapshotPackage>
-	</SnapshotPackages>
-	<RequestId>ACD9BBB0-A9D1-46D7-9630-B7A69889E110</RequestId>
+  <TotalCount>1</TotalCount>
+  <PageNumber>1</PageNumber>
+  <PageSize>5</PageSize>
+  <SnapshotPackages>
+    <SnapshotPackage>
+      <StartTime>2017-11-30T06:32:31Z</StartTime> 
+      <EndTime>2018-11-30T06:32:31Z</EndTime> 
+      <InitCapacity>500</InitCapacity> 
+      <DisplayName>sp-snapshotpackage1</DisplayName> 
+    </SnapshotPackage>
+  </SnapshotPackages>
+  <RequestId>ACD9BBB0-A9D1-46D7-9630-B7A69889E110</RequestId>
 </DescribeSnapshotPackageResponse>
 ```
 
-**JSON format**
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-	"TotalCount": "1",
-	"PageNumber": "1",
-	"PageSize": "5",
-	"SnapshotPackages": {
-		"SnapshotPackage": [
-			"StartTime": "2017-11-30T06:32:31Z",
-			"EndTime": "2018-11-30T06:32:31Z",
-			"InitCapacity": "500",
-			"DisplayName": "sp-snapshotpackage1"
+	"SnapshotPackages":{
+		"SnapshotPackage":[
+			{
+				"InitCapacity":"500",
+				"EndTime":"2018-11-30T06:32:31Z",
+				"StartTime":"2017-11-30T06:32:31Z",
+				"DisplayName":"sp-snapshotpackage1"
+			}
 		]
 	},
-	"RequestId": "ACD9BBB0-A9D1-46D7-9630-B7A69889E110"
+	"PageNumber": "1",
+	"TotalCount":"1",
+	"PageSize":"5",
+	"RequestId":"ACD9BBB0-A9D1-46D7-9630-B7A69889E110"
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_l8o_spy_cqt .section}
 
-All are common error codes. For more information, see [Common error codes](../reseller.en-US/API Reference/Getting started/Response results.md#commonErrorCodes).
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
