@@ -1,67 +1,86 @@
-# ModifyImageAttribute {#ModifyImageAttribute .reference}
+# ModifyImageAttribute {#doc_api_999579 .reference}
 
 Modifies the name and description of a custom image.
 
-## Request parameters {#RequestParameter .section}
+## Debugging {#apiExplorer .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: ModifyImageAttribute.|
-|RegionId|String|Yes| RegionId of the custom image. You can call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|ImageId|String|Yes|The ID of the custom image.|
-|ImageName|String|No|This parameter indicates the name of the custom image.-   Can be \[2, 128\] characters in length.
--   Must begin with an uppercase or lowercase English letter. Can contain digits, underscores \(\_\), colons \(:\), or hyphens \(-\).
--   Cannot begin with http:// or https://.
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=ModifyImageAttribute) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-|
-|Description|String|No|The Description of a custom image.-   Can be \[0, 256\] characters in length.
--   Cannot begin with http:// or https://.
--   Default value: null.
+## Request parameters {#parameters .section}
 
-|
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|ImageId|String|Yes|m-imageid1| The ID of the custom image.
 
-## Response parameters {#section_f54_lk5_xdb .section}
+ |
+|RegionId|String|Yes|cn-hangzhou| The ID of the region to which the custom image belongs. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
 
-All parameters are common response parameters. For more information, see [Common parameters](reseller.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
+ |
+|Action|String|No|ModifyImageAttribute| The operation that you want to perform. Set the value to ModifyImageAttribute.
 
-## Examples { .section}
+ |
+|Description|String|No|FinanceDept| The description of the custom image.
 
-**Request example** 
+ -   The description must be 0 to 256 characters in length.
+-   It cannot start with http:// or https://.
+-   If not specified, this parameter is null. Default value: null.
 
-```
+ |
+|ImageName|String|No|FinanceJoshua| The name of the custom image.
+
+ -   The name must be 2 to 128 characters in length.
+-   It must start with a letter and can contain letters, digits, colons \(:\), underscores \(\_\), and hyphens \(-\).
+-   It cannot start with http:// or https://.
+
+ |
+
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=ModifyImageAttribute
-&ImageId=m-281234567
-&RegionId=cn-qingdao
-&ImageName=testImage123
-&<Common Request Parameters>
+&ImageId=m-imageid1
+&RegionId=cn-hangzhou 
+&ImageName=FinanceJoshua
+&Description=FinanceDept
+&<Common request parameters>
 ```
 
-**Response example** 
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <ModifyImageAttributeResponse>
-    <RequestId>C8B26B44-0189-443E-9816-D951F59623A9</RequestId>
+  <RequestId>C8B26B44-0189-443E-9816-D951F59623A9</RequestId>
 </ModifyImageAttributeResponse>
 ```
 
- **JSON format** 
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-    "RequestId": "C8B26B44-0189-443E-9816-D951F59623A9"
+	"RequestId":"C8B26B44-0189-443E-9816-D951F59623A9"
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_4mf_j2s_w9r .section}
 
-|Error code|Error message|HTTP status code|Meaning|
-|:---------|:------------|:---------------|:------|
-|InvalidDescription.Malformed|The specified description is incorrectly formed.|400|The specified `Description` is invalid.|
-|InvalidImageName.Duplicated|The specified Image name has already bean used.|400|The specified `ImageName` already exists.|
-|InvalidImageName.Malformed|The specified Image name is incorrectly formed.|400|The specified `ImageName` is invalid.|
-|MissingParameter|The input parameter “RegionId” that is required for processing this request is not supplied.|400|You must specify the `RegionId` parameter.|
-|InvalidImageId.NotFound|The specified ImageId does not exist.|403|The specified ImageId does not exist.|
-|InvalidRegionId.NotFound|The specified region does not exist.|404|The specified `RegionId` does not exist.|
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|400|MissingParameter|The input parameter RegionId that is mandatory for processing this request is not supplied.|The error message returned when the required RegionId parameter is not specified.|
+|400|InvalidImageName.Duplicated|The specified Image name has already bean used.|The error message returned when the specified image name is already in use.|
+|400|InvalidDescription.Malformed|The specified description is wrongly formed.|The error message returned when the specified description is invalid. The description must be 2 to 256 characters in length and cannot start with http:// or https://.|
+|404|InvalidImageId.NotFound|The specified ImageId does not exist.|The error message returned when the specified image does not exist under this account. Check whether the image ID is correct.|
+
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
