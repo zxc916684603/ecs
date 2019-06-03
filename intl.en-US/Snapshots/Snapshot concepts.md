@@ -6,7 +6,7 @@ Alibaba Cloud ECS offers the snapshot service, which allows for the ability to c
 
 After you format a disk, data blocks are divided based on Logical Blocking Addressing \(LBA\). All service data that is written in data blocks is measured by using snapshots. The first snapshot of a disk is a full snapshot that does not contain empty data blocks. Subsequent snapshots after the first snapshot are incremental snapshots, which are copies of service data and dirty data generated since the last snapshot. Therefore, each data block is copied multiple times and is stored across multiple snapshots. The following figure illustrates the preceding concepts. In the figure, snapshots 1, 2, and 3 represent the first, second, and third snapshots of a disk.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9575/15525572865243_en-US.jpg)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9575/15595524635243_en-US.jpg)
 
 When a snapshot is created, the file system checks all data blocks, and only the data blocks with data changes are copied to the snapshot.
 
@@ -27,9 +27,9 @@ A snapshot chain contains all the snapshots of a disk. Each disk has a snapshot 
 
 -   **Snapshot capacity**: the storage space occupied by all snapshots in the snapshot chain.
 
--   **Snapshot quota**: Each disk can have up to 64 snapshots. For more information, see [Limits](../../../../../reseller.en-US/Product Introduction/Limits.md#).
+-   **Snapshot quota**: Each disk can have up to 64 snapshots. For more information, see [Limits](../../../../reseller.en-US/Product Introduction/Limits.md#).
 
-    **Note:** If the snapshot quota is reached, but you need to create more automatic snapshots, the system will automatically delete automatic snapshots, starting with the oldest one first. If you want to create snapshots manually, then you must first delete unnecessary snapshots manually. For more information, see [Apply automatic snapshot policies to disks](../../../../../reseller.en-US/Snapshots/Use snapshots/Apply automatic snapshot policies to disks.md#) and [Delete snapshots or automatic snapshot policies](../../../../../reseller.en-US/Snapshots/Use snapshots/Manage snapshots.md#) in the *User Guide*.
+    **Note:** If the snapshot quota is reached, but you need to create more automatic snapshots, the system will automatically delete automatic snapshots, starting with the oldest one first. If you want to create snapshots manually, then you must first delete unnecessary snapshots manually. For more information, see [Apply automatic snapshot policies to disks](../../../../reseller.en-US/Snapshots/Use snapshots/Apply automatic snapshot policies to disks.md#) and [Delete snapshots or automatic snapshot policies](../../../../reseller.en-US/Snapshots/Use snapshots/Manage snapshots.md#) in the *User Guide*.
 
 -   **Snapshot node**: Each node in the snapshot chain represents a snapshot of a disk. Each snapshot chain can have up to 64 snapshot nodes, including both manual snapshots and automatic snapshots.
 
