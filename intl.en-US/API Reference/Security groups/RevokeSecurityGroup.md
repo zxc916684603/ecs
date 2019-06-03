@@ -1,76 +1,138 @@
-# RevokeSecurityGroup {#RevokeSecurityGroup .reference}
+# RevokeSecurityGroup {#doc_api_1032051 .reference}
 
-Deletes an inbound rule from a security group. This action withdraws the access policy of the inbound traffic from the instances that are in a specified security group to other devices.
+Deletes an inbound rule from a security group and revoke inbound permissions of the security group.
 
-## Description {#section_xwx_cp1_ydb .section}
+## Description {#description .section}
 
-We define the beginning of the traffic as the source, and the terminal of the traffic as the destination. For more information, see [AuthorizeSecurityGroupEgress](intl.en-US/API Reference/Security groups/AuthorizeSecurityGroupEgress.md#).
+The source is where the packet is coming from and the destination is where the packet is going to.
 
-Any of the following groups of parameters can determine a Security Group Entry direction rule. Specifying only one parameter cannot determine a security group rule.
+You can determine an inbound rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
 
--   To withdraw the access policy of an IP address range:  `IpProtocol`, `PortRange`, \(Optional\) `SourcePortRange`, `NicType`, `Policy`, `DestCiderIp` and \(optional\) `SourceCidrIp`
+-   Parameters used to revoke access permissions from specified IP address segments: IpProtocol, PortRange, SourcePortRange \(optional\), NicType, Policy, DestCidrIp, and SourceCidrIp \(optional\).
+-   Parameters used to revoke access permissions from other security groups: IpProtocol, PortRange, SourcePortRange \(optional\), NicType, Policy, DestCidrIp \(optional\), DestGroupOwnerAccount, and DestGroupId.
 
--   To withdraw the access policy of instances that are in another security group: `IpProtocol`, `PortRange`, \(Optional\) `SourcePortRange`, `NicType`, `Policy`, \(Optional\) `DestCiderIp`, `DestGroupOwnerAccount`  and `DestGroupId`
+## Debugging {#apiExplorer .section}
 
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=RevokeSecurityGroup) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-## Request parameters {#RequestParameter .section}
+## Request parameters {#parameters .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: RevokeSecurityGroup.|
-|RegionId|String|Yes|The ID of the region to which the source security group belongs. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|SecurityGroupId|String|Yes|The destination security group ID.|
-|IpProtocol|String|Yes|The transport layer protocol. These values are case-insensitive. Optional values:-   icmp
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|IpProtocol|String|Yes|icmp| The transport layer protocol. This parameter is case-sensitive. Valid values:
+
+ -   icmp
 -   gre
 -   tcp
 -   udp
--   all: Support all protocols at the same time
+-   all: All protocols are supported.
 
-|
-|PortRange|String|Yes|The range of destination port relevant to the transport layer protocol. Value range:-   For TCP/UDP protocol, \[1, 65535\]. You can use a forward slash \(/\) to separate the port range, expected sample: `1/200`, incorrect sample: `200/1`.
--   ICMP protocol, -1/-1.
--   For GRE protocol, -1/-1.
--   For all the protocols, -1/-1.
+ |
+|PortRange|String|Yes|1/200| The range of destination ports relevant to the transport layer protocol. Valid values:
 
-|
-|SourcePortRange|String|No|The range of the source port relevant to the transport layer protocol. Value range:-   For TCP/UDP protocol, \[1, 65535\]. You can use a forward slash \(/\) to separate the port range, expected sample: `1/200`, incorrect sample: `200/1`.
--   ICMP protocol: -1/-1.
--   GRE Protocol: -1/-1.
--   All: -1/-1.
+ -   When IpProtocol is set to tcp or udp, the port number range is 1 to 65535. Separate the starting port and the ending port with a forward slash \(/\). Correct example: 1/200. Incorrect example: 200/1.
+-   When IpProtocol is set to icmp, the port number range is -1/-1, indicating that all values are valid.
+-   When IpProtocol is set to gre, the port number range is -1/-1, indicating that all values are valid.
+-   When IpProtocol is set to all, the port number range is -1/-1, indicating that all values are valid.
 
-|
-|NicType|String|No|The network interface type. Optional values:-   internet: Internet network interface.
--   intranet: Intranet network interface.
+ |
+|RegionId|String|Yes|cn-hangzhou| The ID of the region where the destination security group resides. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
 
-In mutual security group authorization, `DestGroupId` is specified, while `SourceCidrIp` is not specified, you must specify `NicType` as `intranet`. Default value: internet|
-|Policy|String|No|The access permission. Value range:-   accept: Allows the access.
--   drop: Declines the access, and sends no response to the source device.
+ |
+|SecurityGroupId|String|Yes|sg-securitygroupid1| The ID of the destination security group.
 
-Default value: accept.|
-|DestCidrIp|String|No|The destination IP address range. Only CIDR and IPv4 format are supported. Default: 0.0.0.0/0.|
-|SourceCidrIp|String|No|The source IP address range. Only CIDR and IPv4 format are supported. Default value: 0.0.0.0/0.|
-|SourceGroupId|String|No|The source security group ID. Either the `SourceGroupId` or `SourceCidrIp` parameter must be set. If both are set, `SourceGroupId` is authorized by default. If `SourceGroupId` is specified and `SourceCidrIp` is not specified, `NicType` must be set to \`intranet\`. If both `SourceGroupId` and `SourceCidrIp` are set, `SourceCidrIp` is authenticated  by default.|
-|SourceGroupOwnerAccount|String|No|The Alibaba Cloud account of the source security group.-   If the `SourceGroupOwnerAccount` and `SourceGroupOwnerId` are not set, access policy withdrawal is performed for security groups of the same account.
--   If `SourceCidrIp` is specified. the `SourceGroupOwnerAccount` is invalid.
+ |
+|Action|String|No|RevokeSecurityGroup| The operation that you want to perform. Set the value to RevokeSecurityGroup.
 
-|
-|SourceGroupOwnerId|String|No|The Alibaba Cloud account ID of the source security group.-   If neither `SourceGroupOwnerAccount` nor  `Sourcegroupowneraccount` are configured, it is considered to be a revocation of the access rights of your other security groups.
--   If the `SourceCidrIp` is already is set, the `SourceGroupOwnerId` is invalid.
+ |
+|ClientToken|String|No|123e4567-e89b-12d3-a456-426655440000| A client token. It is used to ensure the idempotency of requests. The value of this parameter is generated by the client and is unique among different requests. The **ClientToken** parameter must be no more than 64 ASCII characters in length. For more information, see [How to ensure idempotency](~~25693~~).
 
-|
-|Priority|String|No|Authorization policy priority. Value range: \[1, 100\].Default value: 1.
+ |
+|Description|String|No|FinanceJoshuaTest| The description of security group rules.
 
-|
+ |
+|DestCidrIp|String|No|0.0.0.0/0| The range of destination IP addresses. CIDR blocks and IPv4 addresses are supported. Default value: 0.0.0.0/0.
 
-## Response parameters {#section_vxx_cp1_ydb .section}
+ |
+|Ipv6DestCidrIp|String|No|2001:db8:1234:1a00::XXX| The destination IPv6 CIDR block. CIDR blocks and IPv6 addresses are supported.
 
-All are common parameters. For more information, see [Common parameters](intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
+ **Note:** You can only specify IP addresses for VPC-connected instances.
 
-## Examples { .section}
+ Default value: null.
 
-**Request example**
+ |
+|Ipv6SourceCidrIp|String|No|2001:db8:1234:1a00::XXX| The source IPv6 CIDR block. CIDR blocks and IPv6 addresses are supported.
 
-```
+ **Note:** You can only specify IP addresses for VPC-connected instances.
+
+ Default value: null.
+
+ |
+|NicType|String|No|intranet| The NIC Type. Valid values:
+
+ -   internet
+-   intranet
+
+ If SourceGroupId is specified and SourceCidrIp is not, the value of NicType can only be intranet. Default value: internet.
+
+ |
+|Policy|String|No|accept| The access control policy. Valid values:
+
+ -   accept: grants access.
+-   drop: denies access and returns no responses.
+
+ Default value: accept.
+
+ |
+|Priority|String|No|1| The priority of security group rules. Valid values: 1 to 100.
+
+ Default value: 1.
+
+ |
+|SourceCidrIp|String|No|0.0.0.0/0| The range of source IP addresses. CIDR blocks and IPv4 addresses are supported. Default value: 0.0.0.0/0.
+
+ |
+|SourceGroupId|String|No|sg-securitygroupid2| The ID of the source security group to be revoked of access permissions.
+
+ Either SourceGroupId or SourceCidrIp must be specified.
+
+ If SourceGroupId is specified and SourceCidrIp is not, the value of NicType can only be intranet. If both the SourceGroupId and SourceCidrIp parameters are set, the SourceCidrIp parameter will take precedence.
+
+ |
+|SourceGroupOwnerAccount|String|No|FinanceJoshua| The Alibaba Cloud account that manages the source security group.
+
+ -   If neither SourceGroupOwnerAccount nor SourceGroupOwnerId is specified, access permissions on other security groups are revoked.
+-   If SourceCidrIp is specified, the SourceGroupOwnerAccount parameter will be ignored.
+
+ |
+|SourceGroupOwnerId|Long|No|155780923770| The Alibaba Cloud account that manages the source security group.
+
+ -   If neither SourceGroupOwnerId nor SourceGroupOwnerAccount is specified, access permissions on other security groups are revoked.
+-   If SourceCidrIp is specified, the SourceGroupOwnerId parameter will be ignored.
+
+ |
+|SourcePortRange|String|No|1/200| The range of source ports relevant to the transport layer protocol. Valid values:
+
+ -   When IpProtocol is set to tcp or udp, the port number range is 1 to 65535. Separate the starting port and the ending port with a forward slash \(/\). Correct example: 1/200. Incorrect example: 200/1.
+-   When IpProtocol is set to icmp, the port number range is -1/-1, indicating that all values are valid.
+-   When IpProtocol is set to gre, the port number range is -1/-1, indicating that all values are valid.
+-   When IpProtocol is set to all, the port number range is -1/-1, indicating that all values are valid.
+
+ |
+
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=RevokeSecurityGroup
 &SecurityGroupId=C0003E8B-B930-4F59-ADC0-0E209A9012B0
 &SourceGroupId=sg-F876FF7BA
@@ -78,43 +140,51 @@ https://ecs.aliyuncs.com/?Action=RevokeSecurityGroup
 &IpProtocol=tcp
 &PortRange=1/65535
 &Priority=1
-&<Common Request Parameters>
+&<Common request parameters>
 ```
 
-**Response example** 
+Successful response examples
 
-**XML format** 
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <RevokeSecurityGroupResponse>
-     <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
+  <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
 </RevokeSecurityGroupResponse>
 ```
 
- **JSON format** 
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-    "RequestId":"CEF72CEB-54B6-4AE8-B225-F876FF7BA984"
+	"RequestId":"CEF72CEB-54B6-4AE8-B225-F876FF7BA984"
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_5xc_96d_7rz .section}
 
-Error codes specific to this interface are as follows. For more error codes, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|404|InvalidSecurityGroupId.NotFound|The specified SecurityGroupId does not exist.|The error message returned when the specified security group does not exist under this account. Check whether the security group ID is correct.|
+|400|InvalidSecurityGroupId.Malformed|The specified SecurityGroupId is not valid.|The error message returned when the specified SecurityGroupId parameter is invalid.|
+|400|InvalidIpProtocol.ValueNotSupported|The specified IpProtocol does not exist.|The error message returned when the specified value of the IpProtocol parameter is invalid.|
+|403|InvalidNicType.Mismatch|Specified nic type conflicts with the authorization record.|The error message returned when the specified NIC type does not exist.|
+|403|InvalidGroupAuthItem.NotFound|Specified group authorized item does not exist in our records.|The error message returned when the specified group authorization entry does not exist.|
+|400|MissingParameter|The input parameter "SourceGroupId" or "SourceCidrIp" cannot be both blank.|The error message returned when the values of the SourceGroupId parameter and the SourceCidrIp parameter are blank.|
+|400|InvalidPolicy.Malformed|The specified parameter "Policy" is not valid.|The error message returned when the specified parameter is invalid. You need check whether the parameter is correct.|
+|400|MissingParameter.Source|Either SourceCidrIp or SourceGroupId must be specified.|The error message returned when the values of the SourceCidrIp parameter and the SourceGroupId parameter are blank.|
+|400|InvalidParam.PortRange|Please specify the PortRange or SourcePortRange in integer, less than 65535, and separate the range with ? /?.|The error message returned when the range of destination or source port numbers is not specified. The port numbers must be smaller than 65,535. Use a forward slash \(/\) to separate the source and destination ports.|
+|400|InvalidIpProtocol.ValueNotSupported|The parameter IpProtocol must be specified with case insensitive TCP, UDP, ICMP, GRE or All.|The error message returned when the protocol type is not TCP, UDP, ICMP, GRE or All.|
+|400|InvalidPriority.Malformed|The parameter Priority is invalid.|The error message returned when the rule priority is invalid.|
+|400|InvalidPriority.ValueNotSupported|The parameter Priority is invalid.|The error message returned when the rule priority is invalid.|
+|400|InvalidParamter.Conflict|The specified SecurityGroupId should be different from the SourceGroupId.|The error message returned when a specified security group is the same as the source security group.|
+|400|InvalidParam.SourceIp|%s|The error message returned when the source IP is invalid.|
+|400|InvalidParam.DestIp|%s|The error message returned when the destination IP is invalid.|
+|400|InvalidParam.Ipv6DestCidrIp|%s|The error message returned when the destination IP is not in IPv6.|
+|400|InvalidParam.Ipv6SourceCidrIp|%s|The error message returned when the source IP is not in IPv6.|
+|400|InvalidParam.Ipv4ProtocolConflictWithIpv6Address|%s|The error message returned when IPv4 addresses conflict with IPv6 addresses.|
+|400|InvalidParam.Ipv6ProtocolConflictWithIpv4Address|%s|The error message returned when IPv4 addresses conflict with IPv6 addresses.|
+|400|ILLEGAL\_IPV6\_CIDR|%s|The error message returned when the specified IPv6 address is invalid.|
 
-|Error code|Error message|HTTP status code|Meaning|
-|:---------|:------------|:---------------|:------|
-|InvalidIpPortRange.Malformed|The specified parameter “PortRange” is not valid.|400|The specified `PortRange` is invalid.|
-|InvalidIpProtocol.ValueNotSupported|The specified IpProtocol does not exist.|400|The specified `IpProtocol` does not exist.|
-|InvalidNicType.ValueNotSupported|The specified NicType does not exist. |400|The specified `NicType` does not exist.|
-|InvalidPolicy.Malformed|The specified parameter “Policy” is not valid.|400|The specified `Policy` is invalid.|
-|InvalidSourceCidrIp.Malformed|The specified parameter “SourceCidrIp” is not valid.|400|The specified `SourceCidrIp` is invalid.|
-|InvalidSourceGroupId.Mismatch|Specified security group and source group are not in the same VPC.|400|The network type of the specified destination security group is VPC, so the destination security group must be in the same VPC.|
-|MissingParameter|The input parameter “SourceGroupId” or “SourceCidrIp” cannot be both blank.|400|Either the `SourceGroupId` or `SourceCidrIp` must be specified.`SourceGroupId`.|
-|InvalidGroupAuthItem.NotFound|Specified group authorized item does not exist in our records.|403|The specified outbound security group rule does not exist.|
-|InvalidNicType.Mismatch|Specified nic type conflicts with the authorization record.|403|The specified `NicType` does not match the security group rule.|
-|InvalidRegionId.NotFound|The specified RegionId does not exist.|404|The specified `RegionId` does not exist.|
-|InvalidSecurityGroupId.NotFound|The specified SecurityGroupId does not exist.|404|The specified `SecurityGroupId` is invalid.|
-|InvalidSourceGroupId.NotFound|The SourceGroupId provided does not exist in our records.|404|The specified `SourceGroupId` does not exist.|
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
