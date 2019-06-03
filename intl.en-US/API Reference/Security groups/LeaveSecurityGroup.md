@@ -1,67 +1,76 @@
-# LeaveSecurityGroup {#LeaveSecurityGroup .reference}
+# LeaveSecurityGroup {#doc_api_1031575 .reference}
 
 Removes an instance from a specified security group.
 
-## Description {#section_zp1_jt1_ydb .section}
+## Description {#description .section}
 
-When you call this interface, consider the following:
+When you call this operation, note that:
 
--   To remove an instance from the security group, it must be in the **Stopped** \(`Stopped`\) or **Running** \(`Running`\) status.
+-   Before you remove an instance from a security group, the instance must be in the Stopped or Running state.
+-   An instance must belong to at least one security group. You cannot perform the LeaveSecurityGroup operation to remove an instance from the only security group it belongs to.
 
--   Each instance must belong to at least one security group. If the instance only belongs to one security group and you try to remove it from this group, the `LeaveSecurityGroup` request fails.
+## Debugging {#apiExplorer .section}
 
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=LeaveSecurityGroup) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-## Request parameters {#RequestParameter .section}
+## Request parameters {#parameters .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action |String|Yes|The name of this interface. Value: LeaveSecurityGroup.|
-|InstanceId|String|Yes|The specified instance ID.|
-|SecurityGroupId|String|Yes|The security group ID.|
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|InstanceId|String|Yes|i-instanceid1| The ID of an instance.
 
-## Response parameters {#section_f54_lk5_xdb .section}
+ |
+|SecurityGroupId|String|Yes|sg-securitygroupid1| The ID of the security group to which the instance belongs.
 
-All parameters are common response parameters. For more information, see [Common parameters](intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
+ |
+|Action|String|No|LeaveSecurityGroup| The operation that you want to perform. Set the value to LeaveSecurityGroup.
 
-## Examples { .section}
+ |
 
-**Request example** 
+## Response parameters {#resultMapping .section}
 
-```
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=LeaveSecurityGroup
 &InstanceId=i-instance1
-&SecurityGroupId=F876FF7BA984
-&<Common Request Parameters>
+&SecurityGroupId=F876FF7BA984 
+&<Common request parameters>
 ```
 
-**Response example** 
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <LeaveSecurityGroupResponse>
-    <RequestId>473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E</RequestId>
+   <RequestId>473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E</RequestId>
 </LeaveSecurityGroupResponse>
 ```
 
- **JSON format** 
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-    "RequestId": "473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E"
+	"RequestId":"473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E"
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_mvj_6jr_tvi .section}
 
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|404|InvalidSecurityGroupId.NotFound|The specified SecurityGroupId does not exist.|The error message returned when the specified security group does not exist under this account. Check whether the security group ID is correct.|
+|403|IncorrectInstanceStatus|The current status of the resource does not support this operation.|The error message returned when this operation is not supported under the current instance state.|
+|504|RequestTimeout|The request encounters an upstream server timeout.|The error message returned when the request encounters an upstream server timeout.|
 
-|Error code|Error message |HTTP status code |Meaning|
-|:---------|:-------------|:----------------|:------|
-|IncorrectInstanceStatus|The current status of the resource does not support this operation.|403|Before being removed from a security group, the instance must be in the **Stopped** \(`Stopped`\) or **Running** \(`Running`\) status.|
-|InstanceLastSecurityGroup|The specified security group is the last security group for the instance.|403|Each instance must belong to at least one security group.|
-|InstanceLockedForSecurity|The specified operation is denied as your instance is locked for security reasons.|403|The specified instance is [locked](intl.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#), and the `OperationLocks` of the instance cannot be `"LockReason" : "security"`.|
-|InstanceNotInSecurityGroup|The instance not in the group.|403|The instance is not in the specified security group.|
-|InvalidInstanceId.NotFound|The specified InstanceId does not exist.|404|The specified `InstanceId` does not exist.|
-|InvalidSecurityGroupId.NotFound|The specified SecurityGroupId does not exist.|404|The specified `SecurityGroupId` does not exist.|
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
