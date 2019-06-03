@@ -1,115 +1,185 @@
-# DescribeDeploymentSets {#DescribeDeploymentSets .reference}
+# DescribeDeploymentSets {#doc_api_1006118 .reference}
 
 查询一个或多个部署集的属性列表。
 
-## 请求参数 {#RequestParameter .section}
+## 调试 {#apiExplorer .section}
 
-|名称|类型|是否必需|描述|
-|:-|:-|:---|:-|
-|Action|String|是|系统规定参数。取值：DescribeDeploymentSets|
-|RegionId|String|是|部署集所属地域ID。您可以调用[DescribeRegions](../cn.zh-CN/API参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
-|DeploymentSetIds|String|否|部署集ID列表。取值可以由多个部署集ID组成一个JSON数组，格式为\["ds-xxxxxxxxx", "ds-yyyyyyyyy", … "ds-zzzzzzzzz"\]，最多支持100个ID，ID之间用半角逗号（`,`）隔开。|
-|DeploymentSetName|String|否|部署集名称。|
-|Strategy|String|否|部署策略。取值：Availability默认值：空。
+前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeDeploymentSets)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
-|
-|PageNumber|Integer|否|部署集列表的页码。起始值：1默认值：1
+## 请求参数 {#parameters .section}
 
-|
-|PageSize|Integer|否|分页查询时设置的每页行数，最大值：100默认值：10
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|RegionId|String|是|cn-hangzhou|部署集所属地域ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
 
-|
+ |
+|Action|String|否|DescribeDeploymentSets|系统规定参数。取值：DescribeDeploymentSets
 
-## 返回参数 {#ResponseParameter .section}
+ |
+|DeploymentSetIds|String|否|\["ds-xxxxxxxxx", "ds-yyyyyyyyy", … "ds-zzzzzzzzz"\]|部署集ID列表。取值可以由多个部署集ID组成一个JSON数组，最多支持100个ID，ID之间用半角逗号（,）隔开。
 
-|名称|类型|描述|
-|:-|:-|:-|
-|TotalCount|Integer|查询到的部署集总数。|
-|PageNumber|Integer|部署集列表的页数。|
-|PageSize|Integer|设置的每页行数。|
-|DeploymentSetList|Array of [DeploymentSetType](#)|由DeploymentSet组成的数组格式，返回部署集详细信息。|
+ |
+|DeploymentSetName|String|否|FinanceJoshua|部署集名称。
 
-**数据类型DeploymentSetType** 
+ |
+|Domain|String|否|Default|部署域。
 
-|名称|类型|描述|
-|:-|:-|:-|
-|DeploymentSetId|String|部署集ID。|
-|DeploymentStrategy|String|部署策略。|
-|DeploymentSetName|String|部署集名称。|
-|Description|String|部署集描述。|
-|InstanceIds|Array of InstanceId|部署集中所含的实例。|
+ **说明：** 该参数即将被弃用，为提高兼容性，请尽量使用其他参数。
 
-## 示例 { .section}
+ |
+|Granularity|String|否|Host|部署粒度。
 
-**请求示例**
+ **说明：** 该参数即将被弃用，为提高兼容性，请尽量使用其他参数。
 
-```
+ |
+|NetworkType|String|否|vpc|部署集内的网络类型。
+
+ **说明：** 该参数即将被弃用，为提高兼容性，请尽量使用其他参数。
+
+ |
+|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
+
+ |
+|PageNumber|Integer|否|1|部署集列表的页码。起始值：1
+
+ 默认值：1
+
+ |
+|PageSize|Integer|否|10|分页查询时设置的每页行数，最大值：100
+
+ 默认值：10
+
+ |
+|Strategy|String|否|Availability|部署策略。取值：Availability
+
+ 默认值：空。
+
+ |
+
+## 返回参数 {#resultMapping .section}
+
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|DeploymentSets| | |由DeploymentSet组成的数组格式，返回部署集详细信息。
+
+ |
+|└CreationTime|String|2017-12-05T22:40:00Z|部署集的创建时间。
+
+ |
+|└DeploymentSetDescription|String|FinanceDeptHighAvailability|部署集的描述信息。
+
+ |
+|└DeploymentSetId|String|ds-deploymentsetid1|部署集ID。
+
+ |
+|└DeploymentSetName|String|FinanceJoshua|部署集名称。
+
+ |
+|└DeploymentStrategy|String|Availability|部署策略。
+
+ |
+|└Domain|String|Default|部署域。
+
+ |
+|└Granularity|String|Host|部署粒度。
+
+ |
+|└InstanceAmount|Integer|1|部署集内的实例数量。
+
+ |
+|└InstanceIds| |\["i-instanceid1"\]|部署集内的实例ID列表。
+
+ |
+|└Strategy|String|StrictDispersion|部署策略。
+
+ |
+|PageNumber|Integer|1|部署集列表的页数。
+
+ |
+|PageSize|Integer|10|设置的每页行数。
+
+ |
+|RegionId|String|cn-hangzhou|部署集所处的地域 ID。
+
+ |
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
+
+ |
+|TotalCount|Integer|1|查询到的部署集总数。
+
+ |
+
+## 示例 {#demo .section}
+
+请求示例
+
+``` {#request_demo}
+
 https://ecs.aliyuncs.com/?Action=DescribeDeploymentSets
 &RegionId=cn-hangzhou
 &DeploymentSetsIds=["ds-bp13v7bjnj9gisnlo1"]
 &<公共请求参数>
-```
-
-**返回示例**
-
-**XML格式**
 
 ```
+
+正常返回示例
+
+`XML` 格式
+
+``` {#xml_return_success_demo}
 <DescribeDeploymentSetsResponse>
-	<PageSize>10</PageSize>
-	<TotalCount>1</TotalCount>
-	<PageNumber>1</PageNumber>
-	<RequestId>1CB9A584-9E43-408D-B5A8-DB42CDECE03B</RequestId>
-	<DeploymentSets>
-		<DeploymentSet>
-			<DeploymentSetDescription>default</DeploymentSetDescription>
-			<DeploymentSetId>ds-bp13v7bjnj9gisnlo1ow</DeploymentSetId>
-			<DeploymentStrategy>Availability</DeploymentStrategy>
-			<DeploymentSetName>test default</DeploymentSetName>
-			<InstanceIds>
-				<InstanceId>i-sdfkjsdfk</InstanceId>
-				<InstanceId>i-kiiwsch</InstanceId>
-			</InstanceIds>
-		</DeploymentSet>
-	</DeploymentSets>
+  <PageSize>10</PageSize>
+  <TotalCount>1</TotalCount>
+  <PageNumber>1</PageNumber>
+  <RequestId>1CB9A584-9E43-408D-B5A8-DB42CDECE03B</RequestId>
+  <DeploymentSets>
+    <DeploymentSet>
+      <DeploymentSetDescription>default</DeploymentSetDescription>
+      <DeploymentSetId>ds-bp13v7bjnj9gisnlo1ow</DeploymentSetId>
+      <DeploymentStrategy>Availability</DeploymentStrategy>
+      <DeploymentSetName>test default</DeploymentSetName>
+      <InstanceIds>
+        <InstanceId>i-sdfkjsdfk</InstanceId>
+        <InstanceId>i-kiiwsch</InstanceId>
+      </InstanceIds>
+    </DeploymentSet>
+  </DeploymentSets>
 </DescribeDeploymentSetsResponse>
-```
-
-**JSON格式**
 
 ```
+
+`JSON` 格式
+
+``` {#json_return_success_demo}
 {
-	"PageSize": 10,
-	"TotalCount": 1,
-	"PageNumber": 1,
-	"RequestId": "1CB9A584-9E43-408D-B5A8-DB42CDECE03B",
-	"DeploymentSets":
-		{
-			"DeploymentSet":
-				[
-					{
-						"DeploymentSetDescription": "default",
-						"DeploymentSetId": "ds-bp13v7bjnj9gisnlo1ow",
-						"DeploymentStrategy": "Availability",
-						"DeploymentSetName": "test default",
-						"InstanceIds":
-							{
-								"InstanceId": ["i-sdfkjsdfk", "i-kiiwsch"]
-							}
-					}
-				]
-		}
+	"DeploymentSets":{
+		"DeploymentSet":[
+			{
+				"DeploymentSetDescription":"default",
+				"InstanceIds":{
+					"InstanceId":[
+						"i-sdfkjsdfk",
+						"i-kiiwsch"
+					]
+				},
+				"DeploymentSetName":"test default",
+				"DeploymentStrategy":"Availability",
+				"DeploymentSetId":"ds-bp13v7bjnj9gisnlo1ow"
+			}
+		]
+	},
+	"PageNumber":1,
+	"TotalCount":1,
+	"PageSize":10,
+	"RequestId":"1CB9A584-9E43-408D-B5A8-DB42CDECE03B"
 }
 ```
 
-## 错误码 {#ErrorCode .section}
+## 错误码 { .section}
 
-以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+|HttpCode|错误码|错误信息|描述|
+|--------|---|----|--|
+|403|InvalidDeploymentSetIds.TooManyInput|The parameter DeploymentSets size should less than 100.|指定的 DeploymentSets 数量大于 100。|
 
-|错误代码|错误信息|HTTP状态码|说明|
-|:---|:---|:------|:-|
-|InvalidDescription.Malformed|The specified parameter “Description” is not valid.|400|指定的Description无效。|
-|InvalidParameter.Strategy|The specified parameter Strategy is not valid|400|指定部署策略无效。|
-|MissingParameter|The input parameter “RegionId” that is mandatory for processing this request is not supplied.|400|您需要指定RegionId参数。或者您暂时无法使用指定地域中的资源。|
-|InvalidRegionId.NotFound|The RegionId provided does not exist in our records.|404|指定的RegionId不存在。|
+[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 

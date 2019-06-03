@@ -1,115 +1,179 @@
-# DescribeDeploymentSets {#DescribeDeploymentSets .reference}
+# DescribeDeploymentSets {#doc_api_1006118 .reference}
 
-Queries a list of properties of one or more deployment sets.
+Queries a list of attributes of one or more deployment sets.
 
-## Request parameters {#RequestParameter .section}
+## Debugging {#apiExplorer .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|Name of this interface. Value: DescribeDeploymentSets.|
-|RegionId|String|Yes|The region ID to which the deployment set belongs.For more information, call [DescribeRegions](../intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|DeploymentSetIds|String|No|List of deployment set IDs. This value can be a JSON array composed of multiple deployment set IDs. The format is \["ds-xxxxxxxxx", "ds-yyyyyyyyy", … "ds-zzzzzzzzz"\]. The JSON array supports up to 100 IDs, separated by commas \(`,`\).|
-|DeploymentSetName|String|No|Deployment set name.|
-|Strategy|String|No|Deployment strategy. Value: Availability.Default value: Null.
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeDeploymentSets) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-|
-|PageNumber|Integer|No|The page number of the deployment set lists. Starts from: 1.Default: 1.
+## Request parameters {#parameters .section}
 
-|
-|PageSize|Integer|No|The number of lines per page set for paging query. Maximum: 100.Default: 10.
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|RegionId|String|Yes|cn-hangzhou| The ID of the region where a deployment set resides. You can call [DescribeRegions](~~25609~~) to view the latest list of Alibaba Cloud regions.
 
-|
+ |
+|Action|String|No|DescribeDeploymentSets| The operation that you want to perform. Set the value to DescribeDeploymentSets.
 
-## Response parameters {#ResponseParameter .section}
+ |
+|DeploymentSetIds|String|No|\["ds-xxxxxxxxx", "ds-yyyyyyyyy", … "ds-zzzzzzzzz"\]| The list of deployment set IDs. The value can contain a JSON array consisting of up to 100 deployment set IDs. The deployment set IDs must be separated by commas \(,\).
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|TotalCount|Integer|The total number of queried deployment sets.|
-|PageNumber|Integer|The number of deployment set pages.|
-|PageSize|Integer  |Sets the number of deployment set on each page.|
-|DeploymentSetList|Array of [DeploymentSetType](#)|An array composed of DeploymentSet sets. Returns deployment set details.|
+ |
+|DeploymentSetName|String|No|FinanceJoshua| The name of a deployment set.
 
-**Deployment set type** 
+ |
+|Domain|String|No|Default| The deployment domain.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|DeploymentSetId|String|Deployment Set ID.|
-|DeploymentStrategy|String|Deployment strategy.|
-|DeploymentSetName|String|Deployment set name.|
-|Description|String|Deployment set description.|
-|InstanceIds|Array of InstanceId|The instances contained in the deployment set.|
+ **Note:** The parameter will be removed in the future. We recommend that you use other parameters to ensure compatibility.
 
-## Examples { .section}
+ |
+|Granularity|String|No|Host| The deployment granularity.
 
-**Request example**
+ **Note:** The parameter will be removed in the future. We recommend that you use other parameters to ensure compatibility.
 
-```
+ |
+|NetworkType|String|No|VPC| The network type in a deployment set.
+
+ **Note:** The parameter will be removed in the future. We recommend that you use other parameters to ensure compatibility.
+
+ |
+|PageNumber|Integer|No|1| The page number to be queried in the deployment set list. Starting value: 1.
+
+ Default value: 1.
+
+ |
+|PageSize|Integer|No|10| The number of entries per page. Maximum value: 100.
+
+ Default value: 10.
+
+ |
+|Strategy|String|No|Availability| The deployment strategy. Value: Availability.
+
+ Default value: null.
+
+ |
+
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|DeploymentSets| | | The detailed information of deployment sets returned in an array.
+
+ |
+|└CreationTime|String|2017-12-05T22:40:00Z| The time a deployment set is created.
+
+ |
+|└DeploymentSetDescription|String|FinanceDeptHighAvailability| The description of a deployment set.
+
+ |
+|└DeploymentSetId|String|ds-deploymentsetid1| The ID of a deployment set..
+
+ |
+|└DeploymentSetName|String|FinanceJoshua| The name of a deployment set.
+
+ |
+|└DeploymentStrategy|String|Availability| The deployment strategy.
+
+ |
+|└Domain|String|Default| The deployment domain.
+
+ |
+|└Granularity|String|Host| The deployment granularity.
+
+ |
+|└InstanceAmount|Integer|1| The number of instances in a deployment set.
+
+ |
+|└InstanceIds| |\["i-instanceid1"\]| The list of instance IDs in a deployment set.
+
+ |
+|└Strategy|String|StrictDispersion| The deployment strategy.
+
+ |
+|PageNumber|Integer|1| The page number to be queried in the deployment set list.
+
+ |
+|PageSize|Integer|10| The number of entries per page.
+
+ |
+|RegionId|String|cn-hangzhou| The ID of the region where a deployment set resides.
+
+ |
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+|TotalCount|Integer|1| The total number of queried deployment sets.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=DescribeDeploymentSets
-&RegionId=cn-hangzhou
+&RegionId=cn-hangzhou 
 &DeploymentSetsIds=["ds-bp13v7bjnj9gisnlo1"]
-&<Common Request Parameters>
+&<Common request parameters>
 ```
 
-**Reponse examples**
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <DescribeDeploymentSetsResponse>
-	<PageSize>10</PageSize>
-	<TotalCount>1</TotalCount>
-	<PageNumber>1</PageNumber>
-	<RequestId>1CB9A584-9E43-408D-B5A8-DB42CDECE03B</RequestId>
-	<DeploymentSets>
-		<DeploymentSet>
-			<DeploymentSetDescription>default</DeploymentSetDescription>
-			<DeploymentSetId>ds-bp13v7bjnj9gisnlo1ow</DeploymentSetId>
-			<DeploymentStrategy>Availability</DeploymentStrategy>
-			<DeploymentSetName>test default</DeploymentSetName>
-			<InstanceIds>
-				<InstanceId>i-sdfkjsdfk</InstanceId>
-				<InstanceId>i-kiiwsch</InstanceId>
-			</InstanceIds>
-		</DeploymentSet>
-	</DeploymentSets>
+  <PageSize>10</PageSize>
+  <TotalCount>1</TotalCount>
+  <PageNumber>1</PageNumber>
+  <RequestId>1CB9A584-9E43-408D-B5A8-DB42CDECE03B</RequestId>
+  <DeploymentSets>
+    <DeploymentSet>
+      <DeploymentSetDescription>default</DeploymentSetDescription>
+      <DeploymentSetId>ds-bp13v7bjnj9gisnlo1ow</DeploymentSetId>
+      <DeploymentStrategy>Availability</DeploymentStrategy>
+      <DeploymentSetName>test default</DeploymentSetName>
+      <InstanceIds>
+        <InstanceId>i-sdfkjsdfk</InstanceId>
+        <InstanceId>i-kiiwsch</InstanceId>
+      </InstanceIds>
+    </DeploymentSet>
+  </DeploymentSets>
 </DescribeDeploymentSetsResponse>
 ```
 
-**JSON format**
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-	"PageSize": 10,
-	"TotalCount": 1,
-	"PageNumber": 1,
-	"RequestId": "1CB9A584-9E43-408D-B5A8-DB42CDECE03B",
-	"DeploymentSets":
-		{
-			"DeploymentSet":
-				[
-					{
-						"DeploymentSetDescription": "default",
-						"DeploymentSetId": "ds-bp13v7bjnj9gisnlo1ow",
-						"DeploymentStrategy": "Availability",
-						"DeploymentSetName": "test default",
-						"InstanceIds":
-							{
-								"InstanceId": ["i-sdfkjsdfk", "i-kiiwsch"]
-							}
-					}
-				]
-		}
+	"DeploymentSets":{
+		"DeploymentSet":[
+			{
+				"DeploymentSetDescription":"default",
+				"InstanceIds":{
+					"InstanceId":[
+						"i-sdfkjsdfk",
+						"i-kiiwsch"
+					]
+				},
+				"DeploymentSetName":"test default",
+				"DeploymentStrategy":"Availability",
+				"DeploymentSetId":"ds-bp13v7bjnj9gisnlo1ow"
+			}
+		]
+	},
+	"PageNumber":1,
+	"TotalCount":1,
+	"PageSize":10,
+	"RequestId":"1CB9A584-9E43-408D-B5A8-DB42CDECE03B"
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_s1b_5w8_0h2 .section}
 
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|403|InvalidDeploymentSetIds.TooManyInput|The parameter DeploymentSets size should less than 100.|The error message returned when the number of specified deployment sets exceeds 100.|
 
-|Error code|Error message|HTTP status code|Description|
-|:---------|:------------|:---------------|:----------|
-|InvalidDescription.Malformed|The specified parameter “Description” is not valid.|400|The specified Description is invalid.|
-|InvalidParameter.Strategy|The specified parameter Strategy is not valid|400|The specified deployment strategy is invalid.|
-|MissingParameter|The input parameter “RegionId” that is mandatory for processing this request is not supplied.|400|You must specify the RegionId parameter. You are not authorized to use the resources of the specified region.|
-|InvalidRegionId.NotFound|The RegionId provided does not exist in our records.|404|The specified RegionId does not exist.|
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
