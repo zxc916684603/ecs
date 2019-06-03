@@ -1,55 +1,63 @@
-# DeleteSecurityGroup {#DeleteSecurityGroup .reference}
+# DeleteSecurityGroup {#doc_api_1031564 .reference}
 
-Deletes one of your security groups. Make sure the security group is not authorized by other security groups \([DescribeSecurityGroupReferences](intl.en-US/API Reference/Security groups/DescribeSecurityGroupReferences.md#), and the security group manages no instance. Otherwise, the `DeleteSecurityGroup` action fails.
+Deletes a security group. Before deleting a security group, make sure that no instance exists in the security group and that the security group is not referenced by other security groups. Otherwise, the DeleteSecurityGroup request fails.
 
-## Request parameters {#RequestParameter .section}
+## Debugging {#apiExplorer .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DeleteSecurityGroup.|
-|SecurityGroupId|String|Yes|The security group ID.|
-|RegionId|String|Yes|The ID of the region to which the security group belongs. For more information, call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DeleteSecurityGroup) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-## Response parameters {#section_f54_lk5_xdb .section}
+## Request parameters {#parameters .section}
 
-All parameters are common response parameters. For more information, see [Common parameters](intl.en-US/API Reference/Call methods/Common parameters.md#commonResponseParameters).
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|RegionId|String|Yes|cn-hangzhou| The ID of the region where a security group resides. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
 
-## Examples { .section}
+ |
+|SecurityGroupId|String|Yes|sg-securitygroupid1| The ID of the security group.
 
-**Request example** 
+ |
+|Action|String|No|DeleteSecurityGroup| The operation that you want to perform. Set the value to DeleteSecurityGroup.
 
-```
-https://ecs.aliyuncs.com/?Action=DeleteSecurityGroup
+ |
+
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
+ https://ecs.aliyuncs.com/?Action=DeleteSecurityGroup
 &RegionId=cn-hangzhou
 &SecurityGroupId=sg-F876FF7BA
-&<Common Request Parameters>
+&<Common request parameters>
 ```
 
-**Response example** 
+Successful response examples
 
-**XML format** 
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <DeleteSecurityGroupResponse>
-     <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
+  <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
 </DeleteSecurityGroupResponse>
 ```
 
- **JSON format** 
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-    "RequestId":"CEF72CEB-54B6-4AE8-B225-F876FF7BA984"
+	"RequestId":"CEF72CEB-54B6-4AE8-B225-F876FF7BA984"
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_z6k_io3_mpk .section}
 
-The following error codes are specific to this interface. For more error codes, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
-
-|Error code|Error message|HTTP status code|Meaning|
-|:---------|:------------|:---------------|:------|
-|DependencyViolation|There is still instance\(s\) in the specified security group.|403|The specified security group is managing instances.|
-|DependencyViolation|The specified security group has been authorized in another one.|403|The specified security group is authorized by other security groups.|
-|InvalidRegionId.NotFound|The specified RegionId does not exist.|404|The specified `RegionId` does not exist.|
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
