@@ -1,62 +1,74 @@
-# DeleteDeploymentSet {#DeleteDeploymentSet .reference}
+# DeleteDeploymentSet {#doc_api_999646 .reference}
 
 删除一个部署集。
 
-## 请求参数 {#RequestParameter .section}
+## 调试 {#apiExplorer .section}
 
-|名称|类型|是否必需|描述|
-|:-|:-|:---|:-|
-|Action|String|是|系统规定参数，取值：DeleteDeploymentSet|
-|RegionId|String|是|部署集所属地域ID。您可以调用[DescribeRegions](../cn.zh-CN/API参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
-|DeploymentSetId|String|是|部署集ID。如果部署集中仍有实例存在，则无法删除。|
+前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=DeleteDeploymentSet)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
-## 返回参数 {#ResponseParameter .section}
+## 请求参数 {#parameters .section}
 
-全是公共返回参数。参阅[公共返回参数](../cn.zh-CN/API参考/HTTP调用方式/公共参数.md#commonResponseParameters)。
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|DeploymentSetId|String|是|ds-deploymentsetid1|部署集ID。如果部署集中仍有实例存在，则无法删除。
 
-## 示例 { .section}
+ |
+|RegionId|String|是|cn-hangzhou|部署集所属地域ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
 
-**请求示例** 
+ |
+|Action|String|否|DeleteDeploymentSet|系统规定参数，取值：DeleteDeploymentSet
 
-```
+ |
+|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
+
+ |
+
+## 返回参数 {#resultMapping .section}
+
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。无论调用接口成功与否，我们都会返回请求 ID。
+
+ |
+
+## 示例 {#demo .section}
+
+请求示例
+
+``` {#request_demo}
+
 https://ecs.aliyuncs.com/?Action=DeleteDeploymentSet
 &RegionId=cn-hangzhou
 &DeploymentSetId=ds-bp1frxuzdg87zh4pzqkc
 &<公共请求参数>
-```
 
 ```
-https://ecs.example.com/?Action=DeleteDeploymentSet
-&RegionId=cn-hangzhou
-&DeploymentSetId=ds-bp1frxuzdg87zh4pzqkc
-&<公共请求参数>
-```
 
-**返回示例**
+正常返回示例
 
-**XML 格式**
+`XML` 格式
 
-```
+``` {#xml_return_success_demo}
 <DeleteDeploymentSetResponse>
-	<RequestId>04F0F334-1335-436C-A1D7-6C044FE73368</RequestId>
+  <RequestId>04F0F334-1335-436C-A1D7-6C044FE73368</RequestId>
 </DeleteDeploymentSetResponse>
-```
-
-**JSON 格式**
 
 ```
+
+`JSON` 格式
+
+``` {#json_return_success_demo}
 {
-	"RequestId": "04F0F334-1335-436C-A1D7-6C044FE73368"
+	"RequestId":"04F0F334-1335-436C-A1D7-6C044FE73368"
 }
 ```
 
-## 错误码 {#ErrorCode .section}
+## 错误码 { .section}
 
-以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+|HttpCode|错误码|错误信息|描述|
+|--------|---|----|--|
+|400|MissingParameter|The input parameter "DeploymentSetId" that is mandatory for processing this request is not supplied.|参数 DeploymentSetId 不得为空。|
+|403|DependencyViolation.ReferByHPC|The specified deployment set is still referred by an HPC cluster.|指定的部署集与其他HPC集群有关联。|
 
-|错误代码|错误信息|HTTP状态码|说明|
-|:---|:---|:------|:-|
-|MissingParameter|The input parameter “DeploymentSetId” that is mandatory for processing this request is not supplied.|400|您需要指定DeploymentSetId值。|
-|DependencyViolation.NotEmpty|There are still instance\(s\) in the specified DeploymentSetId.|403|指定的部署集中不能有实例。|
-|InvalidRegionId.NotFound|The RegionId provided does not exist in our records.|404|指定的地域不存在。|
+[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 

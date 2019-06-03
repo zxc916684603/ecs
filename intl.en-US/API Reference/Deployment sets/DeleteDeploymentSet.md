@@ -1,62 +1,68 @@
-# DeleteDeploymentSet {#DeleteDeploymentSet .reference}
+# DeleteDeploymentSet {#doc_api_999646 .reference}
 
 Deletes a deployment set.
 
-## Request parameters {#RequestParameter .section}
+## Debugging {#apiExplorer .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Required|The name of this interface. Value: DeleteDeploymentSet.|
-|RegionId|String|Required|The region ID to which the deployment set belongs.For more information, call [DescribeRegions](../intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|DeploymentSetId|String|Required|Deployment Set ID. If instances exist in the deployment set, you cannot delete the deployment set.|
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DeleteDeploymentSet) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-## Response parameters {#ResponseParameter .section}
+## Request parameters {#parameters .section}
 
-All are common response parameters. See [Common response parameters](../intl.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|DeploymentSetId|String|Yes|ds-deploymentsetid1| The ID of the deployment set. You cannot delete a deployment set that contains instances.
 
-## Examples { .section}
+ |
+|RegionId|String|Yes|cn-hangzhou| The ID of the region where the deployment set resides. You can call [DescribeRegions](~~25609~~) to view the latest list of Alibaba Cloud regions.
 
-**Request example** 
+ |
+|Action|String|No|DeleteDeploymentSet| The operation that you want to perform. Set the value to DeleteDeploymentSet.
 
-```
+ |
+
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=DeleteDeploymentSet
-&RegionId=cn-hangzhou
+&RegionId=cn-hangzhou 
 &DeploymentSetId=ds-bp1frxuzdg87zh4pzqkc
-&<Common Request Parameters>
+&<Common request parameters>
 ```
 
-```
-https://ecs.example.com/?Action=DeleteDeploymentSet
-&RegionId=cn-hangzhou
-&DeploymentSetId=ds-bp1frxuzdg87zh4pzqkc
-&<Common Request Parameters>
-```
+Successful response examples
 
-**Response examples**
+`XML` format
 
-**XML format**
-
-```
+``` {#xml_return_success_demo}
 <DeleteDeploymentSetResponse>
-	<RequestId>04F0F334-1335-436C-A1D7-6C044FE73368</RequestId>
+  <RequestId>04F0F334-1335-436C-A1D7-6C044FE73368</RequestId>
 </DeleteDeploymentSetResponse>
 ```
 
-**JSON format**
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
 	"RequestId": "04F0F334-1335-436C-A1D7-6C044FE73368"
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_osj_i1r_f7l .section}
 
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|400|MissingParameter|The input parameter "DeploymentSetId" that is mandatory for processing this request is not supplied.|The error message returned when the DeploymentSetId parameter is empty.|
+|403|DependencyViolation.ReferByHPC|The specified deployment set is still referred by an HPC cluster.|The error message returned when the specified deployment set is associated with other HPC clusters.|
 
-|Error code|Error message|HTTP status code|Description|
-|:---------|:------------|:---------------|:----------|
-|MissingParameter|The input parameter “DeploymentSetId” that is mandatory for processing this request is not supplied.|400|You need to specify the value of DeploymentSetId.|
-|DependencyViolation.NotEmpty|There are still instance\(s\) in the specified DeploymentSetId.|403|The specified deployment set cannot have any instance.|
-|InvalidRegionId.NotFound|The RegionId provided does not exist in our records.|404|The specified RegionId does not exist.|
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
