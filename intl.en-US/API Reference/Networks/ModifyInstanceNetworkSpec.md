@@ -1,107 +1,138 @@
-# ModifyInstanceNetworkSpec {#ModifyInstanceNetworkSpec .reference}
+# ModifyInstanceNetworkSpec {#doc_api_1072927 .reference}
 
-Modifies the bandwidth configuration of your Instance. If the network specification of your ECS instance is not suitable for your business scale, you can change the bandwidth configuration accordingly.
+Modifies the bandwidth configurations of an ECS instance. When the network specifications of an instance cannot meet your needs, you can modify its bandwidth configurations to improve network performance.
 
-## Description {#section_rb5_jnn_ydb .section}
+## Description {#description .section}
 
-When you call this interface, consider the following:
+When you call this operation, note that:
 
--   When you change the bandwidth configuration of a **Subscription** \(`PrePaid`\) instance, consider the following:
+-   When modifying the bandwidth configurations of a prepaid instance, you can perform the following operations:
+    -   When outbound bandwidth to the Internet is upgraded from 0 Mbit/s to a non-zero value, a public IP address is automatically allocated.
+    -   You can use this API to change the bandwidth billing method from PayByTraffic to PayByBandwidth. You can use [ECS console](https://ecs.console.aliyun.com) to change the bandwidth billing method from PayByTraffic to PayByBandwidth.
+-   When modifying the bandwidth configurations of a postpaid instance, you can perform the following operations:
+    -   You can upgrade or downgrade the bandwidth.
+    -   When outbound bandwidth to the Internet is upgraded from 0 Mbit/s to a non-zero value, a public IP address is automatically allocated. You need to call [AllocatePublicIpAddress](~~25544~~) to assign a public IP address to an instance.
+-   For a classic instance, when outbound bandwidth to the Internet is upgraded from 0 Mbit/s to a non-zero value, the instance must be in the Stopped state.
+-   After the bandwidth is upgraded, AutoPay is set to true by default. Make sure that your account has sufficient balance. Otherwise, your order becomes invalid and you have to cancel this order. If your account balance is insufficient, you can set the AutoPay parameter to false to generate a normal order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com) to pay for the order.
+-   You can downgrade instance type for each prepaid instance three times at most, because the refund of price difference cannot exceed three times.
+-   The price difference will be refunded to your original form of payment. Used coupons cannot be refunded.
+-   Each time a downgrade operation is successful, you cannot perform another operation on that instance within five minutes.
 
-    -   The configuration of bandwidth that is **PayByTraffic**\(`Pay By Traffic`\) can be upgraded or downgraded.
+## Debugging {#apiExplorer .section}
 
-    -   The instance has an Internet IP allocated when the **InternetMaxBandwidthOut** \(`InternetMaxBandwidthOut`\) is upgraded from 0 Mbps.
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=ModifyInstanceNetworkSpec) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
--   When you change the bandwidth configuration of a **Pay-As-You-Go** \(`Pay-As-You-Go`\) instance, consider the following:
+## Request parameters {#parameters .section}
 
-    -   The bandwidth configuration can be upgraded or downgraded.
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|InstanceId|String|Yes|i-xxxxx1| The ID of the instance for which you want to modify network configurations.
 
-    -   The instance has no Internet IP allocated when the **InternetMaxBandwidthOut** \(`InternetMaxBandwidthOut`\) is upgraded from zero Mbps. However, you can call [AllocatePublicIpAddress](reseller.en-US/API Reference/Networks/AllocatePublicIpAddress.md#)  to allocate Internet IP address for the instance.
+ |
+|Action|String|No|ModifyInstanceNetworkSpec| The operation that you want to perform. Set the value to ModifyInstanceNetworkSpec.
 
--   For classic type instances, when **InternetMaxBandwidthOut**\(`InternetMaxBandwidthOut`\) is upgraded from 0 Mbps, the instance must be in the **Stopped** \(`Stopped`\) status.
+ |
+|AllocatePublicIp|Boolean|No|false| Indicates whether to allocate a public IP address. Default value: false.
 
--   Before going ahead with an upgrade, you must make sure that you have registered a valid credit card, once you upgrade the bandwidth configuration, auto-payment is initiated. If the payment is unsuccessful, an abnormal order is returned and can only be nullified.
+ |
+|AutoPay|Boolean|No|true| Indicates whether to enable AutoPay. Valid values:
 
-    If your account balance is insufficient, you can set the parameter  `AutoPay` to `false` to cancel the automatic payment. Thus, an unpaid order is returned and you can complete the order by making the payment in the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+ -   true: After the bandwidth is upgraded, AutoPay is enabled. Make sure that your account has sufficient balance. Otherwise, your order becomes invalid and you have to cancel this order.
+-   false: After the bandwidth is upgraded, an order is generated and fees are not deducted. If your account balance is insufficient, you can set the AutoPay parameter to false to generate a normal order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com) to pay for the order.
 
--   The bandwidth cannot be changed again within five minutes after the action is performed.
+ Default value: true.
 
--   The bandwidth of a Subscription instance can only be downgraded three times.
+ |
+|ClientToken|String|No|123e4567-e89b-12d3-a456-426655440000| A client token. It is used to ensure the idempotency of requests. The value of this parameter is generated by the client and is unique among different requests. It can be a maximum of 64 characters in length. For more information, see [How to ensure idempotency](~~25693~~).
 
-## Request parameters {#RequestParameter .section}
+ |
+|EndTime|String|No|2017-12-06T22Z| The time when bandwidth update ends. The time follows the [ISO 8601](~~25696~~) standard and uses UTC time. The format is yyyy-MM-ddThhZ.
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: ModifyInstanceNetworkSpec.|
-|InstanceId|String|Yes|ID of the instance.|
-|InternetMaxBandwidthOut|Integer|No|Maximum value of public network outbound bandwidth; unit: Mbps \(Megabit per second\). Value range: \[1, 100\].|
-|InternetMaxBandwidthIn|Integer|No|The maximum inbound bandwidth from the Internet, measured in Mbps. Value range: \[1, 100\].|
-|NetworkChargeType|String|No|The billing method of the bandwidth. Optional values:-   PayByTraffic: The bandwidth is billed by the sum of network traffic.
+ |
+|InternetMaxBandwidthIn|Integer|No|10| The maximum inbound bandwidth from the Internet. Unit: Mbit/s. Valid values: 1 to 200.
 
-|
-|Autopay|Boolean |No|Whether or not automatic payment is enabled. Optional values:-   true: The payment goes through automatically after you upgrade the bandwidth configuration. However, before that, you must make sure that your registered credit card is valid and does not have credit limit set. Moreover, if you choose PayPal, you must maintain sufficient balance in your account. If the auto payment attempt is unsuccessful, an abnormal order returns and can only be nullified. However, before you set `Autopay` to `True` you must make sure that your registered credit card is valid and does not have credit limit set. Moreover, if you choose PayPal, you must maintain sufficient balance in your account.
--   false: The payment does not go through automatically, once you upgrade the bandwidth configuration. When your registered credit card is invalid or you have insufficient balance in your PayPal account, you can set the `AutoPay` parameter to `false` to cancel the auto-payment option. This results into an unpaid order and you can complete the order [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+ |
+|InternetMaxBandwidthOut|Integer|No|10| The maximum outbound bandwidth to the Internet. Unit: Mbit/s. Valid values: 0 to 100.
 
-Default value: True.|
-|ClientToken|String|No|Guarantees the idempotence of the request. The value is generated by a client. It must be unique among all requests and contains a maximum of 64 ASCII characters. For more information, see [How to ensure idempotence](reseller.en-US/API Reference/Appendix/How to ensure idempotence.md#).|
+ |
+|NetworkChargeType|String|No|PayByTraffic| The bandwidth billing method. Valid values:
 
-## Response parameters {#ResponseParameter .section}
+ -   PayByTraffic: traffic-based billing method.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|RequestId|String|The ID of the request.|
-|Orderid|Long|Order ID.|
+ |
+|StartTime|String|No|2017-12-05T22:40Z| The time when bandwidth upgrade starts. The time follows the [ISO 8601](~~25696~~) standard and uses UTC time. The format is yyyy-MM-ddThh:mmZ.
 
-## Examples { .section}
+ |
 
-**Request example** 
+## Response parameters {#resultMapping .section}
 
-```
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|OrderId|String|1111111111111111111111110| The ID of the generated order.
+
+ |
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the API request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=ModifyInstanceNetworkSpec
-&RegionId=cn-hangzhou
+&RegionId=cn-hangzhou 
 &InstanceId=i-xxxxx1
 &InternetMaxBandwidthOut=10
 &ClientToken=xxxxxxxxxxxxxx
-&<Common Request Parameters>
+&<Common request parameters>
 ```
 
-**Response sample** 
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <ModifyInstanceNetworkSpecResponse>
-      <RequestId>04F0F334-1335-436C-A1D7-6C044FE73368</RequestId>
+  <RequestId>04F0F334-1335-436C-A1D7-6C044FE73368</RequestId>
 </ModifyInstanceNetworkSpecResponse>
 ```
 
- **JSON format** 
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-      "RequestId": "04F0F334-1335-436C-A1D7-6C044FE73368"
+	"RequestId":"04F0F334-1335-436C-A1D7-6C044FE73368"
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_6sq_vl5_c4y .section}
 
-|Error code|Error message|HTTP status code |Description|
-|:---------|:------------|:----------------|:----------|
-|Account.Arrearage|Your account has an outstanding payment.|400|Your account has an overdue payment.|
-|DecreasedBandWidthNotAllowed|A higher bandwidth than the current one is required.|400|The new bandwidth cannot be less than the existing bandwidth.|
-|InvalidInstance.UnpaidOrder|The specified instance has unpaid order.|400|The current instance has unpaid orders.|
-|InvalidInstanceStatus.NotStopped|The specified Instance status is not Stopped.|400|The instance is not in a Stopped status.|
-|InvalidInternetChargeType.ValueNotSupported|The specified InternetChargeType is invalid.|400|The specified `InternetChargeType` does not exist.|
-|InvalidInternetMaxBandwidthIn.ValueNotSupported|The specified InternetMaxBandwidthIn is beyond the permitted range.|400|The value range of `InternetMaxBandwidthIn` is \[1, 200\].|
-|InvalidInternetMaxBandwidthOut.ValueNotSupported|The specified InternetMaxBandwidthOut is beyond the permitted range.|400|The value range of `InternetMaxBandwidthOut` is \[0, 100\].|
-|MissingParameter|The input parameter “InstanceId” that is mandatory for processing this request is not supplied.|400|You must specify the `InstanceId`.|
-|OperationDenied|Specified instance is in VPC.|400|A VPC instance does not support this operation.|
-|ChargeTypeViolation|The operation is not permitted due to billing method of the instance.|403|The billing method of the instance does not support this operation.|
-|IncorrectInstanceStatus|The current status of the instance does not support this operation.|403|The status of the instance does not support this operation.|
-|InstanceExpiredOrInArrears|The specified operation is denied as your prepay instance is expired \(prepay mode\) or in arrears \(afterpay mode\).|403|Your subscription ECS instance has expired. Or your Pay-As-You-Go instance has an overdue payment.|
-|InstanceLockedForSecurity|The specified operation is denied as your instance is locked for security reasons.|403|The instance is [locked](reseller.en-US/API Reference/Appendix/API behavior when an instance is locked for security reasons.md#) for security reasons.|
-|InvalidAccountStatus.NotEnoughBalance|Your account does not have enough balance.|403|Your registered credit card is invalid or you have insufficient balance in your PayPal account.|
-|OperationDenied|The operation is denied due to the instance is PrePaid.|403|The operation is denied for a Subscription instance.|
-|InvalidInstanceId.NotFound|The specified InstanceId does not exist.|404|The specified InstanceIds does not exist.|
-|InternalError|The request processing has failed due to some unknown error, exception or failure.| 500|Internal error. Try again later.|
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|400|InvalidInternetMaxBandwidthIn.ValueNotSupported|The specified InternetMaxBandwidthIn is beyond the permitted range.|The error message returned when the specified InternetMaxBandwidthIn parameter is invalid.|
+|400|InvalidInternetMaxBandwidthOut.ValueNotSupported|The specified InternetMaxBandwidthOut is beyond the permitted range.|The error message returned when the specified InternetMaxBandwidthOut parameter is invalid.|
+|403|IncorrectInstanceStatus|The current state of the instance does not support this operation.|The error message returned when this operation is not supported under the instance state.|
+|403|InstanceExpiredOrInArrears|The specified operation is denied as your prepay instance is expired \(prepay mode\) or in arrears \(afterpay mode\).|The error message returned when the subscription of the instance has expired. You must renew the subscription before proceeding.|
+|403|ChargeTypeViolation|The operation is not permitted due to billing method of the instance.|The error message returned when the billing method of the instance is not supported.|
+|400|OperationDenied|Specified instance is in VPC.|The error message returned when the specified instance is VPC-connected.|
+|400|InvalidParameter.Bandwidth|%s|The error message returned when the parameter value is invalid.|
+|400|InvalidParameter.Conflict|%s|The error message returned when parameter values conflict.|
+|400|InvalidStartTime.ValueNotSupported|%s|The error message returned when the end time precedes the start time.|
+|400|Account.Arrearage|Your account has an outstanding payment.|The error message returned when outstanding orders exist in your account.|
+|400|InvalidInternetChargeType.ValueNotSupported|The specified InternetChargeType is invalid.|The error message returned when the specified bandwidth billing method is invalid.|
+|400|DecreasedBandwidthNotAllowed|%s|The error message returned when the bandwidth cannot be downgraded.|
+|400|BandwidthUpgradeDenied.EipBoundInstance|The specified VPC instance has bound EIP, temporary bandwidth upgrade is denied.|The error message returned when the instance cannot be upgraded because it is bound with an EIP.|
+|403|InvalidAccountStatus.NotEnoughBalance|Your account does not have enough balance.|The error message returned when your account balance is insufficient. You need to top up your account before proceeding.|
+|403|InvalidInstance.UnpaidOrder|The specified Instance has unpaid order.|The error message returned when outstanding orders exist in your account. You need to pay for the orders before proceeding.|
+|400|IpAllocationError|Allocate public ip failed.|The error message returned when allocation of public IP addresses fails.|
+|400|InvalidParam.AllocatePublicIp|The specified param AllocatePublicIp is invalid.|The error message returned when the specified AllocatePublicIp parameter is invalid.|
+|400|InstanceDowngrade.QuotaExceed|Quota of instance downgrade is exceed.|The error message returned when the instance has been downgraded the allowed times.|
+|400|InvalidBandwidth.ValueNotSupported|Instance upgrade bandwidth of temporary not allow less then existed.|The error message returned when you select a lower bandwidth for instance update.|
+|403|InvalidInstance.InstanceNotSupported|The special vpc instance with eip not need bandwidth.|The error message returned when you specify the bandwidth for a VPC-connected instance bound with an EIP.|
+|400|InvalidInstanceStatus|The specified instance state does not support this action.|The error message returned when this operation is not supported under the instance state.|
+|403|InvalidInstanceStatus|The current state of the instance does not support this operation.|The error message returned when this operation is not supported under the instance state.|
+|400|InvalidInstance.UnpaidOrder|Unpaid order exists in your account, please complete or cancel the payment in the expense center.|The error message returned when outstanding orders exist in your account.|
+
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
