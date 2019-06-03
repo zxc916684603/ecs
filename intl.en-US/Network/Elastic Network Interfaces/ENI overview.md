@@ -1,6 +1,6 @@
 # ENI overview {#concept_xzg_mgt_xdb .concept}
 
-An Elastic Network Interface \(ENI\) is a virtual network interface that can be attached to an ECS instance in a VPC.
+An Elastic Network Interface \(ENI\) is a virtual network interface that can be attached to an ECS instance in a VPC. You can use an ENI to deploy a high-availability cluster, and perform low-cost failover and fine-grained network management in all Alibaba Cloud regions.
 
 ## Scenarios {#section_ac1_qnw_ydb .section}
 
@@ -12,7 +12,7 @@ ENIs can be used in the following scenarios:
 
 -   **Providing a low-cost failover solution**
 
-    You can detach an ENI from a failed ECS instance and then attach it to another ECS instance to quickly redirect the failed instance’s traffic to a backup instance, thereby quickly restoring your services.
+    You can detach an ENI from a failed ECS instance and then attach it to another ECS instance to quickly redirect traffic from the failed instance to a backup instance, thereby quickly restoring your services.
 
 -   **Managing the network with refined controls**
 
@@ -29,63 +29,52 @@ ENIs are classified into two types:
 
 -   **Secondary ENI**
 
-    You can create a secondary ENI and attach it to an instance or detach it from the instance. Multiple private IPs are supported for each secondary ENI. The maximum number of ENIs that you can attach to one instance varies with the instance type. For more information, see [EN-US\_TP\_9548.md\#](reseller.en-US/Instances/Instance type families/Instance type families.md#).
+    You can create a secondary ENI and attach it to an instance or detach it from the instance. The maximum number of ENIs that you can attach to one instance varies with the instance type. For more information, see [Instance type families](../../../../reseller.en-US/Instances/Instance type families.md#).
 
 
 ## ENI attributes {#section_ec1_qnw_ydb .section}
 
-The following table displays ENI attributes.
+The following table describes ENI attributes.
 
 |Attribute|Quantity|
 |:--------|:-------|
-|Primary private IP addresses|1|
+|Private IP address|Varies with instance types|
 |MAC address|1|
-|Security group|Up to 5|
-|Description|1|
+|Security group|1 to 5|
 |ENI name|1|
 
-## Limitations {#section_ic1_qnw_ydb .section}
+## Limits {#section_ic1_qnw_ydb .section}
 
-ENIs have the following limitations:
+ENIs have the following limits:
 
--   By default, one account can own up to 100 ENIs per region. The quota increases with the membership level. If you require a higher quota, open a ticket.
-
--   The ECS instance must be in the same zone of the same region as the ENI, but they do not have to be in the same VSwitch.
-
--   The number of ENIs that can be attached to an ECS instance is determined by the instance type. For more information, see [EN-US\_TP\_9548.md\#](reseller.en-US/Instances/Instance type families/Instance type families.md#).
-
--   Only I/O optimized instance types support ENIs.
-
--   Attaching multiple ENIs does not increase the instance bandwidth.
-
-    **Note:** The instance bandwidth capability varies with the instance type.
-
+-   One account can create up to 100 ENIs per region. The quota increases with the membership level. If you require a higher quota, open a ticket.
+-   The ECS instance and its attached secondary ENI must be in the same zone, region, and VSwitch, but can be in different security groups.
+-   The number of secondary ENIs that can be attached to an ECS instance depends on the instance type. For more information, see [Instance type families](../../../../reseller.en-US/Instances/Instance type families.md#).
+-   Only I/O-optimized instance types support ENIs.
+-   ECS instances in a classic network do not support ENIs.
+-   The instance bandwidth varies with the instance type. You cannot increase the bandwidth of an ECS instance by attaching multiple ENIs to the instance.
 
 ## Related operations {#section_kc1_qnw_ydb .section}
 
-For images that cannot identify ENIs, log on to the instance to [configure the ENI](../../../../../reseller.en-US/Network/Elastic Network Interfaces/Configure an ENI.md#).
+For images that cannot identify secondary ENIs, log on to the instance to [configure the ENI](../../../../reseller.en-US/Network/Elastic Network Interfaces/Configure an ENI.md#).
 
 ## Console operations {#section_lc1_qnw_ydb .section}
 
-You can complete the following operations in the ECS console:
+In the ECS console, you can view information of an attached ENI. You can also perform the following actions with a secondary ENI only \(a primary ENI is not supported\):
 
--   [Attach an ENI when creating an instance](../../../../../reseller.en-US/Network/Elastic Network Interfaces/Attach an ENI.md#)
--   [Create an ENI](../../../../../reseller.en-US/Network/Elastic Network Interfaces/Create an ENI.md#)
--   [Delete an ENI](../../../../../reseller.en-US/Network/Elastic Network Interfaces/Delete an ENI.md#)
--   [Attach an ENI to an instance](../../../../../reseller.en-US//Attach an ENI to an instance.md#): The instance must be in a **Stopped** or **Running** status.
--   [Detach an ENI from an instance](../../../../../reseller.en-US/Network/Elastic Network Interfaces/Detach an ENI from an instance.md#): The instance must be in a **Stopped** or **Running** status.
--   [Modify attributes of an ENI](../../../../../reseller.en-US/Network/Elastic Network Interfaces/Modify attributes of an ENI.md#): You can modify attributes of an ENI, including its name, security group, and description.
--   When an ENI is attached to an instance, you can view the information of the ENI on the instance details page and the network interfaces page.
+-   [Attach an ENI](reseller.en-US/Network/Elastic Network Interfaces/Attach an ENI.md#).
+-   [Create an ENI](reseller.en-US/Network/Elastic Network Interfaces/Create an ENI.md#).
+-   [Delete an ENI](../../../../reseller.en-US/Network/Elastic Network Interfaces/Delete an ENI.md#).
+-   [EN-US\_TP\_9736.md\#](reseller.en-US/Network/Elastic Network Interfaces/Detach an ENI from an instance.md#).
+-   [Modify an ENI](reseller.en-US/Network/Elastic Network Interfaces/Modify an ENI.md#).
 
 ## API operations {#section_oc1_qnw_ydb .section}
 
-You can complete the following operations by using APIs:
+You can call [DescribeNetworkInterfaces](../../../../reseller.en-US/API Reference/Elastic network interfaces/DescribeNetworkInterfaces.md#) to query an ENI list, and call [DescribeInstances](../../../../reseller.en-US/API Reference/Instances/DescribeInstances.md#) to query the information of a specific ENI attached to an instance. Additionally, you can call the following API actions as needed for a secondary ENI only \(a primary ENI is not supported\):
 
--   [Create an ENI](../../../../../reseller.en-US/API Reference/Elastic network interfaces/CreateNetworkInterface.md#)
--   [Delete an ENI](../../../../../reseller.en-US/API Reference/Elastic network interfaces/DeleteNetworkInterface.md#)
--   [Query ENI list](../../../../../reseller.en-US/API Reference/Elastic network interfaces/DescribeNetworkInterfaces.md#)
--   [Attach an ENI to an instance](../../../../../reseller.en-US/API Reference/Elastic network interfaces/AttachNetworkInterface .md#): The instance must be in a **Stopped** or **Running** status.
--   [Detach an ENI from an instance](../../../../../reseller.en-US/API Reference/Elastic network interfaces/DetachNetworkInterface.md#): The instance must be in a **Stopped** or **Running** status.
--   [Modify attributes of an ENI](../../../../../reseller.en-US/API Reference/Elastic network interfaces/ModifyNetworkInterfaceAttribute.md#): You can modify attributes of an ENI, including its name, its security group, and its description.
--   You can use the [DescribeInstances](../../../../../reseller.en-US/API Reference/Instances/DescribeInstances.md#) interface to query the information of an ENI when the ENI is attached to an instance.
+-   [CreateNetworkInterface](../../../../reseller.en-US/API Reference/Elastic network interfaces/CreateNetworkInterface.md#)
+-   [DeleteNetworkInterface](../../../../reseller.en-US/API Reference/Elastic network interfaces/DeleteNetworkInterface.md#)
+-   [AttachNetworkInterface](../../../../reseller.en-US/API Reference/Elastic network interfaces/AttachNetworkInterface .md#)
+-   [DetachNetworkInterface](../../../../reseller.en-US/API Reference/Elastic network interfaces/DetachNetworkInterface.md#)
+-   [ModifyNetworkInterfaceAttribute](../../../../reseller.en-US/API Reference/Elastic network interfaces/ModifyNetworkInterfaceAttribute.md#)
 
