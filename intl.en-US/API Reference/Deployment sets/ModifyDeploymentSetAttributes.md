@@ -1,60 +1,76 @@
-# ModifyDeploymentSetAttributes {#ModifyDeploymentSetAttributes .reference}
+# ModifyDeploymentSetAttributes {#doc_api_999649 .reference}
 
 Modifies the name and description of a deployment set.
 
-## Request parameters {#RequestParameter .section}
+## Debugging {#apiExplorer .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String |Yes|The action that you want to perform. Value: ModifyDeploymentSetAttributes.|
-|RegionId|String|Yes|The region ID to which the deployment set belongs.For more information, call [DescribeRegions](../intl.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|DeploymentSetId|String|Yes|Deployment Set ID.|
-|DeploymentSetName|String|No|New name for the deployment set.The name is a string of 2 to 128 characters. It must begin with an English or a Chinese character. It can contain A-Z, a-z, Chinese characters, numbers, periods \(.\), colons \(:\), underscores \(\_\), and hyphens \(-\).|
-|Description|String|No|New description for the deployment set.It cannot begin with http:// or https://.|
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=ModifyDeploymentSetAttribute) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-## Response parameters {#ResponseParameter .section}
+## Request parameters {#parameters .section}
 
-All are common response parameters. See [Common response parameters](../intl.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|DeploymentSetId|String|Yes|ds-deploymentsetid| The ID of a deployment set.
 
-## Examples {#section_g4q_shf_2fb .section}
+ |
+|RegionId|String|Yes|cn-hangzhou| The ID of the region where the deployment set resides. You can call DescribeRegions to view the latest list of Alibaba Cloud regions.
 
-**Request example**
+ |
+|Action|String|No|ModifyDeploymentSetAttribute| The operation that you want to perform. Set the value to ModifyDeploymentSetAttributes.
 
-```
+ |
+|DeploymentSetName|String|No|FinanceJoshua| The name of the deployment set. It must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons \(:\), underscores \(\_\), and hyphens \(-\).
+
+ |
+|Description|String|No|FinanceDept| The description of the deployment set. It must be 2 to 256 characters in length and cannot start with http:// or https://.
+
+ |
+
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=ModifyDeploymentSetAttributes
-&RegionId=cn-hangzhou
+&RegionId=cn-hangzhou 
 &Strategy=Availability
 &DeploymentSetId=ds-bp1frxuzdg87zh4pzqkc
 &DeploymentSetName=AvailMySet
-&<Common Request Parameters>
+&<Common request parameters>
 ```
 
-**Response examples**
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <ModifyDeploymentSetAttributesResponse>
-	<RequestId>04F0F334-1335-436C-A1D7-6C044FE73368</RequestId>
+  <RequestId>04F0F334-1335-436C-A1D7-6C044FE73368</RequestId>
 </ModifyDeploymentSetAttributesResponse>
 ```
 
-**JSON format**
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-	"RequestId": "04F0F334-1335-436C-A1D7-6C044FE73368"
+	"RequestId":"04F0F334-1335-436C-A1D7-6C044FE73368"
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_pco_n9a_fay .section}
 
-Error codes specific to this interface are as follows. For more information, see [API Error Center](https://error-center.alibabacloud.com/status/product/Ecs).
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|400|MissingParameter|The input parameter RegionId that is mandatory for processing this request is not supplied.|The error message returned when the RegionId parameter is empty.|
+|400|InvalidDescription.Malformed|The specified parameter Description is not valid.|The error message returned when the specified description is invalid. It must be 2 to 256 characters in length and cannot start with http:// or https://.|
 
-|Error code|Error message|HTTP status code|Description|
-|:---------|:------------|:---------------|:----------|
-|InvalidDescription.Malformed|The specified parameter “Description” is not valid.|400|The specified Description is invalid.|
-|InvalidParameter.Strategy|The specified parameter Strategy is not valid|400|The specified deployment strategy is invalid.|
-|MissingParameter|The input parameter “RegionId” that is mandatory for processing this request is not supplied.|400|You must specify the RegionId parameter. You are not authorized to use the resources of the specified region.|
-|InvalidRegionId.NotFound|The RegionId provided does not exist in our records.|404|The specified RegionId does not exist.|
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
