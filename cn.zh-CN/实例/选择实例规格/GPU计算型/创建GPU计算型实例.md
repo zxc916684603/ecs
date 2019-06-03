@@ -25,24 +25,24 @@ GPU计算型实例必须安装GPU驱动才可以使用。您可以在创建实�
 
         如果您选择的镜像支持自动安装驱动，勾选**自动安装GPU驱动**，并选择驱动版本。如果是新业务系统，建议选择最新的版本。
 
-        如果您不勾选**自动安装GPU驱动**，或者镜像不支持自动安装，则需要在**实例自定义数据**模块下配置安装脚本，或者在创建实例后[手动安装GPU驱动](cn.zh-CN/实例/选择实例规格/GPU计算型/创建GPU计算型实例.md#section_ffg_1p5_qgb)。如何配置安装脚本，请参见[脚本版本](cn.zh-CN/实例/选择实例规格/GPU计算型/创建GPU计算型实例.md#section_xcj_1s5_xgb)。
+        如果您不勾选**自动安装GPU驱动**，或者镜像不支持自动安装，则需要在**实例自定义数据**模块下配置安装脚本，或者在创建实例后[手动安装GPU驱动](cn.zh-CN/实例/选择实例规格/GPU计算型/手动安装GPU驱动.md#)。如何配置安装脚本，请参见[脚本版本](cn.zh-CN/实例/选择实例规格/GPU计算型/创建GPU计算型实例.md#section_xcj_1s5_xgb)。
 
-        **说明：** 如果调用[RunInstances](../../../../../cn.zh-CN/API参考/实例/RunInstances.md#)创建GPU计算型实例，必须通过UserData参数上传安装脚本，脚本内容需要采用Base64方式编码。
+        **说明：** 如果调用[RunInstances](../../../../cn.zh-CN/API参考/实例/RunInstances.md#)创建GPU计算型实例，必须通过UserData参数上传安装脚本，脚本内容需要采用Base64方式编码。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/155531822239823_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/155960265139823_zh-CN.png)
 
 3.  完成网络和安全组配置。在选择配置时，请注意：
     -   **网络**：选择**专有网络**。
     -   **公网带宽**：请根据您的业务需要选择带宽。
 
-        **说明：** 如果您在**基础配置**中选用了Windows 2008 R2及以下版本的镜像，在GPU驱动安装生效后，您将无法通过[管理终端](cn.zh-CN/实例/连接实例/连接Linux实例/使用管理终端连接Linux实例.md#)连接GPU计算型实例，远程连接时会始终显示黑屏或停留在启动界面。您需要在此处勾选**分配公网IP地址**，或者在创建实例后[绑定弹性公网IP](../../../../../cn.zh-CN/用户指南/绑定云资源.md#)，以便通过其他协议连接实例，例如RDP（Windows自带的远程连接）、PCOIP、XenDeskop HDX 3D等。其中RDP不支持DirectX、OpenGL等应用，您需要自行安装VNC服务和客户端。
+        **说明：** 如果您在**基础配置**中选用了Windows 2008 R2及以下版本的镜像，在GPU驱动安装生效后，您将无法通过[管理终端](cn.zh-CN/实例/连接实例/连接Linux实例/使用管理终端连接Linux实例.md#)连接GPU计算型实例，远程连接时会始终显示黑屏或停留在启动界面。您需要在此处勾选**分配公网IP地址**，或者在创建实例后[绑定弹性公网IP](../../../../cn.zh-CN/用户指南/绑定云资源.md#)，以便通过其他协议连接实例，例如RDP（Windows自带的远程连接）、PCOIP、XenDeskop HDX 3D等。其中RDP不支持DirectX、OpenGL等应用，您需要自行安装VNC服务和客户端。
 
 4.  完成系统配置。在选择配置时，请注意：
     -   **登录凭证**：建议选择**密钥对**或**自定义密码**。如果您选择**创建后设置**，通过管理终端登录实例时必须绑定SSH密钥对或者重置密码，然后重启实例使修改生效。如果此时GPU驱动尚未安装完成，重启操作会导致安装失败。
     -   **实例自定义数据**：
         -   如果您在基础配置页面的**镜像**中选择了**自动安装GPU驱动**，此处会显示自动安装CUDA和GPU驱动的注意事项和Shell脚本内容。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/155531822239825_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/155960265139825_zh-CN.png)
 
         -   如果您未选择**自动安装GPU驱动**，可以在**实例自定义数据**处配置安装脚本，脚本示例请参见[实例自定义数据方式安装脚本](cn.zh-CN/实例/选择实例规格/GPU计算型/创建GPU计算型实例.md#section_bl2_k23_ygb)。
 5.  根据需要完成分组设置并确认订单，完成创建GPU计算型实例。
@@ -71,7 +71,7 @@ GPU计算型实例必须安装GPU驱动才可以使用。您可以在创建实�
 -   欧洲中部1（可用区A）
 
  |
-|gn5（部署NGC环境）|部分地域下的gn5实例不支持部署NGC（NVIDIA GPU CLOUD）环境，更多信息请参见[在gn5实例上部署NGC环境](../../../../../cn.zh-CN/实例/选择实例规格/GPU计算型/在gn5实例上部署NGC环境.md#)。|
+|gn5（部署NGC环境）|部分地域下的gn5实例不支持部署NGC（NVIDIA GPU CLOUD）环境，更多信息请参见[在gn5实例上部署NGC环境](../../../../cn.zh-CN/最佳实践/GPU实例最佳实践/在gn5实例上部署NGC环境.md#)。|
 |gn5i| -   华北2（可用区C、E、A）
 -   华东1（可用区B）、华东2（可用区D、B）
 -   华南1（可用区A）
@@ -85,15 +85,15 @@ GPU计算型实例必须安装GPU驱动才可以使用。您可以在创建实�
 
 |镜像来源|镜像版本|
 |----|----|
-|公共镜像|支持如下版本：-   CentOS 64位（目前提供的所有版本都支持）
+|公共镜像|支持如下版本： -   CentOS 64位（目前提供的所有版本都支持）
 -   Ubuntu16.04 64位镜像
 -   SUSE Linux Enterprise Server 12 SP2 64位镜像
 
-|
-|镜像市场|请按以下方式获取：-   搜索**NVIDIA**并选择需要的镜像，目前只支持CentOS 7.3。
+ |
+|镜像市场|请按以下方式获取： -   搜索**NVIDIA**并选择需要的镜像，目前只支持CentOS 7.3。
 -   如果GPU计算型实例用于深度学习，您可以选择预装深度学习框架的镜像。搜索**深度学习**并选择需要的镜像，目前只支持CentOS 7.3。
 
-|
+ |
 
 ## 脚本版本 {#section_xcj_1s5_xgb .section}
 
@@ -127,10 +127,10 @@ GPU计算型实例必须安装GPU驱动才可以使用。您可以在创建实�
 -   如果您在**实例自定义数据**配置安装脚本，建议使用安装脚本的nvidia\_install\_v2.0版本，脚本内容请参见[实例自定义数据方式安装脚本](cn.zh-CN/实例/选择实例规格/GPU计算型/创建GPU计算型实例.md#section_bl2_k23_ygb)。nvidia\_install\_v2.0版本具有以下优势：
 
     -   提供最新版本的CUDA、GPU驱动和cuDNN库。
-    -   登录实例后，如果正在安装驱动，您可以看到安装进度条，如果已经安装完成，无论是否成功，您可以看到安装结果提示（**NVIDIA INSTALL OK**或**NVIDIA INSTALL FAIL**）。
+    -   登录实例后，如果正在安装驱动，您可以看到安装进度条。如果已经安装成功，您可以看到安装结果提示**NVIDIA INSTALL OK**；如果安装失败，您将看到安装结果提示**NVIDIA INSTALL FAIL**。
     使用nvidia\_install\_v2.0版本时，您需要修改安装脚本的以下参数，指定GPU驱动、CUDA、cuDNN版本号，例如：
 
-    ```
+    ``` {#codeblock_wlb_x4q_tou}
     driver_version="410.79"
     cuda_version="9.0.176"
     cudnn_version="7.4.2"
@@ -169,7 +169,7 @@ GPU计算型实例必须安装GPU驱动才可以使用。您可以在创建实�
 
 通过**实例自定义数据**方式安装驱动时，建议使用安装脚本的nvidia\_install\_v2.0版本，脚本内容如下：
 
-```
+``` {#codeblock_g4y_yfd_0oo}
 #!/bin/sh
 
 driver_version=$1
@@ -556,7 +556,7 @@ if [ -n "$issue" ];then
     os="ubuntu"
     profile_file="/root/.profile"
     filename="/etc/rc.local"
-    
+
 else
     issue=$(cat /etc/issue | grep SUSE)
     if [ -n "$issue" ];then
@@ -678,7 +678,7 @@ reboot
 ## 相关文档 {#section_o3f_dch_ygb .section}
 
 -   如果在创建实例时没有安装GPU驱动，则必须在创建后手动安装。具体操作，请参见[手动安装GPU驱动](cn.zh-CN/实例/选择实例规格/GPU计算型/手动安装GPU驱动.md#)。
--   如果gn5、gn5i、gn6v、vgn5i或gn6i实例需要支持OpenGL图形显示，必须安装GRID驱动，具体操作，请参见[在GPU计算型实例中安装GRID驱动](../../../../../cn.zh-CN/实例/选择实例规格/GPU计算型/在GPU计算型实例中安装GRID驱动.md#)。
+-   如果gn5、gn5i、gn6v、vgn5i或gn6i实例需要支持OpenGL图形显示，必须安装GRID驱动，具体操作，请参见[在GPU计算型实例中安装GRID驱动](../../../../cn.zh-CN/实例/选择实例规格/GPU计算型/在GPU计算型实例中安装GRID驱动.md#)。
 -   您可以手动卸载GPU驱动和CUDA，具体操作请参见[从GPU计算型实例中卸载GPU驱动](cn.zh-CN/实例/选择实例规格/GPU计算型/手动卸载GPU驱动.md#)。
--   您可以通过云监控控制台或API查看GPU监控数据，具体操作请参见[GPU监控](../../../../../cn.zh-CN/用户指南/主机监控/GPU监控.md#)。
+-   您可以通过云监控控制台或API查看GPU监控数据，具体操作请参见[GPU监控](../../../../cn.zh-CN/用户指南/主机监控/GPU监控.md#)。
 
