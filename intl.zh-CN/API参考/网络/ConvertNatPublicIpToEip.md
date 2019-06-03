@@ -1,74 +1,91 @@
-# ConvertNatPublicIpToEip {#ConvertNatPublicIpToEip .reference}
+# ConvertNatPublicIpToEip {#doc_api_1030609 .reference}
 
 将一台网络类型为专有网络VPC的ECS实例的公网 IP（NatPublicIp）转化为弹性公网IP（EIP）。
 
-## 描述 {#section_o52_y3n_ydb .section}
+## 接口说明 {#description .section}
+
+请确保在使用该接口前，已充分了解 [EIP的计费方式](~~27767~~)。
 
 调用该接口时，您需要注意：
 
 -   仅支持VPC网络类型的ECS实例。
--   仅支持状态为 **已停止**（`Stopped`）或者 **运行中**（`Running`）的ECS实例。
--   不支持公网带宽为0 Mbps的实例，此时该ECS实例没有分配公网IP（`NatPublicIp`）。
+-   仅支持状态为已停止（Stopped）或者运行中（Running）的ECS实例。
+-   不支持公网带宽为0 Mbps的实例，此时该ECS实例没有分配公网IP（NatPublicIp）。
 -   不支持已经绑定了EIP的ECS实例。
 -   不支持有未生效的变更配置任务ECS实例。
 -   不支持即将在24小时内到期的ECS实例。
--   公网IP（`NatPublicIp`）转换为EIP后，EIP将单独计费。EIP的计费方式参阅 [EIP计费说明](../../../../../../cn.zh-CN/产品定价/预付费.md#)。
--   不支持 [公网带宽](../cn.zh-CN/产品定价/公网带宽计费.md#) 为 按固定带宽计费 的 [预付费（包年包月）](../cn.zh-CN/产品定价/预付费（包年包月）.md#)ECS实例。
+-   公网IP（NatPublicIp）转换为EIP后，EIP将单独计费。
+-   不支持 [公网带宽](~~25411~~) 为按固定带宽计费的 [预付费（包年包月）](~~56220~~) ECS实例。
 
-## 请求参数 {#RequestParameter .section}
+## 调试 {#apiExplorer .section}
 
-|名称|类型|是否必需|描述|
-|:-|:-|:---|:-|
-|Action|String|是|系统规定参数。取值：ConvertNatPublicIpToEip|
-|RegionId|String|是|实例所属的地域ID。您可以调用 [DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#) 查看最新的阿里云地域列表。|
-|InstanceId|String|是|需要转化公网IP的实例ID。|
+前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=ConvertNatPublicIpToEip)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
-## 返回参数 {#ResponseParameter .section}
+## 请求参数 {#parameters .section}
 
-全是公共返回参数。参阅 [公共返回参数](cn.zh-CN/API参考/HTTP调用方式/公共参数.md#commonResponseParameters)。
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|InstanceId|String|是|i-test|需要转化公网IP的实例ID。
 
-## 示例 { .section}
+ |
+|RegionId|String|是|cn-hangzhou|实例所属的地域ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
 
-**请求示例** 
+ |
+|Action|String|否|ConvertNatPublicIpToEip|系统规定参数。取值：ConvertNatPublicIpToEip
 
-```
+ |
+
+## 返回参数 {#resultMapping .section}
+
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
+
+ |
+
+## 示例 {#demo .section}
+
+请求示例
+
+``` {#request_demo}
+
 https://ecs.aliyuncs.com/?Action=ConvertNatPublicIpToEip
 &RegionId=cn-hangzhou
 &InstanceId=i-test
 &<公共请求参数>
-```
-
-**返回示例** 
-
-**XML 格式**
 
 ```
+
+正常返回示例
+
+`XML` 格式
+
+``` {#xml_return_success_demo}
 <ConvertNatPublicIpToEipResponse>
-    <RequestId>B154D309-F3E1-4AB7-BA94-FEFCA8B89001</RequestId>
+  <RequestId>B154D309-F3E1-4AB7-BA94-FEFCA8B89001</RequestId>
 </ConvertNatPublicIpToEipResponse>
-```
-
-**JSON 格式** 
 
 ```
+
+`JSON` 格式
+
+``` {#json_return_success_demo}
 {
-   "RequestId":"B154D309-F3E1-4AB7-BA94-FEFCA8B89001"
+	"RequestId":"B154D309-F3E1-4AB7-BA94-FEFCA8B89001"
 }
 ```
 
-## 错误码 {#ErrorCode .section}
+## 错误码 { .section}
 
-以下为本接口特有的错误码。更多错误码，请访问 [API 错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+|HttpCode|错误码|错误信息|描述|
+|--------|---|----|--|
+|403|InvalidInstanceId.PlanedChange|%s|实例的已经预约了表更操作，不支持该操作。|
+|403|InvalidInstanceStatus.Released|%s|指定的实例状态无效。|
+|403|IncorrectInstanceStatus|%s|实例当前的状态不支持该操作。|
+|404|InvalidInstanceId.NotFound|%s|指定的实例不存在。|
+|403|InvalidInternetChargeType.ValueNotSupported|%s|参数不支持。|
+|403|MaxEIPQuotaExceeded|The number of EIP exceeds the limit per region.|已超出当前地域下的EIP数量。|
+|403|InvalidInstance.OverduePayment|%s|您的账号已欠费，请充值后重试。|
 
-|错误代码|错误信息|HTTP 状态码|说明|
-|:---|:---|:-------|:-|
-|InvalidRegionId.Malformed|The specified RegionId is invalid.|400|指定的 `RegionId` 不存在或者未授权。|
-|InvalidEndTime.Malformed|The specified instance is about to expire within 24 hours.|403|实例即将在24小时内到期，不能变更公网IP。|
-|InvalidInstanceId.PlanedChange|The instance has uncompleted changes.|403|实例有未生效的变更配置任务。|
-|InvalidInstanceStatus.Released|The specified instance has been released.|403|指定的实例已经被释放。|
-|IncorrectInstanceStatus|The instance status does not support this operation. The instance may be expired, upgrading, starting, or locked.|404|仅支持 **已停止**（`Stopped`）和 **运行中**（`Running`）的ECS实例。|
-|InstanceTypeNotSupported|The specified instance is a subscription instance with a specified bandwidth.|404|指定的实例是包年包月固定带宽类型的实例。|
-|InvalidInstance.ZeroBandwidth|The public network bandwidth for the specified instance is zero. That is, this instance does not have a public IP.|404|实例公网带宽为0 Mbps，此时该实例无公网IP。|
-|InvalidInstanceId.NotFound|The specified instance does not exist, or does not belong to you.|404|指定的实例不存在或者归属不正确。|
-|OperationDenied|The network type of the specified instance is not VPC.|404|指定的实例的网络类型不是VPC。|
+[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
