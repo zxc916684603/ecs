@@ -12,11 +12,11 @@
     |产品类型|Tesla|Tesla|Tesla|Tesla|Tesla|Tesla|
     |产品系列|M-Class|P-Series|P-Series|V-Series|P-Series|T-Series|
     |产品家族|M40|Tesla P100|Tesla P4|Tesla V100|Tesla P4|Tesla T4|
-    |操作系统|根据实例的镜像选择对应的版本。**说明：** 
+    |操作系统|根据实例的镜像选择对应的版本。 **说明：** 
 
     -   如果下拉列表中没有显示服务器操作系统，请单击下拉列表底部的**选择所有操作系统**。
     -   Debian操作系统，选择**Linux 64-bit**。
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15555809795114_zh-CN.png)
+ ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15595309665114_zh-CN.png)
 
 |
 
@@ -26,13 +26,13 @@
 
 1.  下载并安装kernel对应版本的kernel-devel和kernel-header包。
 
-    **说明：** kernel-devel和kernel版本不一致会导致在安装driver rpm过程中driver编译出错。您可以在在实例里运行rpm –qa | grep kernel检测版本是否一致。确认版本后，再重新安装驱动。
+    **说明：** kernel-devel和kernel版本不一致会导致在安装driver rpm过程中driver编译出错。您可以在实例里运行rpm –qa | grep kernel检测版本是否一致。确认版本后，再重新安装驱动。
 
 2.  运行命令sudo rpm -qa | grep $\(uname -r\)，确认已经完成下载并安装kernel-devel和kernel-header包：
 
     以CentOS 7.3为例，如果出现以下类似信息，表示已经完成安装。
 
-    ```
+    ``` {#codeblock_cp9_0rk_x20}
     
     kernel-3.10.0-514.26.2.el7.x86_64
     kernel-headers-3.10.0-514.26.2.el7.x86_64
@@ -45,7 +45,7 @@
 
     以Linux 64-bit Ubuntu 14.04为例：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15555809795117_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15595309665117_zh-CN.png)
 
 
 ## 为Windows实例安装GPU驱动 {#section_o2j_hrs_qgb .section}
