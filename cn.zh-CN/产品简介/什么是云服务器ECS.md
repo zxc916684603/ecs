@@ -35,7 +35,7 @@
 
 以下为云服务器ECS的产品组件架构图，图中涉及的功能组件的详细介绍请参见相应的帮助文档。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/155962803744516_zh-CN.jpg)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/155962969844516_zh-CN.jpg)
 
 ## 产品定价 {#section_vq5_brj_ydb .section}
 
