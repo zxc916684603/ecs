@@ -16,7 +16,7 @@ Shared Block Storage replicates data three times by default, and stores the data
 
 In a traditional cluster architecture, multiple computing nodes require access to the same copy of data so that the entire cluster can continue providing business services even when one or more computing nodes fail. If data files are stored in Shared Block Storage devices and these devices are managed through the cluster file system, data consistency can be guaranteed between multiple front-end computing nodes during concurrent read/write operations.
 
-Shared Block Storage is designed designed to be implemented in high-availability architectures required by enterprise-level applications.
+Shared Block Storage is designed for high-availability architectures required by enterprise-level applications.
 
 ## Limits {#section_fnr_hjr_f9t .section}
 
@@ -46,7 +46,7 @@ The following table describes the available types of Shared Block Storage.
 
 ## Performance {#section_qhm_gfw_xgb .section}
 
-For information about the performance indexes of Shared Block Storage, see [EN-US\_TP\_9557.md\#](reseller.en-US/Block Storage/Storage parameters and performance tests.md#).
+For information about the performance indexes of Shared Block Storage, see [Block storage performance](reseller.en-US/Block Storage/Block storage performance.md#).
 
 ## Billing {#section_inz_nbw_ydb .section}
 
