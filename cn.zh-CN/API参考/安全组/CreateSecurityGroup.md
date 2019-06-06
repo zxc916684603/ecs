@@ -35,6 +35,12 @@
 |SecurityGroupName|String|否|FinanceJoshua|安全组名称。长度为2~128个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值：空。
 
  |
+|SecurityGroupType|String|否|enterprise|安全组类型，分为普通安全组与企业安全组。取值范围：
+
+ -   normal：普通安全组。
+-   enterprise：企业安全组。更多详情，请参见 [企业安全组概述](~~120621~~)。
+
+ |
 |Tag.N.Key|String|否|FinanceDept|安全组的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
 
  |
@@ -71,12 +77,10 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=CreateSecurityGroup
 &RegionId=cn-hangzhou
 &Description=for_demo
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -115,6 +119,10 @@ https://ecs.aliyuncs.com/?Action=CreateSecurityGroup
 |400|InvalidTagKey.Malformed|Specified tag key is not valid.|指定的标签键无效。|
 |400|InvalidTagValue.Malformed|Specified tag value is not valid.|指定的标签值无效。|
 |404|InvalidResourceGroup.NotFound|The ResourceGroup provided does not exist in our records.|资源组并不在记录中。|
+|400|Duplicate.TagKey|The Tag.N.Key contain duplicate key.|标签键中存在重复的键。|
+|400|InvalidTagKey.Malformed|The specified Tag.n.Key is not valid.|指定的标签键不合法。|
+|400|InvalidTagValue.Malformed|The specified Tag.n.Value is not valid.|指定的标签值不合法。|
+|403|IdempotentProcessing|The previous idempotent request\(s\) is still processing.|同样clienttoken的请求正在处理中。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
