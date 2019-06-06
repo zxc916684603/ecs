@@ -19,7 +19,7 @@
     -   创建密钥对后，请务必下载并妥善保管私钥。使用密钥对绑定ECS实例后，如果没有私钥，您将无法登录该ECS实例。
     -   一个账号在一个地域最多可以拥有500个密钥对。
 
-相关API：[CreateKeyPair](../intl.zh-CN/API参考/SSH 密钥对/CreateKeyPair.md#)
+相关API：[CreateKeyPair](../cn.zh-CN/API参考/SSH 密钥对/CreateKeyPair.md#)
 
 ## 查看公钥信息 {#section_u41_dvh_tgb .section}
 
@@ -36,13 +36,13 @@
 
 运行ssh-keygen命令，并指定.pem文件的路径。
 
-```
+``` {#codeblock_1na_6n4_cl6}
 ssh-keygen -y -f /path_to_key_pair/my-key-pair.pem
 ```
 
 返回公钥信息，类似如下所示：
 
-```
+``` {#codeblock_zms_exl_8wc}
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDdlrdZwV3+GF9q7rhc6vYrExwT4WU4fsaRcVXGV2Mg9RHex21hl1au77GkmnIgukBZjywlQOT4GDdsJy2nBOdJPrCEBIP6t0Mk5aPkK/fctNuKjcmMMOA8YUT+sJKn3l7rCLkesE+S5880yNdRjBiiUy40kyr7Y+fqGVdSOHGMXZQPpkBtojcV14uAy0yV6/htEqGa/Jq4fH7bR6CYQ2XgH/hCap29Mdi/G5Tx1nbUKuIHdMWOPvjGACGcXclex+lHtTGiAIRG1riyNRVC47ZEVCxxxxxx
 ```
 
@@ -84,7 +84,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDdlrdZwV3+GF9q7rhc6vYrExwT4WU4fsaRcVXGV2Mg
 
 7.  单击**确定**。
 
-相关API：[ImportKeyPair](../intl.zh-CN/API参考/SSH 密钥对/ImportKeyPair.md#)
+相关API：[ImportKeyPair](../cn.zh-CN/API参考/SSH 密钥对/ImportKeyPair.md#)
 
 ## 绑定SSH密钥对 {#section_d4l_ql1_ydb .section}
 
@@ -93,7 +93,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDdlrdZwV3+GF9q7rhc6vYrExwT4WU4fsaRcVXGV2Mg
 **说明：** 
 
 -   一台ECS实例只能绑定一个SSH密钥对。如果ECS实例已经绑定了SSH密钥对，绑定新密钥对后，新密钥自动替换原有的密钥。
--   如果ECS实例使用密码认证，绑定密钥对后，密码验证方式自动失效。但如果在绑定密钥对之后[重置实例密码](../intl.zh-CN/实例/管理实例资源/重置实例登录密码.md#)，除使用密钥对方式之外，您也可以使用密码方式登录实例。
+-   如果ECS实例使用密码认证，绑定密钥对后，密码验证方式自动失效。但如果在绑定密钥对之后[重置实例密码](../cn.zh-CN/实例/管理实例/重置实例登录密码.md#)，除使用密钥对方式之外，您也可以使用密码方式登录实例。
 
 1.  登录ECS管理控制台。
 2.  在左侧导航栏中，单击**密钥对**。
@@ -110,7 +110,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDdlrdZwV3+GF9q7rhc6vYrExwT4WU4fsaRcVXGV2Mg
 
 ECS实例绑定SSH密钥对后，您就可以通过SSH密钥对登录ECS实例。
 
-相关API：[AttachKeyPair](../intl.zh-CN/API参考/SSH 密钥对/AttachKeyPair.md#)
+相关API：[AttachKeyPair](../cn.zh-CN/API参考/SSH 密钥对/AttachKeyPair.md#)
 
 ## 解绑SSH密钥对 {#section_lqq_yp1_ydb .section}
 
@@ -124,9 +124,9 @@ ECS实例绑定SSH密钥对后，您就可以通过SSH密钥对登录ECS实例�
     **说明：** 
 
     -   如果ECS实例处于**运行中**（Running）状态，解绑SSH密钥对后，您必须在控制台或者使用API重启实例，才能使操作生效。
-    -   如果在解绑密钥对之前已经重置了实例密码，则解绑密钥对之后可以使用密码方式登录。如果解绑密钥对之前没有重置实例密码，则解绑密钥对之后，必须[重置实例密码](../intl.zh-CN/实例/管理实例资源/重置实例登录密码.md#)才能使用密码方式登录实例。
+    -   如果在解绑密钥对之前已经重置了实例密码，则解绑密钥对之后可以使用密码方式登录。如果解绑密钥对之前没有重置实例密码，则解绑密钥对之后，必须[重置实例密码](../cn.zh-CN/实例/管理实例/重置实例登录密码.md#)才能使用密码方式登录实例。
 
-相关API：[DetachKeyPair](../intl.zh-CN/API参考/SSH 密钥对/DetachKeyPair.md#)
+相关API：[DetachKeyPair](../cn.zh-CN/API参考/SSH 密钥对/DetachKeyPair.md#)
 
 ## 在实例内添加或替换密钥对 {#section_hd2_3vh_tgb .section}
 
@@ -139,14 +139,14 @@ ECS实例绑定SSH密钥对后，您就可以通过SSH密钥对登录ECS实例�
 
     -   添加公钥信息：在现有的公钥信息下方添加新的公钥信息，并保存。
 
-        ```
+        ``` {#codeblock_qvk_dos_qk2}
         ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCys3aOkFm1Xh8iN0lijeQF5mz9Iw/FV/bUUduZjauiJa1KQJSF4+czKtqMAv38QEspiWStkSfpTn1g9qeUhfKd4uWlmxeQ+XjPsf22fRem+v7MHMa7KnZWiHJxO62D4Ihvv2hKfskz8K44mVMeInMjGO+u17IaL2l2ri8q9YdvVHt0Mw5TpCkERWGoBPE1Y8vxFb97TaE5+zc+2+eff6PDCMkVTP+c/feMeCxpx6Lhc2NEpHIPxMpjOv1IytKiDfWcezA2aCmKre0Q2t/YudCmJ8HTCnLId5LpirbNE4X08Bk7tXZAU8UaoeDdUr/FKB1Cxw1TbGMTfWBcdWkdp2lv imported-openssh-key
         ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDdlrdZwV3+GF9q7rhc6vYrExwT4WU4fsaRcVXGV2Mg9RHex21hl1au77GkmnIgukBZjywlQOT4GDdsJy2nBOdJPrCEBIP6t0Mk5aPkK/fctNuKjcmMMOA8YUT+sJKn3l7rCLkesE+S5880yNdRjBiiUy40kyr7Y+fqGVdSOHGMXZQPpkBtojcV14uAy0yV6/htEqGa/Jq4fH7bR6CYQ2XgH/hCap29Mdi/G5Tx1nbUKuIHdMWOPvjGACGcXclex+lHtTGiAIRG1riyNRVC47ZEVCg9iTWWGrWFvVlnI0E3Deb/9H9mPCO1Xt2fxxxxxxxxBtmR imported-openssh-key
         ```
 
     -   替换公钥信息：删除现有的公钥信息，添加新的公钥信息，并保存。
 
-        ```
+        ``` {#codeblock_6cn_1ds_tox}
         ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDdlrdZwV3+GF9q7rhc6vYrExwT4WU4fsaRcVXGV2Mg9RHex21hl1au77GkmnIgukBZjywlQOT4GDdsJy2nBOdJPrCEBIP6t0Mk5aPkK/fctNuKjcmMMOA8YUT+sJKn3l7rCLkesE+S5880yNdRjBiiUy40kyr7Y+fqGVdSOHGMXZQPpkBtojcV14uAy0yV6/htEqGa/Jq4fH7bR6CYQ2XgH/hCap29Mdi/G5Tx1nbUKuIHdMWOPvjGACGcXclex+lHtTGiAIRG1riyNRVC47ZEVCg9iTWWGrWFvVlnI0E3Deb/9H9mPCO1Xt2fxxxxxxxxBtmR imported-openssh-key
         ```
 
@@ -168,5 +168,5 @@ ECS实例绑定SSH密钥对后，您就可以通过SSH密钥对登录ECS实例�
 4.  选中一个或多个需要删除的密钥对。
 5.  单击**删除**。
 
-相关API：[DeleteKeyPairs](../intl.zh-CN/API参考/SSH 密钥对/DeleteKeyPairs.md#)
+相关API：[DeleteKeyPairs](../cn.zh-CN/API参考/SSH 密钥对/DeleteKeyPairs.md#)
 
