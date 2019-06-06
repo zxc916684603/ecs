@@ -88,13 +88,16 @@
 |SecurityGroups| | |安全组信息集合
 
  |
+|└AvailableInstanceAmount|Integer|880|安全组内可加入的实例辅助私网 IP 数量
+
+ |
 |└CreationTime|String|2017-12-05T22:40:00Z|创建时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间。格式为：yyyy-MM-ddThh:mmZ
 
  |
 |└Description|String|FinanceDept|描述信息
 
  |
-|└ResourceGroupId|String|rg-resourcegroupid1|安全组所在的企业资源组 ID。
+|└ResourceGroupId|String|rg-resourcegroupid1|安全组所在的企业资源组 ID
 
  |
 |└SecurityGroupId|String|sg-securitygroupid1|安全组ID
@@ -103,13 +106,19 @@
 |└SecurityGroupName|String|FinanceJoshua|安全组名称
 
  |
-|└Tags| | |安全组的标签。
+|└SecurityGroupType|String|normal|安全组类型。可能值：
+
+ -   normal：普通安全组
+-   enterprise：企业安全组
 
  |
-|└TagKey|String|FinanceDept|安全组的标签键。
+|└Tags| | |安全组的标签
 
  |
-|└TagValue|String|FinanceJoshua|安全组的标签值。
+|└TagKey|String|FinanceDept|安全组的标签键
+
+ |
+|└TagValue|String|FinanceJoshua|安全组的标签值
 
  |
 |└VpcId|String|vpc-vpcid1|安全组所属的专有网络
