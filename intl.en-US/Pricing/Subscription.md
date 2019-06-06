@@ -31,7 +31,7 @@ After a billing cycle expires, you can renew your ECS instance to continue using
 
 ## Resource status changes after expiration {#section_qlw_jv2_zdb .section}
 
-After a Subscription instance expires, the status of its corresponding resources changes depending on whether you have enabled [Auto-renewal](reseller.en-US/Pricing/Renew instances/Auto-renewal.md#).
+After a Subscription instance expires, the status of its corresponding resources changes depending on whether you have enabled [auto-renewal](reseller.en-US/Pricing/Renew instances/Auto-renewal.md#).
 
 -   **If you have not enabled automatic renewal:**
 
