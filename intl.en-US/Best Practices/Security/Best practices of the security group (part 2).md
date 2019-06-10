@@ -2,8 +2,8 @@
 
 This document introduces the following:
 
--    [Authorize](../../../../reseller.en-US/API Reference/Security groups/AuthorizeSecurityGroup.md#) and [revoke](../../../../reseller.en-US/API Reference/Security groups/RevokeSecurityGroup.md#) security groups.
--    [Join](../../../../reseller.en-US/API Reference/Security groups/JoinSecurityGroup.md#) and [leave](../../../../reseller.en-US/API Reference/Security groups/LeaveSecurityGroup.md#) security groups.
+-   [Authorize](../../../../reseller.en-US/API Reference/Security groups/AuthorizeSecurityGroup.md#) and [revoke](../../../../reseller.en-US/API Reference/Security groups/RevokeSecurityGroup.md#) security groups.
+-   [Join](../../../../reseller.en-US/API Reference/Security groups/JoinSecurityGroup.md#) and [leave](../../../../reseller.en-US/API Reference/Security groups/LeaveSecurityGroup.md#) security groups.
 
 Alibaba Cloud provides two types of networks, namely **classic networks** and **VPC networks**. They support different security group rules:
 
@@ -91,9 +91,9 @@ Different security groups may have different network types. More importantly, an
 
 Additionally, you are not recommended to add all the ECS instances into the same security group as this will make the configuration of security group rules quite messy. For a large or medium-sized application, each server group has a different role and it is important to plan inbound and outbound requests in a rational manner.
 
-In the console, you can add an instance to a security group by following the description in [Join a security group](../../../../reseller.en-US/User Guide/Instances/Add to or remove from a security group.md#).
+In the console, you can add an instance to a security group by following the description in [Join a security group](../../../../reseller.en-US/Security/Security groups/Add an instance to a security group.md#).
 
-```
+``` {#codeblock_7hs_17c_dli}
 def join_sg(sg_id, instance_id):
     request = JoinSecurityGroupRequest()
     request.set_InstanceId(instance_id)
@@ -120,7 +120,7 @@ If an ECS instance is added to an inappropriate security group, your services ma
 
 The corresponding Python snippets are as follows:
 
-```
+``` {#codeblock_zhh_e7w_4on}
 def leave_sg(sg_id, instance_id):
     request = LeaveSecurityGroupRequest()
     request.set_InstanceId(instance_id)
@@ -143,7 +143,7 @@ def _send_request(request):
 
 Reasonable names and descriptions for security groups help you quickly identify the meanings of complicated rule combinations. You can change security group names and descriptions as needed.
 
-Also, you can set tags for security groups. You can manage your own security groups by grouping them with tags. To [set tags](../../../../reseller.en-US/User Guide/Tags/Add a tag to resources.md#), you can directly configure them in the console or by using APIs.
+Also, you can set tags for security groups. You can manage your own security groups by grouping them with tags. To [set tags](../../../../reseller.en-US/Tags & Resource Management /Tags/Add a tag to resources.md#), you can directly configure them in the console or by using APIs.
 
 ## Delete undesired security groups {#section_f3r_tq2_2fb .section}
 
