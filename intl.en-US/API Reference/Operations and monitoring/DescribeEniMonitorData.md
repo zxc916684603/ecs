@@ -1,173 +1,215 @@
-# DescribeEniMonitorData {#DescribeEniMonitorData .reference}
+# DescribeEniMonitorData {#doc_api_1006116 .reference}
 
-Queries data connection information about a secondary ENI over a specific period.
+Queries traffic data information about a secondary ENI over a specific period.
 
-## Description {#BestPractice .section}
+## Description {#description .section}
 
-The queriable traffic data on the secondary ENI traffic data includes intranet inbound and outbound traffic, the number of packets sent and received by the secondary ENI, and the number of packets discarded by the secondary ENI. If some content in the returned information is missing, it is possible that the system did not obtain the corresponding information. For example, the traffic data on the secondary ENI cannot be queried if the instance is in the **Stopped** status \(`Stopped`\). Data also cannot be queried if the secondary ENI is not mounted to an instance and in the **Available** status\(`Available`\). When you use this operation, consider the following:
+The traffic data information includes intranet inbound and outbound traffic, the number of packets sent and received by the secondary ENI, and the number of packets discarded by the secondary ENI. If some content in the returned information is missing, it is possible that the system did not obtain the corresponding information. For example, the traffic data information on the secondary ENI cannot be queried if the instance is in the Stopped state. Data also cannot be queried if the secondary ENI is not attached to an instance and in the Available state. When you call this operation, note that:
 
--   Each query can return up to 400 entries of monitoring data. If \(EndTime - StartTime\)/Period \> 400, an error is returned.
--   You can use a single query to search for monitoring data in the last 30 days. If the value of the StartTime parameter is more than 30 days, an error is returned.
+-   Up to 400 monitored data entries can be returned per query. If the value of \(EndTime and StartTime\)/Period is greater than 400, an error is returned.
+-   You can only query the monitored data in the last 30 days. If the value of the StartTime parameter is earlier than 30 days, an error is returned.
 
-## Request parameters {#RequestParameter .section}
+## Debugging {#apiExplorer .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The operation that you want to perform. Value: DescribeEniMonitorData.|
-|InstanceId|String |Yes|Instance ID that is bound to the secondary ENI.|
-|Enild|String|No|Secondary ENI ID. All secondary ENIs that are bound to the instance are queried by default.|
-|StartTime|String|Required|The start time of the monitoring data to be retrieved. The time format follows the [ISO8601](../reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.If the specified number of seconds \(`ss`\) is not `00`, the time will be automatically rounded up to the next minute.|
-|EndTime|String|Yes|The end time of the monitoring data. The time format follows the [ISO8601](../reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.If the specified number of seconds \(`ss`\) is not `00`, the time will be automatically rounded up to the next minute.|
-|Period|Integer|Optional|Period of the retrieved monitoring data. Unit: second. Value range: 60 | 600 | 3600Default value: 60.
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeEniMonitorData) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-|
+## Request parameters {#parameters .section}
 
-## Response parameters {#ResponseParameter .section}
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|EndTime|String|Yes|2018-05-21T12:22:00Z| The end time of the retrieved data. The time follows the [ISO 8601](~~25696~~) standard and uses UTC time. The format is yyyy-MM-ddTHH:mm:ssZ. If the specified number of seconds \(ss\) is not 00, the time will be automatically rounded up to the next minute.
 
-|Name |Type|Description|
-|:----|:---|:----------|
-|MonitorData|[EniMonitorDataType](https://lark.alipay.com/docs/share/983c4182-3f3f-48d5-9615-6a214f9568e2)|The set of monitoring data EniMonitorDataTypefor a secondary ENI.|
+ |
+|InstanceId|String|Yes|myInstance| The ID of the instance to which the secondary ENI is bound.
 
-**Data type of EniMonitorDataType**
+ |
+|RegionId|String|Yes|cn-hangzhou| The ID of the region. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|Enild|String|Secondary ENI ID.|
-|TimeStamp|String|Traffic query timestamp.The time format follows the [ISO8601](../reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.|
-|PacketTX|String|Number of intranet data packets sent by the secondary ENI.|
-|PacketRX|String|Number of intranet data packets received by the secondary ENI.|
-|IntranetTX|String|Intranet data traffic sent by the secondary ENI, in kbits.|
-|IntranetRX|String|Intranet data traffic received by the secondary ENI, in kbits.|
-|DropPacketTX|String|Number of discarded intranet data packets sent by the secondary ENI.|
-|DropPacketRX|String|Number of discarded intranet data packets received by the secondary ENI.|
+ |
+|StartTime|String|Yes|2018-05-21T12:19:00Z| The start time of the retrieved data. The time follows the [ISO 8601](~~25696~~) standard and uses UTC time. The format is yyyy-MM-ddTHH:mm:ssZ. If the specified number of seconds \(ss\) is not 00, the time will be automatically rounded up to the next minute.
 
-## Examples { .section}
+ |
+|Action|String|No|DescribeEniMonitorData| The operation that you want to perform. Set the value to DescribeEniMonitorData.
 
-**Request example**
+ |
+|EniId|String|No|eni-myENI| The ID of the secondary ENI. All secondary ENIs that are bound to the instance are queried by default.
 
-```
+ |
+|Period|Integer|No|60| The interval of the retrieved data. Unit: seconds. Valid values:
+
+ -   60
+-   600
+-   3600
+
+ Default value: 60.
+
+ |
+
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|MonitorData| | | An array of EniMonitorDataType data.
+
+ |
+|└DropPacketRx|String|0| The discarded intranet data packets received by the secondary ENI. Unit: packets.
+
+ |
+|└DropPacketTx|String|0| The discarded intranet data packets sent by the secondary ENI. Unit: packets.
+
+ |
+|└EniId|String|eni-myENI| The ID of the secondary ENI.
+
+ |
+|└IntranetRx|String|0| The intranet data traffic received by the secondary ENI. Unit: Kbit/s.
+
+ |
+|└IntranetTx|String|0| The intranet data traffic sent by the secondary ENI. Unit: Kbit/s.
+
+ |
+|└PacketRx|String|0| The intranet data traffic packets received by the secondary ENI. Unit: packets.
+
+ |
+|└PacketTx|String|0| The intranet data packets sent by the secondary ENI. Unit: packets.
+
+ |
+|└TimeStamp|String|2018-05-21T03:22:00Z| The timestamp of traffic query. The time follows the [ISO 8601](~~25696~~) standard and uses UTC time. The format is yyyy-MM-ddTHH:mm:ssZ.
+
+ |
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+|TotalCount|Integer|4| The total number of returned entries.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=DescribeEniMonitorData
-&amp;EniId=eni-myENI
-&amp;InstanceId=myInstance
-&amp;StartTime=2018-05-21T12:19:00Z
-&amp;EndTime=2018-05-21T12:22:00Z
-&amp;&lt;Common Request Parameters>
+&EndTime=2018-05-21T12:22:00Z
+&InstanceId=myInstance
+&RegionId=cn-hangzhou 
+&StartTime=2018-05-21T12:19:00Z
+&EniId=eni-myENI
+&Period=60 
+&<Common request parameters>
 ```
 
-**Response examples**
+Successful response examples
 
-**XML format**
+`XML` format
 
+``` {#xml_return_success_demo}
+<DescribeEniMonitorDataResponse>
+  <RequestId>5A03C2BA-3BCE-4A87-8076-7DC1629</RequestId>
+  <TotalCount>4</TotalCount>
+  <MonitorData> 
+    <EniMonitorData>
+      <PacketTx>0</PacketTx>
+      <TimeStamp>2018-05-21T03:22:00Z</TimeStamp>
+      <IntranetOut>0</IntranetOut>
+      <DropPacketRx>0</DropPacketRx>
+      <IntranetIn>0</IntranetIn>
+      <EniId>eni-myENI</EniId>
+      <DropPacketTx>0</DropPacketTx>
+      <PacketRx>0</PacketRx>
+    </EniMonitorData>
+    <EniMonitorData>
+      <PacketTx>0</PacketTx>
+      <TimeStamp>2018-05-21T03:21:00Z</TimeStamp>
+      <IntranetOut>0</IntranetOut>
+      <DropPacketRx>0</DropPacketRx>
+      <IntranetIn>0</IntranetIn>
+      <EniId>eni-myENI</EniId>
+      <DropPacketTx>0</DropPacketTx>
+      <PacketRx>0</PacketRx>
+    </EniMonitorData>
+    <EniMonitorData>
+      <PacketTx>52240</PacketTx>
+      <TimeStamp>2018-05-21T03:19:00Z</TimeStamp>
+      <IntranetOut>73344</IntranetOut>
+      <DropPacketRx>0</DropPacketRx>
+      <IntranetIn>467</IntranetIn>
+      <EniId>eni-myENI</EniId>
+      <DropPacketTx>0</DropPacketTx>
+      <PacketRx>6603</PacketRx>
+    </EniMonitorData>
+    <EniMonitorData>
+      <PacketTx>34925</PacketTx>
+      <TimeStamp>2018-05-21T03:20:00Z</TimeStamp>
+      <IntranetOut>48871</IntranetOut>
+      <DropPacketRx>0</DropPacketRx>
+      <IntranetIn>350</IntranetIn>
+      <EniId>eni-myENI</EniId>
+      <DropPacketTx>0</DropPacketTx>
+      <PacketRx>4888</PacketRx>
+    </EniMonitorData>
+  </MonitorData> 
+</DescribeEniMonitorDataResponse>
 ```
-&lt;DescribeEniMonitorDataResponse>
- &lt;RequestId>5A03C2BA-3BCE-4A87-8076-7DC1629&lt;/RequestId>
- &lt;TotalCount>4&lt;/TotalCount>
- &lt;MonitorData>
-     &lt;EniMonitorData>
-         &lt;PacketTx>0&lt;/PacketTx>
-         &lt;TimeStamp>2018-05-21T03:22:00Z&lt;/TimeStamp>
-         &lt;IntranetOut>0&lt;/IntranetOut>
-         &lt;DropPacketRx>0&lt;/DropPacketRx>
-         &lt;IntranetIn>0&lt;/IntranetIn>
-         &lt;EniId>eni-myENI&lt;/EniId>
-         &lt;DropPacketTx>0&lt;/DropPacketTx>
-         &lt;PacketRx>0&lt;/PacketRx>
-     &lt;/EniMonitorData>
-     &lt;EniMonitorData>
-         &lt;PacketTx>0&lt;/PacketTx>
-         &lt;TimeStamp>2018-05-21T03:21:00Z&lt;/TimeStamp>
-         &lt;IntranetOut>0&lt;/IntranetOut>
-         &lt;DropPacketRx>0&lt;/DropPacketRx>
-         &lt;IntranetIn>0&lt;/IntranetIn>
-         &lt;EniId>eni-myENI&lt;/EniId>
-         &lt;DropPacketTx>0&lt;/DropPacketTx>
-         &lt;PacketRx>0&lt;/PacketRx>
-     &lt;/EniMonitorData>
-     &lt;EniMonitorData>
-         &lt;PacketTx>52240&lt;/PacketTx>
-         &lt;TimeStamp>2018-05-21T03:19:00Z&lt;/TimeStamp>
-         &lt;IntranetOut>73344&lt;/IntranetOut>
-         &lt;DropPacketRx>0&lt;/DropPacketRx>
-         &lt;IntranetIn>467&lt;/IntranetIn>
-         &lt;EniId>eni-myENI&lt;/EniId>
-         &lt;DropPacketTx>0&lt;/DropPacketTx>
-         &lt;PacketRx>6603&lt;/PacketRx>
-     &lt;/EniMonitorData>
-     &lt;EniMonitorData>
-         &lt;PacketTx>34925&lt;/PacketTx>
-         &lt;TimeStamp>2018-05-21T03:20:00Z&lt;/TimeStamp>
-         &lt;IntranetOut>48871&lt;/IntranetOut>
-         &lt;DropPacketRx>0&lt;/DropPacketRx>
-         &lt;IntranetIn>350&lt;/IntranetIn>
-         &lt;EniId>eni-myENI&lt;/EniId>
-         &lt;DropPacketTx>0&lt;/DropPacketTx>
-         &lt;PacketRx>4888&lt;/PacketRx>
-     &lt;/EniMonitorData>
- &lt;/MonitorData>
-&lt;/DescribeEniMonitorDataResponse>
-```
 
-**JSON format**
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
- "RequestId":"5A03C2BA-3BCE-4A87-8076-7DC1629",
- "MonitorData":{
-     "EniMonitorData":[
-         {
-             "PacketTx":0,
-             "TimeStamp":"2018-05-21T03:22:00Z",
-             "IntranetOut":0,
-             "DropPacketRx":0,
-             "IntranetIn":0,
-             "EniId":"eni-myENI",
-             "DropPacketTx":0,
-             "PacketRx":0
-         },
-         {
-             "PacketTx":0,
-             "TimeStamp":"2018-05-21T03:21:00Z",
-             "IntranetOut":0,
-             "DropPacketRx":0,
-             "IntranetIn":0,
-             "EniId":"eni-myENI",
-             "DropPacketTx":0,
-             "PacketRx":0
-         },
-         {
-             "PacketTx":52240,
-             "TimeStamp":"2018-05-21T03:19:00Z",
-             "IntranetOut":73344,
-             "DropPacketRx":0,
-             "IntranetIn":467,
-             "EniId":"eni-myENI",
-             "DropPacketTx":0,
-             "PacketRx":6603
-         },
-         {
-             "PacketTx":34925,
-             "TimeStamp":"2018-05-21T03:20:00Z",
-             "IntranetOut":48871,
-             "DropPacketRx":0,
-             "IntranetIn":350,
-             "EniId":"eni-myENI",
-             "DropPacketTx":0,
-             "PacketRx":4888
-         }
-     ]
- }
+	"RequestId":"5A03C2BA-3BCE-4A87-8076-7DC1629",
+	"MonitorData":{
+		"EniMonitorData":[
+			{
+				"TimeStamp":"2018-05-21T03:22:00Z",
+				"PacketTx":0,
+				"IntranetOut":0,
+				"DropPacketRx":0,
+				"EniId":"eni-myENI",
+				"IntranetIn":0,
+				"PacketRx":0,
+				"DropPacketTx":0
+			},
+			{
+				"TimeStamp":"2018-05-21T03:21:00Z",
+				"PacketTx":0,
+				"IntranetOut":0,
+				"DropPacketRx":0,
+				"EniId":"eni-myENI",
+				"IntranetIn":0,
+				"PacketRx":0,
+				"DropPacketTx":0
+			},
+			{
+				"TimeStamp":"2018-05-21T03:19:00Z",
+				"PacketTx":52240,
+				"IntranetOut":73344,
+				"DropPacketRx":0,
+				"EniId":"eni-myENI",
+				"IntranetIn":467,
+				"PacketRx":6603,
+				"DropPacketTx":0
+			},
+			{
+				"TimeStamp":"2018-05-21T03:20:00Z",
+				"PacketTx":34925,
+				"IntranetOut":48871,
+				"DropPacketRx":0,
+				"EniId":"eni-myENI",
+				"IntranetIn":350,
+				"PacketRx":4888,
+				"DropPacketTx":0
+			}
+		]
+	}
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_8wh_6ec_7od .section}
 
-|Error code|Error message |HTTP status code|Description|
-|:---------|:-------------|:---------------|:----------|
-|InvalidInstanceId.NotFound|The specified InstanceId does not exist.|404|The specified InstanceId does not exist.|
-|InvalidStartTime.Malformed|The specified parameter “StartTime” is not valid.|400|The specified parameter StartTime is invalid.|
-|InvalidEndTime.Malformed|The specified parameter “EndTime” is not valid.|400|The specified parameter EndTime is invalid.|
-|InvalidPeriod.ValueNotSupported|The specified parameter “Period” is not valid.|400|The specified parameter Period is invalid.|
-|InvalidStartTime.TooEarly|The specified parameter “StartTime” is too early.|400|The specified StartTime must be within 30 days of the current day.|
-|InvalidParameter.TooManyDataQueried|Too many data queried.|400|Attempted to query too much data. You can only query up to 400 entries of monitored data at a time.|
-|Throttling|You have made too many requests within a short time; your request is denied due to request throttling.|400|Your request is denied due to request throttling. Try again later.|
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|403|InvalidInstanceType.NotSupportCredit|The InstanceType of the specified instance does not support credit.|The error message returned when the instance type does not support burstable instances.|
+|403|InvalidParameter.EndTime|The specified parameter EndTime is earlier than StartTime.|The error message returned when the end time is earlier than the start time.|
+|4,003|InvalidParam.Malformed|The specified parameter "EniId" and "InstanceId" are not valid|The error message returned when the specified parameter is invalid.|
+
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
