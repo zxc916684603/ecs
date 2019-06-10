@@ -1,71 +1,102 @@
-# DetachNetworkInterface {#DetachNetworkInterface .reference}
+# DetachNetworkInterface {#doc_api_1000117 .reference}
 
-Detaches an ENI from your instance.
+Detaches an ENI from an instance.
 
-## Description {#section_u1n_s34_ydb .section}
+## Description {#description .section}
 
--   You cannot detach the primary network interface of an instance.
+When you call this operation, note that:
 
--   The ENI must be in the **Detaching** \(`Detaching`\) or **In Use** \(`InUse`\) status.
+-   You cannot detach the primary ENI of an instance.
+-   The ENI must be in the Detaching or InUse state.
+-   The instance must be in the Running or Stopped state.
 
--   The instance must be in **Running** \(`Running`\) or **Stopped** \(`Stopped`\) status.
+## Debugging {#apiExplorer .section}
 
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DetachNetworkInterface) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can call APIs, dynamically generate SDK example code, and quickly retrieve APIs.
 
-## Request parameters {#RequestParameter .section}
+## Request parameters {#parameters .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DetachNetworkInterface|
-|RegionId|String|Yes|ID of the region of the ECS instance. For more information, call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|NetworkInterfaceId|String|Yes|ENI ID.|
-|InstanceId|String|Yes|Instance ID.|
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|InstanceId|String|Yes|i-myinstance| The ID of the instance.
 
-## Response parameters {#section_f54_lk5_xdb .section}
+ |
+|NetworkInterfaceId|String|Yes|eni-myeni| The ID of the ENI.
 
-All are common response parameters. See [Common response parameters](../reseller.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
+ |
+|RegionId|String|Yes|cn-hangzhou| The ID of the region where the ECS instance resides. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
 
-## Examples { .section}
+ |
+|Action|String|No|DetachNetworkInterface| The operation that you want to perform. Set the value to DetachNetworkInterface.
 
-**Request example** 
+ |
 
-```
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=DetachNetworkInterface
-&RegionId=cn-hangzhou
-&NetworkInterfaceId=[networkInterfaceId]
-&InstanceId=AY121018033933eaxxxxx
-&<Common Request Parameters>
+&InstanceId=i-myinstance
+&NetworkInterfaceId=eni-myeni
+&RegionId=cn-hangzhou 
+&<Common request parameters>
 ```
 
-**Response example** 
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <DetachNetworkInterfaceResponse>
-    <RequestId>04F0F334-1335-436C-A1D7-6C044FExxxxx</RequestId>
+  <RequestId>04F0F334-1335-436C-A1D7-6C044FExxxxx</RequestId>
 </DetachNetworkInterfaceResponse>
 ```
 
- **JSON format** 
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-    "RequestId": "04F0F334-1335-436C-A1D7-6C044FExxxxx",
+	"RequestId":"04F0F334-1335-436C-A1D7-6C044FExxxxx"
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_3oh_vl4_u9k .section}
 
-|Error code|Error message|HTTP status code|Description|
-|:---------|:------------|:---------------|:----------|
-|UnsupportedParameter|The parameters is unsupported.|400|The specified parameter does not exist. Alternatively, the specified parameter is not supported.|
-|InvalidOperation.InvalidEcsState|The operation is not allowed in the current ECS state.|400|The specified action failed due to the status of the instance.|
-|InvalidOperation.DetachPrimaryEniNotAllowed|Detaching primary ENI from ECS instance is not allowed.|400|You cannot detach the primary network interface from an ECS instance.|
-|MissingParameter|The input parameter that is mandatory for processing this request is not supplied.|400|You must specify the required parameter.|
-|Forbidden.SubUser|The specified action is not available for you.|403|Ram users are not allowed to perform this operation.|
-|Abs.InvalidAccount.NotFound|The Account is not found or AK is expired.|403|The specified Alibaba Cloud account does not exist. Alternatively, your AccessKey expires.|
-|Forbidden.NotSupportRAM|This action does not support accessed by RAM mode.|403|Ram users are not allowed to perform this operation.|
-|EniPerInstanceLimitExceeded|The number of ENI exceeds the limit for the type of instance you are trying to launch.|403|The maximum number of ENI in the specified region is exceeded.|
-|InvalidOperation.InvalidEniType|The operation is not allowed in the current ENI type.|403|The specified action failed due to the type of the ENI.|
-|InvalidEcsId.NotFound|The specified EcsId is not found.|404|The specified instance Id does not exist.|
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|403|InvalidUserType.NotSupported|%s|The error message returned when your account type is not supported.|
+|403|Abs.InvalidAccount.NotFound|%s|The error message returned when the specified Alibaba Cloud account does not exist or your AccessKey has expired.|
+|400|MissingParameter|%s|The error message returned when a required parameter is not specified.|
+|403|Forbidden.NotSupportRAM|%s|The error message returned when RAM users are not allowed to perform this operation.|
+|400|UnsupportedParameter|%s|The error message returned when a parameter is not supported.|
+|403|Forbidden.SubUser|%s|The error message returned when a RAM user is not authorized to perform operations on this resource.|
+|400|InvalidParameter|%s|The error message returned when the parameter format is invalid.|
+|400|InvalidInstanceId.MalFormed|%s|The error message returned when the instance ID format is invalid.|
+|400|InvalidOperation.InvalidRegion|%s|The error message returned when the specified region ID is invalid.|
+|400|InvalidOperation.InvalidEcsState|%s|The error message returned when the private IP address cannot be released under the instance state.|
+|400|InvalidOperation.InvalidEniState|%s|The error message returned when the private IP address cannot be released under the ENI state.|
+|400|InvalidOperation.DetachPrimaryEniNotAllowed|%s|The error message returned when the primary ENI cannot be detached from its instance.|
+|404|InvalidEcsId.NotFound|%s|The error message returned when the specified instance ID does not exist.|
+|404|InvalidEniId.NotFound|%s|The error message returned when the specified ENI ID does not exist.|
+|404|InvalidVSwitchId.NotFound|%s|The error message returned when the specified VSwitch ID does not exist.|
+|404|InvalidSecurityGroupId.NotFound|%s|The error message returned when the specified security group ID does not exist.|
+|403|EniPerInstanceLimitExceeded|%s|The error message returned when the number of ENIs exceeds the upper limit for the specified instance type.|
+|403|InvalidOperation.AvailabilityZoneMismatch|%s|The error message returned when the specified VSwitch, ENI, and instance are not in the same zone.|
+|403|InvalidOperation.VpcMismatch|%s|The error message returned when the specified ENI and security group do not belong to the same VPC.|
+|403|SecurityGroupInstanceLimitExceed|%s|The error message returned when the number of instances in the security group exceeds the upper limit.|
+|403|InvalidSecurityGroupId.NotVpc|%s|The error message returned when the specified security group is not VPC-connected.|
+|403|InvalidOperation.InvalidEniType|%s|The error message returned when the ENI type is not supported.|
+|400|Forbidden.RegionId|%s|The error message returned when this function is not supported in the region.|
+|400|InvalidParams.EniId|%s|The error message returned when the format of the specified ENI ID is invalid.|
+
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
