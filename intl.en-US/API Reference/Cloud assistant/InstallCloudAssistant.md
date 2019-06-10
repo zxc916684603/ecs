@@ -1,52 +1,70 @@
-# InstallCloudAssistant {#reference_k2y_51c_n2b .reference}
+# InstallCloudAssistant {#doc_api_1031584 .reference}
 
-Installs the cloud assistant client on one or more instances. After you call InstallCloudAssistant and RebootInstance, the cloud assistant client takes effect.
+Installs the cloud assistant client on one or more instances.
 
-## Request parameters {#RequestParameter .section}
+## Debugging {#apiExplorer .section}
 
-|Name |Type|Required|Description|
-|:----|:---|:-------|:----------|
-|Action|String|Yes|The operation that you want to perform. Value: InstallCloudAssistant.|
-|RegionId|String|Yes|The ID of the region where the ECS instance is located. You can call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to view the latest region list.|
-|InstanceIds|Array|Yes|The list of instance IDs. For example, if Python SDK is used, you can set the value to \[InstanceID1, InstanceID2, InstanceID3…\]. A single request supports up to 100 instances.|
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=InstallCloudAssistant) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-## Response parameters {#ResponseParameter .section}
+## Request parameters {#parameters .section}
 
-## Examples { .section}
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|InstanceId.N|RepeatList|Yes|InstanceID1| The ID of the instance. Valid values of N: 1 to 20.
 
-**Request example** 
+ |
+|RegionId|String|Yes|cn-hangzhou| The ID of the region where the instance is located. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
 
-```
+ |
+|Action|String|No|InstallCloudAssistant| The operation that you want to perform. Set the value to InstallCloudAssistant.
+
+**Note:** After you call InstallCloudAssistant and [RebootInstance](~~25502~~) in sequence, the cloud assistant client takes effect.
+
+ |
+
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=InstallCloudAssistant
-&RegionId=cn-hangzhou
-&InstanceIds=["i-bp11f7trr4hbi1xxxxxx", "i-bp1iudwa5b1tqaxxxxxx"]
-&<Common Request Parameters>
+&InstanceId.1=["i-bp11f7trr4hbi1xxxxxx", "i-bp1iudwa5b1tqaxxxxxx"]
+&RegionId=cn-hangzhou 
+&<Common request parameters>
 ```
 
-**Response examples** 
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <DeleteInstanceResponse>
-    <RequestId>928E2273-5715-46B9-A730-238DC996A533</RequestId>
+  <RequestId>928E2273-5715-46B9-A730-238DC996A533</RequestId>
 </DeleteInstanceResponse>
 ```
 
-**JSON format** 
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-    "RequestId": "928E2273-5715-46B9-A730-238DC996A533"
+	"RequestId":"928E2273-5715-46B9-A730-238DC996A533"
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_qgd_cno_rcb .section}
 
-|Error code|Error message|HTTP status code|Description|
-|:---------|:------------|:---------------|:----------|
-|MissingParameter.RegionId|The input parameter "RegionId" that is mandatory for processing this request is not supplied.|400|The error message returned when `RegionId` is required, or you cannot use resources in that region.|
-|MissingParameter.InstanceIds|The input parameter "InstanceIds" that is mandatory for processing this request is not supplied.|400|The error message returned when `InstanceIds` is required.|
-|InvalidInstance.NotFound|The specified instances do not exist.|404|The error message returned when the specified `InstanceId` does not exist.|
-|InvalidRegionId.NotFound|The RegionId provided does not exist in our items.|404|The error message returned when the specified `RegionId` does not exist.|
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|500|InternalError.Dispatch|An error occurred when you dispatched the request.|The error message returned when an unknown error occurs.|
+|404|InvalidInstance.NotFound|The specified instance does not exist.|The error message returned when the specified instance does not exist.|
+
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
