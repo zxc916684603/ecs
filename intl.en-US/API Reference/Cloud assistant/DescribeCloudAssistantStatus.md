@@ -1,84 +1,97 @@
-# DescribeCloudAssistantStatus {#DescribeCloudAssistantStatus .reference}
+# DescribeCloudAssistantStatus {#doc_api_1032107 .reference}
 
-Checks whether the cloud assistant client is installed or not on one or more instances.
+Views whether the cloud assistant client is installed on one or more instances.
 
-## Request parameters {#RequestParameter .section}
+## Debugging {#apiExplorer .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The operation that you want to perform. Value: DescribeCloudAssistantStatus.|
-|RegionId|String|Yes|The ID of the region where the ECS instance is located. You can call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to view the latest region list.|
-|InstanceId.N|Array|Yes|The list of instance IDs. A single request supports up to 20 instances, therefore, the N can be set to \[1, 20\].|
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeCloudAssistantStatus) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-## Response parameters {#ResponseParameter .section}
+## Request parameters {#parameters .section}
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|InstanceCloudAssitantStatus|[InstanceCloudAssitantStatusSet](reseller.en-US/API Reference/Cloud assistant/DescribeCloudAssistantStatus.md#InstanceCloudAssitantStatusSet)|A set of installation statuses of the cloud assistant in the instance.|
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|InstanceId.N|RepeatList|Yes|i-bp1iudwa5b1tqaxxxxxx| The list of instance IDs. You can query up to 50 instances in each request. Valid values of N: 1 to 50.
 
-**InstanceCloudAssitantStatusSet**
+ |
+|RegionId|String|Yes|cn-hangzhou| The ID of the region where the instance is located. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|InstanceId|String|A set of installation statuses of the cloud assistant in the instance.|
-|CloudAssitantStatus|Boolean|Indicates whether the cloud assistant is installed on the instance.|
+ |
+|Action|String|No|DescribeCloudAssistantStatus| The operation that you want to perform. Set the value to DescribeCloudAssistantStatus.
 
-## Examples { .section}
+ |
 
-**Request example** 
+## Response parameters {#resultMapping .section}
 
-```
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|InstanceCloudAssistantStatusSet| | | A set of installation statuses of the cloud assistant clients on the instances.
+
+ |
+|└ CloudAssistantStatus|String|true| Indicates whether the cloud assistant client is installed on the instance.
+
+ |
+|└InstanceId|String|i-bp1iudwa5b1tqaxxxxxx| The ID of the instance.
+
+ |
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=DescribeCloudAssistantStatus
-&RegionId=cn-hangzhou
-&InstanceId.N="i-bp11f7trr4hbi1xxxxxx" 
-&InstanceId.N="i-bp1iudwa5b1tqaxxxxxx"
-&<Common Request Parameters>
+&InstanceId. 1=i-bp1iudwa5b1tqaxxxxxx
+&RegionId=cn-hangzhou 
+&<Common request parameters>
 ```
 
-**Response examples** 
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
-<DescribeCloudAssistantStatusResponse>
-	<InstanceCloudAssitantStatus>
-		<InstanceCloudAssitantStatusSet>
-			<InstanceId>i-bp11f7trr4hbi1xxxxxx</InstanceId>
-			<CloudAssitantStatus>True</CloudAssitantStatus>
-		</InstanceCloudAssitantStatusSet>
-		<InstanceCloudAssitantStatusSet>
-			<InstanceId>i-bp1iudwa5b1tqaxxxxxx</InstanceId>
-			<CloudAssitantStatus>True</CloudAssitantStatus>
-		</InstanceCloudAssitantStatusSet>
-	</InstanceCloudAssitantStatus>
+``` {#xml_return_success_demo}
+<DescribeCloudAssistantStatusResponse> 
+  <InstanceCloudAssitantStatus>
+    <InstanceCloudAssitantStatusSet>
+      <InstanceId>i-bp11f7trr4hbi1xxxxxx</InstanceId>
+      <CloudAssitantStatus>True</CloudAssitantStatus>
+    </InstanceCloudAssitantStatusSet>
+    <InstanceCloudAssitantStatusSet>
+      <InstanceId>i-bp1iudwa5b1tqaxxxxxx</InstanceId>
+      <CloudAssitantStatus>True</CloudAssitantStatus>
+    </InstanceCloudAssitantStatusSet>
+  </InstanceCloudAssitantStatus>
 </DescribeCloudAssistantStatusResponse>
 ```
 
-**JSON format**
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-  "InstanceCloudAssitantStatus": {
-    "InstanceCloudAssitantStatusSet": [
-      {
-        "InstanceId": "i-bp11f7trr4hbi1xxxxxx",
-        "CloudAssitantStatus": "True"
-      },
-      {
-        "InstanceId": "i-bp1iudwa5b1tqaxxxxxx",
-        "CloudAssitantStatus": "True"
-      }
-    ]
-  }
+	"InstanceCloudAssitantStatus":{
+		"InstanceCloudAssitantStatusSet":[
+			{
+				"InstanceId":"i-bp11f7trr4hbi1xxxxxx",
+				"CloudAssitantStatus":"True"
+			},
+			{
+				"InstanceId":"i-bp1iudwa5b1tqaxxxxxx",
+				"CloudAssitantStatus":"True"
+			}
+		]
+	}
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_8xg_zcp_kpy .section}
 
-|Error code|Error message|HTTP status code|Description|
-|:---------|:------------|:---------------|:----------|
-|MissingParameter.InstanceIds|The input parameter "InstanceIds" that is mandatory for processing this request is not supplied.|400|The error message returned when `InstanceIds` is required.|
-|MissingParameter.RegionId|The input parameter "RegionId" that is mandatory for processing this request is not supplied.|400|The error message returned when `RegionId` is required, or you cannot use resources in that region.|
-|InvalidInstance.NotFound|The specified instances do not exist.|404|The error message returned when the specified `InstanceId` does not exist.|
-|InvalidRegionId.NotFound|The RegionId provided does not exist in our items.|404|The error message returned when the specified `RegionId` does not exist.|
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|500|InternalError.Dispatch|An error occurs when you dispatched the request.|The error message returned when an unknown error occurs.|
+|404|InvalidInstance.NotFound|The specified instance does not exist.|The error message returned when the specified instance does not exist.|
+
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
