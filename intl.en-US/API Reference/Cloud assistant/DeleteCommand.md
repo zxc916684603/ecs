@@ -1,77 +1,68 @@
-# DeleteCommand {#DeleteCommand .reference}
+# DeleteCommand {#doc_api_1030542 .reference}
 
-Deletes a created cloud assistant command. The log of the original invocation is retained after a command is deleted.
+Deletes a cloud assistant command.
 
-## Request parameters {#RequestParameter .section}
+## Debugging {#apiExplorer .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DeleteCommand.|
-|RegionId|String|Yes|Regional ID. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|CommandId|String|Yes|Command ID. You can query all the available CommandId by calling the [DescribeCommands](reseller.en-US/API Reference/Cloud assistant/DescribeCommands.md#).|
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DeleteCommand) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-## Response parameters {#section_f54_lk5_xdb .section}
+## Request parameters {#parameters .section}
 
-All are common response parameters. See [Common response parameters](../reseller.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|CommandId|String|Yes|c-4d34302d02424c5c8e10281e3a315a05| The ID of the command. You can call [DescribeCommands](~~64843~~) to view all available command IDs.
 
-## Examples { .section}
+ |
+|RegionId|String|Yes|cn-hangzhou| The ID of the region. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
 
-**Request example** 
+ |
+|Action|String|No|DeleteCommand| The operation that you want to perform. Set the value to DeleteCommand.
 
-```
+ |
+
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=DeleteCommand
-&RegionId=cn-hangzhou
-&InvokeId=c-f0902c0972984e31aaf2129fd48a9c6d
-&<Common Request Parameters>
+&CommandId=c-4d34302d02424c5c8e10281e3a315a05
+&RegionId=cn-hangzhou 
+&<Common request parameters>
 ```
 
-**Success response example** 
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <DeleteCommandResponse>
-    <RequestId>540CFF28-407A-40B5-B6A5-73Bxxxxxxxxx</RequestId>
+  <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
 </DeleteCommandResponse>
 ```
 
-**JSON format** 
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-    "RequestId":"540CFF28-407A-40B5-B6A5-73Bxxxxxxxxx",
+	"RequestId":"E69EF3CC-94CD-42E7-8926-F133B86387C0"
 }
 ```
 
-**Error response example** 
+## Error codes {#section_13b_zeo_lj6 .section}
 
-**XML format**
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|500|InternalError.Dispatch|An error occurred when you dispatched the request.|The error message returned when an unknown error occurs.|
+|403|InvalidRegionId.NotFound|Current region is not available.|The error message returned when the specified region is unavailable.|
 
-```
-<Error>
-    <RequestId>540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx</RequestId>
-    <HostId>ecs.aliyuncs.com</HostId>
-    <Code>InvalidInstance.NoClient</Code>
-    <Message>The specified instances have no cloud assistant client installed.</Message>
-</Error>
-```
-
- **JSON format** 
-
-```
-{
-    "RequestId": "540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx",
-    "HostId": "ecs.aliyuncs.com"
-    "Code": "InvalidInstance.NoClient"
-    "Message": "The specified instances have no cloud assistant client installed."
-}
-```
-
-## Error codes {#ErrorCode .section}
-
-|Error code|Error message|HTTP status code|Description|
-|:---------|:------------|:---------------|:----------|
-|InvalidCmdId.NotFound|The specified ImageId does not exist.|404|The specified CommandId does not exist.|
-|InvalidRegionId.NotFound|The RegionId provided does not exist in our items.|404|The specified RegionId does not exist.|
-|Internalerror. Dispatch|An internal error occurred when dispath the request|500|Internal error. Please try again later.|
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
