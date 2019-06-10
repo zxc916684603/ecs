@@ -1,249 +1,300 @@
-# DescribeDisksFullStatus {#DescribeDisksFullStatus .reference}
+# DescribeDisksFullStatus {#doc_api_1063476 .reference}
 
-Describes the full status information of a disk.
+Queries the full status information of one or more disks.
 
-## Description {#section_gpz_ts4_ydb .section}
+## Description {#description .section}
 
--   The full status information of a disk includes the disk life cycle status \(`Status`\), disk health status \(`HealthStatus`\), and disk event type \(`EventType`\).
+-   The full status information of a disk includes the disk lifecycle status \(Status\), disk health status \(HealthStatus\), and disk event type \(EventType\).
+-   The disk-related event publishing time, scheduled event execution time, and actual event execution time are the same. If you specify a time period \[EventTime.Start,EventTime.End\], the system queries all events that occurred during this period. You can query events within the last seven days.
 
--   Because the disk-related **event release time**, **scheduled event execution time**, and **actual event execution time** are the same, if you specify a period \[`EventTime.Start`, `EventTime.End`\], the system queries all history events that have occurred during the period. Currently, you can query the system events history within the last week.
+## Debugging {#apiExplorer .section}
 
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeDisksFullStatus) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-## Request parameters {#RequestParameter .section}
+## Request parameters {#parameters .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DescribeDisksFullStatus.|
-|RegionId|String|Yes|ID of the region where the specified disk belongs. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|DiskId.N|String|No|Disk ID. Value range of N: \[1, 100\].|
-|EventId.N|String|No|Event ID. Value range of N: \[1, 100\].|
-|Status|String|No|Life cycle status of the disk. For more information, see [Cloud disk status table](reseller.en-US/API Reference/Appendix/Basic cloud disk status table.md#). Optional values:-   In Use
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|RegionId|String|Yes|cn-hangzhou| The ID of the region to which the disk belongs. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
+
+ |
+|Action|String|No|DescribeDisksFullStatus| The operation that you want to perform. Set the value to DescribeDisksFullStatus.
+
+ |
+|DiskId.N|RepeatList|No|d-disk1| The ID of the disk to be queried. Valid values of N: 1 to 100.
+
+ |
+|EventId.N|RepeatList|No|e-event1| The event ID. Valid values of N: 1 to 100.
+
+ |
+|EventTime.End|String|No|2018-05-08T02:48:52Z| The end time of events to be queried. The time follows the [ISO 8601](~~25696~~) standard and uses UTC time. The format is yyyy-MM-ddTHH:mm:ssZ.
+
+ |
+|EventTime.Start|String|No|2018-05-06T02:43:10Z| The start time of events to be queried. The time follows the [ISO 8601](~~25696~~) standard and uses UTC time. The format is yyyy-MM-ddTHH:mm:ssZ.
+
+ |
+|EventType|String|No|Stalled| The disk event type. Valid values:
+
+ -   Degraded: The disk performance is degraded.
+-   SeverelyDegraded: The disk performance is seriously degraded.
+-   Stalled: The disk may be stalled with I/O suspended.
+
+ |
+|HealthStatus|String|No|Warning| The health status of the disk. Valid values:
+
+ -   Impaired: The disk performance is damaged.
+-   Warning: The disk performance may be degraded because of maintenance or technical issues.
+-   Initializing: The instance is being initialized.
+-   InsufficientData: The status cannot be determined because of insufficient data.
+-   NotApplicable: Not applicable.
+
+ |
+|PageNumber|Integer|No|1| The page number of the query result. The value must be a positive integer.
+
+ Default value: 1.
+
+ |
+|PageSize|Integer|No|10| The number of entries per page. Valid values: 1 to 100.
+
+ Default value: 10.
+
+ |
+|Status|String|No|Available| The lifecycle status of the disk. For more information, see [Cloud disk status](~~25689~~). Valid values:
+
+ -   In\_Use
 -   Available
 -   Attaching
 -   Detaching
 -   Creating
--   Resilience
+-   ReIniting
 
-|
-|HealthStatus|String|No|Health status of the disk. Optional values:-   Impaired: The disk is damaged.
--   Warning: The performance of disk may be degraded because of maintenance or technical issues.
--   Initializing: The disk is in reinitialization process.
--   InsufficientData: The event details cannot be determined because of insufficient data.
--   NotApplicable: Not applicable.
+ |
 
-|
-|EventType|String|No|Disk event type. Optional values:-   Degraded: The disk performance is downgraded.
--   SeverelyDegraded: The disk performance is seriously downgraded.
--   Stalled: The disk may be stalled with I/O suspended.
+## Response parameters {#resultMapping .section}
 
-|
-|EventTime.Start|String|No|Queries the start time of the event occurrence time. The time format follows the [ISO8601](../reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.|
-|EventTime.End|String|No|Queries the end time of the event occurrence time. The time format follows the [ISO8601](../reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.|
-|PageNumber|Integer|No|Page number of the query result. The value must be a positive integer.Default value: 1.
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|DiskFullStatusSet| | | An array of DiskFullStatus data.
 
-|
-|PageSize|Integer|No|Page size of the query result. Value range: \[1, 100\].Default value: 10.
+ |
+|└Device|String|/dev/xvdb| The device name of the disk that is attached to an instance, such as /dev/xvdb. It is null unless the disk is in the In\_use state.
 
-|
+ |
+|└DiskEventSet| | | An array of DiskEvent data.
 
-## Response parameters {#ResponseParameter .section}
+ |
+|└EventEndTime|String|2018-05-06T02:48:52Z| The end time of the event.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|TotalCount|Integer|Total number of the status of the disks.|
-|Page number of the status list of the disks|Integer|ECS instance list page number.|
-|Pagesize|Integer|Size of each page.|
-|DiskFullStatusSet|Array of [DiskFullStatusType](#)|Array of full disk status information.|
+ |
+|└EventId|String|e-event1| The ID of the disk event.
 
-**DiskFullStatusType**
+ |
+|└EventTime|String|2018-05-08T02:43:10Z| The occurrence time of the event.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|DiskId|String|Disk ID.|
-|InstanceId|String|Instance ID.|
-|Device|String|Device information of the related instance, such as /dev/xvdb. It is null unless the `Status` is **In Use** \(`In_use`\).|
-|Diskeventset|Array of [DiskEventType](#)|Array of disk events.|
-|Status.Code|Integer|Code of the disk life cycle status.|
-|Status.Name|String|Name of the disk life cycle status.|
-|HealthStatus.Code|Integer|Code of the disk health status.|
-|HealthStatus.Name|String|Name of the disk health status.|
+ |
+|└EventType| | | The event type.
 
-**DiskEventType**
+ |
+|└Code|Integer|7| The code of the event type.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|EventId|String|Disk event ID.|
-|EventType.Code|Integer|Event type code.|
-|EventType.Name|String|Event type name.|
-|EventTime|String|Event occurrence time. The time format follows the [ISO8601](../reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.|
-|EventEndTime|String|Event terminal time. The time format follows the [ISO8601](../reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.|
+ |
+|└Name|String|Stalled| The name of the event type.
 
-## Examples { .section}
+ |
+|└DiskId|String|d-disk1| The ID of the disk.
 
-**Request example**
+ |
+|└HealthStatus| | | The disk health status.
 
-```
+ |
+|└Code|Integer|128| The code of the disk health status.
+
+ |
+|└Name|String|Impaired| The name of the disk health status.
+
+ |
+|└InstanceId|String|i-instance1| The ID of the instance.
+
+ |
+|└Status| | | The disk lifecycle status.
+
+ |
+|└Code|Integer|129| The code of the disk lifecycle status.
+
+ |
+|└Name|String|Available| The name of the disk lifecycle status.
+
+ |
+|PageNumber|Integer|1| The page number of the instance list.
+
+ |
+|PageSize|Integer|10| The number of entries per page.
+
+ |
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+|TotalCount|Integer|2| The total number of instance statuses.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=DescribeDisksFullStatus
 &RegionId=cn-hangzhou
-&<Common Request Parameters>
+&DiskId.1=d-disk1
+&EventId.1=e-event1
+&Status=Available
+&HealthStatus=Warning
+&EventType=Stalled
+&EventTime.Start=2018-05-06T02:43:10Z
+&EventTime.End=2018-05-08T02:48:52Z
+&PageNumber=1 
+&PageSize=10 
+&<Common request parameters>
 ```
 
-**Success response example**
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <DescribeDisksFullStatusResponse>
-    <DiskFullStatusSet>
-        <DiskFullStatusType>
-            <DiskEventSet>
-                <DiskEventType>
-                    <EventId>e-event1</EventId>
-                    <EventType>
-                        <Code>7</Code>
-                        <Name>Stalled</Name>
-                    </EventType>
-                    <EventTime>2018-05-08T02:43:10Z</EventTime>
-                </DiskEventType>
-            </DiskEventSet>
-            <DiskId>d-disk1</DiskId>
-            <InstanceId>i-instance1</InstanceId>
-            <HealthStatus>
-                <Code>128</Code>
-                <Name>Impaired</Name>
-            </HealthStatus>
-            <Status>
-                <Code>129</Code>
-                <Name>Available</Name>
-            </Status>
-        </DiskFullStatusType>
-        <DiskFullStatusType>
-            <DiskEventSet>
-                <DiskEventType>
-                    <EventId>e-event2</EventId>
-                    <EventType>
-                        <Code>1</Code>
-                        <Name>Degraded</Name>
-                    </EventType>
-                    <EventTime>2018-05-06T02:43:10Z</EventTime>
-                    <EventEndTime>2018-05-06T02:48:52Z</EventEndTime>
-                </DiskEventType>
-            </DiskEventSet>
-            <DiskId>d-disk2</DiskId>
-            <InstanceId>i-instance2</InstanceId>
-            <HealthStatus>
-                <Code>64</Code>
-                <Name>Warning</Name>
-            </HealthStatus>
-            <Status>
-                <Code>0</Code>
-                <Name>Ok</Name>
-            </Status>
-        </DiskFullStatusType>
-    </DiskFullStatusSet>
-    <PageNumber>1</PageNumber>
-    <PageSize>10</PageSize>
-    <RequestId>1A8B4B27-8B2D-XXXX-XXXX-0F64DBE4C211</RequestId>
-    <TotalCount>2</TotalCount>
+  <DiskFullStatusSet>
+    <DiskFullStatusType>
+      <DiskEventSet>
+        <DiskEventType>
+          <EventId>e-event1</EventId>
+          <EventType>
+            <Code>7</Code>
+            <Name>Stalled</Name>
+          </EventType>
+          <EventTime>2018-05-08T02:43:10Z</EventTime>
+        </DiskEventType>
+      </DiskEventSet>
+      <DiskId>d-disk1</DiskId>
+      <InstanceId>i-instance1</InstanceId>
+      <Device>/dev/xvda</Device>
+      <HealthStatus>
+        <Code>128</Code>
+        <Name>Impaired</Name>
+      </HealthStatus>
+      <Status>
+        <Code>129</Code>
+        <Name>Available</Name>
+      </Status>
+    </DiskFullStatusType>
+    <DiskFullStatusType>
+      <DiskEventSet>
+        <DiskEventType>
+          <EventId>e-event2</EventId>
+          <EventType>
+            <Code>1</Code>
+            <Name>Degraded</Name>
+          </EventType>
+          <EventTime>2018-05-06T02:43:10Z</EventTime>
+          <EventEndTime>2018-05-06T02:48:52Z</EventEndTime>
+        </DiskEventType>
+      </DiskEventSet>
+      <DiskId>d-disk2</DiskId>
+      <InstanceId>i-instance2</InstanceId>
+      <Device>/dev/xvdb</Device> 
+      <HealthStatus>
+        <Code>64</Code>
+        <Name>Warning</Name>
+      </HealthStatus>
+      <Status>
+        <Code>0</Code>
+        <Name>Ok</Name>
+      </Status>
+    </DiskFullStatusType>
+  </DiskFullStatusSet>
+  <PageNumber>1</PageNumber> 
+  <PageSize>10</PageSize> 
+  <RequestId>1A8B4B27-8B2D-XXXX-XXXX-0F64DBE4C211</RequestId>
+  <TotalCount>2</TotalCount> 
 </DescribeDisksFullStatusResponse>
-```
-
-**JSON format**
 
 ```
+
+`JSON` format
+
+``` {#json_return_success_demo}
 {
-    "DiskFullStatusSet": {
-        "DiskFullStatusType": [
-            {
-                "DiskEventSet": {
-                    "DiskEventType": [
-                        {
-                            "EventId": "e-event1",
-                            "EventType": {
-                                "Code": "7",
-                                "Name": "Stalled"
-                            },
-                            "EventTime": "2018-05-08T02:43:10Z"
-                        }
-                    ]
-                },
-                "DiskId": "d-disk1",
-                "InstanceId": "i-instance1",
-                "HealthStatus": {
-                    "Code": 128,
-                    "Name": "Impaired"
-                },
-                "Status": {
-                    "Code": 129,
-                    "Name": "Available"
-                }
-            },
-            {
-                "DiskEventSet": {
-                    "DiskEventType": [
-                        {
-                            "EventId": "e-event2",
-                            "EventType": {
-                                "Code": "1",
-                                "Name": "Degraded"
-                            },
-                            "EventTime": "2018-05-06T02:43:10Z",
-                            "EventEndTime": "2018-05-06T02:48:52Z"
-                        }
-                    ]
-                },
-                "DiskId": "d-disk2",
-                "InstanceId": "i-instance2",
-                "HealthStatus": {
-                    "Code": 0,
-                    "Name": "Ok"
-                },
-                "Status": {
-                    "Code": 129,
-                    "Name": "Available"
-                }
-            }
-        ]
-    },
-    "PageNumber": 1,
-    "PageSize": 10,
-    "RequestId": "1A8B4B27-8B2D-XXXX-XXXX-0F64DBE4C211",
-    "TotalCount": 2
+	"PageNumber":1,
+	"TotalCount":2,
+	"PageSize":10,
+	"RequestId":"1A8B4B27-8B2D-XXXX-XXXX-0F64DBE4C211",
+	"DiskFullStatusSet":{
+		"DiskFullStatusType":[
+			{
+				"Status":{
+					"Name":"Available",
+					"Code":129
+				},
+				"Device":"/dev/xvda",
+				"HealthStatus":{
+					"Name":"Impaired",
+					"Code":128
+				},
+				"InstanceId":"i-instance1",
+				"DiskEventSet":{
+					"DiskEventType":[
+						{
+							"EventTime":"2018-05-08T02:43:10Z",
+							"EventId":"e-event1",
+							"EventType":{
+								"Name":"Stalled",
+								"Code":"7"
+							}
+						}
+					]
+				},
+				"DiskId":"d-disk1"
+			},
+			{
+				"Status":{
+					"Name":"Available",
+					"Code":129
+				},
+				"Device":"/dev/xvdb",
+				"HealthStatus":{
+					"Name":"Ok",
+					"Code":0
+				},
+				"InstanceId":"i-instance2",
+				"DiskEventSet":{
+					"DiskEventType":[
+						{
+							"EventTime":"2018-05-06T02:43:10Z",
+							"EventId":"e-event2",
+							"EventType":{
+								"Name":"Degraded",
+								"Code":"1"
+							},
+							"EventEndTime":"2018-05-06T02:48:52Z"
+						}
+					]
+				},
+				"DiskId":"d-disk2"
+			}
+		]
+	}
 }
 ```
 
-**Error response example**
+## Error codes {#section_fy3_yhe_h1i .section}
 
-**XML format**
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|404|MissingParameter|%s|The error message returned when a required parameter is not specified.|
+|403|InvalidParameter|%s|The error message returned when the parameter format is invalid.|
+|403|DiskIdLimitExceeded|%s|The error message returned when the specified instance IDs is more than 100.|
+|403|EventIdLimitExceeded|%s|The error message returned when more than 100 simulated event IDs are specified.|
+|403|InvalidParameter.TimeEndBeforeStart|%s|The error message returned when the end time is earlier than the start time.|
 
-```
-<Error>
-    <RequestId>C38E0D94-C18B-44F3-8C05-6E35BE334086</RequestId>
-    <HostId>ecs.aliyuncs.com</HostId>
-    <Code>MissingParameter</Code>
-    <Message>The input parameter that is mandatory for processing this request is not supplied.</Message>
-</Error>
-```
-
-**JSON format**
-
-```
-{
-    "RequestId": "1A8B4B27-8B2D-XXXX-XXXX-0F64DBE4C211",
-    "HostId": "ecs.aliyuncs.com"
-    "Code": "MissingParameter"
-    "Message": "The input parameter that is mandatory for processing this request is not supplied."
-}
-```
-
-## Error codes {#ErrorCode .section}
-
-|Error code|Error information|HTTP status code|Description|
-|:---------|:----------------|:---------------|:----------|
-|InvalidParameter|The Parameter provided is not valid.|403|The parameter is invalid.|
-|InvalidParameter.LengthExceeded|The Parameter provided exceeds maximum length.|403|The value range of N in EventId.N must be \[1, 100\].|
-|InvalidParameter.TooManyDiskId|The diskIds provided is out of bounds \[1,100\].|403|The specified parameter value is out of the valid range.|
-|InvalidParameter.TimeEndBeforeStart|The event time end should be after event time start.|403|The specified event time filter condition is not legal and the end time must be later than the start time.|
-|MissingParameter|The input parameter that is mandatory for processing this request is not supplied.|403|You must specify the required parameter.|
-|InternalError|The request processing has failed due to some unknown error, exception or failure.|500|Internal error, please try again later.|
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
