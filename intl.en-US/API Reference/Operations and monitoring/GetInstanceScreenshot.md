@@ -1,97 +1,92 @@
-# GetInstanceScreenshot {#GetInstanceScreenshot .reference}
+# GetInstanceScreenshot {#doc_api_999429 .reference}
 
-Obtains screenshot information of an instance for troubleshooting and diagnosis.
+Obtains screenshot information of an instance.
 
-## Description {#BestPractice .section}
+## Description {#description .section}
 
-We return you the instance screenshot in JPG format, encoded in Base64. However, you can decode the screenshot yourself. We recommend that you use this operation for troubleshooting and diagnosis, and consider the following:
+The system returns an instance screenshot in JPG format, encoded in Base64. However, you must decode the screenshot yourself. We recommend that you use this operation for troubleshooting and diagnosis, and take note of the following points:
 
--   The instance must be in the **Running** \(`Running`\) status.
--    [Phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm) cannot obtain screenshot information.
+-   The instance must be in the Running state.
+-   For [phased-out instance types](~~55263~~), you cannot obtain screenshot information.
 
-## Request parameters  {#RequestParameter .section}
+## Debugging {#apiExplorer .section}
 
-|Name|Type|Required|Description |
-|:---|:---|:-------|:-----------|
-|Action|String|Yes|The name of this interface. Value: GetInstanceScreenshot.|
-|RegionId|String|Yes|ID of the region where the ECS instance is located. For more information, use [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|InstanceId|String|Yes|Instance ID.|
-|Wakeup|Boolean|No|Whether to wake up instances in sleep mode or not.Default value: false.
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=GetInstanceScreenshot) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-|
+## Request parameters {#parameters .section}
 
-## Response parameters {#ResponseParameter .section}
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|InstanceId|String|Yes|i-myInstance| The ID of the instance.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|InstanceId|String|Instance ID.|
-|screenshot|String|The JPG format instance screenshot encoded in Base64.|
+ |
+|RegionId|String|Yes|cn-shenzhen| The ID of the region where the instance is located. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
 
-## Examples { .section}
+ |
+|Action|String|No|GetInstanceScreenshot| The operation that you want to perform. Set the value to GetInstanceScreenshot.
 
-**Request example** 
+ |
+|WakeUp|Boolean|No|false| Indicates whether to wake up instances in sleep mode.
 
-```
+ Default value: false.
+
+ |
+
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|InstanceId|String|i-myInstance| The ID of the instance.
+
+ |
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+|Screenshot|String|iVBORw0KGgoA... AAABJRU5ErkJggg==| The JPG format instance screenshot, which is encoded in Base64.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 http://ecs-cn-hangzhou.example.com/?Action=GetInstanceScreenshot
+&InstanceId=i-myInstance
 &RegionId=cn-shenzhen
-&InstanceId=i-j5e42sbbthlokka11eci
-&Wakeup=False
-&<Common Request Parameters>
+&WakeUp=false
+&<Common request parameters>
 ```
 
-**Success response example** 
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <GetInstanceScreenshotResponse>
-    <RequestId>22A1933F-AD02-4560-A6A7-53CF2231D942</RequestId>
-    <InstanceId>i-j5e42sbbthlokka11ech</InstanceId>
-    <Screenshot>iVBORw0KGgoA... AAABJRU5ErkJggg==</Screenshot>
+  <RequestId>22A1933F-AD02-4560-A6A7-53CF2231D942</RequestId>
+  <InstanceId>i-j5e42sbbthlokka11ech</InstanceId>
+  <Screenshot>iVBORw0KGgoA... AAABJRU5ErkJggg==</Screenshot>
 </GetInstanceScreenshotResponse>
 ```
 
-**JSON format** 
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-    "RequestId": "22A1933F-AD02-4560-A6A7-53CF2231D942",
-    "InstanceId": "i-j5e42sbbthlokka11ech",
-    "Screenshot": "iVBORw0KGgoA... AAABJRU5ErkJggg=="
+	"Screenshot":"iVBORw0KGgoA... AAABJRU5ErkJggg==",
+	"InstanceId":"i-j5e42sbbthlokka11ech",
+	"RequestId":"22A1933F-AD02-4560-A6A7-53CF2231D942"
 }
 ```
 
-**Error response example** 
+## Error codes {#section_o24_hy0_k69 .section}
 
-**XML format**
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|400|MissingParameter|%s|The error message returned when a required parameter is not specified.|
+|404|InvalidParameter|%s|The error message returned when the parameter format is invalid.|
+|405|IncorrectInstanceStatus|%s|The error message returned when the specified resource is in a state that does not support the current operation.|
 
-```
-<Error>
-    <RequestId>C38E0D94-C18B-44F3-8C05-6E35BE334088</RequestId>
-    <HostId>ecs.aliyuncs.com</HostId>
-    <Code>NotSupported</Code>
-    <Message>The operation is not supported for "i-j5e42sbbthlokkaXXXXX".</Message>
-</Error>
-```
-
-**JSON format** 
-
-```
-{
-    "RequestId": "C38E0D94-C18B-44F3-8C05-6E35BE334088",
-    "HostId": "ecs.aliyuncs.com",
-    "Code": "NotSupported",
-    "Message": "The operation is not supported for "i-j5e42sbbthlokkaXXXXX"."
-}
-```
-
-## Error codes {#ErrorCode .section}
-
-|Error code|Error message|HTTP status code|Description|
-|:---------|:------------|:---------------|:----------|
-|MissingParameter|The input parameter “instanceId” that is mandatory for processing this request is not supplied.|400|`InstanceId` is required.|
-|InvalidParameter|The “instanceId” provided is not valid.|404|The specified `InstanceId` does not exist.|
-|IncorrectInstanceStatus|The instance status “\{status\}” is not applicable|405|The instance must be in the **Running** \(`Running`\) status.|
-|NotSupported|The operation is not supported for “\{instanceId\}”|405|[Phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm) cannot obtain screenshot information.|
-|Throttling|Request was denied due to request throttling.|400|You have made too many frequent requests in a short time.|
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
