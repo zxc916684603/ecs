@@ -1,229 +1,220 @@
-# DescribeInvocationResults {#DescribeInvocationResults .reference}
+# DescribeInvocationResults {#doc_api_1030544 .reference}
 
-Queries the invocation result of a cloud assistant command, that is, the actual `Output` information of a specified ECS instance.
+Views the command output of a cloud assistant command in the specified ECS instance.
 
-## Description {#section_nlv_qq4_ydb .section}
+## Description {#description .section}
 
-After you use the [DescribeInvocations](reseller.en-US/API Reference/Cloud assistant/DescribeInvocations.md#) interface to check the command invocation status and the returned `InvokeStatus` is `Finished`, it indicates that the command process is Finished, but not necessarily is as effective as expected. You need to check the `Output` parameter in [DescribeInvocationResults](reseller.en-US/API Reference/Cloud assistant/DescribeInvocationResults.md#) to get the specific invocation result. The actual output result is the valid version.
+After you invoke a command, it may not succeed. You can call [DescribeInvocationResults](~~64845~~) to view the command output of command invocation. The command output shall prevail.
 
-## Request parameters {#RequestParameter .section}
+## Debugging {#apiExplorer .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DescribeInvocationResults.|
-|RegionId|String|Yes|The regional ID. For more information, see [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#).|
-|CommandId|String|No|Command ID. For more information, call [DescribeRegions](../DNA0011839416/../DNA0011860945/reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|InstanceId|String|No|Instance ID.|
-|InvokeId|String|No|Invocation ID of a command process. You can use the [DescribeInvocations](reseller.en-US/API Reference/Cloud assistant/DescribeInvocations.md#) API to check all the `InvokeId`.|
-|InvokeRecordStatus|String|No|The status of the command process you want to query. Optional values:-   Running: The command process is running.
--   Failed: The command process invocation failed, the command process timed out, or encountered exceptions.
--   Finished: The invocation of the command process is completed.
--   Stopped: The command process is manually stopped.
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeInvocationResults) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-|
-|PageNumber|Integer|No|Current page number.Start value: 1.
+## Request parameters {#parameters .section}
 
-|
-|PageSize|Default value: 1.|No|The number of rows per page for multi-page display. Maximum value: 50.Default value: 10.
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|RegionId|String|Yes|cn-hangzhou| The ID of the region. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
 
-|
+ |
+|Action|String|No|DescribeInvocationResults| The operation that you want to perform. Set the value to DescribeInvocationResults.
 
-## Response parameters {#ResponseParameter .section}
+ |
+|CommandId|String|No|c-4d34302d02424c5c8e10281e3a315a05| The ID of the command.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|TotalCount|Integer|Total number of commands.|
-|Pagenumber|Integer|Page number of the query result.|
-|Pagesize|Integer|The number of rows per page.|
-|InvocationResults|Array|Command invocation result set \([`InvocationResultSetType`](#)\).|
+ |
+|InstanceId|String|No|i-uf614fhehhzmxdqx| The ID of the instance.
 
-**InvocationResultSetType**
+ |
+|InvokeId|String|No|t-7d2a745b412b4601b2d47f6a768d3a14| The invocation ID of the command. The invocation ID of the command process. You can call [DescribeInvocations](~~64840~~) to view the invocation IDs.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|Invocationresult|Array|Invocation result type on the instance \([`InvocationResultType`](#)\). Only one entry of result are returned for one-time invocation.|
+ |
+|InvokeRecordStatus|String|No|Finished| The status of the command invocation.
 
-**InvocationResultType**
+ |
+|PageNumber|Long|No|1| The current page number. Starting value: 1.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|CommandId|String|Command ID.|
-|InvokeId|String|Invocation ID.|
-|InstanceId|String|Instance ID.|
-|FinishedTime|String|Time of command process completion. If a command process times out, the time of completion for the command process is based on [CreateCommand](reseller.en-US/API Reference/Cloud assistant/CreateCommand.md#) `TimedOut`.|
-|Invokerecordstatus|String|Invocation status of the command process. Optional values:-   Running: The command process is running.
--   Failed: The command process invocation failed, the command process timed out, or encountered exceptions.
--   Finished: The invocation of the command process is completed.
--   Stopped: The command process is manually stopped.
+ Default value: 1.
 
-|
-|Output|String|The actual result after the command process completion. The output content is transmitted in the Base64-encoded format.|
-|Exitcode|Integer|The exit code of the command process:-   The exit code is the Shell process exit code for Linux instances.
--   The exit code is the Bat or PowerShell process exit code for Windows instances.
+ |
+|PageSize|Long|No|5| The number of entries per page. Maximum value: 50.
 
-|
+ Default value: 10.
 
-## Examples { .section}
+ |
 
-**Request example**
+## Response parameters {#resultMapping .section}
 
-```
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|Invocation| | | The command invocation data.
+
+ |
+|└InvocationResults| | | The results of command invocation.
+
+ |
+|└CommandId|String|c-4d34302d02424c5c8e10281e3a315a05| The ID of the command.
+
+ |
+|└ ExitCode|Long|0| The exit code of the command process:
+
+ -   For Linux-based instances, the exit code is the Shell process exit code.
+-   For Windows-based instances, the exit code is the Bat or PowerShell process exit code.
+
+ |
+|└FinishedTime|String|2018-01-05 15:45:02| The time when the command process is completed. If a command process times out, the command completion time is subject to the TimedOut parameter specified in the [CreateCommand](~~64844~~) operation.
+
+ |
+|└InstanceId|String|i-uf614fhehhzmxdqx| The ID of the instance.
+
+ |
+|└InvokeId|String|t-7d2a745b412b4601b2d47f6a768d3a14| The invocation ID of the command. The invocation ID of the command process. You can call [DescribeInvocations](~~64840~~) to view the invocation IDs.
+
+ |
+|└InvokeRecordStatus|String|Finished| The status of the command invocation.
+
+ |
+|└Output|String|MTU6MzA6MDEK| The output of the command invocation, which is Base64-encoded.
+
+ |
+|└PageNumber|Long|1| The current page number. Starting value: 1.
+
+ Default value: 1.
+
+ |
+|└PageSize|Long|5| The number of entries per page. Maximum value: 20.
+
+ Default value: 10.
+
+ |
+|└TotalCount|Long|5| The total number of commands.
+
+ |
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=DescribeInvocationResults
-&RegionId=cn-hangzhou
-&<Common Request Parameters>
+&RegionId=cn-hangzhou 
+&InvokeId=t-7d2a745b412b4601b2d47f6a768d3a14
+&InstanceId=i-uf614fhehhzmxdqx
+&CommandId=c-4d34302d02424c5c8e10281e3a315a05
+&InvokeRecordStatus=Finished
+&PageNumber=1 
+&PageSize=5
+&<Common request parameters>
 ```
 
-**Success response example**
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <DescribeInvocationResultsResponse>
     <TotalCount>5</TotalCount>
-    <PageNumber>1</PageNumber>
+    <PageNumber>1</PageNumber> 
     <PageSize>5</PageSize>
-    <Invocationresults>
-    <Invocationresult>
+    <InvocationResults> 
+        <InvocationResult>
             <FinishedTime>2018-01-05 15:45:02</FinishedTime>
-            <Invokerecordstatus> finished </invokerecordstatus>
-            <InstanceId>i-uf614fhehhzmxxxxxxxx</InstanceId>
-            <InvokeId>t-001937b74e2a4242891fc789xxxxxxxx</InvokeId>
+            <InstanceId>i-uf614fhehhzmxdqw</InstanceId>
             <Output>MTU6NDU6MDEK</Output>
-            <CommandId>c-6b0fb9d72adc421abab462abxxxxxxxx</CommandId>
+	<InvokeRecordStatus> Finished<InvokeRecordStatus>
             <ExitCode>0</ExitCode>
         </InvocationResult>
         <InvocationResult>
             <FinishedTime>2018-01-05 15:40:02</FinishedTime>
-            <InvokeRecordStatus>finished</InvokeRecordStatus>
-            <InstanceId>i-uf614fhehhzmxxxxxxxx</InstanceId>
-            <InvokeId>t-a8935b93739442e59ed621a6xxxxxxxx</InvokeId>
+            <InstanceId>i-uf614fhehhzmxdqw</InstanceId>
             <Output> </Output>
-            <CommandId>c-e67505b2be3e477dae94c0f0xxxxxxxx</CommandId>
+<InvokeRecordStatus> Finished<InvokeRecordStatus>
             <ExitCode>0</ExitCode>
         </InvocationResult>
         <InvocationResult>
             <FinishedTime>2018-01-05 15:30:02</FinishedTime>
-            <InvokeRecordStatus>finished</InvokeRecordStatus>
-            <InstanceId>i-uf614fhehhzmxxxxxxxx</InstanceId>
-            <InvokeId>t-001937b74e2a4242891fc78xxxxxxxx</InvokeId>
+            <InstanceId>i-uf614fhehhzmxdqw</InstanceId>
             <Output>MTU6MzA6MDEK</Output>
-            <CommandId>c-6b0fb9d72adc421abab462abxxxxxxxx</CommandId>
             <ExitCode>0</ExitCode>
         </InvocationResult>
         <InvocationResult>
             <FinishedTime>2018-01-05 15:20:02</FinishedTime>
-            <InvokeRecordStatus>finished</InvokeRecordStatus>
-            <InstanceId>i-uf614fhehhzmxxxxxxxx</InstanceId>
-            <InvokeId>t-a8935b93739442e59ed621a6xxxxxxxx</InvokeId>
+            <InstanceId>i-uf614fhehhzmxdqw</InstanceId>
             <Output> </Output>
-            <CommandId>c-e67505b2be3e477dae94c0f0xxxxxxxx</CommandId>
-            <Exitcode> 0 </exitcode>
+            <ExitCode>0</ExitCode>
         </InvocationResult>
         <InvocationResult>
             <FinishedTime>2018-01-05 15:15:02</FinishedTime>
-            <InvokeRecordStatus>finished</InvokeRecordStatus>
-            <InstanceId>i-uf614fhehhzmxxxxxxxx</InstanceId>
-            <InvokeId>t-001937b74e2a4242891fc789xxxxxxxx</InvokeId>
+            <InstanceId>i-uf614fhehhzmxdqw</InstanceId>
             <Output>MTU6MTU6MDEK</Output>
-            <CommandId>c-6b0fb9d72adc421abab462abxxxxxxxx</CommandId>
             <ExitCode>0</ExitCode>
         </InvocationResult>
         </InvocationResults>
-    <RequestId>567FA138-6026-47C6-A299-5D50xxxxxxxx</RequestId>
-</DescribeInvocationResultsResponse>
+<RequestId>"E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId> 
+</DescribeInvocationResultsResponse> 
 ```
 
-**JSON  format**
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-    "Invocation": {
-        "TotalCount": 5,
-        "PageNumber": 1,
-        "InvocationResults": {
-            "InvocationResult": [
-                {
-                    "FinishedTime": "2018-01-05 15:45:02",
-                    "InvokeRecordStatus": "finished",
-                    "InstanceId": "i-uf614fhehhzmxxxxxxxx",
-                    "InvokeId": "t-001937b74e2a4242891fc789xxxxxxxx",
-                    "Output": "MTU6NDU6MDEK",
-                    "CommandId": "c-6b0fb9d72adc421abab462abxxxxxxxx",
-                    "ExitCode": 0
-                },
-                {
-                    "FinishedTime": "2018-01-05 15:40:02",
-                    "InvokeRecordStatus": "finished",
-                    "InstanceId": "i-uf614fhehhzmxxxxxxxx",
-                    "InvokeId": "t-a8935b93739442e59ed621a6xxxxxxxx",
-                    "Output": "",
-                    "CommandId": "c-e67505b2be3e477dae94c0f0xxxxxxxx",
-                    "ExitCode": 0
-                },
-                {
-                    "FinishedTime": "2018-01-05 15:30:02",
-                    "InvokeRecordStatus": "finished",
-                    "InstanceId": "i-uf614fhehhzmxxxxxxxx",
-                    "InvokeId": "t-001937b74e2a4242891fc78xxxxxxxx",
-                    "Output": "MTU6MzA6MDEK",
-                    "CommandId": "c-6b0fb9d72adc421abab462abxxxxxxxx",
-                    "ExitCode": 0
-                },
-                {
-                    "FinishedTime": "2018-01-05 15:20:02",
-                    "InvokeRecordStatus": "finished",
-                    "InstanceId": "i-uf614fhehhzmd3zj4k74",
-                    "InvokeId": "t-a8935b93739442e59ed621a6xxxxxxxx",
-                    "Output": "",
-                    "CommandId": "c-e67505b2be3e477dae94c0f0xxxxxxxx",
-                    "ExitCode": 0
-                },
-                {
-                    "FinishedTime": "2018-01-05 15:15:02",
-                    "InvokeRecordStatus": "finished",
-                    "InstanceId": "i-uf614fhehhzmd3zj4k74",
-                    "InvokeId": "t-001937b74e2a4242891fc789xxxxxxxx",
-                    "Output": "MTU6MTU6MDEK",
-                    "CommandId": "c-6b0fb9d72adc421abab462abxxxxxxxx",
-                    "ExitCode": 0
-                }
-            ]
-        },
-        "PageSize": 5
-    },
-    "RequestId": "567FA138-6026-47C6-A299-5D50xxxxxxxx"
+	"RequestId":"E69EF3CC-94CD-42E7-8926-F133B86387C0",
+	"Invocation":{
+		"PageNumber":1,
+		"TotalCount":5,
+		"InvocationResults":{
+			"InvocationResult":[
+				{
+					"InvokeRecordStatus":"Finished",
+					"FinishedTime":"2018-01-05 15:45:02",
+					"ExitCode":0,
+					"InstanceId":"i-uf614fhehhzmxdqw",
+					"Output":"MTU6NDU6MDEK"
+				},
+				{
+					"InvokeRecordStatus":"Finished",
+					"FinishedTime":"2018-01-05 15:40:02",
+					"ExitCode":0,
+					"InstanceId":"i-uf614fhehhzmxdqw",
+					"Output":""
+				},
+				{
+					"FinishedTime":"2018-01-05 15:30:02",
+					"ExitCode":0,
+					"InstanceId":"i-uf614fhehhzmxdqw",
+					"Output":"MTU6MzA6MDEK"
+				},
+				{
+					"FinishedTime":"2018-01-05 15:20:02",
+					"ExitCode":0,
+					"InstanceId":"i-uf614fhehhzmd3zj4k74",
+					"Output":""
+				},
+				{
+					"InvokeRecordStatus":"Finished",
+					"FinishedTime":"2018-01-05 15:15:02",
+					"ExitCode":0,
+					"InstanceId":"i-uf614fhehhzmd3zj4k74",
+					"Output":"MTU6MTU6MDEK"
+				}
+			]
+		},
+		"PageSize":5
+	}
 }
 ```
 
-**Error response example**
+## Error codes {#section_fk2_prx_1n4 .section}
 
-**XML format**
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|500|InternalError.Dispatch|An error occurred when you dispatched the request.|The error message returned when an unknown error occurs.|
+|403|InvalidParam.PageNumber|The specified parameter is invalid.|The error message returned when the specified parameter is invalid.|
+|403|InvalidParam.PageSize|The specified parameter is invalid.|The error message returned when the specified parameter is invalid.|
+|403|InvalidRegionId.CloudAssistant|Current region is not available.|The error message returned when the specified region is unavailable.|
 
-```
-<Error>
-    <RequestId>540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx</RequestId>
-    <HostId>ecs.aliyuncs.com</HostId>
-    <Code>MissingParameter.RegionId</Code>
-    <Message>The input parameter “RegionId” that is mandatory for processing this request is not supplied.</Message>
-</Error>
-```
-
-**JSON format**
-
-```
-{
-    "RequestId": "540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx",
-    "HostId": "ecs.aliyuncs.com"
-    "Code": "MissingParameter.RegionId"
-    "Message": "The input parameter “RegionId” that is mandatory for processing this request is not supplied."
-}
-```
-
-## Error codes {#ErrorCode .section}
-
-|Error code|Error message|HTTP status code |Meaning|
-|:---------|:------------|:----------------|:------|
-|MissingParameter.RegionId|The input parameter “RegionId” that is mandatory for processing this request is not supplied.|400|You must specify the required parameter `RegionId`, or you cannot use the resources in the `RegionId`.|
-|InvalidRegionId.NotFound|The RegionId provided does not exist in our items.|404|The specified `RegionId` does not exist.|
-|InternalError.Dispatch|An internal error occurred when dispatch the request.|500|Internal error. Please try again later.|
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
