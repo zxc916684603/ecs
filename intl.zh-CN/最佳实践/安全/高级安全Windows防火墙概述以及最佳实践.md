@@ -12,7 +12,7 @@
 
 ## 操作步骤 {#section_ifj_mzr_gfb .section}
 
-1.  **查看防火墙状态**
+1.  **查看防火墙状态** 
 
     阿里云ECS实例Windows Server 2008 R2防火墙默认是关闭的，键盘输入Win+R打开运行输入firewall.cpl 回车来打开Windows防火墙控制台，见下图。
 
@@ -26,7 +26,7 @@
 
     ![](images/12793_zh-CN_source.png)
 
-2.  **启用防火墙**
+2.  **启用防火墙** 
 
     还是通过上面的步骤开启防火墙，见下图。
 
@@ -40,7 +40,7 @@
 
     ![](images/12796_zh-CN_source.png)
 
-3.  **配置高级安全Windows防火墙**
+3.  **配置高级安全Windows防火墙** 
 
     键盘输入Win+R打开运行输入wf.msc 回车来打开高级安全Windows防火墙，如下图。
 
@@ -76,7 +76,7 @@
 
         以上步骤就是把Windows远程端口加入到高级安全Windows防火墙了，但是依然没有实现我们的限制访问，接下来我们来实现访问限制。
 
-    2.  **配置作用域**
+    2.  **配置作用域** 
 
         右键选中我们刚刚创建的入站规则，然后选择属性\>作用域\>远程IP地址\>添加（将需要远程此服务器的IP地址填写进去，注意：一旦启用作用域，除了作用域里面的IP地址，别的地址将无法远程链接此服务器）。
 
@@ -86,7 +86,7 @@
 
         ![](images/12806_zh-CN_source.png)
 
-    3.  **验证作用域**
+    3.  **验证作用域** 
 
         我们在作用域——远程IP地址里面随便写个地址，看看远程连接会发生什么。
 
@@ -125,55 +125,55 @@
 
 1.  导出防火墙配置到文件。
 
-    ```
+    ``` {#codeblock_tgz_2m2_umg}
     netsh advfirewall export c:\adv.pol
     ```
 
 2.  导入防火墙配置文件到系统中。
 
-    ```
+    ``` {#codeblock_9tr_7r8_qti}
     netsh advfirewall import c:\adv.pol
     ```
 
 3.  防火墙恢复默认设置。
 
-    ```
+    ``` {#codeblock_bxy_0j2_j1z}
     Netsh advfirewall reset
     ```
 
 4.  关闭防火墙。
 
-    ```
+    ``` {#codeblock_qdz_18i_zil}
     netsh advfirewall set allprofiles state off
     ```
 
 5.  开启防火墙。
 
-    ```
+    ``` {#codeblock_n5z_ddl_s3i}
     netsh advfirewall set allprofiles state on
     ```
 
 6.  在所有配置文件中设置默认阻挡入站并允许出站通信。
 
-    ```
+    ``` {#codeblock_063_m7a_uyg}
     netsh advfirewall set allprofiles firewallpolicy blockinbound,allowoutbound
     ```
 
 7.  删除名为 ftp 的规则。
 
-    ```
+    ``` {#codeblock_rsk_gej_aa1}
     netsh advfirewall firewall delete rule name=ftp
     ```
 
 8.  删除本地端口 80 的所有入则。
 
-    ```
+    ``` {#codeblock_6r5_uae_soc}
     netsh advfirewall firewall delete rule name=all protocol=tcp localport=80
     ```
 
 9.  添加远程桌面入站规则允许端口3389。
 
-    ```
+    ``` {#codeblock_gwr_1bv_6dg}
     netsh advfirewall firewall add rule name=远程桌面(TCP-In-3389) protocol=TCP dir=in localport=3389 action=allow
     ```
 
