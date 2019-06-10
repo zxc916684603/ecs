@@ -1,199 +1,228 @@
-# DescribeAccountAttributes {#DescribeAccountAttributes .reference}
+# DescribeAccountAttributes {#doc_api_1006119 .reference}
 
-Queries the maximum number of ECS resources that you can create in a region. Specifically, you can use this interface to query the numbers of security groups, elastic network interfaces \(ENIs\), Pay-As-You-Go vCPU cores, preemptible instance vCPU cores, and dedicated hosts, local network type, and whether your account has been authenticated by real name.
+Queries the upper limit of ECS resources that you can create in a region. You can call this operation to query the numbers of security groups, ENIs, Pay-As-You-Go vCPU cores, preemptible instance vCPU cores, and dedicated hosts. You can also obtain the information such as the local network type and whether an account has passed real name authentication.
 
-## Description {#section_awr_p1k_b2b .section}
+## Description {#description .section}
 
-After registering with an Alibaba Cloud account, you can create a certain number of ECS resources in different regions. For more information, see [Limitations](../../../../reseller.en-US/User Guide/Limitations.md#). To expand the resource capacity, you can open a ticket as needed.
+After [registering](https://account.alibabacloud.com/register/intl_register.htm) for an Alibaba Cloud account, you can create a certain number of ECS resources in different regions. For more information, see [Limits](~~25412~~).
 
-## Request parameters {#RequestParameter .section}
+You can also [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to raise the resource usage limit.
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|Name of this interface. Value: DescribeAccountAttributes.|
-|RegionId|String|Yes|Region ID. You can call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to query the latest region list.|
-|ZoneId|String|No|Zone ID.|
-|AttributeName.N|String|No|Resource usage limit. `N` ranges from 1 to 8. Value range:-   instance-network-type: Available network types in the current region.
--   max-security-groups: The number of security groups.
--   max-elastic-network-interfaces: Number of ENIs in the current region.
--   max-postpaid-instance-vcpu-count: Number of Pay-As-You-Go instance vCPU cores in the current region.
--   max-spot-instance-vcpu-count: Number of preemptible instance vCPU cores in the current region.
--   max-delicated-hosts: Number of dedicated hosts in the current region.
--   supported-postpaid-instance-types: Pay-As-You-Go I/O optimization instance types in the current region.
--   real-name-authentication: Whether your account has been authenticated by real name.
+## Debugging {#apiExplorer .section}
 
-Default value: null.|
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeAccountAttributes) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-## Response parameters {#ResponseParameter .section}
+## Request parameters {#parameters .section}
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|AccountAttributeItem|Array of [AccountAttributeItems](#)|A collection of information about account privileges in a specified region.|
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|RegionId|String|Yes|cn-hangzhou| The ID of the region. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
 
-**AccountAttributeItems** 
+ |
+|Action|String|No|DescribeAccountAttributes| The operation that you want to perform. Set the value to DescribeAccountAttributes.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|AttributeName|String|Resource usage limit. Value range:-   instance-network-type: Available network types in the current region.
--   max-security-groups: Number of security groups.
--   max-elastic-network-interfaces: Number of ENIs in the current region.
--   max-postpaid-instance-vcpu-count: Number of Pay-As-You-Go instance vCPU cores in the current region.
--   max-spot-instance-vcpu-count: Number of preemptible instance vCPU cores in the current region.
--   max-delicated-hosts: Number of dedicated hosts in the current region.
--   supported-postpay-instance-types: Pay-As-You-Go I/O optimization instance types in the current region.
--   real-name-authentication: Whether your account has been authenticated by real name.
+ |
+|AttributeName.N|RepeatList|No|max-security-groups| The types of resources. Valid values of N: 1 to 8. Valid values:
 
-|
-|AttributeValues|[ValueItem](#)|Resource usage limit.|
+ -   instance-network-type: available network types in the current region
+-   max-security-groups: the number of security groups
+-   max-elastic-network-interfaces: the number of ENIs in the current region
+-   max-postpaid-instance-vcpu-count: the number of Pay-As-You-Go instance vCPU cores in the current region
+-   max-spot-instance-vcpu-count: the number of preemptible instance vCPU cores in the current region
+-   max-delicated-hosts: the number of dedicated hosts in the current region
+-   supported-postpaid-instance-types: Pay-As-You-Go I/O optimization instance types in the current region
+-   real-name-authentication: Whether the account has passed real name authentication.
 
- **ValueItem** 
+**Note:** Complete the real-name authentication before creating ECS instances.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|Value|String|Resource usage limit in the current region or all regions. Value range:-   The value of 0 or a positive integer is returned when the value is `max-security-groups`, `max-elastic-network-interfaces`, `max-postpaid-instance-vcpu-count`, `max-delicated-hosts`, or `max-spot-instance-vcpu-count`.
--   A possible value of instance types is returned when the value is `supported-postpay-instance-types` For more information, see [Instance type families](../../../../reseller.en-US/Product Introduction/Instance type families.md#).
--   The value of yes, none, or unnecessary is returned when the value is `real-name-authentications`.
--   The value of vpc or classic is returned when the value is `instance-network-type`.
 
-|
+ Default value: null.
 
-## Examples { .section}
+ |
+|ZoneId|String|No|cn-hangzhou-b| The ID of the zone.
 
-**Request example** 
+ |
 
-```
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|AccountAttributeItems| | | A collection of information about account privileges in a specified region.
+
+ |
+|└AttributeName|String|max-security-groups| The types of resources. Valid values:
+
+ -   instance-network-type: available network types in the current region
+-   max-security-groups: the number of security groups
+-   max-elastic-network-interfaces: the number of ENIs in the current region
+-   max-postpaid-instance-vcpu-count: the number of Pay-As-You-Go instance vCPU cores in the current region
+-   max-spot-instance-vcpu-count: the number of preemptive instance vCPU cores in the current region
+-   max-delicated-hosts: the number of dedicated hosts in the current region
+-   supported-postpay-instance-types: the Pay-As-You-Go I/O optimization instance types in the current region
+-   real-name-authentication: Whether the account has passed real name authentication.
+
+ |
+|└AttributeValues| | | The value of the resource usage.
+
+ |
+|└Count|Integer|3| The number of resource types.
+
+ |
+|└InstanceChargeType|String|PrePaid| The billing method.
+
+ |
+|└InstanceType|String|\["ecs.g5.large"\]| The type of the instance.
+
+ |
+|└Value|String|800| |
+|└ZoneId|String|cn-hangzhou-b| The ID of the zone.
+
+ |
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=DescribeAccountAttributes
-&RegionId=cn-hangzhou&
-&<Common Request Parameters>
+&RegionId=cn-hangzhou 
+&ZoneId=cn-hangzhou-b
+&AttributeName. 1=max-security-groups
+&<Common request parameters>
 ```
 
-**Response example** 
+Successful response examples
 
-**XML format** 
+`XML` format
 
-```
-<DescribeAccountAttributesResponse>
-    <AccountAttributeItems>
-        <AccountAttributeItem>
-            <AttributeName>max-security-groups</AttributeName>
-            <AttributeValues>
-                <ValueItem>
+``` {#xml_return_success_demo}
+<DescribeAccountAttributesResponse> 
+    <AccountAttributeItems> 
+        <AccountAttributeItem> 
+            <AttributeName>max-security-groups</AttributeName> 
+            <AttributeValues> 
+                <ValueItem> 
                     <Value>800</Value>
-                <ValueItem>
-            </AttributeValues>
-        </AccountAttributeItem>
-          <AccountAttributeItem>
-            <AttributeName>instance-network-type</AttributeName>
-            <AttributeValues>
-                <ValueItem>
+                <ValueItem> 
+            </AttributeValues> 
+        </AccountAttributeItem> 
+          <AccountAttributeItem> 
+            <AttributeName>instance-network-type</AttributeName> 
+            <AttributeValues> 
+                <ValueItem> 
                     <Value>vpc</Value>
                     <Value>classic</Value>
-                <ValueItem>
-            </AttributeValues>
-        </AccountAttributeItem>
-     </AccountAttributeItems>
-    <RequestId>675B6D89-A3EB-4987-BAF3-610591E0D019</RequestId>
-</DescribeAccountAttributesResponse>
+                <ValueItem> 
+            </AttributeValues> 
+        </AccountAttributeItem> 
+     </AccountAttributeItems> 
+    <RequestId>675B6D89-A3EB-4987-BAF3-610591E0D019</RequestId> 
+</DescribeAccountAttributesResponse> 
 ```
 
-**JSON format** 
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-    "AccountAttributeItems": {
-        "AccountAttributeItem": [
-            {
-                "AttributeValues": {
-                    "ValueItem": [
-                        {
-                            "Value": "100"
-                        }
-                    ]
-                },
-                "AttributeName": "max-security-groups"
-            },
-            {
-                "AttributeValues": {
-                    "ValueItem": [
-                        {
-                            "Value": "2"
-                        }
-                    ]
-                },
-                "AttributeName": "max-dedicated-hosts"
-            },
-            {
-                "AttributeValues": {
-                    "ValueItem": [
-                        {
-                            "Value": "1000"
-                        }
-                    ]
-                },
-                "AttributeName": "max-postpaid-instance-vcpu-count"
-            },
-            {
-                "AttributeValues": {
-                    "ValueItem": [
-                        {
-                            "Value": "1000"
-                        }
-                    ]
-                },
-                "AttributeName": "max-spot-instance-vcpu-count"
-            },
-            {
-                "AttributeValues": {
-                    "ValueItem": [
-                        {
-                            "Value": "5000"
-                        }
-                    ]
-                },
-                "AttributeName": "max-elastic-network-interfaces"
-            },
-            {
-                "AttributeValues": {
-                    "ValueItem": [
-                        {
-                            "Value": "yes"
-                        }
-                    ]
-                },
-                "AttributeName": "real-name-authentication"
-            },
-            {
-                "AttributeValues": {
-                    "ValueItem": [
-                        {
-                            "Value": "vpc"
-                        }
-                    ]
-                },
-                "AttributeName": "instance-network-type"
-            },
-            {
-                "AttributeValues": {
-                    "ValueItem": [
-                        {
-                            "Value": "ecs.f3-c16f1.4xlarge"
-                        },
-                        {
-                            "Value": "ecs.g5.2xlarge"
-                        }
-                    ]
-                },
-                "AttributeName": "supported-postpaid-instance-types"
-            }
-        ]
-    },
-    "RequestId": "8CE45CD5-31FB-47C2-959D-CA8144CE9F42"
+	"AccountAttributeItems":{
+		"AccountAttributeItem":[
+			{
+				"AttributeValues":{
+					"ValueItem":[
+						{
+							"Value":"100"
+						}
+					]
+				},
+				"AttributeName":"max-security-groups"
+			},
+			{
+				"AttributeValues":{
+					"ValueItem":[
+						{
+							"Value":"2"
+						}
+					]
+				},
+				"AttributeName":"max-dedicated-hosts"
+			},
+			{
+				"AttributeValues":{
+					"ValueItem":[
+						{
+							"Value":"1000"
+						}
+					]
+				},
+				"AttributeName":"max-postpaid-instance-vcpu-count"
+			},
+			{
+				"AttributeValues":{
+					"ValueItem":[
+						{
+							"Value":"1000"
+						}
+					]
+				},
+				"AttributeName":"max-spot-instance-vcpu-count"
+			},
+			{
+				"AttributeValues":{
+					"ValueItem":[
+						{
+							"Value":"5000"
+						}
+					]
+				},
+				"AttributeName":"max-elastic-network-interfaces"
+			},
+			{
+				"AttributeValues":{
+					"ValueItem":[
+						{
+							"Value":"yes"
+						}
+					]
+				},
+				"AttributeName":"real-name-authentication"
+			},
+			{
+				"AttributeValues":{
+					"ValueItem":[
+						{
+							"Value":"vpc"
+						}
+					]
+				},
+				"AttributeName":"instance-network-type"
+			},
+			{
+				"AttributeValues":{
+					"ValueItem":[
+						{
+							"Value":"ecs.f3-c16f1.4xlarge"
+						},
+						{
+							"Value":"ecs.g5.2xlarge"
+						}
+					]
+				},
+				"AttributeName":"supported-postpaid-instance-types"
+			}
+		]
+	},
+	"RequestId":"8CE45CD5-31FB-47C2-959D-CA8144CE9F42"
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_cbs_nmh_iac .section}
 
-|Error code|Error message|HTTP status code|Meaning|
-|:---------|:------------|:---------------|:------|
-|InvalidRegionId.NotFound|The specified RegionId does not exist.|404|The specified `RegionId` does not exist.|
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|403|Invalid.Parameter|The required parameter regionId must be not null.|The error message returned when the required parameter is not specified.|
+
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
