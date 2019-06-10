@@ -12,7 +12,7 @@ Alibaba Cloud ECS provides two kinds of instance type families: enterprise-level
 
 **Note:** 
 
--   If you are using sn1, sn2, t1, s1, s2, s3, m1, m2, c1, c2, c4, ce4, cm4, n1, n2, or e3, see [Phased-out instance types](reseller.en-US/Instances/Instance type families/Phased-out instance types.md#).
+-   Some instance types are no longer available for purchase. For more information, see [Phased-out instance types](reseller.en-US/Instances/Instance type families/Phased-out instance types.md#).
 -   Upgrading instance types is supported within or between certain instance type families. For such families and corresponding upgrade rules, see [Instance type families that support upgrading instance types](../../../../reseller.en-US/Instances/Change configurations/Instance type families that support instance type upgrades.md#).
 -   Upgrading instance types is not supported within or between the following instance type families: d1, d1ne, i1, i2, i2g, vgn5i, ga1, gn5, gn6i, f1, f3, ebmc4, ebmg5, sccg5, scch5, and sccgn6.
 
@@ -51,7 +51,7 @@ Alibaba Cloud ECS instances are categorized into the following type families:
     -   [ebmc4, computing ECS Bare Metal Instance type family](#)
     -   [ebmg5, general-purpose ECS Bare Metal Instance type family](#)
     -   [scch5, Super Computing Cluster \(SCC\) instance type family with high clock speed](#)
-    -   [sccg5, geneneral-purpose Super Computing Cluster \(SCC\) instance type family](#)
+    -   [sccg5, general-purpose Super Computing Cluster \(SCC\) instance type family](#)
     -   [sccgn6, compute optimized Super Computing Cluster \(SCC\) instance type family with GPUs](reseller.en-US/Instances/Instance type families.md#sccgn6)
 -   Type families for entry-level computing on the x86-architecture:
     -   [t5, burstable instances](#)
@@ -76,16 +76,16 @@ Alibaba Cloud ECS instances are categorized into the following type families:
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.g5.large|2|8.0|N/A|1.0|300|2|2|
-|ecs.g5.xlarge|4|16.0|N/A|1.5|500|2|3|
-|ecs.g5.2xlarge|8|32.0|N/A|2.5|800|2|4|
-|ecs.g5.3xlarge|12|48.0|N/A|4.0|900|4|6|
-|ecs.g5.4xlarge|16|64.0|N/A|5.0|1,000|4|8|
-|ecs.g5.6xlarge|24|96.0|N/A|7.5|1,500|6|8|
-|ecs.g5.8xlarge|32|128.0|N/A|10.0|2,000|8|8|
-|ecs.g5.16xlarge|64|256.0|N/A|20.0|4,000|16|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.g5.large|2|8.0|N/A|1.0|300|2|2|6|
+|ecs.g5.xlarge|4|16.0|N/A|1.5|500|2|3|10|
+|ecs.g5.2xlarge|8|32.0|N/A|2.5|800|2|4|10|
+|ecs.g5.3xlarge|12|48.0|N/A|4.0|900|4|6|10|
+|ecs.g5.4xlarge|16|64.0|N/A|5.0|1,000|4|8|20|
+|ecs.g5.6xlarge|24|96.0|N/A|7.5|1,500|6|8|20|
+|ecs.g5.8xlarge|32|128.0|N/A|10.0|2,000|8|8|20|
+|ecs.g5.16xlarge|64|256.0|N/A|20.0|4,000|16|8|20|
 
 See [other instance type families](#).
 
@@ -108,16 +108,16 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.sn2ne.large|2|8.0|N/A|1.0|300|2|2|
-|ecs.sn2ne.xlarge|4|16.0|N/A|1.5|500|2|3|
-|ecs.sn2ne.2xlarge|8|32.0|N/A|2.0|1,000|4|4|
-|ecs.sn2ne.3xlarge|12|48.0|N/A|2.5|1,300|4|6|
-|ecs.sn2ne.4xlarge|16|64.0|N/A|3.0|1,600|4|8|
-|ecs.sn2ne.6xlarge|24|96.0|N/A|4.5|2,000|6|8|
-|ecs.sn2ne.8xlarge|32|128.0|N/A|6.0|2,500|8|8|
-|ecs.sn2ne.14xlarge|56|224.0|N/A|10.0|4,500|14|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.sn2ne.large|2|8.0|N/A|1.0|300|2|2|6|
+|ecs.sn2ne.xlarge|4|16.0|N/A|1.5|500|2|3|10|
+|ecs.sn2ne.2xlarge|8|32.0|N/A|2.0|1,000|4|4|10|
+|ecs.sn2ne.3xlarge|12|48.0|N/A|2.5|1,300|4|6|10|
+|ecs.sn2ne.4xlarge|16|64.0|N/A|3.0|1,600|4|8|20|
+|ecs.sn2ne.6xlarge|24|96.0|N/A|4.5|2,000|6|8|20|
+|ecs.sn2ne.8xlarge|32|128.0|N/A|6.0|2,500|8|8|20|
+|ecs.sn2ne.14xlarge|56|224.0|N/A|10.0|4,500|14|8|20|
 
 See [other instance type families](#).
 
@@ -139,13 +139,13 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|Vcpu|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.ic5.large|2|2.0|N/A|1.0|300|2|2|
-|ecs.ic5.xlarge|4|4.0|N/A|1.5|500|2|3|
-|ecs.ic5.2xlarge|8|8.0|N/A|2.5|800|2|4|
-|ecs.ic5.3xlarge|12|12.0|N/A|4.0|900|4|6|
-|ecs.ic5.4xlarge|16|16.0|N/A|5.0|1,000|4|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.ic5.large|2|2.0|N/A|1.0|300|2|2|6|
+|ecs.ic5.xlarge|4|4.0|N/A|1.5|500|2|3|10|
+|ecs.ic5.2xlarge|8|8.0|N/A|2.5|800|2|4|10|
+|ecs.ic5.3xlarge|12|12.0|N/A|4.0|900|4|6|10|
+|ecs.ic5.4xlarge|16|16.0|N/A|5.0|1,000|4|8|20|
 
 See [other instance type families](#).
 
@@ -168,16 +168,16 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.c5.large|2|4.0|N/A|1.0|300|2|2|
-|ecs.c5.xlarge|4|8.0|N/A|1.5|500|2|3|
-|ecs.c5.2xlarge|8|16.0|N/A|2.5|800|2|4|
-|ecs.c5.3xlarge|12|24.0|N/A|4.0|900|4|6|
-|ecs.c5.4xlarge|16|32.0|N/A|5.0|1,000|4|8|
-|ecs.c5.6xlarge|24|48.0|N/A|7.5|1,500|6|8|
-|ecs.c5.8xlarge|32|64.0|N/A|10.0|2,000|8|8|
-|ecs.c5.16xlarge|64|128.0|N/A|20.0|4,000|16|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.c5.large|2|4.0|N/A|1.0|300|2|2|6|
+|ecs.c5.xlarge|4|8.0|N/A|1.5|500|2|3|10|
+|ecs.c5.2xlarge|8|16.0|N/A|2.5|800|2|4|10|
+|ecs.c5.3xlarge|12|24.0|N/A|4.0|900|4|6|10|
+|ecs.c5.4xlarge|16|32.0|N/A|5.0|1,000|4|8|20|
+|ecs.c5.6xlarge|24|48.0|N/A|7.5|1,500|6|8|20|
+|ecs.c5.8xlarge|32|64.0|N/A|10.0|2,000|8|8|20|
+|ecs.c5.16xlarge|64|128.0|N/A|20.0|4,000|16|8|20|
 
 See [other instance type families](#).
 
@@ -200,15 +200,15 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.sn1ne.large|2|4.0|N/A|1.0|300|2|2|
-|ecs.sn1ne.xlarge|4|8.0|N/A|1.5|500|2|3|
-|ecs.sn1ne.2xlarge|8|16.0|N/A|2.0|1,000|4|4|
-|ecs.sn1ne.3xlarge|12|24.0|N/A|2.5|1,300|4|6|
-|ecs.sn1ne.4xlarge|16|32.0|N/A|3.0|1,600|4|8|
-|ecs.sn1ne.6xlarge|24|48.0|N/A|4.5|2,000|6|8|
-|ecs.sn1ne.8xlarge|32|64.0|N/A|6.0|2,500|8|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.sn1ne.large|2|4.0|N/A|1.0|300|2|2|6|
+|ecs.sn1ne.xlarge|4|8.0|N/A|1.5|500|2|3|10|
+|ecs.sn1ne.2xlarge|8|16.0|N/A|2.0|1,000|4|4|10|
+|ecs.sn1ne.3xlarge|12|24.0|N/A|2.5|1,300|4|6|10|
+|ecs.sn1ne.4xlarge|16|32.0|N/A|3.0|1,600|4|8|20|
+|ecs.sn1ne.6xlarge|24|48.0|N/A|4.5|2,000|6|8|20|
+|ecs.sn1ne.8xlarge|32|64.0|N/A|6.0|2,500|8|8|20|
 
 See [other instance type families](#).
 
@@ -229,16 +229,16 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.r5.large|2|16.0|N/A|1.0|300|2|2|
-|ecs.r5.xlarge|4|32.0|N/A|1.5|500|2|3|
-|ecs.r5.2xlarge|8|64.0|N/A|2.5|800|2|4|
-|ecs.r5.3xlarge|12|96.0|N/A|4.0|900|4|6|
-|ecs.r5.4xlarge|16|128.0|N/A|5.0|1,000|4|8|
-|ecs.r5.6xlarge|24|192.0|N/A|7.5|1,500|6|8|
-|ecs.r5.8xlarge|32|256.0|N/A|10.0|2,000|8|8|
-|ecs.r5.16xlarge|64|512.0|N/A|20.0|4,000|16|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.r5.large|2|16.0|N/A|1.0|300|2|2|6|
+|ecs.r5.xlarge|4|32.0|N/A|1.5|500|2|3|10|
+|ecs.r5.2xlarge|8|64.0|N/A|2.5|800|2|4|10|
+|ecs.r5.3xlarge|12|96.0|N/A|4.0|900|4|6|10|
+|ecs.r5.4xlarge|16|128.0|N/A|5.0|1,000|4|8|20|
+|ecs.r5.6xlarge|24|192.0|N/A|7.5|1,500|6|8|20|
+|ecs.r5.8xlarge|32|256.0|N/A|10.0|2,000|8|8|20|
+|ecs.r5.16xlarge|64|512.0|N/A|20.0|4,000|16|8|20|
 
 See [other instance type families](#).
 
@@ -259,10 +259,10 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.re4.20xlarge|80|960.0|N/A|15.0|2,000|16|8|
-|ecs.re4.40xlarge|160|1920.0|N/A|30.0|4,500|16|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.re4.20xlarge|80|960.0|N/A|15.0|2,000|16|8|20|
+|ecs.re4.40xlarge|160|1920.0|N/A|30.0|4,500|16|8|20|
 
 See [other instance type families](#).
 
@@ -282,9 +282,9 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.re4e.40xlarge|160|3840.0|N/A|30.0|4,500|16|15|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.re4e.40xlarge|160|3840.0|N/A|30.0|4,500|16|15|20|
 
 See [other instance type families](#).
 
@@ -306,16 +306,16 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.se1ne.large|2|16.0|N/A|1.0|300|2|2|
-|ecs.se1ne.xlarge|4|32.0|N/A|1.5|500|2|3|
-|ecs.se1ne.2xlarge|8|64.0|N/A|2.0|1,000|4|4|
-|ecs.se1ne.3xlarge|12|96.0|N/A|2.5|1,300|4|6|
-|ecs.se1ne.4xlarge|16|128.0|N/A|3.0|1,600|4|8|
-|ecs.se1ne.6xlarge|24|192.0|N/A|4.5|2,000|6|8|
-|ecs.se1ne.8xlarge|32|256.0|N/A|6.0|2,500|8|8|
-|ecs.se1ne.14xlarge|56|480.0|N/A|10.0|4,500|14|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.se1ne.large|2|16.0|N/A|1.0|300|2|2|6|
+|ecs.se1ne.xlarge|4|32.0|N/A|1.5|500|2|3|10|
+|ecs.se1ne.2xlarge|8|64.0|N/A|2.0|1,000|4|4|10|
+|ecs.se1ne.3xlarge|12|96.0|N/A|2.5|1,300|4|6|10|
+|ecs.se1ne.4xlarge|16|128.0|N/A|3.0|1,600|4|8|20|
+|ecs.se1ne.6xlarge|24|192.0|N/A|4.5|2,000|6|8|20|
+|ecs.se1ne.8xlarge|32|256.0|N/A|6.0|2,500|8|8|20|
+|ecs.se1ne.14xlarge|56|480.0|N/A|10.0|4,500|14|8|20|
 
 See [other instance type families](#).
 
@@ -335,14 +335,14 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.se1.large|2|16.0|N/A|0.5|100|1|2|
-|ecs.se1.xlarge|4|32.0|N/A|0.8|200|1|3|
-|ecs.se1.2xlarge|8|64.0|N/A|1.5|400|1|4|
-|ecs.se1.4xlarge|16|128.0|N/A|3.0|500|2|8|
-|ecs.se1.8xlarge|32|256.0|N/A|6.0|800|3|8|
-|ecs.se1.14xlarge|56|480.0|N/A|10.0|1,200|4|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.se1.large|2|16.0|N/A|0.5|100|1|2|6|
+|ecs.se1.xlarge|4|32.0|N/A|0.8|200|1|3|10|
+|ecs.se1.2xlarge|8|64.0|N/A|1.5|400|1|4|10|
+|ecs.se1.4xlarge|16|128.0|N/A|3.0|500|2|8|20|
+|ecs.se1.8xlarge|32|256.0|N/A|6.0|800|3|8|20|
+|ecs.se1.14xlarge|56|480.0|N/A|10.0|1,200|4|8|20|
 
 See [other instance type families](#).
 
@@ -364,15 +364,15 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.d1ne.2xlarge|8|32.0|4 \* 5500|6.0|1,000|4|4|
-|ecs.d1ne.4xlarge|16|64.0|8 \* 5500|12.0|1,600|4|8|
-|ecs.d1ne.6xlarge|24|96.0|12 \* 5500|16.0|2,000|6|8|
-|ecs.d1ne-c8d3.8xlarge|32|128.0|12 \* 5500|20.0|2,000|6|8|
-|ecs.d1ne.8xlarge|32|128.0|16 \* 5500|20.0|2,500|8|8|
-|ecs.d1ne-c14d3.14xlarge|56|160.0|12 \* 5500|35.0|4,500|14|8|
-|ecs.d1ne.14xlarge|56|224.0|28 \* 5500|35.0|4,500|14|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.d1ne.2xlarge|8|32.0|4 \* 5500|6.0|1,000|4|4|10|
+|ecs.d1ne.4xlarge|16|64.0|8 \* 5500|12.0|1,600|4|8|20|
+|ecs.d1ne.6xlarge|24|96.0|12 \* 5500|16.0|2,000|6|8|20|
+|ecs.d1ne-c8d3.8xlarge|32|128.0|12 \* 5500|20.0|2,000|6|8|20|
+|ecs.d1ne.8xlarge|32|128.0|16 \* 5500|20.0|2,500|8|8|20|
+|ecs.d1ne-c14d3.14xlarge|56|160.0|12 \* 5500|35.0|4,500|14|8|20|
+|ecs.d1ne.14xlarge|56|224.0|28 \* 5500|35.0|4,500|14|8|20|
 
 **Note:** 
 
@@ -399,16 +399,16 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.d1.2xlarge|8|32.0|4 \* 5500|3.0|300|1|4|
-|ecs.d1.3xlarge|12|48.0|16 \* 5500|4.0|400|1|6|
-|ecs.d1.4xlarge|16|64.0|8 \* 5500|6.0|600|2|8|
-|ecs.d1.6xlarge|24|96.0|12 \* 5500|8.0|800|2|8|
-|ecs.d1-c8d3.8xlarge|32|128.0|12 \* 5500|10.0|1,000|4|8|
-|ecs.d1.8xlarge|32|128.0|16 \* 5500|10.0|1,000|4|8|
-|ecs.d1-c14d3.14xlarge|56|160.0|12 \* 5500|17.0|1,800|6|8|
-|ecs.d1.14xlarge|56|224.0|28 \* 5500|17.0|1,800|6|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.d1.2xlarge|8|32.0|4 \* 5500|3.0|300|1|4|10|
+|ecs.d1.3xlarge|12|48.0|16 \* 5500|4.0|400|1|6|10|
+|ecs.d1.4xlarge|16|64.0|8 \* 5500|6.0|600|2|8|20|
+|ecs.d1.6xlarge|24|96.0|12 \* 5500|8.0|800|2|8|20|
+|ecs.d1-c8d3.8xlarge|32|128.0|12 \* 5500|10.0|1,000|4|8|20|
+|ecs.d1.8xlarge|32|128.0|16 \* 5500|10.0|1,000|4|8|20|
+|ecs.d1-c14d3.14xlarge|56|160.0|12 \* 5500|17.0|1,800|6|8|20|
+|ecs.d1.14xlarge|56|224.0|28 \* 5500|17.0|1,800|6|8|20|
 
 **Note:** For more information about d1 type families, see [FAQ on d1 and d1ne](https://partners-intl.aliyun.com/help/faq-detail/52993.htm).
 
@@ -431,13 +431,13 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.i2.xlarge|4|32.0|1 \* 894|1.0|500|2|3|
-|ecs.i2.2xlarge|8|64.0|1 \* 1788|2.0|1,000|2|4|
-|ecs.i2.4xlarge|16|128.0|2 \* 1788|3.0|1,500|4|8|
-|ecs.i2.8xlarge|32|256.0|4 \* 1788|6.0|2,000|8|8|
-|ecs.i2.16xlarge|64|512.0|8 \* 1788|10.0|4,000|16|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.i2.xlarge|4|32.0|1 \* 894|1.0|500|2|3|10|
+|ecs.i2.2xlarge|8|64.0|1 \* 1788|2.0|1,000|2|4|10|
+|ecs.i2.4xlarge|16|128.0|2 \* 1788|3.0|1,500|4|8|20|
+|ecs.i2.8xlarge|32|256.0|4 \* 1788|6.0|2,000|8|8|20|
+|ecs.i2.16xlarge|64|512.0|8 \* 1788|10.0|4,000|16|8|20|
 
 See [other instance type families](#).
 
@@ -458,12 +458,12 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.i2g.2xlarge|8|32.0|1 \* 894|2.0|1,000|2|4|
-|ecs.i2g.4xlarge|16|64.0|1 \* 1788|3.0|1,500|4|8|
-|ecs.i2g.8xlarge|32|128.0|2 \* 1788|6.0|2,000|8|8|
-|ecs.i2g.16xlarge|64|256.0|4 \* 1788|10.0|4,000|16|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.i2g.2xlarge|8|32.0|1 \* 894|2.0|1,000|2|4|10|
+|ecs.i2g.4xlarge|16|64.0|1 \* 1788|3.0|1,500|4|8|20|
+|ecs.i2g.8xlarge|32|128.0|2 \* 1788|6.0|2,000|8|8|20|
+|ecs.i2g.16xlarge|64|256.0|4 \* 1788|10.0|4,000|16|8|20|
 
 See [other instance type families](#).
 
@@ -484,17 +484,17 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.i1.xlarge|4|16.0|2 \* 104|0.8|200|1|3|
-|ecs.i1.2xlarge|8|32.0|2 \* 208|1.5|400|1|4|
-|ecs.i1.3xlarge|12|48.0|2 \* 312|2.0|400|1|6|
-|ecs.i1.4xlarge|16|64.0|2 \* 416|3.0|500|2|8|
-|ecs.i1-c5d1.4xlarge|16|64.0|2 \* 1456|3.0|400|2|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.i1.xlarge|4|16.0|2 \* 104|0.8|200|1|3|10|
+|ecs.i1.2xlarge|8|32.0|2 \* 208|1.5|400|1|4|10|
+|ecs.i1.3xlarge|12|48.0|2 \* 312|2.0|400|1|6|10|
+|ecs.i1.4xlarge|16|64.0|2 \* 416|3.0|500|2|8|20|
+|ecs.i1-c5d1.4xlarge|16|64.0|2 \* 1456|3.0|400|2|8|20|
 |ecs.i1.6xlarge|24|96.0|2 \* 624|4.5|600|2|8|
-|ecs.i1.8xlarge|32|128.0|2 \* 832|6.0|800|3|8|
-|ecs.i1-c10d1.8xlarge|32|128.0|2 \* 1456|6.0|800|3|8|
-|ecs.i1.14xlarge|56|224.0|2 \* 1456|10.0|1,200|4|8|
+|ecs.i1.8xlarge|32|128.0|2 \* 832|6.0|800|3|8|20|
+|ecs.i1-c10d1.8xlarge|32|128.0|2 \* 1456|6.0|800|3|8|20|
+|ecs.i1.14xlarge|56|224.0|2 \* 1456|10.0|1,200|4|8|20|
 
 See [other instance type families](#).
 
@@ -515,15 +515,15 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.hfc5.large|2|4.0|N/A|1.0|300|2|2|
-|ecs.hfc5.xlarge|4|8.0|N/A|1.5|500|2|3|
-|ecs.hfc5.2xlarge|8|16.0|N/A|2.0|1,000|2|4|
-|ecs.hfc5.3xlarge|12|24.0|N/A|2.5|1,300|4|6|
-|ecs.hfc5.4xlarge|16|32.0|N/A|3.0|1,600|4|8|
-|ecs.hfc5.6xlarge|24|48.0|N/A|4.5|2,000|6|8|
-|ecs.hfc5.8xlarge|32|64.0|N/A|6.0|2,500|8|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.hfc5.large|2|4.0|N/A|1.0|300|2|2|6|
+|ecs.hfc5.xlarge|4|8.0|N/A|1.5|500|2|3|10|
+|ecs.hfc5.2xlarge|8|16.0|N/A|2.0|1,000|2|4|10|
+|ecs.hfc5.3xlarge|12|24.0|N/A|2.5|1,300|4|6|10|
+|ecs.hfc5.4xlarge|16|32.0|N/A|3.0|1,600|4|8|20|
+|ecs.hfc5.6xlarge|24|48.0|N/A|4.5|2,000|6|8|20|
+|ecs.hfc5.8xlarge|32|64.0|N/A|6.0|2,500|8|8|20|
 
 See [other instance type families](#).
 
@@ -544,16 +544,16 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.hfg5.large|2|8.0|N/A|1.0|300|2|2|
-|ecs.hfg5.xlarge|4|16.0|N/A|1.5|500|2|3|
-|ecs.hfg5.2xlarge|8|32.0|N/A|2.0|1,000|2|4.|
-|ecs.hfg5.3xlarge|12|48.0|N/A|2.5|1,300|4|6|
-|ecs.hfg5.4xlarge|16|64.0|N/A|3.0|1,600|4|8|
-|ecs.hfg5.6xlarge|24|96.0|N/A|4.5|2,000|6|8|
-|ecs.hfg5.8xlarge|32|128.0|N/A|6.0|2,500|8|8|
-|ecs.hfg5.14xlarge|56|160.0|N/A|10.0|4,000|14|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.hfg5.large|2|8.0|N/A|1.0|300|2|2|6|
+|ecs.hfg5.xlarge|4|16.0|N/A|1.5|500|2|3|10|
+|ecs.hfg5.2xlarge|8|32.0|N/A|2.0|1,000|2|4.|10|
+|ecs.hfg5.3xlarge|12|48.0|N/A|2.5|1,300|4|6|10|
+|ecs.hfg5.4xlarge|16|64.0|N/A|3.0|1,600|4|8|20|
+|ecs.hfg5.6xlarge|24|96.0|N/A|4.5|2,000|6|8|20|
+|ecs.hfg5.8xlarge|32|128.0|N/A|6.0|2,500|8|8|20|
+|ecs.hfg5.14xlarge|56|160.0|N/A|10.0|4,000|14|8|20|
 
 See [other instance type families](#).
 
@@ -566,7 +566,7 @@ See [other instance type families](#).
 -   Use an NVIDIA P4 GPU computation accelerator
 -   Contains a virtual GPU \(which is the result of partitioned virtualization\)
     -   Supports the 1/8, 1/4, 1/2, and 1:1 computing capacity of NVIDIA Tesla P4 GPUs
-    -   Supports 1, 2, 4, and 8 GiB of video memory
+    -   Supports 1, 2, 4, and 8 GB of GPU memory
 -   Equipped with a vCPU to memory ratio of 1:3
 -   Equipped with 2.5 GHz Intel Xeon E5-2682 v4 \(Broadwell\) processors
 -   Supports strong network performance through sufficient computing capacity
@@ -577,8 +577,8 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|GPU|GPU memory \(GiB\)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:--|:-----------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|GPU|GPU memory \(GB\)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
+|:------------|:---|:-------------|:---------------------------|:--|:----------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
 |ecs.vgn5i-m1.large|2|6|N/A|P4\*1/8|1|1|300|2|2|
 |ecs.vgn5i-m2.xlarge|4|12|N/A|P4\*1/4|2|2|500|2|3|
 |ecs.vgn5i-m4.2xlarge|8|24|N/A|P4\*1/2|4|3|800|2|4|
@@ -593,7 +593,6 @@ See [other instance type families](#).
 **Features**
 
 -   I/O-optimized
--   Supports IPv6
 -   Equipped with a vCPU to memory ratio of 1:4
 -   Equipped with 2.5 GHz Intel Xeon Platinum 8163 \(Skylake\) processors
 -   Supports ESSD Cloud Disks \(million-level IOPS\), SSD Cloud Disks, and Ultra Disks
@@ -603,7 +602,7 @@ See [other instance type families](#).
     -   Up to 320 Turing Tensor Cores
     -   Up to 2,560 CUDA Cores
     -   Mixed-precision Tensor Cores support 65 TFlops FP16, 130 INT8 TOPS, and 260 INT4 TOPS
-    -   16 GB memory capacity \(320 GB/s bandwidth\)
+    -   16 GB GPU memory capacity \(320 GB/s bandwidth\)
 -   Supports strong network performance through sufficient computing capacity
 -   Suitable for the following scenarios:
     -   AI \(deep learning and machine learning\) inference, computer vision, voice recognition, voice synthesization, natural language processing, machine translation, and reference systems
@@ -614,17 +613,17 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance types|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|GPU|GPU memory \(GiB\)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|IPv6-ready?|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:-------------|:---|:-------------|:---------------------------|:--|:-----------------|-------------------------------|:---------------------------------------------------|:----------|:------------------------|:--------------------|
-|ecs.gn6i-c4g1.xlarge|4|15|N/A|T4\*1|16|4|500|Yes|2|2|
-|ecs.gn6i-c8g1.2xlarge|8|31|N/A|T4\*1|16|5|800|Yes|2|2|
-|ecs.gn6i-c16g1.4xlarge|16|62|N/A|T4\*1|16|6|1,000|Yes|4|3|
-|ecs.gn6i-c24g1.6xlarge|24|93|N/A|T4\*1|16|7.5|1,200|Yes|6|4|
-|ecs.gn6i-c24g1.12xlarge|48|186|N/A|T4\*2|32|15|2,400|Yes|12|6|
-|ecs.gn6i-c24g1.24xlarge|96|372|N/A|T4\*4|64|30|4,800|Yes|24|8|
-|ecs.gn6i-c32g1.8xlarge|32|124|N/A|T4\*1|16|10|1,600|Yes|8|6|
-|ecs.gn6i-c48g1.12xlarge|48|186|N/A|T4\*1|16|12|2,400|Yes|12|6|
-|ecs.gn6i-c72g1.18xlarge|72|279|N/A|T4\*1|16|21.5|3,600|Yes|18|8|
+|Instance types|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|GPU|GPU memory \(GB\)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
+|:-------------|:---|:-------------|:---------------------------|:--|:----------------|-------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
+|ecs.gn6i-c4g1.xlarge|4|15|N/A|T4\*1|16|4|500|2|2|
+|ecs.gn6i-c8g1.2xlarge|8|31|N/A|T4\*1|16|5|800|2|2|
+|ecs.gn6i-c16g1.4xlarge|16|62|N/A|T4\*1|16|6|1,000|4|3|
+|ecs.gn6i-c24g1.6xlarge|24|93|N/A|T4\*1|16|7.5|1,200|6|4|
+|ecs.gn6i-c24g1.12xlarge|48|186|N/A|T4\*2|32|15|2,400|12|6|
+|ecs.gn6i-c24g1.24xlarge|96|372|N/A|T4\*4|64|30|4,800|24|8|
+|ecs.gn6i-c32g1.8xlarge|32|124|N/A|T4\*1|16|10|1,600|8|6|
+|ecs.gn6i-c48g1.12xlarge|48|186|N/A|T4\*1|16|12|2,400|12|6|
+|ecs.gn6i-c72g1.18xlarge|72|279|N/A|T4\*1|16|21.5|3,600|18|8|
 
 **Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../dita-oss-bucket/SP_2/DNA0011894323/reseller.en-US/Instances/Instance type families/Compute optimized type family with GPU/Create a compute optimized instance with GPU.md#).
 
@@ -639,6 +638,12 @@ See [other instance type families](#).
 -   Uses NVIDIA V100 GPU processors
 -   Equipped with a vCPU to memory ratio of 1:4
 -   Equipped with 2.5 GHz Intel Xeon Platinum 8163 \(Skylake\) processors
+-   Uses NVIDIA V100 GPU processors \(with the SXM2 module\):
+    -   Based on the new NVIDIA Volta architecture
+    -   16 GB HBM2 GPU memory capacity \(900 GB/s bandwidth\)
+    -   Up to 5,120 CUDA Cores
+    -   Up to 640 Tensor Cores
+    -   Supports up to six NVLink connections and total bandwidth of 300 GB/s \(25 GB/s per connection\)
 -   Supports strong network performance through sufficient computing capacity
 -   Suitable for the following scenarios:
     -   Deep learning, autonomous vehicles, voice recognition, and other AI applications
@@ -646,11 +651,11 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance types|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|GPU|GPU memory \(GiB\)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:-------------|:---|:-------------|:---------------------------|:--|:-----------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.gn6v-c8g1.2xlarge|8|32.0|N/A|1 \* NVIDIA V100|1 \* 16|2.5|800|4|4|
-|ecs.gn6v-c8g1.8xlarge|32|128.0|N/A|4 \* NVIDIA V100|4 \* 16|10.0|2,000|8|8|
-|ecs.gn6v-c8g1.16xlarge|64|256.0|N/A|8 \* NVIDIA V100|8 \* 16|20.0|2,500|16|8|
+|Instance types|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|GPU|GPU memory \(GB\)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:-------------|:---|:-------------|:---------------------------|:--|:----------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.gn6v-c8g1.2xlarge|8|32.0|N/A|1 \* NVIDIA V100|1 \* 16|2.5|800|4|4|10|
+|ecs.gn6v-c8g1.8xlarge|32|128.0|N/A|4 \* NVIDIA V100|4 \* 16|10.0|2,000|8|8|20|
+|ecs.gn6v-c8g1.16xlarge|64|256.0|N/A|8 \* NVIDIA V100|8 \* 16|20.0|2,500|16|8|20|
 
 **Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../dita-oss-bucket/SP_2/DNA0011894323/reseller.en-US/Instances/Instance type families/Compute optimized type family with GPU/Create a compute optimized instance with GPU.md#).
 
@@ -674,16 +679,16 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|GPU|GPU memory \(GiB\)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:--|:-----------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.gn5-c4g1.xlarge|4|30.0|440|1 \* NVIDIA P100|1 \* 16|3.0|300|1|3|
-|ecs.gn5-c8g1.2xlarge|8|60.0|440|1 \* NVIDIA P100|1 \* 16|3.0|400|1|4|
-|ecs.gn5-c4g1.2xlarge|8|60.0|880|2 \* NVIDIA P100|2 \* 16|5.0|1,000|2|4|
-|ecs.gn5-c8g1.4xlarge|16|120.0|880|2 \* NVIDIA P100|2 \* 16|5.0|1,000|4|8|
-|ecs.gn5-c28g1.7xlarge|28|112.0|440|1 \* NVIDIA P100|1 \* 16|5.0|1,000|8|8|
-|ecs.gn5-c8g1.8xlarge|32|240.0|1760|4 \* NVIDIA P100|4 \* 16|10.0|2,000|8|8|
-|ecs.gn5-c28g1.14xlarge|56|224.0|880|2 \* NVIDIA P100|2 \* 16|10.0|2,000|14|8|
-|ecs.gn5-c8g1.14xlarge|54|480.0|3520|8 \* NVIDIA P100|8 \* 16|25.0|4,000|14|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|GPU|GPU memory \(GB\)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:--|:----------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.gn5-c4g1.xlarge|4|30.0|440|1 \* NVIDIA P100|1 \* 16|3.0|300|1|3|10|
+|ecs.gn5-c8g1.2xlarge|8|60.0|440|1 \* NVIDIA P100|1 \* 16|3.0|400|1|4|10|
+|ecs.gn5-c4g1.2xlarge|8|60.0|880|2 \* NVIDIA P100|2 \* 16|5.0|1,000|2|4|10|
+|ecs.gn5-c8g1.4xlarge|16|120.0|880|2 \* NVIDIA P100|2 \* 16|5.0|1,000|4|8|20|
+|ecs.gn5-c28g1.7xlarge|28|112.0|440|1 \* NVIDIA P100|1 \* 16|5.0|1,000|8|8|20|
+|ecs.gn5-c8g1.8xlarge|32|240.0|1760|4 \* NVIDIA P100|4 \* 16|10.0|2,000|8|8|20|
+|ecs.gn5-c28g1.14xlarge|56|224.0|880|2 \* NVIDIA P100|2 \* 16|10.0|2,000|14|8|20|
+|ecs.gn5-c8g1.14xlarge|54|480.0|3520|8 \* NVIDIA P100|8 \* 16|25.0|4,000|14|8|20|
 
 **Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../dita-oss-bucket/SP_2/DNA0011894323/reseller.en-US/Instances/Instance type families/Compute optimized type family with GPU/Create a compute optimized instance with GPU.md#).
 
@@ -705,14 +710,14 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|GPU|GPU memory \(GiB\)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:--|:-----------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.gn5i-c2g1.large|2|8.0|N/A|1 \* NVIDIA P4|1 \* 8|1.0|100|2|2|
-|ecs.gn5i-c4g1.xlarge|4|16.0|N/A|1 \* NVIDIA P4|1 \* 8|1.5|200|2|3|
-|ecs.gn5i-c8g1.2xlarge|8|32.0|N/A|1 \* NVIDIA P4|1 \* 8|2.0|400|4|4|
-|ecs.gn5i-c16g1.4xlarge|16|64.0|N/A|1 \* NVIDIA P4|1 \* 8|3.0|800|4|8|
-|ecs.gn5i-c16g1.8xlarge|32|128.0|N/A|2 \* NVIDIA P4|2 \* 8|6.0|1,200|8|8|
-|ecs.gn5i-c28g1.14xlarge|56|224.0|N/A|2 \* NVIDIA P4|2 \* 8|10.0|2,000|14|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|GPU|GPU memory \(GB\)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:--|:----------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.gn5i-c2g1.large|2|8.0|N/A|1 \* NVIDIA P4|1 \* 8|1.0|100|2|2|6|
+|ecs.gn5i-c4g1.xlarge|4|16.0|N/A|1 \* NVIDIA P4|1 \* 8|1.5|200|2|3|10|
+|ecs.gn5i-c8g1.2xlarge|8|32.0|N/A|1 \* NVIDIA P4|1 \* 8|2.0|400|4|4|10|
+|ecs.gn5i-c16g1.4xlarge|16|64.0|N/A|1 \* NVIDIA P4|1 \* 8|3.0|800|4|8|10|
+|ecs.gn5i-c16g1.8xlarge|32|128.0|N/A|2 \* NVIDIA P4|2 \* 8|6.0|1,200|8|8|20|
+|ecs.gn5i-c28g1.14xlarge|56|224.0|N/A|2 \* NVIDIA P4|2 \* 8|10.0|2,000|14|8|20|
 
 **Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../dita-oss-bucket/SP_2/DNA0011894323/reseller.en-US/Instances/Instance type families/Compute optimized type family with GPU/Create a compute optimized instance with GPU.md#).
 
@@ -735,14 +740,14 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|GPU|GPU memory \(GiB\)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:--|:-----------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.gn4-c4g1.xlarge|4|30.0|N/A|1 \* NVIDIA M40|1 \* 12|3.0|300|1|3|
-|ecs.gn4-c8g1.2xlarge|8|30.0|N/A|1 \* NVIDIA M40|1 \* 12|3.0|400|1|4|
-|ecs.gn4.8xlarge|32|48.0|N/A|1 \* NVIDIA M40|1 \* 12|6.0|800|3|8|
-|ecs.gn4-c4g1.2xlarge|8|60.0|N/A|2 \* NVIDIA M40|2 \* 12|5.0|500|1|4|
-|ecs.gn4-c8g1.4xlarge|16|60.0|N/A|2 \* NVIDIA M40|2 \* 12|5.0|500|1|8|
-|ecs.gn4.14xlarge|56|96.0|N/A|2 \* NVIDIA M40|2 \* 12|10.0|1,200|4|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|GPU|GPU memory \(GB\)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:--|:----------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.gn4-c4g1.xlarge|4|30.0|N/A|1 \* NVIDIA M40|1 \* 12|3.0|300|1|3|10|
+|ecs.gn4-c8g1.2xlarge|8|30.0|N/A|1 \* NVIDIA M40|1 \* 12|3.0|400|1|4|10|
+|ecs.gn4.8xlarge|32|48.0|N/A|1 \* NVIDIA M40|1 \* 12|6.0|800|3|8|20|
+|ecs.gn4-c4g1.2xlarge|8|60.0|N/A|2 \* NVIDIA M40|2 \* 12|5.0|500|1|4|10|
+|ecs.gn4-c8g1.4xlarge|16|60.0|N/A|2 \* NVIDIA M40|2 \* 12|5.0|500|1|8|20|
+|ecs.gn4.14xlarge|56|96.0|N/A|2 \* NVIDIA M40|2 \* 12|10.0|1,200|4|8|20|
 
 **Note:** For more information, see [Create a compute optimized instance with GPUs](../../../../dita-oss-bucket/SP_2/DNA0011894323/reseller.en-US/Instances/Instance type families/Compute optimized type family with GPU/Create a compute optimized instance with GPU.md#).
 
@@ -766,13 +771,13 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|GPU|GPU memory \(GiB\)|Bandwidth \(Gbit/s\)**[ \*\* ](#)**|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:--|:-----------------|:----------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.ga1.xlarge|4|10.0|1 \* 87|0.25 \* AMD S7150|2|1.0|200|1|3|
-|ecs.ga1.2xlarge|8|20.0|1 \* 175|0.5 \* AMD S7150|4|1.5|300|1|4|
-|ecs.ga1.4xlarge|16|40.0|1 \* 350|1 \* AMD S7150|8|3.0|500|2|8|
-|ecs.ga1.8xlarge|32|80.0|1 \* 700|2 \* AMD S7150|2 \* 8|6.0|800|3|8|
-|ecs.ga1.14xlarge|56|160.0|1 \* 1400|4 \* AMD S7150|4 \* 8|10.0|1,200|4|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|GPU|GPU memory \(GB\)|Bandwidth \(Gbit/s\)**[ \*\* ](#)**|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:--|:----------------|:----------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.ga1.xlarge|4|10.0|1 \* 87|0.25 \* AMD S7150|2|1.0|200|1|3|10|
+|ecs.ga1.2xlarge|8|20.0|1 \* 175|0.5 \* AMD S7150|4|1.5|300|1|4|10|
+|ecs.ga1.4xlarge|16|40.0|1 \* 350|1 \* AMD S7150|8|3.0|500|2|8|20|
+|ecs.ga1.8xlarge|32|80.0|1 \* 700|2 \* AMD S7150|2 \* 8|6.0|800|3|8|20|
+|ecs.ga1.14xlarge|56|160.0|1 \* 1400|4 \* AMD S7150|4 \* 8|10.0|1,200|4|8|20|
 
 **Note:** For more information, see [Create an instance of ga1](../../../../reseller.en-US/Instances/Instance type families/Visualization compute type family with GPU/Create a ga1 instance.md#).
 
@@ -797,12 +802,12 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|FPGA|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:---|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.f1-c8f1.2xlarge|8|60.0|N/A|Intel ARRIA 10 GX 1150|3.0|400|4|4|
-|ecs.f1-c8f1.4xlarge|16|120.0|N/A|2 \* Intel ARRIA 10 GX 1150|5.0|1,000|4|8|
-|ecs.f1-c28f1.7xlarge|28|112.0|N/A|Intel ARRIA 10 GX 1150|5.0|2,000|8|8|
-|ecs.f1-c28f1.14xlarge|56|224.0|N/A|2 \* Intel ARRIA 10 GX 1150|10.0|2,000|14|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|FPGA|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:---|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.f1-c8f1.2xlarge|8|60.0|N/A|Intel ARRIA 10 GX 1150|3.0|400|4|4|10|
+|ecs.f1-c8f1.4xlarge|16|120.0|N/A|2 \* Intel ARRIA 10 GX 1150|5.0|1,000|4|8|20|
+|ecs.f1-c28f1.7xlarge|28|112.0|N/A|Intel ARRIA 10 GX 1150|5.0|2,000|8|8|20|
+|ecs.f1-c28f1.14xlarge|56|224.0|N/A|2 \* Intel ARRIA 10 GX 1150|10.0|2,000|14|8|20|
 
 See [other instance type families](#).
 
@@ -825,13 +830,13 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|FPGA|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:---|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.f3-c4f1.xlarge|4|16.0|N/A|1 \* Xilinx VU9P|1.5|300|2|3|
-|ecs.f3-c8f1.2xlarge|8|32.0|N/A|1 \* Xilinx VU9P|2.5|500|4|4|
-|ecs.f3-c16f1.4xlarge|16|64.0|N/A|1 \* Xilinx VU9P|5.0|1,000|4|8|
-|ecs.f3-c16f1.8xlarge|32|128.0|N/A|2 \* Xilinx VU9P|10.0|2,000|8|8|
-|ecs.f3-c16f1.16xlarge|64|256.0|N/A|4 \* Xilinx VU9P|20.0|2,500|16|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|FPGA|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:---|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.f3-c4f1.xlarge|4|16.0|N/A|1 \* Xilinx VU9P|1.5|300|2|3|10|
+|ecs.f3-c8f1.2xlarge|8|32.0|N/A|1 \* Xilinx VU9P|2.5|500|4|4|10|
+|ecs.f3-c16f1.4xlarge|16|64.0|N/A|1 \* Xilinx VU9P|5.0|1,000|4|8|20|
+|ecs.f3-c16f1.8xlarge|32|128.0|N/A|2 \* Xilinx VU9P|10.0|2,000|8|8|20|
+|ecs.f3-c16f1.16xlarge|64|256.0|N/A|4 \* Xilinx VU9P|20.0|2,500|16|8|20|
 
 See [other instance type families](#).
 
@@ -855,9 +860,9 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENISs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:---------------------|
-|ecs.ebmhfg5.2xlarge|8|32.0|N/A|6.0|2,000|8|6|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.ebmhfg5.2xlarge|8|32.0|N/A|6.0|2,000|8|6|8|
 
 **Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/ECS Bare Metal Instance.md#).
 
@@ -883,9 +888,9 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.ebmc4.8xlarge|32|64.0|N/A|10.0|4,000|8|12|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.ebmc4.8xlarge|32|64.0|N/A|10.0|4,000|8|12|10|
 
 **Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/ECS Bare Metal Instance.md#).
 
@@ -911,9 +916,9 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.ebmg5.24xlarge|96|384.0|N/A|10.0|4,000|8|32|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.ebmg5.24xlarge|96|384.0|N/A|10.0|4,000|8|32|10|
 
 **Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/ECS Bare Metal Instance.md#).
 
@@ -936,15 +941,15 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Physical core|Memory \(GiB\)|GPU|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|RoCE \(Inbound/Outbound\) \(Gbit/s\)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|-------------|:-------------|:--|:------------------------------|:---------------------------------------------------|:-----------------------------------|:------------------------|:--------------------|
-|ecs.scch5.16xlarge|64|32|192.0|N/A|10.0|4,500|46|8|32|
+|Instance type|vCPU|Physical core|Memory \(GiB\)|GPU|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|RoCE \(Inbound/Outbound\) \(Gbit/s\)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|-------------|:-------------|:--|:------------------------------|:---------------------------------------------------|:-----------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.scch5.16xlarge|64|32|192.0|N/A|10.0|4,500|46|8|32|10|
 
 **Note:** The ecs.scch5.16xlarge instance type provides 64 logical processors on 32 physical cores. For more information about SCC, see [Super Computing Clusters](reseller.en-US/Instances/Instance type families/Super Computing Cluster instance type family/Super Computing Clusters.md#).
 
 See [other instance type families](#).
 
-## sccg5, geneneral-purpose Super Computing Cluster \(SCC\) instance type family {#sccg5 .section}
+## sccg5, general-purpose Super Computing Cluster \(SCC\) instance type family {#sccg5 .section}
 
 **Features**
 
@@ -961,9 +966,9 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance type|vCPU|Physical core|Memory \(GiB\)|GPU|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|RoCE \(Inbound/Outbound\) \(Gbit/s\)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|-------------|:-------------|:--|:------------------------------|:---------------------------------------------------|:-----------------------------------|:------------------------|:--------------------|
-|ecs.sccg5.24xlarge|96|48|384.0|N/A|10.0|4,500|46|8|32|
+|Instance type|vCPU|Physical core|Memory \(GiB\)|GPU|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|RoCE \(Inbound/Outbound\) \(Gbit/s\)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|-------------|:-------------|:--|:------------------------------|:---------------------------------------------------|:-----------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.sccg5.24xlarge|96|48|384.0|N/A|10.0|4,500|46|8|32|10|
 
 **Note:** The ecs.sccg5.24xlarge instance type provides 96 logical processors on 48 physical cores. For more information about SCC, see [Super Computing Clusters](reseller.en-US/Instances/Instance type families/Super Computing Cluster instance type family/Super Computing Clusters.md#).
 
@@ -987,7 +992,7 @@ See [other instance type families](#).
     -   Based on the new NVIDIA Volta architecture
     -   Up to 640 Tensor Cores
     -   Up to 5,120 CUDA Cores
-    -   16 GB HBM2 memory capacity \(900 GB/s bandwidth\)
+    -   16 GB HBM2 GPU memory capacity \(900 GB/s bandwidth\)
     -   Supports up to six NVLink connections and total bandwidth of 300 GB/s \(25 GB/s per connection\)
 -   Suitable for the following scenarios:
     -   Ultra-large-scale machine learning applications
@@ -996,9 +1001,9 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance types|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|GPU|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|RoCE \(Inbound/Outbound\) \(Gbit/s\)|IPv6-ready?|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:-------------|:---|:-------------|:---------------------------|:--|:------------------------------|:---------------------------------------------------|------------------------------------|:----------|:------------------------|:--------------------|
-|ecs.sccgn6.24xlarge|96|384|N/A|V100\*8|30|4,500|25\*2|Yes|8|32|
+|Instance types|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|GPU|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|RoCE \(Inbound/Outbound\) \(Gbit/s\)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:-------------|:---|:-------------|:---------------------------|:--|:------------------------------|:---------------------------------------------------|------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.sccgn6.24xlarge|96|384|N/A|V100\*8|30|4,500|25\*2|8|32|10|
 
 See [other instance type families](#).
 
@@ -1019,24 +1024,24 @@ See [other instance type families](#).
 
 **Instance types**
 
-|Instance types|vCPU|Memory \(GiB\)|Avg baseline CPU performance|CPU credits/hour|Max CPU credit balance|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|IPv6-ready?|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\* ](#)|
-|:-------------|:---|--------------|:---------------------------|:---------------|:---------------------|----------------------------|-------------------------------|----------------------------------------------------|:----------|-------------------------|:------------------|
-|ecs.t5-lc2m1.nano|1|0.5|10%|6|144|N/A|0.1|40|Yes|1|1|
-|ecs.t5-lc1m1.small|1|1.0|10%|6|144|N/A|0.2|60|Yes|1|1|
-|ecs.t5-lc1m2.small|1|2.0|10%|6|144|N/A|0.2|60|Yes|1|1|
-|ecs.t5-lc1m2.large|2|4.0|10%|12|288|N/A|0.4|100|Yes|1|1|
-|ecs.t5-lc1m4.large|2|8.0|10%|12|288|N/A|0.4|100|Yes|1|1|
-|ecs.t5-c1m1.large|2|2.0|15%|18|432|N/A|0.5|100|Yes|1|1|
-|ecs.t5-c1m2.large|2|4.0|15%|18|432|N/A|0.5|100|Yes|1|1|
-|ecs.t5-c1m4.large|2|8.0|15%|18|432|N/A|0.5|100|Yes|1|1|
-|ecs.t5-c1m1.xlarge|4|4.0|15%|36|864|N/A|0.8|200|Yes|1|2|
-|ecs.t5-c1m2.xlarge|4|8.0|15%|36|864|N/A|0.8|200|Yes|1|2|
-|ecs.t5-c1m4.xlarge|4|16.0|15%|36|864|N/A|0.8|200|Yes|1|2|
-|ecs.t5-c1m1.2xlarge|8|8.0|15%|72|1728|N/A|1.2|400|Yes|1|2|
-|ecs.t5-c1m2.2xlarge|8|16.0|15%|72|1728|N/A|1.2|400|Yes|1|2|
-|ecs.t5-c1m4.2xlarge|8|32.0|15%|72|1728|N/A|1.2|400|Yes|1|2|
-|ecs.t5-c1m1.4xlarge|16|16.0|15%|144|3456|N/A|1.2|600|Yes|1|2|
-|ecs.t5-c1m2.4xlarge|16|32.0|15%|144|3456|N/A|1.2|600|Yes|1|2|
+|Instance types|vCPU|Memory \(GiB\)|Avg baseline CPU performance|CPU credits/hour|Max CPU credit balance|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\* ](#)|Private IP address of a single ENI|
+|:-------------|:---|--------------|:---------------------------|:---------------|:---------------------|----------------------------|-------------------------------|----------------------------------------------------|-------------------------|:------------------|----------------------------------|
+|ecs.t5-lc2m1.nano|1|0.5|10%|6|144|N/A|0.1|40|1|1|2|
+|ecs.t5-lc1m1.small|1|1.0|10%|6|144|N/A|0.2|60|1|1|2|
+|ecs.t5-lc1m2.small|1|2.0|10%|6|144|N/A|0.2|60|1|1|2|
+|ecs.t5-lc1m2.large|2|4.0|10%|12|288|N/A|0.4|100|1|1|2|
+|ecs.t5-lc1m4.large|2|8.0|10%|12|288|N/A|0.4|100|1|1|2|
+|ecs.t5-c1m1.large|2|2.0|15%|18|432|N/A|0.5|100|1|1|2|
+|ecs.t5-c1m2.large|2|4.0|15%|18|432|N/A|0.5|100|1|1|2|
+|ecs.t5-c1m4.large|2|8.0|15%|18|432|N/A|0.5|100|1|1|2|
+|ecs.t5-c1m1.xlarge|4|4.0|15%|36|864|N/A|0.8|200|1|2|6|
+|ecs.t5-c1m2.xlarge|4|8.0|15%|36|864|N/A|0.8|200|1|2|6|
+|ecs.t5-c1m4.xlarge|4|16.0|15%|36|864|N/A|0.8|200|1|2|6|
+|ecs.t5-c1m1.2xlarge|8|8.0|15%|72|1728|N/A|1.2|400|1|2|6|
+|ecs.t5-c1m2.2xlarge|8|16.0|15%|72|1728|N/A|1.2|400|1|2|6|
+|ecs.t5-c1m4.2xlarge|8|32.0|15%|72|1728|N/A|1.2|400|1|2|6|
+|ecs.t5-c1m1.4xlarge|16|16.0|15%|144|3456|N/A|1.2|600|1|2|6|
+|ecs.t5-c1m2.4xlarge|16|32.0|15%|144|3456|N/A|1.2|600|1|2|6|
 
 **Note:** For more information about t5, see [Basic concepts](reseller.en-US/Instances/Instance type families/Burstable instances/Basic concepts.md#).
 
@@ -1074,45 +1079,45 @@ See [other instance type families](#).
 
 **xn4**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.xn4.small|1|1.0|N/A|0.5|50|1|1|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.xn4.small|1|1.0|N/A|0.5|50|1|1|2|
 
 **n4**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.n4.small|1|2.0|N/A|0.5|50|1|1|
-|ecs.n4.large|2|4.0|N/A|0.5|100|1|1|
-|ecs.n4.xlarge|4|8.0|N/A|0.8|150|1|2|
-|ecs.n4.2xlarge|8|16.0|N/A|1.2|300|1|2|
-|ecs.n4.4xlarge|16|32.0|N/A|2.5|400|1|2|
-|ecs.n4.8xlarge|32|64.0|N/A|5.0|500|1|2|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.n4.small|1|2.0|N/A|0.5|50|1|1|2|
+|ecs.n4.large|2|4.0|N/A|0.5|100|1|1|2|
+|ecs.n4.xlarge|4|8.0|N/A|0.8|150|1|2|6|
+|ecs.n4.2xlarge|8|16.0|N/A|1.2|300|1|2|6|
+|ecs.n4.4xlarge|16|32.0|N/A|2.5|400|1|2|6|
+|ecs.n4.8xlarge|32|64.0|N/A|5.0|500|1|2|6|
 
 **mn4**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.mn4.small|1|4.0|N/A|0.5|50|1|1|
-|ecs.mn4.large|2|8.0|N/A|0.5|100|1|1|
-|ecs.mn4.xlarge|4|16.0|N/A|0.8|150|1|2|
-|ecs.mn4.2xlarge|8|32.0|N/A|1.2|300|1|2|
-|ecs.mn4.4xlarge|16|64.0|N/A|2.5|400|1|2|
-|ecs.mn4.8xlarge|32|128.0|N/A|5|500|2|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.mn4.small|1|4.0|N/A|0.5|50|1|1|2|
+|ecs.mn4.large|2|8.0|N/A|0.5|100|1|1|2|
+|ecs.mn4.xlarge|4|16.0|N/A|0.8|150|1|2|6|
+|ecs.mn4.2xlarge|8|32.0|N/A|1.2|300|1|2|6|
+|ecs.mn4.4xlarge|16|64.0|N/A|2.5|400|1|2|6|
+|ecs.mn4.8xlarge|32|128.0|N/A|5|500|2|8|6|
 
 **e4**
 
-|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|
-|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|
-|ecs.e4.small|1|8.0|N/A|0.5|50|1|1|
-|ecs.ce4.xlarge|2|16.0|N/A|0.5|100|1|1|
-|ecs.ce4.xlarge|4|32.0|N/A|0.8|150|1|2|
-|ecs.e4.2xlarge|8|64.0|N/A|1.2|300|1|3|
-|ecs.ce4.xlarge|16|128.0|N/A|2.5|400|1|8|
+|Instance type|vCPU|Memory \(GiB\)|Local disks \(GiB\)[ \* ](#)|Bandwidth \(Gbit/s\)[ \*\* ](#)|Packet forwarding rate \(Thousand pps\)[ \*\*\* ](#)|NIC queues[ \*\*\*\* ](#)|ENIs[ \*\*\*\*\* ](#)|Private IP address of a single ENI|
+|:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
+|ecs.e4.small|1|8.0|N/A|0.5|50|1|1|2|
+|ecs.ce4.xlarge|2|16.0|N/A|0.5|100|1|1|2|
+|ecs.ce4.xlarge|4|32.0|N/A|0.8|150|1|2|6|
+|ecs.e4.2xlarge|8|64.0|N/A|1.2|300|1|3|6|
+|ecs.ce4.xlarge|16|128.0|N/A|2.5|400|1|8|6|
 
 See [other instance type families](#).
 
- \* Cache disks, or Local disks, are the disks located on the physical servers \(host machines\) that ECS instances are hosted on. They provide temporary block level storage for instances. Block storage capacity is measured in binary units. In some cases, such as when the computing resources of an instance, including CPU and memory, are released, or an instance is inactive while migration occurs, data on the local disks is erased. For more information, see [EN-US\_TP\_9561.md\#](reseller.en-US/Block Storage/Local disks.md#).
+ \* Cache disks, or Local disks, are the disks located on the physical servers \(host machines\) that ECS instances are hosted on. They provide temporary block level storage for instances. Block storage capacity is measured in binary units. In some cases, such as when the computing resources of an instance, including CPU and memory, are released, or an instance is inactive while migration occurs, data on the local disks is erased. For more information, see [Local disks](../../../../reseller.en-US/Block Storage/Local disks.md#).
 
  \*\* The maximum sum of inbound and outbound bandwidth.
 
@@ -1120,5 +1125,5 @@ See [other instance type families](#).
 
  \*\*\*\* The maximum number of NIC queues that an instance type supports. If your instance is running CentOS 7.3, the maximum number of NIC queues is used by default.
 
- \*\*\*\*\* An enterprise-level instance with two or more vCPU cores supports elastic network interfaces. An entry-level instance with four or more vCPU cores supports elastic network interfaces. For more information about elastic network interfaces, see [EN-US\_TP\_9568.md\#](reseller.en-US/Network/Elastic Network Interfaces/ENI overview.md#).
+ \*\*\*\*\* An enterprise-level instance with two or more vCPU cores supports elastic network interfaces. An entry-level instance with four or more vCPU cores supports elastic network interfaces. For more information, see [ENI overview](../../../../reseller.en-US/Network/Elastic Network Interfaces/ENI overview.md#).
 
