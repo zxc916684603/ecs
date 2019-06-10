@@ -1,88 +1,109 @@
-# CreateSimulatedSystemEvents {#CreateSimulatedSystemEvents .reference}
+# CreateSimulatedSystemEvents {#doc_api_1006123 .reference}
 
-Schedules simulated system events for one or more Elastic Compute Service \(ECS\) instances. The system events that are simulated do not occur in the real system and the simulation does not affect ECS instances.
+Schedules simulated system events for one or more ECS instances. The simulated system events do not occur in the actual system and the simulation does not affect ECS instances.
 
-## Description {#section_hbw_vnm_x2b .section}
+## Description {#description .section}
 
--   You can view the scheduled system events in the ECS console, [ECS API](reseller.en-US/API Reference/Operations and monitoring/DescribeInstanceHistoryEvents.md#), or cloud monitoring service.
+You can use the ECS console, [ECS APIs](~~63962~~), or CloudMonitor to view the scheduled simulated system events.
 
--   The following table describes the life cycle of a simulated system event.
+The following table describes the lifecycle of a simulated system event.
 
-    |Name|Description|Status|
-    |:---|:----------|:-----|
-    |`Scheduled`|The simulated system event has been scheduled.|The status for the simulated system event is automatically changed to `Scheduled` after the schedule.|
-    |`Executed`|The simulated system event has been executed.|The status for the simulated system event is automatically changed to `Executed` at the scheduled time specified by the NotBefore parameter if no manual intervention is involved.|
-    |`Canceled`|The simulated system event has been canceled.|The status for the simulated system event is changed to `Canceled` if you cancel the event by making a [CancelSimulatedSystemEvents](reseller.en-US/API Reference/Operations and monitoring/CancelSimulatedSystemEvents.md#) request.|
-    |`Avoided`|The simulated system event has been avoided.|The status for the simulated system event of maintenance-triggered instance restart can be changed to `Avoided` if you [restart the instance](reseller.en-US/API Reference/Instances/RebootInstance.md#) before the scheduled time of the simulated system event. The maintenance-triggered instance restart is indicated by the SystemMaintenance.Reboot value.|
+-   Scheduled: The status for the simulated system event is automatically changed to Scheduled after it is scheduled.
+-   Executed: The status for the simulated system event is automatically changed to Executed at the scheduled time specified by the NotBefore parameter if no manual intervention is involved.
+-   Canceled: The status for the simulated system event is changed to Canceled if you cancel the event by calling [CancelSimulatedSystemEvents](~~88808~~).
+-   Avoided: The status for the simulated system event of maintenance-triggered instance restart can be changed to Avoided if you [restart the instance](~~25502~~) before the scheduled time of the simulated system event. The maintenance-triggered instance restart is indicated by the SystemMaintenance.Reboot value.
 
+## Debugging {#apiExplorer .section}
 
-## Request parameters {#RequestParameter .section}
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=CreateSimulatedSystemEvents) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The operation that you want to perform. Value: CreateSimulatedSystemEvents.|
-|RegionId|String|Yes|The ID of the region.For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|InstanceId.N|String|Yes|The IDs of one or more ECS instances. Value range of N: \[1, 100\]. The ECS IDs must be displayed in a repeated list format.|
-|EventType|String|Yes|The type of a system event. Optional values:-   SystemMaintenance.Reboot: The instance restarts because of maintenance.
+## Request parameters {#parameters .section}
+
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|EventType|String|Yes|SystemMaintenance.Reboot| The type of a system event. Valid values:
+
+ -   SystemMaintenance.Reboot: The instance restarts due to maintenance.
 -   SystemFailure.Reboot: The instance restarts due to a system failure.
 -   InstanceFailure.Reboot: The instance restarts due to an instance failure.
 
-|
-|NotBefore|String|Yes|The start time of the scheduled event execution time.The time format follows the [ISO8601](../reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard, and the UTC time is used. The format is yyyy-MM-ddTHH:mm:ssZ.|
+ |
+|InstanceId.N|RepeatList|Yes|i-instance1| The IDs of one or more ECS instances. Valid values of N: 1 to 100. You can specify multiple values in the form of a repeated list.
 
-## Response parameters {#ResponseParameter .section}
+ |
+|NotBefore|String|Yes|2018-12-01T06:32:31Z| The start time of the scheduled event execution period. The time follows the [ISO 8601](~~25696~~) standard and uses UTC time. The format is yyyy-MM-ddTHH:mm:ssZ.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|EventIdSet|List of event IDs \(`EventId`\)|The list of simulated event IDs.|
+ |
+|RegionId|String|Yes|cn-hangzhou| The ID of the region. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
 
-## Examples { .section}
+ |
+|Action|String|No|CreateSimulatedSystemEvents| The operation that you want to perform. Set the value to CreateSimulatedSystemEvents.
 
-**Request example**
+ |
 
-```
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|EventIdSet| |e-xhskHun1256xxxx| The list of simulated event IDs.
+
+ |
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
+
 https://ecs.aliyuncs.com/?Action=CreateSimulatedSystemEvents
-&RegionId=cn-hangzhou
-&InstanceId. 1=i-instance1
-&InstanceId. 2=i-instance1
-&EventType=SystemMaintenance.Reboot
-&NotBefore=2018-12-01T06:32:31Z
-&<Common Request Parameters>
+&EventType=SystemMaintenance.Reboot 
+&InstanceId.1=i-instance1
+&NotBefore=2018-12-01T06:32:31Z 
+&RegionId=cn-hangzhou 
+&<Common request parameters>
 ```
 
-**Response example**
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
-<CreateSimulatedSystemEventsResponse>
-	<EventIdSet>
-		<EventId>e-xhskHun1256xxxx</EventId>
-		<EventId>e-xhskHun1257xxxx</EventId>
-	</EventIdSet>
-        <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
+``` {#xml_return_success_demo}
+<CreateSimulatedSystemEventsResponse> 
+  <EventIdSet> 
+    <EventId>e-bp191hqye********34y</EventId> 
+    <EventId>e-bp191hqye********34x</EventId> 
+  </EventIdSet> 
+  <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId> 
 </CreateSimulatedSystemEventsResponse>
 ```
 
-**JSON format**
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-    "RequestId":"E69EF3CC-94CD-42E7-8926-F133B86387C0",
-	"EventIdSet":{
-		"EventId": "e-xhskHun1256xxxx",
-		"EventId": "e-xhskHun1257xxxx"
-	}
+    "EventIdSet":{
+        "EventId":[
+            "e-bp191hqye********34y",
+            "e-bp191hqye********34x"
+        ]
+    },
+    "RequestId":"679E9056-9B75-4306-8A72-A1DF93EBEF74"
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_za9_mjq_zlv .section}
 
-|Error code|Error message|HTTP status code|Description|
-|:---------|:------------|:---------------|:----------|
-|InvalidNotBefore.Passed|The NotBefore of system event has passed.|400|The specified value for the NotBefore parameter is later than the current time.|
-|InvalidInstanceId.NotFound|Cannot find InstanceId.|400|The specified instance ID does not exist.|
-|SimulatedEventLimitExceeded|The amount of active simulated system event exceeds limit.|400|The amount of active simulated system events has exceeded the limit in the region.|
-|InstanceIdLimitExceeded|The amount of InstanceId specified exceeds limit.|400|The number of specified instance IDs cannot exceed 100 at a time.|
-|MissingParameter|The input parameter that is mandatory for processing this request is not supplied.|404|The value for a required parameter is not specified.|
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|404|MissingParameter|%s|The error message returned when a required parameter is not specified.|
+|403|InvalidParameter|%s|The error message returned when the parameter format is invalid.|
+|403|InvalidNotBefore.Passed|%s|The error message returned when the specified value of the NotBefore parameter is earlier than the current time.|
+|404|InvalidInstanceId.NotFound|%s|The error message returned when the specified instance does not exist.|
+|403|SimulatedEventLimitExceeded|%s|The error message returned when the number of simulated events has reached the upper limit.|
+|403|InstanceIdLimitExceeded|%s|The error message returned when the specified instance IDs is more than 100.|
+
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 

@@ -1,90 +1,112 @@
-# CreateSimulatedSystemEvents {#CreateSimulatedSystemEvents .reference}
+# CreateSimulatedSystemEvents {#doc_api_Ecs_CreateSimulatedSystemEvents .reference}
 
 为一台或多台ECS实例预约模拟系统事件。模拟系统事件相当于事件演习，不会真正执行事件，也不会对ECS实例产生影响。
 
-## 描述 {#section_hbw_vnm_x2b .section}
+## 描述 {#description .section}
 
--   预约模拟事件后，您可以通过ECS管理控制台、[ECS API](cn.zh-CN/API 参考/运维与监控/DescribeInstanceHistoryEvents.md#)和云监控服务查看已经预约的模拟系统事件。
+预约模拟事件后，您可以通过ECS管理控制台、[ECS API](~~63962~~) 和云监控服务查看已经预约的模拟系统事件。
 
--   下表为模拟系统事件的生命周期：
+下表为模拟系统事件的生命周期：
 
-    |名称|描述|状态详情|
-    |:-|:-|:---|
-    |`Scheduled`|计划中|预约后，模拟系统事件自动切换为`Scheduled`状态。|
-    |`Executed`|已完成|在没有人为干预的情况下，模拟系统事件在指定时间点（NotBefore）自动变成`Executed`状态。|
-    |`Canceled`|已取消|您调用[CancelSimulatedSystemEvents](cn.zh-CN/API 参考/运维与监控/CancelSimulatedSystemEvents.md#)取消模拟系统事件后，变成`Canceled`状态。|
-    |`Avoided`|已避免|对于因系统维护实例重启（SystemMaintenance.Reboot）的模拟系统事件，可以通过在指定时间点前[重启实例](cn.zh-CN/API 参考/实例/RebootInstance.md#)而变成`Avoided`状态。|
+-   Scheduled（计划中）：预约后，模拟系统事件自动切换为Scheduled状态。
+-   Executed（已完成）：在没有人为干预的情况下，模拟系统事件在指定时间点（NotBefore）自动变成Executed状态。
+-   Canceled（已取消）：您调用 [CancelSimulatedSystemEvents](~~88808~~) 取消模拟系统事件后，变成Canceled状态。
+-   Avoided（已避免）：对于因系统维护实例重启（SystemMaintenance.Reboot）的模拟系统事件，可以通过在指定时间点前 [重启实例](~~25502~~) 而变成Avoided状态。
 
+## 调试 {#apiExplorer .section}
 
-## 请求参数 {#RequestParameter .section}
+前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=CreateSimulatedSystemEvents)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
-|名称|类型|是否必需|描述|
-|:-|:-|:---|:-|
-|Action|String|是|系统规定参数。取值：CreateSimulatedSystemEvents|
-|RegionId|String|是|地域ID。您可以调用[DescribeRegions](../cn.zh-CN/API 参考/地域/DescribeRegions.md#)查看最新的阿里云地域列表。|
-|InstanceId.N|String|是|一个或者多个ECS实例ID。N的取值范围：\[1, 100\]，多个取值使用重复列表的形式。|
-|EventType|String|是|系统事件的类型。取值范围：-   SystemMaintenance.Reboot：因系统维护实例重启
+## 请求参数 {#parameters .section}
+
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|EventType|String|是|SystemMaintenance.Reboot|系统事件的类型。取值范围：
+
+ -   SystemMaintenance.Reboot：因系统维护实例重启
 -   SystemFailure.Reboot：因系统错误实例重启
 -   InstanceFailure.Reboot：因实例错误实例重启
 
-|
-|NotBefore|String|是|事件计划执行时间的开始时间。按照[ISO8601](../cn.zh-CN/API 参考/附录/时间格式.md#)标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。|
+ |
+|InstanceId.N|RepeatList|是|i-instance1|一个或者多个ECS实例ID。N的取值范围：1~100，多个取值使用重复列表的形式。
 
-## 返回参数 {#ResponseParameter .section}
+ |
+|NotBefore|String|是|2018-12-01T06:32:31Z|事件计划执行时间的开始时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
-|名称|类型|描述|
-|:-|:-|:-|
-|EventIdSet|List of `EventId`|模拟事件ID（EventId）列表。|
+ |
+|RegionId|String|是|cn-hangzhou|地域ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
 
-## 示例 { .section}
+ |
+|Action|String|否|CreateSimulatedSystemEvents|系统规定参数。取值：CreateSimulatedSystemEvents
 
-**请求示例**
+ |
+|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
 
-```
+ |
+
+## 返回参数 {#resultMapping .section}
+
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|EventIdSet| |e-xhskHun1256xxxx|模拟事件ID（EventId）列表。
+
+ |
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
+
+ |
+
+## 示例 {#demo .section}
+
+请求示例
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=CreateSimulatedSystemEvents
-&RegionId=cn-hangzhou
-&InstanceId.1=i-instance1
-&InstanceId.2=i-instance1
 &EventType=SystemMaintenance.Reboot
+&InstanceId.1=i-instance1
 &NotBefore=2018-12-01T06:32:31Z
+&RegionId=cn-hangzhou
 &<公共请求参数>
 ```
 
-**返回示例**
+正常返回示例
 
-**XML格式**
+`XML` 格式
 
-```
+``` {#xml_return_success_demo}
 <CreateSimulatedSystemEventsResponse>
-	<EventIdSet>
-		<EventId>e-xhskHun1256xxxx</EventId>
-		<EventId>e-xhskHun1257xxxx</EventId>
-	</EventIdSet>
-        <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
+  <EventIdSet>
+    <EventId>e-bp191hqye********34x</EventId>
+    <EventId>e-bp191hqye********34y</EventId>
+  </EventIdSet>
+  <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
 </CreateSimulatedSystemEventsResponse>
-```
-
-**JSON格式**
 
 ```
+
+`JSON` 格式
+
+``` {#json_return_success_demo}
 {
-    "RequestId":"E69EF3CC-94CD-42E7-8926-F133B86387C0",
 	"EventIdSet":{
-		"EventId": "e-xhskHun1256xxxx",
-		"EventId": "e-xhskHun1257xxxx"
-	}
+		"EventId":[
+			"e-bp191hqye********34x",
+			"e-bp191hqye********34y"
+		]
+	},
+	"RequestId":"679E9056-9B75-4306-8A72-A1DF93EBEF74"
 }
 ```
 
-## 错误码 {#ErrorCode .section}
+## 错误码 { .section}
 
-以下为本接口特有的错误码。更多错误码，请访问[API错误中心](https://error-center.aliyun.com/status/product/Ecs)。
+|HttpCode|错误码|错误信息|描述|
+|--------|---|----|--|
+|404|MissingParameter|%s|缺失必需参数。|
+|403|InvalidParameter|%s|参数格式不正确。|
+|403|InvalidNotBefore.Passed|%s|指定的NotBefore不得早于当前时间。|
+|404|InvalidInstanceId.NotFound|%s|指定的实例不存在。|
+|403|SimulatedEventLimitExceeded|%s|已达到可设置模拟事件的个数上限。|
+|403|InstanceIdLimitExceeded|%s|指定的InstanceId个数不得超过100个。|
 
-|错误代码|错误信息|HTTP状态码|说明|
-|:---|:---|:------|:-|
-|InvalidNotBefore.Passed|The NotBefore of system event has passed.|400|指定的NotBefore不能晚于当前时间。|
-|InvalidInstanceId.NotFound|Cannot find InstanceId.|400|指定的实例ID不存在。|
-|SimulatedEventLimitExceeded|The amount of active simulated system event exceeds limit.|400|已超过当前地域下最大活跃模拟事件数量。|
-|InstanceIdLimitExceeded|The amount of InstanceId specified exceeds limit.|400|一次最多指定100个实例ID。|
-|MissingParameter|The input parameter that is mandatory for processing this request is not supplied.|404|缺失必需参数。|
+[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
