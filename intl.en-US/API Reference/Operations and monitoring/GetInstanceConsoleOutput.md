@@ -1,96 +1,92 @@
-# GetInstanceConsoleOutput {#reference_bmg_nvk_l2b .reference}
+# GetInstanceConsoleOutput {#doc_api_999421 .reference}
 
-Obtains the console output of an instance. The returned command line output is encoded in Base64 format.
+Obtains the command output of an instance. The returned command output is encoded in Base64.
 
-## Description {#BestPractice .section}
+## Description {#description .section}
 
-ECS instances are virtualized cloud-based services that cannot be connected to display devices or make mobile snapshots. However, the instance console output for the last start, restart, or shutdown of the instance is cached. You can call the `GetInstanceConsoleOutput` to monitor and analyze the instance exceptions.
+ECS is a virtualized cloud-based service that cannot be connected to any display devices. However, the command output for the last start, restart, or shutdown of the instance is cached. You can call GetInstanceConsoleOutput to obtain this information.
 
-Currently, the [phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm) cannot obtain the console output.
+For [phased-out instance types](~~55263~~), you cannot obtain the command output.
 
-Moreover, Windows instances cannot obtain console output as well.
+You cannot obtain the command output of Windows-based instances.
 
-## Request parameters  {#RequestParameter .section}
+## Debugging {#apiExplorer .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: GetInstanceConsoleOutput.|
-|RegionId|String|Yes|ID of the region where the ECS instance is located. For more information, use [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|InstanceId|String|Yes|Instance ID.|
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=GetInstanceConsoleOutput) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-## Response parameters {#ResponseParameter .section}
+## Request parameters {#parameters .section}
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|InstanceId|String|ID of the instance.|
-|ConsoleOutput|String|The instance console output of the instance, in Base64 encoding.|
-|LastUpdateTime|String|The time the instance was last started, restarted, or shut down. The value of this parameter uses the offset UTC+0 and is expressed according to the [ISO8601](reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#) standard. Format: YYYY-MM-DDTHH:mm:ssZ.|
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|InstanceId|String|Yes|i-myInstance| The ID of the instance.
 
-## Examples { .section}
+ |
+|RegionId|String|Yes|cn-shenzhen-finance-1| The ID of the region where the instance is located. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
 
-**Request example** 
+ |
+|Action|String|No|GetInstanceConsoleOutput| The operation that you want to perform. Set the value to GetInstanceConsoleOutput.
 
-```
+ |
+
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|ConsoleOutput|String|V2VsY29tZSB0byBDZW50T1MgCgpDaGVja2luZyBmaWxlc3lzdGVtcwpDaGVja2luZyBhbGwgZmlsZSBzeXN0ZW1zLgpbL3NiaW4vZnNjay5leHQ0ICgxKSAtLSAvXSBmc2NrLmV4dDQgLWEgL2Rldi92ZGExIAovZGV2L3ZkYTE6IGNsZWFuLCAzMjAxNi8yNjIxNDQwIGZpbGVzLCA0NDc5NzQvMTA0ODU1MDQgYmxvY2tzCgpFbnRlcmluZyBub24taW50ZXJhY3RpdmUgc3RhcnR1cApDYWxsaW5nIHRoZSBzeXN0ZW0gYWN0aXZpdHkgZGF0YSBjb2xsZWN0b3IgKHNhZGMpLi4uIAoKQnJpbmdpbmcgdXAgaW50ZXJmYWNlIGV0aDA6ICAKRGV0ZXJtaW5pbmcgSVAgaW5mb3JtYXRpb24gZm9yIGV0aDAuLi4gZG9uZS4KCmFsaXl1bi1zZXJ2aWNlIHN0YXJ0L3J1bm5pbmcsIHByb2Nlc3MgMTczMwpmaW5pc2hlZAoKQ2VudE9TIHJlbGVhc2UgNi44IChGaW5hbCkKS2VybmVsIDIuNi4zMi02OTYuMy4yLmVsNi5pNjg2IG9uIGFuIGk2ODYKCmlaMnplZDk2ZTQ2MmF5cjBxemw2czhaIGxvZ2luOg==| The command output of the instance, in Base64 encoding.
+
+ |
+|InstanceId|String|i-myInstance| The ID of the instance.
+
+ |
+|LastUpdateTime|String|2018-03-22 10:04:57| The time the instance was last started, restarted, or shut down. The time format follows the [ISO 8601](~~25696~~) standard and uses UTC time. The format is yyyy-MM-ddTHH:mm:ssZ.
+
+ |
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 http://ecs-cn-hangzhou.aliyuncs.com/?Action=GetInstanceConsoleOutput
-&RegionId=cn-shenzhen-finance-1
-&InstanceId=i-j5e42sbbthlokka11eci
-&<Common Request Parameters> 
+&InstanceId=i-myInstance
+&RegionId=cn-shenzhen-finance-1 
+&<Common request parameters>
 ```
 
-**Success response example** 
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <GetInstanceConsoleOutputResponse>
-    <RequestId>22A1933F-AD02-4560-A6A7-53CF2231D942</RequestId>
-    <InstanceId>i-j5e42sbbthlokka11ech</InstanceId>
-    <LastUpdateTime>2018-03-22 10:04:57</LastUpdateTime>
-    <ConsoleOutput>V2VsY29tZSB0byBDZW50T1MgCgpDaGVja2luZyBmaWxlc3lzdGVtcwpDaGVja2luZyBhbGwgZmlsZSBzeXN0ZW1zLgpbL3NiaW4vZnNjay5leHQ0ICgxKSAtLSAvXSBmc2NrLmV4dDQgLWEgL2Rldi92ZGExIAovZGV2L3ZkYTE6IGNsZWFuLCAzMjAxNi8yNjIxNDQwIGZpbGVzLCA0NDc5NzQvMTA0ODU1MDQgYmxvY2tzCgpFbnRlcmluZyBub24taW50ZXJhY3RpdmUgc3RhcnR1cApDYWxsaW5nIHRoZSBzeXN0ZW0gYWN0aXZpdHkgZGF0YSBjb2xsZWN0b3IgKHNhZGMpLi4uIAoKQnJpbmdpbmcgdXAgaW50ZXJmYWNlIGV0aDA6ICAKRGV0ZXJtaW5pbmcgSVAgaW5mb3JtYXRpb24gZm9yIGV0aDAuLi4gZG9uZS4KCmFsaXl1bi1zZXJ2aWNlIHN0YXJ0L3J1bm5pbmcsIHByb2Nlc3MgMTczMwpmaW5pc2hlZAoKQ2VudE9TIHJlbGVhc2UgNi44IChGaW5hbCkKS2VybmVsIDIuNi4zMi02OTYuMy4yLmVsNi5pNjg2IG9uIGFuIGk2ODYKCmlaMnplZDk2ZTQ2MmF5cjBxemw2czhaIGxvZ2luOg==</ConsoleOutput>
+  <RequestId>22A1933F-AD02-4560-A6A7-53CF2231D942</RequestId>
+  <InstanceId>i-j5e42sbbthlokka11ech</InstanceId>
+  <LastUpdateTime>2018-03-22 10:04:57</LastUpdateTime>
+  <ConsoleOutput>V2VsY29tZSB0byBDZW50T1MgCgpDaGVja2luZyBmaWxlc3lzdGVtcwpDaGVja2luZyBhbGwgZmlsZSBzeXN0ZW1zLgpbL3NiaW4vZnNjay5leHQ0ICgxKSAtLSAvXSBmc2NrLmV4dDQgLWEgL2Rldi92ZGExIAovZGV2L3ZkYTE6IGNsZWFuLCAzMjAxNi8yNjIxNDQwIGZpbGVzLCA0NDc5NzQvMTA0ODU1MDQgYmxvY2tzCgpFbnRlcmluZyBub24taW50ZXJhY3RpdmUgc3RhcnR1cApDYWxsaW5nIHRoZSBzeXN0ZW0gYWN0aXZpdHkgZGF0YSBjb2xsZWN0b3IgKHNhZGMpLi4uIAoKQnJpbmdpbmcgdXAgaW50ZXJmYWNlIGV0aDA6ICAKRGV0ZXJtaW5pbmcgSVAgaW5mb3JtYXRpb24gZm9yIGV0aDAuLi4gZG9uZS4KCmFsaXl1bi1zZXJ2aWNlIHN0YXJ0L3J1bm5pbmcsIHByb2Nlc3MgMTczMwpmaW5pc2hlZAoKQ2VudE9TIHJlbGVhc2UgNi44IChGaW5hbCkKS2VybmVsIDIuNi4zMi02OTYuMy4yLmVsNi5pNjg2IG9uIGFuIGk2ODYKCmlaMnplZDk2ZTQ2MmF5cjBxemw2czhaIGxvZ2luOg==</ConsoleOutput> 
 </GetInstanceConsoleOutputResponse>
 ```
 
-**JSON format** 
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-    "RequestId": "22A1933F-AD02-4560-A6A7-53CF2231D942",
-    "InstanceId": "i-j5e42sbbthlokka11ech",
-    "LastUpdateTime": "2018-03-22 10:04:57",
-    "ConsoleOutput": "V2VsY29tZSB0byBDZW50T1MgCgpDaGVja2luZyBmaWxlc3lzdGVtcwpDaGVja2luZyBhbGwgZmlsZSBzeXN0ZW1zLgpbL3NiaW4vZnNjay5leHQ0ICgxKSAtLSAvXSBmc2NrLmV4dDQgLWEgL2Rldi92ZGExIAovZGV2L3ZkYTE6IGNsZWFuLCAzMjAxNi8yNjIxNDQwIGZpbGVzLCA0NDc5NzQvMTA0ODU1MDQgYmxvY2tzCgpFbnRlcmluZyBub24taW50ZXJhY3RpdmUgc3RhcnR1cApDYWxsaW5nIHRoZSBzeXN0ZW0gYWN0aXZpdHkgZGF0YSBjb2xsZWN0b3IgKHNhZGMpLi4uIAoKQnJpbmdpbmcgdXAgaW50ZXJmYWNlIGV0aDA6ICAKRGV0ZXJtaW5pbmcgSVAgaW5mb3JtYXRpb24gZm9yIGV0aDAuLi4gZG9uZS4KCmFsaXl1bi1zZXJ2aWNlIHN0YXJ0L3J1bm5pbmcsIHByb2Nlc3MgMTczMwpmaW5pc2hlZAoKQ2VudE9TIHJlbGVhc2UgNi44IChGaW5hbCkKS2VybmVsIDIuNi4zMi02OTYuMy4yLmVsNi5pNjg2IG9uIGFuIGk2ODYKCmlaMnplZDk2ZTQ2MmF5cjBxemw2czhaIGxvZ2luOg=="
+	"ConsoleOutput":"V2VsY29tZSB0byBDZW50T1MgCgpDaGVja2luZyBmaWxlc3lzdGVtcwpDaGVja2luZyBhbGwgZmlsZSBzeXN0ZW1zLgpbL3NiaW4vZnNjay5leHQ0ICgxKSAtLSAvXSBmc2NrLmV4dDQgLWEgL2Rldi92ZGExIAovZGV2L3ZkYTE6IGNsZWFuLCAzMjAxNi8yNjIxNDQwIGZpbGVzLCA0NDc5NzQvMTA0ODU1MDQgYmxvY2tzCgpFbnRlcmluZyBub24taW50ZXJhY3RpdmUgc3RhcnR1cApDYWxsaW5nIHRoZSBzeXN0ZW0gYWN0aXZpdHkgZGF0YSBjb2xsZWN0b3IgKHNhZGMpLi4uIAoKQnJpbmdpbmcgdXAgaW50ZXJmYWNlIGV0aDA6ICAKRGV0ZXJtaW5pbmcgSVAgaW5mb3JtYXRpb24gZm9yIGV0aDAuLi4gZG9uZS4KCmFsaXl1bi1zZXJ2aWNlIHN0YXJ0L3J1bm5pbmcsIHByb2Nlc3MgMTczMwpmaW5pc2hlZAoKQ2VudE9TIHJlbGVhc2UgNi44IChGaW5hbCkKS2VybmVsIDIuNi4zMi02OTYuMy4yLmVsNi5pNjg2IG9uIGFuIGk2ODYKCmlaMnplZDk2ZTQ2MmF5cjBxemw2czhaIGxvZ2luOg==",
+	"InstanceId":"i-j5e42sbbthlokka11ech",
+	"RequestId":"22A1933F-AD02-4560-A6A7-53CF2231D942",
+	"LastUpdateTime":"2018-03-22 10:04:57"
 }
 ```
 
-**Error response example** 
+## Error codes {#section_z4n_x1j_qm5 .section}
 
-**XML format**
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|400|MissingParameter|%s|The error message returned when a required parameter is not specified.|
+|404|InvalidParameter|%s|The error message returned when the parameter format is invalid.|
+|405|IncorrectInstanceStatus|%s|The error message returned when the specified resource is in a state that does not support the current operation.|
 
-```
-<Error>
-    <RequestId>C38E0D94-C18B-44F3-8C05-6E35BE334088</RequestId>
-    <HostId>ecs.aliyuncs.com</HostId>
-    <Code>NotSupported</Code>
-    <Message>The operation is not supported for "i-j5e42sbbthlokkaXXXXX".</Message>
-</Error>
-```
-
-**JSON format** 
-
-```
-{
-    "RequestId": "C38E0D94-C18B-44F3-8C05-6E35BE334088",
-    "HostId": "ecs.aliyuncs.com",
-    "Code": "NotSupported",
-    "Message": "The operation is not supported for "i-j5e42sbbthlokkaXXXXX"."
-}
-```
-
-## Error codes {#ErrorCode .section}
-
-|Error code|Error message|HTTP status code|Description|
-|:---------|:------------|:---------------|:----------|
-|MissingParameter|The input parameter “instanceId” that is mandatory for processing this request is not supplied.|400|`InstanceId` is required.|
-|InvalidParameter|The “instanceId” provided is not valid.|404|The specified `InstanceId` does not exist.|
-|IncorrectInstanceStatus|The instance status “\{status\}” is not applicable|405|The specified instance has been released or stopped.|
-|NotSupported|The operation is not supported for “\{instanceId\}”|405|[Phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm) cannot obtain console output.|
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
