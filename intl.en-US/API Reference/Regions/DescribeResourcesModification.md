@@ -1,189 +1,634 @@
-# DescribeResourcesModification {#DescribeResourcesModification .reference}
+# DescribeResourcesModification {#doc_api_1105039 .reference}
 
-Retrieves a list of the resources available in a certain zone. You can use this method before you upgrade or downgrade the instance specifications or the system disk capacity.
+Views the resources available in a zone before reconfiguring the instance specifications or the system disk capacity.
 
-## Request parameters {#RequestParameter .section}
+## Debugging {#apiExplorer .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: DescribeResourcesModification.|
-|RegionId|String|Yes|ID of the target region. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|ResourceId|String|Yes|Resource ID. For example, if the retrieved resources are instances, this parameter can be interpreted as InstanceId.|
-|DestinationResource|String|Yes|Target resource type. Optional values:-   InstanceType: Instance type.
--   SystemDisk: System disk of an instance.
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeResourcesModification) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-|
-|MigrateAcrossZone|Boolean|No|Specifies whether to upgrade the instance among different clusters or not. Default: False.
+## Request parameters {#parameters .section}
 
- When the `MigrateAcrossZone` is set to `True` and you change the instance configuration according to the returned information, you must make sure that:-   For a classic network type instance:
-    -   If you upgrade the [phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm), non-I/O optimized instances to I/O optimized instances, the instance-related intranet IP addresses, disk device names and license key of the instance may change. For a Linux instance, the system recognizes basic cloud disk \(`cloud`\) as `xvda` or `xvdb`, ultra cloud disk \(`cloud_efficiency`\) and SSD disk \(`cloud_ssd`\) as `vda` or `vdb`.
-    -   If your classic network instances are available in the [instance type families](../reseller.en-US/Product Introduction/Instance type families.md#), the private IP of the instances may change.
--   For a VPC-Connected instance:
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|DestinationResource|String|Yes|InstanceType| The type of the target resource. Valid values:
 
-If you upgrade the [phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm), non-I/O optimized instances to I/O optimized instances, the disk device names and license key of the ECS may change. For a Linux instance,  the system recognizes basic cloud disk \(`cloud`\) as `xvda` or `xvdb`, ultra cloud disk \(`cloud_efficiency`\) and SSD disk \(`cloud_ssd`\) as `vda` or `vdb`.
+ -   InstanceType
+-   SystemDisk
 
+ |
+|RegionId|String|Yes|cn-hangzhou| The ID of the target region. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
 
-|
-|OperationType|String|No|Whether to upgrade or downgrade your resources. Optional values:-   Upgrade: Upgrade resources.
--   Downgrade: Downgrade resources.
+ |
+|ResourceId|String|Yes|i-instanceid| The ID of the resource. When the retrieved resources are instances, this parameter can be interpreted as InstanceId.
 
-Default: Upgrade.|
-|InstanceType|String|No|Type of an instance. For more information, see [Instance Type Family](../reseller.en-US/Product Introduction/Instance type families.md#), or call [DescribeInstanceTypes](reseller.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to obtain the latest type list. If you set `DestinationResource` to `SystemDisk`, you must specify `InstanceType`.|
+ |
+|Action|String|No|DescribeResourcesModification| The operation that you want to perform. Set the value to DescribeResourcesModification.
 
-## Response parameters {#ResponseParameter .section}
+ |
+|Cores|Integer|No|2| The number of vCPU cores of the instance type. For more information, see [Instance type families](~~25378~~). The Cores parameter is valid only when the DestinationResource parameter is set to InstanceType.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|AvailableZones|Array of [`AvailableZones`](#)|A collection of zone types.|
+ |
+|InstanceType|String|No|ecs.g5.large| The type of the instance. For more information, see [Instance type families](~~25378~~), or call [DescribeInstanceTypes](~~25620~~) to query the latest instance types. When the DestinationResource parameter is set to SystemDisk, you must specify the InstanceType parameter.
 
-**AvailableZoneType** 
+ |
+|Memory|Float|No|8.0| The memory size of the instance type. Unit: GiB. For more information, see [Instance type families](~~25378~~). The Memory parameter is valid only when the DestinationResource parameter is set to InstanceType.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|RegionId|String|Region ID.|
-|ZoneId|String|Zone ID.|
-|Status|String|Resource status. Optional values:-   Available: Resources are available.
--   SoldOut: Resources are unavailable.
+ |
+|MigrateAcrossZone|Boolean|No|true| Indicates whether instance specifications can be upgraded across clusters. Valid values:
 
-|
-|AvailableResources|Array of [`AvailableResourcesType`](#)|A collection of available resource types.|
+ -   True
+-   False
 
-**AvailableResourcesType** 
+ Default value: False.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|Type|String|Resource type. Optional values:-   Zone: Zone.
--   IoOptimized: Whether the instance is I/O optimized or not.
--   InstanceType: Instance type.
--   SystemDisk: System disk.
--   DataDisk: Data disk.
--   Network: Network type of an instance.
+ When the MigrateAcrossZone parameter is set to True, and you upgrade the ECS instance based on the returned information, you must make sure that:
 
-|
-|SupportedResources|Array of [`SupportedResourcesType`](#)|A collection of supported available resource types.|
+ -   Instances of classic network:
+    -   For [phased-out instance types](~~55263~~), when a non-I/O optimized instance is upgraded to an I/O optimized instance, the instance information, including the private IP address, software authorization code, and the device name of the disk, will be changed. For Linux-based instances, device names of basic disks \(cloud\) will be changed to the form of xvda or xvdb, while device names of ultra disks \(cloud\_efficiency\) and SSDs \(cloud\_ssd\) are changed to the form of vda or vdb.
+    -   For [available instance types](~~25378~~), the private IP address of the instance will be changed.
+-   VPC-type instances: For [phased-out instance types](~~55263~~), when a non-I/O optimized instance is upgraded to an I/O optimized instance, the instance information, including the software authorization code and the device name of the disk, will be changed. For Linux-based instances, device names of basic disks \(cloud\) will be changed to the form of xvda or xvdb, while device names of ultra disks \(cloud\_efficiency\) and SSDs \(cloud\_ssd\) are changed to the form of vda or vdb.
 
-**SupportedResourcesType** 
+ |
+|OperationType|String|No|Upgrade| The operation types for the Subscription-based instance. Valid values:
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|Value|String|Name of the Resource.|
-|Status|String|Resource status. Optional values:-   Available: Resources are available.
--   SoldOut: Resources are unavailable.
+ -   Upgrade
+-   Downgrade
+-   RenewDowngrade
+-   RenewModify
 
-|
-|Min|Integer|Minimum limit of the resource. No value is returned if the parameter is null.|
-|Max|Integer|Maximum limit of the resource. No value is returned if the parameter is null.|
-|Unit|Integer|Resource type unit. No value is returned if the parameter is null.|
+ Default value: Upgrade.
 
-## Examples { .section}
+ |
 
-**Request example** 
+## Response parameters {#resultMapping .section}
 
-```
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|AvailableZones| | | An array of zone types.
+
+ |
+|└AvailableResources| | | An array of available resource types.
+
+ |
+|└SupportedResources| | | A collection of supported resource types.
+
+ |
+|└Max|Integer|2| The maximum value of the resource type. No value is returned when this parameter is null.
+
+ |
+|└Min|Integer|1| The minimum value of a resource type. No value is returned when the parameter is null.
+
+ |
+|└Status|String|Available| The status of the resource. Valid values:
+
+ -   Available
+-   SoldOut
+
+ |
+|└StatusCategory|String|WithStock| The resource category based on the stock. Valid values:
+
+ -   WithStock: sufficient stock
+-   ClosedWithStock: insufficient stock
+-   WithoutStock: running out of stock
+
+ |
+|└Unit|String|null| The unit of the resource type. No value is returned when the parameter is null.
+
+ |
+|└Value|String|ecs.sn1ne.xlarge| The value of the resource.
+
+ |
+|└Type|String|InstanceType| The type of the resource. Valid values:
+
+ -   Zone
+-   IoOptimized
+-   InstanceType
+-   SystemDisk
+-   DataDisk
+-   Network
+
+ |
+|└RegionId|String|cn-hangzhou| The ID of the region.
+
+ |
+|└Status|String|Available| The status of the resource. Valid values:
+
+ -   Available
+-   SoldOut
+
+ |
+|└StatusCategory|String|WithStocK| The resource category based on the stock. Valid values:
+
+ -   WithStock: sufficient stock
+-   ClosedWithStock: insufficient stock
+-   WithoutStock: running out of stock
+
+ |
+|└ZoneId|String|cn-hangzhou-e| The ID of the zone.
+
+ |
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=DescribeResourcesModification
+&DestinationResource=InstanceType
 &RegionId=cn-hangzhou
-&<Common Request Parameters>
+&ResourceId=i-instanceid 
+&MigrateAcrossZone=true 
+&OperationType=Upgrade 
+&InstanceType=["ecs.g5.large"] 
+&Cores=2 
+&Memory=8.0 
+&<Common request parameters>
 ```
 
-```
-https://ecs.example.com/?Action=DescribeResourcesModification
-&RegionId=cn-hangzhou
-&<Common Request Parameters>
-```
+Successful response examples
 
-**Response example** 
+`XML` format
 
-**XML format**
-
-```
-<DescribeResourcesModificationResponse>
-    <AvailableZones>
-        <AvailableZone>
-            <ZoneId>cn-hangzhou-d</ZoneId>
-            <RegionId>cn-hangzhou</RegionId>
-            <Status>Available</Status>
-            <AvailableResources>
-                <AvailableResource>
-                    <Type>instanceType</Type>
-                    <SupportedResources>
-                        <SupportedResource>
-                            <Value>ecs.d1ne.xlarge</Value>
-                            <Status>Available</Status>
-                        </SupportedResource>
-                         <SupportedResource>
-                            <Value>ecs.d1ne. 2xlarge</Value>
-                            <Status>Available</Status>
-                        </SupportedResource>
-                    </SupportedResources>
-                </AvailableResource>
-            </AvailableResources>
-        </AvailableZone>
-        <AvailableZone>
-            <ZoneId>cn-hangzhou-e</ZoneId>
-            <RegionId>cn-hangzhou</RegionId>
-            <Status>Available</Status>
-            <AvailableResources>
-                <AvailableResource>
-                    <Type>instanceType</Type>
-                    <SupportedResources>
-                        <SupportedResource>
-                            <Value>ecs.d1ne.xlarge</Value>
-                            <Status>Available</Status>
-                        </SupportedResource>
-                         <SupportedResource>
-                            <Value>ecs.d1ne. 2xlarge</Value>
-                            <Status>Available</Status>
-                        </SupportedResource>
-                    </SupportedResources>
-                </AvailableResource>
-            </AvailableResources>
-        </AvailableZone>
-    </AvailableZones>
-    <RequestId>6DB97BCC-92BA-424D-A7C8-3F6486612BAE</RequestId>
+``` {#xml_return_success_demo}
+<DescribeResourcesModificationResponse> 
+  <RequestId>994F2B60-B050-49E3-9283-44655FAC7A4X</RequestId> 
+  <AvailableZones> 
+    <AvailableZone> 
+      <Status>Available</Status> 
+      <RegionId>cn-hangzhou-dg-a01</RegionId> 
+      <AvailableResources> 
+        <AvailableResource> 
+          <Type>InstanceType</Type> 
+          <SupportedResources> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.g5.xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.t5-lc1m2.large</Value>
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.t5-c1m4.2xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.c5.xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.hfg5.large</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.hfc5.3xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.hfg5.4xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource>
+              <Status>Available</Status>
+              <Value>ecs.hfg5.6xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.c5.4xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.t5-c1m2.xlarge</Value>
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.t5-c1m1.2xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.ic5.xlarge</Value>
+            </SupportedResource>
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.t5-lc1m4.large</Value> 
+            </SupportedResource> 
+            <SupportedResource>
+              <Status>Available</Status> 
+              <Value>ecs.hfg5.3xlarge</Value>
+            </SupportedResource>
+            <SupportedResource>
+              <Status>Available</Status>
+              <Value>ecs.t5-c1m2.4xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.ic5.3xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status> 
+              <Value>ecs.g5.6xlarge</Value>
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.ic5.large</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.ic5.2xlarge</Value>
+            </SupportedResource>
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.hfc5.large</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.r5.large</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status> 
+              <Value>ecs.g5.large</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.hfg5.xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource>
+              <Status>Available</Status>
+              <Value>ecs.r5.4xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.hfc5.xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.hfc5.4xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.t5-lc1m2.small</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status> 
+              <Value>ecs.t5-c1m1.large</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.g5.2xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.r5.6xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status> 
+              <Value>ecs.t5-c1m2.2xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status> 
+              <Value>ecs.g5.3xlarge</Value>
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status> 
+              <Value>ecs.t5-c1m1.xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status> 
+              <Value>ecs.hfc5.6xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status>
+              <Value>ecs.t5-c1m4.xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status> 
+              <Value>ecs.hfg5.2xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status> 
+              <Value>ecs.hfc5.2xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status> 
+              <Value>ecs.c5.large</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status> 
+              <Value>ecs.c5.6xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource>
+              <Status>Available</Status>
+              <Value>ecs.t5-c1m4.large</Value>
+            </SupportedResource>
+            <SupportedResource>
+              <Status>Available</Status> 
+              <Value>ecs.r5.2xlarge</Value>
+            </SupportedResource>
+            <SupportedResource>
+              <Status>Available</Status> 
+              <Value>ecs.r5.xlarge</Value>
+            </SupportedResource>
+            <SupportedResource>
+              <Status>Available</Status> 
+              <Value>ecs.c5.3xlarge</Value> 
+            </SupportedResource> 
+            <SupportedResource> 
+              <Status>Available</Status> 
+              <Value>ecs.ic5.4xlarge</Value>
+            </SupportedResource>
+            <SupportedResource>
+              <Status>Available</Status>
+              <Value>ecs.t5-lc1m1.small</Value>
+            </SupportedResource>
+            <SupportedResource>
+              <Status>Available</Status>
+              <Value>ecs.c5.2xlarge</Value>
+            </SupportedResource>
+            <SupportedResource>
+              <Status>Available</Status>
+              <Value>ecs.t5-c1m1.4xlarge</Value>
+            </SupportedResource>
+            <SupportedResource>
+              <Status>Available</Status>
+              <Value>ecs.t5-lc2m1.nano</Value>
+            </SupportedResource>
+            <SupportedResource>
+              <Status>Available</Status>
+              <Value>ecs.g5.4xlarge</Value>
+            </SupportedResource>
+            <SupportedResource>
+              <Status>Available</Status>
+              <Value>ecs.r5.3xlarge</Value>
+            </SupportedResource>
+            <SupportedResource>
+              <Status>Available</Status>
+              <Value>ecs.t5-c1m2.large</Value>
+            </SupportedResource>
+          </SupportedResources> 
+        </AvailableResource>
+      </AvailableResources>
+      <ZoneId>cn-hangzhou-h</ZoneId>
+    </AvailableZone>
+  </AvailableZones>
 </DescribeResourcesModificationResponse>
 ```
 
- **JSON format** 
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-    "RequestId": "D0233A65-7F00-4B50-8023-101427229D4F",
-    "AvailableZones": {
-        "AvailableZone": [
-            {
-                "Status": "available",
-                "RegionId": "cn-hangzhou",
-                "AvailableResources": {
-                    "AvailableResource": [
-                        {
-                            "Type": "instanceType",
-                            "SupportedResources": {
-                                "SupportedResource": [
-                                    {
-                                        "Status": "available",
-                                        "Value": "ecs.sn1ne.xlarge"
-                                    },
-                                    {
-                                        "Status": "available",
-                                        "Value": "ecs.sn2ne.xlarge"
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ZoneId": "cn-hangzhou-e",
-            }
-        ]
-    }
+	"RequestId":"994F2B60-B050-49E3-9283-44655FAC7A4X",
+	"AvailableZones":{
+		"AvailableZone":[
+			{
+				"Status":"Available",
+				"RegionId":"cn-hangzhou-dg-a01",
+				"AvailableResources":{
+					"AvailableResource":[
+						{
+							"Type":"InstanceType",
+							"SupportedResources":{
+								"SupportedResource":[
+									{
+										"Status":"Available",
+										"Value":"ecs.g5.xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.t5-lc1m2.large"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.t5-c1m4.2xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.c5.xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.hfg5.large"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.hfc5.3xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.hfg5.4xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.hfg5.6xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.c5.4xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.t5-c1m2.xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.t5-c1m1.2xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.ic5.xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.t5-lc1m4.large"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.hfg5.3xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.t5-c1m2.4xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.ic5.3xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.g5.6xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.ic5.large"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.ic5.2xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.hfc5.large"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.r5.large"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.g5.large"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.hfg5.xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.r5.4xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.hfc5.xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.hfc5.4xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.t5-lc1m2.small"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.t5-c1m1.large"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.g5.2xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.r5.6xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.t5-c1m2.2xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.g5.3xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.t5-c1m1.xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.hfc5.6xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.t5-c1m4.xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.hfg5.2xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.hfc5.2xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.c5.large"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.c5.6xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.t5-c1m4.large"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.r5.2xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.r5.xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.c5.3xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.ic5.4xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.t5-lc1m1.small"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.c5.2xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.t5-c1m1.4xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.t5-lc2m1.nano"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.g5.4xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.r5.3xlarge"
+									},
+									{
+										"Status":"Available",
+										"Value":"ecs.t5-c1m2.large"
+									}
+								]
+							}
+						}
+					]
+				},
+				"ZoneId":"cn-hangzhou-h"
+			}
+		]
+	}
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_48j_w4u_oo2 .section}
 
-|Error code|Error message|HTTP status code|Description|
-|:---------|:------------|:---------------|:----------|
-|Invalid.Param|The input parameter DestinationResource that is mandatory for processing this request is not supplied.|400|You must specify the parameter `DestinationResource`.|
-|Unavailable.Regions|The available regions does not exists.|404|The specified `RegionId` is unavailable.|
-|InvalidRegionId.NotFound|The specified RegionId does not exist.|404|The specified `RegionId` does not exist.|
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|404|Invalid.RegionId|The specified RegionId does not exist.|The error message returned when the RegionId parameter is invalid.|
+|400|Invalid.OperationType|The specified operationType is not valid.|The error message returned when the operationType parameter is invalid.|
+|400|Invalid.Param|The input parameter DestinationResource that is mandatory for processing this request is not supplied.|The error message returned when the DestinationResource parameter is invalid.|
+|404|Invalid.ResourceType|The ResourceType provided does not exist in our records.|The error message returned when the ResourceType parameter is invalid.|
+|404|Invalid.DestinationResource|The specified DestinationResource is not valid.|The error message returned when the DestinationResource parameter is invalid.|
+|404|Invalid.IoOptimized|The specified IoOptimized is not valid.|The error message returned when the IoOptimized parameter is invalid.|
+|404|Invalid.NetworkCategory|The specified NetworkCategory is not valid.|The error message returned when the NetworkCategory parameter is invalid.|
+|404|Invalid.SpotStrategy|The specified SpotStrategy is not valid.|The error message returned when the SpotStrategy parameter is invalid.|
+|400|Invalid.InstanceChargeType|The specified InstanceChargeType is not valid.|The error message returned when the InstanceChargeType parameter is invalid.|
+|404|Invalid.ResourceId|The specified ResourceId is not valid.|The error message returned when the resource does not exist in the region or has been released.|
+|404|Invalid.InstancePayType|The specified InstancePayType is not valid.|The error message returned when the InstancePayType parameter is invalid.|
+|403|InvalidDedicatedHostId.NotFound|The specified DedicatedHostId does not exist in our records.|The error message returned when the resource does not exist in the region or has been released.|
+|404|InvalidInstanceId.NotFound|The specified InstanceId provided does not exist in our records.|The error message returned when the resource does not exist in the region or has been released.|
+|404|InvalidResourceId.NotFound|The specified ResourceId is not found in our records|The error message returned when the specified ResourceId does not exist.|
+|403|InvalidParam.TypeAndCpuMem.Conflict|The specified 'InstanceType' and 'Cores','Memory' are not blank at the same time.|The error message returned when the specified ResourceId does not exist.|
+|403|InvalidParam.Cores|The specified parameter 'Cores' should be empty|The error message returned when the Cores parameter is invalid.|
+|403|InvalidParam.Memory|The specified parameter 'Memory' should be empty|The error message returned when the resource does not exist in the region or has been released.|
+
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
