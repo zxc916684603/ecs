@@ -1,216 +1,296 @@
-# DescribeAvailableResource {#DescribeAvailableResource .reference}
+# DescribeAvailableResource {#doc_api_1105040 .reference}
 
-Describes a list of the resources available in a certain zone. For example, you can retrieve the resource list in a zone before creating an ECS instance \([RunInstances](reseller.en-US/API Reference/Instances/RunInstances.md#)\) in the zone.
+Views the resources available in a zone. For example, you can view the resource list before creating an ECS instance \(RunInstances\) in a zone.
 
-## Description {#section_av1_byg_ydb .section}
+## Description {#description .section}
 
-When you call this interface, consider the following:
+When you call this operation, note that:
 
--   If you do not specify the `ZondId`parameter, the system returns resources that match the other criteria in all zones in the \(`RegionId`\) region.
--   You can specify the `DestinationResource` parameter to retrieve different types of resource lists, and specify other parameters to refine your search. Options for the DestinationResource `DestinationResource` parameter have dependencies. When you select an option, the options to the left of the option in the chain are also required.
-    -   Sequence: \(`Zone`\) \> `IoOptimized` \> `InstanceType` \> `SystemDisk` \> `Datadisk`
-    -   **Samples of parameter values in the sequence**:
-        -   If you set `DestinationResource` to  `SystemDisk`, you must specify the `IoOptimized` and `InstanceType`.
-        -   If you set `DestinationResource` to `InstanceType`, you must specify the `IoOptimized`.
-        -   If you set `DestinationResource` to `DataDisk`, you must specify the `IoOptimized`, `InstanceType`, and `SystemDiskCategory`.
+-   When the ZoneId parameter is not specified, the system returns resources that match the other criteria of all zones within the region.
+-   You can specify the DestinationResource parameter to retrieve different types of resources, and specify other parameters to refine your search. Options for the DestinationResource parameter have dependencies. When you select an option, the options to the left of the option in the chain are also required.
+    -   Sequence: \(Zone\) \> IoOptimized \> InstanceType \> SystemDisk \> DataDisk
+    -   Samples of parameter values in the sequence:
+        -   If you set the DestinationResource parameter to SystemDisk, you must specify the IoOptimized and InstanceType parameters.
+        -   If you set the DestinationResource parameter to InstanceType, you must specify the IoOptimized parameter.
+        -   If you set the DestinationResource parameter to DataDisk, you must specify the IoOptimized, InstanceType, and SystemDiskCategory parameters.
 
-## Request parameters {#RequestParameter .section}
+## Debugging {#apiExplorer .section}
 
-|Name|Type|Required|Description |
-|:---|:---|:-------|:-----------|
-|Action|String|Yes|The name of this interface. Value: DescribeAvailableResource.|
-|RegionId|String|Yes|ID of the target region. You can call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|DestinationResource|String|Yes|Resource type to query. Optional values:-   Zone: Zone.
--   IoOptimized: Whether the instance is I/O optimized or not.
--   InstanceType: Instance type.
--   SystemDisk: System disk of an instance.
--   DataDisk: Data disk of an instance.
--   Network: Network type of an instance.
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeAvailableResource) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-|
-|ZoneId|String|No|Zone ID. If you do not specify `ZoneId`, the system returns resources that match the other criteria in all zones throughout the current region.|
-|InstanceChargeType |String|No|Billing method of resources. For more information, see [pricing overview](../reseller.en-US/Pricing/Pricing overview.md#). Optional values:-   PrePaid: Subscription.
--   PostPaid: Pay-As-You-Go.
+## Request parameters {#parameters .section}
 
-Default value: PostPaid.|
-|SpotStrategy|String|No|Sets your expected spot price for preemptible instances. Optional values:-   NoSpot: Bids as a normal Pay-As-You-Go instance.
--   SpotWithPriceLimit: Sets a bidding price threshold for the preemptible instance.
--   SpotAsPriceGo: Sets a highest Pay-As-You-Go price by the bidding system automatically.
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|DestinationResource|String|Yes|InstanceType| The resource types to query. Valid values:
 
-Default: NoSpot. The `InstanceChargeType` must be set to `PostPaid` to make `SpotStrategy` valid.|
-|IoOptimized|String|No|Whether it is an I/O-optimized instance or not. Optional values:-   none: Non-I/O optimized instance.
--   optimized: I/O optimized instance.
+ -   Zone
+-   IoOptimized
+-   InstanceType
+-   SystemDisk
+-   DataDisk
+-   Network
 
-If you set `DestinationResource` to  `InstanceType`, `SystemDisk` or `DataDisk`, you must specify `IoOptimized` as well.|
-|InstanceType|String|No|Instance type. For more information, see [instance Type Family](../reseller.en-US/Product Introduction/Instance type families.md#), or call [DescribeInstanceTypes](reseller.en-US/API Reference/Instances/DescribeInstanceTypes.md#) to obtain the latest type list. If you set `DestinationResource` to `SystemDisk` or `DataDisk`, you must specify the `InstanceType`.|
-|Systemdiskcategory|String|No|System disk category. Optional values:-   Cloud: Basic cloud disk.
--   cloud\_efficiency: Ultra cloud disk.
--   cloud\_ssd: Cloud SSD.
--   ephemeral\_ssd: Ephemeral SSD
+ |
+|RegionId|String|Yes|cn-hangzhou| The ID of the target region. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
 
-|
-|Datadiskcategory|String|No|Data disk category. Optional values:-   Cloud: Basic cloud disk.
--   cloud\_efficiency: Ultra cloud disk.
--   cloud\_ssd: Cloud SSD.
--   ephemeral\_ssd: Ephemeral SSD
+ |
+|Action|String|No|DescribeAvailableResource| The operation that you want to perform. Set the value to DescribeAvailableResource.
 
-|
-|NetworkCategory|String|No|Network type of an ECS instance. Optional values:-   Vpc: Virtual Private Cloud.
--   Classic: Classic network.
+ |
+|Cores|Integer|No|2| The number of vCPU cores of the instance type. For more information, see [Instance type families](~~25378~~). The Cores parameter is valid only when the DestinationResource parameter is set to InstanceType.
 
-|
+ |
+|DataDiskCategory|String|No|cloud\_ssd| The category of the data disk. Valid values:
 
-## Response parameters {#ResponseParameter .section}
+ -   cloud: basic disk
+-   cloud\_efficiency: ultra disk
+-   cloud\_ssd: SSD
+-   ephemeral\_ssd: local SSD
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|AvailableZones|Array of [AvailableZoneType](#)|A collection of zone types|
+ |
+|DedicatedHostId|String|No|dh-dedicatedhostid| The ID of the DDH.
 
-**AvailableZoneType**
+ |
+|InstanceChargeType|String|No|PrePaid| The billing method of resources. For more information, see Pricing overview. Valid values:
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|RegionId|String|Region ID.|
-|ZoneId|String|Zone ID.|
-|Status|String|Resource status. Possible values:-   Available: Resources are available.
--   SoldOut: Resources are unavailable.
+ -   PrePaid: Subscription.
+-   PostPaid: Pay-As-You-Go
 
-|
-|AvailableResources|Array of [AvailableResourcesType](#)|A collection of available resource types.|
+ Default value: PostPaid.
 
-**AvailableResourcesType**
+ |
+|InstanceType|String|No|ecs.g5.large| The type of the instance. For more information, see [Instance type families](~~25378~~), or call [DescribeInstanceTypes](~~25620~~) to query the latest instance types. When the DestinationResource parameter is set to SystemDisk or DataDisk, you must specify the InstanceType parameter as well.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|Type|String|The type of the ECS resource. Possible values:-   Zone: Zone.
--   IoOptimized: Whether the instance is I/O optimized or not.
--   InstanceType: Instance type.
--   SystemDisk: System disk.
--   DataDisk: Data disk of an instance.
--   Network: Network type of an instance.
+ |
+|IoOptimized|String|No|optimized| Indicates whether the instance is I/O optimized. Valid values:
 
-|
-|SupportedResources|Array of [SupportedResourcesType](#)|A collection of supported available resource types.|
+ -   none
+-   optimized
 
-**SupportedResourcesType**
+ When the DestinationResource parameter is set to InstanceType, SystemDisk, or DataDisk, you must specify the IoOptimized parameter as well.
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|Value|String|Name of the Resource.|
-|Status|String|Resource status. Possible values:-   Available: Resources are available.
--   SoldOut: Resources are unavailable.
+ |
+|Memory|Float|No|8.0| The memory size of the instance type. Unit: GiB. For more information, see [Instance type families](~~25378~~). The Memory parameter is valid only when the DestinationResource parameter is set to InstanceType.
 
-|
-|Min|Integer|Minimum limit of a resource type. No value is returned if the parameter is null.|
-|Max|Integer|Maximum limit of a resource type. No value is returned if the parameter is null.|
-|Unit|Integer|Resource type unit. No value is returned if the parameter is null.|
+ |
+|NetworkCategory|String|No|vpc| The type of the network. Valid values:
 
-## Examples { .section}
+ -   vpc
+-   classic
 
-**Request example** 
+ |
+|ResourceType|String|No|Instance| The type of the resource.
 
-```
+ |
+|SpotStrategy|String|No|NoSpot| The bidding policy for the Pay-As-You-Go instance. Valid values:
+
+ -   NoSpot: a normal Pay-As-You-Go instance
+-   SpotWithPriceLimit: a preemptible instance with a maximum hourly price
+-   SpotAsPriceGo: an instance that is billed based on the market price. The maximum price of this instance is the price of a Pay-As-You-Go instance.
+
+ Default value: NoSpot. The SpotStrategy parameter is valid only when the InstanceChargeType parameter is set to PostPaid.
+
+ |
+|SystemDiskCategory|String|No|cloud\_ssd| The category of the system disk. Valid values:
+
+ -   cloud: basic disk
+-   cloud\_efficiency: ultra disk
+-   cloud\_ssd: SSD
+-   ephemeral\_ssd: local SSD
+
+ |
+|ZoneId|String|No|cn-hangzhou-e| The ID of the zone. When the ZoneId parameter is not specified, the system returns resources that match the other criteria of all zones within the region.
+
+ |
+
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|AvailableZones| | | An array of zone types.
+
+ |
+|└AvailableResources| | | An array of available resource types.
+
+ |
+|└SupportedResources| | | An array of supported resource types.
+
+ |
+|└Max|Integer|2| The maximum value of a resource type. No value is returned when this parameter is null.
+
+ |
+|└Min|Integer|1| The minimum value of a resource type. No value is returned when the parameter is null.
+
+ |
+|└Status|String|Available| The type of the resource. Valid values:
+
+ -   Available
+-   SoldOut
+
+ |
+|└StatusCategory|String|WithStock| The resource category based on the stock. Valid values:
+
+ -   WithStock: sufficient stock
+-   ClosedWithStock: insufficient stock
+-   WithoutStock: running out of stock
+
+ |
+|└Unit|String|null| The unit of the resource type. No value is returned when the parameter is null.
+
+ |
+|└Value|String|ecs.d1ne.xlarge| The value of the resource.
+
+ |
+|└Type|String|InstanceType| The type of the resource. Valid values:
+
+ -   Zone
+-   IoOptimized
+-   InstanceType
+-   SystemDisk
+-   DataDisk
+-   Network
+
+ |
+|└RegionId|String|cn-hangzhou| The ID of the region.
+
+ |
+|└Status|String|Available| The type of the resource. Valid values:
+
+ -   Available
+-   SoldOut
+
+ |
+|└StatusCategory|String|WithStock| The resource category based on the stock. Valid values:
+
+ -   WithStock: sufficient stock
+-   ClosedWithStock: insufficient stock
+-   WithoutStock: running out of stock
+
+ |
+|└ZoneId|String|cn-hangzhou-e| The ID of the zone.
+
+ |
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=DescribeAvailableResource
+&DestinationResource=InstanceType 
 &RegionId=cn-hangzhou
-&<Common Request Parameters>
+&InstanceChargeType=PrePaid 
+&SpotStrategy=NoSpot 
+&ZoneId=cn-hangzhou-e
+&IoOptimized=optimized 
+&DedicatedHostId=dh-dedicatedhostid 
+&InstanceType=["ecs.g5.large"] 
+&SystemDiskCategory=cloud_ssd 
+&DataDiskCategory=cloud_ssd 
+&NetworkCategory=vpc 
+&Cores=2 
+&Memory=8.0
+&ResourceType=Instance 
+&<Common request parameters>
 ```
 
-**Response example** 
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
-<DescribeAvailableResourceResponse>
-    <AvailableZones>
-        <AvailableZone>
-            <ZoneId>cn-hangzhou-d</ZoneId>
-            <RegionId>cn-hangzhou</RegionId>
-            <Status>Available</Status>
-            <AvailableResources>
-                <AvailableResource>
-                    <Type>instanceType</Type>
-                    <SupportedResources>
-                        <SupportedResource>
-                            <Value>ecs.d1ne.xlarge</Value>
-                            <Status>Available</Status>
-                        </SupportedResource>
-                        <SupportedResource>
-                            <Value>ecs.d1ne. 2xlarge</Value>
-                            <Status>Available</Status>
-                        </SupportedResource>
-                    </SupportedResources>
-                </AvailableResource>
-            </AvailableResources>
-        </AvailableZone>
-        <AvailableZone>
-            <ZoneId>cn-hangzhou-e</ZoneId>
-            <RegionId>cn-hangzhou</RegionId>
-            <Status>Available</Status>
-            <AvailableResources>
-                <AvailableResource>
-                    <Type>instanceType</Type>
-                    <SupportedResources>
-                        <SupportedResource>
-                            <Value>ecs.d1ne.xlarge</Value>
-                            <Status>Available</Status>
-                        </SupportedResource>
-                         <SupportedResource>
-                            <Value>ecs.d1ne. 2xlarge</Value>
-                            <Status>Available</Status>
-                        </SupportedResource>
-                    </SupportedResources>
-                </AvailableResource>
-            </AvailableResources>
-        </AvailableZone>
-    </AvailableZones>
-    <RequestId>6DB97BCC-92BA-424D-A7C8-3F6486612BAE</RequestId>
+``` {#xml_return_success_demo}
+<DescribeAvailableResourceResponse> 
+  <RequestId>5272B7D8-F366-4781-AF7B-63E735FBC09A</RequestId> 
+  <AvailableZones> 
+    <AvailableZone> 
+      <Status>Available</Status>
+      <RegionId>cn-hangzhou</RegionId>
+      <ZoneId>cn-hangzhou-h</ZoneId> 
+    </AvailableZone> 
+    <AvailableZone> 
+      <Status>Available</Status>
+      <RegionId>cn-hangzhou</RegionId>
+      <ZoneId>cn-hangzhou-g</ZoneId>
+    </AvailableZone> 
+    <AvailableZone> 
+      <Status>Available</Status>
+      <RegionId>cn-hangzhou</RegionId> 
+      <ZoneId>cn-hangzhou-f</ZoneId> 
+    </AvailableZone>
+    <AvailableZone> 
+      <Status>Available</Status>
+      <RegionId>cn-hangzhou</RegionId>
+      <ZoneId>cn-hangzhou-b</ZoneId> 
+    </AvailableZone> 
+    <AvailableZone> 
+      <Status>Available</Status>
+      <RegionId>cn-hangzhou</RegionId>
+      <ZoneId>cn-hangzhou-e</ZoneId> 
+    </AvailableZone>
+  </AvailableZones>
 </DescribeAvailableResourceResponse>
 ```
 
- **JSON format** 
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-    "RequestId": "D0233A65-7F00-4B50-8023-101427229D4F",
-    "AvailableZones": {
-        "AvailableZone": [
-            {
-                "Status": "available",
-                "RegionId": "cn-hangzhou",
-                "AvailableResources": {
-                    "AvailableResource": [
-                        {
-                            "Type": "instanceType",
-                            "SupportedResources": {
-                                "SupportedResource": [
-                                    {
-                                        "Status": "available",
-                                        "Value": "ecs.sn1ne.xlarge"
-                                    },
-                                    {
-                                        "Status": "available",
-                                        "Value": "ecs.sn2ne.xlarge"
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ZoneId": "cn-hangzhou-e",
-            }
-        ]
-    }
+	"RequestId":"5272B7D8-F366-4781-AF7B-63E735FBC09A",
+	"AvailableZones":{
+		"AvailableZone":[
+			{
+				"Status":"Available",
+				"RegionId":"cn-hangzhou",
+				"ZoneId":"cn-hangzhou-h"
+			},
+			{
+				"Status":"Available",
+				"RegionId":"cn-hangzhou",
+				"ZoneId":"cn-hangzhou-g"
+			},
+			{
+				"Status":"Available",
+				"RegionId":"cn-hangzhou",
+				"ZoneId":"cn-hangzhou-f"
+			},
+			{
+				"Status":"Available",
+				"RegionId":"cn-hangzhou",
+				"ZoneId":"cn-hangzhou-b"
+			},
+			{
+				"Status":"Available",
+				"RegionId":"cn-hangzhou",
+				"ZoneId":"cn-hangzhou-e"
+			}
+		]
+	}
 }
 ```
 
-## Error codes {#ErrorCode .section}
+## Error codes {#section_jvt_32n_sga .section}
 
-|Error code|Error messages|HTTP status code |Meaning|
-|:---------|:-------------|:----------------|:------|
-|Invalid.Param|The input parameter DestinationResource that is mandatory for processing this request is not supplied.|400|You must specify the `DestinationResource`.|
-|Invalid.InstanceChargeType|The specified InstanceChargeType is not valid.|400|The specified `InstanceChargeType` does not exist.|
-|Invalid.IoOptimized|The specified IoOptimized is not valid.|404|The specified parameter `IoOptimized` is invalid.|
-|Invalid.NetworkCategory|The specified NetworkCategory is not valid.|404|The specified NetworkCategory is invalid.|
-|InvalidRegionId.NotFound|The specified RegionId does not exist.|404|The specified `RegionId` does not exist.|
-|Unavailable.Regions|The available regions does not exists.|404|You are not allowed to access the specified `RegionId`.|
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|404|Invalid.RegionId|The specified RegionId does not exist.|The error message returned when the RegionId parameter is invalid.|
+|400|Invalid.InstanceChargeType|The specified InstanceChargeType is not valid.|The error message returned when the InstanceChargeType parameter is invalid.|
+|400|Invalid.Param|The input parameter DestinationResource that is mandatory for processing this request is not supplied.|The error message returned when the DestinationResource parameter is invalid.|
+|404|Invalid.ResourceType|The ResourceType provided does not exist in our records.|The error message returned when the ResourceType parameter is invalid.|
+|404|Invalid.DestinationResource|The specified DestinationResource is not valid.|The error message returned when the DestinationResource parameter is invalid.|
+|404|Invalid.IoOptimized|The specified IoOptimized is not valid.|The error message returned when the IoOptimized parameter is invalid.|
+|404|Invalid.NetworkCategory|The specified NetworkCategory is not valid.|The error message returned when the NetworkCategory parameter is invalid.|
+|404|Invalid.SpotStrategy|The specified SpotStrategy is not valid.|The error message returned when the SpotStrategy parameter is invalid.|
+|403|InvalidDedicatedHostId.NotFound|The specified DedicatedHostId does not exist.|The error message returned when the specified DDH ID does not exist.|
+|404|Invalid.NetworkType|The specified NetworkType is not valid.|The error message returned when the NetworkType parameter is invalid.|
+|404|InvalidResourceId.NotFound|The specified ResourceId is not found in our records|The error message returned when the specified ResourceId does not exist.|
+|403|InvalidParam.TypeAndCpuMem.Conflict|The specified 'InstanceType' and 'Cores','Memory' are not blank at the same time.|The error message returned when the specified ResourceId does not exist.|
+|403|InvalidParam.Cores|The specified parameter 'Cores' should be empty|The error message returned when the Memory parameter is invalid.|
+|403|InvalidParam.Memory|The specified parameter 'Memory' should be empty|The error message returned when the resource in the current region does not exist or has been released.|
+|400|InvalidRegionId.MalFormed|The specified parameter RegionId is not valid.|The error message returned when the specified RegionId parameter is invalid.|
+
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
