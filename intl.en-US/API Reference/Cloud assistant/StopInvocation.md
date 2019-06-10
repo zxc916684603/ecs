@@ -1,86 +1,77 @@
-# StopInvocation {#StopInvocation .reference}
+# StopInvocation {#doc_api_1101311 .reference}
 
-Stops cloud assistant command processes that are in **Running** \(`Running`\) status on ECS instances. When you call this interface, consider the following:
+Stops the process of a running cloud assistant command on one or more ECS instances.
 
-## Description {#section_ult_wm4_ydb .section}
+## Description {#description .section}
 
--   After you stop a command process on one-time invocation, the invocation operations that have been started on instances proceed, and those that have not been started cease.
--   After you stop a command process on periodical invocation, the invocation operations that have been started on instances proceed, but the invocation does not proceed to the next period.
+-   If you stop the process of a one-time invocation command, the invocations that have already started are not interrupted. Invocations that have not started are canceled.
+-   If you stop the process of a periodic invocation command, the invocations that have already started are not interrupted. However, the invocation does not start in the next period.
 
-## Request parameters {#RequestParameter .section}
+## Debugging {#apiExplorer .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The name of this interface. Value: StopInvocation.|
-|RegionId|String|Yes|The region ID. For more information, call [DescribeRegions](../reseller.en-US/API Reference/Regions/DescribeRegions.md#) to obtain the latest region list.|
-|InvokeId|String|Yes|Invocation ID of a command process. You can call [DescribeInvocations](reseller.en-US/API Reference/Cloud assistant/DescribeInvocations.md#) to obtain the latest `InvokeId`.|
-|InstanceIds|Array|No|List of instances for stopping command invocation. The parameter value is a formatted JSON array in the format of \[`InstanceId1`, `InstanceId2`, …\]. You can specify a maximum of 100 instance IDs separated by commas \(,\).|
+You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=StopInvocation) to perform debugging. API Explorer allows you to perform various operations to simplify API usage. For example, you can retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-## Response parameters {#section_f54_lk5_xdb .section}
+## Request parameters {#parameters .section}
 
-All are common response parameters. See [Common response parameters](../reseller.en-US/API Reference/Getting started/Common parameters.md#commonResponseParameters).
+|Name|Type|Required|Example|Description|
+|----|----|--------|-------|-----------|
+|InvokeId|String|Yes|t-7d2a745b412b4601b2d47f6a768d3a14| The invocation ID of the command process. You can call [DescribeInvocations](~~64840~~) to view all the invocation IDs.
 
-## Examples { .section}
+ |
+|RegionId|String|Yes|cn-hangzhou| The ID of the region. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
 
-**Request example** 
+ |
+|Action|String|No|StopInvocation| The operation that you want to perform. Set the value to StopInvocation.
 
-```
+ |
+|InstanceId.N|RepeatList|No|i-uf614fhehhzmxdqx| The list of instances where the command needs to be stopped. You can specify up to 50 instance IDs in each request. Valid values of N: 1 to 50.
+
+ |
+
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example|Description|
+|----|----|-------|-----------|
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=StopInvocation
-&RegionId=cn-hangzhou
-&InvokeId=t-1fad2a8876de47068cc734d57703aa76
-&<Common Request Parameters>
+&InvokeId=t-7d2a745b412b4601b2d47f6a768d3a14
+&RegionId=cn-hangzhou 
+&InstanceId.1=i-uf614fhehhzmxdqx
+&<Common request parameters>
 ```
 
-**Success response example** 
+Successful response examples
 
-**XML format**
+`XML` format
 
-```
+``` {#xml_return_success_demo}
 <StopInvocationResponse>
-    <RequestId>540CFF28-407A-40B5-B6A5-73Bxxxxxxxxx</RequestId>
+  <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId> 
 </StopInvocationResponse>
 ```
 
- **JSON format** 
+`JSON` format
 
-```
+``` {#json_return_success_demo}
 {
-    "RequestId":"540CFF28-407A-40B5-B6A5-73Bxxxxxxxxx",
+	"RequestId":"E69EF3CC-94CD-42E7-8926-F133B86387C0"
 }
 ```
 
-**Error response example** 
+## Error codes {#section_hwq_j8m_i3h .section}
 
-** XML format** 
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
+|500|InternalError.Dispatch|An error occurred when you dispatched the request.|The error message returned when an unknown error occurs.|
+|404|InvalidInvokeId.NotFound|The specified invoke ID does not exist.|The error message returned when the specified InvokeId parameter does not exist.|
 
-```
-<Error>
-    <RequestId>540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx</RequestId>
-    <HostId>ecs.aliyuncs.com</HostId>
-    <Code>InvalidInstance.NoClient</Code>
-    <Message>The specified instances have no cloud assistant client installed.</Message>
-</Error>
-```
-
- **JSON format** 
-
-```
-{
-    "RequestId": "540CFF28-407A-40B5-B6A5-74Bxxxxxxxxx",
-    "HostId": "ecs.aliyuncs.com",
-    "Code": "InvalidInstance.NoClient",
-    "Message": "The specified instances have no cloud assistant client installed."
-}
-```
-
-## Error codes {#ErrorCode .section}
-
-|Error code|Error message|HTTP status code|Description|
-|:---------|:------------|:---------------|:----------|
-|InvalidInvokeId.NotFound|The specified ImageId does not exist.|400|The specified `InvokeId`does not exist.|
-|MissingParameter.InstanceId|The input parameter “InstanceIds” that is required for processing this request is not supplied.|400|You must specify the required parameter of InstanceIds.|
-|MissingParameter.RegionId|The input parameter “RegionId” that is required for processing this request is not supplied.|400|You must specify the required parameter of `RegionId`. Or you cannot use the resources in the specified region.|
-|MissingParameter.InvokeId|The input parameter “InvokeId” that is required for processing this request is not supplied.|400|You must specify the required parameter `InvokeId`.|
-|InvalidRegionId.NotFound|The RegionId provided does not exist in our items.|404|The specified `RegionId`does not exist.|
-|InternalError.Dispatch|An internal error occurred when dispath the request|500|Internal error, please try later.|
+[View error codes](https://error-center.aliyun.com/status/product/Ecs)
 
