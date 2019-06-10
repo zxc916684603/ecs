@@ -2,7 +2,7 @@
 
 ## Introduction {#section_r4y_j2n_qgb .section}
 
-[Rancher](https://rancher.com/) is a multi-cluster [Kubernetes](https://kubernetes.io/) management platform. The goal of this tutorial is to explain how to setup Rancher on a [single node](https://rancher.com/docs/rancher/v2.x/en/installation/) and how to integrate it with Alibaba Cloud Container Service.
+[Rancher](https://rancher.com/) is a multi-cluster [Kubernetes](https://kubernetes.io/) management platform. The goal of this tutorial is to explain how to set up Rancher on a [single node](https://rancher.com/docs/rancher/v2.x/en/installation/) and how to integrate it with Alibaba Cloud Container Service.
 
 ## Prerequisites {#section_s4y_j2n_qgb .section}
 
@@ -10,13 +10,13 @@ To follow this topic, you need to create an Alibaba Cloud account and [obtain an
 
 Cloud resources are created with [Terraform](https://www.terraform.io/) scripts. If you do not know this tool, [follow this topic](https://www.terraform.io/intro/getting-started/install.html) and familiarize yourself with the [Alicloud Provider](https://www.terraform.io/docs/providers/alicloud/index.html).
 
-Make sure you are familiarized with Kubernetes. If you need, you can follow this [tutorial](https://kubernetes.io/docs/tutorials/kubernetes-basics/) to learn the basics. You will also need to [setup the command line tool kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+You are familiarized with Kubernetes. You can follow this [tutorial](https://kubernetes.io/docs/tutorials/kubernetes-basics/) to learn the basics. You need to [set up the command line tool kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
-Important: please download the [related resources](https://github.com/alibabacloud-howto/devops/tree/master/tutorials/getting_started_with_rancher) before moving to the next section.
+The [related resources](https://github.com/alibabacloud-howto/devops/tree/master/tutorials/getting_started_with_rancher) are downloaded.
 
 ## Rancher installation {#section_v4y_j2n_qgb .section}
 
-There are two ways to [setup](https://rancher.com/docs/rancher/v2.x/en/installation/) Rancher:
+There are two ways to [set up](https://rancher.com/docs/rancher/v2.x/en/installation/) Rancher:
 
 -   Single-node configuration.
 -   High-Availability configuration.
@@ -25,7 +25,7 @@ We will choose the first way as it makes things simpler.
 
 Open a terminal on your computer and execute the following instructions:
 
-```
+``` {#codeblock_0rh_tba_o91}
 # Go to the folder where you have downloaded this tutorial
 cd path/to/this/tutorial
 
@@ -49,7 +49,7 @@ terraform apply
 
 The last command should ask you to confirm by entering `yes` and should print logs that end like this:
 
-```
+``` {#codeblock_nb8_4wk_i6r}
 Apply complete! Resources: 9 added, 0 changed, 0 destroyed.
 
 Outputs:
@@ -59,27 +59,27 @@ rancher_eip_ip_address = 161.117.4.26
 
 Open a web browser tab and enter the URL corresponding to https://rancher\_eip\_ip\_address \(for example, https://161.117.4.26/\). Your web browser will complain that the connection is unsecured \(which is normal because we did not configure any SSL/TLS certificate\). Make an exception and continue browsing.
 
-**Note:** If using an invalid certificate bothers you, follow [this documentation](https://rancher.com/docs/rancher/v2.x/en/installation/single-node/#2-choose-an-ssl-option-and-install-rancher) to setup HTTPS properly.
+**Note:** If using an invalid certificate bothers you, follow [this documentation](https://rancher.com/docs/rancher/v2.x/en/installation/single-node/#2-choose-an-ssl-option-and-install-rancher) to set up HTTPS.
 
-You should get a page like this:
+The following welcome page is displayed.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123251/155324837639917_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123251/156013173839917_en-US.png)
 
-Set an administrator password and click **Continue**. The next step asks you to configure the server URL. Keep the default value and click **Save URL**.
+Set an administrator password and click **Continue**. Keep the default value of the server URL and click **Save URL**.
 
-You should then be redirected to the clusters page:
+The Clusters page is displayed.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123251/155324837639918_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123251/156013173839918_en-US.png)
 
 ## Kubernetes cluster {#section_bpy_j2n_qgb .section}
 
 Unfortunately the integration with Alibaba Cloud Container Service is not yet supported by the current version of Rancher \(v2.1.3\). However, we can create a Kubernetes cluster with Terraform and import it manually to Rancher.
 
-**Cluster sizing**
+ **Cluster sizing** 
 
 Before creating our cluster we need to size it correctly. Currently in Alibaba Cloud, a Kubernetes cluster must have exactly 3 master nodes, but the node instance types \(number of CPUs and amount of RAM\) and the number of worker nodes are flexible.
 
-**Note:** [this document](https://elastisys.com/wp-content/uploads/2018/01/kubernetes-ha-setup.pdf?x83281) is a good introduction about the master and worker node concepts in Kubernetes.
+**Note:** [This document](https://elastisys.com/wp-content/uploads/2018/01/kubernetes-ha-setup.pdf?x83281) is a good introduction about the master and worker node concepts in Kubernetes.
 
 [This document in Chinese](https://yq.aliyun.com/articles/599169) gives advices about which instance type to choose for master nodes; it also provides general tips about cluster administration. Concerning our sizing problem, this article proposes the following configurations:
 
@@ -107,7 +107,7 @@ Let’s consider the following example where a system needs a total of 160 vCPUs
 
 About the amount of RAM for each worker, the document gives the following rule of thumb in case of applications that are relatively greedy in memory, such as Java applications: a good ratio is 8 GB of RAM per vCPU, so if we choose an instance type with 4 vCPUs, then we need to take about 32 GB of RAM.
 
-**Cluster creation**
+ **Cluster creation** 
 
 We will create a Kubernetes cluster in multiple availability zones. This decision increases the availability of the system, but it adds the following constraints:
 
@@ -117,7 +117,7 @@ We will create a Kubernetes cluster in multiple availability zones. This decisio
 
 Open a terminal on your computer and execute the following instructions:
 
-```
+``` {#codeblock_p5c_1l9_hum}
 # Go to the folder where you have downloaded this tutorial
 cd path/to/this/tutorial
 
@@ -148,7 +148,7 @@ terraform apply
 
 The last command should ask you to confirm by entering `yes` and should end with similar logs:
 
-```
+``` {#codeblock_28u_me5_094}
 Apply complete! Resources: 16 added, 0 changed, 0 destroyed.
 
 Outputs:
@@ -160,7 +160,7 @@ rancher_k8s_cluster_ip_address = 161.117.96.245
 
 Let’s configure [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) locally so that it can communicate with the new cluster. Execute the following commands in your terminal:
 
-```
+``` {#codeblock_yml_6mv_2q5}
 mkdir $HOME/.kube
 scp root@161.117.96.245:/etc/kubernetes/kube.conf $HOME/.kube/config
 # Note 0: the IP address is the one from `rancher_k8s_cluster_ip_address`.
@@ -172,7 +172,7 @@ kubectl cluster-info
 
 If the configuration went well, the result of the last command should be something like:
 
-```
+``` {#codeblock_0jd_1ac_l8t}
 Kubernetes master is running at https://161.117.96.245:6443
 Heapster is running at https://161.117.96.245:6443/api/v1/namespaces/kube-system/services/heapster/proxy
 KubeDNS is running at https://161.117.96.245:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
@@ -194,18 +194,18 @@ Open your web browser tab with Rancher \(the page you got when you finished the 
 
 You should get a page like this:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123251/155324837639920_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123251/156013173839920_en-US.png)
 
 Let’s execute the last command. Copy it and paste it in your terminal:
 
-```
+``` {#codeblock_qxf_8yg_slz}
 # Command from Rancher in order to import the cluster
 curl --insecure -sfL https://161.117.4.26/v3/import/nlz588gctmkkkpc8jsntrht8ff65gbp4d629smqzbcjpvxzltfdmph.yaml | kubectl apply -f -
 ```
 
 This command should output the following logs:
 
-```
+``` {#codeblock_vz1_9rz_2p5}
 namespace/cattle-system created
 serviceaccount/cattle created
 clusterrolebinding.rbac.authorization.k8s.io/cattle-admin-binding created
@@ -217,11 +217,11 @@ daemonset.extensions/cattle-node-agent created
 
 Go back to the web browser tab and click **Done**. You should now see your cluster:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123251/155324837639921_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123251/156013173939921_en-US.png)
 
 On this page, click the cluster name \(alibabacloud-cluster\). You should obtain a dashboard similar to this one:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123251/155324837639922_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123251/156013173939922_en-US.png)
 
 ## Testing {#section_qpy_j2n_qgb .section}
 
@@ -240,14 +240,14 @@ Let’s play a bit with Rancher by deploying a small application. Open your web 
 
 After few seconds you should see your workload named **hello-workload** with the **Active** status:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123251/155324837639923_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123251/156013173939923_en-US.png)
 
 Let’s [create a load balancer](https://rancher.com/docs/rancher/v2.x/en/k8s-in-rancher/load-balancers-and-ingress/) to expose this application to internet:
 
 1.  Click **Import YAML**.
 2.  Copy the following content in the dark text area:
 
-    ```
+    ``` {#codeblock_o9n_w1j_0jw}
     apiVersion: v1
     kind: Service
     metadata:
@@ -269,11 +269,11 @@ Let’s [create a load balancer](https://rancher.com/docs/rancher/v2.x/en/k8s-in
 
 You can see your load balancer:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123251/155324837639924_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123251/156013173939924_en-US.png)
 
 To get the IP address of this load balancer, click the menu on the right of **hello-app-load-balancer** \(with 3 vertical dots\) and select **View/Edit YAML**. You can see a large YAML file. Scroll down until you see the `status`:
 
-```
+``` {#codeblock_gzs_b17_cxc}
 status:
   loadBalancer:
     ingress:
@@ -282,7 +282,7 @@ status:
 
 Copy this IP address and paste it into the URL bar of a new web browser tab. You can access to your application:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123251/155324837639925_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123251/156013173939925_en-US.png)
 
 Congratulation if you managed to get this far! If you want to continue to learn about Kubernetes and Rancher, see the [official documentation](https://rancher.com/docs/rancher/v2.x/en/k8s-in-rancher/).
 
