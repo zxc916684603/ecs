@@ -1,33 +1,35 @@
 # Request structure {#RequestUrlStructure .concept}
 
-GET requests by sending a URL over the HTTP or HTTPS protocol are allowed. The request parameters must be included in the request URL.
+This topic describes the request structure in GET requests and provides the endpoints of ECS. Alibaba Cloud ECS APIs allow you to initiate GET requests by sending a URL over the HTTP or HTTPS protocol. The request parameters must be included in the URL.
 
-See the following unencoded URL of [CreateSnapshot](reseller.en-US/API Reference/Snapshots/CreateSnapshot.md#) as a request example.
+## Structure example {#section_htp_xvb_wdb .section}
+
+The following example is an unencoded URL request of [CreateSnapshot](intl.en-US/API Reference/Snapshots/CreateSnapshot.md#).
 
 ```
 https://ecs.aliyuncs.com/?Action=CreateSnapshot
-&DiskId=1033-60053321
-&<Common Request Parameters>
+&DiskId=d-28m5zbua0
+&<Common request parameters>
 ```
 
--   `https` specifies the communication protocol.
+-   `https` indicates the communication protocol.
 
--   `ecs.aliyuncs.com` is one of the ECS service endpoints.
+-   `ecs.aliyuncs.com` is an ECS service endpoint.
 
--   `Action=CreateSnapshot` specifies the target API, and `DiskId=1033-60053321` is one of the [CreateSnapshot](reseller.en-US/API Reference/Snapshots/CreateSnapshot.md#) parameters.
+-   `Action=CreateSnapshot` indicates the target API, and `DiskId=`d-28m5zbua0`` is one of the [CreateSnapshot](intl.en-US/API Reference/Snapshots/CreateSnapshot.md#) parameters.
 
--   `<Common Request Parameters>` are the headers, common parameters, and authentication parameters.
+-   `<Common request parameters>` are the common parameters of the system.
 
 
 ## Communication protocol {#section_ltp_xvb_wdb .section}
 
-Request over HTTP or HTTPS is supported. We recommend that you send requests over HTTPS to enhance security.
+Requests over HTTP or HTTPS are supported. We recommend that you send requests over HTTPS for a higher level of security.
 
-Especially, when you invoke the SSH key pairs APIs, or password exists in your request, such as the parameter `Password` in the [CreateInstance](reseller.en-US/API Reference/Instances/CreateInstance.md#) operation, we recommend that you choose the HTTPS protocol.
+If such sensitive information as an SSH key pair or a password exists in your request, we recommend that you choose HTTPS.
 
 ## Service endpoints {#section_mtp_xvb_wdb .section}
 
-See the following table for the API service access endpoints of ECS.
+The following table describes the API service access endpoints of ECS. To reduce network latency, we recommend that you configure endpoints based on the source from which you call the service.
 
 |Region \(Location\)|Endpoint|
 |:------------------|:-------|
@@ -41,8 +43,9 @@ See the following table for the API service access endpoints of ECS.
 |Asia Pacific SOU 1 \(Mumbai\) |ecs.ap-south-1.aliyuncs.com|
 |Middle East 1 \(Dubai\)|ecs.me-east-1.aliyuncs.com|
 |Germany 1 \(Frankfurt\)|ecs.eu-central-1.aliyuncs.com|
+|UK \(London\)|ecs.eu-west-1.aliyuncs.com|
 
-Specifically, if you are from international regions, we recommend that you use the following central endpoints to avoid latency.
+The endpoints in the following table are accelerated through the virtual network and Express Connect. This reduces network latency that results from communication across different countries or regions.
 
 |Region \(Location\)|Endpoint|
 |:------------------|:-------|
@@ -53,9 +56,9 @@ Specifically, if you are from international regions, we recommend that you use t
 
 ## Request Parameters {#section_rtp_xvb_wdb .section}
 
-You must specify the target API for each request by passing in the `Action` parameter. For example, [Action=StartInstance](reseller.en-US/API Reference/Instances/StartInstance.md#). Each URL must contain the [common request parameters](reseller.en-US/API Reference/Getting started/Common parameters.md#commonRequestParameters) and the specific request parameters of the target operation.
+You must specify the target operation \(for example, [Action=StartInstance](intl.en-US/API Reference/Instances/StartInstance.md#)\) by using the `Action` parameter. Additionally, you must set other API parameters and [Common request parameters](intl.en-US/API Reference/Getting started/Common parameters.md#commonRequestParameters).
 
 ## Character encoding {#section_stp_xvb_wdb .section}
 
-Request parameters and response results are encoded by using the`UTF-8` character set.
+Request parameters and response parameters are encoded by using the`UTF-8` character set.
 
