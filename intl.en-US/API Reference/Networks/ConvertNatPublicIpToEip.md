@@ -4,8 +4,6 @@ Converts the public IP address of a VPC-connected ECS instance to an Elastic IP 
 
 ## Description {#description .section}
 
-Before using the API, make sure that you are fully aware of the [billing method of EIP](~~27767~~).
-
 When you call this operation, note that:
 
 -   The network type of the instance must be VPC.
