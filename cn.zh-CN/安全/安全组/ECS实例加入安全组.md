@@ -17,15 +17,15 @@
 
 在云服务器ECS管理控制台上通过实例页面将ECS实例加入安全组的操作路径如下，您也可以通过**网络与安全** \> **安全组**的路径完成操作。
 
-1.  登录[云服务器 ECS 管理控制台](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home)。
-2.  在左侧导航栏中，单击**实例**。
-3.  选择**地域**。
+1.  登录[ECS管理控制台](https://ecs.console.aliyun.com)。
+2.  在左侧导航栏，选择**实例与镜像** \> **实例**。
+3.  在顶部状态栏处，选择地域。
 4.  在**实例列表**页面中，找到需要加入安全组的ECS实例，单击**操作**列下的**管理**。
 5.  单击**本实例安全组**。
 6.  单击**加入安全组**。
 7.  选择需要加入的安全组。如果您需要加入多个安全组，选择安全组后单击**加入到批量选择栏**，将会显示一个选择栏，选中的安全组自动添加到选择栏中。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9652/155980492648434_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9652/156042442948434_zh-CN.png)
 
 8.  单击**确定**。
 
@@ -33,7 +33,7 @@
 
 ## 相关API {#section_jsc_fnc_3gb .section}
 
-您可以通过[JoinSecurityGroup](../../../../cn.zh-CN/API参考/安全组/JoinSecurityGroup.md#)接口将一台ECS实例加入到指定的安全组。
+您可以通过[JoinSecurityGroup](../cn.zh-CN/API参考/安全组/JoinSecurityGroup.md#)接口将一台ECS实例加入到指定的安全组。
 
 ## 相关操作 {#section_izx_rnc_3gb .section}
 
