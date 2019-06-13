@@ -1,10 +1,8 @@
-# ConvertNatPublicIpToEip {#doc_api_1030609 .reference}
+# ConvertNatPublicIpToEip {#doc_api_Ecs_ConvertNatPublicIpToEip .reference}
 
 将一台网络类型为专有网络VPC的ECS实例的公网 IP（NatPublicIp）转化为弹性公网IP（EIP）。
 
 ## 接口说明 {#description .section}
-
-请确保在使用该接口前，已充分了解 [EIP的计费方式](~~27767~~)。
 
 调用该接口时，您需要注意：
 
@@ -48,12 +46,10 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=ConvertNatPublicIpToEip
 &RegionId=cn-hangzhou
 &InstanceId=i-test
 &<公共请求参数>
-
 ```
 
 正常返回示例
