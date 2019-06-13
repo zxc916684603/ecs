@@ -1,6 +1,6 @@
 # 安全组FAQ {#concept_mhp_prm_lgb .concept}
 
--   [什么是安全组](#)？
+-   [什么是安全组？](#)
 -   [为什么要在创建 ECS 实例时选择安全组？](#)
 -   [为什么专有网络实例不能设置公网安全组规则？](#)
 -   [为什么无法访问 TCP 25 端口？](#)
@@ -32,7 +32,7 @@
 
 ## 为什么无法访问 TCP 25 端口？ {#section_kmc_yxz_lgb .section}
 
-TCP 25 端口是默认的邮箱服务端口。基于安全考虑，云服务器 ECS 的 25 端口默认受限。建议您使用 465 端口发送邮件。具体设置，请参见[使用 SSL 加密 465 端口发信样例及 Demo](https://help.aliyun.com/document_detail/60692.html)。如果您只能使用 TCP 25 端口，请申请解封。具体操作，请参见[TCP 25 端口控制台解封申请](https://help.aliyun.com/document_detail/56130.html)。更多应用，请参见[安全组应用案例](https://help.aliyun.com/document_detail/25475.html)。
+TCP 25 端口是默认的邮箱服务端口。基于安全考虑，云服务器 ECS 的 25 端口默认受限。建议您使用 465 端口发送邮件。具体设置，请参见[使用 SSL 加密 465 端口发信样例及 Demo](https://help.aliyun.com/document_detail/60692.html)。如果您只能使用 TCP 25 端口，请申请解封。具体操作，请参见[TCP 25 端口控制台解封申请](https://help.aliyun.com/document_detail/56130.html)。更多应用，请参见[安全组应用案例](cn.zh-CN/安全/安全组/安全组应用案例.md#)。
 
 ## 为什么还是无法访问 80 端口？ {#section_avg_cyz_lgb .section}
 
@@ -57,7 +57,7 @@ TCP 25 端口是默认的邮箱服务端口。基于安全考虑，云服务器 
 
 ## 创建 ECS 实例前，未创建安全组怎么办？ {#section_mkc_wxz_lgb .section}
 
-如果您在创建 ECS 实例前，未创建安全组，您可以选择默认安全组。默认的安全组放行了常用端口，如 TCP 22 端口、3389 端口等。详情请参见[安全组默认规则](../../../../../cn.zh-CN/隐藏/新架构后需要隐藏的文档汇总/安全/安全组默认规则.md#)。
+如果您在创建 ECS 实例前，未创建安全组，您可以选择默认安全组。默认的安全组放行了常用端口，如 TCP 22 端口、3389 端口等。详情请参见[安全组默认规则](../../../../cn.zh-CN/隐藏/新架构后需要隐藏的文档汇总/安全/安全组默认规则.md#)。
 
 ## 安全组配置错误会造成什么影响？ {#section_qrf_nxz_lgb .section}
 
