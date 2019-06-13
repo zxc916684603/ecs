@@ -84,11 +84,11 @@ ESSD云盘的性能与容量线性相关，容量越大性能越高。相比SSD�
 
 关于磁盘的常见操作，请参见以下文档：
 
--   [Windows2008硬盘分区和格式化](http://help.aliyun.com/knowledge_detail/5974909.html?spm=a2c4g.11186623.2.10.56641b88l0HMHC)
--   [Linux格式化/分区/挂载数据盘](http://help.aliyun.com/document_detail/25426.html)
+-   [Windows格式化数据盘](../../../../cn.zh-CN/个人版快速入门/步骤 4：格式化数据盘/Windows格式化数据盘.md#)
+-   [Linux格式化数据盘](../../../../cn.zh-CN/个人版快速入门/步骤 4：格式化数据盘/Linux格式化数据盘.md#)
 -   [卸载数据盘](cn.zh-CN/块存储/云盘/卸载数据盘.md#)
--   [重新初始化磁盘教程](http://help.aliyun.com/document_detail/25449.html)
--   [更换系统盘教程](http://help.aliyun.com/document_detail/25448.html)
+-   [重新初始化云盘](cn.zh-CN/块存储/云盘/重新初始化云盘.md#)
+-   [更换系统盘（非公共镜像）](cn.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)
 
 ## SSD云盘具备怎样的I/O性能？ {#section_f2w_rch_fhb .section}
 
@@ -193,42 +193,42 @@ FIO测试工具支持裸盘分区、文件系统两种方式测试I/O性能。�
 
 |参与压测的实例数量|性能测试项目|测试命令|
 |:--------|:-----|:---|
-|2|测试随机写IOPS| ```
+|2|测试随机写IOPS| ``` {#codeblock_319_ye0_uh3}
 FIO -direct=1 -iodepth=128 -rw=randwrite -ioengine=libaio -bs=4k -size=1G -numjobs=1 -runtime=1000 -group_reporting -filename=iotest -name=Rand_Write_Testing
 ```
 
  |
-|测试随机读IOPS| ```
+|测试随机读IOPS| ``` {#codeblock_gex_ork_rai}
 FIO -direct=1 -iodepth=128 -rw=randread -ioengine=libaio -bs=4k -size=1G -numjobs=1 -runtime=1000 -group_reporting -filename=iotest -name=Rand_Read_Testing
 ```
 
  |
-|测试写吞吐量| ```
+|测试写吞吐量| ``` {#codeblock_dfm_l4h_gcr}
 FIO -direct=1 -iodepth=64 -rw=write -ioengine=libaio -bs=64k -size=1G -numjobs=1 -runtime=1000 -group_reporting -filename=iotest -name=Write_PPS_Testing
 ```
 
  |
-|测试读吞吐量| ```
+|测试读吞吐量| ``` {#codeblock_k3v_f64_ozz}
 FIO -direct=1 -iodepth=64 -rw=read -ioengine=libaio -bs=64k -size=1G -numjobs=1 -runtime=1000 -group_reporting -filename=iotest -name=Read_PPS_Testing
 ```
 
  |
-|4|测试随机写IOPS| ```
+|4|测试随机写IOPS| ``` {#codeblock_9g1_brp_g7g}
 FIO -direct=1 -iodepth=96 -rw=randwrite -ioengine=libaio -bs=4k -size=1G -numjobs=1 -runtime=1000 -group_reporting -filename=iotest -name=Rand_Write_Testing
 ```
 
  |
-|测试随机读IOPS| ```
+|测试随机读IOPS| ``` {#codeblock_h37_19b_28n}
 FIO -direct=1 -iodepth=96 -rw=randread -ioengine=libaio -bs=4k -size=1G -numjobs=1 -runtime=1000 -group_reporting -filename=iotest -name=Rand_Read_Testing
 ```
 
  |
-|测试写吞吐量| ```
+|测试写吞吐量| ``` {#codeblock_4q6_0bm_kjx}
 FIO -direct=1 -iodepth=64 -rw=write -ioengine=libaio -bs=64k -size=1G -numjobs=1 -runtime=1000 -group_reporting -filename=iotest -name=Write_PPS_Testing
 ```
 
  |
-|测试读吞吐量| ```
+|测试读吞吐量| ``` {#codeblock_hru_hfb_rzy}
 FIO -direct=1 -iodepth=64 -rw=read -ioengine=libaio -bs=64k -size=1G -numjobs=1 -runtime=1000 -group_reporting -filename=iotest -name=Read_PPS_Testing
 ```
 
@@ -425,7 +425,7 @@ Linux系统添加数据盘时，按照[Linux格式化数据盘](../../../../cn.z
 2.  运行mount命令查看数据盘分区/dev/xvdb1的文件格式。
 3.  本示例中，查看到/dev/xvdb1是ext3格式。执行以下命令将数据盘挂载信息写入到/etc/fstab中：
 
-    ```
+    ``` {#codeblock_fy8_yuc_l5v}
     echo '/dev/xvdb1 /data ext3 defaults 0 0' >> /etc/fstab
     ```
 
@@ -476,9 +476,9 @@ Linux系统添加数据盘时，按照[Linux格式化数据盘](../../../../cn.z
     通常是由于磁盘属性或磁盘状态不符等原因导致。
 
 -   解决方案
-    -   检查相关快照所关联的实例是否做过[更换操作系统](http://help.aliyun.com/document_detail/ecs/operation-guide/disk-operation/replace-system-disk.html)操作。
+    -   检查相关快照所关联的实例是否做过[更换系统盘（非公共镜像）](cn.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)操作。
 
-        如果更换了操作系统，实例的系统盘会随新镜像自动重新创建，系统盘ID会改变。所以，实例原有的快照将无法再用于回滚。但您可以基于相关快照[创建自定义镜像](http://help.aliyun.com/document_detail/ecs/operation-guide/image-operation/create.html)，然后再通过[更换操作系统](http://help.aliyun.com/document_detail/ecs/operation-guide/disk-operation/replace-system-disk.html)方式指定该自定义镜像，将实例切换到相应的快照状态。
+        如果更换了操作系统，实例的系统盘会随新镜像自动重新创建，系统盘ID会改变。所以，实例原有的快照将无法再用于回滚。但您可以基于相关快照[使用快照创建自定义镜像](../../../../cn.zh-CN/镜像/自定义镜像/创建自定义镜像/使用快照创建自定义镜像.md#)，然后再通过[更换系统盘（非公共镜像）](cn.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)方式指定该自定义镜像，将实例切换到相应的快照状态。
 
     -   检查实例是否已经正常停止。
 
@@ -548,7 +548,7 @@ Linux系统添加数据盘时，按照[Linux格式化数据盘](../../../../cn.z
 1.  远程连接Linux实例。
 2.  运行以下命令安装libaio和FIO。
 
-    ```
+    ``` {#codeblock_244_8wb_x30}
     sudo yum install libaio –y
     sudo yum install libaio-devel –y
     sudo yum install fio -y
@@ -597,7 +597,7 @@ Linux系统添加数据盘时，按照[Linux格式化数据盘](../../../../cn.z
     -   直接测试裸盘会破坏文件系统结构。如果云盘上的数据丢失不影响业务，可以设置`filename=[设备名，如本示例中的/dev/vdb]`。否则，请设置为`filename=[具体的文件路径，比如/mnt/test.image]`。
 5.  运行`sh test100w.sh`开始测试ESSD云盘性能。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10111/155910064042181_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10111/156042454542181_zh-CN.png)
 
 
 脚本解读：
