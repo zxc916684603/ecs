@@ -33,15 +33,15 @@ To convert a public IP address to an elastic public IP \(EIP\) address, follow t
 1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
 2.  In the left-side navigation pane, click **Instances**.
 3.  Select the region.
-4.  Find the target **VPC instance** to convert the public IP address, in the **Actions** column, select **More** \> **Convert to EIP**.
+4.  Find the target **VPC instance** to convert the public IP address, and then choose **More** \> **Network and Security Group** \> **Convert to EIP** from the **Actions** column.
 5.  In the Convert to EIP dialog box, read the note and click **OK**.
 6.  Refresh the instance list.
 
-After the public IP address is converted to an EIP address, the IP address is followed by **\(Elastic IP Address\)**. 
+After the public IP address is converted to an EIP address, the IP address is followed by **\(Elastic IP Address\)**.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9657/15605042175473_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9657/15605042665473_en-US.png)
 
-Click the IP address to go to the EIP console to manage the EIP address. 
+Click the IP address to go to the EIP console to manage the EIP address.
 
 ## Follow-up operations {#section_jsc_kgn_xdb .section}
 
