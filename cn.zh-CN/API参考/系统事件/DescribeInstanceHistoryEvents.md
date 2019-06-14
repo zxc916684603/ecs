@@ -10,13 +10,13 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|RegionId|String|是|cn-hangzhou|实例所在地域 ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
+|RegionId|String|是|cn-hangzhou|实例所在地域ID。您可以调用[DescribeRegions](~~25609~~)查看最新的阿里云地域列表。
 
  |
-|Action|String|否|DescribeInstanceHistoryEvents|系统规定参数。取值：DescribeInstanceHistoryEvents
+|Action|String|否|DescribeInstanceHistoryEvents|系统规定参数。对于您自行拼凑HTTP/HTTPS URL发起的API请求，`Action`为必选参数。取值：DescribeInstanceHistoryEvents
 
  |
-|EventCycleStatus|String|否|Executed|系统事件的生命周期状态。EventCycleStatus 只在未指定 InstanceEventCycleStatus.N 参数时有效。取值范围：
+|EventCycleStatus|String|否|Executed|系统事件的生命周期状态。EventCycleStatus只在未指定InstanceEventCycleStatus.N参数时有效。取值范围：
 
  -   Scheduled
 -   Avoided
@@ -26,19 +26,20 @@
 -   Failed
 
  |
-|EventId.N|RepeatList|否|e-2ze9yxxxxwtqcvai68rl|一个或者多个系统事件 ID。N 的取值范围：1~100，多个取值使用重复列表的形式。
+|EventId.N|RepeatList|否|e-2ze9yxxxxwtqcvai68rl|一个或者多个系统事件ID。N的取值范围：1~100，多个取值使用重复列表的形式。
 
  |
-|EventPublishTime.End|String|否|2017-12-01T06:32:31Z|查询系统事件发布时间的结束时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
+|EventPublishTime.End|String|否|2017-12-01T06:32:31Z|查询系统事件发布时间的结束时间。按照[ISO8601](~~25696~~)标准表示，并需要使用UTC +0时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
  |
-|EventPublishTime.Start|String|否|2017-11-30T06:32:31Z|查询系统事件发布时间的开始时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
+|EventPublishTime.Start|String|否|2017-11-30T06:32:31Z|查询系统事件发布时间的开始时间。按照[ISO8601](~~25696~~)标准表示，并需要使用UTC +0时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
  |
-|EventType|String|否|SystemMaintenance.Reboot|系统事件的类型。EventType 参数只在未指定 InstanceEventType.N 参数时有效。取值范围：
+|EventType|String|否|SystemMaintenance.Reboot|系统事件的类型。EventType参数只在未指定InstanceEventType.N参数时有效。取值范围：
 
  -   SystemMaintenance.Reboot：因系统维护实例重启
 -   SystemFailure.Reboot：因系统错误实例重启
+-   SystemFailure.Delete：因实例创建失败实例释放
 -   InstanceFailure.Reboot：因实例错误实例重启
 -   InstanceExpiration.Stop：因预付费期限到期，实例停止
 -   InstanceExpiration.Delete：因预付费期限到期，实例释放
@@ -46,7 +47,7 @@
 -   AccountUnbalanced.Delete：因账号欠费，按量付费实例释放
 
  |
-|InstanceEventCycleStatus.N|RepeatList|否|Executed|一个或者多个系统事件的生命周期状态。N 的取值范围：1~6，多个取值使用重复列表的形式。取值范围：
+|InstanceEventCycleStatus.N|RepeatList|否|Executed|一个或者多个系统事件的生命周期状态。N的取值范围：1~6，多个取值使用重复列表的形式。取值范围：
 
  -   Scheduled：等待执行事件
 -   Avoided：事件已避免
@@ -56,10 +57,11 @@
 -   Failed：事件执行失败
 
  |
-|InstanceEventType.N|RepeatList|否|SystemMaintenance.Reboot|一个或者多个系统事件的类型。N 的取值范围：1~30，多个取值使用重复列表的形式。取值范围：
+|InstanceEventType.N|RepeatList|否|SystemMaintenance.Reboot|一个或者多个系统事件的类型。N的取值范围：1~30，多个取值使用重复列表的形式。取值范围：
 
  -   SystemMaintenance.Reboot：因系统维护实例重启
 -   SystemFailure.Reboot：因系统错误实例重启
+-   SystemFailure.Delete：因实例创建失败实例释放
 -   InstanceFailure.Reboot：因实例错误实例重启
 -   InstanceExpiration.Stop：因预付费期限到期，实例停止
 -   InstanceExpiration.Delete：因预付费期限到期，实例释放
@@ -67,13 +69,13 @@
 -   AccountUnbalanced.Delete：因账号欠费，按量付费实例释放
 
  |
-|InstanceId|String|否|i-myInstance|实例 ID。不指定实例 ID 时，表示查询您指定地域下所有实例的系统事件信息。
+|InstanceId|String|否|i-myInstance|实例ID。不指定实例ID 时，表示查询您指定地域下所有实例的系统事件信息。
 
  |
-|NotBefore.End|String|否|2017-12-01T06:32:31Z|查询系统事件计划执行时间的结束时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
+|NotBefore.End|String|否|2017-12-01T06:32:31Z|查询系统事件计划执行时间的结束时间。按照[ISO8601](~~25696~~)标准表示，并需要使用UTC +0时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
  |
-|NotBefore.Start|String|否|2017-11-30T06:32:31Z|查询系统事件计划执行时间的开始时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
+|NotBefore.Start|String|否|2017-11-30T06:32:31Z|查询系统事件计划执行时间的开始时间。按照[ISO8601](~~25696~~)标准表示，并需要使用UTC +0时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
  |
 |PageNumber|Integer|否|1|查询结果的页码。取值范围：正整数
@@ -103,13 +105,13 @@
 |└Name|String|Executed|系统事件状态名称。
 
  |
-|└EventFinishTime|String|2017-12-01T06:35:31Z|系统事件结束时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
+|└EventFinishTime|String|2017-12-01T06:35:31Z|系统事件结束时间。按照[ISO8601](~~25696~~)标准表示，并需要使用UTC +0时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
  |
-|└EventId|String|e-2ze9yxxxxwtqcvai68rx|系统事件 ID。
+|└EventId|String|e-2ze9yxxxxwtqcvai68rx|系统事件ID。
 
  |
-|└EventPublishTime|String|2017-11-30T06:32:31Z|系统事件发布时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
+|└EventPublishTime|String|2017-11-30T06:32:31Z|系统事件发布时间。按照[ISO8601](~~25696~~)标准表示，并需要使用UTC +0时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
  |
 |└EventType| | |系统事件类型。
@@ -130,10 +132,10 @@
 |└DiskId|String|d-diskid1|本地盘磁盘ID。
 
  |
-|└InstanceId|String|i-myInstance|实例 ID。
+|└InstanceId|String|i-myInstance|实例ID。
 
  |
-|└NotBefore|String|2017-12-06T00:00:00Z|系统事件计划执行时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
+|└NotBefore|String|2017-12-06T00:00:00Z|系统事件计划执行时间。按照[ISO8601](~~25696~~)标准表示，并需要使用UTC +0时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
  |
 |PageNumber|Integer|1|实例列表页码。
@@ -142,7 +144,7 @@
 |PageSize|Integer|10|输入时设置的每页行数。
 
  |
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID。
 
  |
 |TotalCount|Integer|2|实例状态总个数。
