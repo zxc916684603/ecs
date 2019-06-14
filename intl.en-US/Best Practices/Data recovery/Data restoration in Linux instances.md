@@ -18,11 +18,11 @@ You can select one of the following tools to fix the disk partition and restore 
 
 ## Handle data disk partition loss and data restoration in Linux {#section_ehg_b1f_hfb .section}
 
-After you restart a Linux instance, you may encounter data disk partition loss or data loss issues. This may be because you have not set the partitions to be mounted automatically on startup of the instance in the etc/fstab file. In this case, you can manually mount the data disk partition first. If the system prompts partition table loss when you manually mount the data disk, you can try to solve the problem through the following three methods: [Restore partitions by using fdisk](#ul_fzg_m1f_hfb), [Restore partitions by using testdisk](#ol_jnv_4bf_hfb), or [Restore data by using testdisk](#ol_ugr_vgf_hfb).
+After you restart a Linux instance, you may encounter data disk partition loss or data loss issues. This may be because you have not set the partitions to be mounted automatically on startup of the instance in the etc/fstab file. In this case, you can manually mount the data disk partition first. If the system prompts partition table loss when you manually mount the data disk, you can try to solve the problem through the following three methods: [Restore partitions by using fdisk](#), [Restore partitions by using testdisk](#), or [Restore data by using testdisk](#).
 
 -   **Restore partitions by using fdisk**
 
-    Default values usually apply to the starting and ending sectors of the partition when you partition a data disk. You can then directly use fdisk to restore the partition. For more information about this tool, see [Linux Format and mount a data disk](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Linux instance.md#).
+    Default values usually apply to the starting and ending sectors of the partition when you partition a data disk. You can then directly use fdisk to restore the partition. For more information about this tool, see [Linux Format and mount a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk of a Linux instance.md#).
 
     ![](images/13051_en-US_source.png)
 
@@ -97,7 +97,7 @@ Data is users’ core asset. Many users establish websites and databases \(MYSQL
 
 -   **Common mistakes**
 
-    The bottom layer of Alibaba Cloud block-level storage is based on [triplicate technology](../../../../reseller.en-US/Product Introduction/Block storage/Triplicate technology.md#). Therefore, some users consider that no risk of data loss in the operating system exists. It is actually a misunderstanding. The three copies of data stored in the bottom layer provide physical layer protection for data disks. However, if problems occur to the cloud disk logic in the system, such as viruses, accidental data deletion, and file system damage, the data may still be lost. To guarantee data security, you have to use technologies such as Snapshot and backup.
+    The bottom layer of Alibaba Cloud block-level storage is based on [triplicate technology](../../../../intl.en-US/Block Storage/Block storage/Triplicate technology.md#). Therefore, some users consider that no risk of data loss in the operating system exists. It is actually a misunderstanding. The three copies of data stored in the bottom layer provide physical layer protection for data disks. However, if problems occur to the cloud disk logic in the system, such as viruses, accidental data deletion, and file system damage, the data may still be lost. To guarantee data security, you have to use technologies such as Snapshot and backup.
 
 -   **Best practices**
 
@@ -109,7 +109,7 @@ Data is users’ core asset. Many users establish websites and databases \(MYSQL
 
         You log on to the ECS console to change the attributes of the disks to enable **snapshot release with the disk**. Disable snapshot release with the disk if you want to retain the snapshots.
 
-        For more information, see [FAQ about automatic snapshots](https://partners-intl.aliyun.com/help/faq-detail/40552.htm).
+        For more information, see [FAQ about automatic snapshots](https://www.alibabacloud.com/help/faq-detail/40552.htm).
 
     -   **Create manual snapshots**
 
