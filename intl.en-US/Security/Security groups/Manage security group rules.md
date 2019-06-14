@@ -4,13 +4,13 @@ This topic describes how to manage security group rules. After you add security 
 
 ## Query security group rules {#section_elt_zxy_lgb .section}
 
-**Prerequisites**
+ **Prerequisites** 
 
-You have added rules to your security groups. For more information, see [Add security group rules](reseller.en-US/Security/Security groups/Add security group rules.md#).
+You have added rules to your security groups. For more information, see [Add security group rules](intl.en-US/Security/Security groups/Add security group rules.md#).
 
-**Procedure**
+ **Procedure** 
 
-1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/#/home).
 2.  In the left-side navigation pane, click **Security Groups**.
 3.  Select the target region.
 4.  Locate the target security group, and then click **Add Rules** in the **Actions** column.
@@ -18,55 +18,51 @@ You have added rules to your security groups. For more information, see [Add sec
     -   If you need to query security group rules for a VPC, select **Ingress** or **Outbound**.
     -   If you need to query security group rules for a classic network, select **Internal Network Ingress**, **Internal Network Egress**, **Internet Ingress**, or **Internet Egress**.
 
-You can also call the API [DescribeSecurityGroupAttribute](../../../../../reseller.en-US/API Reference/Security groups/DescribeSecurityGroupAttribute.md#) to query security group rules.
+You can also call the API [DescribeSecurityGroupAttribute](../../../../intl.en-US/API Reference/Security groups/DescribeSecurityGroupAttribute.md#) to query security group rules.
 
 ## Modify security group rules {#section_icc_hyy_lgb .section}
 
-**Context**
+ **Context** 
 
-If security group rules do not limit access to certain ports, serious security risks may occur. You can review your current security group rules and modify inappropriate rules to ensure the security of your ECS instances. For more information, see [Overview of risky security groups](reseller.en-US/Best Practices/Security/View an overview of risky security groups.md#).
+If security group rules do not limit access to certain ports, serious security risks may occur. You can modify inappropriate rules to ensure the security of your ECS instances.
 
-**Prerequisites**
+ **Prerequisites** 
 
-You have created a security group and added security group rules to the security group. For more information, see [Create a security group](reseller.en-US/Security/Security groups/Create a security group.md#) and [add security group rules](reseller.en-US/Security/Security groups/Add security group rules.md#).
+You have created a security group and added security group rules to the security group. For more information, see [Create a security group](intl.en-US/Security/Security groups/Create a security group.md#) and [add security group rules](intl.en-US/Security/Security groups/Add security group rules.md#).
 
-**Procedure**
+ **Procedure** 
 
-1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/#/home).
 2.  In the left-side navigation pane, click **Security Groups**.
 3.  Select the target region.
 4.  On the Security Groups page, locate the target security group, and then click **Add Rules** in the **Actions** column.
 5.  Click a rule direction of the security group.
     -   If you need to modify security group rules for a VPC, select **Ingress** or **Outbound**.
     -   If you need to modify the security group rules for a classic network, select **Internal Network Ingress**, **Internal Network Egress**, **Internet Ingress**, or **Internet Egress**.
-6.  Locate the target security group rule, and click **Modify** in the **Actions** column. For information about how to configure security group rules, see [Add security group rules](reseller.en-US/Security/Security groups/Add security group rules.md#ul_vpc_qwz_xdb). For information about how to use security group rules, see [Typical applications of security group rules](reseller.en-US//Typical applications of security group rules.md#).
+6.  Locate the target security group rule, and click **Modify** in the **Actions** column. For information about how to configure security group rules, see [Add security group rules](intl.en-US/Security/Security groups/Add security group rules.md#ul_vpc_qwz_xdb). For information about how to use security group rules, see [Typical applications of security group rules](intl.en-US//Typical applications of security group rules.md#).
 
 ## Restore security group rules {#section_l2z_jyy_lgb .section}
 
-**Context**
+ **Context** 
 
-Restoring security group rules means to restore all or some of the rules in a security group to those rules in the target security group.<span data-goldlog="/cat.main.addNote" class="next-icon next-icon-AddNote next-icon-medium add-note-icon" data-spm-anchor-id="a2762.11472859.0.i20.7b65203bsj3mgH"\>
+Restoring security group rules means to restore all or some of the rules in a security group to those rules in the target security group.
 
 -   **Complete restoration**: The system deletes the rules that are not in the target security group from the source security group and adds the rules that are only in the target security group to the source security group. After restoration is finished, the rules in the source security group are identical to those in the target security group.
 -   **Partial restoration**: The system adds the rules that are only in the target security group to the source security group and ignores the rules that are only in the source security group.
 
-![](images/39614_en-US.png)
-
-![](images/39615_en-US.png)
-
-**Limits**
+ **Limits** 
 
 -   The source security group and the target security group must be in the same region.
 -   The source security group and the target security group must be of the same network type.
 -   If there are system-level security group rules \(with a priority level of 110\) in the target security group, these rules cannot be restored. After restoration, the rules in the source security group may be different from expected. If you need the system-level security group rules, you can create similar rules with a priority level of 100.
 
-**Prerequisites**
+ **Prerequisites** 
 
 You must have at least one security group of the same network type in the same region.
 
-**Procedure**
+ **Procedure** 
 
-1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/#/home).
 2.  In the left-side navigation pane, click **Security Groups**.
 3.  Select the target region.
 4.  Locate the security group whose rules you want to restore \(this security group serves as the source security group\), and then click **Restore Rules** in the **Actions** column.
@@ -80,12 +76,12 @@ You must have at least one security group of the same network type in the same r
         -   The rules highlighted in green only exist in the target security group. These rules are added to the source security group regardless of whether you select **Completely Restore** or **Partially Restore**.
         -   The rules highlighted in red do not exist in the target security group. If you select **Completely Restore**, these rules are deleted from the source security group. If you select **Partially Restore**, these rules are retained in the source security group.
     4.  Click **OK**.
-    After restoration, the Restore Rules dialog box is closed automatically. On the **Security Groups** page, locate the source security group, and then click **Add Rules** in the **Actions** column to open the Security Group Rulespage and view the updated security group rules.
+    After restoration, the Restore Rules dialog box is closed automatically. On the **Security Groups** page, locate the source security group, and then click **Add Rules** in the **Actions** column to open the Security Group Rules page and view the updated security group rules.
 
 
 ## Export security group rules {#section_o1b_syy_lgb .section}
 
-1.  Log on to the [ECS console](https://partners-intl.aliyun.com/login-required#/ecs).
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.11.bbdc2e95uqPijv#/home).
 2.  In the left-side navigation pane, click Security Groups.
 3.  Select the target region.
 4.  On the Security Groups page, locate the target security group, and then click **Add Rules** in the **Actions** column.
@@ -100,16 +96,15 @@ You must have at least one security group of the same network type in the same r
 
 ## Import security group rules {#section_udj_zyy_lgb .section}
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/#/home).
-2.  Log on to the [ECS console](https://partners-intl.aliyun.com/login-required#/ecs).
-3.  In the left-side navigation pane, click Security Groups.
-4.  Select the target region.
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.11.bbdc2e95uqPijv#/home).
+2.  In the left-side navigation pane, click Security Groups.
+3.  Select the target region.
 
     **Note:** You can import security group rules from different regions.
 
-5.  On the Security Groups page, locate the target security group, and then click **Add Rules** in the **Actions** column.
-6.  Click Import Rules.
-7.  Select the target JSON file. You can preview the rules in the file.
+4.  On the Security Groups page, locate the target security group, and then click **Add Rules** in the **Actions** column.
+5.  Click Import Rules.
+6.  Select the target JSON file. You can preview the rules in the file.
 
     The preview displays the following information:
 
@@ -118,12 +113,12 @@ You must have at least one security group of the same network type in the same r
     -   Details of the rules to be imported.
     **Note:** Up to 100 security group rules can be imported. The excessive rules cannot be imported. The newly imported rules do not overwrite the existing rules.
 
-8.  Click **Start**.
-9.  View the import result, and then click **Finish and close**.
+7.  Click **Start**.
+8.  View the import result, and then click **Finish and close**.
 
 ## Delete security group rules {#section_rmr_tzy_lgb .section}
 
-1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com/#/home).
 2.  In the left-side navigation pane, click **Security Groups**.
 3.  Select the target region.
 4.  Locate the target security group, and then click the **Add Rules** in the **Actions** column.
@@ -133,5 +128,5 @@ You must have at least one security group of the same network type in the same r
 6.  Locate the target security group rule, and then click **Delete** in the **Actions** column.
 7.  In the Delete Security Group Rule dialog box, click **OK**.
 
-You can also call the API [RevokeSecurityGroup](../../../../../reseller.en-US/API Reference/Security groups/RevokeSecurityGroup.md#) to delete an ingress security group rule or call the API [RevokeSecurityGroupEgress](../../../../../reseller.en-US/API Reference/Security groups/RevokeSecurityGroupEgress.md#) to delete an outbound security group rule.
+You can also call the API [RevokeSecurityGroup](../../../../intl.en-US/API Reference/Security groups/RevokeSecurityGroup.md#) to delete an ingress security group rule or call the API [RevokeSecurityGroupEgress](../../../../intl.en-US/API Reference/Security groups/RevokeSecurityGroupEgress.md#) to delete an outbound security group rule.
 
