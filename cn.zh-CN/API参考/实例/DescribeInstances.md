@@ -68,6 +68,7 @@
 |InternetChargeType|String|否|PayByTraffic|网络计费方式。取值范围：
 
  -   PayByTraffic：按流量计费
+-   PayByBandwidth：按带宽计费
 
  |
 |InstanceName|String|否|\*Joshua|实例名称，支持使用通配符\*进行模糊搜索。
@@ -145,10 +146,12 @@
 |└CreationTime|String|2017-12-10T04:04Z|实例创建时间。
 
  |
-|└CreditSpecification|String|Standard|突发性能 t5 实例的运行模式。取值范围：
+|└CreditSpecification|String|Standard|修改t5突发性能实例的运行模式。取值范围：
 
- -   Standard：标准模式，实例性能请参阅 [t5性能约束实例](~~90635~~)。
--   Unlimited：无性能约束模式，实例性能请参阅 [t5无性能约束实例](~~90581~~)。
+ -   Standard：标准模式，实例性能请参见 [什么是突发性能实例](~~59977~~) 下的性能约束模式章节。
+-   Unlimited：无性能约束模式，实例性能请参见 [什么是突发性能实例](~~59977~~) 下的无性能约束模式章节。
+
+ 默认值：无。
 
  |
 |└DedicatedHostAttribute| | |由专有宿主机 ID（DedicatedHostId） 和名称（DedicatedHostName）组成的宿主机属性数组。
@@ -265,7 +268,8 @@
  |
 |└InternetChargeType|String|PayByTraffic|网络计费类型。可能值：
 
- -   PayByTraffic：按流量计费
+ -   PayByBandwidth：按带宽计费
+-   PayByTraffic：按流量计费
 
  |
 |└InternetMaxBandwidthIn|Integer|100|公网入带宽最大值，单位为 Mbps。
