@@ -56,9 +56,9 @@ Rational planning and differentiation of security groups makes it easy to adjust
 
 Whether it is a classic network or a VPC, rational allocation of Internet addresses facilitates Internet management of the system and reduces the risk of attack. For VPCs, we recommend that you place the IP segments of instances requiring Internet access onto several dedicated VSwitches \(subnet CIDR\) when creating a VSwitch. This facilitates auditing and differentiation and helps avoid accidental Internet access.
 
-Most distributed applications have different layers and groups. For ECS instances that offer no Internet access, try your best not to provide Internet addresses for them. If there are multiple instances that provide Internet access, we recommend you to configure the [Server Load Balancer](https://www.aliyun.com/product/slb) to distribute traffic of Internet services, thus improving system availability and avoiding a single point of failure.
+Most distributed applications have different layers and groups. For ECS instances that offer no Internet access, try your best not to provide Internet addresses for them. If there are multiple instances that provide Internet access, we recommend you to configure the [Server Load Balancer](../../../../intl.en-US/Product Introduction/What is Server Load Balancer?.md#) to distribute traffic of Internet services, thus improving system availability and avoiding a single point of failure.
 
-For ECS instances that require no Internet access, try your best not to assign Internet addresses to them. In VPCs, when your ECS instances need to access the Internet, we recommend you to use the [NAT gateway](../../../../reseller.en-US/Product Introduction/What is NAT Gateway.md#) to provide Internet proxy services for ECS instances without Internet addresses in the VPC. By simply configuring the corresponding SNAT rules, you can enable a specific CIDR segment or subnet to access the Internet. For specific configurations, see [SNAT](../../../../reseller.en-US/User Guide/Manage an SNAT table.md#). In this way, exposure of services to the Internet can be avoided after Elastic IP \(EIP\) addresses are allocated when only outbound access is required.
+For ECS instances that require no Internet access, try your best not to assign Internet addresses to them. In VPCs, when your ECS instances need to access the Internet, we recommend you to use the [NAT gateway](../../../../intl.en-US/Product Introduction/What is NAT Gateway.md#) to provide Internet proxy services for ECS instances without Internet addresses in the VPC. By simply configuring the corresponding SNAT rules, you can enable a specific CIDR segment or subnet to access the Internet. For specific configurations, see [SNAT](../../../../intl.en-US/User Guide/Manage an SNAT table.md#). In this way, exposure of services to the Internet can be avoided after Elastic IP \(EIP\) addresses are allocated when only outbound access is required.
 
 ## Minimum principle {#section_gcd_yq2_2fb .section}
 
@@ -72,7 +72,7 @@ First, create a dedicated security group SG\_BRIDGE by enabling the correspondin
 
 After that, you can add the Jumper Server instance to that security group. In order for that Jumper Server to access other appropriate instances, you can configure appropriate group authorization. For example, add a rule for SG\_CURRENT, allowing SG\_BRIDGE to access certain ports and protocols.
 
-When you use the Jumper Server for SSH communication, it is recommended to use the [SSH key pair](../../../../reseller.en-US/Product Introduction/Network and security/SSH key pairs.md#) for logon, instead of the password.
+When you use the Jumper Server for SSH communication, it is recommended to use the [SSH key pair](../../../../intl.en-US/Security/Key pairs/SSH key pair overview.md#) for logon, instead of the password.
 
 In summary, reasonable planning of security groups makes it easy for you to expand the applications and makes your system more secure.
 
