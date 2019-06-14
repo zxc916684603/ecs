@@ -226,12 +226,12 @@
 |SpotInterruptionBehavior|String|否|Terminate|抢占实例中断模式。目前仅支持Terminate（默认）直接释放实例。
 
  |
-|CreditSpecification|String|否|Standard|修改突发性能 t5 实例的运行模式。取值范围：
+|CreditSpecification|String|否|Standard|修改t5突发性能实例的运行模式。取值范围：
 
- -   Standard：标准模式，实例性能请参阅 [t5性能约束实例](~~90635~~)。
--   Unlimited：无性能约束模式，实例性能请参阅 [t5无性能约束实例](~~90581~~)。
+ -   Standard：标准模式，实例性能请参见 [什么是突发性能实例](~~59977~~) 下的性能约束模式章节。
+-   Unlimited：无性能约束模式，实例性能请参见 [什么是突发性能实例](~~59977~~) 下的无性能约束模式章节。
 
- 默认值：无
+ 默认值：无。
 
  |
 |SecurityEnhancementStrategy|String|否|Active|是否开启安全加固。取值范围：
@@ -274,7 +274,7 @@
  -   true：开启实例释放保护。
 -   false（默认）：关闭实例释放保护。
 
- **说明：** 该属性适用于预付费（包年包月）、按量付费和抢占式实例，但只能限制手动释放操作，对系统释放操作不生效。
+ **说明：** 该属性仅适用于按量付费实例，且只能限制手动释放操作，对系统释放操作不生效。
 
  |
 |AutoReleaseTime|String|否|2018-01-01T12:05:00Z|自动释放时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用 UTC 时间。格式为：yyyy-MM-ddTHH:mm:ssZ。
