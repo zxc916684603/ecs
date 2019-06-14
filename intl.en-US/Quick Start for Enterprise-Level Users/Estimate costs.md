@@ -1,24 +1,18 @@
 # Estimate costs {#concept_hwc_yqv_wdb .concept}
 
-As an enterprise-level user, once you select the instance type and have completed the network planning, you can estimate the costs based on the following factors:
-
--   [Billing methods](#)
--   [Regions](#)
--   [Images](#)
--   [Networks](#)
--   [Quantity](#)
+As an enterprise-level user, once you select the instance type and have completed the network planning, you can estimate the costs based on the following factors: billing methods, regions, images, networks, and quantity.
 
 ## Billing methods {#billing .section}
 
-Now, the following billing methods are available to an enterprise-level user, including [Subscription, Pay-As-You-Go](../../../../reseller.en-US/Pricing/Billing method comparison.md#), and [preemptible instances](../../../../reseller.en-US/Product Introduction/Instances/Preemptible instance.md#).
+Now, the following billing methods are available to an enterprise-level user, including [Subscription, Pay-As-You-Go](../../../../intl.en-US/Pricing/Billing method comparison.md#), and [preemptible instances](../../../../intl.en-US/Instances/Instance purchasing options/Preemptible instances/Preemptible instances.md#).
 
 -   Subscription: Subscription is a type of prepayment whereby instances can be used only after you make the payment. Instances are charged on a monthly basis, and the unit is **USD/month**. This billing method is applicable to fixed 24/7 services, such as the Web service.
 -   Pay-As-You-Go: Pay-As-You-Go is a type of post payment whereby payment can be made after you use the resources. Instances are billed by second and settled by hour. The unit is **USD/hour** . This billing method is applicable to scenarios with traffic volume spikes, such as temporary scaling, interim testing, and scientific computing.
 
--   Preemptible instance: To reduce the ECS computing cost, you can select a **preemptible instance**. As an instance on demand, you must set the maximum hourly rate you want to pay for your expected instance type. When your bid is higher than the current market price, your instance runs. The final price you pay for the instance type is based on the current market price. For more information, see [preemptible instances](../../../../reseller.en-US/Product Introduction/Instances/Preemptible instance.md#).
+-   Preemptible instance: To reduce the ECS computing cost, you can select a **preemptible instance**. As an instance on demand, you must set the maximum hourly rate you want to pay for your expected instance type. When your bid is higher than the current market price, your instance runs. The final price you pay for the instance type is based on the current market price. For more information, see [preemptible instances](../../../../intl.en-US/Instances/Instance purchasing options/Preemptible instances/Preemptible instances.md#).
 
 
-Advantages of each billing method vary according to the instance type. For more information, see [ECS product pricing](https://partners-intl.aliyun.com/vodafone/product/ecs).
+Advantages of each billing method vary according to the instance type. For more information, see [ECS product pricing](https://www.alibabacloud.com/product/ecs).
 
 ## Regions {#regions .section}
 
@@ -29,7 +23,7 @@ When selecting a region, you must consider the following factors:
 -   Resource price
 -   Special requirements of some regions. For example, to use an ECS instance as a Web server in mainland China, your business license must be filed for record.
 
-**Note:** The price for the same instance type may vary according to the region. For more information about the specific prices, see [ECS product pricing](https://partners-intl.aliyun.com/vodafone/product/ecs).
+**Note:** The price for the same instance type may vary according to the region. For more information about the specific prices, see [ECS product pricing](https://www.alibabacloud.com/product/ecs).
 
 ## Images {#images .section}
 
