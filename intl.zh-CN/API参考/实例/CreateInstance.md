@@ -304,10 +304,10 @@
  由于专有宿主机不支持创建抢占式实例，指定 `DedicatedHostId`参数后，会自动忽略请求中的 `SpotStrategy`和 `SpotPriceLimit`设置。
 
  |
-|CreditSpecification|String|否|Standard|修改突发性能 t5 实例的运行模式。取值范围：
+|CreditSpecification|String|否|Standard|修改t5突发性能实例的运行模式。取值范围：
 
- -   Standard：标准模式，实例性能请参阅 [t5性能约束实例](~~90635~~)。
--   Unlimited：无性能约束模式，实例性能请参阅 [t5无性能约束实例](~~90581~~)。
+ -   Standard：标准模式，实例性能请参见 [什么是突发性能实例](~~59977~~) 下的性能约束模式章节。
+-   Unlimited：无性能约束模式，实例性能请参见 [什么是突发性能实例](~~59977~~) 下的无性能约束模式章节。
 
  默认值：无。
 
@@ -317,7 +317,7 @@
  -   true：开启实例释放保护。
 -   false（默认）：关闭实例释放保护。
 
- **说明：** 该属性适用于预付费（包年包月）、按量付费和抢占式实例，但只能限制手动释放操作，对系统释放操作不生效。
+ **说明：** 该属性仅适用于按量付费实例，且只能限制手动释放操作，对系统释放操作不生效。
 
  |
 |Affinity|String|否|default|专有宿主机实例是否与专有宿主机关联。取值范围：
@@ -606,6 +606,10 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |400|Duplicate.TagKey|The Tag.N.Key contain duplicate key.|标签键中存在重复的键。|
 |400|InvalidParam.Tenancy|The specified Tenancy is invalid.|您指定的Tenancy参数值无效。|
 |400|LackResource|A dedicated host with sufficient available resources cannot be found.|无法找到具有足够可用资源的专有宿主机。|
+|404|InvalidSecurityGroupId.NotFound|%s|指定的安全组ID不存在。|
+|403|InvalidVSwitchId.IpNotEnough|%s|指定的交换机内ip数量不足。|
+|403|InvalidVSwitchId.IpInvalid|%s|指定的私网ip不合法。|
+|404|InvalidDiskIds.NotPortable|The specified DiskId is not portable.|指定的磁盘是不可移植的。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
