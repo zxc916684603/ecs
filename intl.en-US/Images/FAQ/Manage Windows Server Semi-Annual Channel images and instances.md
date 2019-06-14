@@ -19,7 +19,7 @@ Additionally, Windows Server Semi-Annual Channel instances run in Server Core mo
 
 In the following example, assume that the public IP address of your instance is 172.16.1XX.183. To implement PowerShell for remote management, follow these steps:
 
-1.  Connect to the target instance. For more information, see [Connect to a Windows instance](../../../../intl.en-US/Instances/Connect to instances/Connect to Windows instances/Connect to a Windows instance.md#).
+1.  Connect to the target instance. For more information, see [Connect to a Windows instance](../../../../reseller.en-US/Instances/Connect to instances/Connect to Windows instances/Connect to a Windows instance.md#).
 2.  Enter `PowerShell` in the command line of the target instance.
 3.  Run the following command in PowerShell:
 
@@ -28,7 +28,7 @@ In the following example, assume that the public IP address of your instance is 
     Set-NetFirewallRule -Name "WINRM-HTTP-In-TCP-PUBLIC" -RemoteAddress Any
     ```
 
-4.  Add a rule to the security group of the target instance to allow access to the HTTP port 5985 and the HTTPS port 5986. For more information, see [Add security group rules](../../../../intl.en-US/Security/Security groups/Add security group rules.md#).
+4.  Add a rule to the security group of the target instance to allow access to the HTTP port 5985 and the HTTPS port 5986. For more information, see [Add security group rules](../../../../reseller.en-US/Security/Security groups/Add security group rules.md#).
 5.  Enter `PowerShell` in the command line of your client.
 6.  Run the following command in PowerShell:
 
@@ -47,8 +47,8 @@ Now you can manage your Windows instance on your client computer.
 In the following examples, assume that the public IP address of your instance is 172.16.1XX.183. You can install Windows Admin Center either by using the command line or by downloading the installation package from the official website.
 
 -   **Install Windows Admin Center through the command line** 
-    1.  Connect to the target instance. For more information, see [Connect to a Windows instance](../../../../intl.en-US/Instances/Connect to instances/Connect to Windows instances/Connect to a Windows instance.md#).
-    2.  Add a rule to the security group of the target instance to allow access to the HTTP 5985 and the HTTPS port 5986. For more information, see [Add security group rules](../../../../intl.en-US/Security/Security groups/Add security group rules.md#).
+    1.  Connect to the target instance. For more information, see [Connect to a Windows instance](../../../../reseller.en-US/Instances/Connect to instances/Connect to Windows instances/Connect to a Windows instance.md#).
+    2.  Add a rule to the security group of the target instance to allow access to the HTTP 5985 and the HTTPS port 5986. For more information, see [Add security group rules](../../../../reseller.en-US/Security/Security groups/Add security group rules.md#).
     3.  Enter `PowerShell` in the command line of the target instance.
     4.  Run the following command in PowerShell:
 
@@ -92,7 +92,7 @@ In the following examples, assume that the public IP address of your instance is
 You can use RDP applications, PowerShell, or the Windows Admin Center to copy files from a client to a Windows Server Semi-Annual Channel instance.
 
 -   Through RDP applications
-    1.  Connect to the target instance. For more information, see [Connect to a Windows instance](../../../../intl.en-US/Instances/Connect to instances/Connect to Windows instances/Connect to a Windows instance.md#).
+    1.  Connect to the target instance. For more information, see [Connect to a Windows instance](../../../../reseller.en-US/Instances/Connect to instances/Connect to Windows instances/Connect to a Windows instance.md#).
     2.  On the client, copy the target files.
     3.  In the CMD utility of your instance, enter `notepad`.
     4.  Click **File** \> **Open**. In the displayed window, select the destination directory for the files, then right-click and choose **Paste**.
@@ -118,10 +118,10 @@ You can use RDP applications, PowerShell, or the Windows Admin Center to copy fi
 **How do I shut down or restart a Windows Server Semi-Annual Channel instance in the instance itself?**
 
 -   Through RDP applications
-    1.  Connect to the target instance. For more information, see [Connect to a Windows instance](../../../../intl.en-US/Instances/Connect to instances/Connect to Windows instances/Connect to a Windows instance.md#).
+    1.  Connect to the target instance. For more information, see [Connect to a Windows instance](../../../../reseller.en-US/Instances/Connect to instances/Connect to Windows instances/Connect to a Windows instance.md#).
     2.  In the CMD utility, enter `sconfig`. Then, enter `13` to restart your instance or `14` to shut it down, and press Enter.
 -   Through PowerShell
-    1.  Connect to the target instance. For more information, see [Connect to a Windows instance](../../../../intl.en-US/Instances/Connect to instances/Connect to Windows instances/Connect to a Windows instance.md#).
+    1.  Connect to the target instance. For more information, see [Connect to a Windows instance](../../../../reseller.en-US/Instances/Connect to instances/Connect to Windows instances/Connect to a Windows instance.md#).
     2.  In the CMD utility, enter `PowerShell`.
     3.  Enter one of the following commands to restart or shut down your instance:
 
@@ -153,7 +153,7 @@ You can use RDP applications, PowerShell, or the Windows Admin Center to copy fi
 
 -   Through RDP applications
 
-    1.  Connect to the target instance. For more information, see [Connect to a Windows instance](../../../../intl.en-US/Instances/Connect to instances/Connect to Windows instances/Connect to a Windows instance.md#).
+    1.  Connect to the target instance. For more information, see [Connect to a Windows instance](../../../../reseller.en-US/Instances/Connect to instances/Connect to Windows instances/Connect to a Windows instance.md#).
     2.  In the CMD utility, enter `PowerShell`.
     3.  Run the following command to install IIS:
 
