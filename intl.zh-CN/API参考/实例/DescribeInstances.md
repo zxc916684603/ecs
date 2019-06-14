@@ -145,10 +145,12 @@
 |└CreationTime|String|2017-12-10T04:04Z|实例创建时间。
 
  |
-|└CreditSpecification|String|Standard|突发性能 t5 实例的运行模式。取值范围：
+|└CreditSpecification|String|Standard|修改t5突发性能实例的运行模式。取值范围：
 
- -   Standard：标准模式，实例性能请参阅 [t5性能约束实例](~~90635~~)。
--   Unlimited：无性能约束模式，实例性能请参阅 [t5无性能约束实例](~~90581~~)。
+ -   Standard：标准模式，实例性能请参见 [什么是突发性能实例](~~59977~~) 下的性能约束模式章节。
+-   Unlimited：无性能约束模式，实例性能请参见 [什么是突发性能实例](~~59977~~) 下的无性能约束模式章节。
+
+ 默认值：无。
 
  |
 |└DedicatedHostAttribute| | |由专有宿主机 ID（DedicatedHostId） 和名称（DedicatedHostName）组成的宿主机属性数组。
@@ -180,7 +182,7 @@
  -   true：已开启实例释放保护。
 -   false：未开启实例释放保护。
 
- **说明：** 该属性适用于预付费（包年包月）、按量付费和抢占式实例，但只能限制手动释放操作，对系统释放操作不生效。
+ **说明：** 该属性仅适用于按量付费实例，且只能限制手动释放操作，对系统释放操作不生效。
 
  |
 |└DeploymentSetId|String|ds-deploymentid1|部署集 ID。
