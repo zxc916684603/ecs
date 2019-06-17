@@ -66,3 +66,7 @@
     ![](images/12779_zh-CN_source.png)
 
 
+## 相关链接 {#section_pvt_cxr_gfb .section}
+
+ [云服务器 ECS Windows 安全审计日志简要说明](https://help.aliyun.com/knowledge_detail/50054.html)
+
