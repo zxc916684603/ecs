@@ -1,6 +1,6 @@
 # RevokeSecurityGroup {#doc_api_Ecs_RevokeSecurityGroup .reference}
 
-删除一条安全组入方向规则，撤销安全组出方向的权限设置。
+删除一条安全组入方向规则，撤销安全组入方向的权限设置。
 
 ## 接口说明 {#description .section}
 
@@ -30,40 +30,40 @@
  |
 |PortRange|String|是|1/200|目的端安全组开放的传输层协议相关的端口范围。取值范围：
 
- -   TCP/UDP 协议：取值范围为1~65535。使用斜线（/）隔开起始端口和终止端口。正确示范：1/200；错误示范：200/1。
--   ICMP 协议：-1/-1。
--   GRE 协议：-1/-1。
+ -   TCP/UDP协议：取值范围为1~65535。使用斜线（/）隔开起始端口和终止端口。正确示范：1/200；错误示范：200/1。
+-   ICMP协议：-1/-1。
+-   GRE协议：-1/-1。
 -   all：-1/-1。
 
  |
-|RegionId|String|是|cn-hangzhou|目的端安全组所属地域 ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
+|RegionId|String|是|cn-hangzhou|目的端安全组所属地域ID。您可以调用[DescribeRegions](~~25609~~)查看最新的阿里云地域列表。
 
  |
-|SecurityGroupId|String|是|sg-securitygroupid1|目的端安全组 ID。
+|SecurityGroupId|String|是|sg-securitygroupid1|目的端安全组ID。
 
  |
-|Action|String|否|RevokeSecurityGroup|系统规定参数。取值：RevokeSecurityGroup
+|Action|String|否|RevokeSecurityGroup|系统规定参数。对于您自行拼凑HTTP/HTTPS URL发起的API请求，`Action`为必选参数。取值：RevokeSecurityGroup
 
  |
-|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
+|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken**只支持ASCII字符，且不能超过64个字符。更多详情，请参见[如何保证幂等性](~~25693~~)。
 
  |
 |Description|String|否|FinanceJoshuaTest|安全组规则描述。
 
  |
-|DestCidrIp|String|否|10.0.0.0/8|目的端 IP 地址范围。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。默认值：0.0.0.0/0
+|DestCidrIp|String|否|10.0.0.0/8|目的端IP地址范围。支持CIDR格式和IPv4格式的IP地址范围。默认值：0.0.0.0/0
 
  |
-|Ipv6DestCidrIp|String|否|2001:db8:1234:1a00::XXX|目的端 IPv6 CIDR 地址段。支持 CIDR 格式和 IPv6 格式的 IP 地址范围。
+|Ipv6DestCidrIp|String|否|2001:db8:1234:1a00::XXX|目的端IPv6 CIDR地址段。支持CIDR格式和IPv6格式的IP地址范围。
 
- **说明：** 仅支持 VPC 类型的 IP 地址。
+ **说明：** 仅支持VPC类型的IP地址。
 
  默认值：无。
 
  |
-|Ipv6SourceCidrIp|String|否|2001:db8:1234:1a00::XXX|源端 IPv6 CIDR 地址段。支持 CIDR 格式和 IPv6 格式的 IP 地址范围。
+|Ipv6SourceCidrIp|String|否|2001:db8:1234:1a00::XXX|源端IPv6 CIDR地址段。支持CIDR格式和IPv6格式的IP地址范围。
 
- **说明：** 仅支持 VPC 类型的 IP 地址。
+ **说明：** 仅支持VPC类型的IP地址。
 
  默认值：无。
 
@@ -73,7 +73,7 @@
  -   internet：公网网卡。
 -   intranet：内网网卡。
 
- 当撤销安全组之间互相访问时，即指定了 SourceGroupId 且没有指定 SourceCidrIp 时，参数 NicType 取值只能为 intranet。 默认值：internet
+ 当撤销安全组之间互相访问时，即指定了SourceGroupId且没有指定SourceCidrIp时，参数NicType取值只能为intranet。 默认值：internet
 
  |
 |Policy|String|否|accept|访问权限。取值范围：
@@ -89,33 +89,33 @@
  默认值：1
 
  |
-|SourceCidrIp|String|否|10.0.0.0/8|源端 IP 地址范围。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。默认值：0.0.0.0/0
+|SourceCidrIp|String|否|10.0.0.0/8|源端IP地址范围。支持CIDR格式和IPv4格式的IP地址范围。默认值：0.0.0.0/0
 
  |
-|SourceGroupId|String|否|sg-securitygroupid2|需要撤销访问权限的源端安全组 ID。
+|SourceGroupId|String|否|sg-securitygroupid2|需要撤销访问权限的源端安全组ID。
 
- 必须设置 SourceGroupId 或者 SourceCidrIp 参数。
+ 必须设置SourceGroupId或者SourceCidrIp参数。
 
- 如果指定了 SourceGroupId 没有指定参数 SourceCidrIp，则参数 NicType 取值只能为 intranet。如果同时指定了 SourceGroupId 和 SourceCidrIp，则默认以 SourceCidrIp 为准。
+ 如果指定了SourceGroupId没有指定参数SourceCidrIp，则参数NicType取值只能为intranet。如果同时指定了SourceGroupId和SourceCidrIp，则默认以SourceCidrIp为准。
 
  |
 |SourceGroupOwnerAccount|String|否|FinanceJoshua|跨账户删除安全组规则时，源端安全组所属的阿里云账户。
 
- -   如果 SourceGroupOwnerAccount 及 SourceGroupOwnerId 均未设置，则认为是撤销您其他安全组的访问权限。
--   如果已经设置参数 SourceCidrIp，则参数 SourceGroupOwnerAccount 无效。
+ -   如果SourceGroupOwnerAccount及SourceGroupOwnerId均未设置，则认为是撤销您其他安全组的访问权限。
+-   如果已经设置参数SourceCidrIp，则参数SourceGroupOwnerAccount无效。
 
  |
-|SourceGroupOwnerId|Long|否|155780923770|跨账户删除安全组规则时，源端安全组所属的阿里云账户 ID。
+|SourceGroupOwnerId|Long|否|155780923770|跨账户删除安全组规则时，源端安全组所属的阿里云账户ID。
 
- -   如果 SourceGroupOwnerId 及 SourceGroupOwnerAccount 均未设置，则认为是撤销您其他安全组的访问权限。
--   如果您已经设置参数 SourceCidrIp，则参数 SourceGroupOwnerId 无效。
+ -   如果SourceGroupOwnerId及SourceGroupOwnerAccount均未设置，则认为是撤销您其他安全组的访问权限。
+-   如果您已经设置参数SourceCidrIp，则参数SourceGroupOwnerId无效。
 
  |
 |SourcePortRange|String|否|1/200|源端安全组开放的传输层协议相关的端口范围。取值范围：
 
- -   TCP/UDP 协议：取值范围为1~65535。使用斜线（/）隔开起始端口和终止端口。正确示范：1/200；错误示范：200/1。
--   ICMP 协议：-1/-1。
--   GRE 协议：-1/-1。
+ -   TCP/UDP协议：取值范围为1~65535。使用斜线（/）隔开起始端口和终止端口。正确示范：1/200；错误示范：200/1。
+-   ICMP协议：-1/-1。
+-   GRE协议：-1/-1。
 -   all：-1/-1。
 
  |
@@ -124,7 +124,7 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID。
 
  |
 
