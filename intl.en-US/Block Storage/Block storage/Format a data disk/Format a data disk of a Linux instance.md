@@ -1,60 +1,59 @@
 # Format a data disk of a Linux instance {#concept_jl1_qzd_wdb .concept}
 
-This topic describes how to format a data disk of a Linux instance. A newly created or purchased data disk cannot be used unless you format it, create one or multiple partitions in it, and mount a file system on it.
+This topic describes how to format a data disk of a Linux instance. A newly created or purchased data disk cannot be used unless you format it, create one or more partitions in it, and mount a file system on it.
 
 **Warning:** 
 
 -   Disk partitioning and formatting are high-risk operations. Exercise caution when performing these operations. The following procedure uses a newly purchased data disk as an example. If you partition or format an existing data disk, make sure that you have [created a snapshot of the data disk](../../../../reseller.en-US/Snapshots/Use snapshots/Create a snapshot.md#) to avoid data loss.
 
--   Do not partition the system disk of an ECS instance. Failure to comply can result in unknown risks, such as system failure and data loss.
+-   Do not partition the system disk of an ECS instance. Failure to comply can result in unknown risks, such as system failure and data loss. You can only extend a partition of, or add a partition to a system disk after you resize the system disk. For more information, see [Extend the file system of the Linux system disk](../../../../reseller.en-US/Block Storage/Block storage/Resize cloud disks/Extend the file system of the Linux system disk.md#).
 
 
-**Note:** The following procedure applies only to data disks less than 2 TiB. If your data disk is greater than 2 TiB, see [Partition and format data disk greater than 2 TiB](../../../../reseller.en-US/Block Storage/Block storage/Format a data disk/Partition and format data disk more than 2 TiB.md#). We recommend that you use the built-in system tool for partitioning.
+**Note:** The following procedure applies only to data disks less than 2 TiB. If your data disk is greater than 2 TiB, see [Partition and format data disk greater than 2 TiB](../../../../reseller.en-US/Block Storage/Block storage/Resize cloud disks/Extend the file system of the Linux system disk.md#).
 
-## Prerequisites {#section_dqp_xc2_wdb .section}
+## Prerequisites {#section_uyv_5wy_wyy .section}
 
--   You have [attached the data disk to an instance](../../../../reseller.en-US/Block Storage/Block storage/Attach a cloud disk.md#) in the ECS console. For more information, see [Create a Pay-As-You-Go cloud disk](../../../../reseller.en-US/Block Storage/Block storage/Create a cloud disk/Create a cloud disk.md#).
+-   The ECS instance is [attached with a data disk](../../../../reseller.en-US/Block Storage/Block storage/Attach a cloud disk.md#) that was [created separately](../DNA0011894323/EN-US_TP_9669.dita#concept_jx1_tx1_ydb). You do not need to perform this operation for data disks created along with ECS instances.
+-   The device name of the data disk is obtained.
 
-    **Note:** For a data disk purchased along with an instance, you do not need to attach it to an instance.
+    You can obtain the device name of the data disk by choosing **ECS Console** \> **Block Storage** \> **Disks** \> **\(Disk ID specific\) More** \> **Modify Attributes**.
 
--   You have obtained the device name of the data disk.
-
-    You can obtain the device name of the data disk by choosing **ECS Console** \> **Block Storage** \> **Disks** \> **\(Disk ID specific\) More** \> **Modify Attributes**. By default, device names are assigned by the system, starting from /dev/vdb to /dev/vdz.
+    **Note:** By default, device names are assigned by the system. The device name for I/O-optimized instances starts from /dev/vdb to /dev/vdz. If the device name is `dev/xvd*` \(where, `*` is a lowercase letter\), then a non-I/O-optimized instance is being used.
 
 
 ## Procedure {#section_xtx_yc2_wdb .section}
 
-In this example, a new 20 GiB data disk \(device name: /dev/vdb\) is used to create a single-partition data disk and format the disk to an ext4 file system. An I/O-optimized instance with CentOS 7.6 is used.
+In this example, a new 20 GiB data disk with the device name of /dev/vdb is used to create a single-partition data disk and format the disk to an ext4 file system. An I/O-optimized instance with CentOS 7.6 is used.
 
 1.  [Connect to the instance](reseller.en-US/Quick Start for Entry-Level Users/Step 3: Connect to an instance.md#) to which the data disk is attached.
 
 2.  Run the `fdisk -l` command to view the data disks of the instance.
 
-**Note:** If your data disk name is dev/xvd? \(where, `?` is a letter from a to z\), you are using a non-I/O-optimized instance.
+**Note:** If /dev/vdb is not displayed in the output, no data disk is attached to the instance. In this case, check whether a data disk is mounted to the instance.
 
-3.  Create a single-partition data disk by running the following commands in sequence: 
+3.  Create a single-partition data disk by running the following commands in sequence:
 
     1.  Run the `fdisk -u /dev/vdb` command to partition the data disk.
 
-    2.  Enter `p` and press Enter to view the partitions of the data disk. In this example, the data disk is not partitioned.
+    2.  Enter `p` and press **Enter** to view the partitions of the data disk. In this example, the data disk is not partitioned.
 
-    3.  Enter `n` and press Enter to create a new partition.
+    3.  Enter `n` and press **Enter** to create a new partition.
 
-    4.  Enter `p` and press Enter to select the primary partition.
+    4.  Enter `p` and press **Enter** to select the primary partition.
 
         **Note:** In this example, you are creating a single-partition data disk, so you only need to create one primary partition. If you want to create four or more partitions, you must create at least one extended partition by selecting `e`.
 
-    5.  Enter the partition number and press Enter. In this example, enter `1`.
+    5.  Enter the partition number and press **Enter**. In this example, enter `1`.
 
-    6.  Enter a number for the first available sector, or press Enter to use the default value of 2048.
+    6.  Enter a number for the first available sector, or press **Enter** to use the default value of 2048.
 
-    7.  Press Enter to use the default number for the last sector.
+    7.  Press **Enter** to use the default number for the last sector.
 
-    8.  Enter `p` and press Enter to view the planned partitions of the data disk.
-    9.  Enter `w` and press Enter to start partitioning and exit after partitioning.
+    8.  Enter `p` and press **Enter** to view the planned partitions of the data disk.
+    9.  Enter `w` and press **Enter** to start partitioning and exit after partitioning.
 
-        ```
-        # fdisk -u /dev/vdb
+        ``` {#codeblock_yey_mlu_783}
+        [root@ecshost~ ]# fdisk -u /dev/vdb
         Welcome to fdisk (util-linux 2.23.2).
         Changes will remain in memory only, until you decide to write them.
         Be careful before using the write command.
@@ -104,8 +103,8 @@ In this example, a new 20 GiB data disk \(device name: /dev/vdb\) is used to cre
 
     If the following information is displayed, the new partition `/dev/vdb1` is created successfully.
 
-    ```
-    # fdisk -lu /dev/vdb
+    ``` {#codeblock_ra4_kha_cb0}
+    [root@ecshost~ ]# fdisk -lu /dev/vdb
     
     Disk /dev/vdb: 21.5 GB, 21474836480 bytes, 41943040 sectors
     Units = sectors of 1 * 512 = 512 bytes
@@ -120,10 +119,10 @@ In this example, a new 20 GiB data disk \(device name: /dev/vdb\) is used to cre
 
 5.  Run the `mkfs.ext4 /dev/vdb1` command to create an ext4 file system on the new partition.
 
-    **Note:** You can also create other file systems as needed. For example, if you need to share files among different OSs, such as Linux, Windows, and macOS, you can run the `mkfs.vfat` command to create a VFAT file system. The time required to create a file system depends on the data disk size.
+    **Note:** You can also create other file systems as needed. For example, if you need to share files among different operating systems, such as Linux, Windows, and macOS, you can run the `mkfs.vfat` command to create a VFAT file system. The time required to create a file system depends on the data disk size.
 
-    ```
-    [root@i##### ~]# mkfs.ext4 /dev/vdb1
+    ``` {#codeblock_ims_1va_6g9}
+    [root@ecshost~ ]# mkfs.ext4 /dev/vdb1
     mke2fs 1.42.9 (28-Dec-2013)
     Filesystem label=
     OS type: Linux
@@ -153,12 +152,12 @@ In this example, a new 20 GiB data disk \(device name: /dev/vdb\) is used to cre
 
     **Note:** 
 
-    -   Ubuntu 12.04 does not support barrier. Therefore, the correct command for this system is `echo '/dev/vdb1 /mnt ext4 barrier=0 0 0' >> /etc/fstab`.
+    -   Ubuntu 12.04 does not support barrier. Therefore, the correct command for this system is `echo '/dev/vdb1 /mnt ext4 barrier=0 0 0' >> /etc/fstab`.
     -   If you need to mount the data disk to a folder to store web pages separately, replace `/mnt` with the desired mount point path.
 8.  Run the `cat /etc/fstab` command to view the new partition information in /etc/fstab.
 
-    ```
-    [root@i##### ~]# cat /etc/fstab
+    ``` {#codeblock_cpk_9bz_pd6}
+    [root@ecshost~ ]# cat /etc/fstab
     #
     # /etc/fstab
     # Created by anaconda on Wed Dec 12 07:53:08 2018
@@ -172,14 +171,12 @@ In this example, a new 20 GiB data disk \(device name: /dev/vdb\) is used to cre
 
 9.  Run the `mount /dev/vdb1 /mnt` command to mount the file system.
 
-     
-
 10. Run the `df -h` command to view the disk space and usage.
 
     **Note:** If the new file system information is displayed in the response message, the file system is successfully mounted, and you can use the new file system without restarting the instance.
 
-    ```
-    [root@i##### ~]# df -h
+    ``` {#codeblock_lo8_nfi_1s6}
+    [root@ecshost~ ]# df -h
     Filesystem Size Used Avail Use% Mounted on
     /dev/vda1 40G 1.6G 36G 5% /
     devtmpfs 234M 0 234M 0% /dev
