@@ -19,31 +19,31 @@
 -   单台专有网络VPC类型的安全组内的私网IP地址个数不能超过2000，主网卡和辅助网卡共享此配额。
 -   一张弹性网卡最多可以分配20个私网IP地址。
     -   弹性网卡的状态处于**可用**（`Available`）时，您最多可以分配10个私网IP地址。
-    -   弹性网卡的状态处于**已绑定**（`InUse`）时，您可以分配的私网IP地址数与实例规格相关。更多详情，请参见[实例规格族](../../../../cn.zh-CN/实例/实例规格族.md#)。
--   您的实例规格必须支持分配多个辅助私网IP。更多详情，请参见[实例规格族](../../../../cn.zh-CN/实例/实例规格族.md#)或通过[DescribeInstanceTypes](../../../../cn.zh-CN/API参考/实例/DescribeInstanceTypes.md#)接口查询。
+    -   弹性网卡的状态处于**已绑定**（`InUse`）时，您可以分配的私网IP地址数与实例规格相关。更多详情，请参见[实例规格族](../cn.zh-CN/实例/实例规格族.md#)。
+-   您的实例规格必须支持分配多个辅助私网IP。更多详情，请参见[实例规格族](../cn.zh-CN/实例/实例规格族.md#)或通过[DescribeInstanceTypes](../cn.zh-CN/API参考/实例/DescribeInstanceTypes.md#)接口查询。
 -   在主网卡上分配多个辅助私网IP地址时，主网卡附加的实例必须处于**运行中**（`Running`）或者**已停止**（`Stopped`）状态。
 
 ## 分配辅助私网IP地址 {#section_bam_ihj_gsy .section}
 
-1.  登录[ECS管理控制台](https://ecs.console.aliyun.com/)。
-2.  在左侧导航栏中，单击**网络与安全** \> **弹性网卡**。
-3.  选择地域。
+1.  登录[ECS管理控制台](https://ecs.console.aliyun.com)。
+2.  在左侧导航栏，选择**网络与安全** \> **弹性网卡**。
+3.  在顶部状态栏处，选择地域。
 4.  在网卡列表页面，找到目标弹性网卡，在**操作**列，单击**管理辅助私网IP**。
 5.  在管理辅助私网IP页面，单击**分配新 IP**。可连续单击，表示分配多个辅助私网IP地址。
 
     您可以手动输入辅助私网IP地址，取值在**IPv4 私网网段**内即可。如果您不输入IP值，系统会从**IPv4 私网网段**随机分配IP地址。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83258/155955978747047_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83258/156082565647047_zh-CN.png)
 
 6.  单击**修改**。
 7.  （可选）如果您选择了自动分配辅助私网IP地址，在**操作**列，单击**管理辅助私网IP**查看系统已分配的辅助私网IP地址，用于实例配置的操作步骤中。
 8.  （可选）如果您操作的弹性网卡还未绑定到ECS实例，请参见[绑定弹性网卡](cn.zh-CN/网络/弹性网卡/绑定弹性网卡.md#)完成绑定。
 
-相关API：[AssignPrivateIpAddresses](../../../../cn.zh-CN/API参考/弹性网卡/AssignPrivateIpAddresses.md#)
+相关API：[AssignPrivateIpAddresses](../cn.zh-CN/API参考/弹性网卡/AssignPrivateIpAddresses.md#)
 
 ## 为Windows实例配置辅助私网IP地址 {#section_y4b_krk_ggb .section}
 
-1.  远程登录实例。具体方法可参见[连接方式导航](../../../../cn.zh-CN/实例/连接实例/连接方式导航.md#)。
+1.  远程登录实例。具体方法可参见[连接方式导航](../cn.zh-CN/实例/连接实例/连接方式导航.md#)。
 2.  打开网络和共享中心。
 3.  单击**更改适配器设置**。
 4.  双击当前网络连接名，单击**属性**。
@@ -53,13 +53,13 @@
 
     您可以为同一网卡适配器重复添加多个IP地址。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83258/155955978747049_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83258/156082565747049_zh-CN.png)
 
 8.  单击**确定**。
 
 ## 为Linux实例配置辅助私网IP地址 {#section_b2x_hlb_3gb .section}
 
-1.  远程登录实例。具体方法可参见[连接方式导航](../../../../cn.zh-CN/实例/连接实例/连接方式导航.md#)。
+1.  远程登录实例。具体方法可参见[连接方式导航](../cn.zh-CN/实例/连接实例/连接方式导航.md#)。
 2.  根据您的实例操作系统选择配置辅助私网IP地址的方式。
 
     以下步骤均以主网卡eth0为操作示范，如果您使用的是辅助网卡，请根据实际情况修改网卡标识符。
