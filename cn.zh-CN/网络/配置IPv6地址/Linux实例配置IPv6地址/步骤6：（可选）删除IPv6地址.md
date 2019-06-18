@@ -10,7 +10,7 @@
 4.  在实例列表页面，选择已创建的ECS实例，单击**操作**列下的**管理**。
 5.  在配置信息区域， 单击**更多** \> **管理辅助私网IP**。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65346/156082629233573_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65346/156082633033573_zh-CN.png)
 
 6.  单击**取消分配**。
 7.  单击**修改**。
