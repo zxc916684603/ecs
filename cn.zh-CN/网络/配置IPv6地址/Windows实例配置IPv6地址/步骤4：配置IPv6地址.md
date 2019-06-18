@@ -8,21 +8,21 @@
 
 ecs-util-ipv6 能为已分配 IPv6 地址的 ECS 实例一键配置 IPv6 地址，或者为没有分配 IPv6 地址的 ECS 实例一键清理 IPv6 配置。
 
-**使用限制**
+**使用限制** 
 
--   ecs-util-ipv6 工具仅适用于 VPC 类型实例，依赖实例元数据服务，使用前请勿将网络禁用或者将相关出口 IP 端口（100.100.100.200:80）禁用。详情请参见[实例元数据](cn.zh-CN/实例/配置实例/使用实例元数据/什么是实例元数据.md#)。
+-   ecs-util-ipv6 工具仅适用于 VPC 类型实例，依赖实例元数据服务，使用前请勿将网络禁用或者将相关出口 IP 端口（100.100.100.200:80）禁用。详情请参见[实例元数据](cn.zh-CN/实例/管理实例/使用实例元数据/什么是实例元数据.md#)。
 -   ecs-util-ipv6 工具运行时会自动重启网卡、网络服务，短时间内网络可能会不可用，请慎重执行。
 
-**下载地址**
+**下载地址** 
 
 -   [Windows Server 2003/2008/2012/2016（32位）](http://ecs-image-utils.oss-cn-hangzhou.aliyuncs.com/ipv6/win/32/ecs-utils-ipv6.exe)
 -   [Windows Server 2003/2008/2012/2016（64位）](http://ecs-image-utils.oss-cn-hangzhou.aliyuncs.com/ipv6/win/64/ecs-utils-ipv6.exe)
 
 **执行方式**
 
-下载对应系统版本脚本到目标系统，使用管理员权限执行：
+下载与系统版本相对应的脚本到目标系统，使用管理员权限执行：
 
-```
+``` {#codeblock_q3a_xlo_l5b}
 ecs-utils-ipv6.exe
 ```
 
@@ -32,9 +32,9 @@ ecs-utils-ipv6.exe
 
 **自动化脚本示例**
 
-对于需要自动化配置 IPv6 实例的需求，比如大批量配置，建议您使用[云助手](../../../../../cn.zh-CN/部署与运维/云助手/云助手概述.md#)或者[实例自定义数据](cn.zh-CN/实例/配置实例/使用实例自定义数据/生成实例自定义数据.md#)配合脚本的方式来调用。以下为脚本示例（假设是 64 位，PowerShell 脚本）。
+对于需要自动化配置 IPv6 实例的需求，比如大批量配置，建议您使用[云助手](../../../../cn.zh-CN/部署与运维/云助手/云助手概述.md#)或者[实例自定义数据](cn.zh-CN/实例/管理实例/使用实例自定义数据/生成实例自定义数据.md#)配合脚本的方式来调用。以下为脚本示例（假设是 64 位，PowerShell 脚本）。
 
-```
+``` {#codeblock_hlu_83f_du8}
 #powershell
 $install_dir="C:\Windows\system32"
 $install_path = "$install_dir\ecs-utils-ipv6.exe"
@@ -56,7 +56,7 @@ Start-Process -FilePath "$install_path" -ArgumentList "--noenterkey" -NoNewWindo
 
 1.  远程连接实例。
 2.  打开 Windows 命令处理程序 CMD。
-3.  运行 ipconfig，若返回 IPv6 地址格式相关内容，表示实例已成功开启 IPv6 服务。
+3.  运行 ipconfig，若返回 IPv6 地址相关内容，表示实例已成功开启 IPv6 服务。
 
 若实例还未开启 IPv6 服务，请根据下文描述操作。
 
@@ -85,7 +85,7 @@ Windows Server 2003 操作步骤
 您可以通过控制台和实例元数据查看实例分配的 IPv6 地址。
 
 -   控制台：请参见[分配 IPv6 地址](cn.zh-CN/网络/配置IPv6地址/Windows实例配置IPv6地址/步骤2：分配IPv6地址.md#)。
--   实例元数据：通过以下元数据项获取 IPv6 地址。详情请参见[实例元数据](cn.zh-CN/实例/配置实例/使用实例元数据/什么是实例元数据.md#)。
+-   实例元数据：通过以下元数据项获取 IPv6 地址。详情请参见[实例元数据](cn.zh-CN/实例/管理实例/使用实例元数据/什么是实例元数据.md#)。
     -   IPv6 地址：network/interfaces/macs/\[mac\]/ipv6s
     -   IPv6 网关：network/interfaces/macs/\[mac\]/ipv6-gateway
     -   IPv6 虚拟交换机 CIDR 地址段：network/interfaces/macs/\[mac\]/vswitch-ipv6-cidr-block
@@ -109,20 +109,20 @@ Windows Server 2003 操作步骤
 4.  添加 IPv6 地址。
     -   单个 IPv6 地址运行以下命令：
 
-        ```
+        ``` {#codeblock_gbu_7el_f82}
         netsh interface ipv6 add address "本地连接 2" <IPv6 地址>
         ```
 
     -   多个 IPv6 地址运行以下命令：
 
-        ```
+        ``` {#codeblock_0qf_iap_16e}
         netsh interface ipv6 add address "本地连接 2" <IPv6 地址 1>
         netsh interface ipv6 add address "本地连接 2" <IPv6 地址 2>
         ```
 
 5.  运行以下命令添加默认路由：
 
-    ```
+    ``` {#codeblock_262_9s4_cf2}
     netsh interface ipv6 add route ::/0 "本地连接 2" <IPv6 网关>
     ```
 
