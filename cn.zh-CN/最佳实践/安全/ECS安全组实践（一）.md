@@ -6,10 +6,10 @@
 
 在配置安全组的入网规则之前，您应已经了解以下安全组相关的信息：
 
--    [安全组限制](../../../../intl.zh-CN/产品简介/网络和安全性/安全组.md#)
--    [安全组默认规则](../../../../intl.zh-CN/用户指南/安全组/安全组默认规则.md#) 
--    [设置安全组 In 方向的访问权限](../../../../intl.zh-CN/API 参考/安全组/AuthorizeSecurityGroup.md#) 
--    [设置安全组 Out 方向的访问权限](../../../../intl.zh-CN/API 参考/安全组/AuthorizeSecurityGroupEgress.md#) 
+-   [安全组限制](../../../../cn.zh-CN/安全/安全组/安全组概述.md#)
+-   [安全组默认规则](../../../../cn.zh-CN/隐藏/新架构后需要隐藏的文档汇总/安全/安全组默认规则.md#)
+-   [设置安全组 In 方向的访问权限](../../../../cn.zh-CN/API参考/安全组/AuthorizeSecurityGroup.md#)
+-   [设置安全组 Out 方向的访问权限](../../../../cn.zh-CN/API参考/安全组/AuthorizeSecurityGroupEgress.md#)
 
 ## 安全组实践的基本建议 {#section_imd_fn2_2fb .section}
 
@@ -36,7 +36,7 @@
 
 允许全部入网访问是经常犯的错误。使用 0.0.0.0/0 意味着所有的端口都对外暴露了访问权限。这是非常不安全的。正确的做法是，先拒绝所有的端口对外开放。安全组应该是白名单访问。例如，如果您需要暴露 Web 服务，默认情况下可以只开放 80、8080 和 443 之类的常用TCP端口，其它的端口都应关闭。
 
-```
+``` {#codeblock_k5w_5ct_9ej}
 { "IpProtocol" : "tcp", "FromPort" : "80", "ToPort" : "80", "SourceCidrIp" : "0.0.0.0/0", "Policy": "accept"} ,
 { "IpProtocol" : "tcp", "FromPort" : "8080", "ToPort" : "8080", "SourceCidrIp" : "0.0.0.0/0", "Policy": "accept"} ,
 { "IpProtocol" : "tcp", "FromPort" : "443", "ToPort" : "443", "SourceCidrIp" : "0.0.0.0/0", "Policy": "accept"} ,
@@ -46,7 +46,7 @@
 
 如果您当前使用的入规则已经包含了 0.0.0.0/0，您需要重新审视自己的应用需要对外暴露的端口和服务。如果确定不想让某些端口直接对外提供服务，您可以加一条拒绝的规则。比如，如果您的服务器上安装了 MySQL 数据库服务，默认情况下您不应该将 3306 端口暴露到公网，此时，您可以添加一条拒绝规则，如下所示，并将其优先级设为100，即优先级最低。
 
-```
+``` {#codeblock_2sd_1bb_sst}
 { "IpProtocol" : "tcp", "FromPort" : "3306", "ToPort" : "3306", "SourceCidrIp" : "0.0.0.0/0", "Policy": "drop", Priority: 100} ,
 ```
 
@@ -58,7 +58,7 @@
 
 例如，如果是分布式应用，您会区分不同的安全组，但是，不同的安全组可能网络不通，此时您不应该直接授权 IP 或者 CIDR 网段，而是直接授权另外一个安全组 ID 的所有的资源都可以直接访问。比如，您的应用对 Web、Database 分别创建了不同的安全组：sg-web 和 sg-database。在sg-database 中，您可以添加如下规则，授权所有的 sg-web 安全组的资源访问您的 3306 端口。
 
-```
+``` {#codeblock_qgx_dl5_n2y}
 { "IpProtocol" : "tcp", "FromPort" : "3306", "ToPort" : "3306", "SourceGroupId" : "sg-web", "Policy": "accept", Priority: 2} ,
 ```
 
@@ -68,7 +68,7 @@
 
 VPC 网络中，您可以自己通过不同的 VSwitch 设置不同的 IP 域，规划 IP 地址。所以，在 VPC 网络中，您可以默认拒绝所有的访问，再授信自己的专有网络的网段访问，直接授信可以相信的 CIDR 网段。
 
-```
+``` {#codeblock_f8s_2jc_1pe}
 { "IpProtocol" : "icmp", "FromPort" : "-1", "ToPort" : "-1", "SourceCidrIp" : "10.0.0.0/24", Priority: 2} ,
 { "IpProtocol" : "tcp", "FromPort" : "0", "ToPort" : "65535", "SourceCidrIp" : "10.0.0.0/24", Priority: 2} ,
 { "IpProtocol" : "udp", "FromPort" : "0", "ToPort" : "65535", "SourceCidrIp" : "10.0.0.0/24", Priority: 2} ,
