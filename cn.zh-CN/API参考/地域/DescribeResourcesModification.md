@@ -1,4 +1,4 @@
-# DescribeResourcesModification {#doc_api_1006041 .reference}
+# DescribeResourcesModification {#doc_api_Ecs_DescribeResourcesModification .reference}
 
 查询升级和降配实例规格或者系统盘时，某一可用区的可用资源信息。
 
@@ -16,22 +16,22 @@
 -   SystemDisk：系统盘类型
 
  |
-|RegionId|String|是|cn-hangzhou|目标地域ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
+|RegionId|String|是|cn-hangzhou|目标地域ID。您可以调用[DescribeRegions](~~25609~~)查看最新的阿里云地域列表。
 
  |
-|ResourceId|String|是|i-instanceid|资源ID。例如，当待查询的资源为实例时，可以理解为 InstanceId。
+|ResourceId|String|是|i-instanceid|资源ID。例如，当待查询的资源为实例时，可以理解为InstanceId。
 
  |
-|Action|String|否|DescribeResourcesModification|系统规定参数。取值：DescribeResourcesModification
+|Action|String|否|DescribeResourcesModification|系统规定参数。对于您自行拼凑HTTP/HTTPS URL发起的API请求，`Action`为必选参数。取值：DescribeResourcesModification
 
  |
-|Cores|Integer|否|2|实例规格的vCPU内核数目。取值参阅 [实例规格族](~~25378~~)。当DestinationResource=InstanceType参数有效，Cores才为有效参数。
+|Cores|Integer|否|2|实例规格的vCPU内核数目。取值参见[实例规格族](~~25378~~)。当DestinationResource=InstanceType参数有效，Cores才为有效参数。
 
  |
-|InstanceType|String|否|ecs.g5.large|实例规格。更多详情，请参阅 [实例规格族](~~25378~~)，也可以调用 [DescribeInstanceTypes](~~25620~~) 接口获得最新的规格表。当参数DestinationResource取值为SystemDisk时，必须同时指定InstanceType参数。
+|InstanceType|String|否|ecs.g5.large|实例规格。更多详情，请参见[实例规格族](~~25378~~)，也可以调用[DescribeInstanceTypes](~~25620~~) 接口获得最新的规格表。当参数DestinationResource取值为SystemDisk时，必须同时指定InstanceType参数。
 
  |
-|Memory|Float|否|8.0|实例规格的内存大小，单位为GiB。取值参阅 [实例规格族](~~25378~~)。当DestinationResource=InstanceType，Memory才为有效参数。
+|Memory|Float|否|8.0|实例规格的内存大小，单位为GiB。取值参见[实例规格族](~~25378~~)。当DestinationResource=InstanceType，Memory才为有效参数。
 
  |
 |MigrateAcrossZone|Boolean|否|true|是否支持跨集群升级实例规格。取值范围：
@@ -44,9 +44,9 @@
  当参数MigrateAcrossZone取值为True时，一旦您根据返回信息升级了云服务器，请留意以下注意事项：
 
  -   经典网络类型实例：
-    -   对于 [已停售的实例规格](~~55263~~)，非 I/O 优化实例变配到 I/O 优化实例时，实例私网 IP 地址、磁盘设备名和软件授权码会发生变化。对于 Linux 实例，普通云盘（cloud）会被识别为 xvda 或者 xvdb 等，高效云盘（cloud\_efficiency） 和 SSD 云盘（cloud\_ssd）会被识别为 vda 或者 vdb 等。
-    -   对于 [正常售卖的实例规格族](~~25378~~)，实例的私网 IP 地址会发生变化。
--   专有网络VPC类型实例： 对于 [已停售的实例规格](~~55263~~)，非 I/O 优化实例变配到 I/O 优化实例时，云服务器磁盘设备名和软件授权码会发生变化。Linux 实例的普通云盘（cloud）会被识别为 xvda 或者 xvdb等，高效云盘（cloud\_efficiency） 和 SSD 云盘（cloud\_ssd）会被识别为 vda 或者 vdb 等。
+    -   对于[已停售的实例规格](~~55263~~)，非I/O优化实例变配到I/O优化实例时，实例私网IP地址、磁盘设备名和软件授权码会发生变化。对于Linux实例，普通云盘（cloud）会被识别为xvda或者xvdb等，高效云盘（cloud\_efficiency）和SSD云盘（cloud\_ssd）会被识别为vda或者vdb等。
+    -   对于[正常售卖的实例规格族](~~25378~~)，实例的私网IP地址会发生变化。
+-   专有网络VPC类型实例：对于[已停售的实例规格](~~55263~~)，非I/O优化实例变配到I/O优化实例时，云服务器磁盘设备名和软件授权码会发生变化。Linux实例的普通云盘（cloud）会被识别为xvda或者xvdb等，高效云盘（cloud\_efficiency）和SSD云盘（cloud\_ssd）会被识别为vda或者vdb等。
 
  |
 |OperationType|String|否|Upgrade|更改预付费（包年包月）配置的操作类型。取值范围：
@@ -57,9 +57,6 @@
 -   RenewModify：过期实例到续费变配
 
  默认值：Upgrade
-
- |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
 
  |
 
@@ -88,6 +85,13 @@
 -   SoldOut：资源已售罄
 
  |
+|└StatusCategory|String|WithStock|根据库存详细分类资源类别。目前的可能值有：
+
+ -   WithStock：库存充足
+-   ClosedWithStock：库存接近水位低线
+-   WithoutStock：库存告罄
+
+ |
 |└Unit|String|null|资源规格单位，该参数值为空时不返回
 
  |
@@ -113,10 +117,17 @@
 -   SoldOut：资源已售罄
 
  |
+|└StatusCategory|String|WithStocK|根据库存详细分类资源类别。目前的可能值有：
+
+ -   WithStock：库存充足
+-   ClosedWithStock：库存接近水位低线
+-   WithoutStock：库存告罄
+
+ |
 |└ZoneId|String|cn-hangzhou-e|可用区ID
 
  |
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID
 
  |
 
@@ -125,18 +136,16 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=DescribeResourcesModification
 &DestinationResource=InstanceType
 &RegionId=cn-hangzhou
 &ResourceId=i-instanceid
 &MigrateAcrossZone=true
 &OperationType=Upgrade
-&InstanceType=["ecs.g5.large"]
+&InstanceType="ecs.g5.large"
 &Cores=2
 &Memory=8.0
 &<公共请求参数>
-
 ```
 
 正常返回示例
