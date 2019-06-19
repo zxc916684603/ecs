@@ -90,7 +90,7 @@ https://ecs.aliyuncs.com/?Action=CreateSecurityGroup
 ``` {#xml_return_success_demo}
 <CreateSecurityGroupResponse>
   <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
-  <SecurityGroupId>sg-F876FF7BA</SecurityGroupId>
+  <SecurityGroupId>sg-securitygroupid</SecurityGroupId>
 </CreateSecurityGroupResponse>
 
 ```
@@ -99,7 +99,7 @@ https://ecs.aliyuncs.com/?Action=CreateSecurityGroup
 
 ``` {#json_return_success_demo}
 {
-	"SecurityGroupId":"sg-F876FF7BA",
+	"SecurityGroupId":"sg-securitygroupid",
 	"RequestId":"CEF72CEB-54B6-4AE8-B225-F876FF7BA984"
 }
 ```
