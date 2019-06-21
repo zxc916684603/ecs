@@ -1,10 +1,11 @@
 # ResizeDisk {#doc_api_Ecs_ResizeDisk .reference}
 
-扩容一块云盘。
+扩容一块云盘，支持扩容系统盘和数据盘。
 
 ## 接口说明 {#description .section}
 
--   支持扩容系统盘和数据盘。
+**说明：** 扩容前，请务必查询云盘采用的分区格式。如果是MBR格式，不支持扩容到2 TiB以上，否则会造成数据丢失。对于MBR分区扩容，建议您重新创建并挂载一块数据盘，采用GPT分区格式后，再将已有数据拷贝至新的数据盘上。更多详情，请参见[扩容云盘容量](~~44986~~)。
+
 -   支持扩容的云盘类型包括普通云盘（cloud）、高效云盘（cloud\_efficiency）、SSD云盘（cloud\_ssd）和ESSD（cloud\_essd）云盘。
 -   当云盘正在创建快照时，不允许扩容。
 -   云盘挂载的实例的状态必须为运行中（Running）或者已停止（Stopped）。
@@ -25,9 +26,9 @@
 |NewSize|Integer|是|1900|希望扩容到的云盘容量大小。单位为GiB。取值范围：
 
  -   普通云盘（cloud）：5~2000
--   高效云盘（cloud\_efficiency）：5~6144
--   SSD云盘（cloud\_ssd）：5~6144
--   ESSD云盘（cloud\_essd）：5~32768
+-   高效云盘（cloud\_efficiency）：20~6144
+-   SSD云盘（cloud\_ssd）：20~6144
+-   ESSD云盘（cloud\_essd）：20~32768
 
  指定的新云盘容量必须比原云盘容量大。且6 TiB以下的云盘不能扩容到6 TiB以上。
 
@@ -41,7 +42,7 @@
 -   online：在线扩容，无需重启实例即可完成扩容。仅支持高效云盘与SSD云盘。
 
  |
-|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken**只支持ASCII字符，且不能超过64个字符。更多详情，请参阅[如何保证幂等性](~~25693~~)。
+|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken**只支持ASCII字符，且不能超过64个字符。更多详情，请参见[如何保证幂等性](~~25693~~)。
 
  |
 
@@ -58,13 +59,11 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=ResizeDisk
 &DiskId=d-diskid
 &NewSize=1900
 &ClientToken=123e4567-e89b-12d3-a456-426655440000
 &<公共请求参数>
-
 ```
 
 正常返回示例
