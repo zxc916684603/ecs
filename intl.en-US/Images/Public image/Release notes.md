@@ -2,6 +2,44 @@
 
 This topic describes the release notes of images and relevant updates.
 
+## May 28, 2019 {#section_95g_4qf_2lc .section}
+
+|Release|Description|
+|:------|:----------|
+|Windows Server 2019 Datacenter Edition| -   Image ID:
+    -   win2019\_64\_dtc\_1809\_zh-cn\_40G\_alibase\_20190528.vhd \(Chinese edition\)
+    -   win2019\_64\_dtc\_1809\_en-us\_40G\_alibase\_20190528.vhd \(English edition\)
+-   Released in: all regions
+-   Changes: updated to the latest operating system patches
+
+ |
+|Windows Server Version 1809 Datacenter Edition| -   Image ID:
+    -   winsvr\_64\_dtcC\_1809\_zh-cn\_40G\_alibase\_20190528.vhd \(Chinese edition\)
+    -   winsvr\_64\_dtcC\_1809\_en-us\_40G\_alibase\_20190528.vhd \(English edition\)
+-   Released in: all regions
+-   Changes: updated to the latest operating system patches
+
+ |
+
+## May 23, 2019 {#section_0n2_ujz_6sx .section}
+
+|Release|Description|
+|:------|:----------|
+|Windows Server 2016 Datacenter Edition| -   Image ID:
+    -   win2016\_64\_dtc\_1607\_zh-cn\_40G\_alibase\_20190523.vhd \(Chinese edition\)
+    -   win2016\_64\_dtc\_1607\_en-us\_40G\_alibase\_20190523.vhd \(English edition\)
+-   Released in: all regions
+-   Changes: updated to the latest operating system patches
+
+ |
+|Windows Server 2012 R2 Datacenter Edition| -   Image ID:
+    -   win2012r2\_64\_dtc\_9600\_zh-cn\_40G\_alibase\_20190523.vhd \(Chinese edition\)
+    -   win2012r2\_64\_dtc\_9600\_en-us\_40G\_alibase\_20190523.vhd \(English edition\)
+-   Released in: all regions
+-   Changes: updated to the latest operating system patches
+
+ |
+
 ## May 17, 2019 {#section_4pq_y1g_omv .section}
 
 |Release|Description|
@@ -9,7 +47,7 @@ This topic describes the release notes of images and relevant updates.
 |Windows Server 2008 Standard Edition SP2| -   Image ID: win2008\_32\_std\_sp2\_zh-cn\_40G\_alibase\_20190517.vhd \(Chinese edition\)
 -   Released in: all regions
 -   Changes:
-    -   Updated to the latest system patches
+    -   Updated to the latest operating system patches
     -   Fixed a remote code execution vulnerability \(CVE-2019-0708\) in Microsoft Windows Remote Desktop Services
 
  |
@@ -23,7 +61,7 @@ This topic describes the release notes of images and relevant updates.
     -   win2008r2\_64\_ent\_sp1\_en-us\_40G\_alibase\_20190515.vhd \(English edition\)
 -   Released in: all regions
 -   Changes:
-    -   Updated to the latest system patches
+    -   Updated to the latest operating system patches
     -   Fixed a remote code execution vulnerability \(CVE-2019-0708\) in Microsoft Windows Remote Desktop Services
 
  |
@@ -35,7 +73,7 @@ This topic describes the release notes of images and relevant updates.
 |Ubuntu 16.04| -   Image ID: ubuntu\_16\_04\_64\_20G\_alibase\_20190513.vhd
 -   Kernel version: 4.4.0-146-generic
 -   Released in: all regions
--   Changes: updated to the latest system patches
+-   Changes: updated to the latest operating system patches
 
  |
 
@@ -46,7 +84,7 @@ This topic describes the release notes of images and relevant updates.
 |Debian 9.9| -   Image ID: debian\_9\_09\_64\_20G\_alibase\_20190510.vhd
 -   Kernel version: 4.9.0-9-amd64
 -   Released in: all regions
--   Changes: updated to the latest system patches
+-   Changes: updated to the latest operating system patches
 
  |
 
@@ -59,7 +97,7 @@ This topic describes the release notes of images and relevant updates.
 -   Released in: all regions
 -   Changes:
     -   Updated cloud-init to speed up boot time
-    -   Updated to the latest system patches
+    -   Updated to the latest operating system patches
 
  |
 
@@ -94,7 +132,7 @@ This topic describes the release notes of images and relevant updates.
 |CoreOS 2023.4.0| -   Image ID: coreos\_2023\_4\_0\_64\_30G\_alibase\_20190319.vhd
 -   Kernel version: 4.19.25-coreos
 -   Released in: all regions
--   Changes: updated to the latest system patches
+-   Changes: updated to the latest operating system patches
 
  |
 
@@ -113,28 +151,28 @@ This topic describes the release notes of images and relevant updates.
     -   win2016\_64\_dtc\_1607\_zh-cn\_40G\_alibase\_20190318.vhd \(Chinese edition\)
     -   win2016\_64\_dtc\_1607\_en-us\_40G\_alibase\_20190318.vhd \(English edition\)
 -   Released in: all regions
--   Changes: updated to the latest system patches
+-   Changes: updated to the latest operating system patches
 
  |
 |Windows Server 2012 R2 Datacenter Edition| -   Image ID:
     -   win2012r2\_64\_dtc\_9600\_zh-cn\_40G\_alibase\_20190318.vhd \(Chinese edition\)
     -   win2012r2\_64\_dtc\_9600\_en-us\_40G\_alibase\_20190318.vhd \(English edition\)
 -   Released in: all regions
--   Changes: updated to the latest system patches
+-   Changes: updated to the latest operating system patches
 
  |
 |Windows Server 2008 R2 Enterprise Edition| -   Image ID:
     -   win2008r2\_64\_ent\_sp1\_zh-cn\_40G\_alibase\_20190318.vhd \(Chinese edition\)
     -   win2008r2\_64\_ent\_sp1\_en-us\_40G\_alibase\_20190318.vhd \(English edition\)
 -   Released in: all regions
--   Changes: updated to the latest system patches
+-   Changes: updated to the latest operating system patches
 
  |
 |Windows Server Version 1809 Datacenter Edition| -   Image ID:
     -   winsvr\_64\_dtcC\_1809\_zh-cn\_40G\_alibase\_20190318.vhd \(Chinese edition\)
     -   winsvr\_64\_dtcC\_1809\_en-us\_40G\_alibase\_20190318.vhd \(English edition\)
 -   Released in: all regions
--   Changes: updated to the latest system patches
+-   Changes: updated to the latest operating system patches
 
  |
 
@@ -146,7 +184,7 @@ This topic describes the release notes of images and relevant updates.
 -   Kernel version: 3.16.0-7-amd64
 -   Released in: all regions
 -   Changes:
-    -   Updated to the latest system patches
+    -   Updated to the latest operating system patches
     -   Fixed invalid apt source configurations in Debian 8.9
 
  |
@@ -158,7 +196,7 @@ This topic describes the release notes of images and relevant updates.
 |Ubuntu 16.04| -   Image ID: ubuntu\_16\_04\_64\_20G\_alibase\_20190301.vhd
 -   Kernel version: 4.4.0-142-generic
 -   Released in: all regions
--   Changes: updated to the latest system patches
+-   Changes: updated to the latest operating system patches
 
  |
 
@@ -169,7 +207,7 @@ This topic describes the release notes of images and relevant updates.
 |Debian 9.8| -   Image ID: debian\_9\_08\_64\_20G\_alibase\_20190225.vhd
 -   Kernel version: 4.9.0-8-amd64
 -   Released in: China North 2, China North 3, and China North 5
--   Changes: updated to the latest system patches
+-   Changes: updated to the latest operating system patches
 
  |
 
@@ -180,7 +218,7 @@ This topic describes the release notes of images and relevant updates.
 |Ubuntu 18.04| -   Image ID: ubuntu\_18\_04\_64\_20G\_alibase\_20190223.vhd
 -   Kernel version: 4.15.0-45-generic
 -   Released in: all regions
--   Changes: updated to the latest system patches
+-   Changes: updated to the latest operating system patches
 
  |
 
@@ -191,7 +229,7 @@ This topic describes the release notes of images and relevant updates.
 |CentOS 7.6| -   Image ID: centos\_7\_06\_64\_20G\_alibase\_20190218.vhd
 -   Kernel version: 3.10.0-957.5.1.el7.x86\_64
 -   Released in: all regions
--   Changes: updated to the latest system patches
+-   Changes: updated to the latest operating system patches
 
  |
 
@@ -268,14 +306,14 @@ This topic describes the release notes of images and relevant updates.
 |CentOS 7.6| -   Image ID: centos\_7\_05\_64\_20G\_alibase\_20181212.vhd
 -   Kernel version: 3.10.0-957.1.3.el7.x86\_64
 -   Released in: all regions
--   Changes: updated to the latest system patches
+-   Changes: updated to the latest operating system patches
 
  |
 |Debian 9.6| -   Image ID: debian\_9\_06\_64\_20G\_alibase\_20181212.vhd
 -   Kernel version: 4.9.0-8-amd64
 -   Released in: all regions
 -   Changes:
-    -   Updated to the latest system patches
+    -   Updated to the latest operating system patches
     -   Updated the cloud-init version
     -   Enabled the chrony service \(time synchronization\)
     -   Set GRUB\_TIMEOUT=1
@@ -286,7 +324,7 @@ This topic describes the release notes of images and relevant updates.
 -   Kernel version: 4.15.0-42-generic
 -   Released in: all regions
 -   Changes:
-    -   Updated to the latest system patches
+    -   Updated to the latest operating system patches
     -   Updated the cloud-init version
     -   Enabled the chrony service \(time synchronization\)
     -   Set GRUB\_TIMEOUT=1
@@ -301,7 +339,7 @@ This topic describes the release notes of images and relevant updates.
 -   Kernel version: 3.10.0-862.3.3.el7.x86\_64
 -   Released in: all regions
 -   Changes:
-    -   Updated to the latest system patches
+    -   Updated to the latest operating system patches
     -   Updated the cloud-init version
     -   Enabled the chrony service \(time synchronization\)
     -   Disabled password logon by default
