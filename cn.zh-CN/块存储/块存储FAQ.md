@@ -2,7 +2,7 @@
 
 ## 什么是ESSD云盘？ {#section_exq_8tt_oqw .section}
 
-ESSD云盘，又称增强型（Enhanced）SSD云盘，是阿里云推出的超高性能云盘产品。ESSD云盘结合25GE网络和RDMA技术，为您提供单盘高达100万的随机读写能力和更低的单路时延能力。更多详情，请参见[ESSD云盘](cn.zh-CN/块存储/云盘/ESSD云盘.md#)。
+ESSD云盘，又称增强型（Enhanced）SSD云盘，是阿里云推出的超高性能云盘产品。ESSD云盘结合25GE网络和RDMA技术，为您提供单盘高达100万的随机读写能力和更低的单路时延能力。
 
 ## 我什么时候可以购买ESSD云盘？ {#section_hhd_okp_zlj .section}
 
@@ -10,7 +10,7 @@ ESSD云盘，又称增强型（Enhanced）SSD云盘，是阿里云推出的超�
 
 ## 相比于公测阶段，ESSD云盘商业化产品形态有什么不同？ {#section_cw3_bmw_boh .section}
 
-不同于公测期的产品形态，在正式商业化时，ESSD云盘按照性能上限不同，分为三种不同的规格。最新的ESSD云盘性能详情，请参见[ESSD云盘](cn.zh-CN/块存储/云盘/ESSD云盘.md#)。
+不同于公测期的产品形态，在正式商业化时，ESSD云盘按照性能上限不同，分为三种不同的规格。
 
 对于存储设备而言，不同的容量能达到的性能不同，容量越大，存储设备的数据处理能力越强。所有ESSD云盘性能级别的单位容量的I/O性能均一致，但云盘性能随容量增长而线性增长，直至达到该性能级别的单盘性能上限。
 
@@ -27,7 +27,7 @@ ESSD云盘，又称增强型（Enhanced）SSD云盘，是阿里云推出的超�
 
 ## ESSD云盘的性能指标与产品规格是如何计算的？ {#section_tn9_l2d_g0h .section}
 
-ESSD云盘的性能与容量线性相关，容量越大性能越高。相比SSD云盘有大幅的性能提升。详情请参见[ESSD云盘](cn.zh-CN/块存储/云盘/ESSD云盘.md#)。
+ESSD云盘的性能与容量线性相关，容量越大性能越高。相比SSD云盘有大幅的性能提升。
 
 ## 如何测试ESSD云盘的性能？100万IOPS如何测试出来？应该如何配置ECS实例？ {#section_guq_54c_14o .section}
 
@@ -568,7 +568,7 @@ FIO -direct=1 -iodepth=64 -rw=read -ioengine=libaio -bs=64k -size=1G -numjobs=1 
     -   直接测试裸盘会破坏文件系统结构。如果云盘上的数据丢失不影响业务，可以设置`filename=[设备名，如本示例中的/dev/vdb]`。否则，请设置为`filename=[具体的文件路径，比如/mnt/test.image]`。
 5.  运行`sh test100w.sh`开始测试ESSD云盘性能。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10111/156162028842181_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10111/156162272842181_zh-CN.png)
 
 
 脚本解读：
