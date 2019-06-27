@@ -33,6 +33,31 @@ ESSD云盘的性能与容量线性相关，容量越大性能越高。相比SSD�
 
 您可以通过FIO工具测试ESSD云盘性能，具体步骤请参见[如何压测ESSD云盘的性能](#)。
 
+## ESSD云盘性能和实例性能有什么关系？ {#section_l0c_cer_qu7 .section}
+
+部分实例维度的存储I/O性能和实例规格成正比线性关系。例如，云服务器ECS存储增强型实例g5se的存储I/O性能跟实例规格成线性关系，实例规格越高可获得的存储IOPS和吞吐量越高。
+
+当您创建某个规格的g5se实例并挂载ESSD云盘之后：
+
+-   如果ESSD云盘的性能总和不超过实例规格族所对应的存储I/O能力，实际存储性能以ESSD云盘性能为准。
+-   如果ESSD云盘的性能总和超过了实例规格族所对应的存储I/O能力，实际存储性能以该实例规格对应的存储I/O能力为准。
+
+    例如，当您创建了ecs.g5se.xlarge 16 GiB规格实例后，该实例最大存储IOPS为6万。如果挂载了1块存储I/O能力为2 TiB的ESSD云盘（单盘IOPS为101800），该实例最大存储IOPS只能为6万，而无法达到2 TiB ESSD云盘的101800 IOPS。
+
+
+云服务器ECS存储增强型实例g5se的规格及性能见下表。
+
+|实例规格|vCPU（核）|内存（GiB）|存储IOPS（万）|存储吞吐量（MBps）|
+|:---|:------|:------|:--------|:----------|
+|ecs.g5se.large|2|8|3|118|
+|ecs.g5se.xlarge|4|16|6|235|
+|ecs.g5se.2xlarge|8|32|12|470|
+|ecs.g5se.4xlarge|16|64|23|900|
+|ecs.g5se.6xlarge|24|96|34|1350|
+|ecs.g5se.8xlarge|32|128|45|1800|
+|ecs.g5se.16xlarge|64|256|90|3600|
+|ecs.g5se.18xlarge|70|336|100|4000|
+
 ## ESSD云盘如何计费？ {#section_6j1_ta3_nyy .section}
 
 支持预付费和按量付费。具体价格请参见[价格详情页](http://www.aliyun.com/price/product#/ecs/detail)。
@@ -49,7 +74,7 @@ ESSD云盘的性能与容量线性相关，容量越大性能越高。相比SSD�
 
 ## ESSD云盘能挂载到哪些实例规格族上？ {#section_br8_0h3_7d6 .section}
 
-ESSD云盘支持挂载到25GE网络的实例规格族（c5、ic5、g5、r5）、裸金属服务器实例规格族（ebmhfg5、ebmc4、ebmg5）和企业级异构计算规格族（vgn5i、gn6i、gn6v、gn5、gn5i、gn4、ga1、f1、f3）支持挂载ESSD云盘，其他实例规格族暂不支持。
+ESSD云盘支持挂载到25GE网络的实例规格族（c5、ic5、g5、r5、g5se）、裸金属服务器实例规格族（ebmhfg5、ebmc4、ebmg5）和企业级异构计算规格族（vgn5i、gn6i、gn6v、gn5、gn5i、gn4、ga1、f1、f3）支持挂载ESSD云盘，其他实例规格族暂不支持。
 
 ## 怎么根据应用需求选择可用区？ {#section_vmf_2jp_fhb .section}
 
@@ -568,7 +593,7 @@ FIO -direct=1 -iodepth=64 -rw=read -ioengine=libaio -bs=64k -size=1G -numjobs=1 
     -   直接测试裸盘会破坏文件系统结构。如果云盘上的数据丢失不影响业务，可以设置`filename=[设备名，如本示例中的/dev/vdb]`。否则，请设置为`filename=[具体的文件路径，比如/mnt/test.image]`。
 5.  运行`sh test100w.sh`开始测试ESSD云盘性能。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10111/156162272842181_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10111/156163315342181_zh-CN.png)
 
 
 脚本解读：
