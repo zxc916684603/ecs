@@ -6,7 +6,7 @@ This topic describes the factors to consider when you configure an auto provisio
 
 You can refer to the following ideas to determine the details of configuring an auto provisioning group. For information about configuration items, see [Create an auto provisioning group](reseller.en-US/Instances/Manage auto provisioning groups/Create an auto provisioning group.md#).
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/236159/156173369248807_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/236159/156173445348807_en-US.png)
 
 ## Process to deploy an instance cluster {#section_yq5_sbg_zme .section}
 
@@ -36,7 +36,7 @@ Assume that you plan to complete a machine learning task in the next week. The t
 
 Considering the preceding requirements, the following configurations are used.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/236159/156173369248841_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/236159/156173445348841_en-US.png)
 
 The following two solutions can meet capacity requirements:
 
@@ -57,7 +57,7 @@ Assume that you need to build a ticketing website to provide reliable ticketing 
 
 Considering the preceding requirements, the following configurations are used.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/236159/156173369248846_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/236159/156173445348846_en-US.png)
 
 The Distribution Balancing policy is used to create preemptible instances. To meet the requirements for distribution balancing, the auto provisioning group creates instances in each zone. Additionally, the computing power of the instances created by the auto provisioning group must meet the overall computing power requirements. The following combination is used as an example:
 
