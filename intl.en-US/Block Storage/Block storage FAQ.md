@@ -2,27 +2,34 @@
 
 ## What is an ESSD cloud disk? {#section_xbq_tfk_bgr .section}
 
-An Enhanced SSD \(ESSD\) cloud disk is an ultra-high performance cloud disk provided by Alibaba Cloud. ESSD cloud disks are based on the next-generation distributed block storage architecture, a 25GE network, and remote direct memory access \(RDMA\) technology. They deliver a maximum random IOPS of 1 million per disk and low one-way latency.
+An Enhanced SSD \(ESSD\) cloud disk is an ultra-high performance cloud disk provided by Alibaba Cloud. ESSD cloud disks are based on a 25 GE network and remote direct memory access \(RDMA\) technology. They deliver a maximum random IOPS of 1 million per disk and low one-way latency.
 
-## What is the data reliability of ESSD cloud disks? {#section_6ox_iwy_hm7 .section}
+## When are ESSD cloud disks available for purchase? {#section_xjd_2lw_io9 .section}
 
-ESSD cloud disks deliver 99.9999999% data reliability. This is the same reliability guarantee as with SSD cloud disks and Ultra cloud disks provided by Alibaba Cloud.
+ESSD cloud disks are commercially available from the end of June 2019 after a beta test started on July 14, 2018. You can log on to the ECS console or call [CreateDisk](../../../../intl.en-US/API Reference/Disk/CreateDisk.md#) to create ESSD cloud disks.
 
-## What scenarios are ESSD cloud disks suitable for? {#section_vch_ukm_4k1 .section}
+## What is the difference of ESSD cloud disks before and after the beta test? {#section_sl2_l6u_igq .section}
 
-ESSD cloud disks are suitable for the following latency-sensitive and I/O-intensive applications:
+The difference of ESSD cloud disks before and after the beta test lies in their specifications. After the beta test, ESSD cloud disks are commercially available in three specifications, as described in the following table.
 
--   OLTP databases such as MySQL, PostgreSQL, Oracle, SQL Server, and other relational databases
--   NoSQL databases such as MongoDB, HBase, Cassandra, and other non-relational databases
--   Distributed log management systems such as the ELK \(Elasticsearch, Logstash, and Kibana\)
+For ESSD cloud disks, larger capacity means higher data-processing performance. The capacity, IOPS, and throughput provided by ESSD cloud disks vary depending on their performance levels \(PLs\), as described in the following table.
 
-## How do ESSD, SSD, and Ultra cloud disks compare in terms of performance and reliability? {#section_tu0_icc_gwi .section}
+|PL|Capacity \(GiB\)|Maximum IOPS|Maximum throughput \(MBps\)|
+|--|----------------|------------|---------------------------|
+|PL1|10-32,768|50,000|350|
+|PL2|461-32,768|100,000|750|
+|PL3|1,261-32,768|1,000,000|4,000|
 
-All of these cloud disks types offer high reliability and scalability. They also support creating snapshots and encrypting data. In terms of performance, ESSD cloud disks provide better performance. For more information, see [Block storage performance](reseller.en-US/Block Storage/Block storage performance.md#).
+## What are the similarities and differences among ESSD, SSD, and Ultra cloud disks? {#section_f0a_bts_wrh .section}
 
-## How can I measure the performance of an ESSD cloud disk? {#section_vln_3tg_q6l .section}
+ESSD, SSD, and Ultra cloud disks have the following similarities and differences:
 
-The performance of an ESSD cloud disk positively correlates with the relative capacity of the disk. That is, larger capacity corresponds to higher performance. For information about how to measure the performance, see [Block storage performance](reseller.en-US/Block Storage/Block storage performance.md#).
+-   Similarities: These three types of cloud disks are based on a distributed block storage architecture. They provide high reliability and scalability and support snapshots and data encryption.
+-   Differences: Compared with SSD and Ultra cloud disk, ESSD cloud disks provide better performance. For more information, see [Block storage performance](intl.en-US/Block Storage/Block storage performance.md#).
+
+## How can I measure the performance level of an ESSD cloud disk? {#section_vln_3tg_q6l .section}
+
+The performance level of an ESSD cloud disk positively correlates with its capacity. Specifically, larger capacity delivers higher performance.
 
 ## How can I test the performance of an ESSD cloud disk and obtain a 1 million IOPS result? {#section_dks_tw6_fsc .section}
 
@@ -40,7 +47,7 @@ For example, after you create a g5se instance \(a storage-optimized ECS instance
 
     Assume that you created a 16 GiB ecs.g5se.xlarge instance that has a maximum IOPS of 60,000. If you mount an ESSD disk that has a capacity of 2 TiB \(for which the IOPS is 101,800\) to the instance, the maximum IOPS of the instance is 60,000, instead of 101,800.
 
-    The performance specifications of other instance types from g5se are described in the following table.
+    The performance specifications of instance types from g5se are described in the following table.
 
 
 |Instance type|vCPU \(Core\)|Memory \(GiB\)|IOPS \(10 thousand\)|Throughput \(Mbit/s\)|
@@ -54,6 +61,10 @@ For example, after you create a g5se instance \(a storage-optimized ECS instance
 |ecs.g5se.16xlarge|64|256|90|3600|
 |ecs.g5se.18xlarge|70|336|100|4000|
 
+## How are ESSD cloud disks billed? {#section_frn_c36_mnx .section}
+
+ESSD cloud disks support Subscription or Pay-As-You-Go billing methods. For more information, see [Prices](https://www.alibabacloud.com/product/ecs).
+
 ## In which regions and zones are ESSD cloud disks available? {#section_yq8_9fo_zgu .section}
 
 Currently, ESSD cloud disks are available in the following regions and zones:
@@ -66,21 +77,21 @@ Currently, ESSD cloud disks are available in the following regions and zones:
 
 ## **On what instance types can I mount ESSD cloud disks?** {#section_br8_0h3_7d6 .section}
 
-Currently, ESSD cloud disks can be mounted only to instance type families that are based on the 25GE network \(namely, c5, ic5, g5, r5, g5se\). This is because ESSD cloud disks are available as a beta release only.
+Currently, ESSD cloud disks can be mounted to 25 GE network instance type families \(c5, ic5, g5, r5, and g5se\), ECS Bare Metal Instance type families \(ebmhfg5, ebmc4, and ebmg5\), and heterogeneous computing instance type families \(vgn5i, gn6i, gn6v, gn5, gn5i, gn4, ga1, f1, and f3\).
 
 ## What are the common operations that can be performed on a disk? {#section_tgb_55w_1pz .section}
 
 The following topics describe common operations you can perform on a disk:
 
--   [Format and partition a data disk for Windows Server 2008 instances](https://www.alibabacloud.com/help/doc-detail/25418.htm?spm=a2c63.l28256.b99.32.691e74539ifT1m)
--   [Format, partition, and mount a data disk for Linux instance](https://www.alibabacloud.com/help/doc-detail/25426.htm?spm=a2c63.p38356.b99.33.26fe16590d4GyC)
--   [Detach a cloud disk](reseller.en-US/Block Storage/Block storage/Detach a cloud disk.md#)
--   [Reinitialize a cloud disk](https://www.alibabacloud.com/help/doc-detail/25449.html)
--   [Replace the system disk](https://www.alibabacloud.com/help/doc-detail/25448.html)
+-   [../DNA0011854887/EN-US\_TP\_9605.dita\#concept\_a3f\_mg2\_wdb](../DNA0011854887/EN-US_TP_9605.dita#concept_a3f_mg2_wdb)
+-   [../DNA0011854887/EN-US\_TP\_9604.dita\#concept\_jl1\_qzd\_wdb](../DNA0011854887/EN-US_TP_9604.dita#concept_jl1_qzd_wdb)
+-   [Detach a cloud disk](intl.en-US/Block Storage/Block storage/Detach a cloud disk.md#)
+-   [EN-US\_TP\_9679.dita\#concept\_stg\_xd3\_ydb](EN-US_TP_9679.dita#concept_stg_xd3_ydb)
+-   [EN-US\_TP\_9683.dita\#concept\_vbb\_ckj\_ydb](EN-US_TP_9683.dita#concept_vbb_ckj_ydb)
 
 ## What is the I/O performance of an SSD cloud disk? {#section_ypv_dbe_eht .section}
 
-For detailed information, see [Block storage performance](reseller.en-US/Block Storage/Block storage performance.md#).
+For detailed information, see [Block storage performance](intl.en-US/Block Storage/Block storage performance.md#).
 
 ## What scenarios are SSD cloud disks suitable for? {#section_8b8_a3b_xl7 .section}
 
@@ -121,7 +132,7 @@ The FIO tool supports I/O performance testing on the bare disk partition or on t
 
 ## What test tools and methods can I use to evaluate the performance of my block storage? {#section_lch_qy5_pp3 .section}
 
-For detailed information, see [Block storage performance](reseller.en-US/Block Storage/Block storage performance.md#).
+For detailed information, see [Block storage performance](intl.en-US/Block Storage/Block storage performance.md#).
 
 ## What is Shared Block Storage? {#section_jpg_i06_bmp .section}
 
@@ -137,7 +148,7 @@ Currently, Shared Block Storage is available across all regions free of charge. 
 
 ## How can I apply for Shared Block Storage? {#section_3m1_cgm_tzv .section}
 
-To use Shared Block Storage, you must first open a ticket.
+To use Shared Block Storage, you must first [apply for trial use](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
 
 ## What scenarios are Shared Block Storage suitable for? {#section_8a7_a5l_632 .section}
 
@@ -170,7 +181,7 @@ Up to 16 data disks can be attached to one ECS instance.
 
 ## What are the specifications and performance of Shared Block Storage? {#section_cdn_dlp_fhb .section}
 
-Currently, SSD and Ultra Shared Block Storage devices are supported. For more information about their specifications and performance, see [Block storage performance](reseller.en-US/Block Storage/Block storage performance.md#).
+Currently, SSD and Ultra Shared Block Storage devices are supported. For more information about their specifications and performance, see [Block storage performance](intl.en-US/Block Storage/Block storage performance.md#).
 
 ## How can I test the performance of Shared Block Storage? {#section_frj_h4p_fhb .section}
 
@@ -238,7 +249,7 @@ Note that an independent Pay-As-You-Go cloud disk must be mounted to an ECS inst
 
 ## What is an independent cloud disk? {#section_lth_2jp_fhb .section}
 
-An independent cloud disk is a cloud disk that you can purchase separately, and can be mounted to or unmounted from any ECS instance in the same zone. Before you can use an independent cloud disk, you must first mount it to an instance and set the relevant configurations. For more information, see [Create a cloud disk](reseller.en-US/Block Storage/Block storage/Create a cloud disk/Create a cloud disk.md#).
+An independent cloud disk is a cloud disk that you can purchase separately, and can be mounted to or unmounted from any ECS instance in the same zone. Before you can use an independent cloud disk, you must first mount it to an instance and set the relevant configurations. For more information, see [Create a cloud disk](intl.en-US/Block Storage/Block storage/Create a cloud disk/Create a cloud disk.md#).
 
 ## Can I mount one cloud disk to multiple ECS instances? {#section_g5g_b2r_fhb .section}
 
@@ -246,7 +257,7 @@ No, a cloud disk can be mounted to only one ECS instance in the same zone.
 
 ## Do I need to partition and format a Pay-As-You-Go cloud disk after I purchase it and mount it to an ECS instance? {#section_gps_gpr_fhb .section}
 
-After purchasing an independent Pay-As-You-Go cloud disk, you must mount the disk to an ECS instance and format it. For more information, see [Format a data disk of a Linux instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk of a Linux instance.md#) and [Format a data disk for Windows instances](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Windows instances.md#).
+After purchasing an independent Pay-As-You-Go cloud disk, you must mount the disk to an ECS instance and format it. For more information, see [Format a data disk of a Linux instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk of a Linux instance.md#) and [Format a data disk for Windows instances](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk for Windows instances.md#).
 
 ## How is an independent Pay-As-You-Go data disk billed? {#section_v4m_b2r_fhb .section}
 
@@ -258,7 +269,7 @@ Yes.
 
 ## Can I detach a data disk from a Subscription instance? {#section_tsb_3gr_fhb .section}
 
-You cannot detach a data disk from a Subscription instance. The data disk is released with instance when the instance expires. If you want to release the data disk, first convert the Subscription data disk to a Pay-As-You-Go data disk, and then detach and release the data disk. For information about how to convert the billing method of cloud disks, see [Convert the billing methods of cloud disks](reseller.en-US/Block Storage/Block storage/Convert the billing methods of cloud disks.md#).
+You cannot detach a data disk from a Subscription instance. The data disk is released with instance when the instance expires. If you want to release the data disk, first convert the Subscription data disk to a Pay-As-You-Go data disk, and then detach and release the data disk. For information about how to convert the billing method of cloud disks, see [Convert the billing methods of cloud disks](intl.en-US/Block Storage/Block storage/Convert the billing methods of cloud disks.md#).
 
 ## I changed the configuration of an instance during its renewal. Can I convert a Subscription cloud disk to a Pay-As-You-Go cloud disk within the instance renewal period? {#section_nql_jnr_fhb .section}
 
@@ -274,7 +285,7 @@ Check whether the target ECS instance has been released. If the instance is disp
 
 ## When I delete a cloud disk, will the corresponding snapshots also be deleted? {#section_a41_mgr_fhb .section}
 
-If you have selected **Delete Automatic Snapshots While Releasing Disk**, the corresponding automatic snapshots will be deleted when you delete the associated cloud disk. However, corresponding manual snapshots are retained. You can modify this setting at any time by setting the required policy. For more information, see [Apply automatic snapshot policies to disks](../../../../reseller.en-US/Snapshots/Use snapshots/Apply automatic snapshot policies to disks.md#).
+If you have selected **Delete Automatic Snapshots While Releasing Disk**, the corresponding automatic snapshots will be deleted when you delete the associated cloud disk. However, corresponding manual snapshots are retained. You can modify this setting at any time by setting the required policy. For more information, see [Apply automatic snapshot policies to disks](../../../../intl.en-US/Snapshots/Use snapshots/Apply automatic snapshot policies to disks.md#).
 
 ## Why are some automatic snapshots on my cloud disk missing? {#section_jvf_shr_fhb .section}
 
@@ -293,7 +304,7 @@ There is a possibility that the data on your disk will be deleted when you unmou
 
 ## Can I unmount the system disk? {#section_ats_klr_fhb .section}
 
-You cannot unmount the system disk, but you can replace it. For information about how to replace the system disk, see [Replace the system disk \(non-public image\)](reseller.en-US/Block Storage/Block storage/Change the operating system/Replace the system disk (non-public image).md#).
+You cannot unmount the system disk, but you can replace it. For information about how to replace the system disk, see [Replace the system disk \(non-public image\)](intl.en-US/Block Storage/Block storage/Change the operating system/Replace the system disk (non-public image).md#).
 
 ## What is a mount point? {#section_h4v_klr_fhb .section}
 
@@ -318,7 +329,7 @@ Yes, you can use an existing snapshot to create an independent Pay-As-You-Go clo
 If data of a Linux data disk cannot be accessed, follow these steps to fix the error:
 
 1.  Locate the disk where the data is stored and check whether the data disk is mounted to the corresponding ECS ​​instance by using either of the following methods:
-    -   Perform the check in the ECS console. For more information, see [Monitor a cloud disk](reseller.en-US/Block Storage/Block storage/Monitor a cloud disk.md#).
+    -   Perform the check in the ECS console. For more information, see [Monitor a cloud disk](intl.en-US/Block Storage/Block storage/Monitor a cloud disk.md#).
     -   Log on to the instance, run the `fdisk -l` command to check whether the data disk partition information is correct, and run the `df -h` and `mount | grep "<devpath>"` commands to view the mount information.
 2.  Run the cat command to view the /etc/fstab file and check whether you mount two cloud disks to the same directory.
     -   If two cloud disks are mounted to the same directory, the previously mounted cloud disk will be replaced by the new one, resulting in data inaccessibility. We recommend that you mount one of the cloud disks to a different directory.
@@ -326,7 +337,7 @@ If data of a Linux data disk cannot be accessed, follow these steps to fix the e
 
 ## How can I resize a system disk? {#section_wdn_d4r_fhb .section}
 
-You can resize a system disk through the ECS console or by calling [ResizeDisk](../../../../reseller.en-US/API Reference/Disk/ResizeDisk.md#). You can also resize a system disk by replacing it with a disk of larger specification.
+You can resize a system disk through the ECS console or by calling [ResizeDisk](../../../../intl.en-US/API Reference/Disk/ResizeDisk.md#). You can also resize a system disk by replacing it with a disk of larger specification.
 
 ## What considerations should I be aware of before I replace a system disk? {#section_z4d_vlv_fhb .section}
 
@@ -345,7 +356,7 @@ Yes, the system disk of both Subscription and Pay-As-You-Go instances can be res
 
 ## What is the storage capacity range of a system disk? {#section_nx3_xqr_fhb .section}
 
-The capacity of a system disk varies depending on the operating system. For more information, see [Disk resizing overview](reseller.en-US/Block Storage/Block storage/Resize cloud disks/Disk resizing overview.md#).
+The capacity of a system disk varies depending on the operating system. For more information, see [Disk resizing overview](intl.en-US/Block Storage/Block storage/Resize cloud disks/Disk resizing overview.md#).
 
 ## I downgraded the configuration of a Subscription instance during its renewal. Can I specify a new system disk capacity after the renewal is completed? {#section_k1m_xqr_fhb .section}
 
@@ -376,7 +387,7 @@ Snapshot rollback returns a snapshot to its previous state. This means that if t
 If the original data disk cannot be scaled out due to a disk error, you can purchase a temporary Pay-As-You-Go cloud disk to store data and then format the original data disk. To do so, follow these steps:
 
 1.  Create a snapshot of the current data disk.
-2.  Go to the disk purchase page to purchase a Pay-As-You-Go cloud disk, select the same region and zone as the ECS instance, and click **Create from snapshot**.
+2.  Go to the [disk purchase](https://ecs-buy.aliyun.com/#/clouddisk) page to purchase a Pay-As-You-Go cloud disk, select the same region and zone as the ECS instance, and click **Create from snapshot**.
 3.  Log on to the ECS console and then mount the data disk you purchased to an ECS instance.
 4.  Log on to the ECS instance, run the mount command to mount the purchased disk to the ECS instance, and then check whether files in this disk are the same as those in the original data disk.
 5.  Run the fdisk command to delete the original partition table, and then run commands such as fdisk and mkfs.ext3 to format and partition the original data disk again, so that the available space of the original data disk is the same as that after the scale-out action.
@@ -386,7 +397,7 @@ If the original data disk cannot be scaled out due to a disk error, you can purc
 
 ## In a Linux instance, what considerations should I be aware of before I add mount information to a basic cloud disk or an SSD cloud disk? {#section_tdy_jmv_fhb .section}
 
-When you add a data disk to the Linux system and add the partition information according to [Format a data disk of a Linux instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk of a Linux instance.md#), note that the mount point of a basic cloud disk is /dev/xvdb1 and that of an SSD cloud disk is /dev/ Vdb1. If you add invalid information, disk mounting will fail. To avoid this issue, follow these steps:
+When you add a data disk to the Linux system and add the partition information according to [Format a data disk of a Linux instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk of a Linux instance.md#), note that the mount point of a basic cloud disk is /dev/xvdb1 and that of an SSD cloud disk is /dev/ Vdb1. If you add invalid information, disk mounting will fail. To avoid this issue, follow these steps:
 
 1.  Run the `fdisk -l` command to view data disk information.
 2.  Check whether the information added to `/etc/fstab` is valid. Do not add mount information repeatedly because this will cause a system startup failure.
@@ -470,9 +481,9 @@ Cause: The problem is usually caused by incorrect disk attributes or disk status
 
 Solution:
 
--   Check whether the operating system of instances associated with related snapshots has been replaced. For information about how to replace an operating system, see [Replace the system disk](https://www.alibabacloud.com/help/doc-detail/25448.htm?spm=a2c63.l28256.b99.220.291250455UKv2l).
+-   Check whether the operating system of instances associated with related snapshots has been replaced. For more information, see [EN-US\_TP\_9683.dita\#concept\_vbb\_ckj\_ydb](EN-US_TP_9683.dita#concept_vbb_ckj_ydb).
 
-    If the operating system has been replaced, the system disk of the instance will be automatically re-created from the new image and the system disk ID will change. Therefore, original snapshots cannot be used for the rollback. However, you can [create a custom image](https://www.alibabacloud.com/help/doc-detail/25460.htm?spm=a2c63.p38356.b99.168.12b55280JudZUw) from related snapshots and then specify the custom image by [replacing the system disk](https://www.alibabacloud.com/help/doc-detail/25448.htm?spm=a2c63.l28256.b99.220.291250455UKv2l) to switch the instance to the corresponding snapshot state.
+    If the operating system has been replaced, the system disk of the instance will be automatically re-created from the new image and the system disk ID will change. Therefore, original snapshots cannot be used for the rollback. However, you can [../DNECS19100339/EN-US\_TP\_9696.dita\#concept\_gpg\_t5l\_xdb](../DNECS19100339/EN-US_TP_9696.dita#concept_gpg_t5l_xdb) from related snapshots and then specify the custom image by [replacing the system disk \(non-public image\)](replacing the system disk (non-public image)EN-US_TP_9683.dita#concept_vbb_ckj_ydb) to switch the instance to the corresponding snapshot state.
 
 -   Check whether the instance has stopped.
 
@@ -518,17 +529,17 @@ No, you can only mount a Pay-As-You-Go cloud disk to an ECS instance that is in 
 
 ## Why am I unable to find the data disk I purchased for a Linux instance? {#section_d47_uxx_zga .section}
 
-If you purchase a Pay-As-You-Go data disk separately, you need to [format the data disk](format the data disk../DNA0011854887/EN-US_TP_9604.dita#concept_jl1_qzd_wdb) and [attach it](reseller.en-US/Block Storage/Block storage/Attach a cloud disk.md#) to a Linux instance before you can use it.
+If you purchase a Pay-As-You-Go data disk separately, you need to [format the data disk](format the data disk../DNA0011854887/EN-US_TP_9604.dita#concept_jl1_qzd_wdb) and [attach it](intl.en-US/Block Storage/Block storage/Attach a cloud disk.md#) to a Linux instance before you can use it.
 
 ## Where can I purchase a last-generation disk \(a local SSD disk\) and how can I maintain an existing local SSD disk? {#section_us2_rh2_rl5 .section}
 
-Local SSD disks are no longer available for purchase. If you are still using a local SSD disk, see [Local disks](https://www.alibabacloud.com/help/doc-detail/63138.htm?spm=a2c63.p38356.b99.226.529c5374kig1si) and [FAQs about SSD cloud disks](https://www.alibabacloud.com/help/doc-detail/40551.htm).
+Local SSD disks are no longer available for purchase. If you are still using a local SSD disk, see [EN-US\_TP\_9561.dita\#concept\_g3w\_qzv\_tdb](EN-US_TP_9561.dita#concept_g3w_qzv_tdb) and [FAQ about SSD cloud disks](#).
 
 ## How can I test the performance of an ESSD cloud disk? {#ESSDperfor .section}
 
 This FAQ describes how to configure the appropriate environments for a performance test and how to obtain a 1 million IOPS result. Note that the cloud disk type and actual environment used will impact the test result.
 
-**Warning:** You can obtain accurate test results by testing a bare disk partition, but you may destroy the file system structure by testing it directly. Before such a test, you must [create snapshots](https://www.alibabacloud.com/help/doc-detail/25455.htm) of the disk to back up your data. We recommend that you use newly purchased ECS instances that contain no data for the test to prevent any data loss.
+**Warning:** You can obtain accurate test results by testing a bare disk partition, but you may destroy the file system structure by testing it directly. Before such a test, you must [create a snapshot](create a snapshot../DNECS19100342/EN-US_TP_9687.dita#concept_eps_gbl_xdb) of the disk to back up your data. We recommend that you use newly purchased ECS instances that contain no data for the test to prevent any data loss.
 
 We recommend that you use the latest versions of Linux images in Alibaba Cloud official images, such as CentOS 7.4/7.3/7.2 \(64-bit\) and AliyunLinux 17.1 \(64-bit\) because Linux images of earlier versions and Windows images may use defective drivers.
 
@@ -588,7 +599,7 @@ Assume that the instance type is ecs.g5se.18xlarge and the device name of the ES
     -   The file system structure may be damaged if you test the bare disk partition directly. If you choose to proceed with this action, set `filename` as the device name, such as /dev/vdb. If you do not want to risk data loss, set `filename` as a file path, such as /mnt/test.image.
 5.  Run `sh test100w.sh` to start testing the performance of the ESSD disk.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10111/156171457442181_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10111/156171462642181_en-US.png)
 
 
 Script details
