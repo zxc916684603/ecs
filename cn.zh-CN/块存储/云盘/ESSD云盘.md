@@ -17,7 +17,7 @@ ESSD云盘的API取值为cloud\_essd，提供了三个性能级别的云盘规�
 |ESSD云盘属性|性能级别III|性能级别II|性能级别I|
 |:-------|:------|:-----|:----|
 |性能级别（Performance Level，简称PL）|PL3|PL2|PL1|
-|云盘容量范围（GiB）|1,261~32,768|461~32,768|10~32,768|
+|云盘容量范围（GiB）|1,261~32,768|461~32,768|20~32,768|
 |数据可靠性|99.9999999%|99.9999999%|99.9999999%|
 |单盘最大IOPS（Input/Output Operations Per Second）|1,000,000|100,000|50,000|
 |单盘最大吞吐量（MBps）|4,000|750|350|
@@ -53,17 +53,17 @@ ESSD云盘的API取值为cloud\_essd，提供了三个性能级别的云盘规�
 
 |性能级别|ESSD云盘容量范围（GiB）|最大IOPS|最大吞吐量（MBps）|
 |----|---------------|------|-----------|
-|PL1|10~32,768|50,000|350|
+|PL1|20~32,768|50,000|350|
 |PL2|461~32,768|100,000|750|
 |PL3|1,261~32,768|1,000,000|4,000|
 
 -   示例一：张先生在ECS管理控制台上创建ESSD云盘时，选择了20 GiB。则张先生只能选购PL1性能级别的ESSD云盘，对应的IOPS上限为50,000。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/583241/156195237349959_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/583241/156196366249959_zh-CN.png)
 
 -   示例二：张先生在ECS管理控制台上创建ESSD云盘时，选择了32,000 GiB。则张先生能选购PL1至PL3性能级别的ESSD云盘，对应的IOPS上限分别为50,000、100,000和1,000,000。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/583241/156195237449960_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/583241/156196366249960_zh-CN.png)
 
 
 当您创建了ESSD云盘后，如果需要更高的云盘性能，可以通过扩容ESSD云盘实现。更多详情，请参见[扩容概述](cn.zh-CN/块存储/云盘/扩容云盘/扩容概述.md#)。
