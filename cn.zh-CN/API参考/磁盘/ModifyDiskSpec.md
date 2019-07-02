@@ -30,6 +30,8 @@
 -   PL2：单盘最高随机读写IOPS 10万。
 -   PL3：单盘最高随机读写IOPS 100万。
 
+ **说明：** 修改后的性能等级不能低于修改前的性能等级。
+
  |
 |Action|String|否|ModifyDiskSpec|系统规定参数。对于您自行拼凑HTTP/HTTPS URL发起的API请求，`Action`为必选参数。取值：ModifyDiskSpec
 
