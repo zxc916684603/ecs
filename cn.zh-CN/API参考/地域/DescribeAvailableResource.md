@@ -1,13 +1,13 @@
 # DescribeAvailableResource {#doc_api_Ecs_DescribeAvailableResource .reference}
 
-查询某一可用区的资源列表。例如，您可以在某一可用区创建实例（RunInstances）时查询该可用区的资源列表。
+查询某一可用区的资源列表。例如，您可以在某一可用区创建实例（RunInstances）或者修改实例规格（ModifyInstanceSpec）时查询该可用区的资源列表。
 
 ## 接口说明 {#description .section}
 
 调用该接口时，您需要注意：
 
 -   不指定参数ZoneId时，返回该地域（RegionId）下所有可用区的符合其他条件的目标资源。
--   您可以通过指定参数DestinationResource查询不同类型的资源列表，再指定其他参数细化资源条件。参数 DestinationResource 的各个可选取值有不同的逻辑与要求。在下列两个顺序列表中，排在越后面的参数其逻辑与苛刻程度越高。
+-   您可以通过指定参数DestinationResource查询不同类型的资源列表，再指定其他参数细化资源条件。参数DestinationResource的各个可选取值有不同的逻辑与要求。在下列两个顺序列表中，排在越后面的参数其逻辑与苛刻程度越高。
     -   顺序：（Zone）\> IoOptimized \> InstanceType \> SystemDisk \> DataDisk
     -   取值示例：
         -   若参数DestinationResource取值为SystemDisk，则必须传入参数IoOptimized和InstanceType。
@@ -32,13 +32,15 @@
 -   Network：网络类型
 
  |
-|RegionId|String|是|cn-hangzhou|目标地域 ID。您可以调用[DescribeRegions](~~25609~~)查看最新的阿里云地域列表。
+|RegionId|String|是|cn-hangzhou|目标地域ID。您可以调用[DescribeRegions](~~25609~~)查看最新的阿里云地域列表。
 
  |
 |Action|String|否|DescribeAvailableResource|系统规定参数。对于您自行拼凑HTTP/HTTPS URL发起的API请求，`Action`为必选参数。取值：DescribeAvailableResource
 
  |
-|Cores|Integer|否|2|实例规格的vCPU内核数目。取值参见[实例规格族](~~25378~~)。当DestinationResource=InstanceType参数有效，Cores才为有效参数。
+|Cores|Integer|否|2|实例规格的vCPU内核数目。取值参见[实例规格族](~~25378~~)。
+
+ 当DestinationResource取值为InstanceType时，Cores才为有效参数。
 
  |
 |DataDiskCategory|String|否|cloud\_ssd|数据盘类型。取值范围：
@@ -46,33 +48,37 @@
  -   cloud：普通云盘
 -   cloud\_efficiency：高效云盘
 -   cloud\_ssd：SSD云盘
--   cloud\_essd：ESSD云盘
 -   ephemeral\_ssd：本地SSD盘
+-   cloud\_essd：ESSD云盘
 
  |
 |DedicatedHostId|String|否|dh-dedicatedhostid|专有宿主机ID。
 
  |
-|InstanceChargeType|String|否|PrePaid|资源的计费方式。更多详情，请参阅 计费概述。取值范围：
+|InstanceChargeType|String|否|PrePaid|资源的计费方式。更多详情，请参见[计费概述](~~25398~~)。取值范围：
 
  -   PrePaid：预付费（包年包月）
 -   PostPaid：按量付费
 
- 默认值：PostPaid
+ 默认值：PostPaid。
 
  |
-|InstanceType|String|否|ecs.g5.large|实例规格。更多详情，请参见[实例规格族](~~25378~~)，也可以调用[DescribeInstanceTypes](~~25620~~) 接口获得最新的规格表。当参数DestinationResource取值为SystemDisk或者DataDisk时，InstanceType为必需参数。
+|InstanceType|String|否|ecs.g5.large|实例规格。更多详情，请参见[实例规格族](~~25378~~)，也可以调用[DescribeInstanceTypes](~~25620~~)接口获得最新的规格表。
+
+ 当参数DestinationResource取值为SystemDisk或者DataDisk时，InstanceType为必需参数。
 
  |
-|IoOptimized|String|否|optimized|是否为 I/O 优化实例。取值范围：
+|IoOptimized|String|否|optimized|是否为I/O优化实例。取值范围：
 
  -   none：非I/O优化实例
 -   optimized：I/O优化实例
 
- 当参数DestinationResource取值为InstanceType、SystemDisk或者DataDisk时，IoOptimized为必需参数。
+ 当参数DestinationResource取值为InstanceType、SystemDisk或者DataDisk时，IoOptimized为必需参数，且默认值为optimized。
 
  |
-|Memory|Float|否|8.0|实例规格的内存大小，单位为GiB。取值参见[实例规格族](~~25378~~)。当DestinationResource=InstanceType，Memory才为有效参数。
+|Memory|Float|否|8.0|实例规格的内存大小，单位为GiB。取值参见[实例规格族](~~25378~~)。
+
+ 当DestinationResource取值为InstanceType时，Memory才为有效参数。
 
  |
 |NetworkCategory|String|否|vpc|网络类型。取值范围：
@@ -95,7 +101,9 @@
 -   SpotWithPriceLimit：设置上限价格的抢占式实例
 -   SpotAsPriceGo：系统自动出价，最高按量付费价格
 
- 默认值：NoSpot。当参数InstanceChargeType取值为PostPaid时，参数SpotStrategy才有效。
+ 默认值：NoSpot。
+
+ 当参数InstanceChargeType取值为PostPaid时，参数SpotStrategy才有效。
 
  |
 |SystemDiskCategory|String|否|cloud\_ssd|系统盘类型。取值范围：
@@ -103,11 +111,15 @@
  -   cloud：普通云盘
 -   cloud\_efficiency：高效云盘
 -   cloud\_ssd：SSD云盘
--   cloud\_essd：ESSD云盘
 -   ephemeral\_ssd：本地SSD盘
+-   cloud\_essd：ESSD云盘
+
+ 当DestinationResource取值为DataDisk时，SystemDiskCategory的默认值为cloud\_efficiency。
 
  |
-|ZoneId|String|否|cn-hangzhou-e|可用区ID，不传入参数ZoneId则表示随机分配当前地域下的可用区。
+|ZoneId|String|否|cn-hangzhou-e|可用区ID。
+
+ 默认值：无，表示随机分配当前地域下的可用区。
 
  |
 
@@ -115,41 +127,41 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|AvailableZones| | |数据中心信息组成的集合
+|AvailableZones| | |数据中心信息组成的集合。
 
  |
-|└AvailableResources| | |可供创建的具体资源组成的数组
+|└AvailableResources| | |可供创建的具体资源组成的数组。
 
  |
-|└SupportedResources| | |支持的可供创建的具体资源组成的数组
+|└SupportedResources| | |支持的可供创建的具体资源组成的数组。
 
  |
-|└Max|Integer|2|资源规格的最大值，该参数值为空时将不返回
+|└Max|Integer|2|资源规格的最大值，该参数值为空时将不返回。
 
  |
-|└Min|Integer|1|资源规格的最小值，该参数值为空时将不返回
+|└Min|Integer|1|资源规格的最小值，该参数值为空时将不返回。
 
  |
-|└Status|String|Available|资源类型。返回值：
+|└Status|String|Available|资源类型。可能值：
 
  -   Available：资源充足
 -   SoldOut：资源已售罄
 
  |
-|└StatusCategory|String|WithStock|根据库存详细分类资源类别。目前的可能值有：
+|└StatusCategory|String|WithStock|根据库存详细分类资源类别。可能值：
 
  -   WithStock：库存充足
 -   ClosedWithStock：库存接近水位低线
 -   WithoutStock：库存告罄
 
  |
-|└Unit|String|null|资源规格单位，该参数值为空时将不返回
+|└Unit|String|null|资源规格单位，该参数值为空时将不返回。
 
  |
-|└Value|String|ecs.d1ne.xlarge|资源值
+|└Value|String|ecs.d1ne.xlarge|资源值。
 
  |
-|└Type|String|InstanceType|资源类型。返回值：
+|└Type|String|InstanceType|资源类型。可能值：
 
  -   Zone：可用区
 -   IoOptimized：I/O优化
@@ -159,26 +171,26 @@
 -   Network：网络类型
 
  |
-|└RegionId|String|cn-hangzhou|地域ID
+|└RegionId|String|cn-hangzhou|地域ID。
 
  |
-|└Status|String|Available|资源类型。返回值：
+|└Status|String|Available|资源类型。可能值：
 
  -   Available：资源充足
 -   SoldOut：资源已售罄
 
  |
-|└StatusCategory|String|WithStock|根据库存详细分类资源类别。目前的可能值有：
+|└StatusCategory|String|WithStock|根据库存详细分类资源类别。可能值：
 
  -   WithStock：库存充足
 -   ClosedWithStock：库存接近水位低线
 -   WithoutStock：库存告罄
 
  |
-|└ZoneId|String|cn-hangzhou-e|可用区ID
+|└ZoneId|String|cn-hangzhou-e|可用区ID。
 
  |
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID。
 
  |
 
