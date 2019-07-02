@@ -67,7 +67,7 @@ If there are still no available resources, try to purchase resources at another 
 
 You can also use the arrival notice feature to be notified when resources are available.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156206067948634_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156206093048634_en-US.png)
 
 ## Are fees still incurred after a pay-as-you-go ECS instance is automatically stopped due to overdue payments or is manually stopped? {#section_utf_tx2_zdb .section}
 
@@ -333,15 +333,15 @@ Open the Terminal in macOS or iTerm2 for Mac \(click [here](https://www.iterm2.c
 
 1.  Connect to the FTP server.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156206067943224_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156206093043224_en-US.png)
 
 2.  Enter the directory to be uploaded. If the directory is on a Windows instance, use this directory. If it is on a Linux instance, change the directory to htdocs.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156206067949119_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156206093049119_en-US.png)
 
 3.  Run the put command to upload files.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156206068049120_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156206093149120_en-US.png)
 
 
 **Upload files by using a third-party tool**
@@ -349,22 +349,15 @@ Open the Terminal in macOS or iTerm2 for Mac \(click [here](https://www.iterm2.c
 1.  Click [here](https://www.yummysoftware.com/) to download Yummy FTP.
 2.  Install Yummy FTP.
 3.  Enter the server IP address, username, and password. Select Standard \(FTP\) in the Protocol field and 21 \(or a port number you are using\) in the Port field, and leave the SSH key field unselected.
-4.  Click **Connect**. The following figure shows the settings in Yummy FTP:
-
-    ![](images/43228_en-US.png)
-
+4.  Click **Connect**.
 5.  In the right section, select the directory where the files are to be uploaded. If the directory is on a Windows instance, use this directory. If it is on a Linux instance, change the directory to htdocs. In the left section, select the files and click the Upload icon to upload files.
-
-    ![](images/43230_en-US.png)
 
     **Note:** If the prompt “Your security preferences only allow the installation of apps from the Mac App Store and authorized developers.” is displayed when you try to install Yummy FTP, follow these steps:
 
     1.  Choose **Preference** \> **Security and Privacy**.
     2.  Click the security lock at the lower-left corner of the window, and enter the administrator password.
     3.  Select **Anywhere** from the **Allow apps download from** menu.
-    You can upload files with Yummy FTP. The following figure shows the settings in macOS:
-
-    ![](images/43238_en-US.png)
+    You can upload files with Yummy FTP.
 
 
 If the problem still persists, submit a ticket.
