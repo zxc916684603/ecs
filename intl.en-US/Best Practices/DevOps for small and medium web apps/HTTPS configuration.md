@@ -23,7 +23,7 @@ Once configured, the SLB handles the HTTPS complexities and continues to communi
 
 Configuring an HTTPS listener for our SLB is relatively easy \(we will add an [alicloud\_slb\_server\_certificate](https://www.terraform.io/docs/providers/alicloud/r/slb_server_certificate.html) and a new [alicloud\_slb\_listener](https://www.terraform.io/docs/providers/alicloud/r/slb_listener.html) in our Terraform script\). Unfortunately obtaining an SSL/TLS certificate from Let's Encrypt requires us to modify our architecture:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123244/155928816339939_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123244/156213735539939_en-US.png)
 
 Let's Encrypt needs a way to automatically check that our domain name belongs to us before providing us a certificate. For that we need to set up a program called [certbot](https://certbot.eff.org/) on our system, then execute this application so that it cans communicate with Let's Encrypt servers, run a [challenge](https://certbot.eff.org/docs/challenges.html), and obtain the certificate. There are several types of challenges, we will use the [HTTP-01 challenge](https://certbot.eff.org/docs/challenges.html#http-01-challenge) and include it in the following process:
 
@@ -985,7 +985,7 @@ resource "alicloud_slb_rule" "rule" {
 
 As you can see, this script creates an `alicloud_instance` resource based on our VM image. This ECS instance has a public IP address \(`internet_max_bandwidth_out = 1`\); without it. The instance would not be able to connect to internet, which is necessary for certbot.
 
-Our SLB configuration is extended with a [forwarding rule](../../../../reseller.en-US/Archives/User Guide (Old Console)/Listener/Layer-7 listeners/Add domain-name based or URL-based forwarding rules.md#) \(`alicloud_slb_rule` resource\) that redirects HTTP requests with URLs that starts with **/.well-known** to our new ECS instance. This redirection is made possible through a [VServer group](../../../../reseller.en-US/Archives/User Guide (Old Console)/Backend servers/Create a VServer group.md#) \(`alicloud_slb_server_group` resource\).
+Our SLB configuration is extended with a [forwarding rule](../../../../reseller.en-US/Tutorials/Traffic forwarding based on domain names or URLs.md#) \(`alicloud_slb_rule` resource\) that redirects HTTP requests with URLs that starts with **/.well-known** to our new ECS instance. This redirection is made possible through a [VServer group](../../../../reseller.en-US/Archives/User Guide (Old Console)/Backend servers/Create a VServer group.md#) \(`alicloud_slb_server_group` resource\).
 
 Save and close this file with CTRL + X.
 
@@ -1205,9 +1205,9 @@ The `curl` command should succeed with the following logs:
 
 Open your application in your web browser with the HTTPS URL \(that is, https://dev.my-sample-domain.xyz/\) and click the padlock icon on the left of the URL bar. It should indicate that the connection is secured:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123244/155928816340010_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123244/156213735540010_en-US.png)
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123244/155928816340011_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123244/156213735540011_en-US.png)
 
 ## Pre-production and production environments {#section_u3p_wcn_qgb .section}
 
