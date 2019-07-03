@@ -11,19 +11,19 @@ We recommend that you create a cloud disk by using a snapshot in the following s
 
 ## Limits {#section_olo_310_40d .section}
 
--   By default, a cloud disk created by using a snapshot uses the [Pay-As-You-Go](../../../../reseller.en-US/Pricing/Pay-As-You-Go.md#) billing method, and can only be used as a data disk. However, you can change the billing method of the cloud disk. For more information, see [What to do next](#section_pbc_ybb_ydb).
--   When you access a cloud disk created by a snapshot the first time, the performance is reduced because it takes some time for ECS to read data from OSS and write data to the cloud disk. Therefore, we recommend that you do not use the cloud disk until it has read from all data blocks. For more information, see [What is OSS?](../../../../reseller.en-US/Product Introduction/What is OSS?.md#)
--   Across all regions, the number of Pay-As-You-Go data disks that you can create cannot be more than five times the number of Pay-As-You-Go instances under your account. For more information, see [Limits](../../../../reseller.en-US/Product Introduction/Limits.md#).
+-   By default, a cloud disk created by using a snapshot uses the [Pay-As-You-Go](../reseller.en-US/Pricing/Pay-As-You-Go.md#) billing method, and can only be used as a data disk. However, you can change the billing method of the cloud disk. For more information, see [What to do next](#section_pbc_ybb_ydb).
+-   When you access a cloud disk created by a snapshot the first time, the performance is reduced because it takes some time for ECS to read data from OSS and write data to the cloud disk. Therefore, we recommend that you do not use the cloud disk until it has read from all data blocks. For more information, see [What is OSS?](../../../../../reseller.en-US/Product Introduction/What is OSS?.md#)
+-   Across all regions, the number of Pay-As-You-Go data disks that you can create cannot be more than five times the number of Pay-As-You-Go instances under your account. For more information, see [Limits](../reseller.en-US/Product Introduction/Limits.md#).
 -   You cannot merge multiple cloud disks by formatting them because they are independent of each other. Therefore, we recommend that you estimate the number and size of cloud disks required before you create them.
 -   We recommend that you do not use Logical Volume Manager \(LVM\) to create logical volumes for multiple cloud disks. This is because a snapshot can only back up data of a single cloud disk. If you use LVM, data discrepancies will occur when you roll back these cloud disks.
 
 ## Prerequisites {#section_6wy_nxy_elm .section}
 
-A system disk snapshot or a data disk snapshot is created and its ID is obtained. For more information, see [Create a snapshot](../../../../reseller.en-US/Snapshots/Use snapshots/Create a snapshot.md#).
+A system disk snapshot or a data disk snapshot is created and its ID is obtained. For more information, see [Create a snapshot](../reseller.en-US/Snapshots/Use snapshots/Create a snapshot.md#).
 
 ## Procedure {#section_lbc_ybb_ydb .section}
 
-You can create a cloud disk through the ECS console or by calling [CreateDisk](../../../../reseller.en-US/API Reference/Disk/CreateDisk.md#). To create a cloud disk through the ECS console, follow these steps:
+You can create a cloud disk through the ECS console or by calling [CreateDisk](../reseller.en-US/API Reference/Disk/CreateDisk.md#). To create a cloud disk through the ECS console, follow these steps:
 
 1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, choose **Storage & Snapshots** \> **Disks**.
@@ -55,8 +55,8 @@ After you create a cloud disk, you can:
 
 -   [Attach the cloud disk](reseller.en-US/Block Storage/Block storage/Attach a cloud disk.md#).
 -   Change the billing method of the cloud disk from Pay-As-You-Go to Subscription.
-    -   If the cloud disk is attached to a Subscription instance, see [Upgrade configurations of Subscription instances](../../../../reseller.en-US/Instances/Change configurations/Upgrade configurations/Upgrade configurations of Subscription instances.md#).
-    -   If the cloud disk is attached to a Pay-As-You-Go instance, see [Switch from Pay-As-You-Go to Subscription billing](../../../../reseller.en-US/Pricing/Switch from Pay-As-You-Go to Subscription billing.md#).
+    -   If the cloud disk is attached to a Subscription instance, see [Upgrade configurations of Subscription instances](../reseller.en-US/Instances/Change configurations/Upgrade configurations/Upgrade configurations of Subscription instances.md#).
+    -   If the cloud disk is attached to a Pay-As-You-Go instance, see [Switch from Pay-As-You-Go to Subscription billing](../reseller.en-US/Pricing/Switch from Pay-As-You-Go to Subscription billing.md#).
 
-You can also create a cloud disk by using a system disk snapshot or a data disk snapshot when you [create an ECS instance](../../../../reseller.en-US/Instances/Create an instance/Create an instance by using the wizard.md#). In this case, the cloud disk uses the same billing method as the ECS instance.
+You can also create a cloud disk by using a system disk snapshot or a data disk snapshot when you [create an ECS instance](../reseller.en-US/Instances/Create an instance/Create an instance by using the wizard.md#). In this case, the cloud disk uses the same billing method as the ECS instance.
 
