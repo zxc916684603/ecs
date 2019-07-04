@@ -4,9 +4,9 @@ This topic describes how to connect source servers to Alibaba Cloud VPC to achie
 
 ## Prerequisites {#section_cww_qz1_kfb .section}
 
-Access to the target source servers is established by using either the [physical connection](https://partners-intl.aliyun.com/help/doc-detail/54210.html) feature of Express Connect, or [VPN gateways](https://partners-intl.aliyun.com/help/doc-detail/54211.html) that correspond to the target VPC.
+Access to the target source servers is established by using either the [physical connection](https://www.alibabacloud.com/help/doc-detail/54210.html) feature of Express Connect, or [VPN gateways](https://www.alibabacloud.com/help/doc-detail/54211.html) that correspond to the target VPC.
 
-**Note:** Fees are incurred for the usage of Express Connect and VPN Gateway. For more information, see [Billing of physical connections](../../../../reseller.en-US/Pricing/Billing of physical connections.md#) and [VPN Gateway billing method](../../../../reseller.en-US/.md#).
+**Note:** Fees are incurred for the usage of Express Connect and VPN Gateway. For more information, see [Billing of physical connections](../../../../intl.en-US/Pricing/Billing of physical connections.md#) and [VPN Gateway billing method](../../SP_74/DNVPN11883127/EN-US_TP_13496.dita#concept_iyc_hwx_wdb).
 
 ## Client\_data description {#section_eww_qz1_kfb .section}
 
@@ -43,13 +43,13 @@ The following procedure is applicable when `net_mode=1`. The cloud migration is 
 
 1.  Log on to the backup server and complete the following steps:
 
-    1.  Download and install the Cloud Migration tool. For more information, see [Migrate your server to Alibaba Cloud by using the Cloud Migration tool](reseller.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Migrate your server to Alibaba Cloud by using the Cloud Migration tool.md#section_twq_sxz_jfb).
+    1.  Download and install the Cloud Migration tool. For more information, see [Migrate your server to Alibaba Cloud by using the Cloud Migration tool](intl.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Migrate your server to Alibaba Cloud by using the Cloud Migration tool.md#section_twq_sxz_jfb).
 
     2.  Edit the client\_data file of the Cloud Migration tool. Specifically, set `net_mode=1`, set `vpc_id` to the ID of the VPC that is configured with the Express Connect service or the VPN Gateway, and set the `vswitch_id` parameter.
 
-    3.  \(Optional\) Configure the parameter `security_group_id` in the client\_data file. Note that the security group must be configured with a rule that permits inbound traffic through ports 8080 and 8703. For more information, see [Add security group rules](../../../../reseller.en-US/Security/Security groups/Add security group rules.md#).
+    3.  \(Optional\) Configure the parameter `security_group_id` in the client\_data file. Note that the security group must be configured with a rule that permits inbound traffic through ports 8080 and 8703. For more information, see [Add security group rules](../../../../intl.en-US/Security/Security groups/Add security group rules.md#).
 
-    4.  Run the Cloud Migration tool on the backup server as described in [Migrate your server to Alibaba Cloud by using the Cloud Migration tool](reseller.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Migrate your server to Alibaba Cloud by using the Cloud Migration tool.md#) until the notification `Stage 1 Is Done!` is displayed.
+    4.  Run the Cloud Migration tool on the backup server as described in [Migrate your server to Alibaba Cloud by using the Cloud Migration tool](intl.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Migrate your server to Alibaba Cloud by using the Cloud Migration tool.md#) until the notification `Stage 1 Is Done!` is displayed.
 
         [![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/74090/cn_zh/1531733783688/Stage1.png)](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/74090/cn_zh/1531733783688/Stage1.png)
 
@@ -57,7 +57,7 @@ The following procedure is applicable when `net_mode=1`. The cloud migration is 
 
     1.  Copy the user\_config.json, Rsync, and client\_data configuration files of the Cloud Migration tool from the backup server to the source server.
 
-    2.  Run the Cloud Migration tool on the source server as described in [Migrate your server to Alibaba Cloud by using the Cloud Migration tool](reseller.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Migrate your server to Alibaba Cloud by using the Cloud Migration tool.md#) until the notification `Stage 2 Is Done!` is displayed.
+    2.  Run the Cloud Migration tool on the source server as described in [Migrate your server to Alibaba Cloud by using the Cloud Migration tool](intl.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Migrate your server to Alibaba Cloud by using the Cloud Migration tool.md#) until the notification `Stage 2 Is Done!` is displayed.
 
         [![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/74090/cn_zh/1531733805431/Stage2.png)](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/74090/cn_zh/1531733805431/Stage2.png)
 
@@ -65,7 +65,7 @@ The following procedure is applicable when `net_mode=1`. The cloud migration is 
 
     1.  Copy the user\_config.json, rsync, and client\_data configuration files of the Cloud Migration tool from the source server to the backup server.
 
-    2.  Run the Cloud Migration tool on the source server as described in [Migrate your server to Alibaba Cloud by using the Cloud Migration tool](reseller.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Migrate your server to Alibaba Cloud by using the Cloud Migration tool.md#) until the notification `Stage 3 Is Done!` is displayed.
+    2.  Run the Cloud Migration tool on the source server as described in [Migrate your server to Alibaba Cloud by using the Cloud Migration tool](intl.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Migrate your server to Alibaba Cloud by using the Cloud Migration tool.md#) until the notification `Stage 3 Is Done!` is displayed.
 
         [![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/74090/cn_zh/1531733837163/Stage3.png)](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/74090/cn_zh/1531733837163/Stage3.png)
 
@@ -76,13 +76,13 @@ The following procedure is applicable when `net_mode=2` and the steps are the sa
 
 1.  Log on to the source server.
 
-2.  Download and install the Cloud Migration tool. For more information, see [Migrate your server to Alibaba Cloud by using the Cloud Migration tool](reseller.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Migrate your server to Alibaba Cloud by using the Cloud Migration tool.md#section_twq_sxz_jfb).
+2.  Download and install the Cloud Migration tool. For more information, see [Migrate your server to Alibaba Cloud by using the Cloud Migration tool](intl.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Migrate your server to Alibaba Cloud by using the Cloud Migration tool.md#section_twq_sxz_jfb).
 
 3.  Edit the client\_data file of the Cloud Migration tool. Specifically, set `net_mode=2`, set `vpc_id` to the ID of the VPC that is configured with the Express Connect service or the VPN Gateway, and set the `vswitch_id` parameter.
 
-4.  \(Optional\) Configure the parameter `security_group_id` in the client\_data file. However, you must permit inbound traffic through proxy ports 8080 and 8703 in the security group. For more information, see [Add security group rules](../../../../reseller.en-US/Security/Security groups/Add security group rules.md#).
+4.  \(Optional\) Configure the parameter `security_group_id` in the client\_data file. However, you must permit inbound traffic through proxy ports 8080 and 8703 in the security group. For more information, see [Add security group rules](../../../../intl.en-US/Security/Security groups/Add security group rules.md#).
 
-5.  Run the Cloud Migration tool as described in [Migrate your server to Alibaba Cloud by using the Cloud Migration tool](reseller.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Migrate your server to Alibaba Cloud by using the Cloud Migration tool.md#).
+5.  Run the Cloud Migration tool as described in [Migrate your server to Alibaba Cloud by using the Cloud Migration tool](intl.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Migrate your server to Alibaba Cloud by using the Cloud Migration tool.md#).
 
 
 ## Procedure for migrating a source server that can access the proxy {#section_c1f_ah3_mrn .section}
@@ -91,7 +91,7 @@ The following procedure is applicable when `net_mode=2` and the steps are the sa
 
 1.  Log on to the source server.
 
-2.  Download and install the Cloud Migration tool. For more information, see [Migrate your server to Alibaba Cloud by using the Cloud Migration tool](reseller.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Migrate your server to Alibaba Cloud by using the Cloud Migration tool.md#section_twq_sxz_jfb).
+2.  Download and install the Cloud Migration tool. For more information, see [Migrate your server to Alibaba Cloud by using the Cloud Migration tool](intl.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Migrate your server to Alibaba Cloud by using the Cloud Migration tool.md#section_twq_sxz_jfb).
 
 3.  Edit the client\_data file of the Cloud Migration tool as follows:
 
@@ -103,12 +103,12 @@ The following procedure is applicable when `net_mode=2` and the steps are the sa
         2.  Enter the username and password \(if they are configured\) in `extra.net.proxy.user_pwd`.
         **Note:** For more information about `extra.net.proxy.ip_port` and `extra.net.proxy.user_pwd`, see the above table.
 
-4.  \(Optional\) Configure the parameter `security_group_id` in the client\_data file. However, you must permit inbound traffic through proxy ports 8080 and 8703 in the security group. For more information, see [Add security group rules](../../../../reseller.en-US/Security/Security groups/Add security group rules.md#).
+4.  \(Optional\) Configure the parameter `security_group_id` in the client\_data file. However, you must permit inbound traffic through proxy ports 8080 and 8703 in the security group. For more information, see [Add security group rules](../../../../intl.en-US/Security/Security groups/Add security group rules.md#).
 
-5.  Run the Cloud Migration tool as described in [Migrate your server to Alibaba Cloud by using the Cloud Migration tool](reseller.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Migrate your server to Alibaba Cloud by using the Cloud Migration tool.md#).
+5.  Run the Cloud Migration tool as described in [Migrate your server to Alibaba Cloud by using the Cloud Migration tool](intl.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Migrate your server to Alibaba Cloud by using the Cloud Migration tool.md#).
 
 
 ## Troubleshooting {#section_dgl_spy_whb .section}
 
-If you experience an issue during the cloud migration, we recommend that you check the [Cloud Migration tool FAQ](reseller.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Cloud Migration tool FAQ.md#) for common troubleshooting issues, or [join the Cloud Migration tool DingTalk group](https://h5.dingtalk.com/invite-page/index.html?spm=a2c4g.11186623.2.31.FEg99s&code=ca190154ff) for technical support.
+If you experience an issue during the cloud migration, we recommend that you check the [Cloud Migration tool FAQ](intl.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Cloud Migration tool FAQ.md#) for common troubleshooting issues, or [join the Cloud Migration tool DingTalk group](https://h5.dingtalk.com/invite-page/index.html?spm=a2c4g.11186623.2.31.FEg99s&code=ca190154ff) for technical support.
 
