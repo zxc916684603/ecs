@@ -7,22 +7,24 @@
 1.  进入[NVIDIA 官网](http://www.nvidia.com/Download/index.aspx?lang=cn)。
 2.  手动查找适用于实例的驱动程序，并单击**搜索**。筛选信息说明如下表所示。
 
-    |信息项|gn4|gn5|gn5i|gn6v|vgn5i|gn6i|
-    |:--|:--|:--|:---|:---|-----|----|
-    |产品类型|Tesla|Tesla|Tesla|Tesla|Tesla|Tesla|
-    |产品系列|M-Class|P-Series|P-Series|V-Series|P-Series|T-Series|
-    |产品家族|M40|Tesla P100|Tesla P4|Tesla V100|Tesla P4|Tesla T4|
+    |信息项|gn4|gn5|gn5i|gn6v|gn6i|
+    |:--|:--|:--|:---|:---|----|
+    |产品类型|Tesla|Tesla|Tesla|Tesla|Tesla|
+    |产品系列|M-Class|P-Series|P-Series|V-Series|T-Series|
+    |产品家族|M40|Tesla P100|Tesla P4|Tesla V100|Tesla T4|
     |操作系统|根据实例的镜像选择对应的版本。 **说明：** 
 
     -   如果下拉列表中没有显示服务器操作系统，请单击下拉列表底部的**选择所有操作系统**。
     -   Debian操作系统，选择**Linux 64-bit**。
- ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15595309665114_zh-CN.png)
+ ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15622112575114_zh-CN.png)
 
 |
 
 3.  确认无误后，单击**下载**按钮。
 
 ## 为Linux实例安装GPU驱动 {#section_esm_dc1_4gb .section}
+
+**说明：** vgn5i实例的驱动安装不适用以下步骤，详细步骤请参见[在vgn5i实例（Linux）中安装GRID驱动](intl.zh-CN/实例/选择实例规格/GPU计算型/在vgn5i实例（Linux）中安装GRID驱动.md#)。
 
 1.  下载并安装kernel对应版本的kernel-devel和kernel-header包。
 
@@ -45,10 +47,12 @@
 
     以Linux 64-bit Ubuntu 14.04为例：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15595309665117_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/15622112575117_zh-CN.png)
 
 
 ## 为Windows实例安装GPU驱动 {#section_o2j_hrs_qgb .section}
+
+**说明：** vgn5i实例的驱动安装不适用以下步骤，详细步骤请参见[在vgn5i实例（Windows）中安装GRID驱动](intl.zh-CN/实例/选择实例规格/GPU计算型/在vgn5i实例（Windows）中安装GRID驱动.md#)。
 
 直接双击安装文件，按提示完成GPU驱动安装。
 
