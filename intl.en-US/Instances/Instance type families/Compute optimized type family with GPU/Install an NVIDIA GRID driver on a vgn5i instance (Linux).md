@@ -71,7 +71,7 @@ This topic describes how to install an NVIDIA GRID driver for instances running 
 
     The driver is installed if GRID driver information similar to the following figure is displayed.
 
-    ![](images/47400_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/218964/156221946047400_en-US.png)
 
 5.  Add a license server. 
     1.  Switch to the /etc/nvidia directory. 
@@ -110,6 +110,6 @@ This topic describes how to install an NVIDIA GRID driver for instances running 
 
         The license is activated if **License acquired successfully** is displayed.
 
-        ![](images/47964_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/218964/156221946047964_en-US.png)
 
 
