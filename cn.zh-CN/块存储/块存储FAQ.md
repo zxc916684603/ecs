@@ -27,7 +27,7 @@ ESSD云盘，又称增强型（Enhanced）SSD云盘，是阿里云推出的超�
 
 ## ESSD云盘的性能指标与产品规格是如何计算的？ {#section_tn9_l2d_g0h .section}
 
-ESSD云盘的性能与容量线性相关，容量越大性能越高。相比SSD云盘有大幅的性能提升。
+ESSD云盘的性能与容量线性相关，容量越大性能越高。相比SSD云盘有大幅的性能提升。更多详情，请参见[ESSD云盘](cn.zh-CN/块存储/云盘/ESSD云盘.md#)。
 
 ## 如何测试ESSD云盘的性能？100万IOPS如何测试出来？应该如何配置ECS实例？ {#section_guq_54c_14o .section}
 
@@ -177,15 +177,6 @@ Linux系统添加数据盘时，按照[Linux格式化数据盘](../cn.zh-CN/个�
 正确使用共享块存储的方式是采用集群文件系统进行块设备的统一管理，例如GFS、GPFS等。典型Oracle RAC业务场景中推荐采用ASM统一管理存储卷和文件系统。
 
 如果只是将共享块存储挂载到多台ECS实例，但依旧使用常规文件系统来管理时，会造成存储空间分配冲突和数据文件不一致两个问题，具体如下：
-
--   磁盘空间分配冲突
-
-    如果一块共享块存储挂载到多个实例上，当实例A在写文件时，会查询文件系统和可用的磁盘空间，文件写入后会修改实例A上的空间分配记录，但不会修改其他实例的记录。因此，当实例B写入文件时，可能会将实例A已经分配出去的磁盘空间再次分配，造成磁盘空间分配冲突。
-
--   数据文件不一致
-
-    当实例A读取数据并记录在缓存中后，实例A上另一个进程来访问同样的数据就会直接从缓存中进行读取。但如果此时实例B修改了同样的数据，而实例A并不知道，依旧从缓存中读取数据，则会造成业务数据不一致。
-
 
 ## 可以跨地域挂载共享块存储吗？ {#section_adn_dlp_fhb .section}
 
@@ -593,7 +584,7 @@ FIO -direct=1 -iodepth=64 -rw=read -ioengine=libaio -bs=64k -size=1G -numjobs=1 
     -   直接测试裸盘会破坏文件系统结构。如果云盘上的数据丢失不影响业务，可以设置`filename=[设备名，如本示例中的/dev/vdb]`。否则，请设置为`filename=[具体的文件路径，比如/mnt/test.image]`。
 5.  运行`sh test100w.sh`开始测试ESSD云盘性能。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10111/156196425342181_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10111/156263955642181_zh-CN.png)
 
 
 脚本解读：
