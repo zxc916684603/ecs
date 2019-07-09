@@ -128,7 +128,7 @@
 |InstanceId|String|否|i-instance1|实例ID。
 
  |
-|KMSKeyId|String|否|0e478b7a-4262-4802-b8cb-00d3fb40826X|磁盘使用的KMS密钥ID。
+|KMSKeyId|String|否|0e478b7a-4262-4802-b8cb-00d3fb408\*\*\*|磁盘使用的KMS密钥ID。
 
  |
 |LockReason|String|否|recycling|磁盘被锁定的原因。取值范围：
@@ -167,7 +167,7 @@
 |ResourceGroupId|String|否|rg-resourcegroupid1|磁盘所在的企业资源组ID。
 
  |
-|SnapshotId|String|否|s-snaoshotid1|创建磁盘使用的快照ID。
+|SnapshotId|String|否|s-snapshotid1|创建磁盘使用的快照ID。
 
  |
 |Status|String|否|All|磁盘状态，参见[普通云盘状态](~~25689~~)。取值范围：
@@ -203,22 +203,22 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |Disks| | |磁盘信息组成的集合。
 
  |
-|└AttachedTime|String|2018-01-01T01:04:22Z|挂载时间。按照ISO8601标准表示，使用UTC +0时间。格式为：yyyy-MM-ddThh:mmZ。
+|AttachedTime|String|2018-01-01T01:04:22Z|挂载时间。按照ISO8601标准表示，使用UTC +0时间。格式为：yyyy-MM-ddThh:mmZ。
 
  只有在Status为Available时才有意义。
 
  |
-|└AutoSnapshotPolicyId|String|s-23f2i9s4t|磁盘采用的自动快照策略ID。
+|AutoSnapshotPolicyId|String|s-23f2i9\*\*\*|磁盘采用的自动快照策略ID。
 
  |
-|└Category|String|cloud\_ssd|磁盘种类。取值范围：
+|Category|String|cloud\_ssd|磁盘种类。取值范围：
 
  -   cloud：普通云盘
 -   cloud\_efficiency：高效云盘
@@ -228,10 +228,10 @@
 -   cloud\_essd：ESSD云盘
 
  |
-|└CreationTime|String|2018-01-01T01:01:22Z|创建时间。
+|CreationTime|String|2018-01-01T01:01:22Z|创建时间。
 
  |
-|└DeleteAutoSnapshot|Boolean|false|是否同时删除自动快照。取值范围：
+|DeleteAutoSnapshot|Boolean|false|是否同时删除自动快照。取值范围：
 
  -   true：删除磁盘上的快照。
 -   false：保留磁盘上的快照。
@@ -239,34 +239,34 @@
  通过[CreateSnapshot](~~25524~~)或者在控制台创建的快照，不受这个参数的影响，会始终保留。
 
  |
-|└DeleteWithInstance|Boolean|true|是否随实例释放。取值范围：
+|DeleteWithInstance|Boolean|true|是否随实例释放。取值范围：
 
  -   true：释放实例时，这块磁盘随实例一起释放。
 -   false：释放实例时，这块磁盘保留不释放。
 
  |
-|└Description|String|FinanceDept|磁盘描述。
+|Description|String|FinanceDept|磁盘描述。
 
  |
-|└DetachedTime|String|2018-01-08T01:01:22Z|卸载时间。只有在Status为Available时才有意义。
+|DetachedTime|String|2018-01-08T01:01:22Z|卸载时间。只有在Status为Available时才有意义。
 
  |
-|└Device|String|/dev/xvdb|磁盘挂载的实例的设备名，例如/dev/xvdb。只有在Status为In\_use时才有值，其他状态为空。
+|Device|String|/dev/xvdb|磁盘挂载的实例的设备名，例如/dev/xvdb。只有在Status为In\_use时才有值，其他状态为空。
 
  |
-|└DiskChargeType|String|PostPaid|磁盘的付费方式。取值范围：
+|DiskChargeType|String|PostPaid|磁盘的付费方式。取值范围：
 
  -   PrePaid：预付费，即包年包月。
 -   PostPaid：后付费，即按量付费。
 
  |
-|└DiskId|String|d-23jbf2v5m|磁盘ID。
+|DiskId|String|d-23jbf2\*\*\*|磁盘ID。
 
  |
-|└DiskName|String|FinanceDeptJoshua|磁盘名。
+|DiskName|String|FinanceDeptJoshua|磁盘名。
 
  |
-|└EnableAutoSnapshot|Boolean|false|磁盘是否执行自动快照策略。取值范围：
+|EnableAutoSnapshot|Boolean|false|磁盘是否执行自动快照策略。取值范围：
 
  -   true：这块磁盘执行自动快照策略。
 -   false：这块磁盘不执行自动快照策略。
@@ -274,62 +274,62 @@
  默认值：false
 
  |
-|└EnableAutomatedSnapshotPolicy|Boolean|false|磁盘是否执行自动快照策略。
+|EnableAutomatedSnapshotPolicy|Boolean|false|磁盘是否执行自动快照策略。
 
  |
-|└Encrypted|Boolean|false|是否为加密磁盘。
+|Encrypted|Boolean|false|是否为加密磁盘。
 
  |
-|└ExpiredTime|String|2018-01-10T01:01:22Z|包年包月磁盘的过期时间。
+|ExpiredTime|String|2018-01-10T01:01:22Z|包年包月磁盘的过期时间。
 
  |
-|└IOPS|Integer|4000|每秒读写（I/O）操作的次数，单位：次/s。
+|IOPS|Integer|4000|每秒读写（I/O）操作的次数，单位：次/s。
 
  |
-|└IOPSRead|Integer|2000|每秒读操作的次数，单位：次/s。
+|IOPSRead|Integer|2000|每秒读操作的次数，单位：次/s。
 
  |
-|└IOPSWrite|Integer|2000|每秒写操作的次数，单位：次/s。
+|IOPSWrite|Integer|2000|每秒写操作的次数，单位：次/s。
 
  |
-|└ImageId|String|m-bp13aqm171qynt3udgd|创建磁盘的镜像ID，只有通过镜像创建的磁盘才有值，否则为空。这个值在磁盘的生命周期内始终不变。
+|ImageId|String|m-bp13aqm171qynt3u\*\*\*|创建磁盘的镜像ID，只有通过镜像创建的磁盘才有值，否则为空。这个值在磁盘的生命周期内始终不变。
 
  |
-|└InstanceId|String|i-instanceid1|磁盘挂载的实例ID。只有在Status为In\_use时才有值，其他状态为空。
+|InstanceId|String|i-instanceid1|磁盘挂载的实例ID。只有在Status为In\_use时才有值，其他状态为空。
 
  |
-|└KMSKeyId|String|0e478b7a-4262-4802-b8cb-00d3fb40826X|磁盘使用的KMS密钥ID
+|KMSKeyId|String|0e478b7a-4262-4802-b8cb-00d3fb408\*\*\*|磁盘使用的KMS密钥ID
 
  |
-|└MountInstanceNum|Integer|1|共享存储挂载的实例数量。
+|MountInstanceNum|Integer|1|共享存储挂载的实例数量。
 
  |
-|└MountInstances| | |挂载到实例上的信息集合。
+|MountInstances| | |挂载到实例上的信息集合。
 
  |
-|└AttachedTime|String|2017-12-05T2340:00Z|挂载时间。按照[ISO8601](~~25696~~)标准表示，使用UTC +0时间，格式为yyyy-MM-ddTHH:mm:ssZ。
+|AttachedTime|String|2017-12-05T2340:00Z|挂载时间。按照[ISO8601](~~25696~~)标准表示，使用UTC +0时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
  |
-|└Device|String|/dev/xvda|磁盘的挂载点。
+|Device|String|/dev/xvda|磁盘的挂载点。
 
  |
-|└InstanceId|String|i-instanceid1|磁盘挂载的实例ID。
+|InstanceId|String|i-instanceid1|磁盘挂载的实例ID。
 
  |
-|└OperationLocks| | |磁盘锁定原因类型。
+|OperationLocks| | |磁盘锁定原因类型。
 
  |
-|└LockReason|String|security|磁盘被安全锁定的原因。
+|LockReason|String|security|磁盘被安全锁定的原因。
 
  |
-|└PerformanceLevel|String|PL2|ESSD云盘的性能等级。可能值：
+|PerformanceLevel|String|PL2|ESSD云盘的性能等级。可能值：
 
  -   PL1：单盘最高随机读写IOPS 5万。
 -   PL2：单盘最高随机读写IOPS 10万。
 -   PL3：单盘最高随机读写IOPS 100万。
 
  |
-|└Portable|Boolean|false|磁盘是否可卸载。可能值：
+|Portable|Boolean|false|磁盘是否可卸载。可能值：
 
  -   true：独立普通云盘，可以独立存在且可以自由在可用区内挂载和卸载。
 -   false：非独立普通云盘，不可以独立存在，不可以在可用区内挂载和卸载，生命周期与实例等同。
@@ -339,22 +339,22 @@
  Portable属性为false的磁盘不支持修改该属性，包括作为系统盘使用的本地磁盘、本地SSD盘、普通云盘、SSD云盘和ESSD云盘，以及预付费数据盘。
 
  |
-|└ProductCode|String|jxsc000204|云市场的商品标识。
+|ProductCode|String|jxsc000204|云市场的商品标识。
 
  |
-|└RegionId|String|cn-hangzhou|磁盘所属的地域ID。
+|RegionId|String|cn-hangzhou|磁盘所属的地域ID。
 
  |
-|└ResourceGroupId|String|rg-resourcegroupid1|磁盘所在的企业资源组ID。
+|ResourceGroupId|String|rg-resourcegroupid1|磁盘所在的企业资源组ID。
 
  |
-|└Size|Integer|2000|磁盘大小，单位GiB。
+|Size|Integer|2000|磁盘大小，单位GiB。
 
  |
-|└SourceSnapshotId|String|s-snapshotid1|创建磁盘使用的快照，如果创建磁盘时，没有指定快照，则为空。这个值在磁盘的生命周期内始终不变。
+|SourceSnapshotId|String|s-snapshotid1|创建磁盘使用的快照，如果创建磁盘时，没有指定快照，则为空。这个值在磁盘的生命周期内始终不变。
 
  |
-|└Status|String|Available|磁盘状态。取值范围：
+|Status|String|Available|磁盘状态。取值范围：
 
  -   In\_use
 -   Available
@@ -364,22 +364,22 @@
 -   ReIniting
 
  |
-|└Tags| | |磁盘的标签集合。
+|Tags| | |磁盘的标签集合。
 
  |
-|└TagKey|String|FinanceJoshua|磁盘的标签键。
+|TagKey|String|FinanceJoshua|磁盘的标签键。
 
  |
-|└TagValue|String|FinanceDept|磁盘的标签值。
+|TagValue|String|FinanceDept|磁盘的标签值。
 
  |
-|└Type|String|data|磁盘类型。可能值：
+|Type|String|data|磁盘类型。可能值：
 
  -   system：系统盘。
 -   data：数据盘。
 
  |
-|└ZoneId|String|cn-hangzhou-g|磁盘所属的可用区ID。
+|ZoneId|String|cn-hangzhou-g|磁盘所属的可用区ID。
 
  |
 |PageNumber|Integer|1|磁盘列表的页码。
@@ -408,7 +408,7 @@ https://ecs.aliyuncs.com/?Action=DescribeDisks
 &DiskType=all
 &Category=all
 &Status=all
-&SnapshotId=s-snaoshotid1
+&SnapshotId=s-snapshotid1
 &Portable=true
 &DeleteWithInstance=false
 &DeleteAutoSnapshot=false
@@ -578,5 +578,5 @@ https://ecs.aliyuncs.com/?Action=DescribeDisks
 |403|UserNotInTheWhiteList|The user is not in volume white list.|用户不在共享块存储白名单中，请您提交工单申请白名单。|
 |404|InvalidDiskIds.ValueNotSupported|The specified parameter "DiskIds" is not supported.|指定的磁盘ID无效。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
