@@ -32,9 +32,12 @@
 |ecs.vgn5i-m4.2xlarge|8|24|无|P4\*1/2|4|3|80|是|2|4|
 |ecs.vgn5i-m8.4xlarge|16|48|无|P4\*1|8|5|100|是|4|5|
 
-**说明：** 更多信息，请参见 [创建GPU计算型实例](cn.zh-CN/实例/选择实例规格/GPU计算型/创建GPU计算型实例.md#)。
+**说明：** 
 
-[回到目录](cn.zh-CN/实例/实例规格族.md#) 查看其他实例规格族。
+-   您可以前往[ECS实例可购买地域](https://ecs-buy.aliyun.com/instanceTypes/#/instanceTypeByRegion)，查看本实例的可购情况。
+-   更多信息，请参见[创建GPU计算型实例](cn.zh-CN/实例/选择实例规格/GPU计算型/创建GPU计算型实例.md#)。
+
+[回到目录](cn.zh-CN/实例/实例规格族.md#)查看其他实例规格族。
 
 ## GPU计算型实例规格族 gn6i {#section_zr2_vkl_jhb .section}
 
@@ -71,13 +74,13 @@
 |ecs.gn6i-c24g1.6xlarge|24|93|无|T4\*1|16|7.5|120|是|6|4|
 |ecs.gn6i-c24g1.12xlarge|48|186|无|T4\*2|32|15|240|是|12|6|
 |ecs.gn6i-c24g1.24xlarge|96|372|无|T4\*4|64|30|480|是|24|8|
-|ecs.gn6i-c32g1.8xlarge|32|124|无|T4\*1|16|10|160|是|8|6|
-|ecs.gn6i-c48g1.12xlarge|48|186|无|T4\*1|16|12|240|是|12|6|
-|ecs.gn6i-c72g1.18xlarge|72|279|无|T4\*1|16|21.5|360|是|18|8|
 
-**说明：** 更多信息，请参见 [创建GPU计算型实例](cn.zh-CN/实例/选择实例规格/GPU计算型/创建GPU计算型实例.md#)。
+**说明：** 
 
-[回到目录](cn.zh-CN/实例/实例规格族.md#) 查看其他实例规格族。
+-   您可以前往[ECS实例可购买地域](https://ecs-buy.aliyun.com/instanceTypes/#/instanceTypeByRegion)，查看本实例的可购情况。
+-   更多信息，请参见[创建GPU计算型实例](cn.zh-CN/实例/选择实例规格/GPU计算型/创建GPU计算型实例.md#)。
+
+[回到目录](cn.zh-CN/实例/实例规格族.md#)查看其他实例规格族。
 
 ## GPU计算型实例规格族 gn6v {#section_mgy_332_xgb .section}
 
@@ -109,9 +112,12 @@
 |ecs.gn6v-c8g1.8xlarge|32|128.0|无|4 \* NVIDIA V100|4 \* 16|10.0|200|是|8|8|20|
 |ecs.gn6v-c8g1.16xlarge|64|256.0|无|8 \* NVIDIA V100|8 \* 16|20.0|250|是|16|8|20|
 
-**说明：** 更多信息，请参见 [创建GPU计算型实例](cn.zh-CN/实例/选择实例规格/GPU计算型/创建GPU计算型实例.md#)。
+**说明：** 
 
-[回到目录](cn.zh-CN/实例/实例规格族.md#) 查看其他实例规格族。
+-   您可以前往[ECS实例可购买地域](https://ecs-buy.aliyun.com/instanceTypes/#/instanceTypeByRegion)，查看本实例的可购情况。
+-   更多信息，请参见[创建GPU计算型实例](cn.zh-CN/实例/选择实例规格/GPU计算型/创建GPU计算型实例.md#)。
+
+[回到目录](cn.zh-CN/实例/实例规格族.md#)查看其他实例规格族。
 
 ## GPU计算型实例规格族 gn5 {#section_qtz_j32_xgb .section}
 
@@ -142,9 +148,12 @@
 |ecs.gn5-c28g1.14xlarge|56|224.0|880|2 \* NVIDIA P100|2 \* 16|10.0|200|否|14|8|20|
 |ecs.gn5-c8g1.14xlarge|54|480.0|3520|8 \* NVIDIA P100|8 \* 16|25.0|400|否|14|8|20|
 
-**说明：** 更多信息，请参见 [创建GPU计算型实例](cn.zh-CN/实例/选择实例规格/GPU计算型/创建GPU计算型实例.md#)。
+**说明：** 
 
-[回到目录](cn.zh-CN/实例/实例规格族.md#) 查看其他实例规格族。
+-   您可以前往[ECS实例可购买地域](https://ecs-buy.aliyun.com/instanceTypes/#/instanceTypeByRegion)，查看本实例的可购情况。
+-   更多信息，请参见[创建GPU计算型实例](cn.zh-CN/实例/选择实例规格/GPU计算型/创建GPU计算型实例.md#)。
+
+[回到目录](cn.zh-CN/实例/实例规格族.md#)查看其他实例规格族。
 
 ## GPU计算型实例规格族 gn5i {#section_u3b_l32_xgb .section}
 
@@ -172,9 +181,12 @@
 |ecs.gn5i-c16g1.8xlarge|32|128.0|无|2 \* NVIDIA P4|2 \* 8|6.0|120|是|8|8|20|
 |ecs.gn5i-c28g1.14xlarge|56|224.0|无|2 \* NVIDIA P4|2 \* 8|10.0|200|是|14|8|20|
 
-**说明：** 更多信息，请参见 [创建GPU计算型实例](cn.zh-CN/实例/选择实例规格/GPU计算型/创建GPU计算型实例.md#)。
+**说明：** 
 
-[回到目录](cn.zh-CN/实例/实例规格族.md#) 查看其他实例规格族。
+-   您可以前往[ECS实例可购买地域](https://ecs-buy.aliyun.com/instanceTypes/#/instanceTypeByRegion)，查看本实例的可购情况。
+-   更多信息，请参见[创建GPU计算型实例](cn.zh-CN/实例/选择实例规格/GPU计算型/创建GPU计算型实例.md#)。
+
+[回到目录](cn.zh-CN/实例/实例规格族.md#)查看其他实例规格族。
 
 ## GPU计算型实例规格族 gn4 {#section_cts_l32_xgb .section}
 
@@ -202,7 +214,10 @@
 |ecs.gn4-c8g1.4xlarge|16|60.0|无|2 \* NVIDIA M40|2 \* 12|5.0|50|否|1|8|20|
 |ecs.gn4.14xlarge|56|96.0|无|2 \* NVIDIA M40|2 \* 12|10.0|120|否|4|8|20|
 
-**说明：** 更多信息，请参见 [创建GPU计算型实例](cn.zh-CN/实例/选择实例规格/GPU计算型/创建GPU计算型实例.md#)。
+**说明：** 
 
-[回到目录](cn.zh-CN/实例/实例规格族.md#) 查看其他实例规格族。
+-   您可以前往[ECS实例可购买地域](https://ecs-buy.aliyun.com/instanceTypes/#/instanceTypeByRegion)，查看本实例的可购情况。
+-   更多信息，请参见[创建GPU计算型实例](cn.zh-CN/实例/选择实例规格/GPU计算型/创建GPU计算型实例.md#)。
+
+[回到目录](cn.zh-CN/实例/实例规格族.md#)查看其他实例规格族。
 
