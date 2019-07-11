@@ -1,5 +1,91 @@
 # 块存储FAQ {#concept_40551_zh .concept}
 
+-   ESSD云盘问题
+    -   [什么是ESSD云盘？](#section_exq_8tt_oqw)
+    -   [我什么时候可以购买ESSD云盘？](#section_hhd_okp_zlj)
+    -   [相比于公测阶段，ESSD云盘商业化产品形态有什么不同？](#section_cw3_bmw_boh)
+    -   [ESSD云盘与SSD云盘或者高效云盘有哪些异同之处？](#section_amv_05u_7k0)
+    -   [ESSD云盘的性能指标与产品规格是如何计算的？](#section_tn9_l2d_g0h)
+    -   [如何测试ESSD云盘的性能？100万IOPS如何测试出来？应该如何配置ECS实例？](#section_guq_54c_14o)
+    -   [ESSD云盘性能和实例性能有什么关系？](#section_l0c_cer_qu7)
+    -   [ESSD云盘如何计费？](#section_6j1_ta3_nyy)
+    -   [哪些地域或者可用区开放了ESSD云盘资源？](#section_yq8_9fo_zgu)
+    -   [ESSD云盘能挂载到哪些实例规格族上？](#section_br8_0h3_7d6)
+-   一般性问题
+    -   [怎么根据应用需求选择可用区？](#section_nks_1y2_gcr)
+    -   [云盘有哪些常用操作？](#section_xs4_pdh_fhb)
+    -   [I/O优化是什么概念？能将存量的ECS实例升级为I/O优化的实例吗？](#section_zxg_r7a_vdt)
+    -   [有些自定义镜像不支持创建I/O优化的实例，我该如何操作？](#section_t12_qso_n88)
+-   性能测试问题
+    -   [我可以使用什么工具测试块存储性能？](#section_vyv_qlf_4rg)
+    -   [为什么我用FIO测试性能时，会导致实例宕机？](#section_gdt_ekx_3rp)
+-   SSD云盘问题
+    -   [SSD云盘具备怎样的I/O性能？](#section_f2w_rch_fhb)
+    -   [SSD云盘适合的应用场景有哪些？](#section_sf1_sch_fhb)
+    -   [是否支持将原普通云盘更换成SSD云盘？](#section_z0c_kiu_c6o)
+    -   [如何购买SSD云盘，I/O优化的实例及SSD云盘的价格是多少？](#section_gpx_xch_fhb)
+    -   [购买SSD云盘后是否支持升级？](#section_n5t_cdh_fhb)
+    -   [使用了I/O优化实例和SSD云盘之后，Linux系统在分区挂载的时候为什么报错？](#section_md2_ddh_fhb)
+    -   [普通云盘和SSD云盘添加挂载信息时需要注意什么？](#section_vjf_tos_b2o)
+-   共享块存储问题
+    -   [什么是共享块存储？](#section_zjn_40o_nlh)
+    -   [为什么需要共享块存储？](#section_ayv_l34_hy8)
+    -   [我什么时候可以购买共享块存储？](#section_idn_dlp_fhb)
+    -   [共享块存储适用于哪些行业和业务场景？](#section_xcn_dlp_fhb)
+    -   [如何正确使用共享块存储？](#section_ycn_dlp_fhb)
+    -   [可以跨地域挂载共享块存储吗？](#section_adn_dlp_fhb)
+    -   [一台实例上最多挂载多少块共享块存储？](#section_bdn_dlp_fhb)
+    -   [共享块存储的产品规格和性能是什么？](#section_cdn_dlp_fhb)
+    -   [如何测试共享块存储性能？](#section_frj_h4p_fhb)
+-   挂载和卸载云盘问题
+    -   [什么是设备名（挂载点）？](#section_c9t_aqp_8au)
+    -   [什么是独立云盘？](#section_lth_2jp_fhb)
+    -   [一块云盘可以挂载到多台ECS实例上吗？](#section_g5g_b2r_fhb)
+    -   [购买了按量付费云盘并挂载到ECS实例后，还需要执行挂载分区的操作吗？](#section_gps_gpr_fhb)
+    -   [为Linux实例购买了数据盘，但是系统中看不到怎么办？](#section_7hm_z6c_ttx)
+    -   [一台实例能挂载多少块云盘？](#section_hl8_hn5_p3n)
+    -   [为什么挂载云盘时找不到我想挂载的实例？](#section_ewk_3gr_fhb)
+    -   [云盘和实例在不同的可用区，可以挂载吗？](#section_izt_uhb_fxk)
+    -   [卸载云盘（数据盘）时，云盘数据会丢吗？](#section_xzy_pnk_by6)
+    -   [系统盘能够卸载吗？](#section_2my_ijk_gy1)
+-   独立云盘问题
+    -   [单独购买的按量付费数据盘如何收费？](#section_v4m_b2r_fhb)
+    -   [为什么我单独创建的云盘和我的实例一起释放了？](#section_bjw_8f4_ju1)
+    -   [单独购买的按量付费数据盘能够挂载到包年包月实例上吗？](#section_xtp_b2r_fhb)
+    -   [包年包月实例上的数据盘能卸载吗？](#section_tsb_3gr_fhb)
+    -   [我已经操作过续费变配，在续费变配期内是否还能将预付费云盘转为按量付费云盘？](#section_nql_jnr_fhb)
+-   云盘快照问题
+    -   [删除云盘的时候，快照会被保留吗？](#section_a41_mgr_fhb)
+    -   [为什么我的云盘没有自动快照了？](#section_jvf_shr_fhb)
+    -   [可以使用快照单独创建云盘吗？](#section_tz3_jnr_fhb)
+-   重新初始化云盘问题
+    -   [数据盘挂载问题导致数据无法访问，应该如何排查？](#section_fz4_jnr_fhb)
+    -   [重新初始化云盘时，我的快照会丢失吗？](#section_mx6_x6w_wn8)
+    -   [重启Linux系统ECS实例或者初始化系统后数据盘不见了怎么办？](#section_eja_zx1_w6o)
+    -   [Linux系统ECS实例重新初始化系统盘后如何重新挂载数据盘？](#section_vaw_x75_0rr)
+-   扩容云盘问题
+    -   [更换系统盘时，我的快照会丢失吗？](#section_2u6_pq5_q3f)
+    -   [更换系统盘应该注意什么问题？](#section_pc0_x40_gh9)
+    -   [如何扩容系统盘？](#section_wdn_d4r_fhb)
+    -   [系统盘扩容之后是否支持再缩容？](#section_iiz_k8i_vkr)
+    -   [所有块存储都支持系统盘扩容吗？有地域限制吗？](#section_cbz_pdh_fhb)
+    -   [包年包月和按量付费的ECS实例都支持扩容系统盘吗？](#section_tjd_xqr_fhb)
+    -   [系统盘的容量范围是多少？最大能扩容到多少？](#section_nx3_xqr_fhb)
+    -   [云服务器ECS续费变配后，不支持更换系统盘时指定系统盘容量吗？](#section_k1m_xqr_fhb)
+    -   [如何利用快照创建云盘实现无损扩容数据盘？](#section_idx_soz_yoe)
+    -   [为什么Linux系统ECS实例扩容云盘提示Bad magic number in super-block while trying to open /dev/xvdb1？](#section_td6_w72_q3x)
+-   分区操作问题
+    -   [数据盘能否再次划分出一个分区用作数据存储？](#section_ppz_43v_fhb)
+    -   [划分了多个分区的云盘，做快照时是针对该分区的，还是针对云盘的？](#section_q5b_p3v_fhb)
+    -   [云盘二次分区有哪些注意事项？](#section_nx1_3mv_fhb)
+-   回滚云盘问题
+    -   [数据盘进行二次分区后，此时回滚快照后，数据盘是几个分区？](#section_nyd_3mv_fhb)
+    -   [回滚云盘时，报错“执行回滚磁盘需要停止实例，并且确保当前磁盘没有创建中的快照和没有更换过操作系统。”](#section_psz_3vy_ghb)
+-   其他问题
+    -   [如何跨实例拷贝数据？](#section_i3j_nrv_fhb)
+    -   [上一代云盘 - 本地SSD盘相关问题](#section_wfc_2jp_fhb)
+    -   [如何压测ESSD云盘的性能？](#ESSDperfor)
+
 ## 什么是ESSD云盘？ {#section_exq_8tt_oqw .section}
 
 ESSD云盘，又称增强型（Enhanced）SSD云盘，是阿里云推出的超高性能云盘产品。ESSD云盘结合25GE网络和RDMA技术，为您提供单盘高达100万的随机读写能力和更低的单路时延能力。更多详情，请参见[ESSD云盘](cn.zh-CN/块存储/云盘/ESSD云盘.md#)。
@@ -42,7 +128,7 @@ ESSD云盘的性能与容量线性相关，容量越大性能越高。相比SSD�
 -   如果ESSD云盘的性能总和不超过实例规格族所对应的存储I/O能力，实际存储性能以ESSD云盘性能为准。
 -   如果ESSD云盘的性能总和超过了实例规格族所对应的存储I/O能力，实际存储性能以该实例规格对应的存储I/O能力为准。
 
-    例如，当您创建了ecs.g5se.xlarge 16 GiB规格实例后，该实例最大存储IOPS为6万。如果挂载了1块存储I/O能力为2 TiB的ESSD云盘（单盘IOPS为101800），该实例最大存储IOPS只能为6万，而无法达到2 TiB ESSD云盘的101800 IOPS。
+    例如，当您创建了ecs.g5se.xlarge 16GiB规格实例后，该实例最大存储IOPS为6万。如果挂载了1块存储I/O能力为2TiB的ESSD云盘（单盘IOPS为101800），该实例最大存储IOPS只能为6万，而无法达到2TiB ESSD云盘的101800IOPS。
 
 
 云服务器ECS存储增强型实例g5se的规格及性能见下表。
@@ -66,22 +152,18 @@ ESSD云盘的性能与容量线性相关，容量越大性能越高。相比SSD�
 
 您可以在以下可用区申请购买ESSD云盘：
 
--   华北 2（北京）可用区 G
--   华东 2（上海）可用区 E、可用区 F
--   华东 1（杭州）可用区 H、可用区 I
--   华南 1（深圳）可用区 E
--   华北 3（张家口）可用区 A
+-   华北 2（北京）可用区G、可用区F
+-   华东 2（上海）可用区E、可用区F、可用区G
+-   华东 1（杭州）可用区H、可用区I、可用区
+-   华南 1（深圳）可用区E、可用区D
+-   华北 3（张家口）可用区A、可用区B
+-   香港可用区C
+-   印度可用区B
+-   英国（伦敦）可用区B
 
 ## ESSD云盘能挂载到哪些实例规格族上？ {#section_br8_0h3_7d6 .section}
 
 ESSD云盘支持挂载到25GE网络的实例规格族（c5、ic5、g5、r5、g5se）、裸金属服务器实例规格族（ebmhfg5、ebmc4、ebmg5）和企业级异构计算规格族（vgn5i、gn6i、gn6v、gn5、gn5i、gn4、ga1、f1、f3）支持挂载ESSD云盘，其他实例规格族暂不支持。
-
-## 怎么根据应用需求选择可用区？ {#section_vmf_2jp_fhb .section}
-
--   如果您的应用需要高可用性时，建议您将ECS实例创建在不同的可用区内。
--   如果您的ECS实例之间需要低网络访问延时，建议您将ECS实例创建在同一个可用区下。
-
-单独购买的按量付费云盘只能挂载到同一可用区的ECS实例。
 
 ## 我可以使用什么工具测试块存储性能？ {#section_vyv_qlf_4rg .section}
 
@@ -91,15 +173,28 @@ ESSD云盘支持挂载到25GE网络的实例规格族（c5、ic5、g5、r5、g5s
 
 FIO测试工具支持裸盘分区、文件系统两种方式测试I/O性能。如果是直接测试裸盘分区，可能导致裸盘分区中的文件系统元数据被破坏掉，访问该裸盘分区中的文件时会失败，导致实例宕机。使用FIO的文件系统方式测试性能时，不存在上述问题，因此我们推荐使用FIO文件系统的方式测试I/O性能。
 
+## 怎么根据应用需求选择可用区？ {#section_nks_1y2_gcr .section}
+
+-   如果您的应用需要高可用性时，建议您将ECS实例创建在不同的可用区内。
+-   如果您的ECS实例之间需要低网络访问延时，建议您将ECS实例创建在同一个可用区下。
+
+单独购买的按量付费云盘只能挂载到同一可用区的ECS实例。
+
 ## 云盘有哪些常用操作？ {#section_xs4_pdh_fhb .section}
 
 关于云盘的常见操作，请参见以下文档：
 
--   [Windows格式化数据盘](../cn.zh-CN/个人版快速入门/格式化数据盘/Windows格式化数据盘.md#)
+-   [挂载云盘](cn.zh-CN/块存储/云盘/挂载云盘.md#)
 -   [Linux格式化数据盘](../cn.zh-CN/个人版快速入门/格式化数据盘/Linux格式化数据盘.md#)
+-   [Windows格式化数据盘](../cn.zh-CN/个人版快速入门/格式化数据盘/Windows格式化数据盘.md#)
 -   [卸载数据盘](cn.zh-CN/块存储/云盘/卸载数据盘.md#)
 -   [重新初始化云盘](cn.zh-CN/块存储/云盘/重新初始化云盘.md#)
 -   [更换系统盘（非公共镜像）](cn.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)
+-   [更换系统盘（公共镜像）](cn.zh-CN/块存储/云盘/更换系统盘/更换系统盘（公共镜像）.md#)
+-   [在线扩容云盘](cn.zh-CN/块存储/云盘/扩容云盘/在线扩容云盘.md#)
+-   [离线扩容云盘](cn.zh-CN/块存储/云盘/扩容云盘/离线扩容云盘.md#)
+-   [扩展分区和文件系统\_Linux数据盘](cn.zh-CN/块存储/云盘/扩容云盘/扩展分区和文件系统_Linux数据盘.md#)
+-   [扩展分区和文件系统\_Windows](cn.zh-CN/块存储/云盘/扩容云盘/扩展分区和文件系统_Windows.md#)
 
 ## I/O优化是什么概念？能将存量的ECS实例升级为I/O优化的实例吗？ {#section_zxg_r7a_vdt .section}
 
@@ -146,25 +241,19 @@ Linux系统添加数据盘时，按照[Linux格式化数据盘](../cn.zh-CN/个�
 
 ## 什么是共享块存储？ {#section_zjn_40o_nlh .section}
 
-阿里云共享块存储是一种支持多台ECS实例并发读写访问的数据块级存储设备，具备多并发、高性能、高可靠等特性，单块共享块存储最多支持同时挂载到8台ECS实例。
+阿里云共享块存储是一种支持多台ECS实例并发读写访问的数据块级存储设备，具备多并发、高性能、高可靠等特性。更多详情，请参见[共享块存储](cn.zh-CN/块存储/共享块存储.md#)。
 
-挂载共享块存储的操作，请参见视频[挂载共享块存储到多台ECS实例](https://help.aliyun.com/document_detail/54749.html)。
+一块共享块存储最多可以同时挂载到同一地域中同一可用区的八台ECS实例。如果您需要同时挂载到更多ECS实例，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm)申请。
 
 ## 为什么需要共享块存储？ {#section_ayv_l34_hy8 .section}
 
 在传统集群架构中，需要多个计算节点能够访问同一份数据，防止当一个或多个计算节点故障时导致业务中断，保证整个高可用集群对外可以持续提供业务服务。因此，重要的数据文件需要放置在共享块存储上，并通过集群文件系统对共享块存储进行统一管理。在前端多个计算节点并发进行读写访问时，保持数据在多个节点间的一致性。
 
-## 共享块存储如何申请公测资格？ {#section_ucn_dlp_fhb .section}
+## 我什么时候可以购买共享块存储？ {#section_idn_dlp_fhb .section}
 
-共享块存储正处于公测阶段，您需要[申请试用](https://promotion.aliyun.com/ntms/act/vsan.html)。
+共享块存储正在邀测阶段，期间采用按量付费模式，但是免费使用。邀测结束后支持按量付费模式和预付费模式。
 
-申请到公测资格后，在[块存储产品页面](https://www.aliyun.com/product/disk)单击**立即购买**，然后选择地域和可用区来购买共享块存储设备。
-
-## 共享块存储的售卖模式和公测范围 {#section_idn_dlp_fhb .section}
-
-公测期间使用按量付费模式，但是免费使用。公测结束后支持按量付费模式和预付费模式。
-
-公测期间，全地域均支持使用共享块存储。
+邀测期间，全地域均支持使用共享块存储。
 
 ## 共享块存储适用于哪些行业和业务场景？ {#section_xcn_dlp_fhb .section}
 
@@ -177,6 +266,15 @@ Linux系统添加数据盘时，按照[Linux格式化数据盘](../cn.zh-CN/个�
 正确使用共享块存储的方式是采用集群文件系统进行块设备的统一管理，例如GFS、GPFS等。典型Oracle RAC业务场景中推荐采用ASM统一管理存储卷和文件系统。
 
 如果只是将共享块存储挂载到多台ECS实例，但依旧使用常规文件系统来管理时，会造成存储空间分配冲突和数据文件不一致两个问题，具体如下：
+
+-   存储空间分配冲突
+
+    实例A在写入文件时，会查询文件系统和可用的存储空间，写入文件后会修改实例A上的空间分配记录，但不会修改其他实例的空间分配记录。如果随后实例B也写入了文件，可能会再次分配实例A已分配的存储空间，造成存储空间分配冲突。
+
+-   业务数据不一致
+
+    实例A在读取文件时，会记录在缓存中，实例A上另一个进程访问同样的文件时就首先读取缓存数据。如果期间实例B修改了同样的文件数据，而实例A无法感知，依旧从缓存中读取数据，造成业务数据不一致。
+
 
 ## 可以跨地域挂载共享块存储吗？ {#section_adn_dlp_fhb .section}
 
@@ -255,27 +353,7 @@ FIO -direct=1 -iodepth=64 -rw=read -ioengine=libaio -bs=64k -size=1G -numjobs=1 
 
 ## 为Linux实例购买了数据盘，但是系统中看不到怎么办？ {#section_7hm_z6c_ttx .section}
 
-如果是单独购买的按量付费数据盘，您需要[分区格式化](../cn.zh-CN/个人版快速入门/格式化数据盘/Linux格式化数据盘.md#)、[挂载](cn.zh-CN/块存储/云盘/挂载云盘.md#)后才能使用和看到空间。
-
-## 单独购买的按量付费数据盘如何收费？ {#section_v4m_b2r_fhb .section}
-
-按量收取费用，如果账号余额不足，会停止该数据盘的服务。
-
-## 为什么我单独创建的云盘和我的实例一起释放了？ {#section_bjw_8f4_ju1 .section}
-
-单独创建了数据盘后，在挂载时可以选择该云盘是否随实例释放。您可以随时通过控制台或API更改这个选项。
-
-## 单独购买的按量付费数据盘能够挂载到包年包月实例上吗？ {#section_xtp_b2r_fhb .section}
-
-可以。
-
-## 包年包月实例上的数据盘能卸载吗？ {#section_tsb_3gr_fhb .section}
-
-包年包月实例不支持直接卸载数据盘。数据盘到期时间和实例一致，随实例一起释放。如果想要释放数据盘，您可以先将预付费数据盘转换为按量付费数据盘，再卸载并释放数据盘。如何转换云盘的计费方式，请参见[转换云盘的计费方式](cn.zh-CN/块存储/云盘/转换云盘的计费方式.md#)。
-
-## 我已经操作过续费变配，在续费变配期内是否还能将预付费云盘转为按量付费云盘？ {#section_nql_jnr_fhb .section}
-
-不能。您可以等到续费变配期结束后，再选择续费变配，转化为按量付费云盘。
+如果是单独购买的按量付费数据盘，您需要分区格式化、挂载后才能使用和看到空间。详情请参见[Linux格式化数据盘](../cn.zh-CN/个人版快速入门/格式化数据盘/Linux格式化数据盘.md#)和[挂载云盘](cn.zh-CN/块存储/云盘/挂载云盘.md#)。
 
 ## 一台实例能挂载多少块云盘？ {#section_hl8_hn5_p3n .section}
 
@@ -298,9 +376,29 @@ FIO -direct=1 -iodepth=64 -rw=read -ioengine=libaio -bs=64k -size=1G -numjobs=1 
 
 不能卸载系统盘，但您可以更换系统盘。详情请参见[更换系统盘（非公共镜像）](cn.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)。
 
+## 单独购买的按量付费数据盘如何收费？ {#section_v4m_b2r_fhb .section}
+
+按量收取费用，如果账号余额不足，会停止该数据盘的服务。
+
+## 为什么我单独创建的云盘和我的实例一起释放了？ {#section_bjw_8f4_ju1 .section}
+
+单独创建了数据盘后，在挂载时可以选择该云盘是否随实例释放。您可以随时通过控制台或API更改这个选项。
+
+## 单独购买的按量付费数据盘能够挂载到包年包月实例上吗？ {#section_xtp_b2r_fhb .section}
+
+可以。
+
+## 包年包月实例上的数据盘能卸载吗？ {#section_tsb_3gr_fhb .section}
+
+包年包月实例不支持直接卸载数据盘。数据盘到期时间和实例一致，随实例一起释放。如果想要释放数据盘，您可以先将预付费数据盘转换为按量付费数据盘，再卸载并释放数据盘。如何转换云盘的计费方式，请参见[转换云盘的计费方式](cn.zh-CN/块存储/云盘/转换云盘的计费方式.md#)。
+
+## 我已经操作过续费变配，在续费变配期内是否还能将预付费云盘转为按量付费云盘？ {#section_nql_jnr_fhb .section}
+
+不能。您可以等到续费变配期结束后，再选择续费变配，转化为按量付费云盘。
+
 ## 删除云盘的时候，快照会被保留吗？ {#section_a41_mgr_fhb .section}
 
-手动快照不会被删除。自动快照是否会被删除，取决于您是否设置了**自动快照随磁盘释放**，详情请参见[自动快照随云盘释放](../cn.zh-CN/快照/使用快照/使用自动快照策略.md#section_jdf_rwy_ngb)。
+手动快照不会被删除。自动快照是否会被删除，取决于您是否设置了**自动快照随磁盘释放**。详情请参见[自动快照随云盘释放](../cn.zh-CN/快照/使用快照/使用自动快照策略.md#section_jdf_rwy_ngb)。
 
 ## 为什么我的云盘没有自动快照了？ {#section_jvf_shr_fhb .section}
 
@@ -321,7 +419,7 @@ FIO -direct=1 -iodepth=64 -rw=read -ioengine=libaio -bs=64k -size=1G -numjobs=1 
     -   如果挂载在同一目录，先挂载的云盘会被后挂载的云盘替换，导致数据无法访问。建议将其中一块云盘挂载到另外一个目录下。
     -   如果没有挂载在同一个目录下，但挂载信息仍显示在同一目录，使用ll命令查看挂载的两个目录是否存在连接。如果存在连接，建议用mkdir命令新建一个目录挂载，并测试是否能访问数据。
 
-## 重启ECS Linux实例后数据丢失怎么办？ {#section_xyy_bb8_gma .section}
+## 重启Linux系统ECS实例后数据丢失怎么办？ {#section_xyy_bb8_gma .section}
 
 问题现象：重启实例后发现/alidata目录所有数据丢失。
 
@@ -343,7 +441,7 @@ FIO -direct=1 -iodepth=64 -rw=read -ioengine=libaio -bs=64k -size=1G -numjobs=1 
 
 不会。手动快照和自动快照都不会丢失。
 
-## 重启ECS Linux实例或者初始化系统后数据盘不见了怎么办？ {#section_eja_zx1_w6o .section}
+## 重启Linux系统ECS实例或者初始化系统后数据盘不见了怎么办？ {#section_eja_zx1_w6o .section}
 
 问题现象：Linux实例重启或初始化系统之后，再登录实例器运行`df -h`查看云盘挂载，发现数据不见了。
 
@@ -365,7 +463,7 @@ FIO -direct=1 -iodepth=64 -rw=read -ioengine=libaio -bs=64k -size=1G -numjobs=1 
 
 操作完成后，再重启实例，不会再出现数据盘未加载的情况。但是，下一次再初始化系统之后仍旧需要执行上述操作。
 
-## Linux实例重新初始化系统盘后如何重新挂载数据盘？ {#section_vaw_x75_0rr .section}
+## Linux系统ECS实例重新初始化系统盘后如何重新挂载数据盘？ {#section_vaw_x75_0rr .section}
 
 在Linux实例中，重新初始化系统盘不会改变数据盘里的内容，但是数据盘的挂载信息会丢失，因此重启Linux实例后，请参考以下步骤创建新的挂载点信息并挂载数据盘分区。
 
@@ -388,7 +486,7 @@ FIO -direct=1 -iodepth=64 -rw=read -ioengine=libaio -bs=64k -size=1G -numjobs=1 
 
 ## 更换系统盘应该注意什么问题？ {#section_pc0_x40_gh9 .section}
 
-更换系统盘之前要创建快照和自定义镜像。在创建快照和自定义镜像时，请确保系统盘有足够的空间，建议预留1 GiB的空间，否则更换系统盘后，系统可能无法正常启动。
+更换系统盘之前要创建快照和自定义镜像。在创建快照和自定义镜像时，请确保系统盘有足够的空间，建议预留1GiB的空间，否则更换系统盘后，系统可能无法正常启动。
 
 系统盘价格请参见[云服务器ECS详细价格总览](https://www.aliyun.com/price/product#/ecs/detail)。
 
@@ -429,7 +527,7 @@ FIO -direct=1 -iodepth=64 -rw=read -ioengine=libaio -bs=64k -size=1G -numjobs=1 
 7.  运行umount命令卸载单独购买的数据盘。
 8.  登录ECS控制台，从实例上卸载这块单独购买的数据盘，并释放它。
 
-## ECS Linux扩容云盘提示Bad magic number in super-block while trying to open /dev/xvdb1 {#section_td6_w72_q3x .section}
+## 为什么Linux系统ECS实例扩容云盘提示Bad magic number in super-block while trying to open /dev/xvdb1？ {#section_td6_w72_q3x .section}
 
 -   问题现象
 
@@ -547,11 +645,11 @@ FIO -direct=1 -iodepth=64 -rw=read -ioengine=libaio -bs=64k -size=1G -numjobs=1 
     ``` {#test100w.sh}
     function RunFio
     {
-     numjobs=$1  # 实例中的测试线程数，如示例中的 8
-     iodepth=$2  # 同时发出I/O数的上限，如示例中的 64
-     bs=$3       # 单次I/O的块文件大小，如示例中的 4K
-     rw=$4       # 测试时的读写策略，如示例中的 randwrite
-     filename=$5 # 指定测试文件的名称，如示例中的 /dev/vdb
+     numjobs=$1  # 实例中的测试线程数，如示例中的8
+     iodepth=$2  # 同时发出I/O数的上限，如示例中的64
+     bs=$3       # 单次I/O的块文件大小，如示例中的4K
+     rw=$4       # 测试时的读写策略，如示例中的randwrite
+     filename=$5 # 指定测试文件的名称，如示例中的/dev/vdb
      nr_cpus=`cat /proc/cpuinfo |grep "processor" |wc -l`
      if [ $nr_cpus -lt $numjobs ];then
          echo “Numjobs is more than cpu cores, exit!”
@@ -584,7 +682,7 @@ FIO -direct=1 -iodepth=64 -rw=read -ioengine=libaio -bs=64k -size=1G -numjobs=1 
     -   直接测试裸盘会破坏文件系统结构。如果云盘上的数据丢失不影响业务，可以设置`filename=[设备名，如本示例中的/dev/vdb]`。否则，请设置为`filename=[具体的文件路径，比如/mnt/test.image]`。
 5.  运行`sh test100w.sh`开始测试ESSD云盘性能。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10111/156263955642181_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10111/156281407042181_zh-CN.png)
 
 
 脚本解读：
