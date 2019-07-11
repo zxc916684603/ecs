@@ -37,7 +37,7 @@ For more information, see [Elastic Compute Service](https://www.alibabacloud.com
 
 The following figure shows the architecture of ECS components. For more information about the functional components in the figure, see the related documentation.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/156283664448636_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/156283682148636_en-US.png)
 
 ## Pricing {#section_vq5_brj_ydb .section}
 
