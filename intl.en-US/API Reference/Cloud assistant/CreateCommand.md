@@ -15,7 +15,6 @@ Creates a cloud assistant command.
         -   After an invocation times out, the state of the invocation record \([InvokeRecordStatus](~~64845~~)\) becomes Failed.
         -   The timeout of last invocation does not affect the next invocation.
 -   You can use the WorkingDir parameter to specify the invocation path of the command. For Linux-based instances, the default path is /root. For Windows-based instances, the default path is the one where the cloud assistant client process is located, such as C:\\ProgramData\\aliyun\\assist\\$\(version\).
--   You can create up to 100 cloud assistant commands in a region. You can also [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to adjust the upper limit.
 -   You can enable variables in a script by setting EnableParameter to true. Cloud assistant supports the format of `{{&(parameter)}}` in the CommandContent parameter, while you run the script via the InvokeCommand method, you can enter the value of variables. Imagine that you create a script of `echo {{name}}`, then you can set the Parameter to <name,Jack\> and the like in the InvokeCommand method, in the actual invocation, the cloud assistant uses `echo Jack`.
 
 ## Debugging {#apiExplorer .section}
@@ -29,7 +28,7 @@ You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=CreateCommand
 |CommandContent|String|Yes|ZWNobyAxMjM=| The Base64-encoded content of the command. When you specify the Type parameter, you must specify this parameter. The parameter value must be Base64-encoded for transmission, and the size of the script after the Base64 encoding cannot exceed 16 KB.
 
  |
-|Name|String|Yes|Test| The name of the command, which supports all the character sets. It can be a maximum of 30 characters in length.
+|Name|String|Yes|Test| The name of the command, which supports all the character sets. It can be a maximum of 128 characters in length.
 
  |
 |RegionId|String|Yes|cn-hangzhou| The ID of the region. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
@@ -45,7 +44,7 @@ You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=CreateCommand
 |Action|String|No|CreateCommand| The operation that you want to perform. Set the value to CreateCommand.
 
  |
-|Description|String|No|Test1| The description of the command, which supports all character sets. It can be a maximum of 100 characters in length.
+|Description|String|No|Test1| The description of the command, which supports all character sets. It can be a maximum of 512 characters in length.
 
  |
 |EnableParameter|Boolean|No|false|Whether to use variables in a script or not. Default value: false.|
