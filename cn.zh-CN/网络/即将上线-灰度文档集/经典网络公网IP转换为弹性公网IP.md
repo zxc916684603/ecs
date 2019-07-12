@@ -29,9 +29,9 @@
 4.  找到目标经典网络类型ECS实例，选择释放方式。 
     -   如果您要释放一台预付费实例：在**操作**列中，选择**释放**。
     -   如果您要释放一台按量付费实例：在**操作**列中，选择**更多** \> **实例状态** \> **释放设置**。
-5.  选择**立即释放**，勾选**保留经典网络公网IP并将其转换为弹性公网IP（未绑定实例的弹性公网IP会产生配置费用）**，并单击**保留经典网络公网IP并将其转换为弹性公网IP（未绑定实例的弹性公网IP会产生配置费用）**。 
+5.  选择**立即释放**，勾选**保留经典网络公网IP并将其转换为弹性公网IP（未绑定实例的弹性公网IP会产生配置费用）**，并单击**下一步**。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/855866/156289587951065_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/855866/156290801951065_zh-CN.png)
 
 6.  单击**确定**。
 
@@ -41,7 +41,7 @@
 2.  在左侧导航栏，单击**弹性公网IP**。
 3.  查看新增的EIP地址。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/855866/156289587951066_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/855866/156290801951066_zh-CN.png)
 
 
 经典网络公网IP转换为EIP后，您可以绑定EIP到ECS实例。详情请参见[绑定ECS实例](../../../../../cn.zh-CN/用户指南/绑定云资源/绑定ECS实例.md#)。
