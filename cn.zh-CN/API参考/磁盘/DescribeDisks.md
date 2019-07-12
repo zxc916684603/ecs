@@ -1,6 +1,6 @@
 # DescribeDisks {#doc_api_Ecs_DescribeDisks .reference}
 
-查询您已经创建的磁盘。
+调用DescribeDisks查询您已经创建的磁盘。
 
 ## 接口说明 {#description .section}
 
@@ -39,7 +39,7 @@
 -   local\_hdd\_pro：吞吐密集型本地盘
 -   ephemeral：本地磁盘
 -   ephemeral\_ssd：本地SSD盘
--   cloud\_essd：ESSD云盘。
+-   cloud\_essd：ESSD云盘
 
  默认值：all
 
