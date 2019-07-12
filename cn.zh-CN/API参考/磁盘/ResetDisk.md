@@ -1,6 +1,6 @@
-# ResetDisk {#doc_api_1030729 .reference}
+# ResetDisk {#doc_api_Ecs_ResetDisk .reference}
 
-使用磁盘的历史快照回滚至某一阶段的磁盘状态。
+调用ResetDisk使用磁盘的历史快照回滚至某一阶段的磁盘状态。
 
 ## 接口说明 {#description .section}
 
@@ -28,11 +28,8 @@
 |Action|String|否|ResetDisk|系统规定参数。取值：ResetDisk
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
 
- |
-
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -76,7 +73,10 @@ https://ecs.aliyuncs.com/?Action=ResetDisk
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
+|404|InvalidDiskId.NotFound|The specified disk does not exist.|指定的磁盘不存在。请您检查磁盘 ID 是否正确。|
 |404|Disk.NotFound|The specified disk does not exist.|指定的磁盘不存在，请您检查磁盘是否正确。|
+|404|InvalidSnapshotId.NotFound|The specified SnapshotId does not exist.|指定的快照不存在，请您检查快照是否正确。|
+|403|IncorrectDiskStatus|The current disk status does not support this operation.|当前的磁盘不支持此操作，请您确认磁盘处于正常使用状态，是否欠费。|
 |403|IncorrectInstanceStatus|The current status of the resource does not support this operation.|该资源目前的状态不支持此操作。|
 |403|InstanceLockedForSecurity|The instance is locked due to security.|您的资源被安全锁定，拒绝操作。|
 |403|InvalidParameter.Mismatch|The specified snapshot is not created from the specified disk.|指定的快照不是该磁盘的快照。|
@@ -84,10 +84,15 @@ https://ecs.aliyuncs.com/?Action=ResetDisk
 |403|InstanceExpiredOrInArrears|The specified operation is denied as your prepay instance is expired \(prepay mode\) or in arrears \(afterpay mode\).|包年包月实例已过期，请您续费后再进行操作。|
 |403|OperationDenied|The specified snapshot dees not support ResetDisk.|指定的快照不支持重置磁盘。|
 |403|InvalidSnapshotId.NotReady|The specified snapshot has not completed yet.|指定的快照未完成。|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
+|400|DiskCategory.OperationNotSupported|The operation is not supported to the specified disk due to its disk category|由于磁盘种类限制，指定的磁盘不支持该操作。|
 |403|InvalidAccountStatus.NotEnoughBalance|Your account does not have enough balance.|账号余额不足，请您先充值再进行该操作。|
+|403|InvalidAccountStatus.SnapshotServiceUnavailable|Snapshot service has not been opened yet.|快照服务未开通，操作无法执行。|
+|404|InvalidInstanceId.NotFound|The specified InstanceId does not exist.|指定的实例不存在，请您检查实例ID是否正确。|
 |403|Operation.Conflict|The operation may conflicts with others.|该操作与其他操作冲突。|
 |403|UserNotInTheWhiteList|The user is not in disk white list.|您暂时不能使用该磁盘服务。|
+|400|InvalidRegionId.MalFormed|The specified RegionId is not valid|指定的 RegionId 不合法。|
 |500|InternalError|The request processing has failed due to some unknown error, exception or failure.|发生未知错误。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
