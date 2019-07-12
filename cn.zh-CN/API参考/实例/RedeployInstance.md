@@ -1,6 +1,6 @@
 # RedeployInstance {#doc_api_Ecs_RedeployInstance .reference}
 
-当ECS实例收到系统事件通知时，RedeployInstance可以重新部署这台实例。
+当ECS实例收到系统事件通知时，调用RedeployInstance可以重新部署这台实例。
 
 ## 接口说明 {#description .section}
 
@@ -32,13 +32,15 @@ RedeployInstance为异步调用接口，会重启迁移实例。重新部署成�
 |Action|String|否|RedeployInstance|接口名称。对于您自行拼凑HTTP/HTTPS URL发起的API请求，`Action`为必选参数。取值：RedeployInstance
 
  |
-|ForceStop|Boolean|否|false|是否强制停止运行中（Running）的实例。默认值：false
+|ForceStop|Boolean|否|false|是否强制停止运行中（Running）的实例。
+
+ 默认值：false。
 
  **说明：** 强制停止等同于典型的服务器断电关机，实例操作系统中暂未写入磁盘的数据会丢失。建议您尽量对已停止实例做重新部署操作。
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -98,5 +100,5 @@ https://ecs.aliyuncs.com/?Action=RedeployInstance
 |403|InstanceExpiredOrInArrears|The specified operation is denied as your prepay instance is expired \(prepay mode\) or in arrears \(afterpay mode\).|包年包月实例已过期，请您续费后再进行操作。|
 |403|IncorrectInstanceStatus|%s|实例当前的状态不支持该操作。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
