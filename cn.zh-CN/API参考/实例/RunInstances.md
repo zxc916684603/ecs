@@ -187,19 +187,27 @@
 -   optimized：I/O优化
 
  |
-|NetworkInterface.N.PrimaryIpAddress|String|否|172.16.236.\*\*\*|弹性网卡的主IP地址。
+|NetworkInterface.N.PrimaryIpAddress|String|否|172.16.236.\*\*\*|添加一张辅助弹性网卡并设置主IP地址。N的取值范围为1。
+
+ **说明：** 创建ECS实例时，您最多能添加一张辅助网卡。实例创建成功后，您可以调用[CreateNetworkInterface](~~58504~~)和[AttachNetworkInterface](~~58515~~)添加更多的辅助网卡。
+
+ 默认值：从网卡所属的交换机网段中随机选择一个IP地址。
 
  |
-|NetworkInterface.N.VSwitchId|String|否|vsw-vswitchid2|弹性网卡所属的虚拟交换机ID。
+|NetworkInterface.N.VSwitchId|String|否|vsw-vswitchid2|辅助弹性网卡所属的虚拟交换机ID。N的取值范围为1。
+
+ 默认值：ECS实例所属的虚拟交换机。
 
  |
-|NetworkInterface.N.SecurityGroupId|String|否|sg-securitygroupid2|弹性网卡所属的安全组ID。
+|NetworkInterface.N.SecurityGroupId|String|否|sg-securitygroupid2|辅助弹性网卡所属的安全组ID。N的取值范围为1。
+
+ 默认值：实例所属的安全组。
 
  |
-|NetworkInterface.N.NetworkInterfaceName|String|否|FinanceJoshua|弹性网卡名称。
+|NetworkInterface.N.NetworkInterfaceName|String|否|FinanceJoshua|辅助弹性网卡名称。N的取值范围为1。
 
  |
-|NetworkInterface.N.Description|String|否|FinanceDept|弹性网卡的描述。长度为2~256个英文或中文字符，不能以 http:// 和 https:// 开头。
+|NetworkInterface.N.Description|String|否|FinanceDept|辅助弹性网卡的描述。N的取值范围为1。长度为2~256个英文或中文字符，不能以http://和https://开头。
 
  |
 |RamRoleName|String|否|FinanceDept|实例RAM角色名称。您可以使用RAM API [ListRoles](~~28713~~)查询您已创建的实例RAM角色。
@@ -356,23 +364,6 @@
 |ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken**只支持ASCII字符，且不能超过64个字符。更多详情，请参见[如何保证幂等性](~~25693~~)。
 
  |
-|Affinity|String|否|default|专有宿主机实例是否与专有宿主机关联。取值范围：
-
- -   default：实例不与专有宿主机关联。已开启停机不收费功能的实例，停机后再次启动时，若原专有宿主机可用资源不足，则实例被放置在自动部署资源池的其它专有宿主机上。
--   host：实例与专有宿主机关联。已开启停机不收费功能的实例，停机后再次启动时，仍放置在原专有宿主机上。若原专有宿主机可用资源不足，则实例重启失败。
-
- 默认值：default
-
- |
-|DataDisk.N.PerformanceLevel|String|否|PL2|创建ESSD云盘作为数据盘使用时，设置云盘的性能等级。N的取值必须和`DataDisk.N.Category=cloud_essd`中的N保持一致。取值范围：
-
- -   PL1（默认）：单盘最高随机读写IOPS 5万。
--   PL2：单盘最高随机读写IOPS 10万。
--   PL3：单盘最高随机读写IOPS 100万。
-
- 有关如何选择ESSD性能等级，请参见[ESSD云盘](~~122389~~)。
-
- |
 |SecurityGroupIds.N|RepeatList|否|sg-bp15ed6xe1yxeycg7o\*\*\*|将实例同时加入多个安全组。N的取值范围与实例能够加入安全组上限有关，更多详情，请参见[安全组限制](~~101348~~)。
 
  **说明：** 不支持同时指定SecurityGroupId和SecurityGroupIds.N。
@@ -385,6 +376,23 @@
 -   PL3：单盘最高随机读写IOPS 100万。
 
  有关如何选择ESSD性能等级，请参见[ESSD云盘](~~122389~~)。
+
+ |
+|DataDisk.N.PerformanceLevel|String|否|PL2|创建ESSD云盘作为数据盘使用时，设置云盘的性能等级。N的取值必须和`DataDisk.N.Category=cloud_essd`中的N保持一致。取值范围：
+
+ -   PL1（默认）：单盘最高随机读写IOPS 5万。
+-   PL2：单盘最高随机读写IOPS 10万。
+-   PL3：单盘最高随机读写IOPS 100万。
+
+ 有关如何选择ESSD性能等级，请参见[ESSD云盘](~~122389~~)。
+
+ |
+|Affinity|String|否|default|专有宿主机实例是否与专有宿主机关联。取值范围：
+
+ -   default：实例不与专有宿主机关联。已开启停机不收费功能的实例，停机后再次启动时，若原专有宿主机可用资源不足，则实例被放置在自动部署资源池的其它专有宿主机上。
+-   host：实例与专有宿主机关联。已开启停机不收费功能的实例，停机后再次启动时，仍放置在原专有宿主机上。若原专有宿主机可用资源不足，则实例重启失败。
+
+ 默认值：default
 
  |
 |Tenancy|String|否|default|是否在专有宿主机上创建实例。取值范围：
