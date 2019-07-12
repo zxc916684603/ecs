@@ -1,6 +1,6 @@
 # RunInstances {#doc_api_Ecs_RunInstances .reference}
 
-创建一台或多台按量付费或者预付费（包年包月）ECS实例。
+调用RunInstances创建一台或多台按量付费或者预付费（包年包月）ECS实例。
 
 ## 接口说明 {#description .section}
 
@@ -187,7 +187,7 @@
 -   optimized：I/O优化
 
  |
-|NetworkInterface.N.PrimaryIpAddress|String|否|172.16.236.14X|弹性网卡的主IP地址。
+|NetworkInterface.N.PrimaryIpAddress|String|否|172.16.236.\*\*\*|弹性网卡的主IP地址。
 
  |
 |NetworkInterface.N.VSwitchId|String|否|vsw-vswitchid2|弹性网卡所属的虚拟交换机ID。
@@ -285,7 +285,7 @@
  **说明：** 该属性仅适用于按量付费实例，且只能限制手动释放操作，对系统释放操作不生效。
 
  |
-|AutoReleaseTime|String|否|2018-01-01T12:05:00Z|自动释放时间。按照[ISO8601](~~25696~~)标准表示，并需要使用UTC +0时间。格式为：yyyy-MM-ddTHH:mm:ssZ。
+|AutoReleaseTime|String|否|2018-01-01T12:05:00Z|自动释放时间。按照[ISO8601](~~25696~~)标准表示，使用UTC +0时间。格式为：yyyy-MM-ddTHH:mm:ssZ。
 
  -   如果秒（`ss`）取值不是`00`，则自动取为当前分钟（`mm`）开始时。
 -   最短释放时间为当前时间半小时之后。
@@ -364,7 +364,27 @@
  默认值：default
 
  |
+|DataDisk.N.PerformanceLevel|String|否|PL2|创建ESSD云盘作为数据盘使用时，设置云盘的性能等级。N的取值必须和`DataDisk.N.Category=cloud_essd`中的N保持一致。取值范围：
+
+ -   PL1（默认）：单盘最高随机读写IOPS 5万。
+-   PL2：单盘最高随机读写IOPS 10万。
+-   PL3：单盘最高随机读写IOPS 100万。
+
+ 有关如何选择ESSD性能等级，请参见[ESSD云盘](~~122389~~)。
+
+ |
 |SecurityGroupIds.N|RepeatList|否|sg-bp15ed6xe1yxeycg7o\*\*\*|将实例同时加入多个安全组。N的取值范围与实例能够加入安全组上限有关，更多详情，请参见[安全组限制](~~101348~~)。
+
+ **说明：** 不支持同时指定SecurityGroupId和SecurityGroupIds.N。
+
+ |
+|SystemDisk.PerformanceLevel|String|否|PL1|创建ESSD云盘作为系统盘使用时，设置云盘的性能等级。取值范围：
+
+ -   PL1（默认）：单盘最高随机读写IOPS 5万。
+-   PL2：单盘最高随机读写IOPS 10万。
+-   PL3：单盘最高随机读写IOPS 100万。
+
+ 有关如何选择ESSD性能等级，请参见[ESSD云盘](~~122389~~)。
 
  |
 |Tenancy|String|否|default|是否在专有宿主机上创建实例。取值范围：
@@ -376,7 +396,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -629,7 +649,6 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |400|InvalidPeriod.ExceededDedicatedHost|Instance expired date can't exceed dedicated host expired date.|实例的自动订阅时长不能晚于专有宿主机订阅时长。|
 |400|InvalidInstanceType.ValueUnauthorized|The specified InstanceType is not authorize.|您未被授权使用该实例规格。|
 |400|DedicatedHostType.Unmatched|The specified DedicatedHostType doesn?t match the instance type.|抢占是实例不支持该实例规格。|
-|400|LackResource|There's no enough resource on the specified dedicated host.|专有宿主机的资源使用空间已满。|
 |400|MissingParameter|The input parameter ImageId that is mandatory for processing this request is not supplied.|缺失必需参数。|
 |400|MissingParameter|The input parameter InstanceType that is mandatory for processing this request is not supplied.|缺失必需参数。|
 |400|ChargeTypeViolation.PostPaidDedicatedHost|Prepaid instance onto postpaid dedicated host is not allowed.|专有宿主机不支持更换计费方式。|
@@ -663,9 +682,7 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |400|IncorrectImageStatus|The specified marketplace image is not available.|指定的市场镜像不可用。|
 |403|InsufficientBalance|Your account does not have enough balance.|账户余额不足，请先充值再操作。|
 |400|InvalidInstanceType.ValueNotSupported|The specified InstanceType does not exist or beyond the permitted range.|指定的实例规格不支持。|
-|400|InvalidDedicatedHost.NotEnoughResource|No dedicated host is available.|无可用的专有宿主机。|
 |400|InvalidParam.Tenancy|The specified Tenancy is invalid.|您指定的Tenancy参数值无效。|
-|400|LackResource|A dedicated host with sufficient available resources cannot be found.|无法找到具有足够可用资源的专有宿主机。|
 |403|MaxEniIpv6IpsCountExceeded|%s|弹性网卡挂载 IPv6 个数达到上限。|
 |403|InvalidIp.IpRepeated|%s|指定的 IP 重复。|
 |403|InvalidIp.IpAssigned|%s|指定的 IP 已被分配。|
@@ -679,7 +696,6 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |403|Forbidden.RegionId|%s|前区域暂不支持此功能。|
 |400|IncorrectVpcStatus|The current status of vpc does not support this operation.|VPC当前的状态不支持该操作。|
 |403|QuotaExceed.DeploymentSetInstanceQuotaFull|instance quota in one deployment set exceeded.|当前部署集内的实例数量已满额。|
-|403|InvalidChargeType.ValueNotSupported|The operation is not permitted due to deletion protection only support postPaid instance|仅按量付费实例支持释放保护。|
 |403|InvalidRegion.NotSupport|The specified region does not support byok.|该地域不支持BYOK。|
 |403|UserNotInTheWhiteList|The user is not in byok white list.|您暂时不能使用BYOK服务。|
 |400|InvalidParameter.EncryptedIllegal|The specified parameter Encrypted must be true when kmsKeyId is not empty.|设置KmsKeyId后，您必须开启加密属性。|
@@ -689,6 +705,7 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |403|SecurityRisk.3DVerification|We have detected a security risk with your default credit or debit card. Please proceed with verification via the link in your email.|您的支付方式有安全风险，请根据通知指导排查。|
 |400|Duplicate.TagKey|The Tag.N.Key contain duplicate key.|标签键中存在重复的键。|
 |404|InvalidSecurityGroupId.NotFound|%s|指定的安全组ID不存在。|
+|404|InvalidDiskIds.NotPortable|The specified DiskId is not portable.|指定的磁盘是不可移植的。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
