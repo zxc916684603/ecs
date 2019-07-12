@@ -4,7 +4,7 @@ This topic provides a complete list of Alibaba Cloud regions and zones.
 
 Regions in Alibaba Cloud are independent. Zones in Alibaba Cloud are completely isolated. However, zones in the same region are connected through links with low latency. The following figure shows the relationship between regions and zones in Alibaba Cloud.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13778/155551159044660_en-US.jpg)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13778/156289803744660_en-US.jpg)
 
 ## Regions {#section_ug5_k5k_xdb .section}
 
@@ -17,12 +17,13 @@ Alibaba Cloud regions are physical locations \(data centers\) that spread all ov
     |Region name|City|Region ID|Number of zones|
     |-----------|----|---------|---------------|
     |China North 1|Qingdao|cn-qingdao|2|
-    |China North 2|Beijing|cn-beijing|7|
+    |China North 2|Beijing|cn-beijing|8|
     |China North 3|Zhangjiakou|cn-zhangjiakou|2|
     |China North 5|Hohhot|cn-huhehaote|2|
     |China East 1|Hangzhou|cn-hangzhou|8|
     |China East 2|Shanghai|cn-shanghai|6|
     |China South 1|Shenzhen|cn-shenzhen|5|
+    |China SW 1|Chengdu|cn-chengdu|1|
 
 -   International regions
 
@@ -33,7 +34,7 @@ Alibaba Cloud regions are physical locations \(data centers\) that spread all ov
     |Asia Pacific SE 2|Sydney|ap-southeast-2|2|
     |Asia Pacific SE 3|Kuala Lumpur|ap-southeast-3|2|
     |Asia Pacific SE 5|Jakarta|ap-southeast-5|2|
-    |Asia Pacific SOU 1|Mumbai |ap-south-1|2|
+    |Asia Pacific SOU 1|Mumbai|ap-south-1|2|
     |Asia Pacific NE 1|Tokyo|ap-northeast-1|2|
     |US West 1|Silicon Valley|us-west-1|2|
     |US East 1|Virginia|us-east-1|2|
@@ -81,7 +82,7 @@ When choosing a region, consider the following factors:
 
     -   If your company is located in Beijing, choose the **China North 2** region for the ECS instance you have purchased.
     -   If your company is located in Guangdong, choose the **China South 1** region for the ECS instance you have purchased.
-    **Note:** The communications administrations in different provinces, autonomous regions, and municipalities have different approval requirements for business license filing. In case of any change, the information published on the business license filing website of your local administration prevails. For the different approval requirements, see [provincial communications administrations](../../../../reseller.en-US/ICP Filing Procedures/ICP Commercial License filing links.md#).
+    **Note:** The communications administrations in different provinces, autonomous regions, and municipalities have different approval requirements for business license filing. In case of any change, the information published on the business license filing website of your local administration prevails.
 
 
 ## Zones {#section_gfh_z5k_xdb .section}
@@ -92,6 +93,4 @@ Intranet communication can take place between instances in different zones of th
 
 -   If your applications require high disaster recovery capabilities, we recommend that you deploy your instances in different zones of the same region.
 -   If your applications require low network latency between instances, we recommend that you create your instances in the same zone.
-
-For more information about regions and zones, see the [Alibaba Cloud Global Infrastructure](https://www.alibabacloud.com/global-locations).
 
