@@ -4,7 +4,7 @@ Snapshots are the state of system data at a certain time point, and are used for
 
 ## Parameter settings {#section_yzd_gfw_wdb .section}
 
-One account can create up to 100 automatic snapshot policies in one region. For more information about how to create automatic snapshot policies, see [create and delete an automatic snapshot policy](../../../../reseller.en-US/User Guide/Snapshots/Create and delete an automatic snapshot policy.md#). Parameters for creating automatic snapshot policies are described as follows:
+One account can create up to 100 automatic snapshot policies in one region. For more information about how to create automatic snapshot policies, see [create and delete an automatic snapshot policy](../../../../reseller.en-US/Snapshots/Use snapshots/Roll back a disk by using a snapshot.md#). Parameters for creating automatic snapshot policies are described as follows:
 
 -   Policy name: Name of an automatic snapshot policy, which is a string of 2−128 characters. The name must start with an uppercase or lowercase letter or a Chinese character, and can contain numbers and special characters, including periods \(.\), underscores \(\_\), and hyphens \(-\).
 -   Creation time: You can create a snapshot at any of the 24 time points each day. The value ranges from 00:00 to 23:00.
@@ -25,5 +25,5 @@ You can set the snapshot retention time appropriately based on characteristics o
 
 ## Costs {#section_c12_gfw_wdb .section}
 
-Now, snapshots are free of charge.
+Snapshots are charged based on the storage capacity they occupied. Therefore, if the number of snapshots saved is large, more storage capacity is occupied and the snapshot cost increases. To reduce unnecessary snapshot costs, see [Billing of snapshots](../../../../reseller.en-US/Pricing/Billing of snapshots.md#).
 
