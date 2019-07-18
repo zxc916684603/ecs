@@ -17,7 +17,7 @@ To create an instance by using an image located in a different region, you must 
 
 ## Image types and billing methods {#section_9op_qir_5qk .section}
 
-ECS images are classified into public images, custom images, shared images, and Marketplace images, according to the image source. For information about image types and billing methods, see [EN-US\_TP\_9572.md\#](reseller.en-US/Images/Images镜像概述.md#).
+ECS images are classified into public images, custom images, shared images, and Marketplace images, according to the image source. For information about image types and billing methods, see [Image overview](reseller.en-US/Images/Image overview.md#section_nyg_r5w_ydb).
 
 ## Operating system {#section_x1t_f35_hhb .section}
 
@@ -41,7 +41,7 @@ You must select an operating system \(OS\) during instance creation.
     -   Supporting MySQL and other databases \(you need to manually install a database first.\)
  |
 
-    Alibaba Cloud provides a list of public images that run Windows or Linux/Unix-like OS. For more information, see [Overview of public images](reseller.en-US/.md#).
+    Alibaba Cloud provides a list of public images that run Windows or Linux/Unix-like OS. For more information, see [Overview of public images](reseller.en-US/Images/Public image/Public images.md#).
 
 -   **Considerations for Windows**
 
@@ -114,10 +114,10 @@ You must select an operating system \(OS\) during instance creation.
 
 ## Built-in software {#section_0r4_eja_g94 .section}
 
-Alibaba Cloud Marketplace images are typically provided pre-installed with a running environment and software applications that you can apply to target ECS instances as needed. For more information, see [EN-US\_TP\_9711.md\#](reseller.en-US/Images/Marketplace images.md#).
+Alibaba Cloud Marketplace images are typically provided pre-installed with a running environment and software applications that you can apply to target ECS instances as needed. For more information, see [Marketplace images](reseller.en-US/Images/Marketplace images.md#).
 
 ## What to do next {#section_jv8_z0k_out .section}
 
 -   Use a target image to create instances. For more information, see [Create an instance by using the wizard](../../../../reseller.en-US/Instances/Create an instance/Create an instance by using the wizard.md#).
--   Use a target image to change the operating system of a current image. For more information, see [EN-US\_TP\_9640.md\#](reseller.en-US/Images/Change the operating system.md#).
+-   Use a target image to change the operating system of a current image. For more information, see [Change the operating system](reseller.en-US/Images/Change the operating system.md#).
 
