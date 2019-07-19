@@ -29,7 +29,7 @@ MySQL Proxy is a simple program that is situated between your client and MySQL s
 
 MySQL Proxy principle
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351458513249_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351790813249_en-US.png)
 
 MySQL Proxy is an intermediate-layer proxy that acts as a connection pool to forward connection requests from the front-end application to the back-end database. By using the lua script, MySQL Proxy can perform complex connection control and filtering to implement read/write split and load balancing. MySQL Proxy is transparent to the application, which only needs to be connected to the listening port of MySQL Proxy. In this case, the proxy server may be considered as a Single Point of Failure \(SPOF\), but the use of multiple proxy servers implements redundancy. Therefore, you only need to configure multiple proxy connections in the connection pool of the application server.
 
@@ -94,7 +94,7 @@ flush privileges;
 mysql> show master status;
 ```
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351458513250_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351790913250_en-US.png)
 
 5. Configure the secondary database.
 
@@ -109,7 +109,7 @@ start slave;
 show slave status\G
 ```
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351458613251_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351790913251_en-US.png)
 
 7. Verify master/slave synchronization.
 
@@ -123,7 +123,7 @@ mysql> insert into testproxy.test1 values(2,'two');
 mysql> select * from testproxy.test1;
 ```
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351458613252_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351790913252_en-US.png)
 
 **Operations on the secondary database** 
 
@@ -133,7 +133,7 @@ Search the secondary database for the data of the testproxy.test1 table. If the 
 select * from testproxy.test1;
 ```
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351458613253_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351790913253_en-US.png)
 
 ## Configure read/write split {#section_o2g_sw5_hfb .section}
 
@@ -156,7 +156,7 @@ select * from testproxy.test1;
     mysql-proxy -V
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351458613254_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351790913254_en-US.png)
 
 3.  Set the read-write split parameters.
 
@@ -169,11 +169,11 @@ select * from testproxy.test1;
 
     Before the modification
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351458713255_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351790913255_en-US.png)
 
     After the modification
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351458713256_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351791013256_en-US.png)
 
 4.  Copy the lua administration script \(admin.lua\) to the directory where the read-write split script \(rw-splitting.lua\) is located.
 
@@ -204,13 +204,13 @@ select * from testproxy.test1;
     netstat -tpln
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351458713257_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351791013257_en-US.png)
 
     ``` {#codeblock_wq8_f4n_g0y}
     ps -ef | grep mysql
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351458713258_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351791013258_en-US.png)
 
 
 ## Test read/write split {#section_ffg_sw5_hfb .section}
@@ -228,7 +228,7 @@ select * from testproxy.test1;
     select * from backends;                # View the status.
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351458713259_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351791013259_en-US.png)
 
     The first connection will access the master database.
 
@@ -237,7 +237,7 @@ select * from testproxy.test1;
     insert into testproxy.test1 values(3,'three');             # Add a data record. Slave replication is disabled. Therefore, the record exists in the primary database but does not exist in the secondary database.
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351458713260_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351791013260_en-US.png)
 
     Create additional test connections. If the data displayed in the testproxy.test1 table is the same as that in the secondary database, read/write split is successful.
 
@@ -246,6 +246,6 @@ select * from testproxy.test1;
     select * from testproxy.test1;
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351458713261_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9808/156351791013261_en-US.png)
 
 
