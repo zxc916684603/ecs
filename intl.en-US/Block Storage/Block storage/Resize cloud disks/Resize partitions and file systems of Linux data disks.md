@@ -6,9 +6,9 @@ When you resize cloud disks, only the storage capacity is extended. File systems
 
 Before you resize the partition and file system of a data disk, you must complete the following operations.
 
-1.  [Create a snapshot](intl.en-US/Snapshots/Use snapshots/Create a snapshot.md#) for data backup, to prevent data loss caused by misoperations.
-2.  Use the ECS console or API to [Resize cloud disks offline](intl.en-US/Block Storage/Block storage/Resize cloud disks/Resize cloud disks offline.md#).
-3.  Connect to the ECS instance remotely. For more information about connection methods, see [Methods to connect to an ECS instance](../../../../intl.en-US/Instances/Connect to instances/Overview.md#).
+1.  [Create a snapshot](reseller.en-US/Snapshots/Use snapshots/Create a snapshot.md#) for data backup, to prevent data loss caused by misoperations.
+2.  Use the ECS console or API to [Resize cloud disks offline](reseller.en-US/Block Storage/Block storage/Resize cloud disks/Resize cloud disks offline.md#).
+3.  Connect to the ECS instance remotely. For more information about connection methods, see [Methods to connect to an ECS instance](../../../../reseller.en-US/Instances/Connect to instances/Overview.md#).
 
 ## Check the partition format and the file system type {#section_jdz_a9a_my1 .section}
 
@@ -69,11 +69,11 @@ Select proper operations based on the partition format and file system condition
 -   If the new disk space is used to add new GPT partitions, see [Option 4: Add and format GPT partitions](#).
 
  |
-|A new data disk does not have partitions or file systems.|[Partition and format a data disk](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk of a Linux instance.md#) or [Partition and format data disk more than 2 TiB](intl.en-US/Block Storage/Block storage/Format a data disk/Partition and format data disk more than 2 TiB.md#) after you resize the disk space in the console.|
+|A new data disk does not have partitions or file systems.|[Partition and format a data disk](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk of a Linux instance.md#) or [Partition and format data disk more than 2 TiB](reseller.en-US/Block Storage/Block storage/Format a data disk/Partition and format data disk more than 2 TiB.md#) after you resize the disk space in the console.|
 |A data disk has file systems, but not partitions.|[Resize a file system](#) after you resize the disk space in the console.|
 |A data disk is not attached to any instance.|After you attach the data disk to an instance, perform the steps in this topic to resize the data disk.|
 
-**Note:** If an existing partition of a data disk is created by using MBR, you cannot resize the data disk to greater than or equal to 2 TiB. To prevent data loss, we recommend that you create a cloud disk larger than 2 TiB. Format a GPT partition as specified in [Partition and format data disk more than 2 TiB](intl.en-US/Block Storage/Block storage/Format a data disk/Partition and format data disk more than 2 TiB.md#) and copy the data in the MBR partition to the GPT partition.
+**Note:** If an existing partition of a data disk is created by using MBR, you cannot resize the data disk to greater than or equal to 2 TiB. To prevent data loss, we recommend that you create a cloud disk larger than 2 TiB. Format a GPT partition as specified in [Partition and format data disk more than 2 TiB](reseller.en-US/Block Storage/Block storage/Format a data disk/Partition and format data disk more than 2 TiB.md#) and copy the data in the MBR partition to the GPT partition.
 
 ## Option 1: Resize existing MBR partitions {#section_vvb_gcs_bhm .section}
 
@@ -103,7 +103,16 @@ Step 1: Modify the partition table
     /dev/vdb1 2048 41943039 20970496 83 Linux
     ```
 
-2.  Run the fdisk command to delete the existing partition.
+2.  View the mount path of the data disk. Detach the partition based on the returned file path and wait until the partition is fully detached.
+
+    ``` {#codeblock_b9z_gmj_5um}
+    [root@ecshost ~]# mount | grep "/dev/vdb"
+    /dev/vdb1 on /mnt type ext4 (rw,relatime,data=ordered)
+    [root@ecshost ~]# unmount /dev/vdb1
+    [root@ecshost ~]# mount | grep "/dev/vdb"
+    ```
+
+3.  Run the fdisk command to delete the existing partition.
 
     1.  Run the `fdisk -u /dev/vdb` command to partition the data disk.
     2.  Enter p to display the partition table.
@@ -144,7 +153,7 @@ Step 1: Modify the partition table
     Syncing disks.
     ```
 
-3.  Run the fdisk command to create a partition.
+4.  Run the fdisk command to create a partition.
 
     1.  Run the `fdisk -u /dev/vdb` command to partition the data disk.
     2.  Enter p to display the partition table.
@@ -195,8 +204,8 @@ Step 1: Modify the partition table
     Syncing disks.
     ```
 
-4.  Run the `lsblk /dev/vdb` command to confirm that the partition table has been added.
-5.  Run the `e2fsck -n /dev/vdb1` command to confirm that the file system after the resize operation is in the clean state.
+5.  Run the `lsblk /dev/vdb` command to confirm that the partition table has been added.
+6.  Run the `e2fsck -n /dev/vdb1` command to confirm that the file system after the resize operation is in the clean state.
 
 Step 2: Notify the kernel of updating the partition table
 
@@ -656,6 +665,6 @@ If the newly added disk space is used to add a new GPT partition, perform the fo
 
 ## Related operations {#section_nop_fuk_f6y .section}
 
--   [Extend the file system of the Linux system disk](intl.en-US/Block Storage/Block storage/Resize cloud disks/Extend the file system of the Linux system disk.md#)
--   [Extend a Windows file system](intl.en-US/Block Storage/Block storage/Resize cloud disks/Extend a Windows file system.md#)
+-   [Extend the file system of the Linux system disk](reseller.en-US/Block Storage/Block storage/Resize cloud disks/Extend the file system of the Linux system disk.md#)
+-   [Extend a Windows file system](reseller.en-US/Block Storage/Block storage/Resize cloud disks/Extend a Windows file system.md#)
 
