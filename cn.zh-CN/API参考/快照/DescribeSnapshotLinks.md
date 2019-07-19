@@ -1,6 +1,6 @@
 # DescribeSnapshotLinks {#doc_api_Ecs_DescribeSnapshotLinks .reference}
 
-查询磁盘快照链。快照链是一个磁盘所有快照组成的关系链，一个磁盘对应一条快照链。
+调用DescribeSnapshotLinks查询云盘快照链。快照链是一块云盘所有快照组成的关系链，一块云盘对应一条快照链。
 
 ## 接口说明 {#description .section}
 
@@ -17,19 +17,19 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|RegionId|String|是|cn-hangzhou|磁盘所属于的地域 ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
+|RegionId|String|是|cn-hangzhou|云盘所属于的地域 ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
 
  |
 |Action|String|否|DescribeSnapshotLinks|系统规定参数。取值：DescribeSnapshotLinks
 
  |
-|DiskIds|String|否|\["d-xxxxxxxxx", "d-yyyyyyyyy", … "d-zzzzzzzzz"\]|磁盘 ID。一次最多指定 100 个磁盘 ID。DiskIds 参数取值格式为 JSON 数组，ID 之间用半角逗号（,）隔开。
+|DiskIds|String|否|\["d-xxxxxxxxx", "d-yyyyyyyyy", … "d-zzzzzzzzz"\]|云盘 ID。一次最多指定 100 个云盘 ID。DiskIds 参数取值格式为 JSON 数组，ID 之间用半角逗号（,）隔开。
 
  |
 |InstanceId|String|否|i-instanceid1|实例 ID。
 
  |
-|PageNumber|Integer|否|1|磁盘状态列表的页码。起始值：1
+|PageNumber|Integer|否|1|云盘状态列表的页码。起始值：1
 
  默认值：1
 
@@ -43,7 +43,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -59,28 +59,28 @@
 |SnapshotLinks| | |快照链信息组成的集合
 
  |
-|└InstanceId|String|i-instanceid1|实例ID
+|InstanceId|String|i-instanceid1|实例ID
 
  |
-|└InstanceName|String|FinanceJoshua|实例名称
+|InstanceName|String|FinanceJoshua|实例名称
 
  |
-|└RegionId|String|cn-hangzhou|快照链源磁盘所属地域 ID
+|RegionId|String|cn-hangzhou|快照链源磁盘所属地域 ID
 
  |
-|└SnapshotLinkId|String|sl-2ze0y1jwzpb1geqxk\*\*\*|快照链 ID
+|SnapshotLinkId|String|sl-2ze0y1jwzpb1geqxk\*\*\*|快照链 ID
 
  |
-|└SourceDiskId|String|d-diskid1|源磁盘 ID，如果快照的源磁盘已经被删除，该字段仍旧保留
+|SourceDiskId|String|d-diskid1|源磁盘 ID，如果快照的源磁盘已经被删除，该字段仍旧保留
 
  |
-|└SourceDiskName|String|FinanceJoshua|源磁盘的名称
+|SourceDiskName|String|FinanceJoshua|源磁盘的名称
 
  |
-|└SourceDiskSize|Integer|40|源磁盘容量，单位为 GiB
+|SourceDiskSize|Integer|40|源磁盘容量，单位为 GiB
 
  |
-|└SourceDiskType|String|cloud\_ssd|源磁盘的类型。取值范围：
+|SourceDiskType|String|cloud\_ssd|源磁盘的类型。取值范围：
 
  -   cloud：普通云盘
 -   cloud\_efficiency：高效云盘
@@ -89,10 +89,10 @@
 -   cloud\_essd：ESSD 云盘。
 
  |
-|└TotalCount|Integer|1|快照总个数
+|TotalCount|Integer|1|快照总个数
 
  |
-|└TotalSize|Integer|2097152|快照链中所有快照的大小，单位为 Byte
+|TotalSize|Integer|2097152|快照链中所有快照的大小，单位为 Byte
 
  |
 |TotalCount|Integer|9|快照链总个数
@@ -124,8 +124,8 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshotLinks
 <DescribeSnapshotLinksResponse>
   <SnapshotLinks>
     <SnapshotLink>
-      <SnapshotLinkId>sl-25okbh2pj</SnapshotLinkId>
-      <SourceDiskId>d-25okbh2pj</SourceDiskId>
+      <SnapshotLinkId>sl-25okbh2**</SnapshotLinkId>
+      <SourceDiskId>d-25okbh2**</SourceDiskId>
       <SourceDiskType>data</SourceDiskType>
       <SourceDiskSize>20</SourceDiskSize>
       <RegionId> cn-beijing-btc-a01</RegionId>
@@ -133,8 +133,8 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshotLinks
       <TotalSize>2097152</TotalSize>
     </SnapshotLink>
     <SnapshotLink>
-      <SnapshotLinkId>sl-2ze0y1jwz</SnapshotLinkId>
-      <SourceDiskId>d-2ze0y1jwz</SourceDiskId>
+      <SnapshotLinkId>sl-2ze0y1j**</SnapshotLinkId>
+      <SourceDiskId>d-2ze0y1j**</SourceDiskId>
       <SourceDiskType>system</SourceDiskType>
       <SourceDiskSize>40</SourceDiskSize>
       <RegionId> cn-beijing-btc-a01</RegionId>
@@ -163,19 +163,19 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshotLinks
 			{
 				"TotalCount":1,
 				"SourceDiskType":"data",
-				"SourceDiskId":"d-25okbh2pj",
+				"SourceDiskId":"d-25okbh2**",
 				"RegionId":"cn-beijing-btc-a01",
 				"SourceDiskSize":20,
-				"SnapshotLinkId":"sl-25okbh2pj",
+				"SnapshotLinkId":"sl-25okbh2**",
 				"TotalSize":2097152
 			},
 			{
 				"TotalCount":1,
 				"SourceDiskType":"data",
-				"SourceDiskId":"d-2ze0y1jw",
+				"SourceDiskId":"d-2ze0y1**",
 				"RegionId":"cn-beijing-btc-a01",
 				"SourceDiskSize":40,
-				"SnapshotLinkId":"sl-2ze0y1jwz",
+				"SnapshotLinkId":"sl-2ze0y1j**",
 				"TotalSize":2097152
 			}
 		]
@@ -192,5 +192,5 @@ https://ecs.aliyuncs.com/?Action=DescribeSnapshotLinks
 |400|InvalidDiskIds|The specified diskIds is invalid.|指定的磁盘无效。|
 |500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
