@@ -7,30 +7,30 @@ The cloud assistant client is an agent that is used to run cloud assistant comma
 **Note:** 
 
 -   ECS instances created using public images after December 1, 2017 are pre-installed with the cloud assistant client. For ECS instances created before December 1, 2017, manual installation of the cloud assistant client is required.
--   For ECS instances created using custom images or Alibaba Cloud Marketplace images, refer to [Cloud assistant](../../../../reseller.en-US/Deployment & Maintenance/Cloud assistant/Cloud assistant overview.md#) to check whether your instance type and operating system meet the requirements to install the cloud assistant.
+-   For ECS instances created using custom images or Alibaba Cloud Marketplace images, refer to [Cloud assistant](../reseller.en-US/Deployment & Maintenance/Cloud assistant/Cloud assistant overview.md#) to check whether your instance type and operating system meet the requirements to install the cloud assistant.
 
 See the following steps to install the cloud assistant client for Windows instances:
 
-1.  [Remotely connect to a Windows instance](../../../../reseller.en-US/Instances/Connect to instances/Connect to Windows instances/Connect to a Windows instance.md#).
+1.  [Remotely connect to a Windows instance](../reseller.en-US/Instances/Connect to instances/Connect to Windows instances/Connect to a Windows instance.md#).
 2.  [Download the cloud assistant client](https://repo-aliyun-assist.oss-cn-beijing.aliyuncs.com/download/aliyun_agent_setup.exe).
 3.  Double-click the installation file and follow the instructions to install the client.
 
     **Note:** By default Windows instance installs the cloud assistant client into the C:\\ProgramData\\aliyun\\assist\\ directory.
 
-4.  \(Only classic network-connected instance\) Create a file in the directory where cloud assistant client is installed, set the file name as region-id, any file format is supported. Open the file and write down the region-id where the ECS instance belongs, for example, cn-hangzhou. For more about optional values of regions, see [Regions and zones](../../../../reseller.en-US/General Reference/Regions and zones.md#).
+4.  \(Only classic network-connected instance\) Create a file in the directory where cloud assistant client is installed, set the file name as region-id, any file format is supported. Open the file and write down the region-id where the ECS instance belongs, for example, cn-hangzhou. For more about optional values of regions, see [Regions and zones](../../../../../reseller.en-US/General Reference/Regions and zones.md#).
 
 Based on the operating system of your Linux instances, select one of the following methods to install the cloud assistant client:
 
 -   RPM package installation applicable to operating systems such as CentOS, RHEL, and SUSE Linux:
-    1.  [Remotely connect to a Linux instance](../../../../reseller.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to a Linux instance by using a password.md#).
+    1.  [Remotely connect to a Linux instance](../reseller.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to a Linux instance by using a password.md#).
     2.  Run the `wget https://repo-aliyun-assist.oss-cn-beijing.aliyuncs.com/download/aliyun_assist.rpm` command to download the RPM package of the cloud assistant client.
     3.  Run the `rpm -ivh aliyun_assist.rpm` command to install the cloud assistant client.
-    4.  \(Only classic network-connected instance\) Create a file in the directory where cloud assistant client is installed, set the file name as region-id, any file format is supported. Open the file and write down the region-id where the ECS instance belongs, for example, cn-hangzhou. For more about optional values of regions, see [Regions and zones](../../../../reseller.en-US/General Reference/Regions and zones.md#).
+    4.  \(Only classic network-connected instance\) Create a file in the directory where cloud assistant client is installed, set the file name as region-id, any file format is supported. Open the file and write down the region-id where the ECS instance belongs, for example, cn-hangzhou. For more about optional values of regions, see [Regions and zones](../../../../../reseller.en-US/General Reference/Regions and zones.md#).
 -   Debian package installation applicable to operating systems such as Debian and Ubuntu:
     1.  Remotely connect to a Linux instance.
     2.  Run the `wget https://repo-aliyun-assist.oss-cn-beijing.aliyuncs.com/download/aliyun_assist.deb` command to download the cloud assistant client package.
     3.  Run the `dpkg -i aliyun_assist.deb` command to install the cloud assistant client.
-    4.  \(Only classic network-connected instance\) Create a file in the directory where cloud assistant client is installed, set the file name as region-id, any file format is supported. Open the file and write down the region-id where the ECS instance belongs, for example, cn-hangzhou. For more about optional values of regions, see [Regions and zones](../../../../reseller.en-US/General Reference/Regions and zones.md#).
+    4.  \(Only classic network-connected instance\) Create a file in the directory where cloud assistant client is installed, set the file name as region-id, any file format is supported. Open the file and write down the region-id where the ECS instance belongs, for example, cn-hangzhou. For more about optional values of regions, see [Regions and zones](../../../../../reseller.en-US/General Reference/Regions and zones.md#).
 -   Installation through source code compilation:
     1.  Remotely connect to a Linux instance.
     2.  Run the `git clone https://github.com/aliyun/aliyun_assist_client` command to download the source code of the cloud assistant client.
@@ -41,7 +41,7 @@ Based on the operating system of your Linux instances, select one of the followi
 
     5.  Run the `make` command to start compilation.
     6.  Run the `./cmake_install.sh` command to install the cloud assistant client.
-    7.  \(Only classic network-connected instance\) Create a file in the directory where cloud assistant client is installed, set the file name as region-id, any file format is supported. Open the file and write down the region-id where the ECS instance belongs, for example, cn-hangzhou. For more about optional values of regions, see [Regions and zones](../../../../reseller.en-US/General Reference/Regions and zones.md#).
+    7.  \(Only classic network-connected instance\) Create a file in the directory where cloud assistant client is installed, set the file name as region-id, any file format is supported. Open the file and write down the region-id where the ECS instance belongs, for example, cn-hangzhou. For more about optional values of regions, see [Regions and zones](../../../../../reseller.en-US/General Reference/Regions and zones.md#).
 
 **Note:** By default Linux instance installs the cloud assistant client into the following directories:
 
@@ -53,11 +53,11 @@ Based on the operating system of your Linux instances, select one of the followi
 Prerequisites
 
 -   Alibaba Cloud CLI must be installed.
--   You have obtained the region ID of your instance. For more information about the region ID, see [Regions and zones](../../../../reseller.en-US/General Reference/Regions and zones.md#).
+-   You have obtained the region ID of your instance. For more information about the region ID, see [Regions and zones](../../../../../reseller.en-US/General Reference/Regions and zones.md#).
 
 Procedure
 
-1.  Call [DescribeCloudAssistantStatus](../../../../reseller.en-US/API Reference/Cloud assistant/DescribeCloudAssistantStatus.md#) to check whether the cloud assistant client is installed on the instance.
+1.  Call [DescribeCloudAssistantStatus](../reseller.en-US/API Reference/Cloud assistant/DescribeCloudAssistantStatus.md#) to check whether the cloud assistant client is installed on the instance.
 
     ``` {#codeblock_d44_4hy_ttg}
     aliyun ecs DescribeCloudAssistantStatus --RegionId TheRegionId --InstanceId. 1 i-bp1g6zv0ce8ogXXXXXXp --output cols=CloudAssistantStatus
@@ -65,19 +65,19 @@ Procedure
 
     If `CloudAssistantStatus=true` is returned, it indicates that the cloud assistant client has been installed on the instance. Otherwise, go to the next step.
 
-2.  Call [InstallCloudAssistant](../../../../reseller.en-US/API Reference/Cloud assistant/InstallCloudAssistant.md#) to install the cloud assistant client on the instance.
+2.  Call [InstallCloudAssistant](../reseller.en-US/API Reference/Cloud assistant/InstallCloudAssistant.md#) to install the cloud assistant client on the instance.
 
     ``` {#codeblock_tw9_dxq_67s}
     aliyun ecs InstallCloudAssistant --RegionId TheRegionId --InstanceId. 1 i-bp1g6zv0ce8ogXXXXXXp
     ```
 
-3.  Call [RebootInstance](../../../../reseller.en-US/API Reference/Instances/RebootInstance.md#) to restart the instance.
+3.  Call [RebootInstance](../reseller.en-US/API Reference/Instances/RebootInstance.md#) to restart the instance.
 
     ``` {#codeblock_50b_59s_rs7}
     aliyun ecs RebootInstance --RegionId TheRegionId --InstanceId i-bp1g6zv0ce8ogXXXXXXp
     ```
 
-4.  \(Only classic network-connected instance\) Create a file in the directory where cloud assistant client is installed, set the file name as region-id, any file format is supported. Open the file and write down the region-id where the ECS instance belongs, for example, cn-hangzhou. For more about optional values of regions, see [Regions and zones](../../../../reseller.en-US/General Reference/Regions and zones.md#).
+4.  \(Only classic network-connected instance\) Create a file in the directory where cloud assistant client is installed, set the file name as region-id, any file format is supported. Open the file and write down the region-id where the ECS instance belongs, for example, cn-hangzhou. For more about optional values of regions, see [Regions and zones](../../../../../reseller.en-US/General Reference/Regions and zones.md#).
 
 ## Update the client {#section_r34_32x_ydb .section}
 
@@ -86,7 +86,7 @@ The update process of the cloud assistant client runs every hour to query the up
 -   Windows instances: C:\\ProgramData\\aliyun\\assist\\$\{version\}/aliyun\_assist\_update
 -   Linux instances: /usr/local/share/aliyun-assist/$\{version\}/aliyun\_assist\_update
 
-When automatic update fails, you can [create an update command](../../../../reseller.en-US/Deployment & Maintenance/Cloud assistant/Use the cloud assistant/Create a script.md#) or call the [CreateCommand](../../../../reseller.en-US/API Reference/Cloud assistant/CreateCommand.md#) API to update the client at a specified time. This example shows you how to update the client by using a PRM package.
+When automatic update fails, you can [create an update command](../reseller.en-US/Deployment & Maintenance/Cloud assistant/Use the cloud assistant/Create a script.md#) or call the [CreateCommand](../reseller.en-US/API Reference/Cloud assistant/CreateCommand.md#) API to update the client at a specified time. This example shows you how to update the client by using a PRM package.
 
 ``` {#codeblock_ljn_qwp_01m}
 wget https://repo-aliyun-assist.oss-cn-beijing.aliyuncs.com/download/aliyun_assist.rpm
@@ -104,19 +104,19 @@ The update process of the cloud assistant client is enabled by default. The foll
 
 Windows instances
 
-1.  [Remotely connect to a Windows instance](../../../../reseller.en-US/Instances/Connect to instances/Connect to Windows instances/Connect to a Windows instance.md#).
+1.  [Remotely connect to a Windows instance](../reseller.en-US/Instances/Connect to instances/Connect to Windows instances/Connect to a Windows instance.md#).
 2.  Choose **Computer Management** \> **Services and Applications** \> **Services** and locate **AliyunService**.
 
     **Warning:** **AliyunService** is the process name of the cloud assistant client. Stopping **AliyunService** will also stop the cloud assistant client. As a result, ECS instance exceptions may occur and running ECS instances cannot be stopped in the ECS console. Use caution when you stop AliyunService.
 
 3.  Choose **Stop** or **Restart** from the shortcut menu.
 
-    ![](images/5250_en-US_source.png)
+    ![Restart](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9582/15635138565250_en-US.png)
 
 
 Linux instances
 
-1.  [Remotely connect to a Linux instance](../../../../reseller.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to a Linux instance by using a password.md#).
+1.  [Remotely connect to a Linux instance](../reseller.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to a Linux instance by using a password.md#).
 2.  Run the following command to check the version of the cloud assistant client.
 
     ``` {#codeblock_8s6_kwt_1ql}
@@ -184,6 +184,6 @@ Linux instances
 
 -   To explore the open source stack of the cloud assistant client, visit [GitHub aliyun\_assist\_client](https://github.com/aliyun/aliyun_assist_client).
 -   [Cloud assistant overview](reseller.en-US/Deployment & Maintenance/Cloud assistant/Cloud assistant overview.md#)
--   [InvokeCommand](../../../../reseller.en-US/API Reference/Cloud assistant/InvokeCommand.md#)
--   [Use the cloud assistant for automatic O&M](../../../../reseller.en-US/Deployment & Maintenance/Cloud assistant/Use the cloud assistant for automatic O&M.md#)
+-   [InvokeCommand](../reseller.en-US/API Reference/Cloud assistant/InvokeCommand.md#)
+-   [Use the cloud assistant for automatic O&M](../reseller.en-US/Deployment & Maintenance/Cloud assistant/Use the cloud assistant for automatic O&M.md#)
 
