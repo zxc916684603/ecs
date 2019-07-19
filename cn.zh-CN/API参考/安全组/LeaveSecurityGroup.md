@@ -1,6 +1,6 @@
-# LeaveSecurityGroup {#doc_api_1031575 .reference}
+# LeaveSecurityGroup {#doc_api_Ecs_LeaveSecurityGroup .reference}
 
-将一台实例移出指定的安全组。
+调用LeaveSecurityGroup将一台实例移出指定的安全组。
 
 ## 接口说明 {#description .section}
 
@@ -26,11 +26,8 @@
 |Action|String|否|LeaveSecurityGroup|系统规定参数。取值：LeaveSecurityGroup
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
 
- |
-
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -46,7 +43,7 @@
 
 https://ecs.aliyuncs.com/?Action=LeaveSecurityGroup
 &InstanceId=i-instance1
-&SecurityGroupId=F876FF7BA984
+&SecurityGroupId=sg-F876FF7BA9**
 &<公共请求参数>
 
 ```
@@ -74,9 +71,12 @@ https://ecs.aliyuncs.com/?Action=LeaveSecurityGroup
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
+|404|InvalidInstanceId.NotFound|The specified InstanceId does not exist.|指定的实例不存在，请您检查实例ID是否正确。|
 |404|InvalidSecurityGroupId.NotFound|The specified SecurityGroupId does not exist.|指定的安全组在该用户账号下不存在，请您检查安全组id是否正确。|
 |403|IncorrectInstanceStatus|The current status of the resource does not support this operation.|该资源目前的状态不支持此操作。|
+|403|InstanceLockedForSecurity|The specified operation is denied as your instance is locked for security reasons.|实例被安全锁定，指定的操作无法完成。|
+|403|InstanceNotInSecurityGroup|The instance not in the group.|指定的实例不在安全组内。|
 |504|RequestTimeout|The request encounters an upstream server timeout.|上游服务器超时，请求被拒绝。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
