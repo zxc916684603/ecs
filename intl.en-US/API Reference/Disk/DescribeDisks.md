@@ -60,7 +60,7 @@ You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeDisks
  Default value: false.
 
  |
-|DiskChargeType|String|No|PostPai| The billing method of the disk. Valid values:
+|DiskChargeType|String|No|PostPaid| The billing method of the disk. Valid values:
 
  -   PrePaid: Subscription
 -   PostPaid: Pay-As-You-Go
@@ -152,7 +152,7 @@ You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeDisks
 |ResourceGroupId|String|No|rg-resourcegroupid1| The ID of the resource group to which the disk belongs.
 
  |
-|SnapshotId|String|No|s-snaoshotid1| The ID of the snapshot used to create the disk.
+|SnapshotId|String|No|s-snapshotid1| The ID of the snapshot used to create the disk.
 
  |
 |Status|String|No|all| The status of the disk. For more information, see [Basic disk statuses](~~25689~~). Valid values:
@@ -293,12 +293,19 @@ You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeDisks
 |└LockReason|String|security| The reason why the disk is locked.
 
  |
+|└PerformanceLevel|String|PL2| The performance level you select for an ESSD cloud disk. Valid values:
+
+ -   PL1: The maximum random read/write IOPS of a single disk is 50,000.
+-   PL2: The maximum random read/write IOPS of a single disk is 100,000.
+-   PL3: The maximum random read/write IOPS of a single disk is 1,000,000.
+
+ |
 |└Portable|Boolean|false| Indicates whether the disk is detachable. Valid values:
 
  -   true: The disk is an independent basic disk. This type of disk can be attached to or detached from instances within the same zone.
 -   false: The disk is not an independent basic disk. This type of disk is created or released together with the instance it is attached to.
 
- Disks whose Portable attribute is true can be attached \([AttachDisk](~~25515~~)\) or detached \([DetachDisk](~~25516~~)\). The Portable attribute of the following disks is false: system disks of the local, local SSD, basic, and SSD disk categories, and subscription-based basic disks. The Portable attribute of the these disks cannot be modified.
+ Disks whose Portable attribute is true can be attached \([AttachDisk](~~25515~~)\) or detached \([DetachDisk](~~25516~~)\). The Portable attribute of the following disks is false: system disks of the local, local SSD, basic, and SSD disk categories, and subscription-based basic disks. The Portable attribute of these disks cannot be modified.
 
  |
 |└ProductCode|String|jxsc000204| The product code in Alibaba Cloud Marketplace.
@@ -370,7 +377,7 @@ https://ecs.aliyuncs.com/?Action=DescribeDisks
 &DiskType=all
 &Category=all
 &Status=all
-&SnapshotId=s-snaoshotid1
+&SnapshotId=s-snapshotid1
 &Portable=true
 &DeleteWithInstance=false
 &DeleteAutoSnapshot=false
@@ -514,10 +521,10 @@ Successful response examples
 }
 ```
 
-## Error codes {#section_zc3_g5k_73f .section}
+## Errors {#section_zc3_g5k_73f .section}
 
-|HTTP status code|Error code|Error message|Description|
-|----------------|----------|-------------|-----------|
+|HTTP status code|Error code|Error message|Meaning|
+|----------------|----------|-------------|-------|
 |403|InvalidDiskIds.Malformed|The amount of specified disk Ids exceeds the limit.|The error message returned when the specified value of the DiskIds parameter is invalid.|
 |404|InvalidDiskChargeType.NotFound|The DiskChargeType does not exist in our records|The error message returned when the specified disk type does not exist.|
 |400|InvalidTag.Mismatch|The specified Tag.n.Key and Tag.n.Value are not match.|The error message returned when the specified Tag.n.Key parameter does not correspond to the specified Tag.n.Value parameter.|
