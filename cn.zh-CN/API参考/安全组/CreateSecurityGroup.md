@@ -1,6 +1,6 @@
 # CreateSecurityGroup {#doc_api_Ecs_CreateSecurityGroup .reference}
 
-新建一个安全组。新建的安全组，默认只允许安全组内实例互相访问，安全组外的一切通信请求会被拒绝。若您想允许其他安全组实例的通信请求，或者来自互联网的访问请求，需要授权安全组权限（AuthorizeSecurityGroup）。
+调用CreateSecurityGroup新建一个安全组。新建的安全组，默认只允许安全组内实例互相访问，安全组外的一切通信请求会被拒绝。若您想允许其他安全组实例的通信请求，或者来自互联网的访问请求，需要授权安全组权限（AuthorizeSecurityGroup）。
 
 ## 接口说明 {#description .section}
 
@@ -23,7 +23,7 @@
 |Action|String|否|CreateSecurityGroup|系统规定参数。取值：CreateSecurityGroup
 
  |
-|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
+|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken**只支持ASCII字符，且不能超过64个字符。更多详情，请参见[如何保证幂等性](~~25693~~)。
 
  |
 |Description|String|否|FinanceDept|安全组描述信息。长度为2~256个英文或中文字符，不能以 http:// 和 https:// 开头。默认值：空。
@@ -49,26 +49,26 @@
  |
 |Tag.N.key|String|否|FinanceDept|安全组的标签键。
 
- **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Key参数。
+ **说明：** 为提高兼容性，建议您尽量使用Tag.N.Key参数。
 
  |
 |Tag.N.value|String|否|FinanceDeptJoshua|安全组的标签值。
 
- **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Value参数。
+ **说明：** 为提高兼容性，建议您尽量使用Tag.N.Value参数。
 
  |
 |VpcId|String|否|vpc-vpcid1|安全组所属VPC ID。
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
 
  |
-|SecurityGroupId|String|sg-F876FF7BA|安全组 ID。
+|SecurityGroupId|String|sg-F876FF7\*\*|安全组 ID。
 
  |
 
@@ -124,5 +124,5 @@ https://ecs.aliyuncs.com/?Action=CreateSecurityGroup
 |400|InvalidTagValue.Malformed|The specified Tag.n.Value is not valid.|指定的标签值不合法。|
 |403|IdempotentProcessing|The previous idempotent request\(s\) is still processing.|同样clienttoken的请求正在处理中。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
