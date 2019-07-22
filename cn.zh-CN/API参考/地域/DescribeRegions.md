@@ -1,6 +1,6 @@
 # DescribeRegions {#doc_api_Ecs_DescribeRegions .reference}
 
-查询您可以使用的阿里云地域。
+调用DescribeRegions查询您可以使用的阿里云地域。
 
 ## 调试 {#apiExplorer .section}
 
@@ -10,7 +10,7 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|AcceptLanguage|String|否|zh-CN|根据汉语、英语和日语筛选返回结果。更多详情，请参阅 [RFC7231](https://tools.ietf.org/html/rfc7231)。取值范围：
+|AcceptLanguage|String|否|zh-CN|根据汉语、英语和日语筛选返回结果。更多详情，请参见 [RFC7231](https://tools.ietf.org/html/rfc7231)。取值范围：
 
  -   zh-CN：中文
 -   en-US：英文
@@ -22,7 +22,7 @@
 |Action|String|否|DescribeRegions|系统规定参数。取值：DescribeRegions
 
  |
-|InstanceChargeType|String|否|PrePaid|实例的计费方式，更多详情，请参阅 [计费概述](~~25398~~)。取值范围：
+|InstanceChargeType|String|否|PrePaid|实例的计费方式，更多详情，请参见 [计费概述](~~25398~~)。取值范围：
 
  -   PrePaid：预付费，即包年包月。此时，您必须确认自己的账号支持余额支付或者信用支付，否则将报错 InvalidPayMethod。
 -   PostPaid（默认）：按量付费。
@@ -32,23 +32,23 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |Regions| | |地域信息集合
 
  |
-|└LocalName|String|华北 1|地域名称
+|LocalName|String|华北 1|地域名称
 
  |
-|└RegionEndpoint|String|ecs.aliyuncs.com|地域对应的接入地址（Endpoint）
+|RegionEndpoint|String|ecs.aliyuncs.com|地域对应的接入地址（Endpoint）
 
  |
-|└RegionId|String|cn-shanghai-et2-bo1|地域 ID
+|RegionId|String|cn-shanghai-et2-bo1|地域 ID
 
  |
-|└Status|String|available|集群是否售罄，可能值：
+|Status|String|available|集群是否售罄，可能值：
 
  -   available
 -   soldOut
@@ -63,13 +63,11 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=DescribeRegions
 &InstanceChargeType=PrePaid
 &ResourceType=Instance
-&AcceptLanguage=null
+&AcceptLanguage=en-US
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -124,5 +122,5 @@ https://ecs.aliyuncs.com/?Action=DescribeRegions
 |403|Unauthorized.EmptyRegion|The specified account has no access authority to any region.|当前账号未被授权访问任何地域，请您授权后再重试。|
 |404|InvalidAcceptLanguage.NotFound|Only Chinese \(zh-CN\), English \(en-US\), and Japanese \(ja\) are allowed.|不支持指定的语言。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
