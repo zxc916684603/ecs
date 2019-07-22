@@ -1,11 +1,11 @@
-# DescribeDisksFullStatus {#doc_api_1063476 .reference}
+# DescribeDisksFullStatus {#doc_api_Ecs_DescribeDisksFullStatus .reference}
 
-查询一块或多块磁盘的全部状态信息。
+调用DescribeDisksFullStatus查询一块或多块块存储的全部状态信息。
 
-## 描述 {#description .section}
+## 接口说明 {#description .section}
 
--   磁盘的全部状态信息包含磁盘生命周期（Status），磁盘健康状态（HealthStatus）和磁盘事件类型（EventType）。
--   由于磁盘相关事件的发布时间、事件的计划执行时间以及事件的实际执行时间相同，如果指定一段时间 EventTime.Start~EventTime.End，则可以查询这段时间中发生过的所有历史事件。目前，您最多可以查询最近一周的历史事件。
+-   块存储的全部状态信息包含块存储生命周期（Status），块存储健康状态（HealthStatus）和块存储事件类型（EventType）。
+-   由于块存储相关事件的发布时间、事件的计划执行时间以及事件的实际执行时间相同，如果指定一段时间 EventTime.Start~EventTime.End，则可以查询这段时间中发生过的所有历史事件。目前，您最多可以查询最近一周的历史事件。
 
 ## 调试 {#apiExplorer .section}
 
@@ -15,13 +15,13 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|RegionId|String|是|cn-hangzhou|磁盘所在地域ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
+|RegionId|String|是|cn-hangzhou|块存储所在地域ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
 
  |
 |Action|String|否|DescribeDisksFullStatus|系统规定参数。取值：DescribeDisksFullStatus
 
  |
-|DiskId.N|RepeatList|否|d-disk1|磁盘ID，N的取值范围：1~100。
+|DiskId.N|RepeatList|否|d-disk1|块存储ID，N的取值范围：1~100。
 
  |
 |EventId.N|RepeatList|否|e-event1|事件ID，N的取值范围：1~100。
@@ -33,23 +33,20 @@
 |EventTime.Start|String|否|2018-05-06T02:43:10Z|查询事件发生时间的开始时间。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
  |
-|EventType|String|否|Stalled|指定磁盘的事件类型。取值范围：
+|EventType|String|否|Stalled|指定块存储的事件类型。取值范围：
 
- -   Degraded：磁盘性能降级
--   SeverelyDegraded：磁盘性能严重降级
--   Stalled：磁盘性能受到严重影响
+ -   Degraded：块存储性能降级
+-   SeverelyDegraded：块存储性能严重降级
+-   Stalled：块存储性能受到严重影响
 
  |
-|HealthStatus|String|否|Warning|指定磁盘的健康状态。取值范围：
+|HealthStatus|String|否|Warning|指定块存储的健康状态。取值范围：
 
  -   Impaired：暂时性不可读写
 -   Warning：服务降级
 -   Initializing：初始化中
 -   InsufficientData：数据不足
 -   NotApplicable：不适用
-
- |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
 
  |
 |PageNumber|Integer|否|1|查询结果的页码。取值范围：正整数
@@ -62,7 +59,7 @@
  默认值：10
 
  |
-|Status|String|否|Available|指定磁盘的生命周期状态，参阅 [云盘状态表](~~25689~~)。取值范围：
+|Status|String|否|Available|指定块存储的生命周期状态，参见[云盘状态表](~~25689~~)。取值范围：
 
  -   In\_use：使用中
 -   Available：待挂载
@@ -73,59 +70,59 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|DiskFullStatusSet| | |磁盘全状态数组。
+|DiskFullStatusSet| | |块存储全状态数组。
 
  |
-|└Device|String|/dev/xvdb|磁盘挂载于实例上的设备名，例如 /dev/xvdb。只有在Status为In\_use时才有值，其他状态为空。
+|Device|String|/dev/xvdb|块存储挂载于实例上的设备名，例如 /dev/xvdb。只有在Status为In\_use时才有值，其他状态为空。
 
  |
-|└DiskEventSet| | |磁盘事件数组。
+|DiskEventSet| | |块存储事件数组。
 
  |
-|└EventEndTime|String|2018-05-06T02:48:52Z|事件结束时间。
+|EventEndTime|String|2018-05-06T02:48:52Z|事件结束时间。
 
  |
-|└EventId|String|e-event1|磁盘事件ID。
+|EventId|String|e-event1|块存储事件ID。
 
  |
-|└EventTime|String|2018-05-08T02:43:10Z|事件发生时间。
+|EventTime|String|2018-05-08T02:43:10Z|事件发生时间。
 
  |
-|└EventType| | |事件类型。
+|EventType| | |事件类型。
 
  |
-|└Code|Integer|7|事件类型代码。
+|Code|Integer|7|事件类型代码。
 
  |
-|└Name|String|Stalled|事件类型名称。
+|Name|String|Stalled|事件类型名称。
 
  |
-|└DiskId|String|d-disk1|磁盘ID。
+|DiskId|String|d-disk1|块存储ID。
 
  |
-|└HealthStatus| | |磁盘健康状态。
+|HealthStatus| | |块存储健康状态。
 
  |
-|└Code|Integer|128|磁盘健康状态代码。
+|Code|Integer|128|块存储健康状态代码。
 
  |
-|└Name|String|Impaired|磁盘健康状态名称。
+|Name|String|Impaired|块存储健康状态名称。
 
  |
-|└InstanceId|String|i-instance1|实例ID。
+|InstanceId|String|i-instance1|实例ID。
 
  |
-|└Status| | |磁盘生命周期状态。
+|Status| | |块存储生命周期状态。
 
  |
-|└Code|Integer|129|磁盘生命周期状态代码。
+|Code|Integer|129|块存储生命周期状态代码。
 
  |
-|└Name|String|Available|磁盘生命周期状态名称。
+|Name|String|Available|块存储生命周期状态名称。
 
  |
 |PageNumber|Integer|1|ECS实例列表页码。
@@ -300,6 +297,8 @@ https://ecs.aliyuncs.com/?Action=DescribeDisksFullStatus
 |403|DiskIdLimitExceeded|%s|指定的DiskId个数不得超过100个。|
 |403|EventIdLimitExceeded|%s|一次最多能指定100个模拟事件ID。|
 |403|InvalidParameter.TimeEndBeforeStart|%s|结束时间不得早于开始时间。|
+|403|OperationDenied.NotInWhiteList|%s|无权限执行此操作。|
+|403|TooManyDiskEvent.DiskIdRequired|%s|磁盘事件过多，请指定DiskId进行查询。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
