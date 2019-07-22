@@ -1,8 +1,8 @@
 # CreateSimulatedSystemEvents {#doc_api_Ecs_CreateSimulatedSystemEvents .reference}
 
-为一台或多台ECS实例预约模拟系统事件。模拟系统事件相当于事件演习，不会真正执行事件，也不会对ECS实例产生影响。
+调用CreateSimulatedSystemEvents为一台或多台ECS实例预约模拟系统事件。模拟系统事件相当于事件演习，不会真正执行事件，也不会对ECS实例产生影响。
 
-## 描述 {#description .section}
+## 接口说明 {#description .section}
 
 预约模拟事件后，您可以通过ECS管理控制台、[ECS API](~~63962~~) 和云监控服务查看已经预约的模拟系统事件。
 
@@ -40,15 +40,12 @@
 |Action|String|否|CreateSimulatedSystemEvents|系统规定参数。取值：CreateSimulatedSystemEvents
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
 
- |
-
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|EventIdSet| |e-xhskHun1256xxxx|模拟事件ID（EventId）列表。
+|EventIdSet| |e-xhskHun1256\*\*\*\*|模拟事件ID（EventId）列表。
 
  |
 |RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
@@ -108,5 +105,5 @@ https://ecs.aliyuncs.com/?Action=CreateSimulatedSystemEvents
 |403|SimulatedEventLimitExceeded|%s|已达到可设置模拟事件的个数上限。|
 |403|InstanceIdLimitExceeded|%s|指定的InstanceId个数不得超过100个。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
