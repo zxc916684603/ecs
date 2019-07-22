@@ -1,6 +1,6 @@
 # GetInstanceConsoleOutput {#doc_api_Ecs_GetInstanceConsoleOutput .reference}
 
-获取一台实例的系统命令行输出，数据以Base64编码后返回。
+调用GetInstanceConsoleOutput获取一台实例的系统命令行输出，数据以Base64编码后返回。
 
 ## 接口说明 {#description .section}
 
@@ -26,7 +26,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -61,7 +61,7 @@ http://ecs-cn-hangzhou.aliyuncs.com/?Action=GetInstanceConsoleOutput
 ``` {#xml_return_success_demo}
 <GetInstanceConsoleOutputResponse>
   <RequestId>22A1933F-AD02-4560-A6A7-53CF2231D942</RequestId>
-  <InstanceId>i-j5e42sbbthlokka11ech</InstanceId>
+  <InstanceId>i-j5e42sbbthlokka11***</InstanceId>
   <LastUpdateTime>2018-03-22 10:04:57</LastUpdateTime>
   <ConsoleOutput>V2VsY29tZSB0byBDZW50T1MgCgpDaGVja2luZyBmaWxlc3lzdGVtcwpDaGVja2luZyBhbGwgZmlsZSBzeXN0ZW1zLgpbL3NiaW4vZnNjay5leHQ0ICgxKSAtLSAvXSBmc2NrLmV4dDQgLWEgL2Rldi92ZGExIAovZGV2L3ZkYTE6IGNsZWFuLCAzMjAxNi8yNjIxNDQwIGZpbGVzLCA0NDc5NzQvMTA0ODU1MDQgYmxvY2tzCgpFbnRlcmluZyBub24taW50ZXJhY3RpdmUgc3RhcnR1cApDYWxsaW5nIHRoZSBzeXN0ZW0gYWN0aXZpdHkgZGF0YSBjb2xsZWN0b3IgKHNhZGMpLi4uIAoKQnJpbmdpbmcgdXAgaW50ZXJmYWNlIGV0aDA6ICAKRGV0ZXJtaW5pbmcgSVAgaW5mb3JtYXRpb24gZm9yIGV0aDAuLi4gZG9uZS4KCmFsaXl1bi1zZXJ2aWNlIHN0YXJ0L3J1bm5pbmcsIHByb2Nlc3MgMTczMwpmaW5pc2hlZAoKQ2VudE9TIHJlbGVhc2UgNi44IChGaW5hbCkKS2VybmVsIDIuNi4zMi02OTYuMy4yLmVsNi5pNjg2IG9uIGFuIGk2ODYKCmlaMnplZDk2ZTQ2MmF5cjBxemw2czhaIGxvZ2luOg==</ConsoleOutput>
 </GetInstanceConsoleOutputResponse>
@@ -73,7 +73,7 @@ http://ecs-cn-hangzhou.aliyuncs.com/?Action=GetInstanceConsoleOutput
 ``` {#json_return_success_demo}
 {
 	"ConsoleOutput":"V2VsY29tZSB0byBDZW50T1MgCgpDaGVja2luZyBmaWxlc3lzdGVtcwpDaGVja2luZyBhbGwgZmlsZSBzeXN0ZW1zLgpbL3NiaW4vZnNjay5leHQ0ICgxKSAtLSAvXSBmc2NrLmV4dDQgLWEgL2Rldi92ZGExIAovZGV2L3ZkYTE6IGNsZWFuLCAzMjAxNi8yNjIxNDQwIGZpbGVzLCA0NDc5NzQvMTA0ODU1MDQgYmxvY2tzCgpFbnRlcmluZyBub24taW50ZXJhY3RpdmUgc3RhcnR1cApDYWxsaW5nIHRoZSBzeXN0ZW0gYWN0aXZpdHkgZGF0YSBjb2xsZWN0b3IgKHNhZGMpLi4uIAoKQnJpbmdpbmcgdXAgaW50ZXJmYWNlIGV0aDA6ICAKRGV0ZXJtaW5pbmcgSVAgaW5mb3JtYXRpb24gZm9yIGV0aDAuLi4gZG9uZS4KCmFsaXl1bi1zZXJ2aWNlIHN0YXJ0L3J1bm5pbmcsIHByb2Nlc3MgMTczMwpmaW5pc2hlZAoKQ2VudE9TIHJlbGVhc2UgNi44IChGaW5hbCkKS2VybmVsIDIuNi4zMi02OTYuMy4yLmVsNi5pNjg2IG9uIGFuIGk2ODYKCmlaMnplZDk2ZTQ2MmF5cjBxemw2czhaIGxvZ2luOg==",
-	"InstanceId":"i-j5e42sbbthlokka11ech",
+	"InstanceId":"i-j5e42sbbthlokka11***",
 	"RequestId":"22A1933F-AD02-4560-A6A7-53CF2231D942",
 	"LastUpdateTime":"2018-03-22 10:04:57"
 }
@@ -89,5 +89,5 @@ http://ecs-cn-hangzhou.aliyuncs.com/?Action=GetInstanceConsoleOutput
 |405|NotSupported|%s|HPC集群不存在。|
 |429|Throttling|%s|请求被流控。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
