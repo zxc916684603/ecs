@@ -19,9 +19,9 @@ When you purchase an RI, you can specify the payment method, term, and instance 
 
 -   Three payment methods are available:
 
-    All Upfront, Partial Upfront, and No Upfront. For more information, see [Reserved Instance billing](../../../../reseller.en-US/Pricing/Reserved Instance billing.md#).
+    All Upfront, Partial Upfront, and No Upfront. For more information, see [Reserved Instance billing](../../../../reseller.en-US/Pricing/Billing of Reserved Instances.md#).
 
-    **Note:** Your Alibaba Cloud account needs to reach a certain level before you can select No Upfront.
+    **Note:** Whether you can use the No Upfront payment method is determined by your ECS instance resource usage.
 
 -   Two terms are available:
 
@@ -54,17 +54,17 @@ Currently, RIs have the following limits:
 
     -   Number of regional RIs: Each account can have up to 20 regional RIs in all regions.
     -   Number of zonal RIs: Each account can have up to 20 zonal RIs in each zone.
-    For example, in China East 1 \(Hangzhou\) and China North 1 \(Qingdao\), you can purchase 10 regional RIs respectively because the upper limit of regional RIs is 20 per account. In zones B and H of China East 1 \(Hangzhou\), you can purchase up to 20 zonal RIs respectively. If you need more RIs, you can open a ticket.
+    For example, in China \(Hangzhou\) and China \(Qingdao\), you can purchase 10 regional RIs respectively because the upper limit of regional RIs is 20 per account. In zones B and H of China \(Hangzhou\), you can purchase up to 20 zonal RIs respectively. If you need more RIs, you can open a ticket.
 
 -   Matchable instances: RIs only match Pay-As-You-Go instances \(excluding [preemptible instances](../../../../reseller.en-US/Instances/Instance purchasing options/Preemptible instances/Preemptible instances.md#)\).
--   Instance type family: Currently, RIs support the following instance type families: sn1ne, sn2ne, se1ne, ic5, c5, g5, r5, hfc5, hfg5, and t5. For more information, see [Instance type families](reseller.en-US/Instances/Instance type families/Instance type families.md#).
+-   Instance type family: Currently, RIs support the following instance type families: sn1ne, sn2ne, se1ne, ic5, c5, g5, r5, hfc5, hfg5, and t5. For more information, see [Instance type families](reseller.en-US/Instances/Instance type families.md#).
 
-    **Note:** The RIs of [t5 burstable instances](../../../../reseller.en-US/Instances/Instance type families/Burstable instances/Basic concepts.md#) \(t5\) are only available at the zonal level. Additionally, they do not support merging, splitting, or scope changing.
+    **Note:** The RIs of [burstable performance instances](../../../../reseller.en-US/Instances/Instance type families/Burstable performance instances/Basic concepts.md#) are only available at the zonal level. Additionally, they do not support merging, splitting, or scope changing.
 
 
 ## Fees {#section_exj_yvw_dhb .section}
 
-For more information about RI billing, see [Reserved Instance billing](../../../../reseller.en-US/Pricing/Reserved Instance billing.md#).
+For more information about RI billing, see [Reserved Instance billing](../../../../reseller.en-US/Pricing/Billing of Reserved Instances.md#).
 
 ## References {#section_aj4_hc2_ggb .section}
 
@@ -82,7 +82,7 @@ For information on how to use an API to manage RIs, see [ModifyReservedInstances
 
 ## Contact us {#section_xfs_sdz_3hb .section}
 
-If you have any questions when you use RIs, you can scan the following QR code to join the Reserved Instances Service Group for technical support \([Download DingTalk](https://tms.dingtalk.com/markets/dingtalk/download)\).
+If you have any questions when you use RIs, you can scan the following QR code to join the [DingTalk](https://tms.dingtalk.com/markets/dingtalk/download) Reserved Instances Service Group for technical support.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80437/155538596043499_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80437/156375925043499_en-US.png)
 
