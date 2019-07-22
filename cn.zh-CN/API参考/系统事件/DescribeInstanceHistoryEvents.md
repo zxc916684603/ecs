@@ -1,6 +1,6 @@
 # DescribeInstanceHistoryEvents {#doc_api_Ecs_DescribeInstanceHistoryEvents .reference}
 
-查询指定实例的系统事件信息，默认查询处于非活跃状态的历史系统事件。目前，您最多可以查询最近一周的历史系统事件。通过指定InstanceEventCycleStatus参数，可以查询处于Scheduled（计划中）和Executing（执行中）状态的系统事件。
+调用DescribeInstanceHistoryEvents查询指定实例的系统事件信息，默认查询处于非活跃状态的历史系统事件。您最多可以查询最近一周的历史系统事件。通过指定InstanceEventCycleStatus参数，可以查询处于Scheduled（计划中）和Executing（执行中）状态的系统事件。
 
 ## 调试 {#apiExplorer .section}
 
@@ -89,53 +89,53 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |InstanceSystemEventSet| | |实例历史系统事件数组。
 
  |
-|└EventCycleStatus| | |系统事件的生命周期状态。
+|EventCycleStatus| | |系统事件的生命周期状态。
 
  |
-|└Code|Integer|0|系统事件状态代码。
+|Code|Integer|0|系统事件状态代码。
 
  |
-|└Name|String|Executed|系统事件状态名称。
+|Name|String|Executed|系统事件状态名称。
 
  |
-|└EventFinishTime|String|2017-12-01T06:35:31Z|系统事件结束时间。按照[ISO8601](~~25696~~)标准表示，并需要使用UTC +0时间，格式为yyyy-MM-ddTHH:mm:ssZ。
+|EventFinishTime|String|2017-12-01T06:35:31Z|系统事件结束时间。按照[ISO8601](~~25696~~)标准表示，并需要使用UTC +0时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
  |
-|└EventId|String|e-2ze9yxxxxwtqcvai68rx|系统事件ID。
+|EventId|String|e-2ze9yxxxxwtqcvai6\*\*\*|系统事件ID。
 
  |
-|└EventPublishTime|String|2017-11-30T06:32:31Z|系统事件发布时间。按照[ISO8601](~~25696~~)标准表示，并需要使用UTC +0时间，格式为yyyy-MM-ddTHH:mm:ssZ。
+|EventPublishTime|String|2017-11-30T06:32:31Z|系统事件发布时间。按照[ISO8601](~~25696~~)标准表示，并需要使用UTC +0时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
  |
-|└EventType| | |系统事件类型。
+|EventType| | |系统事件类型。
 
  |
-|└Code|Integer|34|系统事件类型代码。
+|Code|Integer|34|系统事件类型代码。
 
  |
-|└Name|String|InstanceExpiration.Stop|系统事件类型名称。
+|Name|String|InstanceExpiration.Stop|系统事件类型名称。
 
  |
-|└ExtendedAttribute| | |事件扩展属性。
+|ExtendedAttribute| | |事件扩展属性。
 
  |
-|└Device|String|/dev/vda|本地盘磁盘设备名。
+|Device|String|/dev/vda|本地盘磁盘设备名。
 
  |
-|└DiskId|String|d-diskid1|本地盘磁盘ID。
+|DiskId|String|d-diskid1|本地盘磁盘ID。
 
  |
-|└InstanceId|String|i-myInstance|实例ID。
+|InstanceId|String|i-myInstance|实例ID。
 
  |
-|└NotBefore|String|2017-12-06T00:00:00Z|系统事件计划执行时间。按照[ISO8601](~~25696~~)标准表示，并需要使用UTC +0时间，格式为yyyy-MM-ddTHH:mm:ssZ。
+|NotBefore|String|2017-12-06T00:00:00Z|系统事件计划执行时间。按照[ISO8601](~~25696~~)标准表示，并需要使用UTC +0时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
  |
 |PageNumber|Integer|1|实例列表页码。
@@ -159,7 +159,7 @@
 https://ecs.aliyuncs.com/?Action=DescribeInstanceHistoryEvents
 &RegionId=cn-hangzhou
 &InstanceId=i-myInstance
-&EventId.1=e-2ze9yxxxxwtqcvai68rl
+&EventId.1=e-2ze9yxxxxwtqcvai6***
 &InstanceEventCycleStatus.1=Executed
 &EventCycleStatus=Executed
 &InstanceEventType.1=SystemMaintenance.Reboot
@@ -181,8 +181,8 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceHistoryEvents
 <DescribeInstanceHistoryEventsResponse>
   <InstanceSystemEventSet>
     <InstanceSystemEventType>
-      <InstanceId>i-2ze3tphuqvc93cixxxx3</InstanceId>
-      <EventId>e-2ze9yxxxxwtqcvai68rl</EventId>
+      <InstanceId>i-2ze3tphuqvc93ci****3</InstanceId>
+      <EventId>e-2ze9y****wtqcvai68rl</EventId>
       <EventType>
         <Code>1</Code>
         <Name>SystemMaintenance.Reboot</Name>
@@ -196,8 +196,8 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceHistoryEvents
       <EventFinishTime>2017-12-01T06:35:31Z</EventFinishTime>
     </InstanceSystemEventType>
     <InstanceSystemEventType>
-      <InstanceId>i-2ze3tphuqvc93cixxxx3</InstanceId>
-      <EventId>e-2ze9yxxxxwtqcvai68r3</EventId>
+      <InstanceId>i-2ze3tphuqvc93ci****3</InstanceId>
+      <EventId>e-2ze9y****wtqcvai68r3</EventId>
       <EventType>
         <Code>34</Code>
         <Name>InstanceExpiration.Stop</Name>
@@ -233,8 +233,8 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceHistoryEvents
 				"EventPublishTime":"2017-11-30T06:32:31Z",
 				"NotBefore":"2017-12-01T06:32:31Z",
 				"EventFinishTime":"2017-12-01T06:35:31Z",
-				"InstanceId":"i-2ze3tphuqvc93cixxxx3",
-				"EventId":"e-2ze9yxxxxwtqcvai68rl",
+				"InstanceId":"i-2ze3tphuqvc93ci****3",
+				"EventId":"e-2ze9y****wtqcvai68rl",
 				"EventType":{
 					"Name":"SystemMaintenance.Reboot",
 					"Code":1
@@ -248,8 +248,8 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceHistoryEvents
 				"EventPublishTime":"2017-11-29T06:32:31Z",
 				"NotBefore":"2017-12-06T00:00:00Z",
 				"EventFinishTime":"2017-12-05T12:35:31Z",
-				"InstanceId":"i-2ze3tphuqvc93cixxxx3",
-				"EventId":"e-2ze9yxxxxwtqcvai68r3",
+				"InstanceId":"i-2ze3tphuqvc93ci****3",
+				"EventId":"e-2ze9y****wtqcvai68r3",
 				"EventType":{
 					"Name":"InstanceExpiration.Stop",
 					"Code":34
@@ -274,5 +274,5 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceHistoryEvents
 |403|InvalidParameter.TimeEndBeforeStart|%s|结束时间不得早于开始时间。|
 |403|OperationDenied.NotInWhiteList|%s|无权限执行此操作。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
