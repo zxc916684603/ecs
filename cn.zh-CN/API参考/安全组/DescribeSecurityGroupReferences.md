@@ -1,6 +1,6 @@
-# DescribeSecurityGroupReferences {#doc_api_1031572 .reference}
+# DescribeSecurityGroupReferences {#doc_api_Ecs_DescribeSecurityGroupReferences .reference}
 
-查询一个安全组和其他哪些安全组有安全组级别的授权行为。
+调用DescribeSecurityGroupReferences查询一个安全组和其他哪些安全组有安全组级别的授权行为。
 
 ## 接口说明 {#description .section}
 
@@ -31,7 +31,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -41,16 +41,16 @@
 |SecurityGroupReferences| | |所有用户指定的安全组被引用的完整信息
 
  |
-|└ReferencingSecurityGroups| | |正在引用这个安全组的其他安全组信息
+|ReferencingSecurityGroups| | |正在引用这个安全组的其他安全组信息
 
  |
-|└AliUid|String|155780923770|这个安全组所属用户 ID
+|AliUid|String|155780923770|这个安全组所属用户 ID
 
  |
-|└SecurityGroupId|String|sg-securitygroupid1|安全组 ID
+|SecurityGroupId|String|sg-securitygroupid1|安全组 ID
 
  |
-|└SecurityGroupId|String|sg-securitygroupid2|对应用户要查询的一个安全组
+|SecurityGroupId|String|sg-securitygroupid2|对应用户要查询的一个安全组
 
  |
 
@@ -59,12 +59,10 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=DescribeSecurityGroupReferences
 &RegionId=cn-hangzhou
-&SecurityGroupId.1=sg-1133aa
+&SecurityGroupId.1=sg-1133**
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -76,14 +74,14 @@ https://ecs.aliyuncs.com/?Action=DescribeSecurityGroupReferences
   <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
   <SecurityGroupReferences>
     <SecurityGroupReference>
-      <SecurityGroupId>sg-1133aa</SecurityGroupId>
+      <SecurityGroupId>sg-1133**</SecurityGroupId>
       <ReferencingSecurityGroups>
         <ReferencingSecurityGroup>
-          <SecurityGroupId>sg-2255cc</SecurityGroupId>
+          <SecurityGroupId>sg-2255**</SecurityGroupId>
           <AliUid>123</AliUid>
         </ReferencingSecurityGroup>
         <ReferencingSecurityGroup>
-          <SecurityGroupId>sg-2255dd</SecurityGroupId>
+          <SecurityGroupId>sg-2256**</SecurityGroupId>
           <AliUid>123</AliUid>
         </ReferencingSecurityGroup>
       </ReferencingSecurityGroups>
@@ -102,11 +100,11 @@ https://ecs.aliyuncs.com/?Action=DescribeSecurityGroupReferences
 		{
 			"SecurityReferencingGroups":[
 				{
-					"SecurityGroupId":"sg-2255cc",
+					"SecurityGroupId":"sg-2255**",
 					"AliUid":123
 				},
 				{
-					"SecurityGroupId":"sg-2255dd",
+					"SecurityGroupId":"sg-2256**",
 					"AliUid":123
 				}
 			],
@@ -121,6 +119,7 @@ https://ecs.aliyuncs.com/?Action=DescribeSecurityGroupReferences
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
 |400|InvalidSecurityGroupId.Malformed|The specified parameter SecurityGroupId is essential and size should less than 10|无效的安全组ID。|
+|404|InvalidSecurityGroupId.NotFound|The SecurityGroupId provided does not exist in our records.|指定的安全组在该用户账号下不存在，请您检查安全组id是否正确。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
