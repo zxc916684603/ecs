@@ -1,6 +1,6 @@
 # ReportInstancesStatus {#doc_api_Ecs_ReportInstancesStatus .reference}
 
-反馈一台或者多台ECS实例的异常问题。您可以反馈多台ECS实例发生的相同问题，也可以反馈一台ECS实例的多块磁盘发生的相同问题。
+调用ReportInstancesStatus反馈一台或者多台ECS实例的异常问题。您可以反馈多台ECS实例发生的相同问题，也可以反馈一台ECS实例的多块磁盘发生的相同问题。
 
 ## 调试 {#apiExplorer .section}
 
@@ -53,7 +53,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -102,5 +102,5 @@ http(s)://ecs.aliyuncs.com/?Action=ReportInstancesStatus
 |403|DiskIdLimitExceeded|%s|指定的DiskId个数不得超过100个。|
 |403|InvalidInstanceId.NotFound|%s|指定的实例不存在。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
