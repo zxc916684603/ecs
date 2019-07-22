@@ -1,6 +1,6 @@
-# DeleteSecurityGroup {#doc_api_1031564 .reference}
+# DeleteSecurityGroup {#doc_api_Ecs_DeleteSecurityGroup .reference}
 
-删除一个安全组。删除安全组之前，请确保安全组内不存在实例，并且没有其他安全组与该安全组有授权行为（DescribeSecurityGroupReferences），否则 DeleteSecurityGroup 请求失败。
+调用DeleteSecurityGroup删除一个安全组。删除安全组之前，请确保安全组内不存在实例，并且没有其他安全组与该安全组有授权行为（DescribeSecurityGroupReferences），否则 DeleteSecurityGroup 请求失败。
 
 ## 调试 {#apiExplorer .section}
 
@@ -19,11 +19,8 @@
 |Action|String|否|DeleteSecurityGroup|系统规定参数。取值：DeleteSecurityGroup
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
 
- |
-
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -36,12 +33,10 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=DeleteSecurityGroup
 &RegionId=cn-hangzhou
-&SecurityGroupId=sg-F876FF7BA
+&SecurityGroupId=sg-F876FF7**
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -65,5 +60,10 @@ https://ecs.aliyuncs.com/?Action=DeleteSecurityGroup
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+|HttpCode|错误码|错误信息|描述|
+|--------|---|----|--|
+|403|DependencyViolation|There is still instance\(s\) in the specified security group.|安全组中还有未释放的实例，请您先释放实例再进行该操作。|
+|403|DependencyViolation|The specified security group has been authorized in another one.|指定的安全组已在另一个组中授权，不允许重复授权。|
+
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
