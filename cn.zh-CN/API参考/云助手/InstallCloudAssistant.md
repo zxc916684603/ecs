@@ -1,6 +1,6 @@
 # InstallCloudAssistant {#doc_api_Ecs_InstallCloudAssistant .reference}
 
-为一台或多台实例安装云助手客户端。
+调用InstallCloudAssistant为一台或多台实例安装云助手客户端。
 
 ## 调试 {#apiExplorer .section}
 
@@ -22,7 +22,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -36,7 +36,7 @@
 
 ``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=InstallCloudAssistant
-&InstanceId.1=["i-bp11f7trr4hbi1xxxxxx", "i-bp1iudwa5b1tqaxxxxxx"]
+&InstanceId.1=["i-bp11f7trr4hbi1******", "i-bp1iudwa5b1tqa******"]
 &RegionId=cn-hangzhou
 &<公共请求参数>
 ```
@@ -67,5 +67,5 @@ https://ecs.aliyuncs.com/?Action=InstallCloudAssistant
 |500|InternalError.Dispatch|An error occurred when you dispatched the request.|发生未知错误。|
 |404|InvalidInstance.NotFound|The specified instance does not exist.|指定的实例不存在。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
