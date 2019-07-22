@@ -1,35 +1,40 @@
 # Overview of configuration changes {#concept_anb_bbf_5db .concept}
 
-You can change the configurations of an instance and its Internet bandwidth after it is created.
+You can change the configurations of an instance and its Internet bandwidth after the instance is created.
 
 ## Upgrade or downgrade instance configurations {#ChangeType .section}
 
-You can only upgrade or downgrade the configurations of vCPU and memory \(that is, [instance type family](../../../../../reseller.en-US/Instances/Instance type families/Instance type families.md#)\) simultaneously by changing the instance type. Depending on the method of billing applied to your instance, you can change an instance type as follows:
+You must upgrade or downgrade the configurations of vCPUs and memory simultaneously by changing the instance type \([instance type family](../../../../reseller.en-US/Instances/Instance type families.md#)\). The following table provides the configuration change methods suitable for the billing method applied to your instance.
 
--   Subscription:
-    -   Upgrade: See [upgrade configurations](reseller.en-US/Instances/Change configurations/Upgrade configurations/Upgrade configurations of Subscription instances.md#). The new configurations take effect after you [restart the instance](reseller.en-US/Instances/ECS instance life cycle/Restart an instance.md#) in the console or by using the [RebootInstance](../../../../../reseller.en-US/API Reference/Instances/RebootInstance.md#) interface.
-    -   Downgrade: See [renewsal for configuration downgrade](../../../../../reseller.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#) . You can downgrade the configuration of an instance when you renew the instance. The new configuration takes effect after you [restart the instance](reseller.en-US/Instances/ECS instance life cycle/Restart an instance.md#) in the ECS console within the first seven days of the new billing cycle.
--   Pay-As-You-Go: See [change configurations of Pay-As-You-Go instances](reseller.en-US/Instances/Change configurations/Change configurations of Pay-As-You-Go instances/Change configurations of Pay-As-You-Go instances.md#). You must stop the instance to use this feature.
+**Note:** Before changing instance configurations, you need to check [instance type families that support instance type upgrades](reseller.en-US/Instances/Change configurations/Instance type families that support instance type upgrades.md#) and confirm the target configuration supported by a specific instance type family.
 
-    **Note:** Stopping an instance disrupts services. Exercise caution when performing this action.
+|Billing method|Configuration upgrade method|How does the change take effect?|Configuration downgrade method|How does the change take effect?|
+|:-------------|:---------------------------|:-------------------------------|:-----------------------------|:-------------------------------|
+|Subscription|[Upgrade configurations of Subscription instances](reseller.en-US/Instances/Change configurations/Upgrade configurations/Upgrade configurations of Subscription instances.md#)|The new configurations take effect after you [restart the instance](reseller.en-US/Instances/Manage instances/Restart an instance.md#) in the ECS console or by calling the API action [RebootInstance](../../../../reseller.en-US/API Reference/Instances/RebootInstance.md#).| -   [Renew for configuration downgrade](../../../../reseller.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#)
+-   [On-demand configuration downgrade](reseller.en-US/Instances/Change configurations/Downgrade configurations/Downgrade configurations of Subscription instances.md#) \(Whether this feature is supported is determined by your ECS instance resource usage.\)
 
+ | -   Renew for configuration downgrade: The new configurations take effect after you [restart the instance](reseller.en-US/Instances/Manage instances/Restart an instance.md#) in the ECS console within the first seven days of the new billing cycle.
+-   On-demand configuration downgrade: The new configurations take effect after you restart the instance in the ECS console or by calling the API action[RebootInstance](../../../../reseller.en-US/API Reference/Instances/RebootInstance.md#).
+
+ |
+|Pay-As-You-Go|[Change configurations of Pay-As-You-Go instances](reseller.en-US/Instances/Change configurations/Change configurations of Pay-As-You-Go instances/Change configurations of Pay-As-You-Go instances.md#)|The new configurations take effect after you restart the instance.|[Change configurations of Pay-As-You-Go instances](reseller.en-US/Instances/Change configurations/Change configurations of Pay-As-You-Go instances/Change configurations of Pay-As-You-Go instances.md#)|The new configurations take effect after you restart the instance.|
 
 ## Adjust Internet bandwidth {#ChangeBandwidth .section}
 
 You can adjust the Internet bandwidth of an instance. The methods vary according to your business needs and the billing method of the instance. The following table lists the methods.
 
-|Billing method |Supports permanent upgrade?|Is it effective immediately? |Available feature |Description|
-|:--------------|:--------------------------|:----------------------------|:-----------------|:----------|
-|Subscription|Yes|Yes|[Upgrade configurations of Subscription instances](reseller.en-US/Instances/Change configurations/Upgrade configurations/Upgrade configurations of Subscription instances.md#)|Only applicable to VPC-Connected ECS instances to which no EIP addresses are attached, or classic network-connected ECS instances. The Internet and intranet IP addresses remain unchanged after you upgrade your configurations.|
-|Subscription|Yes|Effective from next billing cycle|[Renew for configuration downgrade](../../../../../reseller.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#)|Adjust bandwidth in the new billing cycle. When the Internet bandwidth is set to 0 Mbit/s, the Internet IP address of a VPC-Connected instance is released in the new billing cycle, but that of a classic network-connected ECS instance is retained.|
-|Pay-As-You-Go or Subscription|Yes|Yes|[Change EIP Internet bandwidth](reseller.en-US/Instances/Change configurations/Change configurations of Pay-As-You-Go instances/Change EIP Internet bandwidth.md#)|Only applicable to VPC-Connected instances to which [EIP addresses](https://partners-intl.aliyun.com/help/doc-detail/27714.htm) are bound. You can adjust the Internet bandwidth on an EIP address at any time.|
+|Billing method|Supports permanent upgrade?|Does the change take effect immediately?|Feature|Description|
+|:-------------|:--------------------------|:---------------------------------------|:------|:----------|
+|Subscription|Yes|Yes|[Upgrade configurations of Subscription instances](reseller.en-US/Instances/Change configurations/Upgrade configurations/Upgrade configurations of Subscription instances.md#)|Only applicable to VPC-connected ECS instances to which no EIP addresses are attached or classic network-connected ECS instances. The public and private IP addresses remain unchanged after you increase Internet bandwidth of the instance.|
+|Subscription|Yes|Effective from next billing cycle|[Renew for configuration downgrade](../../../../reseller.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#)|You can adjust the Internet bandwidth when you renew the instance. When the Internet bandwidth is reduced to 0 Mbit/s, the public IP address of a VPC-connected instance is released in the new billing cycle, but the public IP address of a classic network-connected ECS instance is retained.|
+|Pay-As-You-Go or Subscription|Yes|Yes|[Change EIP Internet bandwidth](reseller.en-US/Instances/Change configurations/Change configurations of Pay-As-You-Go instances/Change EIP Internet bandwidth.md#)|Only applicable to VPC-connected instances to which [EIP addresses](https://partners-intl.aliyun.com/help/doc-detail/27714.htm) are attached. You can adjust the Internet bandwidth on an EIP address at any time during the current lifecycle of the instance.|
 
 ## Assign a public IP address {#AllocatePublicIp .section}
 
-Assign a public IP address to an ECS instance while [creating it](../../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#). If you skip it, you can even assign after an ECS instance is created. However, the feature is only available for Subscription instances. For more information, see the following table.
+You can assign a public IP address to an ECS instance when you create the instance. If no public IP addresses are assigned at instance creation, you can assign a public IP address after an ECS instance is created \(the instance must be a Subscription instance\). For more information, see the following table.
 
-|Feature|Is it effective immediately?|Description|
-|:------|:---------------------------|:----------|
-|[Upgrade configurations of Subscription instances](reseller.en-US/Instances/Change configurations/Upgrade configurations/Upgrade configurations of Subscription instances.md#)|Yes|Only applicable to VPC-Connected ECS instances to which no EIP addresses are attached, or classic network-connected ECS instances. Set the Internet bandwidth to a non-zero value to assign a public IP address.|
-|[Renew for configuration downgrade](../../../../../reseller.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#)|Effective from next billing cycle|
+|Feature|Does the change take effect immediately?|Description|
+|:------|:---------------------------------------|:----------|
+|[Upgrade configurations of Subscription instances](reseller.en-US/Instances/Change configurations/Upgrade configurations/Upgrade configurations of Subscription instances.md#)|Yes|Only applicable to VPC-connected ECS instances to which no EIP addresses are attached, or classic network-connected ECS instances. Set the Internet bandwidth to a non-zero value to assign a public IP address.|
+|[Renew for configuration downgrade](../../../../reseller.en-US/Pricing/Renew instances/Renew for configuration downgrade.md#)|Effective from next billing cycle|
 
