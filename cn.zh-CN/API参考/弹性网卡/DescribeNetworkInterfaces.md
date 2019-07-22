@@ -1,6 +1,6 @@
 # DescribeNetworkInterfaces {#doc_api_Ecs_DescribeNetworkInterfaces .reference}
 
-查看弹性网卡（ENI）列表。
+调用DescribeNetworkInterfaces查看弹性网卡（ENI）列表。
 
 ## 调试 {#apiExplorer .section}
 
@@ -16,7 +16,7 @@
 |Action|String|否|DescribeNetworkInterfaces|系统规定参数。取值：DescribeNetworkInterfaces
 
  |
-|NetworkInterfaceId.N|RepeatList|否|eni-bp17pdijfczaxZZZZxxxxx|弹性网卡ID。一次最多查看100个。
+|NetworkInterfaceId.N|RepeatList|否|eni-bp17pdijfczaxZZZZ\*\*\*\*\*|弹性网卡ID。一次最多查看100个。
 
  |
 |Tag.N.Key|String|否|test|弹性网卡的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
@@ -28,13 +28,13 @@
 |ResourceGroupId|String|否|rg-resourcegroupid1|资源组ID。
 
  |
-|VSwitchId|String|否|vsw-bp16usj2p27htro3xxxxx|VPC的虚拟交换机ID。
+|VSwitchId|String|否|vsw-bp16usj2p27htro3\*\*\*\*\*|VPC的虚拟交换机ID。
 
  |
-|VpcId|String|否|vsw-bp16usj2p27htro3xxxxx|网卡所属的专有网络VPC ID。
+|VpcId|String|否|vsw-bp16usj2p27htro3\*\*\*\*\*|网卡所属的专有网络VPC ID。
 
  |
-|SecurityGroupId|String|否|sg-bp144yr32sx6ndwxxxxx|安全组ID。
+|SecurityGroupId|String|否|sg-bp144yr32sx6ndw\*\*\*\*\*|安全组ID。
 
  |
 |NetworkInterfaceName|String|否|my-eni-name|弹性网卡的名称。
@@ -46,10 +46,10 @@
 -   Secondary
 
  |
-|InstanceId|String|否|i-bpm21018033933eaxxxxx|弹性网卡当前关联的实例ID。
+|InstanceId|String|否|i-bpm21018033933ea\*\*\*\*\*|弹性网卡当前关联的实例ID。
 
  |
-|PrimaryIpAddress|String|否|172.17.XX.XXX|弹性网卡主私有IP地址。
+|PrimaryIpAddress|String|否|172.17.\*\*.\*\*\*|弹性网卡主私有IP地址。
 
  |
 |PageNumber|Integer|否|1|查询结果的页码。取值为正整数。
@@ -63,97 +63,97 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |NetworkInterfaceSets| | |弹性网卡信息组成的集合
 
  |
-|└AssociatedPublicIp| | |弹性网卡辅助私有IP地址关联的公有 IP
+|AssociatedPublicIp| | |弹性网卡辅助私有IP地址关联的公有 IP
 
  |
-|└AllocationId|String|eip-2ze88m67qx5zxxxxx|EIP的ID
+|AllocationId|String|eip-2ze88m67qx5z\*\*\*\*\*|EIP的ID
 
  |
-|└PublicIpAddress|String|116.62.129.250|实例的公网IP
+|PublicIpAddress|String|116.62.129.250|实例的公网IP
 
  |
-|└CreationTime|String|2017-11-24T06:14:22Z|创建时间
+|CreationTime|String|2017-11-24T06:14:22Z|创建时间
 
  |
-|└Description|String|test1|描述
+|Description|String|test1|描述
 
  |
-|└InstanceId|String|i-instanceId|弹性网卡绑定的实例ID
+|InstanceId|String|i-instanceId|弹性网卡绑定的实例ID
 
  **说明：** 由其他阿里云服务管理和控制的弹性网卡不会返回实例ID。
 
  |
-|└Ipv6Sets| | |为弹性网卡分配的IPv6地址集合。
+|Ipv6Sets| | |为弹性网卡分配的IPv6地址集合。
 
  |
-|└Ipv6Address|String|2001:db8:1234:1a00::XXX|为弹性网卡指定的 IPv6 地址。
+|Ipv6Address|String|2001:db8:1234:1a00::\*\*\*|为弹性网卡指定的 IPv6 地址。
 
  |
-|└MacAddress|String|00:16:3e:0f:XX:XX|弹性网卡的 MAC 地址
+|MacAddress|String|00:16:3e:0f:\*\*:\*\*|弹性网卡的 MAC 地址
 
  |
-|└NetworkInterfaceId|String|eni-bp17pdijfczaxZZZZxxxxx|弹性网卡ID
+|NetworkInterfaceId|String|eni-bp17pdijfczaxZZZZ\*\*\*\*\*|弹性网卡ID
 
  |
-|└NetworkInterfaceName|String|my-eni-name|弹性网卡的名称
+|NetworkInterfaceName|String|my-eni-name|弹性网卡的名称
 
  |
-|└PrivateIpAddress|String|172.17.XX.XXX|实例的私有IP
+|PrivateIpAddress|String|172.17.\*\*.\*\*\*|实例的私有IP
 
  |
-|└PrivateIpSets| | |PrivateIp 组成的集合
+|PrivateIpSets| | |PrivateIp 组成的集合
 
  |
-|└AssociatedPublicIp| | |弹性网卡关联的公有 IP
+|AssociatedPublicIp| | |弹性网卡关联的公有 IP
 
  |
-|└AllocationId|String|eip-2ze88m67qx5zxxxxx|EIP的ID
+|AllocationId|String|eip-2ze88m67qx5z\*\*\*\*\*|EIP的ID
 
  |
-|└PublicIpAddress|String|116.62.129.250|实例的公网IP
+|PublicIpAddress|String|116.62.\*\*.250|实例的公网IP
 
  |
-|└Primary|Boolean|true|是否是主 IP 地址。
+|Primary|Boolean|true|是否是主 IP 地址。
 
  |
-|└PrivateIpAddress|String|172.17.XX.XXX|实例的私有IP
+|PrivateIpAddress|String|172.17.\*\*.\*\*\*|实例的私有IP
 
  |
-|└ResourceGroupId|String|rg-resourcegroupid1|资源组ID
+|ResourceGroupId|String|rg-resourcegroupid1|资源组ID
 
  |
-|└SecurityGroupIds| |sg-bp144yr32sx6ndwxxxxx|所属的安全组集合
+|SecurityGroupIds| |sg-bp144yr32sx6ndw\*\*\*\*\*|所属的安全组集合
 
  |
-|└Status|String|Available|弹性网卡的状态
+|Status|String|Available|弹性网卡的状态
 
  |
-|└Tags| | |标签
+|Tags| | |标签
 
  |
-|└TagKey|String|test|标签键
+|TagKey|String|test|标签键
 
  |
-|└TagValue|String|api|标签值
+|TagValue|String|api|标签值
 
  |
-|└Type|String|Secondary|弹性网卡类型
+|Type|String|Secondary|弹性网卡类型
 
  |
-|└VSwitchId|String|vsw-bp16usj2p27htro3xxxxx|VPC的虚拟交换机ID
+|VSwitchId|String|vsw-bp16usj2p27htro3\*\*\*\*\*|VPC的虚拟交换机ID
 
  |
-|└VpcId|String|vpc-bp1j7w3gc1cexjqdxxxxx|网卡所属的专有网络VPC ID
+|VpcId|String|vpc-bp1j7w3gc1cexjqd\*\*\*\*\*|网卡所属的专有网络VPC ID
 
  |
-|└ZoneId|String|cn-hangzhou-e|可用区ID
+|ZoneId|String|cn-hangzhou-e|可用区ID
 
  |
 |PageNumber|Integer|1|实例列表的页码
@@ -179,14 +179,14 @@ https://ecs.aliyuncs.com/?Action=DescribeNetworkInterfaces
 &Tag.1.Key=test
 &Tag.1.Value=api
 &ResourceGroupId=rg-resourcegroupid1
-&VSwitchId=vsw-bp16usj2p27htro3xxxxx
-&VpcId=vsw-bp16usj2p27htro3xxxxx
-&PrimaryIpAddress=172.17.XX.XXX
-&SecurityGroupId=sg-bp144yr32sx6ndwxxxxx
+&VSwitchId=vsw-bp16usj2p27htro3*****
+&VpcId=vsw-bp16usj2p27htro3*****
+&PrimaryIpAddress=172.17.**.***
+&SecurityGroupId=sg-bp144yr32sx6ndw*****
 &NetworkInterfaceName=my-eni-name
 &Type=Secondary
-&InstanceId=AY121018033933eaxxxxx
-&NetworkInterfaceId.1=eni-bp17pdijfczaxZZZZxxxxx
+&InstanceId=i-AY121018033933ea*****
+&NetworkInterfaceId.1=eni-bp17pdijfczaxZZZZ*****
 &PageNumber=1
 &PageSize=100
 &<公共请求参数>
@@ -202,9 +202,9 @@ https://ecs.aliyuncs.com/?Action=DescribeNetworkInterfaces
     <NetworkInterfaceSet>
       <AssociatedPublicIp/>
       <CreationTime>2017-11-24T06:14:22Z</CreationTime>
-      <InstanceId>AY121018033933eaxxxxx</InstanceId>
+      <InstanceId>AY121018033933ea*****</InstanceId>
       <MacAddress>00:16:3e:0f:XX:XX</MacAddress>
-      <NetworkInterfaceId>eni-bp17pdijfczaxZZZZxxxxx</NetworkInterfaceId>
+      <NetworkInterfaceId>eni-bp17pdijfczaxZZZZ*****</NetworkInterfaceId>
       <PrivateIpAddress>XXX.XXX.XX.XX</PrivateIpAddress>
       <PrivateIpSets>
         <PrivateIpSet>
@@ -214,18 +214,18 @@ https://ecs.aliyuncs.com/?Action=DescribeNetworkInterfaces
         </PrivateIpSet>
       </PrivateIpSets>
       <SecurityGroupIds>
-        <SecurityGroupId>sg-bp144yr32sx6ndwxxxxx</SecurityGroupId>
+        <SecurityGroupId>sg-bp144yr32sx6ndw*****</SecurityGroupId>
       </SecurityGroupIds>
       <Status>Available</Status>
       <Type>Secondary</Type>
-      <VpcId>vpc-bp1j7w3gc1cexjqdxxxxx</VpcId>
-      <VSwitchId>vsw-bp16usj2p27htro3xxxxx</VSwitchId>
+      <VpcId>vpc-bp1j7w3gc1cexjqd*****</VpcId>
+      <VSwitchId>vsw-bp16usj2p27htro3*****</VSwitchId>
       <ZoneId>cn-hangzhou-e</ZoneId>
     </NetworkInterfaceSet>
   </NetworkInterfaceSets>
   <PageNumber>1</PageNumber>
   <PageSize>100</PageSize>
-  <RequestId>CEE5C347-0B64-4535-A061-95BE95Axxxxx</RequestId>
+  <RequestId>473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E</RequestId>
   <TotalCount>1</TotalCount>
 </DescribeNetworkInterfacesResponse>
 
@@ -238,12 +238,12 @@ https://ecs.aliyuncs.com/?Action=DescribeNetworkInterfaces
 	"PageNumber":1,
 	"TotalCount":1,
 	"PageSize":100,
-	"RequestId":"CEE5C347-0B64-4535-A061-95BE95Axxxxx",
+	"RequestId":"473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E",
 	"NetworkInterfaceSets":{
 		"NetworkInterfaceSet":[
 			{
 				"Type":"Secondary",
-				"InstanceId":"AY121018033933eaxxxxx",
+				"InstanceId":"AY121018033933ea*****",
 				"PrivateIpSets":{
 					"PrivateIpSet":[
 						{
@@ -254,16 +254,16 @@ https://ecs.aliyuncs.com/?Action=DescribeNetworkInterfaces
 					]
 				},
 				"ZoneId":"cn-hangzhou-e",
-				"VSwitchId":"vsw-bp16usj2p27htro3xxxxx",
-				"VpcId":"vpc-bp1j7w3gc1cexjqdxxxxx",
+				"VSwitchId":"vsw-bp16usj2p27htro3*****",
+				"VpcId":"vpc-bp1j7w3gc1cexjqd*****",
 				"AssociatedPublicIp":{},
-				"NetworkInterfaceId":"eni-bp17pdijfczaxZZZZxxxxx",
+				"NetworkInterfaceId":"eni-bp17pdijfczaxZZZZ*****",
 				"CreationTime":"2017-11-24T06:14:22Z",
 				"Status":"Available",
 				"MacAddress":"00:16:3e:0f:XX:XX",
 				"SecurityGroupIds":{
 					"SecurityGroupId":[
-						"sg-bp144yr32sx6ndwxxxxx"
+						"sg-bp144yr32sx6ndw*****"
 					]
 				},
 				"PrivateIpAddress":"XXX.XXX.XX.XX"
@@ -300,5 +300,5 @@ https://ecs.aliyuncs.com/?Action=DescribeNetworkInterfaces
 |403|InvalidOperation.InvalidEniType|%s|当前弹性网卡类型不支持该操作。|
 |400|Forbidden.RegionId|%s|前区域暂不支持此功能。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
