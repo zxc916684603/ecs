@@ -1,6 +1,6 @@
 # UnassignIpv6Addresses {#doc_api_Ecs_UnassignIpv6Addresses .reference}
 
-若弹性网卡已被分配了 IPv6 地址，UnassignIpv6Addresses 可以回收一个或多个 IPv6 地址。
+若弹性网卡已被分配了IPv6地址，调用UnassignIpv6Addresses可以回收一个或多个IPv6地址。
 
 ## 接口说明 {#description .section}
 
@@ -36,7 +36,7 @@ IPv6 地址目前处于公测阶段，您可以提交 [公测申请](https://pag
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -50,7 +50,7 @@ IPv6 地址目前处于公测阶段，您可以提交 [公测申请](https://pag
 
 ``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=UnassignIpv6Addresses
-&Ipv6Address.1=2001:db8:1234:1a00::XXX
+&Ipv6Address.1=2001:db8:1234:1a00::***
 &NetworkInterfaceId=eni-test
 &RegionId=cn-hangzhou
 &<公共请求参数>
@@ -96,5 +96,5 @@ https://ecs.aliyuncs.com/?Action=UnassignIpv6Addresses
 |403|InvalidIp.Address|%s|指定的 IPv6 地址不合法。|
 |403|Forbidden.RegionId|%s|前区域暂不支持此功能。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
