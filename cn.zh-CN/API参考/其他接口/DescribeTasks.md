@@ -1,6 +1,6 @@
 # DescribeTasks {#doc_api_Ecs_DescribeTasks .reference}
 
-查询一个或多个异步请求的进度。
+调用DescribeTasks查询一个或多个异步请求的进度。
 
 ## 调试 {#apiExplorer .section}
 
@@ -32,7 +32,7 @@
 
  -   ImportImage：导入镜像
 -   ExportImage：导出镜像
--   RedeployInstance：重新部署ECS实例。
+-   RedeployInstance：重新部署ECS实例
 
  |
 |TaskIds|String|否|\["t-bp10e8or\*\*\*\*\*\*\*\*74o8x","t-bp10e8or\*\*\*\*\*\*\*\*74o8y"\]|任务ID，单次最多支持指定100个，ID之间使用半角逗号（,）分隔。
@@ -51,7 +51,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -70,22 +70,22 @@
 |TaskSet| | |任务集合
 
  |
-|└CreationTime|String|2015-11-24T12:50Z|创建时间
+|CreationTime|String|2015-11-24T12:50Z|创建时间
 
  |
-|└FinishedTime|String|2015-11-24T12:50Z|结束时间
+|FinishedTime|String|2015-11-24T12:50Z|结束时间
 
  |
-|└SupportCancel|String|true|是否支持取消任务
+|SupportCancel|String|true|是否支持取消任务
 
  |
-|└TaskAction|String|IMPORT\_IMAGE|任务名称
+|TaskAction|String|IMPORT\_IMAGE|任务名称
 
  |
-|└TaskId|String|t-bp10e8or\*\*\*\*\*\*\*\*74o8X|任务ID
+|TaskId|String|t-bp10e8or\*\*\*\*\*\*\*\*74o8X|任务ID
 
  |
-|└TaskStatus|String|Finished|任务状态
+|TaskStatus|String|Finished|任务状态
 
  |
 |TotalCount|Integer|2|列表条条目数
@@ -135,7 +135,7 @@ https://ecs.aliyuncs.com/?Action=DescribeTasks
       <SupportCancel>true</SupportCancel>
       <TaskAction>IMPORT_IMAGE</TaskAction>
       <TaskStatus>Finished</TaskStatus>
-      <TaskId>t-23sgu0dyj</TaskId>
+      <TaskId>t-23sgu0d***</TaskId>
     </Task>
   </TaskSet>
 </DescribeTasksResponse>
@@ -165,7 +165,7 @@ https://ecs.aliyuncs.com/?Action=DescribeTasks
 					"SupportCancel":true,
 					"TaskAction":"ImportImage",
 					"TaskStatus":"Finished",
-					"TaskId":"t-23sgu0dyj"
+					"TaskId":"t-23sgu0d***"
 				}
 			]
 		}
@@ -183,5 +183,5 @@ https://ecs.aliyuncs.com/?Action=DescribeTasks
 |400|MissingParameter|An input parameter "RegionId" that is mandatory for processing the request is not supplied.|参数 RegionId 不得为空。|
 |400|InvalidRegionId.NotFound|The specified RegionId does not exist.|指定的 RegionId 不存在，请您检查此产品在该地域是否可用。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
