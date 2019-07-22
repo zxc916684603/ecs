@@ -4,7 +4,7 @@ An Elastic Network Interface \(ENI\) is a virtual network interface that can be 
 
 ## Scenarios {#section_ac1_qnw_ydb .section}
 
-ENIs can be used in the following scenarios:
+ENIs are suitable for:
 
 -   **Deploying a high-availability cluster**
 
@@ -47,7 +47,7 @@ The following table describes ENI attributes.
 
 ENIs have the following limits:
 
--   One account can create up to 100 ENIs per region. The quota increases with the membership level. If you require a higher quota, open a ticket.
+-   There is an upper limit on the number of ENIs that can be created for one account in each region. For more information, see [Limits on ENIs](../../../../reseller.en-US/Product Introduction/Limits.md#section_gfq_v2x_wdb).
 -   The ECS instance and its attached secondary ENI must be in the same zone, region, and VSwitch, but can be in different security groups.
 -   The number of secondary ENIs that can be attached to an ECS instance depends on the instance type. For more information, see [Instance type families](../../../../reseller.en-US/Instances/Instance type families.md#).
 -   Only I/O-optimized instance types support ENIs.
@@ -65,7 +65,7 @@ In the ECS console, you can view information of an attached ENI. You can also pe
 -   [Attach an ENI](reseller.en-US/Network/Elastic Network Interfaces/Attach an ENI.md#).
 -   [Create an ENI](reseller.en-US/Network/Elastic Network Interfaces/Create an ENI.md#).
 -   [Delete an ENI](../../../../reseller.en-US/Network/Elastic Network Interfaces/Delete an ENI.md#).
--   [EN-US\_TP\_9736.md\#](reseller.en-US/Network/Elastic Network Interfaces/Detach an ENI from an instance.md#).
+-   [Detach an ENI from an instance](reseller.en-US/Network/Elastic Network Interfaces/Detach an ENI from an instance.md#).
 -   [Modify an ENI](reseller.en-US/Network/Elastic Network Interfaces/Modify an ENI.md#).
 
 ## API operations {#section_oc1_qnw_ydb .section}
@@ -74,7 +74,7 @@ You can call [DescribeNetworkInterfaces](../../../../reseller.en-US/API Referenc
 
 -   [CreateNetworkInterface](../../../../reseller.en-US/API Reference/Elastic network interfaces/CreateNetworkInterface.md#)
 -   [DeleteNetworkInterface](../../../../reseller.en-US/API Reference/Elastic network interfaces/DeleteNetworkInterface.md#)
--   [AttachNetworkInterface](../../../../reseller.en-US/API Reference/Elastic network interfaces/AttachNetworkInterface .md#)
+-   [AttachNetworkInterface](../../../../reseller.en-US/API Reference/Elastic network interfaces/AttachNetworkInterface.md#)
 -   [DetachNetworkInterface](../../../../reseller.en-US/API Reference/Elastic network interfaces/DetachNetworkInterface.md#)
 -   [ModifyNetworkInterfaceAttribute](../../../../reseller.en-US/API Reference/Elastic network interfaces/ModifyNetworkInterfaceAttribute.md#)
 
