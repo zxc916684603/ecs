@@ -1,6 +1,6 @@
 # DescribePrice {#doc_api_Ecs_DescribePrice .reference}
 
-查询云服务器 ECS 资源的最新价格。
+调用DescribePrice查询云服务器ECS资源的最新价格。
 
 ## 接口说明 {#description .section}
 
@@ -9,7 +9,7 @@
 查询不同类型资源的价格时，必需参数也会相应不同。即：
 
 -   参数 ResourceType 的值为 instance 时，您必须同时指定参数 InstanceType。
--   参数 ResourceType 的值为 disk 时，您必须同时指定参数 DataDisk.1.Category 和 DataDisk.1.Size。查询 disk 资源的价格时，只返回磁盘 [按量付费](~~40653~~) 的价格，即参数 PriceUnit 只能取值为 Hour。
+-   参数 ResourceType 的值为 disk 时，您必须同时指定参数 DataDisk.1.Category 和 DataDisk.1.Size。查询 disk 资源的价格时，只返回云盘 [按量付费](~~40653~~) 的价格，即参数 PriceUnit 只能取值为 Hour。
 -   查询 bandwidth 资源的价格时, 只返回 按流量计费 （PayByTraffic）的价格。
 
 ## 调试 {#apiExplorer .section}
@@ -31,13 +31,13 @@
  默认值：1
 
  |
-|DataDisk.1.Category|String|否|cloud\_ssd|数据盘n的磁盘种类。取值范围：
+|DataDisk.1.Category|String|否|cloud\_ssd|数据盘n的云盘种类。取值范围：
 
  -   cloud：普通云盘
 -   cloud\_efficiency：高效云盘
 -   cloud\_ssd：SSD 云盘
 -   ephemeral\_ssd：本地 SSD 盘
--   cloud\_essd：ESSD 云盘。
+-   cloud\_essd：ESSD 云盘
 
  |
 |DataDisk.1.Size|Integer|否|2000|数据盘的容量大小，内存单位为GiB。取值范围：
@@ -49,13 +49,13 @@
 -   ephemeral\_ssd：5~800
 
  |
-|DataDisk.2.Category|String|否|cloud\_ssd|数据盘n的磁盘种类。取值范围：
+|DataDisk.2.Category|String|否|cloud\_ssd|数据盘n的云盘种类。取值范围：
 
  -   cloud：普通云盘
 -   cloud\_efficiency：高效云盘
 -   cloud\_ssd：SSD 云盘
 -   ephemeral\_ssd：本地 SSD 盘
--   cloud\_essd：ESSD 云盘。
+-   cloud\_essd：ESSD 云盘
 
  |
 |DataDisk.2.Size|Integer|否|200|数据盘的容量大小，内存单位为GiB。取值范围：
@@ -67,13 +67,13 @@
 -   ephemeral\_ssd：5~800
 
  |
-|DataDisk.3.Category|String|否|cloud\_ssd|数据盘n的磁盘种类。取值范围：
+|DataDisk.3.Category|String|否|cloud\_ssd|数据盘n的云盘种类。取值范围：
 
  -   cloud：普通云盘
 -   cloud\_efficiency：高效云盘
 -   cloud\_ssd：SSD 云盘
 -   ephemeral\_ssd：本地 SSD 盘
--   cloud\_essd：ESSD 云盘。
+-   cloud\_essd：ESSD 云盘
 
  |
 |DataDisk.3.Size|Integer|否|2000|数据盘的容量大小，内存单位为GiB。取值范围：
@@ -85,7 +85,7 @@
 -   ephemeral\_ssd：5~800
 
  |
-|DataDisk.4.Category|String|否|cloud\_ssd|数据盘n的磁盘种类。取值范围：
+|DataDisk.4.Category|String|否|cloud\_ssd|数据盘n的云盘种类。取值范围：
 
  -   cloud：普通云盘
 -   cloud\_efficiency：高效云盘
@@ -114,7 +114,7 @@
  默认值：vpc
 
  |
-|InstanceType|String|否|ecs.n1.tiny|实例的资源规格。更多详情，请参阅 [实例规格族](~~25378~~)，也可以调用 [DescribeInstanceTypes](~~25620~~) 接口获得最新的规格表。
+|InstanceType|String|否|ecs.n1.tiny|实例的资源规格。更多详情，请参见 [实例规格族](~~25378~~)，也可以调用 [DescribeInstanceTypes](~~25620~~) 接口获得最新的规格表。
 
  |
 |InternetChargeType|String|否|PayByTraffic|网络带宽计费方式。取值范围：
@@ -140,9 +140,6 @@
  InstanceType 为非 [系列I](~~55263~~) 的规格时，默认值：optimized
 
  |
-|OwnerAccount|String|否|EcsforCloud@Alibaba.com|RAM用户的账号登录名称。
-
- |
 |Period|Integer|否|1|云服务器 ECS 的计费时长。取值范围：
 
  -   当参数 PriceUnit 取值为 Month 时：1~9
@@ -163,19 +160,19 @@
 |ResourceType|String|否|instance|目标资源的类型。取值范围：
 
  -   instance：查询 ECS 实例的最新价格列表
--   disk：查询磁盘的最新价格列表
+-   disk：查询云盘的最新价格列表
 -   bandwidth：查询带宽的最新价格列表
 
  默认值：instance
 
  |
-|SystemDisk.Category|String|否|cloud\_ssd|系统盘的磁盘种类。InstanceType为 [已停售的实例规格](~~55263~~) 的规格且参数 IoOptimized 取值为 none 时，默认值：cloud。其余情况，默认值：cloud\_efficiency。取值范围：
+|SystemDisk.Category|String|否|cloud\_ssd|系统盘的云盘种类。InstanceType为 [已停售的实例规格](~~55263~~) 的规格且参数 IoOptimized 取值为 none 时，默认值：cloud。其余情况，默认值：cloud\_efficiency。取值范围：
 
  -   cloud：普通云盘
 -   cloud\_efficiency：高效云盘
 -   cloud\_ssd：SSD 云盘
 -   ephemeral\_ssd：本地 SSD 盘
--   cloud\_essd：ESSD 云盘。目前 ESSD 云盘正在火热公测中，仅部分地域下的可用区可以选购。更多详情，请参阅 [ESSD 云盘 FAQ](~~64950~~)。
+-   cloud\_essd：ESSD 云盘
 
  |
 |SystemDisk.Size|Integer|否|80|系统盘大小，单位为GiB。取值范围：20~500
@@ -184,59 +181,59 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |PriceInfo| | |价格信息类型（PriceInfoType），包括价格和优惠规则。
 
  |
-|└Price| | |价格。
+|Price| | |价格。
 
  |
-|└Currency|String|CNY|货币单位。
+|Currency|String|CNY|货币单位。
 
  |
-|└DetailInfos| | |价格的详细信息。
+|DetailInfos| | |价格的详细信息。
 
  |
-|└DiscountPrice|Float|655.2|折扣价。
+|DiscountPrice|Float|655.2|折扣价。
 
  |
-|└OriginalPrice|Float|4368|原价。
+|OriginalPrice|Float|4368|原价。
 
  |
-|└Resource|String|instance|资源名称。
+|Resource|String|instance|资源名称。
 
  |
-|└SubRules| | |定价规则子集。
+|SubRules| | |定价规则子集。
 
  |
-|└Description|String|买满1年,立享官网价格8.5折优惠|规则子集描述。
+|Description|String|买满1年,立享官网价格8.5折优惠|规则子集描述。
 
  |
-|└RuleId|Long|587|规则 ID。
+|RuleId|Long|587|规则 ID。
 
  |
-|└TradePrice|Float|3712.8|成交价。
+|TradePrice|Float|3712.8|成交价。
 
  |
-|└DiscountPrice|Float|655.2|折扣
+|DiscountPrice|Float|655.2|折扣
 
  |
-|└OriginalPrice|Float|4368|原价。
+|OriginalPrice|Float|4368|原价。
 
  |
-|└TradePrice|Float|3712.8|最终价，为原价减去折扣
+|TradePrice|Float|3712.8|最终价，为原价减去折扣
 
  |
-|└Rules| | |活动规则。
+|Rules| | |活动规则。
 
  |
-|└Description|String|买满1年,立享官网价格8.5折优惠|活动规则描述
+|Description|String|买满1年,立享官网价格8.5折优惠|活动规则描述
 
  |
-|└RuleId|Long|587|活动 ID
+|RuleId|Long|587|活动 ID
 
  |
 |RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
@@ -248,12 +245,10 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=DescribePrice
 &RegionId=cn-hangzhou
 &InstanceType=ecs.n1.tiny
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -391,5 +386,5 @@ https://ecs.aliyuncs.com/?Action=DescribePrice
 |403|InvalidDiskCategory.NotSupported|The specified disk category is not supported.|该云盘类型不支持。|
 |403|PrePaidInstance.Expired|The prePaid instance has expired.|预付费实例已到期。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
