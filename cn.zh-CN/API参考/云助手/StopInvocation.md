@@ -1,6 +1,6 @@
-# StopInvocation {#doc_api_1101311 .reference}
+# StopInvocation {#doc_api_Ecs_StopInvocation .reference}
 
-停止一台或多台ECS实例中一条正在进行中（Running）的云助手命令进程。
+调用StopInvocation停止一台或多台ECS实例中一条正在进行中（Running）的云助手命令进程。
 
 ## 接口说明 {#description .section}
 
@@ -15,7 +15,7 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|InvokeId|String|是|t-7d2a745b412b4601b2d47f6a768d3a14|命令进程执行ID。您可以通过接口 [DescribeInvocations](~~64840~~) 查询所有的InvokeId。
+|InvokeId|String|是|t-7d2a745b412b4601b2d47f6a768d3\*\*\*|命令进程执行ID。您可以通过接口 [DescribeInvocations](~~64840~~) 查询所有的InvokeId。
 
  |
 |RegionId|String|是|cn-hangzhou|地域ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
@@ -24,11 +24,11 @@
 |Action|String|否|StopInvocation|系统规定参数。取值：StopInvocation
 
  |
-|InstanceId.N|RepeatList|否|i-uf614fhehhzmxdqx|要停止执行命令的实例列表，最多能指定20台实例ID。N的取值范围为1~50。
+|InstanceId.N|RepeatList|否|i-uf614fhehhzmx\*\*\*|要停止执行命令的实例列表，最多能指定20台实例ID。N的取值范围为1~50。
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -41,13 +41,11 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=StopInvocation
-&InvokeId=t-7d2a745b412b4601b2d47f6a768d3a14
+&InvokeId=t-7d2a745b412b4601b2d47f6a768d3***
 &RegionId=cn-hangzhou
-&InstanceId.1=i-uf614fhehhzmxdqx
+&InstanceId.1=i-uf614fhehhzmx***
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -76,5 +74,5 @@ https://ecs.aliyuncs.com/?Action=StopInvocation
 |500|InternalError.Dispatch|An error occurred when you dispatched the request.|发生未知错误。|
 |404|InvalidInvokeId.NotFound|The specified invoke ID does not exist.|指定的InvokeId不存在。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
