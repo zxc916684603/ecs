@@ -1,6 +1,6 @@
-# ModifySecurityGroupAttribute {#doc_api_1031576 .reference}
+# ModifySecurityGroupAttribute {#doc_api_Ecs_ModifySecurityGroupAttribute .reference}
 
-修改指定安全组的属性，包括修改安全组名称和描述。
+调用ModifySecurityGroupAttribute修改指定安全组的属性，包括修改安全组名称和描述。
 
 ## 调试 {#apiExplorer .section}
 
@@ -22,14 +22,11 @@
 |Description|String|否|FinanceDept|安全组描述信息。长度为2~256个英文或中文字符，不能以 http:// 和 https:// 开头。默认值：空。
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM用户的账号登录名称。
-
- |
 |SecurityGroupName|String|否|FinanceJoshua|安全组名称。 长度为2~128个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值：空。
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -42,13 +39,11 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=ModifySecurityGroupAttribute
-&SecurityGroupId=sg-F876FF7BA
+&SecurityGroupId=sg-F876FF7**
 &RegionId=cn-hangzhou
 &SecurityGroupName=NewName
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -75,6 +70,8 @@ https://ecs.aliyuncs.com/?Action=ModifySecurityGroupAttribute
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
 |404|InvalidSecurityGroupId.NotFound|The specified SecurityGroupId does not exist.|指定的安全组在该用户账号下不存在，请您检查安全组id是否正确。|
+|400|InvalidSecurityGroupName.Malformed|Specified security group name is not valid.|指定的安全组名称格式不合法，请您按照规则进行配置：默认值是空，填写\[2, 128\]的英文或中文字符，必须以大小字母或中文开头，可包含数字，”.”，”\_”或”-”，安全组名称会展示在控制台。不能以 http:// 和 https:// 开头。|
+|400|InvalidSecurityGroupDiscription.Malformed|Specified security group description is not valid.|指定的安全组描述不合法。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
