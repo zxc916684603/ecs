@@ -1,8 +1,8 @@
-# DescribeInstanceMonitorData {#doc_api_999425 .reference}
+# DescribeInstanceMonitorData {#doc_api_Ecs_DescribeInstanceMonitorData .reference}
 
-查询一台 ECS 实例所有相关的监控信息。返回的监控内容包括 ECS 实例的 CPU 使用率、接收的数据流量、发送的数据流量、网络流量、平均带宽。当返回信息中缺少部分内容时，可能是由于系统没有获取到相应的信息，比如当时实例处于已停止（Stopped）状态。
+调用DescribeInstanceMonitorData查询一台 ECS 实例所有相关的监控信息。返回的监控内容包括 ECS 实例的 CPU 使用率、接收的数据流量、发送的数据流量、网络流量、平均带宽。当返回信息中缺少部分内容时，可能是由于系统没有获取到相应的信息，比如当时实例处于已停止（Stopped）状态。
 
-## 描述 {#description .section}
+## 接口说明 {#description .section}
 
 调用该接口时，您需要注意：
 
@@ -29,9 +29,6 @@
 |Action|String|否|DescribeInstanceMonitorData|系统规定参数。取值：DescribeInstanceMonitorData
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
-
- |
 |Period|Integer|否|60|获取监控数据的间隔时间，单位为秒。取值范围：
 
  -   60
@@ -42,65 +39,65 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|MonitorData| | |实例的监控数据集合
+|MonitorData| | |实例的监控数据集合。
 
  |
-|└BPSRead|Integer|1000|实例系统盘读带宽，单位：Byte/s
+|BPSRead|Integer|1000|实例系统盘读带宽，单位：Byte/s。
 
  |
-|└BPSWrite|Integer|200|实例系统盘写带宽，单位：Byte/s
+|BPSWrite|Integer|200|实例系统盘写带宽，单位：Byte/s。
 
  |
-|└CPU|Integer|2|实例 vCPU 的使用比例，单位：百分比（%）
+|CPU|Integer|2|实例 vCPU 的使用比例，单位：百分比（%）。
 
  |
-|└CPUAdvanceCreditBalance|Float|0.4|超额积分（t5实例积分超限部分）。
+|CPUAdvanceCreditBalance|Float|0.4|超额积分（t5实例积分超限部分）。
 
  |
-|└CPUCreditBalance|Float|120|突发性能（t5）实例积分总数。
+|CPUCreditBalance|Float|120|突发性能（t5）实例积分总数。
 
  |
-|└CPUCreditUsage|Float|30|突发性能（t5）实例已使用的积分数。
+|CPUCreditUsage|Float|30|突发性能（t5）实例已使用的积分数。
 
  |
-|└CPUNotpaidSurplusCreditUsage|Float|0.5|超额未支付积分。
+|CPUNotpaidSurplusCreditUsage|Float|0.5|超额未支付积分。
 
  |
-|└IOPSRead|Integer|1000|实例系统盘 I/O 读操作，单位：次/s
+|IOPSRead|Integer|1000|实例系统盘 I/O 读操作，单位：次/s。
 
  |
-|└IOPSWrite|Integer|200|实例系统盘 I/O 写操作，单位：次/s
+|IOPSWrite|Integer|200|实例系统盘 I/O 写操作，单位：次/s。
 
  |
-|└InstanceId|String|i-instnace1|实例ID
+|InstanceId|String|i-instnace1|实例ID。
 
  |
-|└InternetBandwidth|Integer|10|实例的公网带宽，单位时间内的网络流量，单位：kbits/s
+|InternetBandwidth|Integer|10|实例的公网带宽，单位时间内的网络流量，单位：kbits/s。
 
  |
-|└InternetRX|Integer|122|实例在 TimeStamp 时刻接收的公网数据流量，单位：kbits
+|InternetRX|Integer|122|实例在 TimeStamp 时刻接收的公网数据流量，单位：kbits。
 
  |
-|└InternetTX|Integer|343|实例在 TimeStamp 时刻发送的公网数据流量，单位：kbits
+|InternetTX|Integer|343|实例在 TimeStamp 时刻发送的公网数据流量，单位：kbits。
 
  |
-|└IntranetBandwidth|Integer|10|实例的内网带宽，单位时间内的网络流量，单位：kbits/s
+|IntranetBandwidth|Integer|10|实例的内网带宽，单位时间内的网络流量，单位：kbits/s。
 
  |
-|└IntranetRX|Integer|122|实例在 TimeStamp 时刻接收的内网数据流量，单位：kbits
+|IntranetRX|Integer|122|实例在 TimeStamp 时刻接收的内网数据流量，单位：kbits。
 
  |
-|└IntranetTX|Integer|343|实例在 TimeStamp 时刻发送的内网数据流量，单位：kbits
+|IntranetTX|Integer|343|实例在 TimeStamp 时刻发送的内网数据流量，单位：kbits。
 
  |
-|└TimeStamp|String|2010-01-21T09:50:23Z|查询监控信息的时间戳。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
+|TimeStamp|String|2010-01-21T09:50:23Z|查询监控信息的时间戳。按照 [ISO8601](~~25696~~) 标准表示，并需要使用UTC时间，格式为yyyy-MM-ddTHH:mm:ssZ。
 
  |
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。无论调用接口成功与否，我们都会返回请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
 
  |
 
@@ -109,14 +106,12 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=DescribeInstanceMonitorData
 &EndTime=2014-10-30T08:00:00Z
 &InstanceId=i-instnace1
 &StartTime=2014-10-29T23:00:00Z
 &Period=60
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -128,7 +123,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceMonitorData
   <RequestId>C8B26B44-0189-443E-9816-D951F59623A9</RequestId>
   <MonitorData>
     <InstanceMonitorData>
-      <InstanceId>Bc0102-23xYm09</InstanceId>
+      <InstanceId>i-Bc0102-23xYm**</InstanceId>
       <CPU>2</CPU>
       <IntranetRX>122</IntranetRX>
       <IntranetTX>343</IntranetTX>
@@ -162,7 +157,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceMonitorData
 				"IntranetBandwidth":10,
 				"IntranetTX":343,
 				"IntranetRX":122,
-				"InstanceId":"Bc0102-23xYm09",
+				"InstanceId":"i-Bc0102-23xYm**",
 				"InternetFlow":675,
 				"CPU":0,
 				"TimeStamp":"2010-01-21T09:50:23Z",
@@ -182,7 +177,15 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceMonitorData
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
+|404|InvalidInstanceId.NotFound|The specified InstanceId does not exist.|指定的实例不存在，请您检查实例ID是否正确。|
+|400|InvalidStartTime.Malformed|The specified parameter "StartTime" is not valid.|指定的开始时间格式不合法。|
+|400|InvalidEndTime.Malformed|The specified parameter "EndTime" is not valid.|指定的结束时间格式不合法。|
+|400|InvalidPeriod.ValueNotSupported|The specified parameter "Period" is not valid.|指定的 Period 参数不合法。|
+|400|InvalidStartTime.TooEarly|The specified parameter "StartTime" is too early.|指定的开始时间太早。|
+|400|InvalidParameter.TooManyDataQueried|Too many data queried.|监控数据节点超出范围。|
+|400|Throttling|Request was denied due to request throttling.|当前的操作太过频繁，请稍后重试。|
 |400|InvalidStartTime.ValueNotSupported|The specified parameter StartTime is later than EndTime.|结束时间不得早于开始时间。|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
