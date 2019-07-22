@@ -1,6 +1,6 @@
 # DescribeResourcesModification {#doc_api_Ecs_DescribeResourcesModification .reference}
 
-查询升级和降配实例规格或者系统盘时，某一可用区的可用资源信息。
+调用DescribeResourcesModification查询升级和降配实例规格或者系统盘时，某一可用区的可用资源信息。
 
 ## 调试 {#apiExplorer .section}
 
@@ -60,45 +60,45 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |AvailableZones| | |数据中心信息AvailableZoneType组成的集合。
 
  |
-|└AvailableResources| | |可供创建的具体资源组成的数组
+|AvailableResources| | |可供创建的具体资源组成的数组
 
  |
-|└SupportedResources| | |支持的可供创建的具体资源组成的数组
+|SupportedResources| | |支持的可供创建的具体资源组成的数组
 
  |
-|└Max|Integer|2|资源规格的最大值，该参数值为空时不返回
+|Max|Integer|2|资源规格的最大值，该参数值为空时不返回
 
  |
-|└Min|Integer|1|资源规格的最小值，该参数值为空时不返回
+|Min|Integer|1|资源规格的最小值，该参数值为空时不返回
 
  |
-|└Status|String|Available|资源状态，返回值：
+|Status|String|Available|资源状态，返回值：
 
  -   Available：资源充足
 -   SoldOut：资源已售罄
 
  |
-|└StatusCategory|String|WithStock|根据库存详细分类资源类别。目前的可能值有：
+|StatusCategory|String|WithStock|根据库存详细分类资源类别。目前的可能值有：
 
  -   WithStock：库存充足
 -   ClosedWithStock：库存接近水位低线
 -   WithoutStock：库存告罄
 
  |
-|└Unit|String|null|资源规格单位，该参数值为空时不返回
+|Unit|String|null|资源规格单位，该参数值为空时不返回
 
  |
-|└Value|String|ecs.sn1ne.xlarge|资源值
+|Value|String|ecs.sn1ne.xlarge|资源值
 
  |
-|└Type|String|InstanceType|资源类型。返回值：
+|Type|String|InstanceType|资源类型。返回值：
 
  -   Zone：可用区
 -   IoOptimized：I/O优化
@@ -108,23 +108,23 @@
 -   Network：网络类型
 
  |
-|└RegionId|String|cn-hangzhou|地域ID
+|RegionId|String|cn-hangzhou|地域ID
 
  |
-|└Status|String|Available|资源状态，返回值：
+|Status|String|Available|资源状态，返回值：
 
  -   Available：资源充足
 -   SoldOut：资源已售罄
 
  |
-|└StatusCategory|String|WithStocK|根据库存详细分类资源类别。目前的可能值有：
+|StatusCategory|String|WithStocK|根据库存详细分类资源类别。目前的可能值有：
 
  -   WithStock：库存充足
 -   ClosedWithStock：库存接近水位低线
 -   WithoutStock：库存告罄
 
  |
-|└ZoneId|String|cn-hangzhou-e|可用区ID
+|ZoneId|String|cn-hangzhou-e|可用区ID
 
  |
 |RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID
@@ -633,5 +633,5 @@ https://ecs.aliyuncs.com/?Action=DescribeResourcesModification
 |403|InvalidParam.Cores|The specified parameter 'Cores' should be empty|内存参数无效。|
 |403|InvalidParam.Memory|The specified parameter 'Memory' should be empty|资源在当前地域不存在或者已释放。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
