@@ -1,6 +1,6 @@
 # DescribeCloudAssistantStatus {#doc_api_Ecs_DescribeCloudAssistantStatus .reference}
 
-查询一台或者多台实例是否安装了云助手客户端。
+调用DescribeCloudAssistantStatus查询一台或者多台实例是否安装了云助手客户端。
 
 ## 调试 {#apiExplorer .section}
 
@@ -10,7 +10,7 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|InstanceId.N|RepeatList|是|i-bp1iudwa5b1tqaxxxxxx|实例ID列表。单次请求最多支持50台实例，N的取值范围为1~50。
+|InstanceId.N|RepeatList|是|i-bp1iudwa5b1tqa\*\*\*\*\*\*|实例ID列表。单次请求最多支持50台实例，N的取值范围为1~50。
 
  |
 |RegionId|String|是|cn-hangzhou|实例所在地域ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
@@ -20,17 +20,17 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |InstanceCloudAssistantStatusSet| | |实例云助手安装状态结果集合。
 
  |
-|└CloudAssistantStatus|String|true|实例是否已经安装了云助手。
+|CloudAssistantStatus|String|true|实例是否已经安装了云助手。
 
  |
-|└InstanceId|String|i-bp1iudwa5b1tqaxxxxxx|实例ID。
+|InstanceId|String|i-bp1iudwa5b1tqa\*\*\*\*\*\*|实例ID。
 
  |
 |RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
@@ -42,12 +42,10 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=DescribeCloudAssistantStatus
-&InstanceId.1=i-bp1iudwa5b1tqaxxxxxx
+&InstanceId.1=i-bp1iudwa5b1tqa******
 &RegionId=cn-hangzhou
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -58,11 +56,11 @@ https://ecs.aliyuncs.com/?Action=DescribeCloudAssistantStatus
 <DescribeCloudAssistantStatusResponse>
   <InstanceCloudAssitantStatus>
     <InstanceCloudAssitantStatusSet>
-      <InstanceId>i-bp11f7trr4hbi1xxxxxx</InstanceId>
+      <InstanceId>i-bp11f7trr4hbi1******</InstanceId>
       <CloudAssitantStatus>True</CloudAssitantStatus>
     </InstanceCloudAssitantStatusSet>
     <InstanceCloudAssitantStatusSet>
-      <InstanceId>i-bp1iudwa5b1tqaxxxxxx</InstanceId>
+      <InstanceId>i-bp1iudwa5b1tqa******</InstanceId>
       <CloudAssitantStatus>True</CloudAssitantStatus>
     </InstanceCloudAssitantStatusSet>
   </InstanceCloudAssitantStatus>
@@ -77,11 +75,11 @@ https://ecs.aliyuncs.com/?Action=DescribeCloudAssistantStatus
 	"InstanceCloudAssitantStatus":{
 		"InstanceCloudAssitantStatusSet":[
 			{
-				"InstanceId":"i-bp11f7trr4hbi1xxxxxx",
+				"InstanceId":"i-bp11f7trr4hbi1******",
 				"CloudAssitantStatus":"True"
 			},
 			{
-				"InstanceId":"i-bp1iudwa5b1tqaxxxxxx",
+				"InstanceId":"i-bp1iudwa5b1tqa******",
 				"CloudAssitantStatus":"True"
 			}
 		]
@@ -96,5 +94,5 @@ https://ecs.aliyuncs.com/?Action=DescribeCloudAssistantStatus
 |500|InternalError.Dispatch|An error occurred when you dispatched the request.|发生未知错误。|
 |404|InvalidInstance.NotFound|The specified instance does not exist.|指定的实例不存在。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
