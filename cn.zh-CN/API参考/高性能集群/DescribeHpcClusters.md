@@ -1,6 +1,6 @@
-# DescribeHpcClusters {#doc_api_1022304 .reference}
+# DescribeHpcClusters {#doc_api_Ecs_DescribeHpcClusters .reference}
 
-查询您可用的 HPC 集群。请求参数作为筛选器（Filter）使用，筛选关系为逻辑与（&&）关系，参数之间无依赖关系。
+调用DescribeHpcClusters查询您可用的HPC集群。请求参数作为筛选器（Filter）使用，筛选关系为逻辑与（&&）关系，参数之间无依赖关系。
 
 ## 调试 {#apiExplorer .section}
 
@@ -16,15 +16,12 @@
 |Action|String|否|DescribeHpcClusters|系统规定参数。取值：DescribeHpcClusters
 
  |
-|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
+|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken**只支持ASCII字符，且不能超过64个字符。更多详情，请参见[如何保证幂等性](~~25693~~)。
 
  |
 |HpcClusterIds|String|否|\["hpc-xxxxxxxxx", "hpc-yyyyyyyyy", … "hpc-zzzzzzzzz"\]|HPC 集群 ID。
 
  取值可以由多个 HPC 集群 ID 组成一个 JSON 数组，最多支持 100 个 ID，ID 之间用半角逗号（,）隔开。
-
- |
-|OwnerAccount|String|否|EcsforCloud@Alibaba.com|RAM用户的账号登录名称。
 
  |
 |PageNumber|Integer|否|1|HPC 集群列表的页码。
@@ -42,20 +39,20 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |HpcClusters| | |由 HpcCluster 组成的数组格式，返回 HPC 集群的信息
 
  |
-|└Description|String|FinanceDept|HPC 集群的描述
+|Description|String|FinanceDept|HPC 集群的描述
 
  |
-|└HpcClusterId|String|hpc-hpclusterid1|HPC 集群 ID
+|HpcClusterId|String|hpc-hpclusterid1|HPC 集群 ID
 
  |
-|└Name|String|FinanceJoshua|HPC 集群的名字
+|Name|String|FinanceJoshua|HPC 集群的名字
 
  |
 |PageNumber|Integer|1|HPC 集群列表的页码
@@ -76,11 +73,9 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=DescribeHpcClusters
 &RegionId=cn-hangzhou
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -95,12 +90,12 @@ https://ecs.aliyuncs.com/?Action=DescribeHpcClusters
     <HpcCluster>
       <Name>chuatest1</Name>
       <Description>desc</Description>
-      <HpcClusterId>hpc-l6ack54lcr2g17563ljk</HpcClusterId>
+      <HpcClusterId>hpc-l6ack54lcr2g17563***</HpcClusterId>
     </HpcCluster>
     <HpcCluster>
       <Name>chuatest2</Name>
       <Description>desc</Description>
-      <HpcClusterId>hpc-l6aam7fivcfd21funbv3</HpcClusterId>
+      <HpcClusterId>hpc-l6aam7fivcfd21fun***</HpcClusterId>
     </HpcCluster>
   </HpcClusters>
   <PageSize>10</PageSize>
@@ -121,12 +116,12 @@ https://ecs.aliyuncs.com/?Action=DescribeHpcClusters
 			{
 				"Name":"chuatest1",
 				"Description":"desc",
-				"HpcClusterId":"hpc-l6ack54lcr2g17563ljk"
+				"HpcClusterId":"hpc-l6ack54lcr2g17563***"
 			},
 			{
 				"Name":"chuatest2",
 				"Description":"desc",
-				"HpcClusterId":"hpc-l6aam7fivcfd21funbv3"
+				"HpcClusterId":"hpc-l6aam7fivcfd21fun***"
 			}
 		]
 	},
@@ -144,5 +139,5 @@ https://ecs.aliyuncs.com/?Action=DescribeHpcClusters
 |400|InvalidHpcClusterIds.Malformed|The amount of specified specified hpc cluster ids is invalid.|批量查询的hpcClusterIds参数不合法。|
 |400|Invalid.Parameter|Invalid parameters.|参数不合法。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
