@@ -6,9 +6,9 @@
 
 在扩展数据盘扩展分区和文件系统前，请提前完成以下工作。
 
-1.  [创建快照](intl.zh-CN/快照/使用快照/创建快照.md#)以备份数据，防止操作失误导致数据丢失。
-2.  通过ECS控制台或者API[扩容云盘容量](intl.zh-CN/块存储/云盘/扩容云盘/离线扩容云盘.md#)。
-3.  远程连接ECS实例。连接方式请参见[连接方式导航](../../../../intl.zh-CN/实例/连接实例/连接方式导航.md#)。
+1.  [创建快照](cn.zh-CN/快照/使用快照/创建快照.md#)以备份数据，防止操作失误导致数据丢失。
+2.  通过ECS控制台或者API[扩容云盘容量](cn.zh-CN/块存储/云盘/扩容云盘/离线扩容云盘.md#)。
+3.  远程连接ECS实例。连接方式请参见[连接方式导航](../../../../cn.zh-CN/实例/连接实例/连接方式导航.md#)。
 
 ## 确认分区格式和文件系统 {#section_jdz_a9a_my1 .section}
 
@@ -69,11 +69,11 @@
 -   如果新增空间用于增加新的GPT分区，请参见[选项四：新增并格式化GPT分区](#)。
 
  |
-|全新数据盘，未分区，未创建文件系统|在控制台扩容磁盘空间后，参见[分区并格式化数据盘](../../../../intl.zh-CN/个人版快速入门/格式化数据盘/Linux格式化数据盘.md#)或者[分区格式化大于2 TiB云盘](intl.zh-CN/块存储/云盘/分区格式化数据盘/分区格式化大于2 TiB数据盘.md#)。|
+|全新数据盘，未分区，未创建文件系统|在控制台扩容磁盘空间后，参见[分区并格式化数据盘](../../../../cn.zh-CN/个人版快速入门/格式化数据盘/Linux格式化数据盘.md#)或者[分区格式化大于2 TiB云盘](cn.zh-CN/块存储/云盘/分区格式化数据盘/分区格式化大于2 TiB数据盘.md#)。|
 |数据盘已创建文件系统，未分区|在控制台扩容数据盘空间后，直接[扩容文件系统](#)。|
 |数据盘未挂载到实例上|挂载数据盘到实例后，参见本文档的操作步骤完成扩容。|
 
-**说明：** 如果一个已有分区采用了MBR分区格式，则不支持扩容到2 TiB及以上。为避免造成数据丢失，建议您创建一块大于2 TiB的云盘，参见[分区格式化大于2 TiB云盘](intl.zh-CN/块存储/云盘/分区格式化数据盘/分区格式化大于2 TiB数据盘.md#)格式化一个GPT分区，再将MBR分区中的数据拷贝到GPT分区中。
+**说明：** 如果一个已有分区采用了MBR分区格式，则不支持扩容到2 TiB及以上。为避免造成数据丢失，建议您创建一块大于2 TiB的云盘，参见[分区格式化大于2 TiB云盘](cn.zh-CN/块存储/云盘/分区格式化数据盘/分区格式化大于2 TiB数据盘.md#)格式化一个GPT分区，再将MBR分区中的数据拷贝到GPT分区中。
 
 ## 选项一：扩展已有MBR分区 {#section_vvb_gcs_bhm .section}
 
@@ -511,22 +511,23 @@
     /dev/vdb1: 11/67108864 files (0.0% non-contiguous), 4265369/268435200 blocks
     ```
 
-5.  扩展分区对应的文件系统。
-    -   ext\*文件系统（例如ext3和ext4）：运行`resize2fs /dev/vdb1`。
+5.  扩展分区对应的文件系统并重新挂载分区。
+    -   ext\*文件系统（例如ext3和ext4）：运行`resize2fs /dev/vdb1`并重新挂载分区。
 
         ``` {#codeblock_vgo_hmt_rmq .lanuage-shell}
         [root@ecshost ~]# resize2fs /dev/vdb1
         resize2fs 1.42.9 (28-Dec-2013)
         Resizing the filesystem on /dev/vdb1 to 8589934331 (4k) blocks.
         The filesystem on /dev/vdb1 is now 8589934331 blocks long.
+        [root@ecshost ~]# mount /dev/vdb1 /mnt
         ```
 
-    -   xfs文件系统：运行`xfs_growfs /dev/vdb1`。
-6.  重新挂载分区。
+    -   xfs文件系统：先运行`mount /dev/vdb1 /mnt/`命令，再运行`xfs_growfs /dev/vdb1`。
 
-    ``` {#codeblock_ujv_06o_mqp .lanuage-shell}
-    [root@ecshost ~]# mount /dev/vdb1 /mnt
-    ```
+        ``` {#codeblock_muy_rnl_1g7 .lanuage-shell}
+        [root@ecshost ~]# mount /dev/vdb1 /mnt/
+        [root@ecshost ~]# xfs\_growfs /dev/vdb1
+        ```
 
 
 ## 选项四：新增并格式化GPT分区 {#section_4hl_5l7_87s .section}
@@ -666,6 +667,6 @@
 
 ## 相关操作 {#section_nop_fuk_f6y .section}
 
--   [扩展分区和文件系统\_Linux系统盘](intl.zh-CN/块存储/云盘/扩容云盘/扩展分区和文件系统_Linux系统盘.md#)
--   [扩展分区和文件系统\_Windows](intl.zh-CN/块存储/云盘/扩容云盘/扩展分区和文件系统_Windows.md#)
+-   [扩展分区和文件系统\_Linux系统盘](cn.zh-CN/块存储/云盘/扩容云盘/扩展分区和文件系统_Linux系统盘.md#)
+-   [扩展分区和文件系统\_Windows](cn.zh-CN/块存储/云盘/扩容云盘/扩展分区和文件系统_Windows.md#)
 
