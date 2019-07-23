@@ -511,22 +511,23 @@
     /dev/vdb1: 11/67108864 files (0.0% non-contiguous), 4265369/268435200 blocks
     ```
 
-5.  扩展分区对应的文件系统。
-    -   ext\*文件系统（例如ext3和ext4）：运行`resize2fs /dev/vdb1`。
+5.  扩展分区对应的文件系统并重新挂载分区。
+    -   ext\*文件系统（例如ext3和ext4）：运行`resize2fs /dev/vdb1`并重新挂载分区。
 
         ``` {#codeblock_vgo_hmt_rmq .lanuage-shell}
         [root@ecshost ~]# resize2fs /dev/vdb1
         resize2fs 1.42.9 (28-Dec-2013)
         Resizing the filesystem on /dev/vdb1 to 8589934331 (4k) blocks.
         The filesystem on /dev/vdb1 is now 8589934331 blocks long.
+        [root@ecshost ~]# mount /dev/vdb1 /mnt
         ```
 
-    -   xfs文件系统：运行`xfs_growfs /dev/vdb1`。
-6.  重新挂载分区。
+    -   xfs文件系统：先运行`mount /dev/vdb1 /mnt/`命令，再运行`xfs_growfs /dev/vdb1`。
 
-    ``` {#codeblock_ujv_06o_mqp .lanuage-shell}
-    [root@ecshost ~]# mount /dev/vdb1 /mnt
-    ```
+        ``` {#codeblock_muy_rnl_1g7 .lanuage-shell}
+        [root@ecshost ~]# mount /dev/vdb1 /mnt/
+        [root@ecshost ~]# xfs\_growfs /dev/vdb1
+        ```
 
 
 ## 选项四：新增并格式化GPT分区 {#section_4hl_5l7_87s .section}

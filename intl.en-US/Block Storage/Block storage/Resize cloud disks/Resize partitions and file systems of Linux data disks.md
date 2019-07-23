@@ -511,21 +511,22 @@ To resize an existing GPT partition, perform the following steps: In the example
     ```
 
 5.  Resize the file system.
-    -   For the ext\* file system \(such as ext3 and ext4\): run the `resize2fs /dev/vdb1` command.
+    -   For the ext\* file system \(such as ext3 and ext4\): run the `resize2fs /dev/vdb1` command, and attach the partition again.
 
         ``` {#codeblock_vgo_hmt_rmq}
         [root@ecshost ~]# resize2fs /dev/vdb1
         resize2fs 1.42.9 (28-Dec-2013)
         Resizing the filesystem on /dev/vdb1 to 8589934331 (4k) blocks.
         The filesystem on /dev/vdb1 is now 8589934331 blocks long.
+        [root@ecshost ~]# mount /dev/vdb1 /mnt/
         ```
 
-    -   For the xfs file system: run the `xfs_growfs /dev/vdb1` command.
-6.  Attach the partition again.
+    -   For the xfs file system: run the `mount /dev/vdb1 /mnt/` command first, and then the `xfs_growfs /dev/vdb1` command.
 
-    ``` {#codeblock_ujv_06o_mqp}
-    [root@ecshost ~]# mount /dev/vdb1 /mnt
-    ```
+        ``` {#codeblock_rhq_ahw_m6f}
+        [root@ecshost ~]# mount /dev/vdb1 /mnt/
+        [root@ecshost ~]# xfs\_growfs /dev/vdb1
+        ```
 
 
 ## Option 4: Add and format GPT partitions {#section_4hl_5l7_87s .section}
