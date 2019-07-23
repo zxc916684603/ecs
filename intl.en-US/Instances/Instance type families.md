@@ -864,7 +864,7 @@ See [other instance type families](#).
 |:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
 |ecs.ebmhfg5.2xlarge|8|32.0|N/A|6.0|2,000|8|6|8|
 
-**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/ECS Bare Metal Instance.md#).
+**Note:** For more information about ECS Bare Metal Instance, see [EBM Instance overview](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/EBM Instance overview.md#).
 
 See [other instance type families](#).
 
@@ -892,7 +892,7 @@ See [other instance type families](#).
 |:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
 |ecs.ebmc4.8xlarge|32|64.0|N/A|10.0|4,000|8|12|10|
 
-**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/ECS Bare Metal Instance.md#).
+**Note:** For more information about ECS Bare Metal Instance, see [EBM Instance overview](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/EBM Instance overview.md#).
 
 See [other instance type families](#).
 
@@ -920,7 +920,7 @@ See [other instance type families](#).
 |:------------|:---|:-------------|:---------------------------|:------------------------------|:---------------------------------------------------|:------------------------|:--------------------|----------------------------------|
 |ecs.ebmg5.24xlarge|96|384.0|N/A|10.0|4,000|8|32|10|
 
-**Note:** For more information about ECS Bare Metal Instance, see [ECS Bare Metal Instance](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/ECS Bare Metal Instance.md#).
+**Note:** For more information about ECS Bare Metal Instance, see [EBM Instance overview](reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/EBM Instance overview.md#).
 
 See [other instance type families](#).
 
@@ -1043,7 +1043,7 @@ See [other instance type families](#).
 |ecs.t5-c1m1.4xlarge|16|16.0|15%|144|3456|N/A|1.2|600|1|2|6|
 |ecs.t5-c1m2.4xlarge|16|32.0|15%|144|3456|N/A|1.2|600|1|2|6|
 
-**Note:** For more information about t5, see [Basic concepts](reseller.en-US/Instances/Instance type families/Burstable instances/Basic concepts.md#).
+**Note:** For more information about t5, see [Overview](reseller.en-US/Instances/Instance type families/Burstable performance instances/Overview.md#).
 
 See [other instance type families](#).
 
