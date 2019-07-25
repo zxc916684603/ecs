@@ -1,10 +1,10 @@
-# DeleteAutoSnapshotPolicy {#doc_api_999638 .reference}
+# DeleteAutoSnapshotPolicy {#doc_api_Ecs_DeleteAutoSnapshotPolicy .reference}
 
 删除一条自动快照策略。如果目标自动快照策略已经被应用到磁盘上，删除自动快照策略后，这些磁盘不再执行该策略。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=DeleteAutoSnapshotPolicy)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=DeleteAutoSnapshotPolicy&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
@@ -20,7 +20,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -47,9 +47,8 @@ https://ecs.aliyuncs.com/?Action=DeleteAutoSnapshotPolicy
 
 ``` {#xml_return_success_demo}
 <DeleteAutoSnapshotPolicyResponse>
-  <RequestId>F3CD6886-D8D0-4FEE-B93E-1B73239673DE</RequestId>
+      <RequestId>F3CD6886-D8D0-4FEE-B93E-1B73239673DE</RequestId> 
 </DeleteAutoSnapshotPolicyResponse>
-
 ```
 
 `JSON` 格式
@@ -67,5 +66,5 @@ https://ecs.aliyuncs.com/?Action=DeleteAutoSnapshotPolicy
 |404|ParameterInvalid|The specified automatic snapshot policy does not exist.|指定的自动快照策略不存在，请您检查自动快照策略是否正确。|
 |404|ParameterInvalid|The specified automatic snapshot policy does not exist in the region.|指定的自动快照策略不存在，请您检查自动快照策略是否正确。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
