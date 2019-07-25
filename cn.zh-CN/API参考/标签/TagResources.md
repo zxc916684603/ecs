@@ -1,14 +1,14 @@
 # TagResources {#doc_api_Ecs_TagResources .reference}
 
-为指定的ECS资源列表统一创建并绑定标签。
+调用TagResources为指定的ECS资源列表统一创建并绑定标签。
 
 ## 接口说明 {#description .section}
 
 绑定标签前，阿里云会校验资源已有标签数量。超过限制值后返回报错信息。更多详情，请参见[使用限制](~~25412~~)。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=TagResources)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=TagResources&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
@@ -44,7 +44,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -57,14 +57,12 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=TagResources
 &RegionId=cn-hangzhou
-&ResourceId.1=i-bp1j6qtvdm8w0z1o0XXX
+&ResourceId.1=i-bp1j6qtvdm8w0z1o0***
 &ResourceType=instance
 &Tag.1.Key=FinanceDept
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -73,9 +71,8 @@ https://ecs.aliyuncs.com/?Action=TagResources
 
 ``` {#xml_return_success_demo}
 <TagResourcesResponse>
-  <RequestId>C46FF5A8-C5F0-4024-8262-B16B639225A0</RequestId>
+    <RequestId>C46FF5A8-C5F0-4024-8262-B16B639225A0</RequestId>
 </TagResourcesResponse>
-
 ```
 
 `JSON` 格式
@@ -112,5 +109,5 @@ https://ecs.aliyuncs.com/?Action=TagResources
 |400|Invalid.Scope|The specified scope is invalid.|可见范围参数非法。|
 |403|NoPermission.Tag|The operator is not permission for the tag.|没有操作该资源标签的权限。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
