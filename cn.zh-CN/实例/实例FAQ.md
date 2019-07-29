@@ -1,6 +1,6 @@
 # 实例FAQ {#concept_gqy_fyx_wgb .concept}
 
-本文汇总了使用实例时的高频问题。
+本文汇总了使用实例时的常见问题。
 
 -   购买实例问题
     -   [如何查看某个地域或可用区是否能购买实例？](#section_dxe_iha_q0o)
@@ -8,6 +8,7 @@
     -   [如何选择适合我业务的ECS实例？](#section_j8t_fwz_mjf)
     -   [购买ECS实例如何付款？](#section_huh_ipu_6gt)
     -   [开通一台云服务器需要多久？](#section_ska_yf3_rvx)
+    -   [购买实例付款成功，但是没有生成实例，为什么？](#section_gbw_acs_xwn)
 -   企业级实例问题
     -   [什么是企业级实例？什么是入门级实例？](#section_2p8_osd_e5y)
     -   [企业级实例与入门级实例有什么本质区别？](#section_cm4_dks_zu1)
@@ -61,7 +62,7 @@
 -   预留实例券问题
     -   [什么是预留实例券？](#section_et2_64u_fmh)
     -   [预留实例券能否提供库存预留？](#section_5g6_eu4_b0f)
-    -   [预留实例券支持什么平台？](#section_xoy_vzx_szv)
+    -   [预留实例券支持什么操作系统？](#section_xoy_vzx_szv)
     -   [哪些规格族能够使用预留实例券？](#section_j7h_12a_tuy)
     -   [预留实例券能否抵扣抢占式实例的账单？](#section_m9r_qk6_39q)
     -   [可以调整预留实例券的实例规格族吗？](#section_uee_304_jt3)
@@ -83,6 +84,8 @@
     -   [预留实例券支持修改券的付款类型吗？](#section_1ps_ydr_o6o)
     -   [预留实例券可以退款吗？](#section_vnd_a46_hbz)
     -   [预留实例券可以转售吗？](#section_j9e_1zq_35v)
+    -   [Windows类型的预留实例券可以抵扣镜像费用吗？](#section_0w6_6mr_z27)
+    -   [Linux类型的预留实例券可以抵扣镜像费用吗？](#section_wm8_tf8_rgx)
 -   连接实例问题
     -   [管理终端是独享的吗？](#section_mdm_w4q_wgb)
     -   [忘记了远程连接密码，怎么办？](#section_tym_x4q_wgb)
@@ -125,6 +128,7 @@
     -   [如何将实例的固定公网IP更换为其它EIP？](#section_grq_3gj_n2r)
     -   [如何查看同一地域下的预付费实例？](#section_bud_chq_gek)
     -   [如何查看同一账号下所有地域的预付费实例？](#section_s5o_w6z_95z)
+    -   [什么时候可以强制停止实例？有什么后果？](#section_nlp_9qg_6gq)
 -   实例安全问题
     -   [ECS实例中AliVulfix进程是什么？](#section_4ek_d0m_191)
     -   [云服务器能防网络攻击吗？](#section_t6g_7b5_165)
@@ -142,6 +146,8 @@
     -   [ECS实例转移和更换公网IP地址有什么限制？](#section_y49_iww_fvq)
     -   [云服务器ECS创建多少个网站？](#section_999_02s_59y)
     -   [收到违规信息整改通知邮件如何处理？](#section_ybb_uao_2kh)
+    -   [ECS实例是否可以访问亚马逊网站？](#section_q6i_bio_ba9)
+    -   [为什么登录到ECS实例后访问不了海外网站？](#section_ags_ovh_bde)
 -   中国大陆用户购买其他国家和地区实例资源问题
     -   [中国大陆用户购买其它国家和地区资源可以享受与阿里云中国大陆资源相同的品质和服务吗？](#section_16z_pn3_0qf)
     -   [是否可以通过镜像复制功能将中国大陆的ECS转移到其它国家和地区？](#section_50j_2mc_pdr)
@@ -172,6 +178,7 @@
     -   [新创建的预付费实例在5天内转为按量付费，属于5天无理由退款吗？](#section_kfr_lv0_ois)
     -   [为什么更改硬盘收费方式提示三次机会已用完？](#section_bxy_dkr_1f9)
     -   [为什么无法将按量付费实例转为预付费实例？](#section_vlz_58s_9es)
+    -   [如何查询实例到期时间？](#section_8hf_t8x_5n3)
 
 ## 如何查看某个地域或可用区是否能购买实例？ {#section_dxe_iha_q0o .section}
 
@@ -189,7 +196,7 @@
 
 您也可以使用到货通知功能：
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156341837848634_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156439554548634_zh-CN.png)
 
 ## 如何选择适合我业务的ECS实例？ {#section_j8t_fwz_mjf .section}
 
@@ -214,6 +221,12 @@
     -   非I/O优化的Windows实例，初始化一般耗时10分钟。
 
 **说明：** 如果云服务器创建过程中出现异常，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)。
+
+## 购买实例付款成功，但是没有生成实例，为什么？ {#section_gbw_acs_xwn .section}
+
+可能是该可用区下该实例规格库存不足。系统会自动退款，如果半小时内没有收到退款，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)。
+
+您可以前往[ECS实例可购买地域](https://ecs-buy.aliyun.com/instanceTypes/#/instanceTypeByRegion)，查看实例的可购情况。
 
 ## 什么是企业级实例？什么是入门级实例？ {#section_2p8_osd_e5y .section}
 
@@ -346,7 +359,7 @@ SCC实例支持包年包月和按周付费。
 
 创建SCC实例时，选择SCC定制版的系统镜像，该镜像支持RDMA RoCE驱动和OFED堆栈。您可以通过IB verbs编程使用RDMA功能或者通过MPI进行RDMA通讯。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156341837950536_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156439554650536_zh-CN.png)
 
 ## 我没有欠费，为什么抢占式实例被释放了？ {#section_0ns_pj7_dxg .section}
 
@@ -436,13 +449,15 @@ SCC实例支持包年包月和按周付费。
 
 当您购买可用区级的预留实例券时，系统会预留与预留实例券匹配的实例库存。 当您购买地域级的预留实例券时，不提供库存预留。
 
-## 预留实例券支持什么平台？ {#section_xoy_vzx_szv .section}
+## 预留实例券支持什么操作系统？ {#section_xoy_vzx_szv .section}
 
-目前只支持Linux平台的实例账单抵扣。不论您采用何种方式导入镜像（公共镜像、自定义镜像、共享镜像、镜像市场），只要使用的是Linux类型的平台即可。
+支持抵扣Linux和Windows实例的按量账单。例如，当您购买操作系统类型为Linux的预留实例券后，不论您采用何种方式为按量付费实例导入镜像（公共镜像、自定义镜像、共享镜像、镜像市场），只要是Linux操作系统镜像即可符合条件。
+
+如果您的按量付费实例使用自带许可证（BYOL）的镜像，且需要使用预留实例券抵扣账单，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)。
 
 ## 哪些规格族能够使用预留实例券？ {#section_j7h_12a_tuy .section}
 
-能够使用预留实例券的规格族包括：sn1ne、sn2ne、se1ne、ic5、c5、g5、r5、hfc5、hfg5和t5。
+能够使用预留实例券的规格族包括：sn1ne、sn2ne、se1ne、ic5、c5、g5、r5、i2、i2g、hfc5、hfg5和t5。
 
 其中，[突发性能实例t5](cn.zh-CN/实例/选择实例规格/突发型/什么是突发性能实例.md#)只支持可用区级预留实例券，不支持地域级预留实例券，也不支持合并、拆分或者范围调整。
 
@@ -512,7 +527,7 @@ SCC实例支持包年包月和按周付费。
 
 ## 预留实例券可以抵扣按量付费实例的存储和网络部分账单吗？ {#section_prg_o9w_0de .section}
 
-不可以。预留实例券用于抵扣按量付费实例的计算部分（CPU和内存）的账单。
+不可以。预留实例券用于抵扣按量付费实例的计算资源（vCPU和内存）的账单，同时Windows类型的预留实例券还可以抵扣镜像的账单。
 
 ## 可以控制预留实例券抵扣指定实例的账单吗？ {#section_30a_ovt_uhz .section}
 
@@ -551,6 +566,14 @@ SCC实例支持包年包月和按周付费。
 退款时会扣除掉已经消费的金额，另外需要支付手续费，详情请参见[退款规则及退款流程](https://help.aliyun.com/knowledge_detail/37096.html)。
 
 ## 预留实例券可以转售吗？ {#section_j9e_1zq_35v .section}
+
+不可以。
+
+## Windows类型的预留实例券可以抵扣镜像费用吗？ {#section_0w6_6mr_z27 .section}
+
+可以。Windows类型的预留实例券在购买时已经包括了Windows镜像的费用，可以为运行Windows系统的按量付费实例抵扣镜像部分的账单。
+
+## Linux类型的预留实例券可以抵扣镜像费用吗？ {#section_wm8_tf8_rgx .section}
 
 不可以。
 
@@ -682,7 +705,7 @@ SCC实例支持包年包月和按周付费。
 
 假设您持有以下OSS Bucket，要通过域名www.example.com实现HTTPS访问。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156341837943179_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156439554643179_zh-CN.png)
 
 1.  创建一台和Bucket位于相同地域的ECS实例。
 
@@ -754,15 +777,15 @@ SCC实例支持包年包月和按周付费。
 
 1.  连接FTP服务。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156341837943224_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156439554643224_zh-CN.png)
 
 2.  进入正确的目录，Windows系统无需切换，Linux系统切换至htdocs。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156341837949119_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156439554649119_zh-CN.png)
 
 3.  运行put命令上传。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156341838049120_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156439554749120_zh-CN.png)
 
 
 方式二：通过第三方工具上传
@@ -772,11 +795,11 @@ SCC实例支持包年包月和按周付费。
 3.  填写FTP的服务器IP、用户名和密码；协议选择标准（FTP），端口选择默认21（或更改为其您所使用的端口），不选择SSH密匙。
 4.  单击**连接**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156341838043228_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156439554743228_zh-CN.png)
 
 5.  在右侧选择要上传的目录（Windows不需要选择目录，Linux主机选择htdocs目录），然后在左边窗口选择要上传的文件，单击上传即可。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156341838043230_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156439554743230_zh-CN.png)
 
     **说明：** 若安装Yummy FTP时系统提示：您的安全性偏好设置仅允许安装来自Mac App Store和被认可的开发者的应用程序，按以下步骤设置您的电脑。
 
@@ -785,7 +808,7 @@ SCC实例支持包年包月和按周付费。
     3.  在**允许从以下位置下载的应用程序**菜单中，选择**任何来源**。
     设置后即可正常安装该软件。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156341838143238_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156439554843238_zh-CN.png)
 
 
 如问题还未解决，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)。
@@ -890,6 +913,10 @@ Linux操作系统的云服务器和Windows操作系统的云服务器都可以�
 1.  登录[ECS管理控制台](https://ecs.console.aliyun.com)。
 2.  在顶部状态栏处，选择**费用** \> **续费管理**。
 
+## 什么时候可以强制停止实例？有什么后果？ {#section_nlp_9qg_6gq .section}
+
+在不能通过正常关机流程停止实例时，您可以强制停止实例。强制停止实例等同于断电处理，可能丢失实例操作系统中未写入磁盘的数据。
+
 ## ECS实例中AliVulfix进程是什么？ {#section_4ek_d0m_191 .section}
 
 AliVulfix进程是云盾进行漏洞检测的程序，用于扫描云服务器是否有漏洞。
@@ -918,7 +945,7 @@ AliVulfix进程是云盾进行漏洞检测的程序，用于扫描云服务器�
     #netstat -nltp //查看服务器80端口是否处于监听状态
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156341838141861_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156439554841861_zh-CN.png)
 
 2.  如果未显示80端口信息，说明网站服务没有启动，运行命令手动开启网站服务及相关服务。
 
@@ -1022,6 +1049,14 @@ IIS7建站请参见[Windows Server 2008 IIS7 创建站点教程](https://help.al
 根据工信部《关于清理规范互联网网络接入服务市场的通知》2-4的规定： 未经电信主管部门批准，不得自行建立或租用专线（含虚拟专用网络VPN）等其他信道开展跨境经营活动。基础电信企业向用户出租的国际专线，应集中建立用户档案，向用户明确使用用途仅供其内部办公专用，不得用于连接境内外的数据中心或业务平台开展电信业务经营活动。
 
 建议您核实是否有搭建VPN服务、代理服务器等。如果远程连接正常，不建议您搭建VPN服务，否则会出现以上异常情况。
+
+## ECS实例是否可以访问亚马逊网站？ {#section_q6i_bio_ba9 .section}
+
+ECS实例可以访问亚马逊网站，确保您的ECS实例可以正常访问外网即可。
+
+## 为什么登录到ECS实例后访问不了海外网站？ {#section_ags_ovh_bde .section}
+
+访问海外网站需要满足实例所在国家或地区的政策规定。请确保您的ECS实例可以正常访问外网，并且访问合规的海外网站。
 
 ## 中国大陆用户购买其它国家和地区资源可以享受与阿里云中国大陆资源相同的品质和服务吗？ {#section_16z_pn3_0qf .section}
 
@@ -1177,4 +1212,12 @@ IIS7建站请参见[Windows Server 2008 IIS7 创建站点教程](https://help.al
 
     如果您在ECS实例处于**运行中**或**已停止**时下单成功，但是在支付未完成时实例状态发生了变化不再处于上述状态，支付会失败，从而导致计费方式转换失败。当实例重新处于上述状态时，您可以去订单中心重新支付这个订单。
 
+
+## 如何查询实例到期时间？ {#section_8hf_t8x_5n3 .section}
+
+您可以在ECS控制台实例列表页面的**付费方式**列查看预付费实例的到期时间。
+
+**说明：** 如果没有**付费方式**列，则在页面右上方单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156439554853726_zh-CN.png)按钮，勾选**付费方式**，并单击**确定**。
+
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156439554853728_zh-CN.png)
 
