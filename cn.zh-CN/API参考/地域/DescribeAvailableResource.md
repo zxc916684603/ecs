@@ -1,6 +1,6 @@
 # DescribeAvailableResource {#doc_api_Ecs_DescribeAvailableResource .reference}
 
-查询某一可用区的资源列表。例如，您可以在某一可用区创建实例（RunInstances）或者修改实例规格（ModifyInstanceSpec）时查询该可用区的资源列表。
+调用DescribeAvailableResource查询某一可用区的资源列表。例如，您可以在某一可用区创建实例（RunInstances）或者修改实例规格（ModifyInstanceSpec）时查询该可用区的资源列表。
 
 ## 接口说明 {#description .section}
 
@@ -14,9 +14,9 @@
         -   若参数DestinationResource取值为InstanceType，则必须传入参数IoOptimized。
         -   若参数DestinationResource取值为DataDisk，则必须传入参数IoOptimized、InstanceType和SystemDiskCategory。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeAvailableResource)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=DescribeAvailableResource&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
@@ -73,7 +73,7 @@
  -   none：非I/O优化实例
 -   optimized：I/O优化实例
 
- 当参数DestinationResource取值为InstanceType、SystemDisk或者DataDisk时，IoOptimized为必需参数，且默认值为optimized。
+ 若参数DestinationResource取值为SystemDisk、InstanceType或者DataDisk时，参数IoOptimized不是必需参数，默认值：optimized。
 
  |
 |Memory|Float|否|8.0|实例规格的内存大小，单位为GiB。取值参见[实例规格族](~~25378~~)。
@@ -114,7 +114,7 @@
 -   ephemeral\_ssd：本地SSD盘
 -   cloud\_essd：ESSD云盘
 
- 当DestinationResource取值为DataDisk时，SystemDiskCategory的默认值为cloud\_efficiency。
+ 若参数DestinationResource取值为SystemDisk、InstanceType或者DataDisk时，参数SystemDiskCategory不是必需参数，默认值：cloud\_efficiency。
 
  |
 |ZoneId|String|否|cn-hangzhou-e|可用区ID。
@@ -123,45 +123,45 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |AvailableZones| | |数据中心信息组成的集合。
 
  |
-|└AvailableResources| | |可供创建的具体资源组成的数组。
+|AvailableResources| | |可供创建的具体资源组成的数组。
 
  |
-|└SupportedResources| | |支持的可供创建的具体资源组成的数组。
+|SupportedResources| | |支持的可供创建的具体资源组成的数组。
 
  |
-|└Max|Integer|2|资源规格的最大值，该参数值为空时将不返回。
+|Max|Integer|2|资源规格的最大值，该参数值为空时将不返回。
 
  |
-|└Min|Integer|1|资源规格的最小值，该参数值为空时将不返回。
+|Min|Integer|1|资源规格的最小值，该参数值为空时将不返回。
 
  |
-|└Status|String|Available|资源类型。可能值：
+|Status|String|Available|资源类型。可能值：
 
  -   Available：资源充足
 -   SoldOut：资源已售罄
 
  |
-|└StatusCategory|String|WithStock|根据库存详细分类资源类别。可能值：
+|StatusCategory|String|WithStock|根据库存详细分类资源类别。可能值：
 
  -   WithStock：库存充足
 -   ClosedWithStock：库存接近水位低线
 -   WithoutStock：库存告罄
 
  |
-|└Unit|String|null|资源规格单位，该参数值为空时将不返回。
+|Unit|String|null|资源规格单位，该参数值为空时将不返回。
 
  |
-|└Value|String|ecs.d1ne.xlarge|资源值。
+|Value|String|ecs.d1ne.xlarge|资源值。
 
  |
-|└Type|String|InstanceType|资源类型。可能值：
+|Type|String|InstanceType|资源类型。可能值：
 
  -   Zone：可用区
 -   IoOptimized：I/O优化
@@ -171,23 +171,23 @@
 -   Network：网络类型
 
  |
-|└RegionId|String|cn-hangzhou|地域ID。
+|RegionId|String|cn-hangzhou|地域ID。
 
  |
-|└Status|String|Available|资源类型。可能值：
+|Status|String|Available|资源类型。可能值：
 
  -   Available：资源充足
 -   SoldOut：资源已售罄
 
  |
-|└StatusCategory|String|WithStock|根据库存详细分类资源类别。可能值：
+|StatusCategory|String|WithStock|根据库存情况分类资源类别。可能值：
 
  -   WithStock：库存充足
--   ClosedWithStock：库存接近水位低线
+-   ClosedWithStock：库存供应保障能力低，请优先选用WithStock状态的产品规格
 -   WithoutStock：库存告罄
 
  |
-|└ZoneId|String|cn-hangzhou-e|可用区ID。
+|ZoneId|String|cn-hangzhou-e|可用区ID。
 
  |
 |RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID。
@@ -223,36 +223,35 @@ https://ecs.aliyuncs.com/?Action=DescribeAvailableResource
 
 ``` {#xml_return_success_demo}
 <DescribeAvailableResourceResponse>
-  <RequestId>5272B7D8-F366-4781-AF7B-63E735FBC09A</RequestId>
-  <AvailableZones>
-    <AvailableZone>
-      <Status>Available</Status>
-      <RegionId>cn-hangzhou</RegionId>
-      <ZoneId>cn-hangzhou-h</ZoneId>
-    </AvailableZone>
-    <AvailableZone>
-      <Status>Available</Status>
-      <RegionId>cn-hangzhou</RegionId>
-      <ZoneId>cn-hangzhou-g</ZoneId>
-    </AvailableZone>
-    <AvailableZone>
-      <Status>Available</Status>
-      <RegionId>cn-hangzhou</RegionId>
-      <ZoneId>cn-hangzhou-f</ZoneId>
-    </AvailableZone>
-    <AvailableZone>
-      <Status>Available</Status>
-      <RegionId>cn-hangzhou</RegionId>
-      <ZoneId>cn-hangzhou-b</ZoneId>
-    </AvailableZone>
-    <AvailableZone>
-      <Status>Available</Status>
-      <RegionId>cn-hangzhou</RegionId>
-      <ZoneId>cn-hangzhou-e</ZoneId>
-    </AvailableZone>
-  </AvailableZones>
+	  <RequestId>5272B7D8-F366-4781-AF7B-63E735FBC09A</RequestId>
+	  <AvailableZones>
+		    <AvailableZone>
+			      <Status>Available</Status>
+			      <RegionId>cn-hangzhou</RegionId>
+			      <ZoneId>cn-hangzhou-h</ZoneId>
+		    </AvailableZone>
+		    <AvailableZone>
+			      <Status>Available</Status>
+			      <RegionId>cn-hangzhou</RegionId>
+			      <ZoneId>cn-hangzhou-g</ZoneId>
+		    </AvailableZone>
+		    <AvailableZone>
+			      <Status>Available</Status>
+			      <RegionId>cn-hangzhou</RegionId>
+			      <ZoneId>cn-hangzhou-f</ZoneId>
+		    </AvailableZone>
+		    <AvailableZone>
+			      <Status>Available</Status>
+			      <RegionId>cn-hangzhou</RegionId>
+			      <ZoneId>cn-hangzhou-b</ZoneId>
+		    </AvailableZone>
+		    <AvailableZone>
+			      <Status>Available</Status>
+			      <RegionId>cn-hangzhou</RegionId>
+			      <ZoneId>cn-hangzhou-e</ZoneId>
+		    </AvailableZone>
+	  </AvailableZones>
 </DescribeAvailableResourceResponse>
-
 ```
 
 `JSON` 格式
@@ -313,5 +312,5 @@ https://ecs.aliyuncs.com/?Action=DescribeAvailableResource
 |403|InvalidParam.Memory|The specified parameter 'Memory' should be empty|资源在当前地域不存在或者已释放。|
 |400|InvalidRegionId.MalFormed|The specified parameter RegionId is not valid.|指定的 RegionId 不合法。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
