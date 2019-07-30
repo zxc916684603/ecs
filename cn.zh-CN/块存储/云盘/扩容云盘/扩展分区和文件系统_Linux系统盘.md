@@ -12,9 +12,10 @@
 ## 准备工作 {#section_h25_n5w_dhb .section}
 
 1.  [创建快照](cn.zh-CN/快照/使用快照/创建快照.md#)以备份数据，防止操作失误导致数据丢失。
-2.  通过ECS控制台或者API[扩容云盘容量](cn.zh-CN/块存储/云盘/扩容云盘/扩容云盘容量.md#)。
+2.  通过ECS控制台或者API[扩容云盘容量](cn.zh-CN/块存储/云盘/扩容云盘/离线扩容云盘.md#)。
 3.  远程连接ECS实例。连接方式请参见[连接方式导航](../../../../cn.zh-CN/实例/连接实例/连接方式导航.md#)。
 4.  根据操作系统安装growpart或者xfsprogs扩容格式化工具。
+
     -   CentOS 7、Aliyun Linux：
 
         ``` {#codeblock_lnb_89n_iih}
@@ -30,6 +31,8 @@
         ```
 
     -   Debian 8、OpenSUSE 42.3、OpenSUSE 13.1、SUSE Linux Enterprise Server 12 SP2：请使用上游版本（upstream）的growpart或者xfsprogs工具
+    **说明：** 当出现因扩容格式化工具问题导致的扩容失败时，您可以卸载工具后重新安装。
+
 5.  检查实例的内核版本，如通过`uname -a`查看内核版本。
     -   内核版本大于3.6.0，该情况请参见[高内核版本的操作步骤](#section_gxq_3tw_dhb)。
     -   内核版本小于3.6.0，该情况请参见[低内核版本的操作步骤](#section_vxq_3tw_dhb)。如CentOS 6、Debian 7和SUSE Linux Enterprise Server 11 SP4等发行版，需要经过一次控制台重启或者API重启才能完成分区扩容。
@@ -164,7 +167,7 @@
     CHANGED: partition=1 start=2048 old: size=41940992 end=41943040 new: size=209710462,end=209712510
     ```
 
-6.  在控制台[重启实例](../../../../cn.zh-CN/实例/管理实例/重启实例.md#)或者调用API [RebootInstance](../../../../cn.zh-CN/API参考/实例/RebootInstance.md#)。
+6.  在控制台重启实例或者调用API RebootInstance。详细步骤请参见[重启实例](../../../../cn.zh-CN/实例/管理实例/重启实例.md#)和[RebootInstance](../../../../cn.zh-CN/API参考/实例/RebootInstance.md#)。
 7.  再次远程连接实例。
 8.  运行`resize2fs <PartitionName\>`调用resize2fs扩容文件系统。
 
