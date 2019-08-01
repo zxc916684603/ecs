@@ -215,11 +215,6 @@ You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=CreateLaunchT
 |SystemDisk.DiskName|String|No|cloud\_ssdSystem| The name of the system disk. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons \(:\), underscores \(\_\), and hyphens \(-\).
 
  |
-|SystemDisk.Iops|Integer|No|30000| The number of I/O operations per second for the system disk.
-
- **Note:** This parameter will be removed in the future. We recommend that you use other parameters to ensure compatibility.
-
- |
 |SystemDisk.Size|Integer|No|40| The size of the system disk. Unit: GiB. Valid values: 20 to 500.
 
  The value of this parameter must be at least 20 GiB, or greater than or equal to the value of ImageSize.
@@ -342,7 +337,7 @@ Successful response examples
 }
 ```
 
-## Error codes { .section}
+## Error codes {#section_r0e_mhh_p31 .section}
 
 |HTTP status code|Error code|Error message|Description|
 |----------------|----------|-------------|-----------|

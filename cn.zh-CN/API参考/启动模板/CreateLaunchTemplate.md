@@ -94,14 +94,14 @@
  -   system：阿里云提供的公共镜像。
 -   self：您创建的自定义镜像。
 -   others：其他阿里云用户共享给您的镜像。
--   marketplace：[镜像市场](https://market.aliyun.com/)提供的镜像。您查询到的云市场镜像可以直接使用，无需提前订阅。您需要自行留意云市场镜像的收费详情。
+-   marketplace：[云市场](https://marketplace.alibabacloud.com/)提供的镜像。您查询到的云市场镜像可以直接使用，无需提前订阅。您需要自行留意云市场镜像的收费详情。
 
  默认值：空，空表示返回取值为system、self以及others的结果。
 
  |
 |InstanceChargeType|String|否|PrePaid|实例的计费方式。取值范围：
 
- -   PrePaid：预付费，包年包月。选择该类付费方式时，您必须确认自己的账号支持余额支付和信用支付，否则将返回`InvalidPayMethod`的错误提示。
+ -   PrePaid：预付费，包年包月。选择该类计费方式时，您必须确认自己的账号支持信用支付，否则将返回`InvalidPayMethod`的错误提示。
 -   PostPaid：按量付费。
 
  |
@@ -113,8 +113,7 @@
  |
 |InternetChargeType|String|否|PayByTraffic|网络计费方式。取值范围：
 
- -   PayByBandwidth：按固定带宽计费
--   PayByTraffic：按使用流量计费
+ -   PayByTraffic：按使用流量计费
 
  |
 |InternetMaxBandwidthIn|Integer|否|200|公网入带宽最大值，单位为Mbit/s。取值范围：1~200
@@ -353,5 +352,5 @@ https://ecs.aliyuncs.com/?Action=CreateLaunchTemplate
 |400|InvalidUserData.SizeExceeded|%s|UserData大小超出限制。|
 |400|InvalidUserData.Base64FormatInvalid|%s|指定的模板版本描述格式无效。|
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Ecs)查看更多错误码。
 
