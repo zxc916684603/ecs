@@ -25,7 +25,7 @@ The AccessKey is equivalent to a logon password. However, an AccessKey is used t
 
         for example the `java.net.URLEncoder` of Java language. If so, use the `percentEncode` Java method, in the encoded strings, replace the plus signs \(`+`\) with `%20`, the asterisks \(`*`\) with `%2A`, and `%7E` to the tildes \(`~`\). See the following example:
 
-        ```
+        ``` {#codeblock_dzj_7d1_cda}
         private static final String ENCODING = "UTF-8";
         private static String percentEncode(String value) throws UnsupportedEncodingException {
         return value ! = null ? URLEncoder.encode(value, ENCODING).replace("+", "%20").replace("*", "%2A").replace("%7E", "~") : null;
@@ -41,7 +41,7 @@ Now, you get a canonicalized query string, and its structure must be the same as
 
 1.  Create a variable `StringToSign` by using the canonicalized query string. You can use the aforementioned `[percentEncode](#)` to handle the standardization request string that was constructed by the previous steps, with the following rules:
 
-    ```
+    ``` {#codeblock_bi3_zvj_i3l}
     StringToSign=
       HTTPMethod + "&" + //HTTPMethod: HTTP method used for making request, for example GET.
       percentEncode("/") + "&" + //percentEncode("/"): Encode backslash (/) to %2F.
@@ -50,7 +50,7 @@ Now, you get a canonicalized query string, and its structure must be the same as
 
 2.  Create a variable Signature by calculating the HMAC-SHA1 value of the `StringToSign` according to the [RFC2104](http://www.ietf.org/rfc/rfc2104.txt) rules. Here we use the Java Base64 encoding method.
 
-    ```
+    ``` {#codeblock_7cj_mby_u11}
     Signature = Base64( HMAC-SHA1( AccessSecret, UTF-8-Encoding-Of(StringToSign) ) )
     ```
 
@@ -64,25 +64,25 @@ Take calling [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegi
 
 1.  Create a canonicalized query string.
 
-    ```
-    http://ecs.aliyuncs.com/?Timestamp=2016-02-23T12:46:24Z&Format=XML&AccessKeyId=testid&Action=DescribeRegions&SignatureMethod=HMAC-SHA1&SignatureNonce=3ee8c1b8-83d3-44af-a94f-4e0ad82fd6cf&Version=2014-05-26&SignatureVersion=1.0
+    ``` {#codeblock_kv4_axz_77m}
+    http://ecs.aliyuncs.com/?Timestamp=2016-02-23T12%3A46%3A24Z&Format=XML&AccessKeyId=testid&Action=DescribeRegions&SignatureMethod=HMAC-SHA1&SignatureNonce=3ee8c1b8-83d3-44af-a94f-4e0ad82fd6cf&Version=2014-05-26&SignatureVersion=1.0
     ```
 
 2.  Create a variable [`StringToSign`](#) to be calculated by using the canonicalized query string.
 
-    ```
+    ``` {#codeblock_f8u_5jr_2mc}
     GET&%2F&AccessKeyId%3Dtestid%26Action%3DDescribeRegions%26Format%3DXML%26SignatureMethod%3DHMAC-SHA1%26SignatureNonce%3D3ee8c1b8-83d3-44af-a94f-4e0ad82fd6cf%26SignatureVersion%3D1.0%26Timestamp%3D2016-02-23T12%253A46%253A24Z%26Version%3D2014-05-26
     ```
 
 3.  Calculate the HMAC-SHA1 value. Because you have the AccessKeySecret=testsecret, the Key used in the RFC2104 rules is `testsecret&`, and the HMAC-SHA1 value is `OLeaidS1JvxuMvnyHOwuJ+uX5qY=`. Here we use the Java Base64 encoding method.
 
-    ```
+    ``` {#codeblock_rhn_8vr_2xg}
     Signature = Base64( HMAC-SHA1( AccessSecret, UTF-8-Encoding-Of(StringToSign) ) )
     ```
 
 4.  Encode the value of Signature according to the [RFC3986](http://tools.ietf.org/html/rfc3986) rules and add `Signature=OLeaidS1JvxuMvnyHOwuJ%2BuX5qY%3D` to the URL in [Step 1](#).
 
-    ```
+    ``` {#codeblock_c55_3ia_w0x}
     http://ecs.aliyuncs.com/?SignatureVersion=1.0&Action=DescribeRegions&Format=XML&SignatureNonce=3ee8c1b8-83d3-44af-a94f-4e0ad82fd6cf&Version=2014-05-26&AccessKeyId=testid&Signature=OLeaidS1JvxuMvnyHOwuJ%2BuX5qY%3D&SignatureMethod=HMAC-SHA1&Timestamp=2016-02-23T12%253A46%253A24Z
     ```
 
@@ -95,7 +95,7 @@ Assume that you are calling the [DescribeRegions](reseller.en-US/API Reference/R
 
 1.  Predefined encoding methods.
 
-    ```
+    ``` {#codeblock_wrm_03o_li8}
     private static final String ENCODING = "UTF-8";
     private static String percentEncode(String value) throws UnsupportedEncodingException {
       return value ! = null ? URLEncoder.encode(value, ENCODING).replace("+", "%20").replace("*", "%2A").replace("%7E", "~") : null;
@@ -104,7 +104,7 @@ Assume that you are calling the [DescribeRegions](reseller.en-US/API Reference/R
 
 2.  Predefine the format of the parameter `Timestamp`. The parameter `Timestamp` must conform to the [ISO8601](reseller.en-US/API Reference/Appendix/ISO 8601 Time Format.md#), and use the offset from Coordinated Universal Time \(UTC\) for the date time.
 
-    ```
+    ``` {#codeblock_kdk_9wh_wa0}
     private static final String ISO8601_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
     private static String formatIso8601Date(Date date) {
       SimpleDateFormat df = new SimpleDateFormat(ISO8601_DATE_FORMAT);
@@ -115,7 +115,7 @@ Assume that you are calling the [DescribeRegions](reseller.en-US/API Reference/R
 
 3.  Construct a request string.
 
-    ```
+    ``` {#codeblock_bt1_yo8_xxl}
     final String HTTP_METHOD = "GET";
     Map parameters = new HashMap();
     // Add request parameters
@@ -147,9 +147,9 @@ Assume that you are calling the [DescribeRegions](reseller.en-US/API Reference/R
       canonicalizedQueryString.toString().substring(1)));
     ```
 
-4.  Sign and encode the signature. Because you have the AccessKeySecret=testsecret, the Key for computing HMAC is `testsecret&` and the value of signature after calculation is `OLeaidS1JvxuMvnyHOwuJ%2BuX5qY%3D`.
+4.  Sign and encode the signature. Because you have the AccessKeySecret=testsecret, the Key for computing HMAC is `testsecret&` and the value of signature after calculation is `OLeaidS1JvxuMvnyHOwuJ%2BuX5qY%3D`.
 
-    ```
+    ``` {#codeblock_ee9_ykd_bvp}
     // A sample code for calculating the signature
     final String ALGORITHM = "HmacSHA1";
     final String ENCODING = "UTF-8";
@@ -162,13 +162,13 @@ Assume that you are calling the [DescribeRegions](reseller.en-US/API Reference/R
 
     After adding the Signature parameter, the request URL encoded according to [RFC3986](http://tools.ietf.org/html/rfc3986) rules is ready to use.
 
-    ```
+    ``` {#codeblock_13k_m5r_xd6}
     http://ecs.aliyuncs.com/?SignatureVersion=1.0&Action=DescribeRegions&Format=XML&SignatureNonce=3ee8c1b8-83d3-44af-a94f-4e0ad82fd6cf&Version=2014-05-26&AccessKeyId=testid&Signature=OLeaidS1JvxuMvnyHOwuJ%2BuX5qY%3D&SignatureMethod=HMAC-SHA1&Timestamp=2016-02-23T12%253A46%253A24Z
     ```
 
 5.  Use a Web browser, curl, wget or other tools to send HTTP Request.
 
-    ```
+    ``` {#codeblock_n1f_r9p_5fj}
     <DescribeRegionsResponse>
      <Regions>
          <Region>
