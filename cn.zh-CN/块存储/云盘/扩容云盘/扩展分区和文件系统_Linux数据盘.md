@@ -31,7 +31,7 @@
     /dev/vdb1 2048 41943039 20970496 83 Linux
     ```
 
-2.  运行`blkid <PartionName\>`确认文件系统的类型。
+2.  运行`blkid <PartitionName\>`确认文件系统的类型。
 
     本示例中，/dev/vdb1的文件系统类型为ext4。 
 
@@ -46,7 +46,7 @@
 
     -   ext\*文件系统：`e2fsck -n <dst\_dev\_part\_path\>`
     -   xfs文件系统：`xfs_repair -n <dst\_dev\_part\_path\>`
-    本示例中，文件系统状态为clean。如果状态不是clean，请排查并修复。
+    **警告：** 本示例中，文件系统状态为clean。如果状态不是clean，请排查并修复。
 
     ``` {#codeblock_i6g_2gi_2bs .lanuage-shell}
     [root@ecshost ~]# e2fsck -n /dev/vdb1
@@ -247,7 +247,7 @@
 
 1.  运行`fdisk -u /dev/vdb`命令新建分区。
 
-    本示例中，为新增的20 GiB新建分区，作为/dev/vdb2使用。
+    本示例中，为新增的20GiB新建分区，作为/dev/vdb2使用。
 
     ``` {#codeblock_or8_07t_e4r .lanuage-shell}
     [root@ecshost ~]# fdisk -u /dev/vdb
@@ -419,7 +419,7 @@
 
 ## 选项三：扩展已有GPT分区 {#section_oi9_qp8_f04 .section}
 
-如果新增空间用于扩容已有的GPT分区，按照以下步骤在实例中完成扩容。示例采用一块1 TiB的数据盘，扩容后为32 TiB，已有分区为/dev/vdb1。
+如果新增空间用于扩容已有的GPT分区，按照以下步骤在实例中完成扩容。示例采用一块1 TiB的数据盘，扩容后为32TiB，已有分区为/dev/vdb1。
 
 1.  使用fdisk工具查看待扩展的数据盘分区。
 
@@ -461,7 +461,7 @@
     2.  （可选）运行`help`查看工具使用说明。
     3.  运行`print`查看待扩容的分区号（Number）和容量（Size）。
 
-        示例中，待扩容的分区为1号分区，已有容量为1100 GiB，以下步骤会将所有新增容量分配到该分区。
+        示例中，待扩容的分区为1号分区，已有容量为1100GiB，以下步骤会将所有新增容量分配到该分区。
 
     4.  运行`resizepart <分区号> <容量分配百分比>`扩展分区。
 
@@ -532,7 +532,7 @@
 
 ## 选项四：新增并格式化GPT分区 {#section_4hl_5l7_87s .section}
 
-如果新增空间用于增加新的分区并希望使用GPT分区格式，按照以下步骤在实例中完成扩容。示例采用一块32 TiB的数据盘，已有一个4.8 TiB的分区/dev/vdb1，此次新建了一个/dev/vdb2分区。
+如果新增空间用于增加新的分区并希望使用GPT分区格式，按照以下步骤在实例中完成扩容。示例采用一块32 TiB的数据盘，已有一个4.8TiB的分区/dev/vdb1，此次新建了一个/dev/vdb2分区。
 
 1.  使用fdisk工具查看数据盘中已有分区的信息。
 
@@ -564,7 +564,7 @@
     1.  运行`parted /dev/vdb`进入分区工具。
     2.  运行`print free`查看数据盘待分配的容量，记录已有分区的扇区位置和容量。
 
-        示例中/dev/vdb1的起始位置为1049 KB，结束扇区为5278 GB，容量为5278 GiB。
+        示例中/dev/vdb1的起始位置为1049KB，结束扇区为5278GB，容量为5278GiB。
 
         ``` {#codeblock_k7q_ebl_6pw .lanuage-shell}
         (parted) print free
