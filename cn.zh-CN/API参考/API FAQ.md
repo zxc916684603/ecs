@@ -16,7 +16,7 @@
 
 ECS API是RPC风格的开放式API，为阿里云用户提供API服务。您可以基于ECS API管理和使用云服务器ECS。下图为您在使用API时，API请求的转发路径。有关如何调用ECS API，请参见[ECS API快速入门](cn.zh-CN/API参考/ECS API快速入门.md#)。
 
-![什么是ECS API](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/614896/156411538649776_zh-CN.png)
+![什么是ECS API](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/614896/156471340149776_zh-CN.png)
 
 ## 创建ECS实例时报错：InvalidDataDiskCategory.NotSupported {#section_rqe_51b_fkf .section}
 
