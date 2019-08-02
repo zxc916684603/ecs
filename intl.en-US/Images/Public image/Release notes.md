@@ -2,6 +2,103 @@
 
 This topic describes the release notes of images and relevant updates.
 
+## July 11, 2019 {#section_uq1_icm_amr .section}
+
+|Release|Description|
+|:------|:----------|
+|CentOS 7.6| -   Image ID: centos\_7\_06\_64\_20G\_alibase\_20190711.vhd
+-   Kernel version: 3.10.0-957.21.3.el7.x86\_64
+-   Released in: all regions
+-   Changes: updated to the latest operating system patches
+
+ |
+
+## July 9, 2019 {#section_mr5_l36_54l .section}
+
+|Release|Description|
+|:------|:----------|
+|CentOS 6.10| -   Image ID: centos\_6\_10\_64\_20G\_alibase\_20190709.vhd
+-   Kernel version: 2.6.32-754.17.1.el6.x86\_64
+-   Released in: all regions
+-   Changes: updated to the latest operating system patches
+
+ |
+
+## July 2, 2019 {#section_xe1_c5m_jkc .section}
+
+|Release|Description|
+|:------|:----------|
+|Debian 9.9| -   Image ID: debian\_9\_09\_64\_20G\_alibase\_20190702.vhd
+-   Kernel version: 4.9.0-9-amd64
+-   Released in: all regions
+-   Changes: updated to the latest operating system patches
+
+ |
+
+## June, 24, 2019 {#section_w3s_ytu_b8c .section}
+
+|Release|Description|
+|:------|:----------|
+|Ubuntu 18.04| -   Image ID: ubuntu\_18\_04\_64\_20G\_alibase\_20190624.vhd
+-   Kernel version: 4.15.0-52-generic
+-   Released in: all regions
+-   Changes:
+    -   Updated operating system patches
+    -   Fixed the CVE-2019-11477 vulnerability
+
+ |
+
+## June, 21, 2019 {#section_pmr_dok_f0a .section}
+
+|Release|Description|
+|:------|:----------|
+|CentOS 6.10| -   Image ID: centos\_6\_10\_64\_20G\_alibase\_20190621.vhd
+-   Kernel version: 2.6.32-754.15.3.el6.x86\_64
+-   Released in: all regions
+-   Changes:
+    -   Updated operating system patches
+    -   Fixed the CVE-2019-11477 vulnerability
+
+ |
+
+## June 20, 2019 {#section_hxz_a90_fyd .section}
+
+|Release|Description|
+|:------|:----------|
+|Ubuntu 16.04| -   Image ID: ubuntu\_16\_04\_64\_20G\_alibase\_20190620.vhd
+-   Kernel version: 4.4.0-151-generic
+-   Released in: all regions
+-   Changes:
+    -   Updated operating system patches
+    -   Fixed the CVE-2019-11477 vulnerability
+
+ |
+
+## June 19, 2019 {#section_qzv_coj_1xf .section}
+
+|Release|Description|
+|:------|:----------|
+|CentOS 7.6| -   Image ID: centos\_7\_06\_64\_20G\_alibase\_20190619.vhd
+-   Kernel version: 3.10.0-957.21.3.el7.x86\_64
+-   Released in: all regions
+-   Changes:
+    -   Updated to the latest operating system patches
+    -   Fixed the CVE-2019-11477 vulnerability
+    -   Set the default CPU mode to performance
+
+ |
+|Aliyun Linux 2| -   Image ID: aliyun\_2\_1903\_64\_20G\_alibase\_20190619.vhd
+-   Kernel version: 4.19.43-13.2.al7.x86\_64
+-   Released in: all regions
+-   Changes:
+    -   Added support for cgroup writeback based on the cgroup v1 interface
+    -   Added support for policy-based routing
+    -   Enabled INET\_DIAG for the `ss` command in the iproute2 package
+    -   Added support for the tunable interface `tcp_tw_timeout`
+    -   Fixed the CVE-2019-11477, CVE-2019-11478, CVE-2019-11479, and TCP SACK PANIC network vulnerabilities
+
+ |
+
 ## May 28, 2019 {#section_95g_4qf_2lc .section}
 
 |Release|Description|
@@ -206,7 +303,7 @@ This topic describes the release notes of images and relevant updates.
 |:------|:----------|
 |Debian 9.8| -   Image ID: debian\_9\_08\_64\_20G\_alibase\_20190225.vhd
 -   Kernel version: 4.9.0-8-amd64
--   Released in: China North 2, China North 3, and China North 5
+-   Released in: China \(Beijing\), China \(Zhangjiakou\), and China \(Hohhot\)
 -   Changes: updated to the latest operating system patches
 
  |
@@ -317,7 +414,7 @@ This topic describes the release notes of images and relevant updates.
     -   Updated the cloud-init version
     -   Enabled the chrony service \(time synchronization\)
     -   Set GRUB\_TIMEOUT=1
--   Known issues: [Classic network configuration issues](intl.en-US/Images/Public image/Known issues.md#section_zyc_kxl_jgb)
+-   Known issues: [Classic network configuration issues](reseller.en-US/Images/Public image/Known issues.md#section_zyc_kxl_jgb)
 
  |
 |Ubuntu 18.04| -   Image ID: ubuntu\_18\_04\_64\_20G\_alibase\_20181212.vhd
