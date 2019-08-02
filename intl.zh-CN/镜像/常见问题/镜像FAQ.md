@@ -1,5 +1,7 @@
 # 镜像FAQ {#concept_q1j_bty_dhb .concept}
 
+本文介绍镜像相关的常见问题及解决方案。
+
 -   Aliyun Linux 2 FAQ
     -   [Aliyun Linux 2与Aliyun Linux有何不同？](#section_zxs_xnv_fhb)
     -   [如何开始在阿里云上使用Aliyun Linux 2？](#section_hwh_g4v_fhb)
@@ -15,15 +17,10 @@
     -   [Aliyun Linux 2怎样保证数据安全？](#section_vsv_spv_fhb)
     -   [Aliyun Linux 2是否支持数据加密？](#section_mcz_fqv_fhb)
     -   [怎样设置Aliyun Linux 2的有关权限？](#section_f41_jqv_fhb)
--   一般性问题
-    -   [镜像有哪些功能？](#section_hhl_prx_fhb)
-    -   [镜像能带来哪些便利？](#section_owg_qrx_fhb)
-    -   [目前镜像支持哪些服务器环境和应用场景？](#section_lfh_rrx_fhb)
-    -   [镜像是否安全？](#section_sdd_srx_fhb)
+-   一般性FAQ
     -   [选择了镜像后能更换吗？](#section_ovb_trx_fhb)
-    -   [镜像安装使用过程中出问题了怎么办？](#section_kl5_trx_fhb)
     -   [ECS系统盘是否支持KMS加密，通过Terraform或Packer如何使用？](#section_bjd_h5l_93s)
--   快照相关FAQ
+-   快照与镜像相关FAQ
     -   [快照和镜像有什么不同？有什么关系？](#section_bmh_2xf_3ds)
     -   [如何将A账号下面的ECS快照数据迁移到B账号下？](#section_ed5_k10_dzu)
     -   [数据盘的快照不能创建自定义镜像吗？那如何将A账号下的数据盘快照迁移到B账号？](#section_lyx_6pb_932)
@@ -47,6 +44,10 @@
     -   [使用自定义镜像创建的实例，系统磁盘自动扩容失败的原因是什么？怎么办？](#section_oqc_u0t_5ri)
     -   [创建自定义镜像、ECS实例时为何需要注释挂载项？](#section_uar_ern_zbt)
     -   [如何配置并使用Docker私有镜像库？](#section_4wu_r5p_bi1)
+    -   [如何克隆ECS服务器？](#section_wnw_26f_axp)
+    -   [有些自定义镜像不支持创建I/O优化的实例，我该如何操作？](#section_nvl_tpi_ffj)
+    -   [在哪里查看导入镜像的进度？导入镜像需要多少时间？](#section_o5a_k1v_smp)
+    -   [在哪里查看镜像创建进度？创建镜像需要多少时间？](#section_ioj_atj_1te)
 -   复制镜像FAQ
     -   [什么情况下需要复制镜像？](#section_pbs_h4c_ghb)
     -   [可以复制哪些镜像？](#section_j4j_n4c_ghb)
@@ -56,11 +57,12 @@
     -   [在复制镜像过程中，源镜像和目标镜像有什么限制？](#section_inj_s4c_ghb)
     -   [怎么复制我的云账号的镜像资源到其他阿里云账号的其他地域？](#section_kyv_54c_ghb)
     -   [复制镜像有镜像容量限制吗？](#section_k14_x4c_ghb)
-    -   [从其他地域复制过来的镜像，镜像页面显示状态为可用。但通过此镜像创建实例时，提示“您指定的镜像被禁用或者已被删除”。为什么？](#section_lxo_ujw_fm3)
+    -   [从其他地域复制过来的镜像，镜像页面显示状态为可用。但通过此镜像创建实例时，提示“您指定的镜像被禁用或者已被删除”，为什么？](#section_lxo_ujw_fm3)
     -   [国际站数据迁移到国内有什么方法？](#section_oqq_9z9_t00)
 -   共享镜像FAQ
     -   [我最多可以获得多少个共享镜像？](#section_xry_y4c_ghb)
     -   [每个镜像最多可以共享给多少个用户？](#section_pwp_ypc_ghb)
+    -   [我有多个站点的账号，能否互相共享镜像？](#section_jeb_xr5_8wn)
     -   [使用共享镜像是否占用我的镜像名额？](#section_agd_2qc_ghb)
     -   [使用共享镜像创建实例的时候存不存在地域限制？](#section_mls_2qc_ghb)
     -   [使用共享镜像创建实例存在什么样的风险？](#section_p4w_lqc_ghb)
@@ -83,6 +85,11 @@
 -   镜像费用FAQ
     -   [为什么创建实例时自定义镜像的配置费用高于公共镜像？](#section_k04_yg7_uoa)
 -   镜像商业化FAQ
+    -   [镜像市场的镜像有哪些功能？](#section_8wl_8ju_9pi)
+    -   [镜像市场的镜像能带来哪些便利？](#section_c0p_y2e_36h)
+    -   [目前镜像市场的镜像支持哪些服务器环境和应用场景？](#section_4aa_s13_huj)
+    -   [镜像市场的镜像是否安全？](#section_hng_971_32q)
+    -   [镜像市场的镜像安装使用过程中出问题了怎么办？](#section_jyl_7r1_85r)
     -   [如何购买镜像市场镜像？](#section_hxc_rqc_ghb)
     -   [按次购买的镜像的使用期限是多久？](#section_hqw_prc_ghb)
     -   [镜像市场的镜像支持退款吗？](#section_gzm_qrc_ghb)
@@ -102,7 +109,7 @@
     -   [如果之前使用的镜像市场的镜像，已不存在该商品（如：jxsc000010、jxsc000019），怎能保证已经设置的弹性伸缩组的机器能正常弹出？](#section_stt_zsc_ghb)
     -   [1个product code能否支持不同region的镜像？](#section_os3_btc_ghb)
     -   [我买了100 product code同样值的镜像，是否可以支持在所有的地域可用？](#section_uzj_ctc_ghb)
-    -   [勾选"IO优化实例"选项导致购买ECS实例时无法选择镜像市场的镜像，为什么？怎么解决？](#section_tch_39p_cv5)
+    -   [勾选"I/O优化实例"选项导致购买ECS实例时无法选择镜像市场的镜像，为什么？怎么解决？](#section_tch_39p_cv5)
 -   镜像市场预付费镜像FAQ
     -   [什么是镜像市场的包年包月和按周付费镜像？](#section_zxy_n5c_ghb)
     -   [预付费镜像能与哪种ECS实例搭配使用？](#section_fts_45c_ghb)
@@ -129,8 +136,13 @@
     -   [我已经购买了新的ECS服务器，如何把我的共享镜像恢复到这台新购ECS服务器上？](#section_54f_mg4_r2p)
     -   [实例的操作系统为Windows Server 2008 R2企业版，现在说Windows副本不是正版怎么办？](#section_dcb_fs7_ljf)
     -   [我在阿里云有多个账号，想把账号A的一台服务器转移到账号B，或者用账号B购买一台服务器，通过镜像把服务器运行环境、所有安装应用迁移到账号B的服务器。怎么操作？](#section_cvk_0gm_ods)
+    -   [阿里云ECS实例之间如何迁移？](#section_pkf_2xq_13z)
     -   [两个不同专有网络下的ECS服务器能否实现网络互通？](#section_lqt_tci_xa6)
     -   [如何处理CentOS DNS解析超时？](#section_x8y_les_u5u)
+    -   [为什么ECS默认没有启用虚拟内存或Swap说明？](#section_m02_5j5_qf2)
+    -   [如何在阿里云公共镜像中开启kdump？](#section_kwb_4l4_a16)
+    -   [Linux镜像如何开启或关闭Meltdown与Spectre安全漏洞补丁？](#section_mf9_75m_jnp)
+    -   [如何检查与修复CentOS 7实例和Windows实例IP地址缺失问题？](#section_29l_kc7_8hw)
 
 ## Aliyun Linux 2与Aliyun Linux有何不同？ {#section_zxs_xnv_fhb .section}
 
@@ -181,11 +193,11 @@ Aliyun Linux 2目前只支持阿里云云服务器ECS，暂不支持其它第三
 
 ## 相比其他Linux操作系统，Aliyun Linux 2有哪些优势？ {#section_fmy_jpv_fhb .section}
 
-产品与CentOS 7.6.1810发行版保持二进制兼容，在此基础上提供差异化的操作系统功能。
+Aliyun Linux 2与CentOS 7.6.1810发行版保持二进制兼容，在此基础上提供差异化的操作系统功能。
 
-与CentOS及RHEL相比，差异点体现在：
+与CentOS及RHEL相比，Aliyun Linux 2的优势体现在：
 
--   满足您的操作系统新特性诉求，更快的发布节奏，更新的Linux 内核、用户态软件及工具包。
+-   满足您的操作系统新特性诉求，更快的发布节奏，更新的Linux内核、用户态软件及工具包。
 -   开箱即用，最简用户配置，最短时间服务就绪。
 -   最大化用户性能收益，与云基础设施联动优化。
 -   与RHEL相比没有运行时计费，与CentOS相比有商业支持。
@@ -201,39 +213,19 @@ Aliyun Linux 2二进制兼容CentOS 7.6.1810/RHEL 7.6，遵从RHEL的安全规�
 
 ## Aliyun Linux 2是否支持数据加密？ {#section_mcz_fqv_fhb .section}
 
-Aliyun Linux 2将会保留CentOS 7的数据加密工具包，并确保CentOS 7与KMS协同工作的加密方案可以在Aliyun Linux 2得到支持。
+Aliyun Linux 2保留CentOS 7的数据加密工具包，并确保CentOS 7与KMS协同工作的加密方案可以在Aliyun Linux 2得到支持。
 
 ## 怎样设置Aliyun Linux 2的有关权限？ {#section_f41_jqv_fhb .section}
 
 Aliyun Linux 2属于与CentOS 7同源的操作系统。CentOS 7的管理员可以无缝地使用完全一致的管理命令做相关的权限设置，Aliyun Linux 2的缺省权限设置与阿里云CentOS 7镜像完全一致。
 
-## 镜像有哪些功能？ {#section_hhl_prx_fhb .section}
-
-镜像在操作系统基础上预装了软件环境和多种功能，如PHP/.NET/JAVA/LAMP等运行环境、控制面板、建站系统等。将镜像与云服务器配套使用,您只需进行一次简单操作，就可快速部署云服务器的运行环境或软件应用,再也不担心上云难了。
-
-## 镜像能带来哪些便利？ {#section_owg_qrx_fhb .section}
-
-过去，开启云服务器（ECS）后，您需自行配置环境、安装软件，繁琐且耗时。现在通过镜像开通云服务器，一键部署，您可获得与镜像一致的系统环境或软件，便捷地创建就绪的运行环境，同时轻松地搭建并管理站点。
-
-## 目前镜像支持哪些服务器环境和应用场景？ {#section_lfh_rrx_fhb .section}
-
-镜像市场提供上百款优质第三方镜像，不仅全面支持PHP/.NET/JAVA/LAMP/Docke虚拟容器等运行环境的部署，而且满足建站、应用开发、可视化管理等个性化需求。
-
-## 镜像是否安全？ {#section_sdd_srx_fhb .section}
-
-镜像服务商均有丰富的系统维护和环境配置经验，所有镜像都基于包含云盾的阿里云官方操作系统制作，且预先经过严格安全审核，敬请放心使用。
-
 ## 选择了镜像后能更换吗？ {#section_ovb_trx_fhb .section}
 
 可以更换。在ECS控制台，选择更换系统盘，即可选择所需的镜像进行更换。请注意，更换镜像会导致系统盘数据丢失，请在确认更换前做好数据备份。
 
-## 镜像安装使用过程中出问题了怎么办？ {#section_kl5_trx_fhb .section}
-
-查看购买页的服务信息，通过在线旺旺、电话或邮箱直接与镜像服务商联系，实时解答您的疑问。
-
 ## ECS系统盘是否支持KMS加密，通过Terraform或Packer如何使用？ {#section_bjd_h5l_93s .section}
 
-目前，ECS系统盘支持KMS的默认key加密，即，选择加密后，ECS系统会为您在KMS中的使用地域自动创建一个专为ECS使用的CMK。详情请参见[ECS云盘加密](../../../../intl.zh-CN/块存储/云盘/ECS云盘加密.md#)。
+目前，ECS系统盘支持KMS的默认key加密，即选择加密后，ECS系统会为您在KMS中的使用地域自动创建一个专为ECS使用的CMK。详情请参见[ECS云盘加密](../intl.zh-CN/块存储/云盘/ECS云盘加密.md#)。
 
 BYOK加密方式和Packer加密功能即将支持。
 
@@ -241,13 +233,13 @@ Terraform中通过参数encrypted指定，详情请参见[alicloud\_disks](https
 
 ## 快照和镜像有什么不同？有什么关系？ {#section_bmh_2xf_3ds .section}
 
-**快照和镜像的不同：**
+快照和镜像的不同如下：
 
 -   镜像可直接用来创建ECS实例，而快照不可以。
 -   快照可以是ECS实例系统盘或数据盘的数据备份，而镜像一定包含ECS实例系统盘的数据。
 -   快照只能用于当前ECS实例磁盘的数据恢复，而镜像可用于当前ECS实例及其他实例更换系统盘或创建新的ECS实例。
 -   快照不可以跨地域使用。若您需要在其他地域恢复实例数据，可使用自定义镜像，详情请参见[复制镜像](intl.zh-CN/镜像/自定义镜像/复制镜像.md#)。
--   应用场景不同。由于您只能使用自定义镜像备份数据，这里仅列举快照和自定义镜像的一些应用场景：
+-   应用场景不同。由于您只能使用自定义镜像备份数据，这里仅列举快照和自定义镜像的一些应用场景。
 
     快照适用场景：
 
@@ -263,11 +255,11 @@ Terraform中通过参数encrypted指定，详情请参见[alicloud\_disks](https
     -   系统及数据迁移，如将经典网络的ECS实例迁移到VPC下。
     -   跨可用区和地域还原系统。
 
-**快照和镜像的关系：**
+快照和镜像的关系如下：
 
-使用实例创建自定义镜像时，ECS会为实例的每块磁盘创建快照，即自定义镜像包含ECS实例所有磁盘的快照。具体步骤请参见[使用实例创建自定义镜像](intl.zh-CN/镜像/自定义镜像/创建自定义镜像/使用实例创建自定义镜像.md#)。
+使用实例创建自定义镜像时，ECS会为实例的每块磁盘创建快照，即自定义镜像包含ECS实例所有磁盘的快照。具体步骤，请参见[使用实例创建自定义镜像](intl.zh-CN/镜像/自定义镜像/创建自定义镜像/使用实例创建自定义镜像.md#)。
 
-使用系统盘快照，也可以创建自定义镜像。具体步骤请参见[使用快照创建自定义镜像](intl.zh-CN/镜像/自定义镜像/创建自定义镜像/使用快照创建自定义镜像.md#)。
+使用系统盘快照，也可以创建自定义镜像。具体步骤，请参见[使用快照创建自定义镜像](intl.zh-CN/镜像/自定义镜像/创建自定义镜像/使用快照创建自定义镜像.md#)。
 
 ## 如何将A账号下面的ECS快照数据迁移到B账号下？ {#section_ed5_k10_dzu .section}
 
@@ -277,28 +269,28 @@ Terraform中通过参数encrypted指定，详情请参见[alicloud\_disks](https
 
 创建自定义镜像的快照磁盘属性必须是系统盘，数据盘不能用于创建自定义镜像。
 
-如果您需要将A账号数据盘快照迁移到B账号，可按以下步骤操作：
+如果您需要将A账号数据盘快照迁移到B账号，可按以下步骤操作。
 
-1.  为数据盘快照的原实例创建镜像，具体步骤请参见[使用实例创建自定义镜像](intl.zh-CN/镜像/自定义镜像/创建自定义镜像/使用实例创建自定义镜像.md#)。
-2.  共享镜像给B账号，具体步骤请参见[共享镜像](intl.zh-CN/镜像/自定义镜像/共享镜像.md#)。
-3.  在B账号中，使用该镜像新购一台按量付费实例，具体步骤请参见[使用自定义镜像创建实例](../../../../intl.zh-CN/实例/创建实例/使用自定义镜像创建实例.md#)。
-4.  为新购实例的数据盘创建快照，具体步骤请参见[创建快照](../../../../intl.zh-CN/快照/使用快照/创建快照.md#)。
-5.  释放该新购实例，具体步骤请参见[释放实例](../../../../intl.zh-CN/实例/管理实例/释放实例.md#)。
+1.  为数据盘快照的原实例创建镜像。具体步骤，请参见[使用实例创建自定义镜像](intl.zh-CN/镜像/自定义镜像/创建自定义镜像/使用实例创建自定义镜像.md#)。
+2.  共享镜像给B账号。具体步骤，请参见[共享镜像](intl.zh-CN/镜像/自定义镜像/共享镜像.md#)。
+3.  在B账号中，使用该镜像新购一台按量付费实例。具体步骤，请参见[使用自定义镜像创建实例](../intl.zh-CN/实例/创建实例/使用自定义镜像创建实例.md#)。
+4.  为新购实例的数据盘创建快照。具体步骤，请参见[创建快照](../intl.zh-CN/快照/使用快照/创建快照.md#)。
+5.  释放该新购实例。具体步骤，请参见[释放实例](../intl.zh-CN/实例/管理实例/释放实例.md#)。
 
 ## 因为删除了创建快照的实例，而导致使用快照回滚不成功，该如何解决？ {#section_5p6_ip2_7g0 .section}
 
-您可以按照以下步骤操作：
+您可以按照以下步骤操作。
 
-1.  使用快照创建自定义镜像，具体步骤请参见[使用快照创建自定义镜像](intl.zh-CN/镜像/自定义镜像/创建自定义镜像/使用快照创建自定义镜像.md#)。
-2.  更换系统盘，更换时选择该自定义镜像。具体步骤请参见[更换系统盘（非公共镜像）](../../../../intl.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)。
+1.  使用快照创建自定义镜像。具体步骤，请参见[使用快照创建自定义镜像](intl.zh-CN/镜像/自定义镜像/创建自定义镜像/使用快照创建自定义镜像.md#)。
+2.  更换系统盘，更换时选择该自定义镜像。具体步骤，请参见[更换系统盘（非公共镜像）](../intl.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)。
 
 ## ECS实例系统快照能否下载到本地？ {#section_1ff_9s6_3i5 .section}
 
-快照不能下载到本地。您可以利用快照创建镜像，再申请导出镜像。具体步骤请参见[使用快照创建自定义镜像](intl.zh-CN/镜像/自定义镜像/创建自定义镜像/使用快照创建自定义镜像.md#)和[导出镜像](intl.zh-CN/镜像/自定义镜像/导出镜像.md#)。
+快照不能下载到本地。您可以利用快照创建镜像，再申请导出镜像。具体步骤，请参见[使用快照创建自定义镜像](intl.zh-CN/镜像/自定义镜像/创建自定义镜像/使用快照创建自定义镜像.md#)和[导出镜像](intl.zh-CN/镜像/自定义镜像/导出镜像.md#)。
 
 ## 实例释放后，快照是否还存在？ {#section_ocf_oay_z1e .section}
 
-保留手动快照，自动快照会随着实例释放而被清除。更多详情，请参见[快照FAQ](../../../../intl.zh-CN/快照/常见问题/快照FAQ.md#)。
+保留手动快照，自动快照会随着实例释放而被清除。更多详情，请参见[快照FAQ](../intl.zh-CN/快照/常见问题/快照FAQ.md#)。
 
 ## 我想删除华北2快照链列表内的某一快照，但提示我关联了“RequestId: xxx”，这个是什么？ {#section_72i_6dy_wdp .section}
 
@@ -306,7 +298,7 @@ Terraform中通过参数encrypted指定，详情请参见[alicloud\_disks](https
 
 ## 之前实例的地域为华东1（杭州），对数据盘做了快照。实例到期释放我在华东1（杭州）地域又新购了一个实例，能否把之前实例的快照回滚？ {#section_c7y_3ij_f53 .section}
 
-快照回滚是回滚到原来的实例。您可以利用之前数据盘的快照创建云盘，将云盘挂载到新的实例上。具体步骤请参见[用快照创建云盘](../../../../intl.zh-CN/块存储/云盘/创建云盘/使用快照创建云盘.md#)和[挂载云盘](../../../../intl.zh-CN/块存储/云盘/挂载云盘.md#)。
+快照回滚是回滚到原来的实例。您可以利用之前数据盘的快照创建云盘，将云盘挂载到新的实例上。具体步骤，请参见[用快照创建云盘](../intl.zh-CN/块存储/云盘/创建云盘/使用快照创建云盘.md#)和[挂载云盘](../intl.zh-CN/块存储/云盘/挂载云盘.md#)。
 
 ## 如何查看数据盘？ {#section_hrq_fgx_fhb .section}
 
@@ -316,19 +308,25 @@ Terraform中通过参数encrypted指定，详情请参见[alicloud\_disks](https
 
 ## 如何卸载（umount）和删除disk table里的数据？ {#section_lzy_rgx_fhb .section}
 
-假设/dev/hda5已经挂载在/mnt/hda5上，您可以使用下列任一命令卸载已挂载的文件系统：
+假设/dev/hda5已经挂载在/mnt/hda5上，您可以使用下列任一命令卸载已挂载的文件系统。
 
-```
+``` {#codeblock_i3l_6kl_9q7}
 umount /dev/hda5
+```
+
+``` {#codeblock_qtj_lg8_95v}
 umount /mnt/hda5
+```
+
+``` {#codeblock_eey_tfr_uy1}
 umount /dev/hda5 /mnt/hda5
 ```
 
  /etc/fstab是Linux系统下比较重要的配置文件，其包含了系统在启动时挂载的文件系统和存储设备的详细信息。
 
-当您不想在启动实例时挂载指定分区，需要删除当前文件中对应的语句行。例如，删除下面的语句可以在启动的时候断开xvdb1：
+当您不想在启动实例时挂载指定分区，需要删除当前文件中对应的语句行。例如，删除下面的语句可以在启动的时候断开xvdb1。
 
-```
+``` {#codeblock_gvn_3u3_ojc}
 /dev/xvdb1 /leejd ext4 defaults 0 0
 ```
 
@@ -343,6 +341,8 @@ Linux其他较重要的配置文件如下：
 |/etc/selinux/config|系统安全策略配置文件|修改/etc/selinux/config开启SELinux导致系统无法启动。|
 
 ## 如何确认已经卸载数据盘，并可以新建自定义镜像？ {#section_wdy_3ty_dhb .section}
+
+具体步骤如下：
 
 1.  确认/etc/fstab文件中对应的自动挂载数据盘分区语句行已被删除。
 2.  使用mount命令查看所有设备的挂载信息，请确认执行结果中不包含对应的数据盘分区信息。
@@ -361,13 +361,13 @@ Linux其他较重要的配置文件如下：
 
 ## 更换系统盘时另选操作系统，是否可以使用自定义镜像？ {#section_b21_zhx_fhb .section}
 
-可以。详情请参见[更换系统盘（非公共镜像）](../../../../intl.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)。
+可以。详情请参见[更换系统盘（非公共镜像）](../intl.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)。
 
 **说明：** 系统盘更换为自定义镜像后，原来的数据将被全覆盖。
 
 ## 已创建的自定义镜像，是否可以用于更换另一台云服务器ECS的系统盘数据？ {#section_cv1_g3x_fhb .section}
 
-可以。详情请参见[更换系统盘（非公共镜像）](../../../../intl.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)。
+可以。详情请参见[更换系统盘（非公共镜像）](../intl.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)。
 
 **说明：** 自定义镜像将全部覆盖该服务器系统盘的所有数据。
 
@@ -379,7 +379,7 @@ Linux其他较重要的配置文件如下：
 
 不可以。自定义镜像只能在同一个地域使用。例如：使用华东1地域的实例创建的自定义镜像，不可以直接用来开通华东2地域的云服务器ECS。
 
-如果您需要跨地域使用自定义镜像，可以先复制镜像到目标地域，请参见[复制镜像](../../../../dita-oss-bucket/SP_2/DNA0011894323/intl.zh-CN/镜像/自定义镜像/复制镜像.md#)。
+如果您需要跨地域使用自定义镜像，可以先复制镜像到目标地域，请参见[复制镜像](../DNA0011894323/intl.zh-CN/镜像/自定义镜像/复制镜像.md#)。
 
 ## 包年包月实例的自定义镜像，是否可以用于创建按量付费的云服务器ECS？ {#section_t5m_cjx_fhb .section}
 
@@ -393,48 +393,44 @@ Linux其他较重要的配置文件如下：
 
 ## 创建自定义镜像、ECS实例时为何需要注释挂载项？ {#section_uar_ern_zbt .section}
 
-使用自定义镜像创建ECS实例时，以下原因会导致挂载磁盘失败：
+使用自定义镜像创建ECS实例时，以下原因会导致挂载磁盘失败。
 
 -   创建的ECS实例没有数据盘。
 -   数据盘是新磁盘，还没有进行分区格式化。
 -   创建的自定义镜像中，未注释掉/etc/fstab文件中的磁盘挂载条目。
 
-下面以ECS实例数据盘未分区，且创建该实例的自定义镜像中未注释掉/etc/fstab中的磁盘挂载条目为例，介绍数据盘挂载失败的原因：
+下面以ECS实例数据盘未分区，且创建该实例的自定义镜像中未注释掉/etc/fstab中的磁盘挂载条目为例，介绍数据盘挂载失败的原因。
 
 1.  ECS实例数据盘未分区，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155868234146300_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156471118749584_zh-CN.png)
 
 2.  使用自定义镜像创建的ECS实例中，未注释掉/etc/fstab中的磁盘挂载条目，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155868234246301_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156471118849589_zh-CN.png)
 
 3.  实例启动时，会按照/etc/fstab文件中的配置挂载磁盘，但由于数据盘未分区导致挂载失败，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155868234246302_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156471118849591_zh-CN.png)
 
 
 不用注释磁盘挂载条目的情况：一般只有在创建ECS实例时，选择了数据盘且数据盘是通过已分区、已格式化的数据盘快照生成。
 
-如问题还未解决，请联系[售后技术支持](https://selfservice.console.aliyun.com/ticket/createIndex)。
+如问题还未解决，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)。
 
 ## 如何配置并使用Docker私有镜像库？ {#section_4wu_r5p_bi1 .section}
 
- **Docker私有镜像库与阿里云对象存储OSS** 
+镜像管理是Docker的核心，为了满足企业或组织内部分享镜像，Docker官方在Github上建立了一个开源项目docker-registry，专门用于自建Docker的私有镜像库。
 
-镜像管理是Docker的核心，为了满足企业或组织内部分享镜像，Docker官方在Github上建立了一个开源项目 docker-registry，专门用于自建Docker的私有镜像库。
+快速启动支持阿里云对象存储OSS的docker-registry：您可以从[GitHub](https://github.com/docker/docker-registry)下载并安装docker-registry，运行pip install docker-registry-driver-alioss命令，通过pip安装OSS driver。
 
- **快速启动支持阿里云对象存储OSS的docker-registry** 
-
-您可以从[GitHub](https://github.com/docker/docker-registry)下载并安装docker-registry，运行`pip install docker-registry-driver-alioss`命令，通过pip安装OSS driver。
-
-1.  运行docker registry：
+1.  运行docker registry。
 
     ``` {#codeblock_028_yze_uie}
      docker run -e OSS_BUCKET=-e STORAGE_PATH=/docker/ -e OSS_KEY=-e OSS_SECRET=-p 5000:5000 -d chrisjin/registry:ali_oss
     ```
 
-2.  配置config.yml：
+2.  配置config.yml。
 
     ``` {#codeblock_rvn_x7o_ncu}
      ```local: &local
@@ -446,7 +442,7 @@ Linux其他较重要的配置文件如下：
      oss_accesskey: _env:OSS_SECRET[:your_access_key]```
     ```
 
-3.  启动docker-registry：
+3.  启动docker-registry。
 
     ``` {#codeblock_2np_mne_mlf}
      DOCKER_REGISTRY_CONFIG=［your_config_path］ gunicorn -k gevent -b 0.0.0.0:5000 -w 1 docker_registry.wi:application
@@ -454,6 +450,35 @@ Linux其他较重要的配置文件如下：
 
 
 如问题还未解决，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm)联系阿里云。
+
+## 如何克隆ECS服务器？ {#section_wnw_26f_axp .section}
+
+同一账号地域下，新购ECS服务器时可以克隆现有ECS服务器的环境和数据，快速创建相同环境和配置的新ECS实例。
+
+1.  登录[ECS管理控制台](https://ecs.console.aliyun.com)。
+2.  选择需要克隆的ECS实例，对系统盘和数据盘分别创建快照。具体请参见[创建快照](../intl.zh-CN/快照/使用快照/创建快照.md#)。
+
+    **说明：** 为保证数据一致性，请在实例状态为**已停止**时创建快照。
+
+3.  使用系统盘快照创建自定义镜像。创建过程中请选中**添加数据盘快照**，并单击**增加**选择并添加已创建的数据盘快照。具体请参见[使用快照创建自定义镜像](intl.zh-CN/镜像/自定义镜像/创建自定义镜像/使用快照创建自定义镜像.md#)。
+4.  按[使用向导创建实例](../intl.zh-CN/实例/创建实例/使用向导创建实例.md#)创建新的ECS实例。在创建过程中，需要注意以下配置：
+    -   地域：必须选择与克隆实例相同的地域。
+    -   镜像：**镜像类型**选择**自定义镜像**，并选择使用系统盘创建的自定义镜像。
+
+        **说明：** 如果您选择的自定义镜像中包含了一个或多个数据盘快照，系统会自动根据这些快照创建相同数量的云盘作为数据盘，每个云盘大小与对应的快照相同。您可以增加云盘容量，但不能缩小。
+
+
+## 有些自定义镜像不支持创建I/O优化的实例，我该如何操作？ {#section_nvl_tpi_ffj .section}
+
+部分自定义镜像不支持创建I/O优化的实例。如果想要使用这类自定义镜来创建I/O优化的实例，请[提交工单](https://workorder.console.aliyun.com/#/ticket/list/)申请（提交工单时，需指定镜像名称）。
+
+## 在哪里查看导入镜像的进度？导入镜像需要多少时间？ {#section_o5a_k1v_smp .section}
+
+在ECS管理控制台的镜像列表页查看导入进度。导入自定义镜像是相对耗时的任务，完成的时间取决于镜像文件的大小和当前导入任务并发数，需要您耐心等待。
+
+## 在哪里查看镜像创建进度？创建镜像需要多少时间？ {#section_ioj_atj_1te .section}
+
+在ECS管理控制台的镜像列表页查看。 镜像制作时间取决于实例磁盘的大小。
 
 ## 什么情况下需要复制镜像？ {#section_pbs_h4c_ghb .section}
 
@@ -499,15 +524,15 @@ Linux其他较重要的配置文件如下：
 
 ## 复制镜像有镜像容量限制吗？ {#section_k14_x4c_ghb .section}
 
-没有限制。但是，复制容量超过500 GiB时需要提交工单申请，当您在控制台单击**复制镜像**时，控制台会提示您提交工单申请。
+没有限制。但是，复制容量超过500GiB时需要提交工单申请，当您在控制台单击**复制镜像**时，控制台会提示您提交工单申请。
 
-## 从其他地域复制过来的镜像，镜像页面显示状态为可用。但通过此镜像创建实例时，提示“您指定的镜像被禁用或者已被删除”。为什么？ {#section_lxo_ujw_fm3 .section}
+## 从其他地域复制过来的镜像，镜像页面显示状态为可用。但通过此镜像创建实例时，提示“您指定的镜像被禁用或者已被删除”，为什么？ {#section_lxo_ujw_fm3 .section}
 
 如果自定义镜像基于镜像市场的镜像创建， 然后复制到其他地域，是不可以创建ECS实例的。镜像市场的镜像是无法通过创建自定义镜像，复制到其它地域之后创建ECS实例的。
 
 ## 国际站数据迁移到国内有什么方法？ {#section_oqq_9z9_t00 .section}
 
-您可以通过复制镜像实现。具体步骤请参见[复制镜像](intl.zh-CN/镜像/自定义镜像/复制镜像.md#)。
+您可以通过复制镜像实现。具体步骤，请参见[复制镜像](intl.zh-CN/镜像/自定义镜像/复制镜像.md#)。
 
 ## 我最多可以获得多少个共享镜像？ {#section_xry_y4c_ghb .section}
 
@@ -516,6 +541,10 @@ Linux其他较重要的配置文件如下：
 ## 每个镜像最多可以共享给多少个用户？ {#section_pwp_ypc_ghb .section}
 
 50个。
+
+## 我有多个站点的账号，能否互相共享镜像？ {#section_jeb_xr5_8wn .section}
+
+可以。支持中国站、国际站、日本站的账号之间共享镜像，但是基于镜像市场镜像创建的自定义镜像除外。
 
 ## 使用共享镜像是否占用我的镜像名额？ {#section_agd_2qc_ghb .section}
 
@@ -550,15 +579,15 @@ Linux其他较重要的配置文件如下：
 
 ## 为何没有导出镜像的入口？ {#section_j80_1pu_tv2 .section}
 
-您需要提交工单申请权限，详情请参见[导出镜像](intl.zh-CN/镜像/自定义镜像/导出镜像.md#)。
+您需要提交工单申请导出镜像的权限，详情请参见[导出镜像](intl.zh-CN/镜像/自定义镜像/导出镜像.md#)。
 
 ## 我想将镜像导出到本地进行测试，具体要怎么操作呢？ {#section_9dl_9cs_oba .section}
 
-目前镜像文件的导出格式默认为 .raw.tar.gz，解压后为 .raw格式，您可以搜索下该格式镜像的相关使用资料来使用，阿里云并未做特殊限制。
+目前镜像文件的导出格式默认为.raw.tar.gz，解压后为.raw格式，您可以搜索下该格式镜像的相关使用资料来使用，阿里云并未做特殊限制。
 
 ## 如果使用自定义镜像创建了ECS实例，我可以删除这个镜像吗？ {#section_lvj_dht_8a4 .section}
 
-您可以**强制删除**这个镜像。但是，删除镜像后，使用该自定义镜像创建的ECS实例无法[重新初始化云盘](intl.zh-CN/块存储/云盘/重新初始化云盘.md#)。
+您可以**强制删除**这个镜像。但是，删除镜像后，使用该自定义镜像创建的ECS实例无法重新初始化云盘，详情请参见[重新初始化云盘](intl.zh-CN/块存储/云盘/重新初始化云盘/重新初始化系统盘.md#)。
 
 ## 我曾把自己账号中的某个自定义镜像共享给其他账号，现在我可以删除这个镜像吗？ {#section_fqt_49s_s3v .section}
 
@@ -566,7 +595,7 @@ Linux其他较重要的配置文件如下：
 
 ## 我把某个自定义镜像（M）的共享账号（A）给删除了，会有什么影响？ {#section_qn6_1dm_1tn .section}
 
-您将无法通过ECS控制台或者ECS API查询到共享镜像M。无法使用镜像M创建ECS实例和更换系统盘。如果账号A 在删除共享关系前，使用镜像M创建了ECS实例，那么这些实例将不能重新初始化系统盘。
+您将无法通过ECS控制台或者ECS API查询到共享镜像M。无法使用镜像M创建ECS实例和更换系统盘。如果账号A在删除共享关系前，使用镜像M创建了ECS实例，那么这些实例将不能重新初始化系统盘。
 
 ## 删除镜像的时候提示“指定的镜像Id还存在保有实例，不能删除该镜像”，为什么？ {#section_qe9_38d_hvk .section}
 
@@ -578,22 +607,42 @@ Linux其他较重要的配置文件如下：
 
 ## 我目前有一台ECS服务器，想用现有的镜像来更换这台ECS的操作系统，怎么操作？ {#section_69i_52e_jfd .section}
 
-请参见[更换操作系统](intl.zh-CN/镜像/更换操作系统.md#)。
+使用现有镜像更换ECS实例操作系统的具体步骤，请参见[更换操作系统](intl.zh-CN/镜像/更换操作系统.md#)。
 
 **说明：** 建议您操作之前创建快照备份数据。
 
 ## 账号A的服务器制作镜像后，能给账号B更换磁盘用吗？ {#section_oww_crp_0j9 .section}
 
-您可以共享镜像给账号B，具体步骤请参见[共享镜像](intl.zh-CN/镜像/自定义镜像/共享镜像.md#)。
+您需要先共享镜像给账号B，然后再更换磁盘。共享镜像，请参见[共享镜像](intl.zh-CN/镜像/自定义镜像/共享镜像.md#)。
 
 **说明：** 用于更换系统盘的镜像中，只能包含系统盘。
 
 ## 为什么创建实例时自定义镜像的配置费用高于公共镜像？ {#section_k04_yg7_uoa .section}
 
-以下任一原因均可导致自定义镜像的配置费用高于公共镜像：
+以下任一原因均可导致自定义镜像的配置费用高于公共镜像。
 
 -   自定义镜像中包含数据盘。创建实例时，数据盘产生的费用，导致自定义镜像总费用高于相应的公共镜像。
 -   自定义镜像基于付费公共镜像（如Windows Server、Redhat Enterprise Linux等）创建。
+
+## 镜像市场的镜像有哪些功能？ {#section_8wl_8ju_9pi .section}
+
+镜像市场的镜像在操作系统基础上预装了软件环境和多种功能，如PHP/.NET/JAVA/LAMP等运行环境、控制面板、建站系统等。将镜像与云服务器配套使用,您只需进行一次简单操作，就可快速部署云服务器的运行环境或软件应用,再也不担心上云难了。
+
+## 镜像市场的镜像能带来哪些便利？ {#section_c0p_y2e_36h .section}
+
+通过镜像市场的镜像开通云服务器ECS，一键部署，您即可获得与镜像一致的系统环境或软件，便捷地创建已就绪的运行环境，同时轻松地搭建并管理站点。无需自行配置环境、安装软件。
+
+## 目前镜像市场的镜像支持哪些服务器环境和应用场景？ {#section_4aa_s13_huj .section}
+
+镜像市场提供上百款优质第三方镜像，不仅全面支持PHP/.NET/JAVA/LAMP/Docke虚拟容器等运行环境的部署，而且满足建站、应用开发、可视化管理等个性化需求。
+
+## 镜像市场的镜像是否安全？ {#section_hng_971_32q .section}
+
+镜像服务商均有丰富的系统维护和环境配置经验，所有镜像都基于包含云盾的阿里云官方操作系统制作，且预先经过严格安全审核，敬请放心使用。
+
+## 镜像市场的镜像安装使用过程中出问题了怎么办？ {#section_jyl_7r1_85r .section}
+
+查看购买页的服务信息，通过在线旺旺、电话或邮箱直接与镜像服务商联系，实时解答您的疑问。
 
 ## 如何购买镜像市场镜像？ {#section_hxc_rqc_ghb .section}
 
@@ -605,7 +654,7 @@ Linux其他较重要的配置文件如下：
 
 ## 镜像市场的镜像支持退款吗？ {#section_gzm_qrc_ghb .section}
 
-镜像按照云市场统一规则支持有限时间内无理由退款，但出现以下情况时不予退款：
+镜像按照云市场统一规则支持有限时间内无理由退款，但出现以下情况时不予退款。
 
 -   在无理由退款时限内将购买的镜像部署在了云服务器上。
 -   在提交退款的申请审批确认前，将购买的镜像部署在了云服务器上。
@@ -683,23 +732,18 @@ Linux其他较重要的配置文件如下：
 
 目前镜像市场的镜像已经具备region属性，请您购买相应地域的镜像。
 
-## 勾选"IO优化实例"选项导致购买ECS实例时无法选择镜像市场的镜像，为什么？怎么解决？ {#section_tch_39p_cv5 .section}
+## 勾选"I/O优化实例"选项导致购买ECS实例时无法选择镜像市场的镜像，为什么？怎么解决？ {#section_tch_39p_cv5 .section}
 
- **问题现象** 
+有关该问题的分析及解决方案如下：
 
-在阿里云官网购买ECS实例，选择镜像时，发现无法选取任何镜像市场的镜像。
+-   问题现象：在阿里云官网购买ECS实例，选择镜像时，发现无法选取任何镜像市场的镜像。
+-   原因分析：该问题可能是由于购买ECS实例时，勾选了**I/O优化实例**选项导致的。
 
- **原因分析** 
+    与普通ECS实例相比，I/O优化实例可在实例与云盘之间提供更好的网络能力，可保证SSD云盘存储发挥最高性能。由于相关优化操作涉及网络、存储和镜像内部相关驱动等，因此并非所有镜像都能支持I/O优化实例。
 
-该问题可能是由于购买ECS实例时，勾选了**IO优化实例**选项导致的。
+-   解决方法：购买I/O优化实例时，建议您选择实例支持的官方标准镜像，再自行部署相关业务环境。
 
-与普通ECS实例相比，IO优化实例可在实例与云盘之间提供更好的网络能力，可保证SSD云盘存储发挥最高性能。由于相关优化操作涉及网络、存储和镜像内部相关驱动等，因此并非所有镜像都能支持IO优化实例。
-
- **解决方法** 
-
-购买IO优化实例时，建议您选择实例支持的官方标准镜像，再自行部署相关业务环境。
-
-如问题依然未解决,请联系[售后技术支持](https://selfservice.console.aliyun.com/ticket/createIndex.htm)。
+如问题依然未解决,请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm)。
 
 ## 什么是镜像市场的包年包月和按周付费镜像？ {#section_zxy_n5c_ghb .section}
 
@@ -719,7 +763,7 @@ Linux其他较重要的配置文件如下：
 
     **说明：** 在这种情况下，您需要同时支付实例与镜像的费用。如果实例创建成功，表明您已经同时支付了实例与镜像的费用，不会出现其中一项资源购买失败的情况。
 
--   如果您想在一台已有的包年包月或按周付费ECS实例上使用预付费镜像，您可以使用更换操作系统功能将操作系统更换为预付费镜像，此时，您只能按照ECS实例的付费周期选择镜像的付费周期。具体操作方式，请参见[更换系统盘（非公共镜像）](../../../../intl.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)。
+-   如果您想在一台已有的包年包月或按周付费ECS实例上使用预付费镜像，您可以使用更换操作系统功能将操作系统更换为预付费镜像，此时，您只能按照ECS实例的付费周期选择镜像的付费周期。具体操作方式，请参见[更换系统盘（非公共镜像）](../intl.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)。
 
     **说明：** 在这种情况下，您只需要支付镜像的费用。
 
@@ -758,7 +802,7 @@ Linux其他较重要的配置文件如下：
 
 ## 在哪里查看并管理我购买的预付费镜像？ {#section_fmx_fvc_ghb .section}
 
-您可以登录[云服务器ECS管理控制台](https://ecs.console.aliyun.com)，在**镜像** \> **镜像市场**中查看并管理您购买的预付费镜像。
+您可以登录[ECS管理控制台](https://ecs.console.aliyun.com)，在**镜像** \> **镜像市场**中查看并管理您购买的预付费镜像。
 
 ## 使用预付费镜像制作的自定义镜像会收费吗？预付费镜像过期对于自定义镜像有什么影响？ {#section_klq_gvc_ghb .section}
 
@@ -766,13 +810,13 @@ Linux其他较重要的配置文件如下：
 
 ## 为什么有的ECS实例无法选择Windows操作系统？ {#section_ajg_qwc_ghb .section}
 
-使用Windows 操作系统创建ECS实例时，需要确保实例内存大于等于1 GiB。内存低于1 GiB的ECS实例（例如， 512 MiB）只能选择Linux镜像和Windows Server 1709镜像。
+使用Windows 操作系统创建ECS实例时，需要确保实例内存大于等于1GiB。内存低于1GiB的ECS实例（例如， 512MiB）只能选择Linux镜像和Windows Server 1709镜像。
 
 ## ECS实例使用操作系统需要付费吗？ {#section_ttw_qwc_ghb .section}
 
 大陆地域的Windows Server公共镜像自带正版激活，不收取系统正版激活费用，其他国家或地区地域会收取系统正版激活费用。
 
-Windows Server 公共镜像默认最多允许2个会话（Session）[远程连接](../../../../intl.zh-CN/实例/连接实例/连接Windows实例/在本地客户端上连接Windows实例.md#)，如果您新增连接数，请向微软单独购买远程桌面授权（RD授权）服务，该项授权费用需要您自理。
+Windows Server 公共镜像默认最多允许2个会话（Session）[远程连接](../intl.zh-CN/实例/连接实例/连接Windows实例/在本地客户端上连接Windows实例.md#)，如果您新增连接数，请向微软单独购买远程桌面授权（RD授权）服务，该项授权费用需要您自理。
 
 除Red Hat公共镜像外，Linux公共镜像不需要您支付版权费用。
 
@@ -780,8 +824,8 @@ Windows Server 公共镜像默认最多允许2个会话（Session）[远程连�
 
 不能自行安装或升级。ECS实例需要使用阿里云官方提供的镜像，您无法自行添加或升级。但是您可以进行下列操作：
 
--   更换系统盘重新选择操作系统。具体操作步骤，请参见[更换操作系统](../../../../intl.zh-CN/镜像/更换操作系统.md#)。
--   从本地导入自己的镜像后使用自定义镜像创建ECS实例。导入镜像的操作步骤，请参见[导入镜像必读](../../../../intl.zh-CN/镜像/自定义镜像/导入镜像/导入镜像必读.md#)。使用自定义镜像创建ECS实例的操作步骤，请参见[使用自定义镜像创建实例](../../../../intl.zh-CN/实例/创建实例/使用自定义镜像创建实例.md#)。
+-   更换系统盘重新选择操作系统。具体操作步骤，请参见[更换操作系统](../intl.zh-CN/镜像/更换操作系统.md#)。
+-   从本地导入自己的镜像后使用自定义镜像创建ECS实例。导入镜像的操作步骤，请参见[导入镜像必读](../intl.zh-CN/镜像/自定义镜像/导入镜像/导入镜像必读.md#)。使用自定义镜像创建ECS实例的操作步骤，请参见[使用自定义镜像创建实例](../intl.zh-CN/实例/创建实例/使用自定义镜像创建实例.md#)。
 -   为操作系统打补丁。
 
 ## 操作系统是否有图形界面？ {#section_ulp_xwc_ghb .section}
@@ -792,16 +836,17 @@ Linux 操作系统是命令行形式，您可以根据需要安装图形化桌�
 
 ## 如何选择操作系统？ {#section_wqy_zwc_ghb .section}
 
-请参见[ECS实例操作系统选择说明](https://www.alibabacloud.com/help/faq-detail/40651.htm)。
+选择操作系统，请参见[选择镜像](intl.zh-CN/镜像/选择镜像.md#)。
 
 ## 公共镜像自带FTP上传吗？ {#section_jtv_dxc_ghb .section}
 
-不自带，需要您自己安装配置。具体操作，请参见[Windows实例搭建FTP站点](../../../../intl.zh-CN/建站教程/搭建FTP站点/Windows实例搭建FTP站点.md#)和[Linux实例搭建FTP站点](../../../../intl.zh-CN/建站教程/搭建FTP站点/Linux实例搭建FTP站点.md#)。
+不自带，需要您自己安装配置。具体操作，请参见[Windows实例搭建FTP站点](../intl.zh-CN/建站教程/搭建FTP站点/Windows实例搭建FTP站点.md#)和[Linux实例搭建FTP站点](../intl.zh-CN/建站教程/搭建FTP站点/Linux实例搭建FTP站点.md#)。
 
 ## 阿里云支持哪些SUSE版本？ {#section_mgc_fxc_ghb .section}
 
 目前，阿里云公共镜像支持以下SUSE版本：
 
+-   SUSE Linux Enterprise Server 12 SP4 64位
 -   SUSE Linux Enterprise Server 12 SP2 64位
 -   SUSE Linux Enterprise Server 11 SP4 64位
 
@@ -813,8 +858,8 @@ Linux 操作系统是命令行形式，您可以根据需要安装图形化桌�
 
 可以。您可通过以下任一方式找回实例数据：
 
--   使用之前制作的镜像创建新实例。具体步骤，请参见[使用自定义镜像创建实例](../../../../intl.zh-CN/实例/创建实例/使用自定义镜像创建实例.md#)。
--   使用之前制作的镜像为当前实例更换系统盘。具体步骤，请参见[更换系统盘（非公共镜像）](../../../../intl.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)。
+-   使用之前制作的镜像创建新实例。具体步骤，请参见[使用自定义镜像创建实例](../intl.zh-CN/实例/创建实例/使用自定义镜像创建实例.md#)。
+-   使用之前制作的镜像为当前实例更换系统盘。具体步骤，请参见[更换系统盘（非公共镜像）](../intl.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)。
 
     **说明：** 更换系统盘操作须注意以下两点：
 
@@ -823,16 +868,16 @@ Linux 操作系统是命令行形式，您可以根据需要安装图形化桌�
 
 ## 我先有一台ECS实例，想再买一台ECS实例并使用现有这台ECS实例的镜像部署，应该如何操作？ {#section_d2a_pl9_3vq .section}
 
-您可以为之前的ECS实例创建自定义镜像，然后使用该自定义镜像创建ECS实例即可。具体步骤，请参见[使用实例创建自定义镜像](intl.zh-CN/镜像/自定义镜像/创建自定义镜像/使用实例创建自定义镜像.md#)和[使用自定义镜像创建实例](../../../../intl.zh-CN/实例/创建实例/使用自定义镜像创建实例.md#)。
+您可以为之前的ECS实例创建自定义镜像，然后使用该自定义镜像创建ECS实例即可。具体步骤，请参见[使用实例创建自定义镜像](intl.zh-CN/镜像/自定义镜像/创建自定义镜像/使用实例创建自定义镜像.md#)和[使用自定义镜像创建实例](../intl.zh-CN/实例/创建实例/使用自定义镜像创建实例.md#)。
 
 ## 我已经购买了新的ECS服务器，如何把我的共享镜像恢复到这台新购ECS服务器上？ {#section_54f_mg4_r2p .section}
 
 请确保您已将镜像共享给新购服务器的账号，并根据实际情况选择下列方法之一进行操作。
 
--   如果共享镜像和新购服务器在同一个地域，可以更换系统盘，更换时选择您共享的镜像即可。具体步骤，请参见[更换系统盘（非公共镜像）](../../../../intl.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)。
--   如果共享镜像和新购服务器不在同一个地域，需要先复制镜像到目标地域，再通过更换系统盘来更换镜像。 具体步骤，请参见[复制镜像](intl.zh-CN/镜像/自定义镜像/复制镜像.md#)和[更换系统盘（非公共镜像）](../../../../intl.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)。
+-   如果共享镜像和新购服务器在同一个地域，可以更换系统盘，更换时选择您共享的镜像即可。具体步骤，请参见[更换系统盘（非公共镜像）](../intl.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)。
+-   如果共享镜像和新购服务器不在同一个地域，需要先复制镜像到目标地域，再通过更换系统盘来更换镜像。 具体步骤，请参见[复制镜像](intl.zh-CN/镜像/自定义镜像/复制镜像.md#)和[更换系统盘（非公共镜像）](../intl.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)。
 
-**注意：** 更换系统盘存在如下风险：
+**说明：** 更换系统盘存在如下风险：
 
 -   原系统盘会被释放，建议您提前创建快照备份数据。
 -   更换系统盘需要停止实例，因此会中断您的业务。
@@ -856,45 +901,177 @@ Linux 操作系统是命令行形式，您可以根据需要安装图形化桌�
 
 1.  使用账号A的实例创建自定义镜像。具体步骤，请参见[使用实例创建自定义镜像](intl.zh-CN/镜像/自定义镜像/创建自定义镜像/使用实例创建自定义镜像.md#)。
 2.  共享镜像给账号B。具体步骤，请参见[共享镜像](intl.zh-CN/镜像/自定义镜像/共享镜像.md#)。
-3.  账号B使用共享镜像创建实例。具体步骤，请参见[使用自定义镜像创建实例](../../../../intl.zh-CN/实例/创建实例/使用自定义镜像创建实例.md#)。
+3.  账号B使用共享镜像创建实例。具体步骤，请参见[使用自定义镜像创建实例](../intl.zh-CN/实例/创建实例/使用自定义镜像创建实例.md#)。
+
+## 阿里云ECS实例之间如何迁移？ {#section_pkf_2xq_13z .section}
+
+阿里云ECS实例间迁移步骤如下：
+
+1.  为源ECS实例创建自定义镜像。
+2.  根据源ECS实例与目标ECS实例的归属地域和归属账号，迁移分为以下几种情况。
+    -   源实例与目标实例属于同地域同账号，可直接进入下一步。
+    -   源实例与目标实例属于不同地域，需复制镜像至目标实例所在地域。详情请参见[复制镜像](intl.zh-CN/镜像/自定义镜像/复制镜像.md#)。
+    -   源实例与目标实例属于不同账号，需共享镜像给目标实例的账号。详情请参见[共享镜像](intl.zh-CN/镜像/自定义镜像/共享镜像.md#)。
+    -   源实例与目标实例属于不同地域和不同账号，需先复制镜像到目标地域，再分享给目标实例的账号。详情请参见[复制镜像](intl.zh-CN/镜像/自定义镜像/复制镜像.md#)和[共享镜像](intl.zh-CN/镜像/自定义镜像/共享镜像.md#)。
+3.  使用镜像创建新的ECS实例，或为现有目标ECS实例更换镜像。详情请参见[使用自定义镜像创建实例](../intl.zh-CN/实例/创建实例/使用自定义镜像创建实例.md#)[更换操作系统（镜像）](intl.zh-CN/镜像/更换操作系统.md#)。
+
+    **说明：** 为现有目标ECS实例更换镜像时，源镜像中不能包含数据盘快照。
+
+
+以上迁移步骤不适用时，请参见[阿里云ECS实例间迁移](../intl.zh-CN/迁移服务/迁移教程/各源环境的迁移/阿里云ECS实例间迁移.md#)。
 
 ## 两个不同专有网络下的ECS服务器能否实现网络互通？ {#section_lqt_tci_xa6 .section}
 
-内网互通可以通过高速通道和云企业网实现，详情请参见[同账号VPC互连](../../../../intl.zh-CN/快速入门/同账号VPC互连.md#)和[同账号跨地域VPC和VBR互通](../../../../intl.zh-CN/快速入门/同账号跨地域VPC和VBR互通.md#)。
+内网互通可以通过高速通道和云企业网实现，详情请参见[同账号VPC互连](../../../../../intl.zh-CN/专有网络对等连接（关闭新购）/同账号VPC互连.md#)和[同账号跨地域VPC和VBR互通](../../../../../intl.zh-CN/快速入门/同账号跨地域VPC和VBR互通.md#)。
 
 ## 如何处理CentOS DNS解析超时？ {#section_x8y_les_u5u .section}
 
- **原因分析** 
+处理CentOS DNS解析超时的详情如下：
 
-因CentOS 6和CentOS 7的DNS解析机制变动，导致2017年2月22日以前创建的ECS实例或使用2017年2月22日以前的自定义镜像创建的CentOS 6和CentOS 7实例可能出现DNS解析超时的情况。
+-   原因分析
 
- **解决方法** 
+    因CentOS 6和CentOS 7的DNS解析机制变动，导致2017年2月22日以前创建的ECS实例或使用2017年2月22日以前的自定义镜像创建的CentOS 6和CentOS 7实例可能出现DNS解析超时的情况。
 
-请按下列步骤操作修复此问题：
+-   解决方法
 
-1.  下载脚本[fix\_dns.sh](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/59344/cn_zh/1505957231428/fix_dns%20%281%29.sh)。
-2.  将下载的脚本放至CentOS系统的/tmp目录下。
-3.  运行`bash /tmp/fix_dns.sh`命令，执行脚本。
+    请按下列步骤操作修复此问题：
 
- **脚本作用** 
+    1.  下载脚本[fix\_dns.sh](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/59344/cn_zh/1505957231428/fix_dns%20%281%29.sh)。
+    2.  将下载的脚本放至CentOS系统的/tmp目录下。
+    3.  运行bash /tmp/fix\_dns.sh命令，执行脚本。
+-   脚本作用
 
-判断DNS解析文件/etc/resolv.conf中是否存在`options`\>`single-request-reopen`配置。详情请参见[resolv.conf文件说明](http://man7.org/linux/man-pages/man5/resolv.conf.5.html)。
+    判断DNS解析文件/etc/resolv.conf中是否存在`options`\>`single-request-reope`配置。详情请参见[resolv.conf文件说明](http://man7.org/linux/man-pages/man5/resolv.conf.5.html)。
 
-CentOS 6和CentOS 7的DNS解析机制，使用相同的网络五元组发送IPV4 DNS请求和IPV6 DNS请求，此时应开启`single-request-reopen`配置。开启该配置后，一旦需要处理同一socket发送的两次请求时，解析端会在发送第一次请求后关闭socket，并在发送第二次请求前打开新的socket。配置成功后，无需重启实例即可生效。
+    CentOS 6和CentOS 7的DNS解析机制，使用相同的网络五元组发送IPV4 DNS请求和IPV6 DNS请求，此时应开启`single-request-reopen`配置。开启该配置后，一旦需要处理同一socket发送的两次请求时，解析端会在发送第一次请求后关闭socket，并在发送第二次请求前打开新的socket。配置成功后，无需重启实例即可生效。
 
- **脚本逻辑** 
+-   脚本逻辑
+    1.  判断实例系统是否为CentOS。
+        -   如果实例为非CentOS系统（如Ubuntu和Debian）：脚本停止工作。
+        -   如果实例为CentOS系统：脚本继续工作。
+    2.  查询解析文件/etc/resolv.conf中`options`的配置情况。
+        -   如果不存在`options`配置：
 
-1.  判断实例系统是否为CentOS：
-    -   如果实例为非CentOS系统（如Ubuntu和Debian）：脚本停止工作。
-    -   如果实例为CentOS系统：脚本继续工作。
-2.  查询解析文件/etc/resolv.conf中`options`的配置情况。
-    -   如果不存在`options`配置：
+            默认使用阿里云`options`配置`options timeout:2 attempts:3 rotate single-request-reopen`。
 
-        默认使用阿里云`options`配置`options timeout:2 attempts:3 rotate single-request-reopen`。
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156471118846335_zh-CN.png)
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/155868234246335_zh-CN.png)
+        -   如果存在`options`配置：
+            -   不存在`single-request-reopen`配置，则在`options`配置中追加该项。
+            -   存在`single-request-reopen`配置，则脚本停止工作，不更改DNS nameserver的配置。
 
-    -   如果存在`options`配置：
-        -   不存在`single-request-reopen`配置，则在`options`配置中追加该项。
-        -   存在`single-request-reopen`配置，则脚本停止工作，不更改DNS nameserver的配置。
+## 为什么ECS默认没有启用虚拟内存或Swap说明？ {#section_m02_5j5_qf2 .section}
+
+Swap分区或虚拟内存文件，是在系统物理内存不够用的时候，由系统内存管理程序将那些很长时间没有操作的内存数据，临时保存到Swap分区虚拟内存文件中，以提高可用内存额度的一种机制。
+
+但是，如果在内存使用率已经非常高，而同时I/O性能也不是很好的情况下，该机制其实会起到相反的效果。阿里云ECS云磁盘使用了分布式文件系统作为云服务器的存储，对每一份数据都进行了强一致的多份拷贝。该机制在保证用户数据安全的同时，由于3倍增涨的I/O操作，会降低本地磁盘的存储性能和I/O性能。
+
+综上，为了避免当系统资源不足时进一步降低ECS云磁盘的I/O性能，所以ECS Windows默认没有启用虚拟内存，Linux默认未配置Swap分区。
+
+## 如何在阿里云公共镜像中开启kdump？ {#section_kwb_4l4_a16 .section}
+
+阿里云公共镜像中默认未开启kdump服务。若您需要实例在宕机时，生成core文件，并以此分析宕机原因，请参见以下步骤开启kdump服务。本步骤以公共镜像CentOS 7.2为例。实际操作时，请以您的操作系统为准。
+
+1.  设置core文件生成目录。
+    1.  运行vim /etc/kdump.conf打开kdump配置文件。
+    2.  设置path为core文件的生成目录。本示例中，在/var/crash目录下生成core文件，则path的设置如下。
+
+        ``` {#codeblock_byw_zlj_cgy}
+        path /var/crash
+        ```
+
+    3.  保存并关闭/etc/kdump.conf文件。
+2.  开启kdump服务。
+
+    根据操作系统对命令的支持情况，选择开启方式。本示例中，CentOS 7.2使用方法一开启kdump服务。
+
+    -   方法一： 依次运行以下命令开启kdump服务。
+
+        ``` {#codeblock_w71_exg_1n3}
+        systemctl enable kdump.service
+        ```
+
+        ``` {#codeblock_7kv_srv_lo0}
+        systemctl start kdump.service
+        ```
+
+    -   方法二： 依次运行以下命令开启kdump服务。
+
+        ``` {#codeblock_5j6_cgy_ptj}
+        chkconfig kdump on
+        ```
+
+        ``` {#codeblock_m5w_zz9_974}
+        service kdump start
+        ```
+
+3.  运行以下命令模拟宕机。
+
+    ``` {#codeblock_wsl_49j_a81}
+    echo c > /proc/sysrq-trigger
+    ```
+
+    **说明：** 运行该命令后，实例会与网络失去连接。您需要重新连接实例，完成后续操作。
+
+4.  分析core dump文件。
+    1.  运行以下命令安装Crash分析工具。
+
+        ``` {#codeblock_a42_yzr_9lt}
+        yum install crash
+        ```
+
+    2.  下载debug-info安装包。
+
+        运行uname -r命令查看操作系统内核版本，下载相应版本的debug-info包。
+
+        -   kernel-debuginfo-common-x86\_64-<内核版本\>.rpm
+        -   kernel-debuginfo-<内核版本\>.rpm
+        本示例中，系统的内核版本为`3.10.0-514.26.2.el7.x86_64`，因此下载命令为：
+
+        ``` {#codeblock_uu7_oll_461}
+        wget http://debuginfo.centos.org/7/x86_64/kernel-debuginfo-common-x86_64-3.10.0-514.26.2.el7.x86_64.rpm
+        ```
+
+        ``` {#codeblock_kl2_nry_iaq}
+        wget http://debuginfo.centos.org/7/x86_64/kernel-debuginfo-3.10.0-514.26.2.el7.x86_64.rpm
+        ```
+
+    3.  依次运行下列命令，安装debug-info包。
+
+        ``` {#codeblock_ytx_y7p_nrx}
+        rpm -ivh kernel-debuginfo-common-x86_64-3.10.0-514.26.2.el7.x86_64.rpm
+        ```
+
+        ``` {#codeblock_6gk_8um_zil}
+        rpm -ivh kernel-debuginfo-3.10.0-514.26.2.el7.x86_64.rpm
+        ```
+
+    4.  依次运行以下命令使用Crash工具分析core文件。
+
+        ``` {#codeblock_2dc_m8n_36o}
+        cd <core文件的生成目录>
+        ```
+
+        ``` {#codeblock_m03_lyk_a4y}
+        crash /usr/lib/debug/lib/modules/<内核版本号>/vmlinux vmcore
+        ```
+
+        本示例中，core文件的生成目录为/var/crash/127.0.0.1-2019-07-08-15:52:25，内核版本号为`3.10.0-514.26.2.el7.x86_64`，因此运行的命令为：
+
+        ``` {#codeblock_005_ola_62z}
+        cd /var/crash/127.0.0.1-2019-07-08-15:52:25
+        ```
+
+        ``` {#codeblock_xga_w1x_m7d}
+        crash /usr/lib/debug/lib/modules/3.10.0-514.26.2.el7.x86_64/vmlinux vmcore
+        ```
+
+
+## Linux镜像如何开启或关闭Meltdown与Spectre安全漏洞补丁？ {#section_mf9_75m_jnp .section}
+
+安全漏洞的背景信息、涉及的公共镜像以及开启或关闭安全漏洞补丁的方法，请参见[Linux镜像如何开启或关闭Meltdown与Spectre安全漏洞补丁](intl.zh-CN/镜像/常见问题/Linux镜像如何开启或关闭Meltdown与Spectre安全漏洞补丁.md#)。
+
+## 如何检查与修复CentOS 7实例和Windows实例IP地址缺失问题？ {#section_29l_kc7_8hw .section}
+
+问题原因及解决方案，请参见[检查与修复CentOS 7实例和Windows实例IP地址缺失问题](https://www.alibabacloud.com/help/doc-detail/94181.html)。
 
