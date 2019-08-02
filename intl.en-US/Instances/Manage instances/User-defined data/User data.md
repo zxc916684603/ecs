@@ -1,6 +1,6 @@
 # User data {#concept_fgf_tjn_xdb .concept}
 
-You can use user data of an ECS instance to customize its startup behavior and to pass data into the instance. You can specify user data when creating an instance \([../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9856.md\#](../../../../intl.en-US/API Reference/Instances/RunInstances.md#)\) and customize startup behavior such as automatically update software packages, enable services, print logs, install dependencies, initialize web services, and more. User data of an ECS instance is implemented primarily through different types of scripts. User data can also be used as common data to be referenced in the instances.
+You can use user data of an ECS instance to customize its startup behavior and to pass data into the instance. You can specify user data when creating an instance \([../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9856.md\#](../../../../reseller.en-US/API Reference/Instances/RunInstances.md#)\) and customize startup behavior such as automatically update software packages, enable services, print logs, install dependencies, initialize web services, and more. User data of an ECS instance is implemented primarily through different types of scripts. User data can also be used as common data to be referenced in the instances.
 
 ## Instructions for use {#instructions .section}
 
@@ -8,7 +8,7 @@ To configure instance user data, note that:
 
 -   Only VPC-Connected instances are supported.
 
--   For [phased-out instance types](https://www.alibabacloud.com/help/faq-detail/55263.htm), they must be I/O optimized. Other [instance type families](../../../../intl.en-US/Instances/Instance type families.md#) are not limited for I/O optimized.
+-   For [phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm), they must be I/O optimized. Other [instance type families](../../../../reseller.en-US/Instances/Instance type families.md#) are not limited for I/O optimized.
 
 -   Instance user data requires Base64 encoding before being passed in, and the user data before encoding cannot exceed 16 KB.
 
@@ -53,27 +53,27 @@ For this example, assume that you write user data development in a Windows envir
 4.  \(Optional\) If you make a [Gzip compression content](#Gzip), compress the script file in .gz format.
 5.  \(Optional\) If you are creating an [Include file](#Include) or a [Gzip compression script](#Gzip), upload script file to available storage services, obtain the link, and set the valid period of the link.
 
-    We recommend that you use Alibaba Cloud OSS to create links. For more information, see [upload an object](../../../../intl.en-US/Quick Start/Upload an object.md#) or [set lifecycle](../../../../intl.en-US/Console User Guide/Manage buckets/Set lifecycle.md#).
+    We recommend that you use Alibaba Cloud OSS to create links. For more information, see [upload an object](../../../../reseller.en-US/Quick Start/Upload an object.md#) or [set lifecycle](../../../../reseller.en-US/Console User Guide/Manage buckets/Set lifecycle.md#).
 
-6.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
-7.  Follow the instructions in [creating an instance](../../../../intl.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#) to create a Linux instance.
+6.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+7.  Follow the instructions in [creating an instance](../../../../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#) to create a Linux instance.
 
-    **Note:** The instance must be VPC-Connected, and you must select a [image](#Image) that meets the requirement. For [phased-out instance types](https://www.alibabacloud.com/help/faq-detail/55263.htm), I/O optimized instances are required. Other [instance type families](../../../../intl.en-US/Instances/Instance type families.md#) are not limited in terms of I/O optimized.
+    **Note:** The instance must be VPC-Connected, and you must select a [image](#Image) that meets the requirement. For [phased-out instance types](https://partners-intl.aliyun.com/help/faq-detail/55263.htm), I/O optimized instances are required. Other [instance type families](../../../../reseller.en-US/Instances/Instance type families.md#) are not limited in terms of I/O optimized.
 
     After creating the instance, select **Advanced \(based on instance RAM roles or cloud-init\) use text form** and enter your **user data**. If your user data has been encrypted by Base64 encoding, click **The text is Base64-encoded**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15647248585484_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15647248745484_en-US.png)
 
 8.  Wait for the instance to be created.
-9.  [Connect](intl.en-US/Instances/Connect to instances/Overview.md#) to your instance.
+9.  [Connect](reseller.en-US/Instances/Connect to instances/Overview.md#) to your instance.
 10. View the results of the user data. If a failure occurs, check the relevant log files. The following is an output example of user data on a CentOS instance by using the upstart job script:
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15647248585485_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15647248755485_en-US.png)
 
     In the preceding figure, the startup job file part-001.conf is generated in the /etc/init folder.
 
 
-Related API: [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9856.md\#](../../../../intl.en-US/API Reference/Instances/RunInstances.md#)
+Related API: [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9856.md\#](../../../../reseller.en-US/API Reference/Instances/RunInstances.md#)
 
 ## View user data {#linuxCustomData .section}
 
@@ -84,28 +84,28 @@ You can view user data of an instance from the server `100.100.100.200`. To do s
     -   For Linux, run `curl http://100.100.100.200/latest/user-data` to view the user data.
     -   For Windows, run `Invoke-RestMethod http://100.100.100.200/latest/user-data/` to view the user data.
 
-Related API: [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9867.md\#](../../../../intl.en-US/API Reference/Instances/DescribeUserData.md#)
+Related API: [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9867.md\#](../../../../reseller.en-US/API Reference/Instances/DescribeUserData.md#)
 
 ## Modify user data {#linuxCustomData2 .section}
 
 You must stop the instance before modifying its current user data. If you need to restart a Pay-As-You-Go VPC-Connected instance immediately after you modify the user data, we recommend that you disable the No fees for stopped instances option. To modify user data of an instance, follow these steps:
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c4g.11186623.2.9.FNEORG#/home).
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, click **Instances**.
 3.  Select the target region.
 4.  Select the target instance and then, in the **Actions** column, click **Sets User Data**.
 5.  Enter the user data and then click **OK**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15647248585486_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15647248755486_en-US.png)
 
 
 **Note:** After you modify the user data, depending on the script type and the module type, the modified user data is or is not run.
 
-Related API: [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9874.md\#](../../../../intl.en-US/API Reference/Instances/ModifyInstanceAttribute.md#)
+Related API: [../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9874.md\#](../../../../reseller.en-US/API Reference/Instances/ModifyInstanceAttribute.md#)
 
 ## Linux instance user data {#linuxCustomScripts .section}
 
-Linux instance user data can be configured by several types of script, such as [User-data Script](#User-DataScript), [Cloud Config](#CloudConfigData), [Include Files](#Include), [Gzip compression scripts](#Gzip), and [Upstart Job](#UpstartJob). The scripts follow the format of open source cloud-init, and reference the [Metadata](intl.en-US/Instances/Manage instances/User-defined data and metadata/Metadata.md#) for data sources. The configuration of Linux instances are automated at boot. For more information, see [formats](http://cloudinit.readthedocs.io/en/latest/topics/format.html).
+Linux instance user data can be configured by several types of script, such as [User-data Script](#User-DataScript), [Cloud Config](#CloudConfigData), [Include Files](#Include), [Gzip compression scripts](#Gzip), and [Upstart Job](#UpstartJob). The scripts follow the format of open source cloud-init, and reference the [Metadata](reseller.en-US/Instances/Manage instances/User-defined data and metadata/Metadata.md#) for data sources. The configuration of Linux instances are automated at boot. For more information, see [formats](http://cloudinit.readthedocs.io/en/latest/topics/format.html).
 
 **User-data script** 
 
@@ -146,7 +146,7 @@ bootcmd:
 
 After the instance has been created, connect to the instance to view the results.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15647248595487_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15647248755487_en-US.png)
 
 **Include files** 
 
@@ -201,7 +201,7 @@ echo "bat test" > c:\1.txt
 
 After the instance has been created, connect to the instance to view the results. In the following example, a 1.txt text file is shown under the C:\\ drive.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15647248595488_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9660/15647248755488_en-US.png)
 
 **The first line of PowerShell scripts** 
 
