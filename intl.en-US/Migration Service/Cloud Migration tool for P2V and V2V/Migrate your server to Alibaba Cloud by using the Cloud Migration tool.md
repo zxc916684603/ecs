@@ -10,7 +10,7 @@ Before you use the Cloud Migration tool, ensure that you have made the following
 
 **Account and permissions**
 
-1.  Create an Alibaba Cloud account. If you want to migrate the source server to an Alibaba Cloud region in the Mainland China area, you need to complete real-name authentication.
+1.  Create an Alibaba Cloud account. If you want to migrate the source server to an Alibaba Cloud region in Mainland China, you need to complete real-name authentication.
 2.  Ensure you have sufficient balance on your linked credit card.
 
     **Note:** The Cloud Migration tool is provided free of charge. However, some [Pay-As-You-Go](../reseller.en-US/Pricing/Pay-As-You-Go.md#) resources are created during a migration, and the creation of these resources incurs a small fee charged to your account.
@@ -31,7 +31,7 @@ Before you use the Cloud Migration tool, ensure that you have made the following
     1.  The Rsync database is installed.
 
         -   CentOS: Run the `yum –y install rsync` command.
-        -   Ubuntu: Run the `apt-get -y install rsyncy` command.
+        -   Ubuntu: Run the `apt-get -y install rsync` command.
         -   Debian: Run the `apt-get -y install rsync` command.
         -   SUSE: Run the `zypper install rsync` command.
         -   Other platforms: See their respective official websites for installation documentation.
@@ -45,12 +45,12 @@ Before you use the Cloud Migration tool, ensure that you have made the following
 
         **Note:** In most cases, mainstream servers are installed with the virtio \(KVM\) driver by default. No manual installation is required.
 
-    4.  The latest version of Grand Unified Bootloader \(GRUB\) is installed. For earlier versions of operating systems \(such as CentOS 5, Red Hat 5, and Debian 7\), the GRUB version must be V1.9 or later. For more information, see [Update GRUB 1.99 for a Linux server](https://partners-intl.aliyun.com/help/doc-detail/62807.html). 
+    4.  The latest version of Grand Unified Bootloader \(GRUB\) is installed. For earlier versions of operating systems \(such as CentOS 5, Red Hat 5, and Debian 7\), the GRUB version must be V1.9 or later. For more information, see [Update GRUB 1.99 for a Linux server](https://partners-intl.aliyun.com/help/doc-detail/62807.html).
 
         **Note:** For some operating systems, such as Amazon Linux, the GRUB version must be V2.02 or later.
 
 
-## Limits {#section_kwq_sxz_jfb .section}
+## Precautions {#section_kwq_sxz_jfb .section}
 
 To ensure that one or more server migrations are successful, we recommend that you pay attention to the following precautions:
 
@@ -58,7 +58,7 @@ To ensure that one or more server migrations are successful, we recommend that y
 
 **Note:** The name of the temporary intermediate instance is `No_Delete_GotoAliyun_Transition_Instance` if the version of the Cloud Migration tool is 1.5.0 or later.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9833/155929483438950_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9833/156473198138950_en-US.png)
 
 -   Incremental data migration is not allowed. We recommend that you pause such applications as databases and containers, or filter specified data directories before a migration and then synchronize these data directories after the migration.
 
@@ -408,7 +408,7 @@ You can then perform the following operations:
 
     **Note:** You can use a custom image without data disks to replace the system disk of the instance.
 
-3.  Start the target instance. For more information, see [How can I check my system after migrating a Windows server?](How can I check my system after migrating a Windows server?EN-US_TP_22635.dita#ServerMigrationFAQ/AfterWindows) or [How can I check my system after migrating a Linux server?](How can I check my system after migrating a Linux server?EN-US_TP_22635.dita#ServerMigrationFAQ/AfterLinux)
+3.  Start the target instance. For more information, see [How can I check my system after migrating a Windows server?](reseller.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Cloud Migration tool FAQ.md#) or [How can I check my system after migrating a Linux server?](reseller.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Cloud Migration tool FAQ.md#)
 
 ## Troubleshooting {#section_g1r_sxz_jfb .section}
 
@@ -418,9 +418,9 @@ If the `Go to Aliyun Not Finished!` message is displayed, it means that the migr
 
 You need to perform the following operations:
 
-1.  Check the error message in the log file of the Logs folder in the same directory, and then follow the instructions in [EN-US\_TP\_22638.md\#](reseller.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Troubleshooting.md#) and [Cloud Migration tool FAQ](reseller.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Cloud Migration tool FAQ.md#) to fix the error.
+1.  Check the error message in the log file of the Logs folder in the same directory, and then follow the instructions in [Troubleshooting](reseller.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Troubleshooting.md#) and [Cloud Migration tool FAQ](reseller.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Cloud Migration tool FAQ.md#) to fix the error.
 2.  Run the Cloud Migration tool again.
 
-    **Note:** If the intermediate instance is released, a new migration is required. For more information, see [What do I do if I released an intermediate instance by mistake?](What do I do if I released an intermediate instance by mistake?EN-US_TP_22635.dita#ServerMigrationFAQ/Release) and [When do I need to clear the client\_data file?](When do I need to clear the client_data file?EN-US_TP_22635.dita#ServerMigrationFAQ/ClearClient_data)
+    **Note:** If the intermediate instance is released, a new migration is required. For more information, see [What do I do if I released an intermediate instance by mistake?](reseller.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Cloud Migration tool FAQ.md#) and [When do I need to clear the client\_data file?](reseller.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Cloud Migration tool FAQ.md#)
 
 
