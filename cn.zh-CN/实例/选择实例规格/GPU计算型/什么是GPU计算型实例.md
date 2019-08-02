@@ -14,7 +14,7 @@ vgn5i的特点如下：
     -   计算能力支持NVIDIA Tesla P4的 1/8、1/4、1/2和1:1
     -   GPU显存支持1 GB、2 GB、4 GB和8 GB
 -   处理器与内存配比为1:3
--   处理器：2.5 GHz主频的Intel Xeon E5-2682 v4（Broadwell）
+-   处理器：2.5 GHz主频的Intel ® Xeon ® E5-2682 v4（Broadwell）
 -   实例网络性能与计算规格对应（规格越高网络性能越强）
 -   适用场景：
     -   云游戏的云端实时渲染
@@ -44,7 +44,7 @@ gn6i的特点如下：
 -   I/O优化实例
 -   支持IPv6
 -   处理器与内存配比为1:4
--   处理器：2.5 GHz主频的Intel Xeon Platinum 8163（Skylake）
+-   处理器：2.5 GHz主频的Intel ® Xeon ® Platinum 8163（Skylake）
 -   支持ESSD（百万IOPS）、SSD云盘和高效云盘
 -   基于X-Dragon神龙新一代计算架构，性能更优
 -   GPU加速器：T4
@@ -87,7 +87,7 @@ gn6v的特点如下：
 -   支持ESSD云盘、SSD云盘和高效云盘
 -   采用NVIDIA V100 GPU计算卡
 -   处理器与内存配比为1:4
--   处理器：2.5 GHz主频的Intel Xeon Platinum 8163（Skylake）
+-   处理器：2.5 GHz主频的Intel ® Xeon ® Platinum 8163（Skylake）
 -   GPU加速器：V100（SXM2封装）
     -   创新的Volta架构
     -   GPU显存16 GB HBM2
@@ -122,7 +122,7 @@ gn5的特点如下：
 -   采用NVIDIA P100 GPU计算卡
 -   多种处理器与内存配比
 -   高性能NVMe SSD本地盘
--   处理器：2.5 GHz主频的Intel Xeon E5-2682 v4（Broadwell）
+-   处理器：2.5 GHz主频的Intel ® Xeon ® E5-2682 v4（Broadwell）
 -   实例网络性能与计算规格对应（规格越高网络性能越强）
 -   适用场景：
     -   深度学习
@@ -156,7 +156,7 @@ gn5i的特点如下：
 -   仅支持SSD云盘和高效云盘
 -   采用NVIDIA P4 GPU计算卡
 -   处理器与内存配比为1:4
--   处理器：2.5 GHz主频的Intel Xeon E5-2682 v4（Broadwell）
+-   处理器：2.5 GHz主频的Intel ® Xeon ® E5-2682 v4（Broadwell）
 -   实例网络性能与计算规格对应（规格越高网络性能越强）
 -   适用场景：
     -   深度学习推理
@@ -186,7 +186,7 @@ gn4的特点如下：
 -   仅支持SSD云盘和高效云盘
 -   采用NVIDIA M40 GPU计算卡
 -   多种处理器与内存配比
--   处理器：2.5 GHz主频的Intel Xeon E5-2682 v4（Broadwell）
+-   处理器：2.5 GHz主频的Intel ® Xeon ® E5-2682 v4（Broadwell）
 -   实例网络性能与计算规格对应（规格越高网络性能越强）
 -   适用场景：
     -   深度学习
