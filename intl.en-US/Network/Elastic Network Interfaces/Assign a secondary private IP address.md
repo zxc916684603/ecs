@@ -19,31 +19,28 @@ This topic describes how to assign secondary private IP addresses to an Elastic 
 -   Each VPC security group can contain a maximum of 2,000 private IP addresses, and the quota is shared among all corresponding primary and secondary ENIs.
 -   You can assign a maximum of 20 private IP addresses to an ENI.
     -   If the target ENI is in the `Available` state, you can assign a maximum of 10 private IP addresses to the ENI.
-    -   If the target ENI is in the `InUse` state, the number of private IP addresses that you can assign to the ENI depends on the instance type. For more information, see [Instance type families](../../../../reseller.en-US/Instances/Instance type families.md#).
--   Your instance type must be able to support being assigned multiple secondary private IP addresses. For more information, see [Instance type families](../../../../reseller.en-US/Instances/Instance type families.md#) or call the [DescribeInstanceTypes](../../../../reseller.en-US/API Reference/Instances/DescribeInstanceTypes.md#) API action.
+    -   If the target ENI is in the `InUse` state, the number of private IP addresses that you can assign to the ENI depends on the instance type. For more information, see [Instance type families](../reseller.en-US/Instances/Instance type families.md#).
+-   Your instance type must be able to support being assigned multiple secondary private IP addresses. For more information, see [Instance type families](../reseller.en-US/Instances/Instance type families.md#) or call the [DescribeInstanceTypes](../reseller.en-US/API Reference/Instances/DescribeInstanceTypes.md#) API action.
 -   If you assign multiple secondary private IP addresses to a primary ENI, the instance to which the primary ENI is attached must be in the `Running` or `Stopped` state.
 
 ## Assign a secondary private IP address to an ENI {#section_zz0_16c_2q3 .section}
 
-1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
-2.  In the left-side navigation pane, choose **Networks and Security** \> **ENI**.
-3.  Select the target region.
-4.  On the Network Interfaces page, locate the target ENI, and then click **Manage Secondary Private IP Address** in the **Actions** column.
-5.  In the Manage Secondary Private IP Address dialog box, click **Assign New IP** once or multiple times if additional IP addresses are needed.
+1.  On the Network Interfaces page, locate the target ENI, and then click **Manage Secondary Private IP Address** in the **Actions** column.
+2.  In the displayed dialog box, click **Assign New IP** once or multiple times if additional IP addresses are needed.
 
     You can also enter one or more secondary private IP addresses that are within the **IPv4 Private CIDR**. If you do not enter any secondary private IP address, the system randomly assigns IP addresses that are within the **IPv4 Private CIDR**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83258/155961561247047_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83258/156472631947047_en-US.png)
 
-6.  Click **Modify**.
-7.  Optional. If you use automatic assignment of a secondary private IP address, click **Manage Secondary Private IP Address** in the **Actions** column to view the assigned secondary private IP address, and then configure this IP address for an ECS instance.
-8.  Optional. If the target ENI is not attached, attach it to an ECS instance. For more information, see [Attach an ENI](reseller.en-US/Network/Elastic Network Interfaces/Attach an ENI.md#).
+3.  Click **Modify**.
+4.  Optional. If you use automatic assignment of a secondary private IP address, click **Manage Secondary Private IP Address** in the **Actions** column to view the assigned secondary private IP address, and then configure this IP address for an ECS instance.
+5.  Optional. If the target ENI is not attached, attach it to an ECS instance. For more information, see [Attach an ENI](reseller.en-US/Network/Elastic Network Interfaces/Attach an ENI.md#).
 
-Related API: [AssignPrivateIpAddresses](../../../../reseller.en-US/API Reference/Elastic network interfaces/AssignPrivateIpAddresses.md#)
+Related API: [AssignPrivateIpAddresses](../reseller.en-US/API Reference/Elastic network interfaces/AssignPrivateIpAddresses.md#)
 
 ## Assign a secondary private IP address to a Windows instance {#section_y4b_krk_ggb .section}
 
-1.  Connect to the target instance. For more information, see [Overview](../../../../reseller.en-US/Instances/Connect to instances/Overview.md#).
+1.  Connect to the target instance. For more information, see [Overview](../reseller.en-US/Instances/Connect to instances/Overview.md#).
 2.  Open the Network and Sharing Center.
 3.  Click **Change adapter settings**.
 4.  Double-click the current network connection name, and then click **Properties**.
@@ -53,13 +50,13 @@ Related API: [AssignPrivateIpAddresses](../../../../reseller.en-US/API Reference
 
     You can add multiple IP addresses to the same adapter.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83258/155961561247049_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83258/156472631947049_en-US.png)
 
 8.  Click **OK**.
 
 ## Assign a secondary private IP address to a Linux instance {#section_b2x_hlb_3gb .section}
 
-1.  Connect to the target instance. For more information, see [Overview](../../../../reseller.en-US/Instances/Connect to instances/Overview.md#).
+1.  Connect to the target instance. For more information, see [Overview](../reseller.en-US/Instances/Connect to instances/Overview.md#).
 2.  Follow the instructions in the method that corresponds to the OS of your instance to assign a secondary private IP address.
 
     In the following example, a primary ENI named eth0 are used. If you use a secondary ENI, you must modify the ENI identifier as needed.
@@ -125,5 +122,5 @@ Related API: [AssignPrivateIpAddresses](../../../../reseller.en-US/API Reference
 
 ## What to do next {#section_aqz_tlm_ggb .section}
 
-If you no longer require the current number of secondary private IP addresses, you can revoke one or more of them from the target ENI. For more information, see [Revoke multiple secondary private IP addresses](reseller.en-US/Network/Elastic Network Interfaces/Revoke multiple secondary private IP addresses.md#).
+If you no longer require the current number of secondary private IP addresses, you can revoke one or more of them from the target ENI. For more information, see [Revoke a secondary private IP address](reseller.en-US/Network/Elastic Network Interfaces/Revoke a secondary private IP address.md#).
 
