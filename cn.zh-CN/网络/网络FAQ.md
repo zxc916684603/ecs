@@ -1,5 +1,7 @@
 # 网络FAQ {#concept_40637_zh .concept}
 
+本文汇总了使用云服务器ECS网络时的常见问题。
+
 -   公网带宽问题
     -   [什么是云服务器ECS的入网带宽和出网带宽？](#)
     -   [我购买的公网带宽为5 Mbps，相应的出入网带宽有什么区别？](#)
@@ -73,8 +75,8 @@
 
 1.  登录[ECS管理控制台](https://ecs.console.aliyun.com)。
 2.  单击**费用** \> **进入费用中心**。
-3.  单击左侧导航栏中的**费用账单** \> **费用账单**。
-4.  选择**账单**，选择您需要查询的**使用期间**，设置**产品**为**云服务器 ECS - 按量付费**。
+3.  单击左侧导航栏中的**费用账单** \> **账单总览**。
+4.  选择**账单**，选择您需要查询的使用期间，设置**产品**为**云服务器 ECS - 按量付费**，设置**消费类型**为**后付费**。
 5.  单击**导出账单CSV**，输入验证码，单击**确定**。
 6.  打开下载的CSV文件，查看云服务器ECS公网流量统计信息。
 
@@ -130,9 +132,7 @@
 目前，云盾没有单独屏蔽IP的功能。
 
 -   如果您使用的ECS实例是Windows系统，您可以参见[ECS Windows通过IIS6.0屏蔽IP访问](https://help.aliyun.com/document_detail/38327.html)。
--   如果您使用的ECS实例是Linux系统，您可以参见：
-    -   [ECS Linux 系统屏蔽某个IP的访问](https://help.aliyun.com/document_detail/41213.html)。
-    -   [ECS Apache通过htaccess对访问IP进行限制](https://help.aliyun.com/document_detail/41111.html)。
+-   如果您使用的ECS实例是Linux系统，您可以参见[ECS Linux 系统屏蔽某个IP的访问](https://help.aliyun.com/document_detail/41213.html)。
 
 ## 云服务器ECS出现了异地登录怎么办？ {#section_mgg_dhg_4gb .section}
 
@@ -154,7 +154,7 @@
 2.  选择云产品，找到您想要取消的正在清洗中的IP，单击**查看详情**。
 3.  单击**取消清洗**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10166/156220838650257_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10166/156473669650257_zh-CN.png)
 
 
 ## 怎么申请云服务器ECS反向解析？ {#section_24x_y33_pml .section}
@@ -181,7 +181,7 @@ dig -x 121.196.255.** +trace +nodnssec
 
 ## 实例创建六小时以后可以更换公网IP（IPv4）地址吗？怎么更换？ {#section_c7c_7n5_fae .section}
 
--   专有网络VPC类型实例：可以。具体通过[公网IP转换为弹性公网IP](cn.zh-CN/网络/修改IPv4地址/公网IP转换为弹性公网IP.md#)功能更换公网IP地址。
+-   专有网络VPC类型实例：可以。具体通过[专有网络公网IP转换为弹性公网IP](cn.zh-CN/网络/修改IPv4地址/专有网络公网IP转换为弹性公网IP.md#)功能更换公网IP地址。
 -   经典网络类型实例：不可以。
 
 ## 为什么我在ECS管理控制台上看不到更换公网IP选项？ {#section_y27_eqe_lgp .section}
@@ -189,7 +189,7 @@ dig -x 121.196.255.** +trace +nodnssec
 -   如果您的实例创建后已经超过六小时，不会显示**更换公网IP**选项。
 -   如果您为您的账号设置了**VPC内实例停机不收费**模式，请务必在停止实例时勾选**停止后仍旧保留实例并继续收费**，避免公网IP地址被暂时性释放。更多详情，请参见[按量付费实例停机不收费](../cn.zh-CN/产品定价/按量付费实例停机不收费.md#)。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9656/156220838644752_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9656/156473669644752_zh-CN.jpg)
 
 
 ## 除了更换公网IP地址？我还可以更换私网IP地址吗？ {#section_q67_0xd_eps .section}
