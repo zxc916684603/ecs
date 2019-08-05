@@ -297,7 +297,7 @@ Terraform中通过参数encrypted指定，详情请参见[alicloud\_disks](https
 
 ## 实例释放后，快照是否还存在？ {#section_ocf_oay_z1e .section}
 
-保留手动快照，自动快照会随着实例释放而被清除。更多详情，请参见[快照FAQ](../cn.zh-CN/快照/常见问题/快照FAQ.md#)。
+保留手动快照，自动快照会随着实例释放而被清除。更多详情，请参见[快照FAQ](../cn.zh-CN/快照/快照FAQ.md#)。
 
 ## 我想删除华北2快照链列表内的某一快照，但提示我关联了“RequestId: xxx”，这个是什么？ {#section_72i_6dy_wdp .section}
 
@@ -410,15 +410,15 @@ Linux其他较重要的配置文件如下：
 
 1.  ECS实例数据盘未分区，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156439354949584_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156499472649584_zh-CN.png)
 
 2.  使用自定义镜像创建的ECS实例中，未注释掉/etc/fstab中的磁盘挂载条目，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156439355049589_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156499472749589_zh-CN.png)
 
 3.  实例启动时，会按照/etc/fstab文件中的配置挂载磁盘，但由于数据盘未分区导致挂载失败，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156439355049591_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156499472749591_zh-CN.png)
 
 
 不用注释磁盘挂载条目的情况：一般只有在创建ECS实例时，选择了数据盘且数据盘是通过已分区、已格式化的数据盘快照生成。
@@ -594,7 +594,7 @@ Linux其他较重要的配置文件如下：
 
 ## 如果使用自定义镜像创建了ECS实例，我可以删除这个镜像吗？ {#section_lvj_dht_8a4 .section}
 
-您可以**强制删除**这个镜像。但是，删除镜像后，使用该自定义镜像创建的ECS实例无法重新初始化云盘，详情请参见[重新初始化云盘](cn.zh-CN/块存储/云盘/重新初始化云盘.md#)。
+您可以**强制删除**这个镜像。但是，删除镜像后，使用该自定义镜像创建的ECS实例无法重新初始化云盘，详情请参见[重新初始化云盘](cn.zh-CN/块存储/云盘/重新初始化云盘/重新初始化系统盘.md#)。
 
 ## 我曾把自己账号中的某个自定义镜像共享给其他账号，现在我可以删除这个镜像吗？ {#section_fqt_49s_s3v .section}
 
@@ -839,7 +839,7 @@ Windows Server 公共镜像默认最多允许2个会话（Session）[远程连�
 
 除Windows Server半年渠道实例以外，Windows操作系统是桌面管理形式。有关如何使用Windows Server半年渠道操作系统，请参见[Windows Server半年渠道镜像与实例管理](cn.zh-CN/镜像/常见问题/Windows Server半年渠道镜像与实例管理.md#)。
 
-Linux 操作系统是命令行形式，您可以根据需要安装图形化桌面，请参见[为Linux 实例安装图形化桌面](https://help.aliyun.com/knowledge_detail/41227.html)。
+Linux 操作系统是命令行形式，您可以根据需要安装图形化桌面。
 
 ## 如何选择操作系统？ {#section_wqy_zwc_ghb .section}
 
@@ -961,7 +961,7 @@ Linux 操作系统是命令行形式，您可以根据需要安装图形化桌�
 
             默认使用阿里云`options`配置`options timeout:2 attempts:3 rotate single-request-reopen`。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156439355046335_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156499472746335_zh-CN.png)
 
         -   如果存在`options`配置：
             -   不存在`single-request-reopen`配置，则在`options`配置中追加该项。
