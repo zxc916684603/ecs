@@ -20,10 +20,10 @@ Alibaba Cloud provides [OpenAPI Explorer](https://api.aliyun.com/#product=Ecs&ap
 
 |Parameter|Type|Required|Example|Description|
 |---------|----|--------|-------|-----------|
-|DiskId|String|Yes|d-diskid|The ID of the cloud disk to be resized.
+|DiskId|String|Yes|d-diskid| The ID of the cloud disk to be resized.
 
  |
-|NewSize|Integer|Yes|1900|The new disk capacity that you want to specify. Unit: GiB. Valid values:
+|NewSize|Integer|Yes|1900| The new disk capacity that you want to specify. Unit: GiB. Valid values:
 
  -   Basic disk \(cloud\): 5 to 2,000
 -   Ultra disk \(cloud\_efficiency\): 20 to 6,144
@@ -33,16 +33,16 @@ Alibaba Cloud provides [OpenAPI Explorer](https://api.aliyun.com/#product=Ecs&ap
  The new disk capacity must be larger than the original disk capacity. If the original capacity of a cloud disk is less than 6 TiB, you cannot resize it to more than 6 TiB.
 
  |
-|Action|String|No|ResizeDisk|The operation that you want to perform. Set the value to ResizeDisk.
+|Action|String|No|ResizeDisk| The operation that you want to perform. Set the value to ResizeDisk.
 
  |
-|Type|String|No|offline|The method that you use to resize the cloud disk. Valid values:
+|Type|String|No|offline| The method that you use to resize the cloud disk. Valid values:
 
  -   offline: In this method, you need to restart the instance to validate the operation. This is the default value.
--   online: In this method, you do not need to restart the instance. This method can only be used on ultra disks and SSD disks.
+-   online: In this method, you do not need to restart the instance. This method can only be used on data disk, and only ultra disks and SSD disks are supported.
 
  |
-|ClientToken|String|No|123e4567-e89b-12d3-a456-426655440000|The client token that is used to ensure the idempotence of the request. You can use the client to generate this value, but you must ensure that it is unique among different requests. The **ClientToken** parameter can contain only ASCII characters, and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+|ClientToken|String|No|123e4567-e89b-12d3-a456-426655440000| The client token that is used to ensure the idempotence of the request. You can use the client to generate this value, but you must ensure that it is unique among different requests. The **ClientToken** parameter can contain only ASCII characters, and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
 
  |
 
@@ -50,7 +50,7 @@ Alibaba Cloud provides [OpenAPI Explorer](https://api.aliyun.com/#product=Ecs&ap
 
 |Parameter|Type|Example|Description|
 |---------|----|-------|-----------|
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|The ID of the request.
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E| The ID of the request.
 
  |
 
@@ -85,7 +85,7 @@ Sample success responses
 }
 ```
 
-## Error codes { .section}
+## Error codes {#section_p8v_16o_pok .section}
 
 |HTTP status code|Error code|Error message|Description|
 |----------------|----------|-------------|-----------|
