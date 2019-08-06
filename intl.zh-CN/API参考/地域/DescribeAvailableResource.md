@@ -1,22 +1,22 @@
 # DescribeAvailableResource {#doc_api_Ecs_DescribeAvailableResource .reference}
 
-查询某一可用区的资源列表。例如，您可以在某一可用区创建实例（RunInstances）时查询该可用区的资源列表。
+调用DescribeAvailableResource查询某一可用区的资源列表。例如，您可以在某一可用区创建实例（RunInstances）或者修改实例规格（ModifyInstanceSpec）时查询该可用区的资源列表。
 
 ## 接口说明 {#description .section}
 
 调用该接口时，您需要注意：
 
--   不指定参数 ZoneId 时，返回该地域（RegionId）下所有可用区的符合其他条件的目标资源。
--   您可以通过指定参数 DestinationResource 查询不同类型的资源列表，再指定其他参数细化资源条件。参数 DestinationResource 的各个可选取值有不同的逻辑与要求。在下列两个顺序列表中，排在越后面的参数其逻辑与苛刻程度越高。
+-   不指定参数ZoneId时，返回该地域（RegionId）下所有可用区的符合其他条件的目标资源。
+-   您可以通过指定参数DestinationResource查询不同类型的资源列表，再指定其他参数细化资源条件。参数DestinationResource的各个可选取值有不同的逻辑与要求。在下列两个顺序列表中，排在越后面的参数其逻辑与苛刻程度越高。
     -   顺序：（Zone）\> IoOptimized \> InstanceType \> SystemDisk \> DataDisk
     -   取值示例：
-        -   若参数 DestinationResource 取值为 SystemDisk，则必须传入参数 IoOptimized 和 InstanceType。
-        -   若参数 DestinationResource 取值为 InstanceType，则必须传入参数 IoOptimized。
-        -   若参数 DestinationResource 取值为 DataDisk，则必须传入参数 IoOptimized、InstanceType 和 SystemDiskCategory。
+        -   若参数DestinationResource取值为SystemDisk，则必须传入参数IoOptimized和InstanceType。
+        -   若参数DestinationResource取值为InstanceType，则必须传入参数IoOptimized。
+        -   若参数DestinationResource取值为DataDisk，则必须传入参数IoOptimized、InstanceType和SystemDiskCategory。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeAvailableResource)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=DescribeAvailableResource&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
@@ -25,53 +25,60 @@
 |DestinationResource|String|是|InstanceType|要查询的资源类型。取值范围：
 
  -   Zone：可用区
--   IoOptimized：I/O 优化
+-   IoOptimized：I/O优化
 -   InstanceType：实例规格
 -   SystemDisk：系统盘
 -   DataDisk：数据盘
 -   Network：网络类型
 
  |
-|RegionId|String|是|cn-hangzhou|目标地域 ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
+|RegionId|String|是|cn-hangzhou|目标地域ID。您可以调用[DescribeRegions](~~25609~~)查看最新的阿里云地域列表。
 
  |
-|Action|String|否|DescribeAvailableResource|系统规定参数。取值：DescribeAvailableResource
+|Action|String|否|DescribeAvailableResource|系统规定参数。对于您自行拼凑HTTP/HTTPS URL发起的API请求，`Action`为必选参数。取值：DescribeAvailableResource
 
  |
-|Cores|Integer|否|2|实例规格的vCPU内核数目。取值参阅 [实例规格族](~~25378~~)。当 DestinationResource=InstanceType 参数有效，Cores 才为有效参数。
+|Cores|Integer|否|2|实例规格的vCPU内核数目。取值参见[实例规格族](~~25378~~)。
+
+ 当DestinationResource取值为InstanceType时，Cores才为有效参数。
 
  |
 |DataDiskCategory|String|否|cloud\_ssd|数据盘类型。取值范围：
 
  -   cloud：普通云盘
 -   cloud\_efficiency：高效云盘
--   cloud\_ssd：SSD 云盘
--   ephemeral\_ssd：本地 SSD 盘
+-   cloud\_ssd：SSD云盘
+-   ephemeral\_ssd：本地SSD盘
+-   cloud\_essd：ESSD云盘
 
  |
-|DedicatedHostId|String|否|dh-dedicatedhostid|专有宿主机 ID
+|DedicatedHostId|String|否|dh-dedicatedhostid|专有宿主机ID。
 
  |
-|InstanceChargeType|String|否|PrePaid|资源的计费方式。更多详情，请参阅 计费概述。取值范围：
+|InstanceChargeType|String|否|PrePaid|资源的计费方式。更多详情，请参见[计费概述](~~25398~~)。取值范围：
 
  -   PrePaid：预付费（包年包月）
 -   PostPaid：按量付费
 
- 默认值：PostPaid
+ 默认值：PostPaid。
 
  |
-|InstanceType|String|否|ecs.g5.large|实例规格。更多详情，请参阅 [实例规格族](~~25378~~)，也可以调用 [DescribeInstanceTypes](~~25620~~) 接口获得最新的规格表。当参数 DestinationResource 取值为 SystemDisk 或者 DataDisk 时，InstanceType 为必需参数。
+|InstanceType|String|否|ecs.g5.large|实例规格。更多详情，请参见[实例规格族](~~25378~~)，也可以调用[DescribeInstanceTypes](~~25620~~)接口获得最新的规格表。
+
+ 当参数DestinationResource取值为SystemDisk或者DataDisk时，InstanceType为必需参数。
 
  |
-|IoOptimized|String|否|optimized|是否为 I/O 优化实例。取值范围：
+|IoOptimized|String|否|optimized|是否为I/O优化实例。取值范围：
 
- -   none：非 I/O 优化实例
--   optimized：I/O 优化实例
+ -   none：非I/O优化实例
+-   optimized：I/O优化实例
 
- 当参数 DestinationResource 取值为 InstanceType、SystemDisk 或者 DataDisk时，IoOptimized 为必需参数。
+ 若参数DestinationResource取值为SystemDisk、InstanceType或者DataDisk时，参数IoOptimized不是必需参数，默认值：optimized。
 
  |
-|Memory|Float|否|8.0|实例规格的内存大小，单位为GiB。取值参阅 [实例规格族](~~25378~~)。当 DestinationResource=InstanceType，Memory 才为有效参数。
+|Memory|Float|否|8.0|实例规格的内存大小，单位为GiB。取值参见[实例规格族](~~25378~~)。
+
+ 当DestinationResource取值为InstanceType时，Memory才为有效参数。
 
  |
 |NetworkCategory|String|否|vpc|网络类型。取值范围：
@@ -94,89 +101,96 @@
 -   SpotWithPriceLimit：设置上限价格的抢占式实例
 -   SpotAsPriceGo：系统自动出价，最高按量付费价格
 
- 默认值：NoSpot 当参数 InstanceChargeType 取值为 PostPaid 时，参数 SpotStrategy 才有效。
+ 默认值：NoSpot。
+
+ 当参数InstanceChargeType取值为PostPaid时，参数SpotStrategy才有效。
 
  |
 |SystemDiskCategory|String|否|cloud\_ssd|系统盘类型。取值范围：
 
  -   cloud：普通云盘
 -   cloud\_efficiency：高效云盘
--   cloud\_ssd：SSD 云盘
--   ephemeral\_ssd：本地 SSD 盘
+-   cloud\_ssd：SSD云盘
+-   ephemeral\_ssd：本地SSD盘
+-   cloud\_essd：ESSD云盘
+
+ 若参数DestinationResource取值为SystemDisk、InstanceType或者DataDisk时，参数SystemDiskCategory不是必需参数，默认值：cloud\_efficiency。
 
  |
-|ZoneId|String|否|cn-hangzhou-e|可用区 ID，不传入参数 ZoneId 则表示随机分配当前地域下的可用区。
+|ZoneId|String|否|cn-hangzhou-e|可用区ID。
+
+ 默认值：无，表示随机分配当前地域下的可用区。
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|AvailableZones| | |数据中心信息组成的集合
+|AvailableZones| | |数据中心信息组成的集合。
 
  |
-|└AvailableResources| | |可供创建的具体资源组成的数组
+|AvailableResources| | |可供创建的具体资源组成的数组。
 
  |
-|└SupportedResources| | |支持的可供创建的具体资源组成的数组
+|SupportedResources| | |支持的可供创建的具体资源组成的数组。
 
  |
-|└Max|Integer|2|资源规格的最大值，该参数值为空时将不返回
+|Max|Integer|2|资源规格的最大值，该参数值为空时将不返回。
 
  |
-|└Min|Integer|1|资源规格的最小值，该参数值为空时将不返回
+|Min|Integer|1|资源规格的最小值，该参数值为空时将不返回。
 
  |
-|└Status|String|Available|资源类型。返回值：
+|Status|String|Available|资源类型。可能值：
 
  -   Available：资源充足
 -   SoldOut：资源已售罄
 
  |
-|└StatusCategory|String|WithStock|根据库存详细分类资源类别。目前的可能值有：
+|StatusCategory|String|WithStock|根据库存详细分类资源类别。可能值：
 
  -   WithStock：库存充足
 -   ClosedWithStock：库存接近水位低线
 -   WithoutStock：库存告罄
 
  |
-|└Unit|String|null|资源规格单位，该参数值为空时将不返回
+|Unit|String|null|资源规格单位，该参数值为空时将不返回。
 
  |
-|└Value|String|ecs.d1ne.xlarge|资源值
+|Value|String|ecs.d1ne.xlarge|资源值。
 
  |
-|└Type|String|InstanceType|资源类型。返回值：
+|Type|String|InstanceType|资源类型。可能值：
 
  -   Zone：可用区
--   IoOptimized：I/O 优化
+-   IoOptimized：I/O优化
 -   InstanceType：实例规格
 -   SystemDisk：系统盘
 -   DataDisk：数据盘
 -   Network：网络类型
 
  |
-|└RegionId|String|cn-hangzhou|地域 ID
+|RegionId|String|cn-hangzhou|地域ID。
 
  |
-|└Status|String|Available|资源类型。返回值：
+|Status|String|Available|资源类型。可能值：
 
  -   Available：资源充足
 -   SoldOut：资源已售罄
 
  |
-|└StatusCategory|String|WithStock|根据库存详细分类资源类别。目前的可能值有：
+|StatusCategory|String|WithStock|根据库存情况分类资源类别。可能值：
 
  -   WithStock：库存充足
--   ClosedWithStock：库存接近水位低线
+-   ClosedWithStock：库存供应保障能力低，请优先选用WithStock状态的产品规格
 -   WithoutStock：库存告罄
 
  |
-|└ZoneId|String|cn-hangzhou-e|可用区 ID
+|ZoneId|String|cn-hangzhou-e|可用区ID。
 
  |
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID。
 
  |
 
@@ -185,7 +199,6 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=DescribeAvailableResource
 &DestinationResource=InstanceType
 &RegionId=cn-hangzhou
@@ -194,7 +207,7 @@ https://ecs.aliyuncs.com/?Action=DescribeAvailableResource
 &ZoneId=cn-hangzhou-e
 &IoOptimized=optimized
 &DedicatedHostId=dh-dedicatedhostid
-&InstanceType=["ecs.g5.large"]
+&InstanceType="ecs.g5.large"
 &SystemDiskCategory=cloud_ssd
 &DataDiskCategory=cloud_ssd
 &NetworkCategory=vpc
@@ -202,7 +215,6 @@ https://ecs.aliyuncs.com/?Action=DescribeAvailableResource
 &Memory=8.0
 &ResourceType=Instance
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -211,36 +223,35 @@ https://ecs.aliyuncs.com/?Action=DescribeAvailableResource
 
 ``` {#xml_return_success_demo}
 <DescribeAvailableResourceResponse>
-  <RequestId>5272B7D8-F366-4781-AF7B-63E735FBC09A</RequestId>
-  <AvailableZones>
-    <AvailableZone>
-      <Status>Available</Status>
-      <RegionId>cn-hangzhou</RegionId>
-      <ZoneId>cn-hangzhou-h</ZoneId>
-    </AvailableZone>
-    <AvailableZone>
-      <Status>Available</Status>
-      <RegionId>cn-hangzhou</RegionId>
-      <ZoneId>cn-hangzhou-g</ZoneId>
-    </AvailableZone>
-    <AvailableZone>
-      <Status>Available</Status>
-      <RegionId>cn-hangzhou</RegionId>
-      <ZoneId>cn-hangzhou-f</ZoneId>
-    </AvailableZone>
-    <AvailableZone>
-      <Status>Available</Status>
-      <RegionId>cn-hangzhou</RegionId>
-      <ZoneId>cn-hangzhou-b</ZoneId>
-    </AvailableZone>
-    <AvailableZone>
-      <Status>Available</Status>
-      <RegionId>cn-hangzhou</RegionId>
-      <ZoneId>cn-hangzhou-e</ZoneId>
-    </AvailableZone>
-  </AvailableZones>
+	  <RequestId>5272B7D8-F366-4781-AF7B-63E735FBC09A</RequestId>
+	  <AvailableZones>
+		    <AvailableZone>
+			      <Status>Available</Status>
+			      <RegionId>cn-hangzhou</RegionId>
+			      <ZoneId>cn-hangzhou-h</ZoneId>
+		    </AvailableZone>
+		    <AvailableZone>
+			      <Status>Available</Status>
+			      <RegionId>cn-hangzhou</RegionId>
+			      <ZoneId>cn-hangzhou-g</ZoneId>
+		    </AvailableZone>
+		    <AvailableZone>
+			      <Status>Available</Status>
+			      <RegionId>cn-hangzhou</RegionId>
+			      <ZoneId>cn-hangzhou-f</ZoneId>
+		    </AvailableZone>
+		    <AvailableZone>
+			      <Status>Available</Status>
+			      <RegionId>cn-hangzhou</RegionId>
+			      <ZoneId>cn-hangzhou-b</ZoneId>
+		    </AvailableZone>
+		    <AvailableZone>
+			      <Status>Available</Status>
+			      <RegionId>cn-hangzhou</RegionId>
+			      <ZoneId>cn-hangzhou-e</ZoneId>
+		    </AvailableZone>
+	  </AvailableZones>
 </DescribeAvailableResourceResponse>
-
 ```
 
 `JSON` 格式
@@ -301,5 +312,5 @@ https://ecs.aliyuncs.com/?Action=DescribeAvailableResource
 |403|InvalidParam.Memory|The specified parameter 'Memory' should be empty|资源在当前地域不存在或者已释放。|
 |400|InvalidRegionId.MalFormed|The specified parameter RegionId is not valid.|指定的 RegionId 不合法。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Ecs)查看更多错误码。
 
