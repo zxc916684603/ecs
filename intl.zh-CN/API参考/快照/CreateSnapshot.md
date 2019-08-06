@@ -1,22 +1,22 @@
 # CreateSnapshot {#doc_api_Ecs_CreateSnapshot .reference}
 
-为一块云盘创建一份快照。
+调用CreateSnapshot为一块云盘创建一份快照。
 
 ## 接口说明 {#description .section}
 
--   一块云盘最多能创建 64 份快照。
--   云盘挂载的实例必须处于 **已停止**（`Stopped`）或者 **运行中**（`Running`）状态，否则无法创建快照。
+-   一块云盘最多能创建64份快照。
+-   云盘挂载的实例必须处于**已停止**（`Stopped`）或者**运行中**（`Running`）状态，否则无法创建快照。
 -   云盘必须已经挂载到实例上，否则无法创建快照。
 -   云盘挂载的实例从未启动过时，无法创建快照。
--   被 [安全控制](~~25695~~) 的 ECS 实例的 `OperationLocks` 中标记了 `"LockReason" : "security"` 时，实例挂载的云盘无法创建快照。
--   新建一台云服务器 ECS（[RunInstances](~~63440~~)）、更换系统盘（[ReplaceSystemDisk](~~25521~~)）或者根据快照新增数据盘（[CreateDisk](~~25513~~)），由于尚未完成数据加载，无法创建快照。新建一台云服务器 ECS 或者更换系统盘大约 1 小时后可以创建快照，新增一块数据盘可创建快照的时间取决于云盘数据的大小。
+-   被 [安全控制](~~25695~~)的ECS实例的`OperationLocks`中标记了`"LockReason" : "security"`时，实例挂载的云盘无法创建快照。
+-   新建一台云服务器ECS（[RunInstances](~~63440~~)）、更换系统盘（[ReplaceSystemDisk](~~25521~~)）或者根据快照新增数据盘（[CreateDisk](~~25513~~)），由于尚未完成数据加载，无法创建快照。新建一台云服务器ECS或者更换系统盘大约一小时后可以创建快照，新增一块数据盘可创建快照的时间取决于云盘数据的大小。
 -   如果创建快照还未完成，您无法为该云盘再次创建快照。
--   如果创建快照还未完成，这份快照无法用于创建自定义镜像 （[CreateImage](~~25535~~)）。
+-   如果创建快照还未完成，这份快照无法用于创建自定义镜像（[CreateImage](~~25535~~)）。
 -   支持对处于**已过期**（`Expired`）状态的云盘创建快照。请注意，若创建快照时云盘正好达到过期释放时间，云盘会被释放的同时也会删除**创建中**（`Creating`）的快照。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=CreateSnapshot)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=CreateSnapshot&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
@@ -25,47 +25,52 @@
 |DiskId|String|是|d-diskid1|云盘ID。
 
  |
-|Action|String|否|CreateSnapshot|系统规定参数。取值：CreateSnapshot
+|Action|String|否|CreateSnapshot|系统规定参数。对于您自行拼凑HTTP/HTTPS URL发起的API请求，`Action`为必选参数。取值：CreateSnapshot
 
  |
-|SnapshotName|String|否|FinanceJoshua|快照的显示名称。长度为 2~128 个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。
+|SnapshotName|String|否|FinanceJoshua|快照的显示名称。长度为2~128个英文或中文字符。必须以大小字母或中文开头，不能以http://和https://开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。
 
- 为防止和 自动快照 的名称冲突，不能以auto开头。
-
- |
-|Description|String|否|FinanceDepet|快照的描述。长度为 2~256 个英文或中文字符，不能以 http:// 和 https:// 开头。
-
- 默认值：空
+ 为防止和自动快照的名称冲突，不能以auto开头。
 
  |
-|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
+|Description|String|否|FinanceDepet|快照的描述。长度为2~256个英文或中文字符，不能以http://和https://开头。
+
+ 默认值：空。
+
+ |
+|RetentionDays|Integer|否|30|设置快照的保留时间，单位为天。保留时间到期后快照会被自动释放，取值范围：1~65536。
+
+ 默认值：空，表示快照不会被自动释放。
 
  |
 |Tag.N.value|String|否|FinanceDept.Joshua|快照的标签值。
 
- **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Value参数。
+ **说明：** 为提高兼容性，建议您尽量使用Tag.N.Value参数。
 
  |
 |Tag.N.key|String|否|FinanceDept|快照的标签键。
 
- **说明：** 该参数即将被弃用，为提高兼容性，建议您尽量使用Tag.N.Key参数。
+ **说明：** 为提高兼容性，建议您尽量使用Tag.N.Key参数。
 
  |
-|Tag.N.Key|String|否|FinanceDept|快照的标签键。n 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun和acs:开头，不能包含http://或者https://。
+|Tag.N.Key|String|否|FinanceDept|快照的标签键。N的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun和acs:开头，不能包含http://或者https://。
 
  |
-|Tag.N.Value|String|否|FinanceDept.Joshua|快照的标签值。n的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun和acs:开头，不能包含http://或者https://。
+|Tag.N.Value|String|否|FinanceDept.Joshua|快照的标签值。N的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun和acs:开头，不能包含http://或者https://。
+
+ |
+|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken**只支持ASCII字符，且不能超过64个字符。更多详情，请参见[如何保证幂等性](~~25693~~)。
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID。
 
  |
-|SnapshotId|String|s-snapshotid1|快照 ID。
+|SnapshotId|String|s-snapshotid1|快照ID。
 
  |
 
@@ -74,18 +79,14 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=CreateSnapshot
 &DiskId=d-diskid1
 &SnapshotName=FinanceJoshua
 &Description=FinanceDepet
 &ClientToken=123e4567-e89b-12d3-a456-426655440000
-&Tag.1.value=FinanceDept.Joshua
-&Tag.1.key=FinanceDept
 &Tag.1.Key=FinanceDept
 &Tag.1.Value=FinanceDept.Joshua
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -94,10 +95,9 @@ https://ecs.aliyuncs.com/?Action=CreateSnapshot
 
 ``` {#xml_return_success_demo}
 <CreateSnapshotResponse>
-  <RequestId>C8B26B44-0189-443E-9816-D951F59623A9</RequestId>
-  <SnapshotId>s-923FE2BF0</SnapshotId>
+          <RequestId>C8B26B44-0189-443E-9816-D951F59623A9</RequestId>
+          <SnapshotId>s-923FE2B**</SnapshotId>
 </CreateSnapshotResponse>
-
 ```
 
 `JSON` 格式
@@ -105,7 +105,7 @@ https://ecs.aliyuncs.com/?Action=CreateSnapshot
 ``` {#json_return_success_demo}
 {
 	"RequestId":"C8B26B44-0189-443E-9816-D951F59623A9",
-	"SnapshotId":"s-923FE2BF0"
+	"SnapshotId":"s-923FE2B**"
 }
 ```
 
@@ -137,6 +137,12 @@ https://ecs.aliyuncs.com/?Action=CreateSnapshot
 |403|IncorrectDiskStatus.Invalid|The specified device status invalid, restart instance and try again.|指定磁盘的状态无效，请重启实例后重试。|
 |403|IncorrectDiskType.NotSupport|The specified device type is not supported.|指定磁盘存储类型不支持此操作。|
 |403|IncorrectDiskStatus.Transferring|The specified device is transferring, you can retry after the process is finished.|指定磁盘正在迁移中，请在迁移完毕后重试。|
+|403|InvalidParameter.KMSKeyId.KMSUnauthorized|ECS service have no right to access your KMS.|ECS未被授权访问您的KMS资源。|
+|500|InternalError|The request processing has failed due to some unknown error, exception or failure.|发生未知错误。|
+|400|Duplicate.TagKey|The Tag.N.Key contain duplicate key.|标签键中存在重复的键。|
+|400|InvalidTagKey.Malformed|The specified Tag.n.Key is not valid.|指定的标签键不合法。|
+|400|InvalidTagValue.Malformed|The specified Tag.n.Value is not valid.|指定的标签值不合法。|
+|403|IdempotentProcessing|The previous idempotent request\(s\) is still processing.|同样clienttoken的请求正在处理中。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Ecs)查看更多错误码。
 
