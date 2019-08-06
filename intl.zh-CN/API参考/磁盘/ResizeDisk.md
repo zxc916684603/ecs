@@ -1,6 +1,6 @@
 # ResizeDisk {#doc_api_Ecs_ResizeDisk .reference}
 
-调用ResizeDisk扩容一块云盘，支持扩容系统盘和数据盘。
+扩容一块云盘，支持扩容系统盘和数据盘。
 
 ## 接口说明 {#description .section}
 
@@ -9,11 +9,12 @@
 -   支持扩容的云盘类型包括普通云盘（cloud）、高效云盘（cloud\_efficiency）、SSD云盘（cloud\_ssd）和ESSD（cloud\_essd）云盘。
 -   当云盘正在创建快照时，不允许扩容。
 -   云盘挂载的实例的状态必须为运行中（Running）或者已停止（Stopped）。
+-   扩容后，您需要在控制台[重启实例](~~25440~~)或者调用API [RebootInstance](~~25502~~)使操作生效。
 -   扩容时，不会修改云盘分区和文件系统，您需要在扩容后自行分配存储空间。
 
-## 调试 {#api_explorer .section}
+## 调试 {#apiExplorer .section}
 
-[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=ResizeDisk&type=RPC&version=2014-05-26)
+前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=ResizeDisk)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
 ## 请求参数 {#parameters .section}
 
@@ -29,23 +30,23 @@
 -   SSD云盘（cloud\_ssd）：20~6144
 -   ESSD云盘（cloud\_essd）：20~32768
 
- 指定的新云盘容量必须比原云盘容量大。且6TiB以下的云盘不能扩容到6TiB以上。
+ 指定的新云盘容量必须比原云盘容量大。且6 TiB以下的云盘不能扩容到6 TiB以上。
 
  |
-|Action|String|否|ResizeDisk|系统规定参数。对于您自行拼凑HTTP/HTTPS URL发起的API请求，`Action`为必选参数。取值：ResizeDisk
+|Action|String|否|ResizeDisk|系统规定参数。取值：ResizeDisk
 
  |
 |Type|String|否|offline|扩容云盘的方式。取值范围：
 
- -   offline（默认）：离线扩容。扩容后，您需要在控制台[重启实例](~~25440~~)或者调用API [RebootInstance](~~25502~~)使操作生效。 支持系统盘和数据盘。
--   online：在线扩容，无需重启实例即可完成扩容。仅支持数据盘。云盘类型支持高效云盘和SSD云盘。
+ -   offline（默认）：离线扩容，您需要重启实例以完成扩容。
+-   online：在线扩容，无需重启实例即可完成扩容。仅支持高效云盘与SSD云盘。
 
  |
 |ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken**只支持ASCII字符，且不能超过64个字符。更多详情，请参见[如何保证幂等性](~~25693~~)。
 
  |
 
-## 返回数据 {#resultMapping .section}
+## 返回参数 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -71,8 +72,9 @@ https://ecs.aliyuncs.com/?Action=ResizeDisk
 
 ``` {#xml_return_success_demo}
 <ResizeDiskResponse>
-      <RequestId>F3CD6886-D8D0-4FEE-B93E-1B73239673DE</RequestId>
+  <RequestId>F3CD6886-D8D0-4FEE-B93E-1B73239673DE</RequestId>
 </ResizeDiskResponse>
+
 ```
 
 `JSON` 格式
@@ -118,5 +120,5 @@ https://ecs.aliyuncs.com/?Action=ResizeDisk
 |403|IncorrectDiskStatus|The current status of the resource does not support resize online|该资源的状态不支持在线扩容磁盘。|
 |403|InvalidOperation.InstanceTypeNotSupport|The instance type of the specified instance does not support resize online.|磁盘挂载的实例不支持磁盘在线扩容操作。|
 
-访问[错误中心](https://error-center.alibabacloud.com/status/product/Ecs)查看更多错误码。
+[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
 
