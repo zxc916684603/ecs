@@ -9,7 +9,7 @@
 -   管理终端地址的有效期为15秒，调用接口成功后如果15秒内不使用该链接，URL地址自动失效，您需要重新查询。
 -   单个管理终端链接的**持久链接**（KeepAlive）时间为60秒，60秒内您管理终端窗口没有任何交互操作时，连接自动断开。
 -   如果连接中断，每分钟内重新连接的次数不能超过30次。
--   您需要在链接[https://g.alicdn.com/aliyun/ecs-console-vnc2/0.0.3/index.html?](https://g.alicdn.com/aliyun/ecs-console-vnc2/0.0.3/index.html?)末尾加上`vncUrl=xxxx`、`instanceId=xxx`和`isWindows=True`、`isWindows=False`和`password=XXXXXX`，参数之间使用`&`连接。其中：
+-   您需要在链接[https://g.alicdn.com/aliyun/ecs-console-vnc2/0.0.5/index.html?](https://g.alicdn.com/aliyun/ecs-console-vnc2/0.0.5/index.html?)末尾加上`vncUrl=xxxx`、`instanceId=xxx`和`isWindows=True`、`isWindows=False`和`password=XXXXXX`，参数之间使用`&`连接。其中：
     -   参数`vncUrl`：调用接口成功后会返回的`VncUrl`的值。
     -   参数`instanceId`：您的实例ID。
     -   参数`isWindows`：该实例的操作系统是否是Windows系统。取值为`true`表示是Windows系统，取值为`false`表示不是Windows系统。
@@ -19,7 +19,7 @@
 
         ```
         
-               https://g.alicdn.com/aliyun/ecs-console-vnc2/0.0.3/index.html?vncUrl=ws%3A%2F%xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true
+               https://g.alicdn.com/aliyun/ecs-console-vnc2/0.0.5/index.html?vncUrl=ws%3A%2F%xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true
                
         ```
 
@@ -27,7 +27,7 @@
 
         ```
         
-               https://g.alicdn.com/aliyun/ecs-console-vnc2/0.0.3/index.html?vncUrl=ws%3A%2F%xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true&password=111111
+               https://g.alicdn.com/aliyun/ecs-console-vnc2/0.0.5/index.html?vncUrl=ws%3A%2F%xxx&instanceId=i-wz9hhwq5a6tmxxxxxxx&isWindows=true&password=111111
                
         ```
 
