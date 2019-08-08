@@ -39,7 +39,7 @@
 -   false（默认值）：发送正常请求，通过检查后返回2XX HTTP状态码并直接查询资源状况。
 
  |
-|token|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**token**只支持ASCII字符，且不能超过64个字符。
+|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken**只支持ASCII字符，且不能超过64个字符。更多详情，请参见[如何保证幂等性](~~25693~~)。
 
  |
 
@@ -48,9 +48,6 @@
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |RequestId|String|7B7813C6-57BF-41XX-B12B-F172F65A6046|请求ID。
-
- |
-|TaskId|String|t-bp11og034hlx2died\*\*\*|任务ID。您可以通过[DescribeTaskAttribute](~~25623~~)接口查询ECS实例释放任务进度。
 
  |
 
@@ -72,7 +69,6 @@ https://ecs.aliyuncs.com/?Action=DeleteInstances
 ``` {#xml_return_success_demo}
 <DeleteInstancesResponse>
       <RequestId>7B7813C6-57BF-41XX-B12B-F172F65A6046</RequestId>
-      <TaskId>t-bp11og034hlx2died***</TaskId>
 </DeleteInstancesResponse>
 ```
 
@@ -80,8 +76,7 @@ https://ecs.aliyuncs.com/?Action=DeleteInstances
 
 ``` {#json_return_success_demo}
 {
-	"RequestId":"7B7813C6-57BF-41XX-B12B-F172F65A6046",
-	"TaskId":"t-bp11og034hlx2died***"
+	"RequestId":"7B7813C6-57BF-41XX-B12B-F172F65A6046"
 }
 ```
 
