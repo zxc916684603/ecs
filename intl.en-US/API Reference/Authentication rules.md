@@ -1,34 +1,34 @@
 # Authentication rules {#EcsApiAuthorizationRules .reference}
 
-This topic describes how to use Aliyun Resource Name \(ARN\) values as a method of access control to authorize different user operations in ECS.
+This topic describes how to use Alibaba Cloud Resource Names \(ARN\) in ECS to authenticate users or user groups, grant RAM user accounts access to resources, and implement access authorization across cloud services.
 
-## Background information {#section_0ph_k63_iqp .section}
+## Background information {#section_hvf_sxj_dhb .section}
 
-**Note:** If you can access resources without the need for authorization, you can skip this topic.
+**Note:** If you can access resources without authorization, skip this topic.
 
-By default, you can use your Alibaba Cloud account or RAM user account to operate on ECS resources by calling ECS API actions. Operation permissions are required when:
+You can use your Alibaba Cloud account or RAM user account to perform operations on ECS resources through the ECS API by default. Operation permissions are required when:
 
--   You create a RAM user account that have no permission to operate on ECS resources under your Alibaba Cloud account.
+-   A RAM user account that you created has no permissions to perform operations on the ECS resources under your Alibaba Cloud account.
 -   You want to access ECS resources from other Alibaba Cloud services, or access other Alibaba Cloud services from ECS.
--   You want to operate on ECS resources that require prior permissions to be granted by the resource owner.
+-   You want to perform operations on ECS resources that require operation permissions to be granted by the resource owners.
 
-When an account requests access to resources under your Alibaba Cloud account by calling ECS APIs, Alibaba Cloud ECS checks the permissions granted by using RAM to ensure that the required permissions have been granted to the requester. Depending on the requested resources and API syntax, ECS determines which resources require a permission check for ECS APIs. For more information about authorization policies and permission control, see [What is RAM?](../../../../reseller.en-US/Product Introduction/What is RAM?.md#) and [API overview](../../../../reseller.en-US/API Reference/API overview.md#).
+When an account requests access to ECS resources under your Alibaba Cloud account by calling ECS API operations, Alibaba Cloud ECS instructs RAM to perform a permission check to ensure that the required permissions have been granted to the account that sends the request. Depending on the requested resources and API operation syntaxes, ECS determines which resources require a permission check. For more information about authorization policies and permission control, see [What is RAM?](../../../../intl.en-US/Product Introduction/What is RAM?.md#) and [API overview](../../../../intl.en-US/API Reference/API overview.md#) in the RAM documentation.
 
-## Use ARN values {#section_0co_wyh_qff .section}
+## Use ARN values in policies {#section_i54_4fv_fgb .section}
 
-The following procedure describes how to create a custom policy to use Aliyun Resource Name \(ARN\) values in the RAM console. Note that you can also call the [CreatePolicy](../../../../reseller.en-US/API Reference/Policy management APIs/CreatePolicy.md#) API action to use ARN values.
+The following section describes how to use an ARN value in a custom policy in the RAM console. You can also call the [CreatePolicy](../../../../intl.en-US/API Reference/Policy management APIs/CreatePolicy.md#) operation to do so.
 
-1.  Log on to the [RAM console](https://partners-intl.console.aliyun.com/#/ram).
+1.  Log on to the [RAM console](https://ram.console.aliyun.com/policies/new).
 2.  In the left-side navigation pane, choose **Permissions** \> **Policies**.
-3.  Click **Create Policy**.
-4.  Set the **Policy Name** and **Note**.
-5.  Select **Script**.
+3.  On the Policies page, click **Create Policy**.
+4.  On the Create Custom Policy page, set **Policy Name** and **Note**.
+5.  Select **Script** for Configuration Mode.
 
-    **Note:** You can also select **Visualized**, in which case you can skip the [Authentication list](#section_d07_a67_vfx) to configure the policy.
+    **Note:** You can also select **Visualized** for Configuration Mode to complete the policy settings without referring to following ARN values section.
 
-6.  Set the **Policy Document** according to the JSON template file, and set the Resource parameter to one of the ARN values in the [Authentication list](#section_d07_a67_vfx). For the setting of other parameters, see [Policy elements](../../../../reseller.en-US/User Guide/Permission management/Policy language/Policy elements.md#).
+6.  Set the parameters in the **Policy Document** section based on the JSON template. Set the Resource parameter to one of the ARN values in the ARN values table. For the settings of other parameters, *see* [Policy elements](../../../../intl.en-US/User Guide/Policies/Policy language/Policy elements.md#) in the RAM documentation.
 
-    ```
+    ``` {#codeblock_k1y_z8z_xa6}
     {
         "Statement": [
             {
@@ -43,9 +43,9 @@ The following procedure describes how to create a custom policy to use Aliyun Re
 
 7.  Click **OK**.
 
-## Authentication list {#section_d07_a67_vfx .section}
+## ARN values {#section_yln_xgy_g2b .section}
 
-The following table describes commonly used ARN values that correspond to API actions used in Alibaba Cloud ECS. For information about the ARN format, see [Terms](../../../../reseller.en-US/Product Introduction/Terms.md#).
+The following table lists the ARN values that correspond to some ECS API operations. For information about the ARN format, *see* [Terms](../../../../intl.en-US/Product Introduction/Terms.md#) in the RAM documentation.
 
 |Action|ARN value|
 |:-----|:--------|
@@ -145,7 +145,7 @@ The following table describes commonly used ARN values that correspond to API ac
 |DescribeTags|acs:ecs:$regionid:$accountid:$resourceType/$resourceId|
 |DetachClassicLinkVpc|acs:ecs:$regionid:$accountid:instance/$instanceId|
 |DetachDisk| -   acs:ecs:$regionid:$accountid:instance/$instanceId
--   acs:ecs:$regionid:$accountid:instance/$diskId
+-   acs:ecs:$regionid:$accountid:disk/$diskId
 
  |
 |DetachKeyPair| -   acs:ecs:$regionid:$accountid:instance/$instanceId
