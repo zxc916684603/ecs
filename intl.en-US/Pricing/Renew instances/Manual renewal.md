@@ -29,9 +29,6 @@ To manually renew your instance, follow these steps:
 2.  In the left-side navigation pane, click **Instances**.
 3.  On the Instance List page, select the expected region and locate the ECS instance by the instance name, instance ID, or status \( **Expired**\).
 4.  In the **Actions** column, click **Renew**.
-
-    ![](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/48360/intl_en/1490601672035/ecs%20_%20renew.png)
-
 5.  On the renewal page,
     1.  Confirm the instance configuration.
     2.  Select the expected renewal length, which can be**1 Month** or **1 Year**, and click **Place Order**.
