@@ -2,8 +2,8 @@
 
 LNMP分别代表Linux、Nginx、MySQL和PHP。本文介绍如何使用阿里云资源编排服务（ROS）一键部署LNMP环境。
 
--   创建按量付费资源时，账号余额不能低于100.00元，可以是现金、可用信用额度或者可用于开通产品的代金券。
 -   使用本教程进行操作前，请确保您已经注册了阿里云账号。如还未注册，请先完成[账号注册](https://account.aliyun.com/register/register.htm?)。
+-   账号余额不能低于100.00元，可以是现金、可用信用额度或者可用于开通产品的代金券。
 
 ROS是阿里云官网提供的免费服务，无需下载安装。您可以使用ROS创建JSON格式的资源栈模板文件，或者使用ROS控制台提供的模板样例创建一组阿里云资源，详情请参见[模板样例](https://ros.console.aliyun.com/#/template/list)。在本教程中，我们使用ROS控制台提供的**LNMP\_basic**模板，自动创建一台ECS实例，并在实例上部署LNMP环境。
 
@@ -19,7 +19,7 @@ ROS是阿里云官网提供的免费服务，无需下载安装。您可以使�
 3.  在左侧导航栏中，单击**模板样例**。
 4.  从模板样例中，找到**LNMP\_basic**。 
 
-    ![查找模板](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/156532171212071_zh-CN.png)
+    ![查找模板](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/156559246212071_zh-CN.png)
 
 5.  单击**预览**查看模板的JSON文件。JSON文件各个顶级字段的解释如下表所示。 
 
@@ -40,7 +40,7 @@ ROS是阿里云官网提供的免费服务，无需下载安装。您可以使�
 
 6.  单击**创建栈**。
 7.  从**选择地域（region）**列表，选择具体地域。本示例中，选择**华东1（杭州）**。然后单击**下一步**。
-8.  设置栈的相关参数。然后单击**创建**。 
+8.  设置栈的相关参数，然后单击**创建**。 
 
     -   **栈名**：设置一个栈名，不可重复，而且创建之后不能修改。
     -   **创建超时（分钟）**：设置一个时间。如果在设置的时间段内资源未创建成功，则判断为创建超时。您可以选择是否**失败回滚**。如果选择失败回滚，那么创建过程中发生任何失败操作（包括创建超时），ROS都会删除已经创建成功的资源。
@@ -54,19 +54,19 @@ ROS是阿里云官网提供的免费服务，无需下载安装。您可以使�
     -   **ECS Instance Type**：填写您需要的ECS实例规格。详见第2步。
     -   **System Disk Category**：选择系统盘的云盘类型。
     -   **Instance Password**和**\(Please Confirm\) Instance Password**：设置并确认实例的登录密码。根据模板定义，密码只能包括大写或小写英文字母和数字。
-    ![设置参数](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/156532171212072_zh-CN.png)
+    ![设置参数](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/156559246212072_zh-CN.png)
 
 9.  在左侧导航栏中，单击**资源栈管理**查看新创建的栈的状态。 
 
-    ![资源栈管理](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/156532171214331_zh-CN.png)
+    ![资源栈管理](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/156559246214331_zh-CN.png)
 
-10. 单击新创建的栈的名称。在**栈概况**页面的**输出**区域查看`NginxWebsiteURL`的值。您能通过这个地址访问已创建的LNMP环境。 
+10. 单击新创建的栈的名称。在栈概况页面的**输出**区域查看`NginxWebsiteURL`的值。您能通过这个地址访问已创建的LNMP环境。 
 
-    ![查看栈概况](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/156532171314341_zh-CN.png)
+    ![查看栈概况](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/156559246214341_zh-CN.png)
 
     **说明：** 
 
-    -   在**资源**列表中查看栈中所有资源。
-    -   在**事件**列表中查看ROS创建这个资源栈过程中产生的操作记录。任何涉及资源栈的操作失败了，列表中都会显示资源操作失败的原因。
-    -   在**模板**列表中查看资源栈的原始模板。
+    -   在资源列表页面查看栈中所有资源。
+    -   在事件列表页面查看ROS创建这个资源栈过程中产生的操作记录。任何涉及资源栈的操作失败后，列表中均会显示操作失败的原因。
+    -   在栈模板页面查看资源栈的原始模板。
 
