@@ -1,6 +1,6 @@
 # CopyImage {#doc_api_Ecs_CopyImage .reference}
 
-复制一个地域下的自定义镜像到其他地域。您可以在其他地域可以使用复制后的镜像 创建 ECS 实例（RunInstances）或者更换实例的系统盘（ReplaceSystemDisk）。
+调用CopyImage复制一个地域下的自定义镜像到其他地域。您可以在其他地域可以使用复制后的镜像创建ECS实例（RunInstances）或者更换实例的系统盘（ReplaceSystemDisk）。
 
 ## 接口说明 {#description .section}
 
@@ -10,30 +10,34 @@
 -   被复制的自定义镜像必须为您账号下的镜像，不能跨账号复制。
 -   复制镜像的过程中无法删除镜像（[DeleteImage](~~25537~~)），但是您可以取消复制任务（[CancelCopyImage](~~25539~~)）。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=CopyImage)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=CopyImage&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|ImageId|String|是|m-imageid1|源自定义镜像的 ID。
+|ImageId|String|是|m-imageid1|源自定义镜像的ID。
 
  |
-|RegionId|String|是|cn-hangzhou|源自定义镜像的地域 ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
+|RegionId|String|是|cn-hangzhou|源自定义镜像的地域ID。您可以调用[DescribeRegions](~~25609~~)查看最新的阿里云地域列表。
 
  |
 |Action|String|否|CopyImage|系统规定参数。取值：CopyImage
 
  |
-|DestinationDescription|String|否|FinanceDept|目标镜像的描述信息。长度为 2~256 个英文或中文字符，不能以 http:// 和 https:// 开头。默认值：空。
+|DestinationDescription|String|否|FinanceDept|目标镜像的描述信息。长度为2~256个英文或中文字符，不能以http://和https://开头。
+
+ 默认值：空。
 
  |
-|DestinationImageName|String|否|FinanceJoshua|复制后的镜像的名称。长度为 2~128 个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值：空。
+|DestinationImageName|String|否|FinanceJoshua|复制后的镜像的名称。长度为2~128个英文或中文字符。必须以大小字母或中文开头，不能以http://和https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。
+
+ 默认值：空。
 
  |
-|DestinationRegionId|String|否|cn-shanghai|复制到目标地域的 ID。
+|DestinationRegionId|String|否|cn-shanghai|复制到目标地域的ID。
 
  |
 |Encrypted|Boolean|否|false|是否加密镜像。
@@ -46,14 +50,14 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|ImageId|String|m-imageid2|复制后的镜像的 ID
+|ImageId|String|m-imageid2|复制后的镜像的ID
 
  |
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID
 
  |
 
@@ -62,12 +66,10 @@
 请求示例
 
 ``` {#request_demo}
-
-http(s)://[Endpoint]/?Action=CopyImage
+https://ecs.aliyuncs.com/?Action=CopyImage
 &ImageId=m-imageid1
 &RegionId=cn-hangzhou
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -76,17 +78,16 @@ http(s)://[Endpoint]/?Action=CopyImage
 
 ``` {#xml_return_success_demo}
 <CopyImageResponse>
-  <RequestId>C8B26B44-0189-443E-9816-D951F59623A9</RequestId>
-  <ImageId>Img-231234567</ImageId>
+      <RequestId>C8B26B44-0189-443E-9816-D951F59623A9</RequestId>
+      <ImageId>Img-231234***</ImageId>
 </CopyImageResponse>
-
 ```
 
 `JSON` 格式
 
 ``` {#json_return_success_demo}
 {
-	"ImageId":"Img-231234567",
+	"ImageId":"Img-231234***",
 	"RequestId":"C8B26B44-0189-443E-9816-D951F59623A9"
 }
 ```
@@ -119,5 +120,5 @@ http(s)://[Endpoint]/?Action=CopyImage
 |403|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
 |403|OperationDenied.SameRegionOnly|The image shared from others can not be copied to another region directly.|无法复制共享镜像。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Ecs)查看更多错误码。
 
