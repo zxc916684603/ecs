@@ -116,7 +116,7 @@ The latency varies according to the shared block storage categories as follows:
 
 ## Local disks {#section_gnd_a61_bgu .section}
 
-For the performance of local disks, see [Local disks](intl.en-US/Block Storage/Local disks.md#).
+For the performance of local disks, see [Local disks](reseller.en-US/Block Storage/Local disks.md#).
 
 ## Performance tests {#section_jvz_vzv_ydb .section}
 
@@ -161,7 +161,7 @@ This topic takes a Linux instance as an example to describe how to use the FIO t
 -   Run the following command to test random read latency:
 
     ``` {#codeblock_bkn_212_7ls}
-    fio -direct=1 -iodepth=1 -rwfio -rw=randread -ioengine=libaio -bs=4k -size=1G -numjobs=1 -group_reporting -filename=iotest -name=Rand_Read_Latency_Testingrandwrite -ioengine=libaio -bs=4k -size=1G -numjobs=1 -group_reporting -filename=iotest -name=Rand_Write_Latency_Testing
+    fio -direct=1 -iodepth=1 -rw=randread -ioengine=libaio -bs=4k -size=1G -numjobs=1 -group_reporting -filename=iotest -name=Rand_Read_Latency_Testingrandwrite -ioengine=libaio -bs=4k -size=1G -numjobs=1 -group_reporting -filename=iotest -name=Rand_Write_Latency_Testing
     ```
 
 
