@@ -2,7 +2,7 @@
 
 云服务器 ECS提供以下相关API接口。
 
-## 实例 {#section_izc_t2n_59t .section}
+## 实例 {#section_hcu_fyn_jsi .section}
 
 |API|描述|
 |---|--|
@@ -35,7 +35,7 @@
 |[ModifyInstanceSpec](intl.zh-CN/API参考/实例/ModifyInstanceSpec.md)|调用ModifyInstanceSpec调整一台按量付费ECS实例的实例规格和公网带宽大小。|
 |[ModifyPrepayInstanceSpec](intl.zh-CN/API参考/实例/ModifyPrepayInstanceSpec.md)|调用ModifyPrepayInstanceSpec升级或者降低一台预付费ECS实例的实例规格，新实例规格将会覆盖实例的整个生命周期。|
 
-## 启动模板 {#section_etc_tpq_0fi .section}
+## 启动模板 {#section_fyn_4uw_6ri .section}
 
 |API|描述|
 |---|--|
@@ -47,7 +47,7 @@
 |[DescribeLaunchTemplateVersions](intl.zh-CN/API参考/启动模板/DescribeLaunchTemplateVersions.md)|调用DescribeLaunchTemplateVersions查询实例启动模板版本。|
 |[ModifyLaunchTemplateDefaultVersion](intl.zh-CN/API参考/启动模板/ModifyLaunchTemplateDefaultVersion.md)|调用ModifyLaunchTemplateDefaultVersion切换启动模板的某个版本为该模板的默认版本。如果您在创建实例（RunInstances）时不指定模板版本号，会采用默认版本。|
 
-## 弹性供应组 {#section_str_utg_0nb .section}
+## 弹性供应组 {#section_972_ga1_dbz .section}
 
 |API|描述|
 |---|--|
@@ -58,7 +58,7 @@
 |[DescribeAutoProvisioningGroupInstances](intl.zh-CN/API参考/弹性供应组/DescribeAutoProvisioningGroupInstances.md)|调用DescribeAutoProvisioningGroupInstances查询指定弹性供应组下的实例。|
 |[DescribeAutoProvisioningGroupHistory](intl.zh-CN/API参考/弹性供应组/DescribeAutoProvisioningGroupHistory.md)|调用DescribeAutoProvisioningGroupHistory接口查询弹性供应组的调度任务信息。|
 
-## 块存储 {#section_3ae_tn0_75f .section}
+## 块存储 {#section_28x_j17_zmx .section}
 
 |API|描述|
 |---|--|
@@ -75,7 +75,7 @@
 |[ResizeDisk](intl.zh-CN/API参考/磁盘/ResizeDisk.md)|调用ResizeDisk扩容一块云盘，支持扩容系统盘和数据盘。|
 |[ModifyDiskSpec](intl.zh-CN/API参考/磁盘/ModifyDiskSpec.md)|调用ModifyDiskSpec升级一块ESSD云盘的性能等级。|
 
-## 预留实例券 {#section_mpy_use_130 .section}
+## 预留实例券 {#section_u8d_mo7_iuk .section}
 
 |API|描述|
 |---|--|
@@ -83,7 +83,7 @@
 |[DescribeReservedInstances](intl.zh-CN/API参考/预留实例券/DescribeReservedInstances.md)|您可以调用DescribeReservedInstances查询已经购买的预留实例券。|
 |[ModifyReservedInstances](intl.zh-CN/API参考/预留实例券/ModifyReservedInstances.md)|您可以通过ModifyReservedInstances更改预留实例券。|
 
-## 镜像 {#section_tkx_rld_olz .section}
+## 镜像 {#section_40j_ybl_pjd .section}
 
 |API|描述|
 |---|--|
@@ -99,7 +99,7 @@
 |[ModifyImageSharePermission](intl.zh-CN/API参考/镜像/ModifyImageSharePermission.md)|调用ModifyImageSharePermission管理镜像共享权限。您可以将自己的自定义镜像共享给其他阿里云用户，该用户可以使用共享的自定义镜像创建 ECS 实例（RunInstances）或者更换实例的系统盘（ReplaceSystemDisk）。|
 |[DescribeImageSupportInstanceTypes](intl.zh-CN/API参考/镜像/DescribeImageSupportInstanceTypes.md)|调用DescribeImageSupportInstanceTypes查询指定镜像支持的实例规格。|
 
-## 快照 {#section_fqu_bft_7gy .section}
+## 快照 {#section_ypt_2fo_6gx .section}
 
 |API|描述|
 |---|--|
@@ -109,6 +109,7 @@
 |[DescribeSnapshotsUsage](intl.zh-CN/API参考/快照/DescribeSnapshotsUsage.md)|调用DescribeSnapshotsUsage查询您在一个地域下的快照数量以及快照容量。如果您想知道当前地域下每块磁盘的快照使用情况，推荐使用 DescribeSnapshotLinks 查询磁盘快照链。|
 |[DescribeSnapshotPackage](intl.zh-CN/API参考/快照/DescribeSnapshotPackage.md)|调用DescribeSnapshotPackage查询您在一个阿里云地域下已经购买的对象存储OSS存储包，存储包可以用于抵扣快照存储容量。|
 |[DescribeSnapshotLinks](intl.zh-CN/API参考/快照/DescribeSnapshotLinks.md)|调用DescribeSnapshotLinks查询云盘快照链。快照链是一块云盘所有快照组成的关系链，一块云盘对应一条快照链。|
+|[ModifySnapshotAttribute](intl.zh-CN/API参考/快照/ModifySnapshotAttribute.md)|调用ModifySnapshotAttribute修改一份快照的名称或描述。|
 |[CreateAutoSnapshotPolicy](intl.zh-CN/API参考/快照/CreateAutoSnapshotPolicy.md)|调用CreateAutoSnapshotPolicy创建一条自动快照策略。创建的自动快照策略可以应用到任一磁盘（ApplyAutoSnapshotPolicy），成功创建的自动快照策略可以后续修改策略内容（ModifyAutoSnapshotPolicyEx）。|
 |[ApplyAutoSnapshotPolicy](intl.zh-CN/API参考/快照/ApplyAutoSnapshotPolicy.md)|为一块或者多块磁盘应用自动快照策略。目标磁盘已经应用了自动快照策略时，调用 ApplyAutoSnapshotPolicy 可以更换磁盘当前应用的自动快照策略。|
 |[CancelAutoSnapshotPolicy](intl.zh-CN/API参考/快照/CancelAutoSnapshotPolicy.md)|调用CancelAutoSnapshotPolicy取消一块或者多块磁盘的自动快照策略。|
@@ -116,7 +117,7 @@
 |[DescribeAutoSnapshotPolicyEX](intl.zh-CN/API参考/快照/DescribeAutoSnapshotPolicyEX.md)|调用DescribeAutoSnapshotPolicyEX查询您已创建的自动快照策略。|
 |[ModifyAutoSnapshotPolicyEx](intl.zh-CN/API参考/快照/ModifyAutoSnapshotPolicyEx.md)|调用ModifyAutoSnapshotPolicyEx修改一条自动快照策略。修改自动快照策略后，之前已应用该策略的云盘随即执行修改后的自动快照策略。|
 
-## 安全组 {#section_hzb_nzf_zxh .section}
+## 安全组 {#section_huu_krk_d48 .section}
 
 |API|描述|
 |---|--|
@@ -136,7 +137,7 @@
 |[ModifySecurityGroupPolicy](intl.zh-CN/API参考/安全组/ModifySecurityGroupPolicy.md)|调用ModifySecurityGroupPolicy修改安全组内网连通策略。|
 |[ModifySecurityGroupRule](intl.zh-CN/API参考/安全组/ModifySecurityGroupRule.md)|调用ModifySecurityGroupRule修改安全组入方向规则的描述信息。如果您还没有增加过安全组规则，可以调用 AuthorizeSecurityGroup 增加。|
 
-## 部署集 {#section_cum_xvg_h2y .section}
+## 部署集 {#section_wsc_71e_fc4 .section}
 
 |API|描述|
 |---|--|
@@ -146,7 +147,7 @@
 |[DeleteDeploymentSet](intl.zh-CN/API参考/部署集/DeleteDeploymentSet.md)|调用DeleteDeploymentSet删除一个部署集。|
 |[DescribeDeploymentSets](intl.zh-CN/API参考/部署集/DescribeDeploymentSets.md)|调用DescribeDeploymentSets查询一个或多个部署集的属性列表。|
 
-## SSH 密钥对 {#section_9nt_l1v_bas .section}
+## SSH密钥对 {#section_nhv_mwk_xn3 .section}
 
 |API|描述|
 |---|--|
@@ -157,7 +158,7 @@
 |[DeleteKeyPairs](intl.zh-CN/API参考/SSH 密钥对/DeleteKeyPairs.md)|调用DeleteKeyPairs删除一对或者多对 SSH 密钥对。删除 SSH 密钥对后，我们不再为您保存该 SSH 密钥对，但是已经绑定的实例可以正常使用该 SSH 密钥对，其 SSH 密钥对名称仍然显示在实例详情中。|
 |[DescribeKeyPairs](intl.zh-CN/API参考/SSH 密钥对/DescribeKeyPairs.md)|调用DescribeKeyPairs查询一个或多个密钥对。|
 
-## 网络 {#section_i23_une_z6v .section}
+## 网络 {#section_lnn_g9s_ee1 .section}
 
 |API|描述|
 |---|--|
@@ -169,7 +170,7 @@
 |[DescribeClassicLinkInstances](intl.zh-CN/API参考/网络/DescribeClassicLinkInstances.md)|调用DescribeClassicLinkInstances查询一台或多台与专有网络 VPC 建立了连接的经典网络类型实例。|
 |[ModifyInstanceNetworkSpec](intl.zh-CN/API参考/网络/ModifyInstanceNetworkSpec.md)|调用ModifyInstanceNetworkSpec修改实例的带宽配置。当实例现有网络规格不满足要求时，可以通过修改实例的带宽配置提高网络性能。|
 
-## 弹性网卡 {#section_awf_myu_ai3 .section}
+## 弹性网卡 {#section_rlf_jtq_rxc .section}
 
 |API|描述|
 |---|--|
@@ -181,8 +182,10 @@
 |[DeleteNetworkInterface](intl.zh-CN/API参考/弹性网卡/DeleteNetworkInterface.md)|调用DeleteNetworkInterface删除一个弹性网卡（ENI）。|
 |[DescribeNetworkInterfaces](intl.zh-CN/API参考/弹性网卡/DescribeNetworkInterfaces.md)|调用DescribeNetworkInterfaces查看弹性网卡（ENI）列表。|
 |[ModifyNetworkInterfaceAttribute](intl.zh-CN/API参考/弹性网卡/ModifyNetworkInterfaceAttribute.md)|调用ModifyNetworkInterfaceAttribute修改一个弹性网卡（ENI）的属性。例如，弹性网卡名称、描述以及所属安全组等。|
+|[AssignIpv6Addresses](intl.zh-CN/API参考/弹性网卡/AssignIpv6Addresses.md)|调用AssignIpv6Addresses为弹性网卡分配一个或多个IPv6地址。|
+|[UnassignIpv6Addresses](intl.zh-CN/API参考/弹性网卡/UnassignIpv6Addresses.md)|若弹性网卡已被分配了IPv6地址，调用UnassignIpv6Addresses可以回收一个或多个IPv6地址。|
 
-## 系统事件 {#section_ygl_er8_ah2 .section}
+## 系统事件 {#section_i6t_7vh_ygp .section}
 
 |API|描述|
 |---|--|
@@ -192,7 +195,7 @@
 |[CancelSimulatedSystemEvents](intl.zh-CN/API参考/系统事件/CancelSimulatedSystemEvents.md)|调用CancelSimulatedSystemEvents取消一件或多件处于Scheduled（计划中）或Executing（执行中）状态的模拟系统事件。取消系统事件后，模拟事件变为Canceled（已取消）状态。|
 |[CreateSimulatedSystemEvents](intl.zh-CN/API参考/系统事件/CreateSimulatedSystemEvents.md)|调用CreateSimulatedSystemEvents为一台或多台ECS实例预约模拟系统事件。模拟系统事件相当于事件演习，不会真正执行事件，也不会对ECS实例产生影响。|
 
-## 运维与监控 {#section_yil_pal_o8b .section}
+## 运维与监控 {#section_fza_rtd_kuy .section}
 
 |API|描述|
 |---|--|
@@ -202,7 +205,7 @@
 |[GetInstanceScreenshot](intl.zh-CN/API参考/运维与监控/GetInstanceScreenshot.md)|调用GetInstanceScreenshot获取实例的截屏信息。|
 |[GetInstanceConsoleOutput](intl.zh-CN/API参考/运维与监控/GetInstanceConsoleOutput.md)|调用GetInstanceConsoleOutput获取一台实例的系统命令行输出，数据以Base64编码后返回。|
 
-## 云助手 {#section_q6v_ymi_6mb .section}
+## 云助手 {#section_dk7_gfb_igv .section}
 
 |API|描述|
 |---|--|
@@ -216,7 +219,7 @@
 |[DescribeInvocations](intl.zh-CN/API参考/云助手/DescribeInvocations.md)|调用DescribeInvocations查询最近两周云助手命令的执行列表和状态。|
 |[DescribeInvocationResults](intl.zh-CN/API参考/云助手/DescribeInvocationResults.md)|调用DescribeInvocationResults查看云助手命令的执行结果，在指定ECS实例中的实际执行结果。|
 
-## 高性能集群 {#section_aki_hng_4us .section}
+## 高性能集群 {#section_hxe_fya_vgl .section}
 
 |API|描述|
 |---|--|
@@ -225,7 +228,7 @@
 |[DescribeHpcClusters](intl.zh-CN/API参考/高性能集群/DescribeHpcClusters.md)|调用DescribeHpcClusters查询您可用的HPC集群。请求参数作为筛选器（Filter）使用，筛选关系为逻辑与（&&）关系，参数之间无依赖关系。|
 |[ModifyHpcClusterAttribute](intl.zh-CN/API参考/高性能集群/ModifyHpcClusterAttribute.md)|调用ModifyHpcClusterAttribute修改一个HPC集群的描述信息。|
 
-## 标签 {#section_5iq_zyw_4ni .section}
+## 标签 {#section_fbk_hlm_jli .section}
 
 |API|描述|
 |---|--|
@@ -233,7 +236,7 @@
 |[ListTagResources](intl.zh-CN/API参考/标签/ListTagResources.md)|调用ListTagResources查询一个或多个ECS资源已经绑定的标签列表。|
 |[UntagResources](intl.zh-CN/API参考/标签/UntagResources.md)|调用UntagResources为指定的ECS资源列表统一解绑并删除标签。|
 
-## 地域 {#section_z3t_tmk_w3w .section}
+## 地域 {#section_toq_yyk_tlr .section}
 
 |API|描述|
 |---|--|
@@ -242,7 +245,7 @@
 |[DescribeResourcesModification](intl.zh-CN/API参考/地域/DescribeResourcesModification.md)|调用DescribeResourcesModification查询升级和降配实例规格或者系统盘时，某一可用区的可用资源信息。|
 |[DescribeAvailableResource](intl.zh-CN/API参考/地域/DescribeAvailableResource.md)|调用DescribeAvailableResource查询某一可用区的资源列表。例如，您可以在某一可用区创建实例（RunInstances）或者修改实例规格（ModifyInstanceSpec）时查询该可用区的资源列表。|
 
-## 其他接口 {#section_d7s_w1y_tsn .section}
+## 其他接口 {#section_zk8_kaj_yj0 .section}
 
 |API|描述|
 |---|--|
@@ -250,4 +253,5 @@
 |[DescribeTasks](intl.zh-CN/API参考/其他接口/DescribeTasks.md)|调用DescribeTasks查询一个或多个异步请求的进度。|
 |[DescribeTaskAttribute](intl.zh-CN/API参考/其他接口/DescribeTaskAttribute.md)|调用DescribeTaskAttribute查询异步任务的详细信息。目前，可以查询的异步任务有导入镜像（ImportImage）和导出镜像（ExportImage）两种。|
 |[DescribeAccountAttributes](intl.zh-CN/API参考/其他接口/DescribeAccountAttributes.md)|调用DescribeAccountAttributes查询您在一个阿里云地域下能创建的ECS资源上限。包括您能创建的安全组数量、弹性网卡数量、按量付费vCPU核数、抢占式实例vCPU核数、专用宿主机数量、地域网络类型以及账号是否已完成实名认证。|
+|[DescribePrice](intl.zh-CN/API参考/其他接口/DescribePrice.md)|调用DescribePrice查询云服务器ECS资源的最新价格。|
 
