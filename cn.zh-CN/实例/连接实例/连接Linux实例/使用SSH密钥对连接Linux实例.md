@@ -1,8 +1,6 @@
-# 使用SSH密钥对连接Linux实例 {#concept_ucj_wrx_wdb .concept}
+# 使用SSH密钥对连接Linux实例 {#concept_ucj_wrx_wdb .task}
 
 本文介绍了如何在Windows和Linux环境中使用SSH密钥对登录Linux实例。
-
-## 前提条件 {#section_zcp_vlq_pgb .section}
 
 在开始使用SSH密钥对连接Linux实例前，请确保您已经完成以下操作：
 
@@ -23,63 +21,49 @@
 
 在控制台创建密钥对后自动生成的私钥文件格式为.pem，本节以PuTTYgen为例介绍如何转换私钥文件格式，并以PuTTY为例介绍如何通过SSH远程登录Linux实例。
 
-1.  下载并安装PuTTYgen和PuTTY。
+1.  下载并安装PuTTYgen和PuTTY。 
 
     下载链接如下：
 
     -   [PuTTYgen](https://the.earth.li/~sgtatham/putty/latest/w64/puttygen.exe)
     -   [PuTTY](https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe)
-2.  将.pem私钥文件转换为.ppk私钥文件。
-    1.  启动PuTTYgen。
+2.  将.pem私钥文件转换为.ppk私钥文件。 
+    1.  启动PuTTYgen。 本示例中的PuTTYgen版本为0.71。
+    2.  选择**Type of key to generate**为**RSA**，然后单击**Load**。 
 
-        本示例中的PuTTYgen版本为0.71。
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/156568674651179_zh-CN.png)
 
-    2.  选择**Type of key to generate**为**RSA**，然后单击**Load**。
+    3.  选择**All Files**。 
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/156282862351179_zh-CN.png)
-
-    3.  选择**All Files**。
-
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15628286235188_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15656867465188_zh-CN.png)
 
     4.  选择待转换的.pem私钥文件。
-    5.  单击**确定**。
-
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/156282862351191_zh-CN.png)
-
+    5.  在弹出的对话框中，单击**确定**。
     6.  单击**Save private key**。
-
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/156282862351197_zh-CN.png)
-
-    7.  单击**是**。
-
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15628286245190_zh-CN.png)
-
+    7.  在弹出的对话框中，单击**是**。
     8.  指定.ppk私钥文件的名称，然后单击**保存**。
 3.  启动PuTTY。
-4.  配置用于身份验证的私钥文件。
+4.  配置用于身份验证的私钥文件。 
 
     1.  选择**Connection** \> **SSH** \> **Auth**。
     2.  单击**Browse…**。
     3.  选择转换好的.ppk私钥文件。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15628286245191_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15656867465191_zh-CN.png)
 
-5.  配置连接Linux实例所需的信息。
+5.  配置连接Linux实例所需的信息。 
 
     1.  单击**Session**。
-    2.  在**Host Name \(or IP address\)**中输入登录账号和实例公网IP地址。
-
-        格式为**root@IP 地址**。
-
+    2.  在**Host Name \(or IP address\)**中输入登录账号和实例公网IP地址。 格式为**root@IP 地址**。
     3.  在**Port**中输入端口号**22**。
     4.  选择**Connection type**为**SSH**。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15628286245192_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/15656867465192_zh-CN.png)
 
-6.  单击**Open**。
+6.  单击**Open**。 
 
-当出现以下提示时，说明您已经成功地使用SSH密钥对登录了实例。
+    当出现以下提示时，说明您已经成功地使用SSH密钥对登录了实例。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/156282862451203_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9620/156568674651203_zh-CN.png)
+
 
 ## 本地为Linux或其它支持SSH命令的环境 {#linux .section}
 
@@ -92,32 +76,32 @@
 
     2.  运行以下命令修改私钥文件的属性。
 
-        ``` {#codeblock_jpo_vvv_mgh}
+        ``` {#codeblock_os2_q0l_vzt}
         chmod 400 [.pem私钥文件在本地机上的存储路径]
         ```
 
-        示例
+        示例如下：
 
-        ``` {#codeblock_o0e_wou_u1d}
+        ``` {#codeblock_t6i_dxz_pez}
         chmod 400 /root/mysshkey.pem
         ```
 
     3.  运行以下命令连接至实例。
 
-        ``` {#codeblock_pv1_mpl_58p}
+        ``` {#codeblock_jbu_lkq_l3d}
         ssh -i [.pem私钥文件在本地机上的存储路径] root@[公网IP地址]
         ```
 
-        示例
+        示例如下：
 
-        ``` {#codeblock_j2z_w5w_ka5}
+        ``` {#codeblock_db6_cnn_61w}
         ssh -i /root/mysshkey.pem root@10.10.xx.xxx
         ```
 
 -   通过config配置所需信息并通过命令连接实例。
     1.  进入根目录下的ssh目录，按照如下方式修改config文件。
 
-        ``` {#codeblock_o3v_zx5_r2o}
+        ``` {#codeblock_gdt_den_x73}
         Host ecs    // 输入ECS实例的名称
         HostName 192.*.*.*   // 输入ECS实例的公网IP地址
         Port 22   // 输入端口号，默认为22
@@ -129,18 +113,21 @@
     3.  重启SSH。
     4.  运行命令连接至实例。
 
-        ``` {#codeblock_ir7_07v_1tz}
+        ``` {#codeblock_hga_83q_t8h}
         ssh [ECS名称]
         ```
 
-        示例
+        示例如下：
 
-        ``` {#codeblock_3p2_z5n_w16}
+        ``` {#codeblock_3o7_a10_2hj}
         ssh ecs
         ```
 
 
-## 相关连接 {#section_ccc_3lq_pgb .section}
+**相关文档**  
 
-更多连接方式请参见[使用用户名密码验证连接Linux实例](cn.zh-CN/实例/连接实例/连接Linux实例/使用用户名密码验证连接Linux实例.md#)和[使用管理终端连接Linux实例](cn.zh-CN/实例/连接实例/连接Linux实例/使用管理终端连接Linux实例.md#)。
+
+[使用管理终端连接Linux实例](cn.zh-CN/实例/连接实例/连接Linux实例/使用管理终端连接Linux实例.md#)
+
+[使用用户名密码验证连接Linux实例](cn.zh-CN/实例/连接实例/连接Linux实例/使用用户名密码验证连接Linux实例.md#)
 
