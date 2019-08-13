@@ -192,7 +192,7 @@
 4.  单击**账单明细**。
 5.  填写查询条件，然后单击**搜索**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/669166/156566367353747_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/669166/156566376553747_zh-CN.png)
 
 
 ## 复制镜像怎么收费的？ {#section_tnl_2sp_tay .section}
