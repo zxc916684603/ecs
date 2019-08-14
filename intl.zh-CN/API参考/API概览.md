@@ -109,7 +109,6 @@
 |[DescribeSnapshotsUsage](intl.zh-CN/API参考/快照/DescribeSnapshotsUsage.md)|调用DescribeSnapshotsUsage查询您在一个地域下的快照数量以及快照容量。如果您想知道当前地域下每块磁盘的快照使用情况，推荐使用 DescribeSnapshotLinks 查询磁盘快照链。|
 |[DescribeSnapshotPackage](intl.zh-CN/API参考/快照/DescribeSnapshotPackage.md)|调用DescribeSnapshotPackage查询您在一个阿里云地域下已经购买的对象存储OSS存储包，存储包可以用于抵扣快照存储容量。|
 |[DescribeSnapshotLinks](intl.zh-CN/API参考/快照/DescribeSnapshotLinks.md)|调用DescribeSnapshotLinks查询云盘快照链。快照链是一块云盘所有快照组成的关系链，一块云盘对应一条快照链。|
-|[ModifySnapshotAttribute](intl.zh-CN/API参考/快照/ModifySnapshotAttribute.md)|调用ModifySnapshotAttribute修改一份快照的名称或描述。|
 |[CreateAutoSnapshotPolicy](intl.zh-CN/API参考/快照/CreateAutoSnapshotPolicy.md)|调用CreateAutoSnapshotPolicy创建一条自动快照策略。创建的自动快照策略可以应用到任一磁盘（ApplyAutoSnapshotPolicy），成功创建的自动快照策略可以后续修改策略内容（ModifyAutoSnapshotPolicyEx）。|
 |[ApplyAutoSnapshotPolicy](intl.zh-CN/API参考/快照/ApplyAutoSnapshotPolicy.md)|为一块或者多块磁盘应用自动快照策略。目标磁盘已经应用了自动快照策略时，调用 ApplyAutoSnapshotPolicy 可以更换磁盘当前应用的自动快照策略。|
 |[CancelAutoSnapshotPolicy](intl.zh-CN/API参考/快照/CancelAutoSnapshotPolicy.md)|调用CancelAutoSnapshotPolicy取消一块或者多块磁盘的自动快照策略。|
@@ -182,8 +181,6 @@
 |[DeleteNetworkInterface](intl.zh-CN/API参考/弹性网卡/DeleteNetworkInterface.md)|调用DeleteNetworkInterface删除一个弹性网卡（ENI）。|
 |[DescribeNetworkInterfaces](intl.zh-CN/API参考/弹性网卡/DescribeNetworkInterfaces.md)|调用DescribeNetworkInterfaces查看弹性网卡（ENI）列表。|
 |[ModifyNetworkInterfaceAttribute](intl.zh-CN/API参考/弹性网卡/ModifyNetworkInterfaceAttribute.md)|调用ModifyNetworkInterfaceAttribute修改一个弹性网卡（ENI）的属性。例如，弹性网卡名称、描述以及所属安全组等。|
-|[AssignIpv6Addresses](intl.zh-CN/API参考/弹性网卡/AssignIpv6Addresses.md)|调用AssignIpv6Addresses为弹性网卡分配一个或多个IPv6地址。|
-|[UnassignIpv6Addresses](intl.zh-CN/API参考/弹性网卡/UnassignIpv6Addresses.md)|若弹性网卡已被分配了IPv6地址，调用UnassignIpv6Addresses可以回收一个或多个IPv6地址。|
 
 ## 系统事件 {#section_i6t_7vh_ygp .section}
 
@@ -219,15 +216,6 @@
 |[DescribeInvocations](intl.zh-CN/API参考/云助手/DescribeInvocations.md)|调用DescribeInvocations查询最近两周云助手命令的执行列表和状态。|
 |[DescribeInvocationResults](intl.zh-CN/API参考/云助手/DescribeInvocationResults.md)|调用DescribeInvocationResults查看云助手命令的执行结果，在指定ECS实例中的实际执行结果。|
 
-## 高性能集群 {#section_hxe_fya_vgl .section}
-
-|API|描述|
-|---|--|
-|[CreateHpcCluster](intl.zh-CN/API参考/高性能集群/CreateHpcCluster.md)|调用CreateHpcCluster创建一个HPC集群。|
-|[DeleteHpcCluster](intl.zh-CN/API参考/高性能集群/DeleteHpcCluster.md)|调用DeleteHpcCluster删除一个HPC集群。|
-|[DescribeHpcClusters](intl.zh-CN/API参考/高性能集群/DescribeHpcClusters.md)|调用DescribeHpcClusters查询您可用的HPC集群。请求参数作为筛选器（Filter）使用，筛选关系为逻辑与（&&）关系，参数之间无依赖关系。|
-|[ModifyHpcClusterAttribute](intl.zh-CN/API参考/高性能集群/ModifyHpcClusterAttribute.md)|调用ModifyHpcClusterAttribute修改一个HPC集群的描述信息。|
-
 ## 标签 {#section_fbk_hlm_jli .section}
 
 |API|描述|
@@ -253,5 +241,4 @@
 |[DescribeTasks](intl.zh-CN/API参考/其他接口/DescribeTasks.md)|调用DescribeTasks查询一个或多个异步请求的进度。|
 |[DescribeTaskAttribute](intl.zh-CN/API参考/其他接口/DescribeTaskAttribute.md)|调用DescribeTaskAttribute查询异步任务的详细信息。目前，可以查询的异步任务有导入镜像（ImportImage）和导出镜像（ExportImage）两种。|
 |[DescribeAccountAttributes](intl.zh-CN/API参考/其他接口/DescribeAccountAttributes.md)|调用DescribeAccountAttributes查询您在一个阿里云地域下能创建的ECS资源上限。包括您能创建的安全组数量、弹性网卡数量、按量付费vCPU核数、抢占式实例vCPU核数、专用宿主机数量、地域网络类型以及账号是否已完成实名认证。|
-|[DescribePrice](intl.zh-CN/API参考/其他接口/DescribePrice.md)|调用DescribePrice查询云服务器ECS资源的最新价格。|
 
