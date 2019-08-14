@@ -1,21 +1,21 @@
 # DescribeImages {#doc_api_Ecs_DescribeImages .reference}
 
-查询您可以使用的镜像资源。
+调用DescribeImages查询您可以使用的镜像资源。
 
 ## 接口说明 {#description .section}
 
 -   您可以查询的镜像资源包括您的自定义镜像、阿里云提供的公共镜像、云市场镜像以及其他阿里云用户主动共享给您的共享镜像。
 -   支持分页查询，查询结果包括可使用的镜像资源的总数和当前页的镜像资源。每页的数量默认为10条。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeImages)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=DescribeImages&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|RegionId|String|是|cn-hangzhou|实例所属的地域ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
+|RegionId|String|是|cn-hangzhou|实例所属的地域ID。您可以调用[DescribeRegions](~~25609~~)查看最新的阿里云地域列表。
 
  |
 |Action|String|否|DescribeImages|系统规定参数。取值：DescribeImages
@@ -41,10 +41,10 @@
  默认值：false
 
  |
-|Filter.N.Key|String|否|CreationStartTime|指定过滤类型的 Key。
+|Filter.N.Key|String|否|CreationStartTime|指定过滤类型的Key。
 
  |
-|Filter.N.Value|String|否|2017-12-05T22:40:00Z|指定过滤类型的 Value。
+|Filter.N.Value|String|否|2017-12-05T22:40:00Z|指定过滤类型的Value。
 
  |
 |ImageId|String|否|m-imageid1|镜像ID。
@@ -66,7 +66,7 @@
 |InstanceType|String|否|ecs.g5.large|指定实例类型可以使用的镜像。
 
  |
-|IsSupportCloudinit|Boolean|否|true|镜像是否支持 Cloud Init。
+|IsSupportCloudinit|Boolean|否|true|镜像是否支持Cloud Init。
 
  |
 |IsSupportIoOptimized|Boolean|否|true|镜像是否可以运行在I/O优化实例上。
@@ -88,7 +88,7 @@
  默认值：10
 
  |
-|ResourceGroupId|String|否|rg-resourcegroupid1|自定义镜像所在的企业资源组 ID。
+|ResourceGroupId|String|否|rg-resourcegroupid1|自定义镜像所在的企业资源组ID。
 
  |
 |ShowExpired|Boolean|否|false|订阅型镜像是否已经超过使用期限。
@@ -110,10 +110,10 @@
  支持同时取多个值，值之间以半角逗号（,）隔开。
 
  |
-|Tag.N.Key|String|否|FinanceJoshua|镜像的标签键。N 的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持 64 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
+|Tag.N.Key|String|否|FinanceJoshua|镜像的标签键。N的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun和acs:开头，不能包含http://或者https://。
 
  |
-|Tag.N.Value|String|否|FinanceDept|镜像的标签值。N 的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持 128 个字符，不能以 aliyun 和 acs: 开头，不能包含 http:// 或者 https:// 。
+|Tag.N.Value|String|否|FinanceDept|镜像的标签值。N的取值范围：1~20。一旦传入该值，允许为空字符串。最多支持128个字符，不能以aliyun和acs:开头，不能包含http://或者https://。
 
  |
 |Tag.N.key|String|否|FinanceJoshua|镜像的标签键。
@@ -133,115 +133,115 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|Images| | |镜像信息ImageType组成的集合
+|Images| | |镜像信息ImageType组成的集合。
 
  |
-|└Architecture|String|x86\_64|镜像系统类型：
+|Architecture|String|x86\_64|镜像系统类型：
 
  -   i386
 -   x86\_64
 
  |
-|└CreationTime|String|2018-01-10T01:01:10Z|镜像的创建时间
+|CreationTime|String|2018-01-10T01:01:10Z|镜像的创建时间。
 
  |
-|└Description|String|FinanceDept|描述信息
+|Description|String|FinanceDept|描述信息。
 
  |
-|└DiskDeviceMappings| | |镜像下包含磁盘和快照的系统描述
+|DiskDeviceMappings| | |镜像下包含磁盘和快照的系统描述。
 
  |
-|└Device|String|/dev/xvdb|生成磁盘的Device信息：比如/dev/xvdb
+|Device|String|/dev/xvdb|生成磁盘的Device信息，例如/dev/xvdb。
 
  |
-|└Format|String|qcow2|镜像格式
+|Format|String|qcow2|镜像格式。
 
  |
-|└ImportOSSBucket|String|testEcsImport|导入镜像的oss的bucket
+|ImportOSSBucket|String|testEcsImport|导入镜像的OSS的bucket。
 
  |
-|└ImportOSSObject|String|imageImport|导入镜像文件的所属OSS的object
+|ImportOSSObject|String|imageImport|导入镜像文件的所属OSS的object。
 
  |
-|└Progress|String|32%|对于复制中的镜像, 返回复制任务的进度
+|Progress|String|32%|对于复制中的镜像, 返回复制任务的进度。
 
  |
-|└RemainTime|Integer|213|对于复制中的镜像, 返回复制任务的剩余时间，单位为秒
+|RemainTime|Integer|213|对于复制中的镜像, 返回复制任务的剩余时间，单位为秒。
 
  |
-|└Size|String|80|生成磁盘的大小
+|Size|String|80|生成磁盘的大小。
 
  |
-|└SnapshotId|String|s-snapshotid1|快照ID
+|SnapshotId|String|s-snapshotid1|快照ID。
 
  |
-|└Type|String|custom|镜像的类型。
+|Type|String|custom|镜像的类型。
 
  |
-|└ImageId|String|m-imageid1|镜像编码
+|ImageId|String|m-imageid1|镜像编码。
 
  |
-|└ImageName|String|Joshua-Finance|镜像的名称
+|ImageName|String|Joshua-Finance|镜像的名称。
 
  |
-|└ImageOwnerAlias|String|self|镜像所有者别名有效值：
+|ImageOwnerAlias|String|self|镜像所有者别名有效值：
 
- -   system – 系统公共镜像
--   self – 用户的自定义镜像
--   others – 其他用户的公开镜像
--   marketplace -镜像市场镜像
-
- |
-|└ImageVersion|String|2|镜像版本
+ -   system：系统公共镜像
+-   self：用户的自定义镜像
+-   others：其他用户的公开镜像
+-   marketplace：镜像市场镜像
 
  |
-|└IsCopied|Boolean|false|是否是拷贝的镜像
+|ImageVersion|String|2|镜像版本。
 
  |
-|└IsSelfShared|String|true|是否共享过该自定义镜像给其他用户。
+|IsCopied|Boolean|false|是否是拷贝的镜像。
 
  |
-|└IsSubscribed|Boolean|false|用户是否订阅了该镜像的商品码对应的镜像商品的服务条款.
-
- -   true：表示已经订阅
--   false：表示未订阅
+|IsSelfShared|String|true|是否共享过该自定义镜像给其他用户。
 
  |
-|└IsSupportCloudinit|Boolean|true|是否支持 Cloud Init。
+|IsSubscribed|Boolean|false|用户是否订阅了该镜像的商品码对应的镜像商品的服务条款。
 
  |
-|└IsSupportIoOptimized|Boolean|true|是否可以在 I/O 优化实例上运行。
+|IsSupportCloudinit|Boolean|true|是否支持Cloud Init。
 
  |
-|└OSName|String|Aliyun Linux 17.1|操作系统的显示名称
+|IsSupportIoOptimized|Boolean|true|是否可以在I/O优化实例上运行。
 
  |
-|└OSType|String|Linux|操作系统类型，可选值有：
+|OSName|String|Aliyun Linux 17.1|操作系统的中文显示名称。
+
+ |
+|OSNameEn|String|Aliyun Linux 17.1|操作系统的英文显示名称。
+
+ |
+|OSType|String|Linux|操作系统类型，可选值有：
 
  -   windows
 -   linux
 
  |
-|└Platform|String|Aliyun Linux|操作系统平台
+|Platform|String|Aliyun Linux|操作系统平台。
 
  |
-|└ProductCode|String|jxsc000204|镜像市场的镜像商品标示
+|ProductCode|String|jxsc000204|镜像市场的镜像商品标示。
 
  |
-|└Progress|String|100|镜像完成的进度，单位为百分比
+|Progress|String|100|镜像完成的进度，单位为百分比。
 
  |
-|└ResourceGroupId|String|rg-resourcegroupid1|镜像所在的企业资源组 ID。
+|ResourceGroupId|String|rg-resourcegroupid1|镜像所在的企业资源组ID。
 
  |
-|└Size|Integer|80|镜像大小
+|Size|Integer|80|镜像大小。
 
  |
-|└Status|String|Available|镜像的状态，可能的值有：
+|Status|String|Available|镜像的状态，可能的值有：
 
  -   UnAvailable 不可用
 -   Available 可用
@@ -249,34 +249,34 @@
 -   CreateFailed 创建失败
 
  |
-|└Tags| | |镜像的标签对信息。
+|Tags| | |镜像的标签对信息。
 
  |
-|└TagKey|String|FinanceDept|镜像的标签键。
+|TagKey|String|FinanceDept|镜像的标签键。
 
  |
-|└TagValue|String|FinanceJoshua|镜像的标签值。
+|TagValue|String|FinanceJoshua|镜像的标签值。
 
  |
-|└Usage|String|none|有引用关系的资源类型，可能值：
+|Usage|String|none|有引用关系的资源类型，可能值：
 
  -   instance
 -   none
 
  |
-|PageNumber|Integer|1|当前页码
+|PageNumber|Integer|1|当前页码。
 
  |
-|PageSize|Integer|10|当前分页包含多少条目
+|PageSize|Integer|10|当前分页包含多少条目。
 
  |
-|RegionId|String|cn-hangzhou|镜像所属地域ID
+|RegionId|String|cn-hangzhou|镜像所属地域ID。
 
  |
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID。
 
  |
-|TotalCount|Integer|24|镜像资源总数
+|TotalCount|Integer|24|镜像资源总数。
 
  |
 
@@ -285,12 +285,10 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=DescribeImages
 &RegionId=cn-hangzhou
 &Usage=instance
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -299,41 +297,40 @@ https://ecs.aliyuncs.com/?Action=DescribeImages
 
 ``` {#xml_return_success_demo}
 <DescribeImagesResponse>
-  <Images>
-    <Image>
-      <Architecture>i386</Architecture>
-      <CreationTime>2014-07-22T09:53:44Z</CreationTime>
-      <Description/>
-      <DiskDeviceMappings>
-        <DiskDeviceMapping>
-          <Device>/dev/xvda</Device>
-          <Size>20</Size>
-          <SnapshotId/>
-        </DiskDeviceMapping>
-      </DiskDeviceMappings>
-      <ImageId>suse11sp3_64_20G_aliaegis_20150428.vhd</ImageId>
-      <ImageName>suse11sp3_64_20G_aliaegis_20150428.vhd</ImageName>
-      <ImageOwnerAlias>system</ImageOwnerAlias>
-      <ImageVersion>1.0</ImageVersion>
-      <IsCopied>false</IsCopied>
-      <IsSubscribed>false</IsSubscribed>
-      <OSName>SUSE Linux  Enterprise Server 11 SP3 64位</OSName>
-      <ProductCode/>
-      <OSType>linux</OSType>
-      <Platform>SUSE</Platform>
-      <Progress>100</Progress>
-      <Size>20</Size>
-      <Status>Available</Status>
-      <Usage>instance</Usage>
-    </Image>
-  </Images>
-  <PageNumber>1</PageNumber>
-  <PageSize>2</PageSize>
-  <RegionId>cn-hangzhou</RegionId>
-  <TotalCount>24</TotalCount>
-  <RequestId>7871BB26-3002-4950-B2E6-98D333077EA5</RequestId>
+      <Images>
+            <Image>
+                  <Architecture>i386</Architecture>
+                  <CreationTime>2014-07-22T09:53:44Z</CreationTime>
+                  <Description></Description>
+                  <DiskDeviceMappings>
+                        <DiskDeviceMapping>
+                              <Device>/dev/xvda</Device>
+                              <Size>20</Size>
+                              <SnapshotId></SnapshotId>
+                        </DiskDeviceMapping>
+                  </DiskDeviceMappings>
+                  <ImageId>suse11sp3_64_20G_aliaegis_20150428.vhd</ImageId>            
+                  <ImageName>suse11sp3_64_20G_aliaegis_20150428.vhd</ImageName>
+                  <ImageOwnerAlias>system</ImageOwnerAlias>
+                  <ImageVersion>1.0</ImageVersion>
+                  <IsCopied>false</IsCopied>
+                  <IsSubscribed>false</IsSubscribed>
+                  <OSName>SUSE Linux  Enterprise Server 11 SP3 64位</OSName>
+                  <ProductCode></ProductCode>
+                  <OSType>linux</OSType>
+                  <Platform>SUSE</Platform>
+                  <Progress>100</Progress>
+                  <Size>20</Size>
+                  <Status>Available</Status>
+                  <Usage>instance</Usage>
+            </Image>
+      </Images>
+      <PageNumber>1</PageNumber>
+      <PageSize>2</PageSize>
+      <RegionId>cn-hangzhou</RegionId>
+      <TotalCount>24</TotalCount>
+      <RequestId>7871BB26-3002-4950-B2E6-98D333077EA5</RequestId>
 </DescribeImagesResponse>
-
 ```
 
 `JSON` 格式
@@ -393,5 +390,5 @@ https://ecs.aliyuncs.com/?Action=DescribeImages
 |404|InvalidArchitecture|The specifed Architecture is not valid|指定的架构不存在。|
 |500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
