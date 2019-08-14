@@ -1,12 +1,12 @@
 # CopyImage {#doc_api_Ecs_CopyImage .reference}
 
-调用CopyImage复制一个地域下的自定义镜像到其他地域。您可以在其他地域可以使用复制后的镜像创建ECS实例（RunInstances）或者更换实例的系统盘（ReplaceSystemDisk）。
+调用CopyImage复制一个地域下的自定义镜像到其他地域。您在其他地域可以使用复制后的镜像创建ECS实例（RunInstances）或者更换实例的系统盘（ReplaceSystemDisk）。
 
 ## 接口说明 {#description .section}
 
 调用该接口时，您需要注意：
 
--   自定义镜像的状态必须为 Available。
+-   自定义镜像的状态必须为可用（`Available`）。
 -   被复制的自定义镜像必须为您账号下的镜像，不能跨账号复制。
 -   复制镜像的过程中无法删除镜像（[DeleteImage](~~25537~~)），但是您可以取消复制任务（[CancelCopyImage](~~25539~~)）。
 
@@ -54,10 +54,10 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|ImageId|String|m-imageid2|复制后的镜像的ID
+|ImageId|String|m-imageid2|复制后的镜像的ID。
 
  |
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID。
 
  |
 
@@ -120,5 +120,5 @@ https://ecs.aliyuncs.com/?Action=CopyImage
 |403|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
 |403|OperationDenied.SameRegionOnly|The image shared from others can not be copied to another region directly.|无法复制共享镜像。|
 
-访问[错误中心](https://error-center.alibabacloud.com/status/product/Ecs)查看更多错误码。
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
