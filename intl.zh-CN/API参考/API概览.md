@@ -62,18 +62,18 @@
 
 |API|描述|
 |---|--|
-|[CreateDisk](intl.zh-CN/API参考/磁盘/CreateDisk.md)|调用CreateDisk创建一块按量付费或预付费数据盘。磁盘类型包括普通云盘、高效云盘、SSD云盘和ESSD云盘。|
-|[DeleteDisk](intl.zh-CN/API参考/磁盘/DeleteDisk.md)|调用DeleteDisk释放一块按量付费数据盘。磁盘类型包括普通云盘、高效云盘、SSD云盘和ESSD云盘。|
-|[DescribeDisks](intl.zh-CN/API参考/磁盘/DescribeDisks.md)|调用DescribeDisks查询您已经创建的磁盘。|
-|[AttachDisk](intl.zh-CN/API参考/磁盘/AttachDisk.md)|调用AttachDisk为一台ECS实例挂载一块数据盘。|
-|[DetachDisk](intl.zh-CN/API参考/磁盘/DetachDisk.md)|调用DetachDisk从一台实例上卸载一块按量付费磁盘。磁盘类型包括普通云盘、高效云盘和SSD云盘。|
-|[ModifyDiskChargeType](intl.zh-CN/API参考/磁盘/ModifyDiskChargeType.md)|调用ModifyDiskChargeType修改一台实例上挂载的一块或最多 16 块磁盘的计费方式。|
-|[ModifyDiskAttribute](intl.zh-CN/API参考/磁盘/ModifyDiskAttribute.md)|调用ModifyDiskAttribute修改您的磁盘的属性或者明细。|
-|[ReplaceSystemDisk](intl.zh-CN/API参考/磁盘/ReplaceSystemDisk.md)|调用ReplaceSystemDisk更换一台ECS实例的系统盘或者操作系统。|
-|[ReInitDisk](intl.zh-CN/API参考/磁盘/ReInitDisk.md)|调用ReInitDisk重新初始化云盘到创建时的初始状态。|
-|[ResetDisk](intl.zh-CN/API参考/磁盘/ResetDisk.md)|调用ResetDisk使用磁盘的历史快照回滚至某一阶段的磁盘状态。|
-|[ResizeDisk](intl.zh-CN/API参考/磁盘/ResizeDisk.md)|调用ResizeDisk扩容一块云盘，支持扩容系统盘和数据盘。|
-|[ModifyDiskSpec](intl.zh-CN/API参考/磁盘/ModifyDiskSpec.md)|调用ModifyDiskSpec升级一块ESSD云盘的性能等级。|
+|[CreateDisk](intl.zh-CN/API参考/块存储/CreateDisk.md)|调用CreateDisk创建一块按量付费或预付费数据盘。磁盘类型包括普通云盘、高效云盘、SSD云盘和ESSD云盘。|
+|[DeleteDisk](intl.zh-CN/API参考/块存储/DeleteDisk.md)|调用DeleteDisk释放一块按量付费数据盘。磁盘类型包括普通云盘、高效云盘、SSD云盘和ESSD云盘。|
+|[DescribeDisks](intl.zh-CN/API参考/块存储/DescribeDisks.md)|调用DescribeDisks查询您已经创建的磁盘。|
+|[AttachDisk](intl.zh-CN/API参考/块存储/AttachDisk.md)|调用AttachDisk为一台ECS实例挂载一块数据盘。|
+|[DetachDisk](intl.zh-CN/API参考/块存储/DetachDisk.md)|调用DetachDisk从一台实例上卸载一块按量付费磁盘。磁盘类型包括普通云盘、高效云盘和SSD云盘。|
+|[ModifyDiskChargeType](intl.zh-CN/API参考/块存储/ModifyDiskChargeType.md)|调用ModifyDiskChargeType修改一台实例上挂载的一块或最多 16 块磁盘的计费方式。|
+|[ModifyDiskAttribute](intl.zh-CN/API参考/块存储/ModifyDiskAttribute.md)|调用ModifyDiskAttribute修改您的磁盘的属性或者明细。|
+|[ReplaceSystemDisk](intl.zh-CN/API参考/块存储/ReplaceSystemDisk.md)|调用ReplaceSystemDisk更换一台ECS实例的系统盘或者操作系统。|
+|[ReInitDisk](intl.zh-CN/API参考/块存储/ReInitDisk.md)|调用ReInitDisk重新初始化云盘到创建时的初始状态。|
+|[ResetDisk](intl.zh-CN/API参考/块存储/ResetDisk.md)|调用ResetDisk使用磁盘的历史快照回滚至某一阶段的磁盘状态。|
+|[ResizeDisk](intl.zh-CN/API参考/块存储/ResizeDisk.md)|调用ResizeDisk扩容一块云盘，支持扩容系统盘和数据盘。|
+|[ModifyDiskSpec](intl.zh-CN/API参考/块存储/ModifyDiskSpec.md)|调用ModifyDiskSpec升级一块ESSD云盘的性能等级。|
 
 ## 预留实例券 {#section_u8d_mo7_iuk .section}
 
