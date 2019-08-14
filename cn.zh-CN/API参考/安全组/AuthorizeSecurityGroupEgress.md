@@ -1,6 +1,6 @@
 # AuthorizeSecurityGroupEgress {#doc_api_Ecs_AuthorizeSecurityGroupEgress .reference}
 
-增加一条安全组出方向规则。指定安全组出方向的访问权限，允许或者拒绝安全组里的实例发送出方向流量到其他设备。
+调用AuthorizeSecurityGroupEgress增加一条安全组出方向规则。指定安全组出方向的访问权限，允许或者拒绝安全组里的实例发送出方向流量到其他设备。
 
 ## 接口说明 {#description .section}
 
@@ -8,13 +8,13 @@
 
 调用该接口时，您需要了解：
 
--   一个安全组的安全组规则最多为 100 条。
+-   一个安全组的安全组规则最多为100条。
 -   安全组规则分为接受访问（accept）和拒绝访问（drop）两类。
 -   安全组规则优先级（Priority）可选范围为1~100。数字越小，代表优先级越高。
 -   优先级相同的安全组规则，优先以拒绝访问（drop）的规则为准。
--   目的端设备可以是指定 IP 地址范围（DestCidrIp），也可以是其他安全组（DestGroupId）。
+-   目的端设备可以是指定的IP地址范围（DestCidrIp），也可以是其他安全组（DestGroupId）。
 -   以下任意一组参数可以确定一条安全组规则。如果匹配的安全组规则已存在，此次 AuthorizeSecurityGroupEgress调用失败。
-    -   设置指定 IP 地址段的访问权限。经典网络类型安全组的网卡类型（NicType）可设置公网（internet）和 内网（intranet）。VPC 类型安全组的网卡类型（NicType）只可设置内网（intranet）。如以下请求示例：IpProtocol、PortRange、（可选）SourcePortRange、NicType、Policy、DestCidrIp 和 （可选）SourceCidrIp
+    -   设置指定IP地址段的访问权限。经典网络类型安全组的网卡类型（NicType）可设置公网（internet）和内网（intranet）。VPC类型安全组的网卡类型（NicType）只可设置内网（intranet）。如以下请求示例：IpProtocol、PortRange、（可选）SourcePortRange、NicType、Policy、DestCidrIp和（可选）SourceCidrIp。
 
         ```
         
@@ -29,7 +29,7 @@
                 
         ```
 
-    -   设置其他安全组的访问权限。网卡类型（NicType）只能为内网（intranet）。经典网络类型安全组之间互访时，可以设置同一地域中其他安全组对您的安全组的访问权限。这个安全组可以是您的也可以是其他阿里云账户（DestGroupOwnerAccount）的。VPC 类型安全组之间互访时，可以设置同一 VPC 内其他安全组对该安全组的访问权限。。如以下请求示例：IpProtocol、PortRange、（可选）SourcePortRange、NicType、Policy、（可选）DestCidrIp、DestGroupOwnerAccount 和 DestGroupId
+    -   设置其他安全组的访问权限。网卡类型（NicType）只能为内网（intranet）。经典网络类型安全组之间互访时，可以设置同一地域中其他安全组对您的安全组的访问权限。这个安全组可以是您的也可以是其他阿里云账户（DestGroupOwnerAccount）的。VPC类型安全组之间互访时，可以设置同一VPC内其他安全组对该安全组的访问权限。。如以下请求示例：IpProtocol、PortRange、（可选）SourcePortRange、NicType、Policy、（可选）DestCidrIp、DestGroupOwnerAccount和DestGroupI。
 
         ```
         
@@ -46,9 +46,9 @@
         ```
 
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=AuthorizeSecurityGroupEgress)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=AuthorizeSecurityGroupEgress&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
@@ -65,57 +65,65 @@
  |
 |PortRange|String|是|1/200|目的端安全组开放的传输层协议相关的端口范围。取值范围：
 
- -   TCP/UDP 协议：取值范围为1~65535。使用斜线（/）隔开起始端口和终止端口。正确示范：1/200；错误示范：200/1。
--   ICMP 协议：-1/-1。
--   GRE 协议：-1/-1。
+ -   TCP/UDP协议：取值范围为1~65535。使用斜线（/）隔开起始端口和终止端口。正确示范：1/200；错误示范：200/1。
+-   ICMP协议：-1/-1。
+-   GRE协议：-1/-1。
 -   all：-1/-1。
 
  |
-|RegionId|String|是|cn-hangzhou|源端安全组所属地域 ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
+|RegionId|String|是|cn-hangzhou|源端安全组所属地域ID。您可以调用[DescribeRegions](~~25609~~)查看最新的阿里云地域列表。
 
  |
-|SecurityGroupId|String|是|sg-securitygroupid1|源端安全组 ID。
+|SecurityGroupId|String|是|sg-securitygroupid1|源端安全组ID。
 
  |
 |Action|String|否|AuthorizeSecurityGroupEgress|系统规定参数。取值：AuthorizeSecurityGroupEgress
 
  |
-|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
+|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken**只支持ASCII字符，且不能超过64个字符。更多详情，请参见[如何保证幂等性](~~25693~~)。
 
  |
 |Description|String|否|FinanceJoshua|安全组规则的描述信息。长度为1~512个字符。
 
  |
-|DestCidrIp|String|否|10.0.0.0/8|目的端 IP 地址范围。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。 默认值：无。
+|DestCidrIp|String|否|10.0.0.0/8|目的端IP地址范围。支持CIDR格式和IPv4格式的IP地址范围。
+
+ 默认值：无。
 
  |
-|DestGroupId|String|否|sg-securitygroupid2|需要设置访问权限的目的端安全组 ID。至少设置一项 DestGroupId 或者 DestCidrIp 参数。如果指定了 DestGroupId 没有指定参数 DestCidrIp，则参数 NicType 取值只能为 intranet。如果同时指定了 DestGroupId 和 DestCidrIp，则默认以 DestCidrIp 为准。
+|DestGroupId|String|否|sg-securitygroupid2|需要设置访问权限的目的端安全组ID。
+
+ 至少设置一项DestGroupId或者DestCidrIp参数。
+
+ 如果指定了DestGroupId没有指定参数DestCidrIp，则参数NicType取值只能为intranet。
+
+ 如果同时指定了DestGroupId和DestCidrIp，则默认以DestCidrIp为准。
 
  |
 |DestGroupOwnerAccount|String|否|FinanceJoshua|跨账户设置安全组规则时，目的端安全组所属的阿里云账户。
 
- -   如果 DestGroupOwnerAccount 及 DestGroupOwnerId 均未设置，则认为是设置您其他安全组的访问权限。
--   如果已经设置参数 DestCidrIp，则参数 DestGroupOwnerAccount 无效。
+ -   如果DestGroupOwnerAccount及DestGroupOwnerId均未设置，则认为是设置您其他安全组的访问权限。
+-   如果已经设置参数DestCidrIp，则参数DestGroupOwnerAccount无效。
 
  |
-|DestGroupOwnerId|Long|否|155780923770|跨账户设置安全组规则时，目的端安全组所属的阿里云账户 ID。
+|DestGroupOwnerId|Long|否|155780923770|跨账户设置安全组规则时，目的端安全组所属的阿里云账户ID。
 
- -   如果 DestGroupOwnerId 及 DestGroupOwnerAccount 均未设置，则认为是设置您其他安全组的访问权限。
--   如果您已经设置参数 DestCidrIp，则参数 DestGroupOwnerId 无效。
+ -   如果DestGroupOwnerId及DestGroupOwnerAccount均未设置，则认为是设置您其他安全组的访问权限。
+-   如果您已经设置参数DestCidrIp，则参数DestGroupOwnerId无效。
 
  |
-|Ipv6DestCidrIp|String|否|2001:db8:1234:1a00::XXX|目的端 IPv6 CIDR 地址段。支持CIDR格式和IPv6格式的IP地址范围。
+|Ipv6DestCidrIp|String|否|2001:db8:1233:1a00::\*\*\*|目的端IPv6 CIDR地址段。支持CIDR格式和IPv6格式的IP地址范围。
 
  默认值：无。
 
- **说明：** 仅支持 VPC 类型的 IP 地址。
+ **说明：** 仅支持VPC类型的IP地址。
 
  |
-|Ipv6SourceCidrIp|String|否|2001:db8:1234:1a00::XXX|源端 IPv6 CIDR 地址段。支持 CIDR 格式和 IPv6 格式的 IP 地址范围。
+|Ipv6SourceCidrIp|String|否|2001:db8:1234:1a00::\*\*\*|源端IPv6 CIDR地址段。支持CIDR格式和IPv6格式的IP地址范围。
 
  默认值：无。
 
- **说明：** 仅支持 VPC 类型的 IP 地址。
+ **说明：** 仅支持VPC类型的IP地址。
 
  |
 |NicType|String|否|intranet|网卡类型。取值范围：
@@ -123,39 +131,43 @@
  -   internet：公网网卡。
 -   intranet：内网网卡。
 
- 当设置安全组之间互相访问时，即指定了 DestGroupId 且没有指定 DestCidrIp 时，参数 NicType 取值只能为 intranet。 默认值：internet
+ 当设置安全组之间互相访问时，即指定了DestGroupId且没有指定DestCidrIp时，参数NicType取值只能为intranet。
+
+ 默认值：internet。
 
  |
 |Policy|String|否|accept|设置访问权限。取值范围：
 
  -   accept：接受访问。
--   drop：拒绝访问，不发回拒绝信息。
+-   drop：拒绝访问，不返回拒绝信息。
 
- 默认值：accept
+ 默认值：accept。
 
  |
 |Priority|String|否|1|安全组规则优先级。取值范围：1~100
 
- 默认值：1
+ 默认值：1。
 
  |
-|SourceCidrIp|String|否|10.0.0.0/8|源端 IP 地址范围。支持 CIDR 格式和 IPv4 格式的 IP 地址范围。 默认值：无。
+|SourceCidrIp|String|否|10.0.0.0/8|源端IP地址范围。支持CIDR格式和IPv4格式的IP地址范围。
+
+ 默认值：无。
 
  |
 |SourcePortRange|String|否|80/80|源端安全组开放的传输层协议相关的端口范围。取值范围：
 
- -   TCP/UDP 协议：1~65535。使用斜线（/）隔开起始端口和终止端口。正确示范：1/200；错误示范：200/1。
--   ICMP 协议：-1/-1。
--   GRE 协议：-1/-1。
+ -   TCP/UDP协议：1~65535。使用斜线（/）隔开起始端口和终止端口。正确示范：1/200；错误示范：200/1。
+-   ICMP协议：-1/-1。
+-   GRE协议：-1/-1。
 -   all：-1/-1。
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID。
 
  |
 
@@ -164,17 +176,15 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroupEgress
-&SecurityGroupId=sg-F876FF7BA
-&DestGroupId=sg-1651FBB64
+&SecurityGroupId=sg-F876FF7**
+&DestGroupId=sg-1651FBB**
 &DestGroupOwnerAccount=test@aliyun.com
 &IpProtocol=tcp
 &PortRange=22/22
 &NicType=intranet
 &Policy=Drop
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -183,9 +193,8 @@ https://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroupEgress
 
 ``` {#xml_return_success_demo}
 <AuthorizeSecurityGroupEgressResponse>
-  <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
+      <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
 </AuthorizeSecurityGroupEgressResponse>
-
 ```
 
 `JSON` 格式
@@ -237,5 +246,5 @@ https://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroupEgress
 |400|InvalidParam.Ipv6ProtocolConflictWithIpv4Address|%s|IPv6和IPv4不能同时存在。|
 |400|ILLEGAL\_IPV6\_CIDR|%s|指定的IPv6地址段无效。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
