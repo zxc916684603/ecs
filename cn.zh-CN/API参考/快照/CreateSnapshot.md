@@ -1,22 +1,22 @@
 # CreateSnapshot {#doc_api_Ecs_CreateSnapshot .reference}
 
-为一块云盘创建一份快照。
+调用CreateSnapshot为一块云盘创建一份快照。
 
 ## 接口说明 {#description .section}
 
--   一块云盘最多能创建64份快照。
+-   一块云盘最多能创建256份手动快照。删除不需要的手动快照后，您可以继续创建快照。
 -   云盘挂载的实例必须处于**已停止**（`Stopped`）或者**运行中**（`Running`）状态，否则无法创建快照。
 -   云盘必须已经挂载到实例上，否则无法创建快照。
 -   云盘挂载的实例从未启动过时，无法创建快照。
--   被 [安全控制](~~25695~~)的ECS实例的`OperationLocks`中标记了`"LockReason" : "security"`时，实例挂载的云盘无法创建快照。
+-   被[安全控制](~~25695~~)的ECS实例的`OperationLocks`中标记了`"LockReason" : "security"`时，实例挂载的云盘无法创建快照。
 -   新建一台云服务器ECS（[RunInstances](~~63440~~)）、更换系统盘（[ReplaceSystemDisk](~~25521~~)）或者根据快照新增数据盘（[CreateDisk](~~25513~~)），由于尚未完成数据加载，无法创建快照。新建一台云服务器ECS或者更换系统盘大约一小时后可以创建快照，新增一块数据盘可创建快照的时间取决于云盘数据的大小。
 -   如果创建快照还未完成，您无法为该云盘再次创建快照。
 -   如果创建快照还未完成，这份快照无法用于创建自定义镜像（[CreateImage](~~25535~~)）。
--   支持对处于**已过期**（`Expired`）状态的云盘创建快照。请注意，若创建快照时云盘正好达到过期释放时间，云盘会被释放的同时也会删除**创建中**（`Creating`）的快照。
+-   支持对处于**已过期**（`Expired`）状态的云盘创建快照。请注意，若创建快照时云盘正好达到过期释放时间，云盘被释放的同时也会删除**创建中**（`Creating`）的快照。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=CreateSnapshot)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=CreateSnapshot&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
@@ -63,7 +63,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -95,10 +95,9 @@ https://ecs.aliyuncs.com/?Action=CreateSnapshot
 
 ``` {#xml_return_success_demo}
 <CreateSnapshotResponse>
-  <RequestId>C8B26B44-0189-443E-9816-D951F59623A9</RequestId>
-  <SnapshotId>s-923FE2B**</SnapshotId>
+          <RequestId>C8B26B44-0189-443E-9816-D951F59623A9</RequestId>
+          <SnapshotId>s-923FE2B**</SnapshotId>
 </CreateSnapshotResponse>
-
 ```
 
 `JSON` 格式
@@ -145,5 +144,5 @@ https://ecs.aliyuncs.com/?Action=CreateSnapshot
 |400|InvalidTagValue.Malformed|The specified Tag.n.Value is not valid.|指定的标签值不合法。|
 |403|IdempotentProcessing|The previous idempotent request\(s\) is still processing.|同样clienttoken的请求正在处理中。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
