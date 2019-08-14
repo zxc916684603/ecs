@@ -1,6 +1,6 @@
 # DescribeInstanceRamRole {#doc_api_1161572 .reference}
 
-Queries RAM roles attached to one or more ECS instances.
+You can call this operation to query RAM roles attached to one or more ECS instances.
 
 ## Debugging {#apiExplorer .section}
 
@@ -28,7 +28,7 @@ You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeInsta
  |
 |PageSize|Integer|No|10| The number of rows per page.
 
- Maximum value: 100.
+ Maximum value: 50.
 
  Default value: 10.
 
@@ -65,6 +65,7 @@ You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeInsta
 Sample requests
 
 ``` {#request_demo}
+
 https://ecs.aliyuncs.com/?Action=DescribeInstanceRamRole
 &RegionId=cn-hangzhou 
 &InstanceIds=["i-instance1"] 
@@ -72,6 +73,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceRamRole
 &PageSize=10 
 &RamRoleName=FinanceDeptOnly
 &<Common request parameters>
+
 ```
 
 Successful response examples
@@ -89,6 +91,7 @@ Successful response examples
   </InstanceRamRoleSets>
   <TotalCount>1</TotalCount> 
 </DescribeInstanceRamRoleResponse>
+
 ```
 
 `JSON` format
@@ -108,7 +111,7 @@ Successful response examples
 }
 ```
 
-## Error codes { .section}
+## Error codes {#section_gk8_cnm_4a9 .section}
 
 |HTTP status code|Error code|Error message|Description|
 |----------------|----------|-------------|-----------|
