@@ -2,9 +2,9 @@
 
 调用DescribeTasks查询一个或多个异步请求的进度。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeTasks)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=DescribeTasks&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
@@ -88,7 +88,7 @@
 |TaskStatus|String|Finished|任务状态
 
  |
-|TotalCount|Integer|2|列表条条目数
+|TotalCount|Integer|2|列表条目数
 
  |
 
@@ -115,31 +115,30 @@ https://ecs.aliyuncs.com/?Action=DescribeTasks
 
 ``` {#xml_return_success_demo}
 <DescribeTasksResponse>
-  <PageNumber>1</PageNumber>
-  <TotalCount>2</TotalCount>
-  <PageSize>2</PageSize>
-  <RegionId>cn-hangzhou</RegionId>
-  <RequestId>E5C82807-5588-4661-9A96-350B206A7623</RequestId>
-  <TaskSet>
-    <Task>
-      <CreationTime>2015-11-24T12:50Z</CreationTime>
-      <FinishedTime>2015-11-24T12:50Z</FinishedTime>
-      <SupportCancel>true</SupportCancel>
-      <TaskAction>IMPORT_IMAGE</TaskAction>
-      <TaskStatus>Finished</TaskStatus>
-      <TaskId>t-bp10e8or********74o8X</TaskId>
-    </Task>
-    <Task>
-      <CreationTime>2015-11-23T15:10Z</CreationTime>
-      <FinishedTime>2015-11-23T15:16Z</FinishedTime>
-      <SupportCancel>true</SupportCancel>
-      <TaskAction>IMPORT_IMAGE</TaskAction>
-      <TaskStatus>Finished</TaskStatus>
-      <TaskId>t-23sgu0d***</TaskId>
-    </Task>
-  </TaskSet>
+    <PageNumber>1</PageNumber>
+    <TotalCount>2</TotalCount>
+    <PageSize>2</PageSize>
+    <RegionId>cn-hangzhou</RegionId>
+    <RequestId>E5C82807-5588-4661-9A96-350B206A7623</RequestId>
+    <TaskSet>
+        <Task>
+            <CreationTime>2015-11-24T12:50Z</CreationTime>
+            <FinishedTime>2015-11-24T12:50Z</FinishedTime>
+            <SupportCancel>true</SupportCancel>
+            <TaskAction>IMPORT_IMAGE</TaskAction>
+            <TaskStatus>Finished</TaskStatus>
+            <TaskId>t-bp10e8or********74o8X</TaskId>
+        </Task>
+        <Task>
+            <CreationTime>2015-11-23T15:10Z</CreationTime>
+            <FinishedTime>2015-11-23T15:16Z</FinishedTime>
+            <SupportCancel>true</SupportCancel>
+            <TaskAction>IMPORT_IMAGE</TaskAction>
+            <TaskStatus>Finished</TaskStatus>
+            <TaskId>t-23sgu0d***</TaskId>
+        </Task>
+    </TaskSet>
 </DescribeTasksResponse>
-
 ```
 
 `JSON` 格式
