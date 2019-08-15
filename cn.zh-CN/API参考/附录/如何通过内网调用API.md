@@ -20,7 +20,7 @@
     |华南 1（深圳）|cn-shenzhen|popunify-vpc.cn-shenzhen.aliyuncs.com|ecs.cn-shenzhen.aliyuncs.com|
     |华北 5（呼和浩特）|cn-huhehaote|popunify-vpc.cn-huhehaote.aliyuncs.com|ecs.cn-huhehaote.aliyuncs.com|
     |华北 3（张家口）|cn-zhangjiakou|popunify-vpc.cn-zhangjiakou.aliyuncs.com|ecs.cn-zhangjiakou.aliyuncs.com|
-    |香港|cn-hongkong|popunify-vpc.cn-hongkong.aliyuncs.com|ecs.cn-hongkong.aliyuncs.com|
+    |中国（香港）|cn-hongkong|popunify-vpc.cn-hongkong.aliyuncs.com|ecs.cn-hongkong.aliyuncs.com|
     |新加坡|ap-southeast-1|popunify-vpc.ap-southeast-1.aliyuncs.com|ecs.ap-southeast-1.aliyuncs.com|
     |德国（法兰克福）|eu-central-1|popunify-vpc.eu-central-1.aliyuncs.com|ecs.eu-central-1.aliyuncs.com|
 
@@ -34,7 +34,7 @@
 
     -   **Zone名称**：设置一个已支持云解析PrivateZone的云服务器ECS接入地址，如ecs.cn-hangzhou.aliyuncs.com。
     -   **子域名递归解析代理**：勾选后，当DNS查询的域名以Zone名称为后缀，但是在Zone文件里未配置时，会以公网的权威解析为准。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156446465246151_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156584017446151_zh-CN.png)
 
 5.  找到已创建的PrivateZone，在**操作**列，单击**解析设置**。
 6.  在**解析设置**页面，单击**添加记录**。
@@ -44,14 +44,14 @@
     -   **主机记录**：填写@可以解析@.exmaple.com域名。
     -   **记录值**：设置为对应地域下的CNAME记录值。更多详情，请参见[使用说明章节](#)。
     -   **TTL值**：生存时间，本文选择了**1 分钟**。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156446465246154_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156584017446154_zh-CN.png)
 
 8.  返回**云解析DNS** \> **PrivateZone**页面，找到已创建的PrivateZone，在**操作**列，单击**关联VPC**。
 9.  在关联VPC弹窗中，选择与PrivateZone相同的地域，勾选实例所在的专有网络VPC，可多选，单击**确定**。
 
     **说明：** 请选择您的ECS实例所在的专有网络VPC。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156446465246161_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156584017446161_zh-CN.png)
 
 
 ## 执行结果 {#section_mzc_end_wml .section}
@@ -64,7 +64,7 @@
     ping ecs.cn-hangzhou.aliyuncs.com
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156446465246338_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156584017446338_zh-CN.png)
 
 -   使用阿里云CLI调用[DescribeRegions](cn.zh-CN/API参考/地域/DescribeRegions.md#)，并通过--endpoint字段修改接入地址。
 
@@ -72,6 +72,6 @@
     aliyun ecs DescribeRegions --endpoint ecs.cn-hangzhou.aliyuncs.com
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156446465246404_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156584017546404_zh-CN.png)
 
 
