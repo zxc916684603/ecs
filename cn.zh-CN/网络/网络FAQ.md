@@ -103,7 +103,7 @@
 
 ## 如何查询IP地址的详细信息？ {#section_gzn_x1g_qgb .section}
 
-您可以登录[淘宝IP地址库](http://ip.taobao.com/ipSearch.html)，查询IP地址所属的国家/地区、省份、城市、县、运营商等信息。
+您可以登录[淘宝IP地址库](http://ip.taobao.com/ipSearch.html)，查询IP地址所属的国家或地区、省份、城市、县、运营商等信息。
 
 ## 如何禁用ECS实例的公网网卡？ {#section_bxf_ywf_qgb .section}
 
@@ -154,7 +154,7 @@
 2.  选择云产品，找到您想要取消的正在清洗中的IP，单击**查看详情**。
 3.  单击**取消清洗**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10166/156473669650257_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10166/156583883150257_zh-CN.png)
 
 
 ## 怎么申请云服务器ECS反向解析？ {#section_24x_y33_pml .section}
@@ -189,7 +189,7 @@ dig -x 121.196.255.** +trace +nodnssec
 -   如果您的实例创建后已经超过六小时，不会显示**更换公网IP**选项。
 -   如果您为您的账号设置了**VPC内实例停机不收费**模式，请务必在停止实例时勾选**停止后仍旧保留实例并继续收费**，避免公网IP地址被暂时性释放。更多详情，请参见[按量付费实例停机不收费](../cn.zh-CN/产品定价/按量付费实例停机不收费.md#)。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9656/156473669644752_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9656/156583883244752_zh-CN.jpg)
 
 
 ## 除了更换公网IP地址？我还可以更换私网IP地址吗？ {#section_q67_0xd_eps .section}
