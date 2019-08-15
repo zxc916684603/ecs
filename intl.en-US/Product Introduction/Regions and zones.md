@@ -4,7 +4,7 @@ This topic provides a complete list of Alibaba Cloud regions and zones.
 
 Regions in Alibaba Cloud are independent. Zones in Alibaba Cloud are completely isolated. However, zones in the same region are connected through links with low latency. The following figure shows the relationship between regions and zones in Alibaba Cloud.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13778/156289803744660_en-US.jpg)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13778/156583811744660_en-US.jpg)
 
 ## Regions {#section_ug5_k5k_xdb .section}
 
@@ -29,7 +29,7 @@ Alibaba Cloud regions are physical locations \(data centers\) that spread all ov
 
     |Region name|City|Region ID|Number of zones|
     |-----------|----|---------|---------------|
-    |Hong Kong|Hong Kong|cn-hongkong|2|
+    |China \(Hong Kong\)|Hong Kong|cn-hongkong|2|
     |Asia Pacific SE 1|Singapore|ap-southeast-1|3|
     |Asia Pacific SE 2|Sydney|ap-southeast-2|2|
     |Asia Pacific SE 3|Kuala Lumpur|ap-southeast-3|2|
@@ -57,7 +57,7 @@ When choosing a region, consider the following factors:
 
         Alibaba Cloud’s international regions are data centers outside mainland China. They offer access at international bandwidth, targeting areas outside mainland China. Users in mainland China that access services deployed in these regions may experience high latency. Therefore, we do not recommend deploying services in international regions if users from mainland China require access.
 
-        -   If you have business operations in Hong Kong or Southeast Asia, choose the region Hong Kong, Asia Pacific SE 1, Asia Pacific SE 3, or Asia Pacific SE 5.
+        -   If you have business operations in China \(Hong Kong\) or Southeast Asia, choose the region China \(Hong Kong\), Asia Pacific SE 1, Asia Pacific SE 3, or Asia Pacific SE 5.
         -   If you have business operations in Japan and Korea, choose the Asia Pacific NE 1.
         -   If you have business operations in India, choose the region Asia Pacific SOU 1.
         -   If you have business operations in Australia, choose the region Asia Pacific SE 2.
@@ -72,7 +72,7 @@ When choosing a region, consider the following factors:
     -   Server Load Balancer cannot be deployed for ECS instances in different regions.
 -   Resource pricing
 
-    The price of resources may vary according to the region. For details, see the product pricing page.
+    The price of resources may vary according to the region. For details, see the [product pricing page](https://www.alibabacloud.com/pricing).
 
 -   Business license filing
 
@@ -93,4 +93,6 @@ Intranet communication can take place between instances in different zones of th
 
 -   If your applications require high disaster recovery capabilities, we recommend that you deploy your instances in different zones of the same region.
 -   If your applications require low network latency between instances, we recommend that you create your instances in the same zone.
+
+For more information about regions and zones, see the [Alibaba Cloud Global Infrastructure](https://www.alibabacloud.com/global-locations).
 
