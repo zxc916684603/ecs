@@ -1,6 +1,6 @@
 # AllocatePublicIpAddress {#doc_api_Ecs_AllocatePublicIpAddress .reference}
 
-为一台ECS实例分配一个公网IP地址。
+调用AllocatePublicIpAddress为一台ECS实例分配一个公网IP地址。
 
 ## 接口说明 {#description .section}
 
@@ -14,9 +14,9 @@
 
 除分配公网IP之外，您还可以给实例绑定EIP。更多详情，请参见[AssociateEipAddress](~~36017~~)。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=AllocatePublicIpAddress)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=AllocatePublicIpAddress&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
@@ -35,7 +35,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -62,10 +62,9 @@ https://ecs.aliyuncs.com/?Action=AllocatePublicIpAddress
 
 ``` {#xml_return_success_demo}
 <AllocatePublicIpAddressResponse>
-  <RequestId>F2EF6A3B-E345-46B9-931E-0EA094818567</RequestId>
-  <IpAddress>10.1.***.159</IpAddress>
+      <RequestId>F2EF6A3B-E345-46B9-931E-0EA094818567</RequestId>
+      <IpAddress>10.1.***.159</IpAddress>
 </AllocatePublicIpAddressResponse>
-
 ```
 
 `JSON` 格式
@@ -88,15 +87,15 @@ https://ecs.aliyuncs.com/?Action=AllocatePublicIpAddress
 |403|InstanceLockedForSecurity|The specified operation is denied as your instance is locked for security reasons.|实例被安全锁定，指定的操作无法完成。|
 |403|InstanceExpiredOrInArrears|The specified operation is denied as your prepay instance is expired \(prepay mode\) or in arrears \(afterpay mode\).|包年包月实例已过期，请您续费后再进行操作。|
 |404|InvalidIpAddress.NotFound|The specified IP is not in the specified vlan.|指定的 IP 不在指定的虚拟局域网内。|
-|403|IpInUse|The specified IP is already in use.|（用户使用指定IP进行绑定时，）IP已经被使用在别的机器上。|
-|403|AllocatedAlready|There is an IpAddress allocated already for the specified instance.|（用户使用指定IP进行绑定时，）该实例已经被分配了别的IP地址。|
+|403|IpInUse|The specified IP is already in use.|（用户使用指定IP进行绑定时）IP已经被使用在别的机器上。|
+|403|AllocatedAlready|There is an IpAddress allocated already for the specified instance.|（用户使用指定IP进行绑定时）该实例已经被分配了别的IP地址。|
 |400|OperationDenied|Specified operation is denied as your instance is in VPC.|由于实例存在于 VPC 中，指定的操作不合法。|
 |400|InsufficientPublicIp|Ip address not found|未找到 IP 地址。|
-|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单。|
 |400|AllocateIpInvalidInstanceBandwidth|OperationDenied The InternetMaxBandwidthOut of the specified instance cannot be less than 0.|请确保公网带宽至少大于0 才可分配 IP 地址。|
 |400|OperationDenied|The specified parameter "VlanId" is not valid or vlan has not enough IP address.|指定的 VlanId 不合法，或已超出最大 IP 地址数限制。|
 |403|NAT\_PUBLIC\_IP\_BINDING\_FAILED|Binding nat public ip failed|绑定公网 IP（NatPublicIp）失败。|
 |403|NAT\_PUBLIC\_IP\_ALLOCATE\_FAILED|Nat public ip binding failed.|分配公网 IP（NatPublicIp）失败。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
