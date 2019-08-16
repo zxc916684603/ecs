@@ -28,21 +28,21 @@
 1.  [远程连接实例](cn.zh-CN/个人版快速入门/连接ECS实例.md#)。
 2.  在Windows Server桌面，右键单击**开始**图标，选择**磁盘管理**。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15657761145089_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15659201645089_zh-CN.png)
 
 3.  查找到未格式化分区的数据盘（如磁盘 2），其处于**脱机**状态。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15657761145090_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15659201655090_zh-CN.png)
 
 4.  右键单击磁盘 2周边的空白区，在弹出的菜单中，选择**联机**。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15657761145091_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15659201655091_zh-CN.png)
 
     联机后，磁盘 2的状态显示为**没有初始化**。
 
 5.  右键单击磁盘 2周边的空白区，在弹出菜单中，选择**初始化磁盘**。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15657761155092_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15659201655092_zh-CN.png)
 
 6.  在初始化磁盘对话框里，选择**磁盘2**，并选择磁盘分区形式： 
 
@@ -50,34 +50,34 @@
     -   GPT是一种新的分区形式，早期版本的Windows不能识别这种分区形式。GPT能处理的数据盘容量由操作系统和文件系统决定。在Windows操作系统里，GPT最多可以支持128个主分区。
     在本示例中，我们选择MBR分区形式，并单击**确定**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15657761155093_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15659201665093_zh-CN.png)
 
 7.  在磁盘管理对话框，右键单击磁盘 2的**未分配**区域，选择**新建简单卷**。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15657761155094_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15659201665094_zh-CN.png)
 
 8.  在新建简单卷向导对话框中，完成以下操作： 
     1.  单击**下一步**。
     2.  指定卷大小：指定简单卷大小。如果您只要创建一个主区，使用默认值。单击**下一步**。 
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15657761155099_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15659201665099_zh-CN.png)
 
     3.  分配驱动器号和路径：选择一个驱动器号（即盘符），如本示例中选择F。单击**下一步**。 
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15657761155100_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15659201665100_zh-CN.png)
 
     4.  格式化分区：选择格式化设置，包括文件系统、分配单元大小和卷标，确认是否**执行快速格式化**和**启用文件和文件夹压缩**。这里使用默认设置。单击**下一步**。 
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15657761165101_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15659201665101_zh-CN.png)
 
     5.  开始创建新简单卷。当向导对话框里出现以下截图中的信息时，说明已经完成新简单卷的创建。单击**完成**关闭新建简单卷向导对话框。 
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15657761165102_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15659201675102_zh-CN.png)
 
 
 格式化分区完成后，**磁盘管理**中磁盘 2的状态如下图所示。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15657761165103_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15659201675103_zh-CN.png)
 
 您可以在**这台电脑**中查看到新建的驱动器**新加卷 \(F:\)**。至此，您就可以开始使用这个数据盘了。
 
