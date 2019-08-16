@@ -4,7 +4,7 @@
 
 ## API 调用情况 {#section_wdr_cng_ydb .section}
 
-欠费指在 [DescribeInstances](cn.zh-CN/API参考/实例/DescribeInstances.md#) 或者 [DescribeDisks](cn.zh-CN/API参考/磁盘/DescribeDisks.md#) 返回的传出参数中的 `OperationLocks` 包含了 `LockReason: financial`。
+欠费指在 [DescribeInstances](cn.zh-CN/API参考/实例/DescribeInstances.md#) 或者 [DescribeDisks](cn.zh-CN/API参考/块存储/DescribeDisks.md#) 返回的传出参数中的 `OperationLocks` 包含了 `LockReason: financial`。
 
 下列表中，**正常逻辑** 表示按照接口的正常逻辑执行并返回结果。
 
