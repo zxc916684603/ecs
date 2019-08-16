@@ -31,7 +31,7 @@
 -   实例处于**已过期**或**已锁定**状态。
 -   实例正在挂载或正在卸载磁盘。
 -   实例挂载了[加密盘](../../../../cn.zh-CN/块存储/云盘/ECS云盘加密.md#)。
--   实例挂载了[共享块存储](../../../../cn.zh-CN/块存储/云盘/云盘概述.md#)。
+-   实例挂载了[共享块存储](../../../../cn.zh-CN/块存储/共享块存储.md#)。
 -   实例是抢占式实例。
 -   实例中有未支付的订单，取消订单后，可以正常过户。
 -   实例中存在预约的物理机迁移升级任务，必须等待迁移升级任务结束后才能过户。
@@ -43,7 +43,7 @@
 
 ## 过户步骤 {#section_ab0_u1p_4zs .section}
 
-使用源账号[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)，并在工单中注明源账号、目标账号、需要过户的实例ID列表和目标安全组ID。
+使用源账号[提交工单](https://workorder.console.aliyun.com/console.htm#/ticket/add?productCode=ecs&commonQuestionId=616&isSmart=true&iatraceid=1565922864517-27c28af487ac37f3985530&channel=selfservice)，并在工单中注明源账号、目标账号、需要过户的实例ID列表和目标安全组ID。
 
 ## 过户后确认 {#section_hts_l7j_3wh .section}
 
@@ -55,7 +55,7 @@
 -   按量付费实例过户后，源账号的按量付费实例配额会增加，目标账号的按量付费实例配额会减少。
 -   包年包月实例和按周付费实例过户后，实例原来到期时间不变。
 -   挂载在实例上的独立云盘已经过户到目标账号下。
--   以下情况请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)：
+-   以下情况请[提交工单](https://workorder.console.aliyun.com/console.htm#/ticket/add?productCode=ecs&commonQuestionId=616&isSmart=true&iatraceid=1565922864517-27c28af487ac37f3985530&channel=selfservice)：
     -   实例的镜像不支持使用DHCP分配IP地址，或者在系统中设置了静态IP地址，过户后，可能会导致实例无法正常访问网络。
     -   实例承载了其他阿里云云服务时，例如数据同步服务（DTS）等，请取消云服务授权信息后再过户。
     -   过户时出现其它问题或者过户失败。
