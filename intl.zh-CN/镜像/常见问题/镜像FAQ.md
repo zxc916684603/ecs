@@ -67,7 +67,7 @@
     -   [使用共享镜像创建实例的时候存不存在地域限制？](#section_mls_2qc_ghb)
     -   [使用共享镜像创建实例存在什么样的风险？](#section_p4w_lqc_ghb)
     -   [我把自定义镜像共享给其他账号，存在什么风险？](#section_r4q_nqc_ghb)
-    -   [我能把别人共享给我的镜像再共享给他人吗？](#section_abm_4qc_ghb)
+    -   [我能把别人共享给我的镜像再共享给其他人吗？](#section_abm_4qc_ghb)
     -   [我把镜像共享给他人，还能使用该镜像创建实例吗？](#section_xny_pqc_ghb)
     -   [华北地域服务器A制作的镜像能共享给华东地域的服务器B吗？](#section_b5i_fn9_i06)
 -   导出镜像FAQ
@@ -109,7 +109,7 @@
     -   [如果之前使用的镜像市场的镜像，已不存在该商品（如：jxsc000010、jxsc000019），怎能保证已经设置的弹性伸缩组的机器能正常弹出？](#section_stt_zsc_ghb)
     -   [1个product code能否支持不同region的镜像？](#section_os3_btc_ghb)
     -   [我买了100 product code同样值的镜像，是否可以支持在所有的地域可用？](#section_uzj_ctc_ghb)
-    -   [勾选"I/O优化实例"选项导致购买ECS实例时无法选择镜像市场的镜像，为什么？怎么解决？](#section_tch_39p_cv5)
+    -   [勾选“I/O优化实例”选项导致购买ECS实例时无法选择镜像市场的镜像，为什么？怎么解决？](#section_tch_39p_cv5)
 -   镜像市场预付费镜像FAQ
     -   [什么是镜像市场的包年包月和按周付费镜像？](#section_zxy_n5c_ghb)
     -   [预付费镜像能与哪种ECS实例搭配使用？](#section_fts_45c_ghb)
@@ -290,7 +290,7 @@ Terraform中通过参数encrypted指定，详情请参见[alicloud\_disks](https
 
 ## 实例释放后，快照是否还存在？ {#section_ocf_oay_z1e .section}
 
-保留手动快照，自动快照会随着实例释放而被清除。更多详情，请参见[快照FAQ](../intl.zh-CN/快照/常见问题/快照FAQ.md#)。
+保留手动快照，自动快照会随着实例释放而被清除。更多详情，请参见[快照FAQ](../intl.zh-CN/快照/快照FAQ.md#)。
 
 ## 我想删除华北2快照链列表内的某一快照，但提示我关联了“RequestId: xxx”，这个是什么？ {#section_72i_6dy_wdp .section}
 
@@ -336,7 +336,7 @@ Linux其他较重要的配置文件如下：
 |:---|:---|:---------|
 |/etc/issue\*, /etc/\*-release, /etc/\*\_version|系统发行版信息配置文件|修改/etc/issue\*会导致系统发行版无法被正常识别，导致系统创建失败。|
 |/boot/grub/menu.lst, /boot/grub/grub.conf|系统引导启动配置文件|修改/boot/grub/menu.lst会导致内核无法正确加载，导致系统无法启动。|
-|/etc/fstab|系统启动挂载分区配置文件|修改该文件会导致异常分区无法被加载，导致系统无法启动。|
+|/etc/fstab|系统启动挂载分区配置文件|修改该文件会导致分区无法被加载，导致系统无法启动。|
 |/etc/shadow|系统密码相关配置文件|修改该文件为只读会导致无法修改密码文件，导致系统创建失败。|
 |/etc/selinux/config|系统安全策略配置文件|修改/etc/selinux/config开启SELinux导致系统无法启动。|
 
@@ -403,15 +403,15 @@ Linux其他较重要的配置文件如下：
 
 1.  ECS实例数据盘未分区，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156471118749584_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156592661549584_zh-CN.png)
 
 2.  使用自定义镜像创建的ECS实例中，未注释掉/etc/fstab中的磁盘挂载条目，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156471118849589_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156592661549589_zh-CN.png)
 
 3.  实例启动时，会按照/etc/fstab文件中的配置挂载磁盘，但由于数据盘未分区导致挂载失败，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156471118849591_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156592661549591_zh-CN.png)
 
 
 不用注释磁盘挂载条目的情况：一般只有在创建ECS实例时，选择了数据盘且数据盘是通过已分区、已格式化的数据盘快照生成。
@@ -470,7 +470,7 @@ Linux其他较重要的配置文件如下：
 
 ## 有些自定义镜像不支持创建I/O优化的实例，我该如何操作？ {#section_nvl_tpi_ffj .section}
 
-部分自定义镜像不支持创建I/O优化的实例。如果想要使用这类自定义镜来创建I/O优化的实例，请[提交工单](https://workorder.console.aliyun.com/#/ticket/list/)申请（提交工单时，需指定镜像名称）。
+部分自定义镜像不支持创建I/O优化的实例。如果想要使用这类自定义镜来创建I/O优化的实例，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)申请（提交工单时，需指定镜像名称）。
 
 ## 在哪里查看导入镜像的进度？导入镜像需要多少时间？ {#section_o5a_k1v_smp .section}
 
@@ -564,7 +564,7 @@ Linux其他较重要的配置文件如下：
 
 有数据泄露和软件泄露的风险。在共享给其他账号之前，请确认该镜像上是否存在敏感的和安全的重要数据和软件。得到您的共享镜像的账号，可以用这个共享镜像创建ECS实例，还可以用这个ECS实例创建更多自定义镜像，其中的数据会不停传播，造成泄露风险。
 
-## 我能把别人共享给我的镜像再共享给他人吗？ {#section_abm_4qc_ghb .section}
+## 我能把别人共享给我的镜像再共享给其他人吗？ {#section_abm_4qc_ghb .section}
 
 不能。只有镜像的拥有者才能共享给其他账号。
 
@@ -626,7 +626,7 @@ Linux其他较重要的配置文件如下：
 
 ## 镜像市场的镜像有哪些功能？ {#section_8wl_8ju_9pi .section}
 
-镜像市场的镜像在操作系统基础上预装了软件环境和多种功能，如PHP/.NET/JAVA/LAMP等运行环境、控制面板、建站系统等。将镜像与云服务器配套使用,您只需进行一次简单操作，就可快速部署云服务器的运行环境或软件应用,再也不担心上云难了。
+镜像市场的镜像在操作系统基础上预装了软件环境和多种功能，例如PHP/.NET/JAVA/LAMP等运行环境、控制面板、建站系统等。将镜像与云服务器配套使用,您只需进行一次简单操作，就可快速部署云服务器的运行环境或软件应用,再也不担心上云难了。
 
 ## 镜像市场的镜像能带来哪些便利？ {#section_c0p_y2e_36h .section}
 
@@ -732,7 +732,7 @@ Linux其他较重要的配置文件如下：
 
 目前镜像市场的镜像已经具备region属性，请您购买相应地域的镜像。
 
-## 勾选"I/O优化实例"选项导致购买ECS实例时无法选择镜像市场的镜像，为什么？怎么解决？ {#section_tch_39p_cv5 .section}
+## 勾选“I/O优化实例”选项导致购买ECS实例时无法选择镜像市场的镜像，为什么？怎么解决？ {#section_tch_39p_cv5 .section}
 
 有关该问题的分析及解决方案如下：
 
@@ -786,7 +786,7 @@ Linux其他较重要的配置文件如下：
 
 ## 退款时，费用怎么结算？ {#section_hvt_z5c_ghb .section}
 
-如果可以退款，镜像供应商将按照你的实际使用情况退款。
+如果可以退款，镜像供应商将按照您的实际使用情况退款。
 
 ## 预付费镜像能转换为按量付费镜像吗？ {#section_hpg_1vc_ghb .section}
 
@@ -797,7 +797,7 @@ Linux其他较重要的配置文件如下：
 可以。您可以通过ECS实例更换系统盘来更换镜像。更换镜像时有以下几种选择：
 
 -   将其他类别的镜像（如公共镜像、自定义镜像、共享镜像）换成预付费镜像：更换后，系统将按镜像的费用和ECS实例的剩余付费周期计算实际费用。
--   将预付费镜像换成其它类别的镜像（如公共镜像、自定义镜像、共享镜像）：如果供应商允许退款，镜像供应商将按照你的实际使用情况退款。
+-   将预付费镜像换成其它类别的镜像（如公共镜像、自定义镜像、共享镜像）：如果供应商允许退款，镜像供应商将按照您的实际使用情况退款。
 -   将一个预付费镜像（设为镜像A）换成另一个预付费镜像（设为镜像B）：更换后，如果镜像 A 允许退款，将按退款方式结算费用，镜像B将按镜像的价格和ECS实例剩余付费周期计算实际费用。
 
 ## 在哪里查看并管理我购买的预付费镜像？ {#section_fmx_fvc_ghb .section}
@@ -832,7 +832,7 @@ Windows Server 公共镜像默认最多允许2个会话（Session）[远程连�
 
 除Windows Server半年渠道实例以外，Windows操作系统是桌面管理形式。有关如何使用Windows Server半年渠道操作系统，请参见[Windows Server半年渠道镜像与实例管理](intl.zh-CN/镜像/常见问题/Windows Server半年渠道镜像与实例管理.md#)。
 
-Linux 操作系统是命令行形式，您可以根据需要安装图形化桌面，请参见[为Linux实例安装图形化桌面](https://www.alibabacloud.com/help/faq-detail/41227.htm)。
+Linux 操作系统是命令行形式，您可以根据需要安装图形化桌面。
 
 ## 如何选择操作系统？ {#section_wqy_zwc_ghb .section}
 
@@ -954,7 +954,7 @@ Linux 操作系统是命令行形式，您可以根据需要安装图形化桌�
 
             默认使用阿里云`options`配置`options timeout:2 attempts:3 rotate single-request-reopen`。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156471118846335_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156592661546335_zh-CN.png)
 
         -   如果存在`options`配置：
             -   不存在`single-request-reopen`配置，则在`options`配置中追加该项。
