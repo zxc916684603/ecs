@@ -4,7 +4,7 @@ You can use security group rules to control the access to public or internal net
 
 ## Background {#section_bjx_gby_zfb .section}
 
-Security groups control access to or from public or internal networks. For security purposes, most security groups use deny policies for inbound traffic. If you use the default security group, or you select a Web Server Linux template or a Web Server Windows template when creating a security group, security group rules are automatically added to some communication ports. For more information, see [Security group overview](intl.en-US/Security/Security groups/Security group overview.md#). This topic applies to the following scenarios:
+Security groups control access to or from public or internal networks. For security purposes, most security groups use deny policies for inbound traffic. If you use the default security group, or you select a Web Server Linux template or a Web Server Windows template when creating a security group, security group rules are automatically added to some communication ports. For more information, see [Security group overview](reseller.en-US/Security/Security groups/Security group overview.md#). This topic applies to the following scenarios:
 
 -   When your application needs to communicate with the network outside the security group, but the request stays in the wait state, you need to add security group rules first.
 -   When you discover malicious attacks from some request sources during the application operation, add deny security group rules to implement isolation.
@@ -19,19 +19,20 @@ Security groups control access to or from public or internal networks. For secur
 
 -   Before you add any rules to a security group, all outbound traffic is allowed and all inbound traffic is denied.
 -   The total number of inbound and outbound rules for each security group cannot exceed 100.
--   You cannot configure the Priority parameter, set Authorization Type to Security Group, or set Action to Forbid for advanced security group rules. For more information, see [Advanced security group overview](intl.en-US/Security/Security groups/Advanced security group overview.md#).
+-   You cannot configure the Priority parameter, set Authorization Type to Security Group, or set Action to Forbid for advanced security group rules. For more information, see [Advanced security group overview](reseller.en-US/Security/Security groups/Advanced security group overview.md#).
 
 ## Prerequisites {#section_fxy_lwz_xdb .section}
 
--   You have created a security group. For more information, see [Create a security group](intl.en-US/Security/Security groups/Create a security group.md#).
--   You know which internal or public network requests need to be allowed or denied for your instance. For more information about security group rule configuration cases, see [Security group scenarios](../intl.en-US/Security/Security groups/Scenarios.md#).
+-   You have created a security group. For more information, see [Create a security group](reseller.en-US/Security/Security groups/Create a security group.md#).
+-   You know which internal or public network requests need to be allowed or denied for your instance. For more information about security group rule configuration cases, see [Security group scenarios](../reseller.en-US/Security/Security groups/Scenarios.md#).
 
 ## Procedure {#section_trd_pwz_xdb .section}
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com).
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, choose **Network & Security** \> **Security Groups**.
-3.  Locate the security group to which you want to add authorization rules. Click **Add Rules** in the **Actions** column.
-4.  On the Security Group Rules page, select one of the following methods to add rules:
+3.  In the top navigation bar, select a region.
+4.  Locate the security group to which you want to add authorization rules. Click **Add Rules** in the **Actions** column.
+5.  On the Security Group Rules page, select one of the following methods to add rules:
     -   1. **Quick Rule Creation**. It can be used when ICMP and GRE are not required and you can select multiple ports. On the **Quick Rule Creation** page, the following application ports are provided: SSH 22, Telnet 23, HTTP 80, HTTPS 443, MS SQL 1433, Oracle 1521, MySQL 3306, RDP 3389, PostgreSQL 5432, and Redis 6379. You can select one or more ports, or customize TCP or UDP ports.
 
         For more information about the parameters such as **NIC**, **Rule Direction**, and **Port Range** on the **Quick Rule Creation** page, see **Add Security Group Rule**.
@@ -42,14 +43,14 @@ Security groups control access to or from public or internal networks. For secur
             -   **Internal Network**: You do not want your ECS instance to access the public network, or public network access is not required.
             -   **Internet**: Your ECS instance needs to access the public network, or provide applications to the public network.
         3.  Select **Rule Direction**.
-            -   **Egress**: Your ECS instances access other ECS instances in the internal network or resources in the public network.
-            -   **Ingress**: Other ECS instances in the internal network or resources in the public network access your ECS instances.
+            -   **Outbound**: Your ECS instances access other ECS instances in the internal network or resources in the public network.
+            -   **Inbound**: Other ECS instances in the internal network or resources in the public network access your ECS instances.
         4.  Select **Action**.
             -   **Allow**: allows access requests on the port.
             -   **Forbid**: Data packets are discarded and no messages are returned. If two security groups have the same rules but different authorization policies, **Forbid** policies are used while **Allow** policies are ignored.
         5.  Select **Protocol Type** and **Port Range**.
 
-            The port range is based on the protocol type. The following table describes the relationship between **Protocol Type** and **Port Range**. For more information about common ports, see [Typical applications of commonly used ports](intl.en-US/Security/Security groups/Typical applications of commonly used ports.md#).
+            The port range is based on the protocol type. The following table describes the relationship between **Protocol Type** and **Port Range**. For more information about common ports, see [Typical applications of commonly used ports](reseller.en-US/Security/Security groups/Typical applications of commonly used ports.md#).
 
             |Protocol type|Port range|Scenario|
             |:------------|:---------|:-------|
@@ -60,18 +61,18 @@ Security groups control access to or from public or internal networks. For secur
 
  |It can be used to allow or deny one or several successive ports.|
             |Customized UDP|
-            |SSH|22/22|It is used to connect to a Linux instance remotely. After connecting to the ECS instance, you can modify the port number. For more information, see [Modify the default remote access port](../intl.en-US/Best Practices/Security/Modify the default remote access port.md#).|
+            |SSH|22/22|It is used to connect to a Linux instance remotely. After connecting to the ECS instance, you can modify the port number. For more information, see [Modify the default remote access port](../reseller.en-US/Best Practices/Security/Modify the default remote access port.md#).|
             |Telnet|23/23|It is used to connect to an instance remotely.|
             |HTTP|80/80|It is used when an instance serves as a website or Web application server.|
             |HTTPS|443/443|It is used when an instance serves as a website or Web application server that supports the HTTPS protocol.|
             |MS SQL|1433/1433|It is used when an instance serves as an MS SQL server.|
             |Oracle|1521/1521|It is used when an instance serves as an Oracle SQL server.|
             |MySQL|3306/3306|It is used when an instance serves as a MySQL server.|
-            |RDP|3389/3389|It is used to connect to a Windows instance remotely. After connecting to the ECS instance, you can modify the port number. For more information, see [Modify the default remote access port](../intl.en-US/Best Practices/Security/Modify the default remote access port.md#).|
+            |RDP|3389/3389|It is used to connect to a Windows instance remotely. After connecting to the ECS instance, you can modify the port number. For more information, see [Modify the default remote access port](../reseller.en-US/Best Practices/Security/Modify the default remote access port.md#).|
             |PostgreSQL|5432/5432|It is used when an instance serves as a PostgreSQL server.|
             |Redis|6379/6379|It is used when an instance serves as a Redis server.|
 
-            **Note:** The default STMP port for outbound Internet traffic is port 25, which is disabled by default. It cannot be enabled by security group rules. If you need to use STMP port 25, take proper measures to avoid security risks and then [apply for enabling STMP port 25](https://www.alibabacloud.com/help/doc-detail/56130.htm).
+            **Note:** The default STMP port for outbound Internet traffic is port 25, which is disabled by default. It cannot be enabled by security group rules. If you need to use STMP port 25, take proper measures to avoid security risks and then [apply for enabling STMP port 25](https://partners-intl.aliyun.com/help/doc-detail/56130.htm).
 
         6.  Select **Authorization Type** and **Authorization Objects**.
 
@@ -93,7 +94,7 @@ Security groups control access to or from public or internal networks. For secur
 
         7.  Specify a value for **Priority**. Valid values: 1 to 100.
 
-            **Note:** The smaller the number, the higher the priority. You can set priority values only for basic security groups, but not for advanced security groups. For more information, see [Security group overview](intl.en-US/Security/Security groups/Security group overview.md#section_mgh_wv1_wgb).
+            **Note:** The smaller the number, the higher the priority. You can set priority values only for basic security groups, but not for advanced security groups. For more information, see [Security group overview](reseller.en-US/Security/Security groups/Security group overview.md#section_mgh_wv1_wgb).
 
         8.  Click **OK**.
 
@@ -103,10 +104,10 @@ Click the refresh icon to confirm that the security group rule is added. Changes
 
 ## Related APIs {#section_vrl_q2c_3gb .section}
 
--   Call [AuthorizeSecurityGroup](../intl.en-US/API Reference/Security groups/AuthorizeSecurityGroup.md#) to add an inbound security group rule.
--   Call [AuthorizeSecurityGroupEgress](../intl.en-US/API Reference/Security groups/AuthorizeSecurityGroupEgress.md#) to add an outbound security group rule.
+-   Call [AuthorizeSecurityGroup](../reseller.en-US/API Reference/Security groups/AuthorizeSecurityGroup.md#) to add an inbound security group rule.
+-   Call [AuthorizeSecurityGroupEgress](../reseller.en-US/API Reference/Security groups/AuthorizeSecurityGroupEgress.md#) to add an outbound security group rule.
 
 ## Next operations {#section_pql_d11_ydb .section}
 
-An ECS instance must belong to one or more security groups. You can [add an instance to one or more security groups](intl.en-US/Security/Security groups/Add an ECS instances to a security group.md#) based on your business needs.
+An ECS instance must belong to one or more security groups. You can [add an instance to one or more security groups](reseller.en-US/Security/Security groups/Add an ECS instances to a security group.md#) based on your business needs.
 
