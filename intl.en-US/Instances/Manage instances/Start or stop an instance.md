@@ -21,7 +21,7 @@ After the instance is started, it enters the **Running** state.
 
 You can also start an instance by calling the [StartInstance](../reseller.en-US/API Reference/Instances/StartInstance.md#) API action through the Alibaba Cloud CLI, OpenAPI Explorer, or Alibaba Cloud SDK.
 
-## Stop an instance {#section_fdq_nsl_xdb .section}
+## Stop a Subscription instance {#section_fdq_nsl_xdb .section}
 
 **Note:** Stopping an instance disrupts services. Exercise caution when performing this action.
 
@@ -68,7 +68,7 @@ To stop a Pay-As-You-Go instance, follow these steps:
         4.  Click **OK**.
         **Note:** To disable the **No Fees for Stopped Instances \(VPC-Connected\)** feature, see [No fees for stopped VPC instances](../reseller.en-US/Pricing/No fees for stopped VPC instances.md#).
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9648/15659431075448_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9648/15659440425448_en-US.png)
 
 
 The instance is in the **Stopped** state after you stop it.
