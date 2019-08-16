@@ -2,7 +2,7 @@
 
 This topic describes how to create a custom image by using a snapshot. A custom image typically contains the operating system and data environment of an ECS instance that you can use to create multiple, identical ECS instances. You can also change the configurations of ECS instances created by a custom image as needed.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/15659361864584_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/15659363444584_en-US.png)
 
 You can also use an instance to create an image. For more information, see [Create a custom image by using an instance](reseller.en-US/Images/Custom image/Create custom image/Create a custom image by using an instance.md#).
 
@@ -39,12 +39,12 @@ Before you proceed, note the following:
         -   If a data disk snapshot is selected, the disk size is the same as the snapshot size.
         -   We recommend that you remove sensitive data from the data disk before creating a custom image to guarantee data security.
     -   \(Optional\) Attach tags to custom images for classification. For more information, see [Tags](../reseller.en-US/Tags & Resource Management /Tags/Limits.md#).
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/156593618741259_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/156593634441259_en-US.png)
 
 
 You can also choose **Storage & Snapshots** \> **Snapshots**, and select a snapshot whose **Disk Type** is **System Disk** to create a custom image.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/15659361874593_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9696/15659363444593_en-US.png)
 
 ## What to do next {#section_rwd_lcm_xdb .section}
 
