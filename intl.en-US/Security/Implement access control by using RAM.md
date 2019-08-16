@@ -1,51 +1,56 @@
 # Implement access control by using RAM {#concept_stg_4pd_zdb .concept}
 
-This topic describes how to control access to ECS instances at the account level by using Resource Access Management \(RAM\). Specifically, this topic describes how to create a RAM user and how to create policies to grant specific permissions to one or more RAM users and RAM user groups.
+This topic describes how to use Resource Access Management \(RAM\) to control access to ECS resources at the account level.
 
-## Background information {#section_hlx_szr_lgb .section}
+## Scenarios {#section_hlx_szr_lgb .section}
 
-RAM is a resource access control service provided by Alibaba Cloud. For more information, see [What is RAM?](../../../../reseller.en-US/Product Introduction/What is RAM?.md). The following describes how RAM is applied to RAM users and RAM user groups to achieve access control:
+RAM is a resource access control service provided by Alibaba Cloud. For more information, see [What is RAM?](../../../../intl.en-US/Product Introduction/What is RAM?.md). The following section describes how RAM is used to implement access control:
 
--   **RAM users**: If you have purchased one or more ECS instances, and multiple RAM users in your organization \(such as employees, systems, or applications\) need to access the instances, you can create a policy that only grants specific RAM users access to those instances. This application of RAM for access control means you do not need to disclose the AccessKey of your Alibaba Cloud account, which helps maintain account security.
--   **RAM user groups**: You can create multiple user groups and grant different permissions to these user groups so that all RAM users in each user group are applied with the same permissions at the same time. For example:
-    -   You can associate a user group with a policy that denies access to the target ECS resources if IP addresses from that user group are not from within your corporate network.
-    -   You can add and remove RAM users to and from different user groups when the access control requirements of a RAM user changes. For example, you have two user groups, SysAdmins and Developers, that are applied with specific permissions for system administrators and developers, respectively. If a RAM user who is a developer becomes a system administrator, you can move the target RAM user from the Developers group to the SysAdmins group. Details of the two user groups are as follows:
-        -   SysAdmins: This user group requires permissions to create and manage ECS instances. Therefore, you can associate the SysAdmins group with a policy that allows its group members to perform all ECS operations, including the creation and management of ECS instances, images, snapshots, and security groups.
-        -   Developers: This user group requires permissions to operate on ECS instances, but not create instances. Therefore, you can associate the Developers group with a policy that allows its group members to call DescribeInstances, StartInstance, StopInstance, RunInstance, and DeleteInstance.
+-   **RAM users**: If you have purchased one or more ECS instances and multiple RAM users in your organization \(such as employees, systems, or applications\) need to access the instances, you can create an authorization policy that only grants specific RAM users access to these instances. This eliminates the risk of disclosing the AccessKey of your Alibaba Cloud account, which helps maintain account security.
+-   **RAM user groups**: You can create multiple user groups and grant different permissions to these user groups so that all RAM users in each user group are assigned the same permissions at the same time. For example:
+    -   You can associate a user group with an authorization policy which denies access to specific ECS resources from IP addresses that are outside your corporate network.
+    -   You can add and remove a RAM user to and from different user groups when the access control requirements of this RAM user change. For example, you have two user groups, SysAdmins and Developers, which grant different permissions for system administrators and developers.
+        -   SysAdmins: This user group needs permissions to create and manage ECS instances. Therefore, you can associate the SysAdmins group with an authorization policy that allows its group members to perform all ECS operations, including the creation and management of ECS instances, images, snapshots, and security groups.
+        -   Developers: This user group only needs permissions to use ECS instances. Therefore, you can associate the Developers group with an authorization policy that allows its group members to call the DescribeInstances, StartInstance, StopInstance, RunInstance, and DeleteInstance operations.
 
-## Authorization policy {#section_vng_gv0_sch .section}
+## Authorization policies {#section_vng_gv0_sch .section}
 
-Authorization policies are categorized as either a **System Policy** or **Custom Policy**.
+Authorization policies are categorized into **System Policy** and **Custom Policy**.
 
--   **System Policy**: Alibaba Cloud provides a variety of default authorization policies. Some commonly-used system policies for ECS instances are as follows:
-    -   AliyunECSReadOnlyAccess: Grants read-only access.
-    -   AliyunECSFullAccess: Grants full administrative access.
-    -   AliyunECSImageImportDefaultRole: Grants permission to [import a custom image](../../../../reseller.en-US/Images/Custom image/Import images/Import custom images.md#).
-    -   AliyunECSImageExportDefaultRole: Grants permission to [export a custom image](../../../../reseller.en-US/Images/Custom image/Export custom images.md#).
-    -   AliyunECSNetworkInterfaceManagementAccess: Grants permission to manage [Elastic Network Interfaces \(ENIs\)](../../../../reseller.en-US/Network/Elastic Network Interfaces/ENI overview.md#).
--   **Custom Policy**: A user-generated policy. This policy type is suitable to users who are familiar with various Alibaba Cloud APIs and require fine-grained access control. For more information, see [Step 2](#).
+-   **System Policy**: the default authorization policies provided by Alibaba Cloud. Some commonly used system policies for ECS instances are as follows:
+    -   AliyunECSReadOnlyAccess: grants read-only access to ECS instances.
+    -   AliyunECSFullAccess: grants full administrative access to ECS instances.
+    -   AliyunECSImageImportDefaultRole: grants the permission to [import custom images](../../../../intl.en-US/Images/Custom image/Import images/Import custom images.md#).
+    -   AliyunECSImageExportDefaultRole: grants the permission to [export custom images](../../../../intl.en-US/Images/Custom image/Export custom images.md#).
+    -   AliyunECSNetworkInterfaceManagementAccess: grants the permission to manage [ENIs](../../../../intl.en-US/Network/Elastic Network Interfaces/ENI overview.md#).
+-   **Custom Policy**: the user-defined authorization policies. This policy type is suitable for users who are familiar with various Alibaba Cloud APIs and require fine-grained access control. For more information, see [Step 2](#).
 
 ## Step 1: Create a RAM user {#section_93p_xwm_1f5 .section}
 
-1.  Log on to the [RAM console](https://partners-intl.console.aliyun.com/#/ram).
-2.  In the left-side navigation pane, click **Users**.
-3.  Click **Create User**.
+Follow this procedure to create a RAM user:
 
-    **Note:** For detailed information about how to create a RAM user, see [RAM users](../../../../reseller.en-US/User Guide/Identity management/User management/RAM users.md#).
+1.  Log on to the [RAM console](https://ram.console.aliyun.com/policies/new).
+2.  In the left-side navigation pane, choose **Identities** \> **Users**.
+3.  On the Users page, click **Create User**. *For more information about how to create a RAM user, see* [Create a RAM user](../../../../intl.en-US/User Guide/RAM users/Create a RAM user.md#) in the RAM documentation.
 
+## \(Optional\) Step 2: Create a custom authorization policy {#section_vjv_nz8_x3h .section}
 
-## \(Optional\) Step 2: Create a custom policy {#section_vjv_nz8_x3h .section}
+Follow this procedure to create a custom authorization policy:
 
-1.  In the left-side navigation pane, click **Policies**.
-2.  Create **Create Authorization Policy**.
-3.  Enter an **Authorization Policy Name** and **Description**.
-4.  Enter the parameters for the **Policy Content** according to the JSON template.
+1.  In the left-side navigation pane, choose **Permissions** \> **Policies**.
+2.  On the Policies page, click **Create Policy**.
+3.  On the Create Custom Policy page, set **Policy Name** and **Note**. For example, set Policy Name to createEcs and Note to Permission to create ECS resources.
+4.  Select **Script** for Configuration Mode.
 
-    **Note:** For information about the values of the Action and Resource parameters, see [Authentication rules](../../../../reseller.en-US/API Reference/Authentication rules.md#). For information about the values of other parameters, see [Policy elements](../../../../reseller.en-US/User Guide/Permission management/Policy language/Policy elements.md#).
+    **Note:** You can also select **Visualized** for Configuration Mode to complete the policy settings without referring to [Authentication rules](../../../../intl.en-US/API Reference/Authentication rules.md#).
 
-    -   Example policy 1: Allow a RAM user to create Pay-As-You-Go instances.
+5.  Set the parameters in the **Policy Document** section based on the JSON template.
 
-        ``` {#codeblock_k5g_597_yr2}
+    For the values of the Action and Resource parameters, see [Authentication rules](../../../../intl.en-US/API Reference/Authentication rules.md#). *For the values of other parameters, see* [Policy elements](../../../../intl.en-US/User Guide/Policies/Policy language/Policy elements.md#) in the RAM documentation.
+
+    -   Example policy 1: Allow a RAM user to create pay-as-you-go instances.
+
+        ``` {#codeblock_2dl_2rw_333}
         {
             "Statement": [
                 {
@@ -59,16 +64,16 @@ Authorization policies are categorized as either a **System Policy** or **Custom
                           "ecs:DescribeTags", 
                           "ecs:RunInstances"
                   ],
-                    "Resource": ""
+                    "Resource": "*"
                 }
             ],
             "Version": "1"
         }
         ```
 
-    -   Example policy 2: Allow a RAM user to create Subscription instances. Note that bss related APIs are mainly used to view and pay Subscription orders, and the corresponding system policy is `AliyunBSSOrderAccess`.
+    -   Example policy 2: Allow a RAM user to create subscription instances. Note that bss related operations are used to view and pay subscription orders, and the corresponding system policy is `AliyunBSSOrderAccess`.
 
-        ``` {#codeblock_fdz_hyt_tnc}
+        ``` {#codeblock_alp_hks_kfy}
         {
             "Statement": [
                 {
@@ -81,42 +86,44 @@ Authorization policies are categorized as either a **System Policy** or **Custom
                           "ecs:DescribeKeyPairs",
                           "ecs:DescribeTags", 
                           "ecs:RunInstances",
-                                "bss:DescribeOrderList",
-                           "bss:DescribeOrderDetail",
-                           "bss:PayOrder",
+                          "bss:DescribeOrderList",
+                          "bss:DescribeOrderDetail",
+                          "bss:PayOrder",
                           "bss:CancelOrder"
                   ],
-                    "Resource": ""
+                    "Resource": "*"
                 }
             ],
             "Version": "1"
         }
         ```
 
-    -   Example policy 3: Allow a RAM user to query instance and disk information after creating an ECS instance.
+    -   Example policy 3: Allow a RAM user to query instance and disk information after the RAM user creates an ECS instance.
 
-        ``` {#codeblock_k6k_nob_qgz}
+        ``` {#codeblock_ndb_jdu_67h}
         {
             "Statement": [
                 {
                     "Effect": "Allow",
                     "Action": [
                             "ecs:DescribeInstances", 
-                          "ecs:DescribeDisks"
+                            "ecs:DescribeDisks"
                   ],
-                    "Resource": ""
+                    "Resource": "*"
                 }
             ],
             "Version": "1"
         }
         ```
 
-5.  Click **Create Authorization Policy**.
+6.  Click **OK**.
 
-## Step 3: Authorize a RAM user {#section_u2f_nxl_87g .section}
+## Step 3: Authorize the RAM user {#section_u2f_nxl_87g .section}
 
-1.  In the left-side navigation pane, click **Users**.
-2.  Find the RAM user created in step 1 and then, in the **Actions** column, select **Authorize**.
-3.  In **Available Authorization Policy Names** area, select one or more system or custom policies.
+Follow this procedure to authorize the RAM user:
+
+1.  In the left-side navigation pane, choose **Identities** \> **Users**.
+2.  On the Users page, find the RAM user created in step 1. Then in the **Actions** column, click **Add Permissions**.
+3.  In the **Select Policy** section of the Add Permissions pane, select one or more system policies or custom policies to associate with the RAM user.
 4.  Click **OK**.
 
