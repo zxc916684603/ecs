@@ -34,6 +34,8 @@
     -   [什么是广域网和局域网？](#)
     -   [如何表示子网掩码？](#)
     -   [如何划分子网？](#)
+-   限额问题
+    -   [如何查看资源的限额？](#)
 
 ## 什么是云服务器ECS的入网带宽和出网带宽？ {#section_pv3_qbl_qgb .section}
 
@@ -154,7 +156,7 @@
 2.  选择云产品，找到您想要取消的正在清洗中的IP，单击**查看详情**。
 3.  单击**取消清洗**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10166/156583883150257_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10166/156620907350257_zh-CN.png)
 
 
 ## 怎么申请云服务器ECS反向解析？ {#section_24x_y33_pml .section}
@@ -189,7 +191,7 @@ dig -x 121.196.255.** +trace +nodnssec
 -   如果您的实例创建后已经超过六小时，不会显示**更换公网IP**选项。
 -   如果您为您的账号设置了**VPC内实例停机不收费**模式，请务必在停止实例时勾选**停止后仍旧保留实例并继续收费**，避免公网IP地址被暂时性释放。更多详情，请参见[按量付费实例停机不收费](../cn.zh-CN/产品定价/按量付费实例停机不收费.md#)。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9656/156583883244752_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9656/156620907444752_zh-CN.jpg)
 
 
 ## 除了更换公网IP地址？我还可以更换私网IP地址吗？ {#section_q67_0xd_eps .section}
@@ -231,4 +233,8 @@ BGP（边界网关协议）主要用于互联网AS（自治系统）之间的互
 ## 如何划分子网？ {#section_g8p_l4s_2e8 .section}
 
 子网划分的最佳实践，请参见[网络规划](https://help.aliyun.com/document_detail/54095.html)。
+
+## 如何查看资源的限额？ {#section_ubf_rd5_utp .section}
+
+查看资源的使用限制和限额，请参见[使用限制](../cn.zh-CN/产品简介/使用限制.md#)。
 
