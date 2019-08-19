@@ -10,7 +10,7 @@ If a system event occurs, ECS will send you a notification, information about th
 
 ## Limits {#section_nnp_5yz_xdb .section}
 
-Phased-out instance type families, such as sn1, sn2, t1, s1, s2, s3, m1, m2, c1, c2, c4, ce4, cm4, n1, n2, and e3, do not support system events. For more information, see [Instance type families](../intl.en-US/Instances/Instance type families.md#).
+Phased-out instance type families, such as sn1, sn2, t1, s1, s2, s3, m1, m2, c1, c2, c4, ce4, cm4, n1, n2, and e3, do not support system events. For more information, see [Instance type families](../reseller.en-US/Instances/Instance type families.md#).
 
 ## System event types {#section_onp_5yz_xdb .section}
 
@@ -49,7 +49,7 @@ System events observe the following two periods:
 
 -   **System action period**: If you do not handle a system event in advance, the system event will be automatically fixed within 6 hours after the system action period begins at a scheduled time. After that, you will receive a system event report.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9748/15659438413942_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9748/15661973933942_en-US.png)
 
     **Note:** Only scheduled system events have a user operation period. Unexpected system events that are caused by emergency failures or invalid operations do not have a user operation period. If an unexpected system event occurs, you will receive a notification, but you cannot take any actions. You can only query the historical system events for fault diagnosis and data recovery.
 
@@ -60,14 +60,14 @@ System events observe the following two periods:
 
 If a system event is scheduled, the **Unsettled Events** button in the ECS console will display a notification badge with the current number of unsettled events.
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/).
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, select **Overview**.
 3.  In the **Common Settings** area, click **Unsettled Events**.
 4.  Click the **Scheduled system event** button. A list of instance IDs, regions, statuses, event types, and recommended actions is displayed on the page. Alternatively, you can choose recommended actions from the **Actions** column to handle system events.
 
  **Procedure \(through an API\)** 
 
-In this example, Alibaba Cloud CLI is used as the tool to call the API. For more information, see [Quick start for ECS APIs](../intl.en-US/API Reference/Quick start for ECS APIs.md#).
+In this example, Alibaba Cloud CLI is used as the tool to call the API. For more information, see [Quick start for ECS APIs](../reseller.en-US/API Reference/Quick start for ECS APIs.md#).
 
 1.  Obtain the instance ID.
 
@@ -75,7 +75,7 @@ In this example, Alibaba Cloud CLI is used as the tool to call the API. For more
     aliyun ecs DescribeInstances --RegionId <TheRegionId> --output cols=InstanceId,InstanceName
     ```
 
-2.  Call [DescribeInstancesFullStatus](../intl.en-US/API Reference/System event/DescribeInstancesFullStatus.md) to view the system events of the instance.
+2.  Call [DescribeInstancesFullStatus](../reseller.en-US/API Reference/System event/DescribeInstancesFullStatus.md) to view the system events of the instance.
 
     ``` {#codeblock_tzo_mr0_ct8}
     aliyun ecs DescribeInstancesFullStatus --RegionId <TheRegionId> --InstanceId.1 <YourInstanceId> --output cols=EventId,EventTypeName
@@ -84,22 +84,22 @@ In this example, Alibaba Cloud CLI is used as the tool to call the API. For more
 
 **Procedure \(through instance metadata\)**
 
-For more information, see [Metadata](../intl.en-US/Instances/Manage instances/User-defined data and metadata/Metadata.md#).
+For more information, see [Metadata](../reseller.en-US/Instances/Manage instances/User-defined data and metadata/Metadata.md#).
 
 ## Modify the scheduled restart time {#section_pm0_mh9_f9l .section}
 
 In the ECS console, you can modify the execution time of system events or manually restart the instance before the user operation period. These operations only apply to system events that have a scheduled restart, for example, an instance is restarted due to system maintenance. To modify the scheduled restart time, follow these steps:
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/).
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, click **Overview**.
-3.  In the **Common Settings** area on the **Overview** page, click **Pending Tasks**.
+3.  In the **Common Settings** area on the **Overview** page, click **Pending Events**.
 4.  On the System Tasks tab page, select the target region.
 5.  Locate the instance that has a scheduled restart, and then click **Schedule Restart** in the **Actions** column.
 6.  In the displayed Scheduled Restart Time dialog box, set the **Scheduled Date** and the **Scheduled Time**.
 
     **Note:** The scheduled restarted time cannot be later than the **Latest Schedule Time**, which is 30 minutes earlier than the time displayed in the **Executed At** column.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9748/156594384244902_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9748/156619739344902_en-US.png)
 
 7.  Click **OK**.
 
@@ -109,7 +109,7 @@ You can query the historical system events of the past seven days for fault diag
 
 **Procedure \(through the console\)**
 
-1.  Log on to the [ECS console](https://ecs.console.aliyun.com/).
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  On the left-side navigation pane, click **Overview**.
 3.  In the **Common Settings** area, click **Unsettled Events**.
 4.  In the left-side navigation pane, click **All events**, and then choose **Scheduled system events** \> **Instances**. A list of instance IDs, event types, and task statuses is displayed.
@@ -122,7 +122,7 @@ You can query the historical system events of the past seven days for fault diag
     aliyun ecs DescribeInstances --RegionId <TheRegionId> --output cols=InstanceId,InstanceName
     ```
 
-2.  Call [DescribeInstanceHistoryEvents](../intl.en-US/API Reference/System event/DescribeInstanceHistoryEvents.md#) to view the system events of the instance.
+2.  Call [DescribeInstanceHistoryEvents](../reseller.en-US/API Reference/System event/DescribeInstanceHistoryEvents.md#) to view the system events of the instance.
 
     ``` {#codeblock_abc_0ju_yot}
     aliyun ecs DescribeInstanceHistoryEvents --RegionId <TheRegionId> --InstanceId.1 <YourInstanceId> --output cols=EventId,EventTypeName
@@ -131,7 +131,7 @@ You can query the historical system events of the past seven days for fault diag
 
 ## Subscribe to event notifications {#Subscribe .section}
 
-You can set alarm rules for all system events by using CloudMonitor so that you can receive notifications when a system event occurs. For more information, see [Cloud product system event monitoring](../../../../../intl.en-US/User Guide/Event monitoring/Cloud product events/View cloud service events.md#).
+You can set alarm rules for all system events by using CloudMonitor so that you can receive notifications when a system event occurs. For more information, see [Cloud product system event monitoring](../../../../../reseller.en-US/User Guide/Event monitoring/Cloud product events/View cloud service events.md#).
 
 ## Handling suggestions {#section_e2q_3zz_xdb .section}
 
@@ -139,30 +139,30 @@ You can handle system events by using the ECS console or using the corresponding
 
 |Event type|Impact on the instance|Recommended action|
 |:---------|:---------------------|:-----------------|
-|An instance is restarted due to system maintenance.|The instance will be restarted at the scheduled maintenance time.|Use either of the following methods within the user operation period: -   [Restart the instance](intl.en-US/Instances/Manage instances/Restart an instance.md#) or [Modify the scheduled restart time](#section_pm0_mh9_f9l) in the ECS console.
+|An instance is restarted due to system maintenance.|The instance will be restarted at the scheduled maintenance time.|Use either of the following methods within the user operation period: -   [Restart the instance](reseller.en-US/Instances/Manage instances/Restart an instance.md#) or [Modify the scheduled restart time](#section_pm0_mh9_f9l) in the ECS console.
 
--   Call the API [RebootInstance](../intl.en-US/API Reference/Instances/RebootInstance.md).
+-   Call the API [RebootInstance](../reseller.en-US/API Reference/Instances/RebootInstance.md).
 
 **Note:** Restarting instances in the runtime environment cannot handle system events.
 
--   Redistribute traffic, or remove ECS instances that are scheduled for maintenance from [SLB instances](../../../../../intl.en-US/Product Introduction/What is Server Load Balancer?.md#).
+-   Redistribute traffic, or remove ECS instances that are scheduled for maintenance from [SLB instances](../../../../../reseller.en-US/Product Introduction/What is Server Load Balancer?.md#).
 
- To back up your data, we recommend that you [create a snapshot](intl.en-US/Snapshots/Use snapshots/Create a snapshot.md#) \([CreateSnapshot](../intl.en-US/API Reference/Snapshots/CreateSnapshot.md)\) for the disk where your instance is mounted.|
+ To back up your data, we recommend that you [create a snapshot](reseller.en-US/Snapshots/Use snapshots/Create a snapshot.md#) \([CreateSnapshot](../reseller.en-US/API Reference/Snapshots/CreateSnapshot.md)\) for the disk where your instance is mounted.|
 |An instance is restarted due to an unexpected system failure.|The instance will be restarted if an unexpected host failure occurs.|When you receive the event notification, your instance is being restarted or has been restarted. We recommend that you: -   Verify that the instance and applications are restored.
--   [Subscribe to event notifications](intl.en-US/Deployment & Maintenance/System events/System events.md#) through SMS or MNS to dynamically switch over the traffic to balance the load and replace the faulty instance.
+-   [Subscribe to event notifications](reseller.en-US/Deployment & Maintenance/System events/System events.md#) through SMS or MNS to dynamically switch over the traffic to balance the load and replace the faulty instance.
 
  |
-|An instance is restarted due to an unexpected instance error.|The instance will be restarted if the OS fails.|When you receive the event notification, your instance is being restarted or has been restarted. We recommend that you: -   Check the [Console output and screenshot](intl.en-US/Deployment & Maintenance/Troubleshoot operation errors/Console output and screenshot.md#) to determine the cause of OS failure.
+|An instance is restarted due to an unexpected instance error.|The instance will be restarted if the OS fails.|When you receive the event notification, your instance is being restarted or has been restarted. We recommend that you: -   Check the [Console output and screenshot](reseller.en-US/Deployment & Maintenance/Troubleshoot operation errors/Console output and screenshot.md#) to determine the cause of OS failure.
 
 -   Verify that the instance and applications are restored.
 
 
  |
-|A Subscription instance is stopped due to expiration.|The Subscription instance resources will be stopped.|[Renew the instance](../intl.en-US/Pricing/Renew instances/Renewal overview.md#) or wait for the instance to be stopped.|
+|A Subscription instance is stopped due to expiration.|The Subscription instance resources will be stopped.|[Renew the instance](../reseller.en-US/Pricing/Renew instances/Renewal overview.md#) or wait for the instance to be stopped.|
 |A Pay-As-You-Go instance is stopped due to overdue payment.|The Pay-As-You-Go instance resources will be stopped.| Add funds to your account or wait for the instance to be stopped.
 
  |
-|A Subscription instance is released due to expiration.|The Subscription instance resources will be released.|[Renew the instance](../intl.en-US/Pricing/Renew instances/Renewal overview.md#) or wait for the instance to be released.|
+|A Subscription instance is released due to expiration.|The Subscription instance resources will be released.|[Renew the instance](../reseller.en-US/Pricing/Renew instances/Renewal overview.md#) or wait for the instance to be released.|
 |A Pay-As-You-Go instance is released due to overdue payment.|The Pay-As-You-Go instance resources will be released.| Add funds to your account or wait for the instance to be released.
 
  |
