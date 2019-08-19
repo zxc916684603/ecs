@@ -4,9 +4,9 @@ This topic describes the request structure in GET requests and provides the endp
 
 ## Structure example {#section_htp_xvb_wdb .section}
 
-The following example is an unencoded URL request of [CreateSnapshot](intl.en-US/API Reference/Snapshots/CreateSnapshot.md#).
+The following example is an unencoded URL request of [CreateSnapshot](intl.en-US/API Reference/Snapshots/CreateSnapshot.md#).
 
-```
+``` {#codeblock_arf_c6f_sxr}
 https://ecs.aliyuncs.com/?Action=CreateSnapshot
 &DiskId=d-28m5zbua0
 &<Common request parameters>
@@ -16,7 +16,7 @@ https://ecs.aliyuncs.com/?Action=CreateSnapshot
 
 -   `ecs.aliyuncs.com` is an ECS service endpoint.
 
--   `Action=CreateSnapshot` indicates the target API, and `DiskId=`d-28m5zbua0`` is one of the [CreateSnapshot](intl.en-US/API Reference/Snapshots/CreateSnapshot.md#) parameters.
+-   `Action=CreateSnapshot` indicates the target API, and `DiskId=`d-28m5zbua0`` is one of the [CreateSnapshot](intl.en-US/API Reference/Snapshots/CreateSnapshot.md#) parameters.
 
 -   `<Common request parameters>` are the common parameters of the system.
 
@@ -34,25 +34,27 @@ The following table describes the API service access endpoints of ECS. To reduce
 |Region \(Location\)|Endpoint|
 |:------------------|:-------|
 |Default|ecs.aliyuncs.com|
-|China North 3 \(Zhangjiakou\)|ecs.cn-zhangjiakou.aliyuncs.com|
-|China North 5 \(Hohhot\)|ecs.cn-huhehaote.aliyuncs.com|
-|Asia Pacific NE 1 \(Tokyo\)|ecs.ap-northeast-1.aliyuncs.com|
-|Asia Pacific SE 2 \(Sydney\)|ecs.ap-southeast-2.aliyuncs.com|
-|Asia Pacific SE 3 \(Kuala Lumpur\)|ecs.ap-southeast-3.aliyuncs.com|
-|Asia Pacific SE 5 \(Jakarta\)|ecs.ap-southeast-5.aliyuncs.com|
-|Asia Pacific SOU 1 \(Mumbai\) |ecs.ap-south-1.aliyuncs.com|
-|Middle East 1 \(Dubai\)|ecs.me-east-1.aliyuncs.com|
-|Germany 1 \(Frankfurt\)|ecs.eu-central-1.aliyuncs.com|
+|China \(Zhangjiakou\)|ecs.cn-zhangjiakou.aliyuncs.com|
+|China \(Hohhot\)|ecs.cn-huhehaote.aliyuncs.com|
+|Japan \(Tokyo\)|ecs.ap-northeast-1.aliyuncs.com|
+|Australia \(Sydney\)|ecs.ap-southeast-2.aliyuncs.com|
+|Malaysia \(Kuala Lumpur\)|ecs.ap-southeast-3.aliyuncs.com|
+|Indonesia \(Jakarta\)|ecs.ap-southeast-5.aliyuncs.com|
+|India \(Mumbai\)|ecs.ap-south-1.aliyuncs.com|
+|UAE \(Dubai\)|ecs.me-east-1.aliyuncs.com|
+|Germany \(Frankfurt\)|ecs.eu-central-1.aliyuncs.com|
 |UK \(London\)|ecs.eu-west-1.aliyuncs.com|
 
 The endpoints in the following table are accelerated through the virtual network and Express Connect. This reduces network latency that results from communication across different countries or regions.
 
 |Region \(Location\)|Endpoint|
 |:------------------|:-------|
-|Default \(**US West 1** Silicon Valley\)|ecs.us-west-1.aliyuncs.com|
-|Default \(US East 1 Virginia\)|ecs.us-east-1.aliyuncs.com|
-|Default \(Hong Kong\)|ecs.cn-hongkong.aliyuncs.com|
-|Default \(Asia Pacific SE 1 Singapore\)|ecs.ap-southeast-1.aliyuncs.com|
+|Default \(US Silicon Valley\)|ecs.us-west-1.aliyuncs.com|
+|Default \(US Virginia\)|ecs.us-east-1.aliyuncs.com|
+|Default \(China Hong Kong\)|ecs.cn-hongkong.aliyuncs.com|
+|Default \(Singapore\)|ecs.ap-southeast-1.aliyuncs.com|
+
+**Note:** The endpoints provided by Alibaba Cloud ECS can be used to send API calls over the Internet through HTTP or HTTPS. However, if your ECS instance is not assigned an Internet bandwidth package or a public IP address, the instance cannot initiate an API action request by using the Alibaba Cloud CLI or corresponding SDK. To resolve this issue, you can use PrivateZone to associate the VPC with the region to which your ECS instance belongs. For information about how to call API actions through an intranet for ECS instances in a VPC that cannot access the Internet, see [Call API actions from within an intranet environment](intl.en-US/API Reference/Appendix/Call API actions from within an intranet environment.md#).
 
 ## Request Parameters {#section_rtp_xvb_wdb .section}
 
