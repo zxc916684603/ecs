@@ -20,21 +20,21 @@ The endpoints provided by Alibaba Cloud ECS can be used to send API calls over t
     |China \(Shenzhen\)|cn-shenzhen|popunify-vpc.cn-shenzhen.aliyuncs.com|ecs.cn-shenzhen.aliyuncs.com|
     |China \(Hohhot\)|cn-huhehaote|popunify-vpc.cn-huhehaote.aliyuncs.com|ecs.cn-huhehaote.aliyuncs.com|
     |China \(Zhangjiakou-Beijing Winter Olympics\)|cn-zhangjiakou|popunify-vpc.cn-zhangjiakou.aliyuncs.com|ecs.cn-zhangjiakou.aliyuncs.com|
-    |Hong Kong|cn-hongkong|popunify-vpc.cn-hongkong.aliyuncs.com|ecs.cn-hongkong.aliyuncs.com|
+    |China \(Hong Kong\)|cn-hongkong|popunify-vpc.cn-hongkong.aliyuncs.com|ecs.cn-hongkong.aliyuncs.com|
     |Singapore|ap-southeast-1|popunify-vpc.ap-southeast-1.aliyuncs.com|ecs.ap-southeast-1.aliyuncs.com|
     |Germany \(Frankfurt\)|eu-central-1|popunify-vpc.eu-central-1.aliyuncs.com|ecs.eu-central-1.aliyuncs.com|
 
 
 ## Procedure {#section_2ju_5zf_3md .section}
 
-1.  Log on to the [Alibaba Cloud DNS console](https://dns.console.aliyun.com/#/dns/domainList).
+1.  Log on to the [Alibaba Cloud DNS console](https://partners-intl.console.aliyun.com/#/dns/domainList).
 2.  In the left-side navigation pane, click **PrivateZone**.
 3.  Click **Add Zone**.
 4.  In the displayed dialog box, set the parameters as needed, and then click **OK**.
 
     -   **Zone Name**: Set an ECS endpoint that supports PrivateZone. In this example, set the zone name to ecs.cn-hangzhou.aliyuncs.com.
     -   **Subdomain recursive resolution proxy**: If you select this option, the name resolved on the Internet is used when DNS detects a domain name with the suffix Zone that is not included in the Zone file.
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156618297346151_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156618484546151_en-US.png)
 
 5.  Locate the created PrivateZone, and then click **Configure** in the **Actions** column.
 6.  On the displayed **Resolution Settings** page, click **Add Record**.
@@ -44,17 +44,17 @@ The endpoints provided by Alibaba Cloud ECS can be used to send API calls over t
     -   **Resource Records**: Enter @ to resolve the @.example.com domain name.
     -   **Record Value**: Set it to the CNAME record value of the corresponding region. For more information, see [Limits](#section_b26_sgt_s1a).
     -   **TTL Value**: The time to live value. In this example, select **1 minute\(s\)**.
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156618297346154_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156618484546154_en-US.png)
 
 8.  Go back to the **PrivateZone** page, locate the created PrivateZone, and then click **Bind VPC** in the **Actions** column.
 9.  In the displayed dialog box, select the region where the PrivateZone is located, select one or more VPCs to which your ECS instance belongs, and then click **OK**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156618297346161_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156618484646161_en-US.png)
 
 
 ## What to do next {#section_mzc_end_wml .section}
 
-After you associate a VPC with your PrivateZone, you can log on to your ECS instance to check whether the instance can access the endpoint of the corresponding region. For more information, see [Connect to an instance by using the Management Terminal](../../../../intl.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to an instance by using the Management Terminal.md#). For example, if the zone name is ecs.cn-hangzhou.aliyuncs.com, you can:
+After you associate a VPC with your PrivateZone, you can log on to your ECS instance to check whether the instance can access the endpoint of the corresponding region. For more information, see [Connect to an instance by using the Management Terminal](../../../../reseller.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to an instance by using the Management Terminal.md#). For example, if the zone name is ecs.cn-hangzhou.aliyuncs.com, you can:
 
 -   Conduct a ping test to check whether data packets can be properly transmitted and received.
 
@@ -62,14 +62,14 @@ After you associate a VPC with your PrivateZone, you can log on to your ECS inst
     ping ecs.cn-hangzhou.aliyuncs.com
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156618297446338_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156618484646338_en-US.png)
 
--   Use Alibaba Cloud CLI to call [DescribeRegions](intl.en-US/API Reference/Regions/DescribeRegions.md#), and change the endpoint in the --endpoint field.
+-   Use Alibaba Cloud CLI to call [DescribeRegions](reseller.en-US/API Reference/Regions/DescribeRegions.md#), and change the endpoint in the --endpoint field.
 
     ``` {#codeblock_g7i_i2p_t0q}
     aliyun ecs DescribeRegions --endpoint ecs.cn-hangzhou.aliyuncs.com
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156618297446404_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/190084/156618484646404_en-US.png)
 
 
