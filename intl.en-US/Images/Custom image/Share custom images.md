@@ -24,15 +24,12 @@ Before you share a custom image with an Alibaba Cloud account, note the followin
 1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
 2.  In the left-side navigation pane, choose **Instances & Images** \> **Images**.
 3.  In the top navigation bar, select a region.
-4.  Select the target custom image. In the **Actions** column, choose **More** \> **Share Image**.
-
-    ![share_image](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9700/15661817996790_en-US.png)
-
-5.  Select **Alibaba Cloud Account ID** from the **Account Type** drop-down list, enter the target account ID in the **Account** field, and click **Share Image**.
+4.  Select the target custom image. In the **Actions** column, choose **More** \> **Shared Image**.
+5.  Select **Alibaba Cloud Account ID** from the **Account Type** drop-down list, enter the target account ID in the **Account** field, and click **Shared Image**.
 
     For information about how to obtain the ID of an account, see [Appendix: How to get the account ID](#title_zr9_8fb_ez6).
 
-    ![share_image_dialogbox](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9700/15661817996801_en-US.png)
+    ![share_image_dialogbox](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9700/15661861166801_en-US.png)
 
     After you share a custom image with an account, the account can view this shared image by choosing **Instances & Images** \> **Images** \> **Shared Images** in the same region in the ECS console.
 
@@ -55,6 +52,6 @@ To find the ID of an account, follow these steps:
 2.  Hover your pointer over your avatar, for example, **example@aliyun.com**, and then choose **Security Settings** from the account menu.
 3.  On the displayed page, find the account ID.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9700/15661817996803_en-US.png)
+    ![Security Settings](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9700/15661861176803_en-US.png)
 
 
