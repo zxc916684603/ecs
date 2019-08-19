@@ -56,7 +56,7 @@ Elasticity is a key benefit of cloud computing. By using Alibaba Cloud, you can 
 
 -   Elastic storage
 
-    Alibaba Cloud provides elastic storage. In the traditional IDC model, if more storage space is required, you can only add servers, but the number of servers that you can add is limited. In the cloud computing model, however, the sky is the limit. Order as much storage space as you need to meet business demand. For more information about elastic storage, see [Resize a disk](../../../../reseller.en-US/Block Storage/Block storage/Resize cloud disks/Disk resizing overview.md#).
+    Alibaba Cloud provides elastic storage. In the traditional IDC model, if more storage space is required, you can only add servers, but the number of servers that you can add is limited. In the cloud computing model, however, the sky is the limit. Order as much storage space as you need to meet business demand. For more information about elastic storage, see [Resize a disk](../../../../reseller.en-US/Block Storage/Block storage/Resize cloud disks/Overview.md#).
 
 -   Elastic network
 
@@ -73,7 +73,7 @@ The following table provides the benefits of ECS compared with traditional IDCs.
 |:---|:--|:--------------|
 |Equipment rooms|Provides independently developed DC-powered servers with low PUE.|Provides traditional AC-powered servers with high PUE.|
 |Provides backbone equipment rooms with high outbound bandwidth and dedicated bandwidth.|Provides equipment rooms with various quality levels and shared bandwidth primarily, difficult for users to choose.|
-|Provides multiline BGP equipment rooms, enabling smooth and balanced access throughout a country.|Provides equipment rooms with single or dual line primarily.|
+|Provides multiline BGP equipment rooms, enabling smooth and balanced access throughout the world.|Provides equipment rooms with single or dual line primarily.|
 |Ease of operation|Provides built-in mainstream OSs, including activated Windows OS.|Purchases and installs OS manually.|
 |Switches OS online.|Reinstalls OS manually.|
 |Provides a Web-based console for online management.|Users must manage and maintain network manually.|
