@@ -35,7 +35,7 @@ ECS comprises the following major components:
 
 The following figure shows the architecture of ECS components. For more information about the functional components in the figure, see the related documentation.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/156618076748636_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/156618147548636_en-US.png)
 
 ## Pricing {#section_vq5_brj_ydb .section}
 
