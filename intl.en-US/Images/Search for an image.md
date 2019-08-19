@@ -8,13 +8,16 @@ You can search for a specific image on the Images page of the ECS console.
 
  **Procedure** 
 
-1.  Click the tab of a specific image type.
-2.  In the drop-down list, select a search item such as image name, image ID, or snapshot ID.
-3.  Enter one or more keywords in the search bar.
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+2.  In the top navigation bar, select a region.
+3.  In the left-side navigation pane, choose **Instances & Images** \> **Images**.
+4.  Click the tab of a specific image type.
+5.  In the drop-down list, select a search item such as image name, image ID, or snapshot ID.
+6.  Enter one or more keywords in the search bar.
 
     For an ID search, you must enter an exact keyword item. For an image name search, you can enter partial keyword items \(such as `win` to return Windows public image results\).
 
-4.  Click Search.
+7.  Click Search.
 
 ## Call an API action {#section_94k_aht_jmk .section}
 
@@ -32,17 +35,17 @@ You can call DescribeImages to search for an image through the API Explorer or [
 4.  Click **Submit Request**.
 5.  Click the **Debugging Result** tab.
 
-    If the required image is found, detailed information of the image, such as the image ID, image description, and operating system type is displayed on the **Debugging Result** tab. For more information, see [DescribeInstances](../intl.en-US/API Reference/Instances/DescribeInstances.md#).
+    If the required image is found, detailed information of the image, such as the image ID, image description, and operating system type is displayed on the **Debugging Result** tab. For more information, see [DescribeInstances](../reseller.en-US/API Reference/Instances/DescribeInstances.md#).
 
 
 ## What to do next {#section_0sc_460_5vs .section}
 
 After you find the required image, you can:
 
--   [Create an instance by using the wizard](../intl.en-US/Instances/Create an instance/Create an instance by using the wizard.md#).
--   [Share custom images](intl.en-US/Images/Custom image/Share custom images.md#).
--   [Copy custom images](intl.en-US/Images/Custom image/Copy custom images.md#).
--   [EN-US\_TP\_9712.md\#](intl.en-US/Images/Custom image/Export custom images.md#).
--   [Delete custom images](intl.en-US/Images/Custom image/Delete custom images.md#).
--   [Modify custom images](intl.en-US/Images/Custom image/Modify custom images.md#).
+-   [Create an instance by using the wizard](../reseller.en-US/Instances/Create an instance/Create an instance by using the wizard.md#).
+-   [Share custom images](reseller.en-US/Images/Custom image/Share custom images.md#).
+-   [Copy custom images](reseller.en-US/Images/Custom image/Copy custom images.md#).
+-   [EN-US\_TP\_9712.md\#](reseller.en-US/Images/Custom image/Export custom images.md#).
+-   [Delete custom images](reseller.en-US/Images/Custom image/Delete custom images.md#).
+-   [Modify custom images](reseller.en-US/Images/Custom image/Modify custom images.md#).
 
