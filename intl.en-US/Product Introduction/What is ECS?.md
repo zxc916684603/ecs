@@ -31,15 +31,15 @@ ECS comprises the following major components:
 -   [Security group](../../../../reseller.en-US/Security/Security groups/Security group overview.md#): a logical group of instances located in the same region that have the same security requirements and require access to each other. A security group works as a virtual firewall for the ECS instances inside it.
 -   [Network](../../../../reseller.en-US/Network/Network types.md#):
     -   [VPC](../../../../reseller.en-US/Product Introduction/What is VPC?.md#): a logically isolated private cloud network. You can configure a private IP address range, a route table, and a gateway for a VPC.
-    -   Classic network: all classic instances are built on a shared infrastructure network, which is planned and managed in a centralized manner.
+    -   Classic network: all classic instances are primarily built on a shared infrastructure network of Alibaba Cloud, which is planned and managed in a centralized manner.
 
 The following figure shows the architecture of ECS components. For more information about the functional components in the figure, see the related documentation.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/156283711048636_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/156617957548636_en-US.png)
 
 ## Pricing {#section_vq5_brj_ydb .section}
 
-ECS supports multiple billing methods, such as subscription, pay-as-you-go, reserved instances \(beta phase\), and preemptible instances. For more information, see [Pricing overview](../../../../reseller.en-US/Pricing/Pricing overview.md#).
+ECS supports multiple billing methods, such as subscription, pay-as-you-go, reserved instances \(beta phase\), and preemptible instances. For more information, see [Pricing overview](../../../../reseller.en-US/Pricing/Billing overview.md#).
 
 ## Management tools {#section_lsd_yqj_ydb .section}
 
@@ -51,7 +51,7 @@ After registering an Alibaba Cloud account, you can create, use, or release an E
     -   [OpenAPI Explorer](https://api.aliyun.com/): allows you to retrieve APIs, call APIs, and dynamically generate SDK example code.
     -   [Alibaba Cloud SDK](https://partners-intl.aliyun.com/vodafone/support/developer-resources): provides SDKs for multiple programming languages such as Java, Python, and PHP.
 -   [Resource Orchestration Service](../../../../reseller.en-US/Product Introduction/What is ROS?.md#): automatically creates and configures Alibaba Cloud resources based user-defined templates.
--   [Terraform](../../../../reseller.en-US/Best Practices/Terraform/What is Terraform?.md#): an open-source tool that uses configuration files to call computing resources on Alibaba Cloud and other platforms that support Terraform. Terraform also implements version control.
+-   [Terraform](../../../../reseller.en-US/Deployment & Elasticity/Terraform/What is Terraform?.md#): an open-source tool that uses configuration files to call computing resources on Alibaba Cloud and other platforms that support Terraform. Terraform also implements version control.
 
 ## Deployment tips {#section_qde_v9o_iur .section}
 
@@ -59,7 +59,7 @@ Before you purchase an ECS instance, consider the following factors:
 
 -   Regions and zones
 
-    A region represents an Alibaba Cloud data center. The region and zone determine the physical location of an ECS instance. After an instance is created, its [metadata](../../../../reseller.en-US/Instances/Manage instances/User-defined data and metadata/Metadata.md#) is established and its region cannot be changed. Select a region and zone based on the target geographical location, availability of Alibaba Cloud services, application availability requirements, and whether internal network communication is required. For example, if you want to access both ECS and [ApsaraDB for RDS](../../../../reseller.en-US/Product Introduction/What is ApsaraDB for RDS.md#), the RDS instance and ECS instance must be in the same region. For more information, see [Regions and zones](../../../../reseller.en-US/General Reference/Regions and zones.md#).
+    A region represents an Alibaba Cloud data center. The region and zone determine the physical location of an ECS instance. After an instance is created, its [metadata](../../../../reseller.en-US/Instances/Manage instances/User-defined data and metadata/Metadata.md#) is established and its region cannot be changed. Select a region and zone based on the target geographical location, availability of Alibaba Cloud services, application availability requirements, and whether internal network communication is required. For example, if you want to access both ECS and [ApsaraDB for RDS](../../../../reseller.en-US/Product Introduction/What is ApsaraDB for RDS?.md#), the RDS instance and ECS instance must be in the same region. For more information, see [Regions and zones](../../../../reseller.en-US/General Reference/Regions and zones.md#).
 
 -   High availability
 
@@ -84,6 +84,6 @@ Together with ECS, you can select the following Alibaba Cloud services:
 -   [Container Service](../../../../reseller.en-US/Product Introduction/What is Container Service.md#) manages application lifecycles on groups of ECS instances.
 -   [Server Load Balancer \(SLB\)](../../../../reseller.en-US/Product Introduction/What is Server Load Balancer?.md#) distributes traffic among multiple ECS instances.
 -   [CloudMonitor](../../../../reseller.en-US/Product Introduction/Overview.md#) develops monitoring solutions for instances, system disks, and public network bandwidth.
--   [ApsaraDB for RDS](../../../../reseller.en-US/Product Introduction/What is ApsaraDB for RDS.md#) provides database services accessible over internal networks to ECS instances, reduces network latency, access fees, and delivers top-notch performance. ApsaraDB for RDS supports multiple database engines, including MySQL, SQL Server, PostgreSQL, PPAS, and MariaDB.
+-   [ApsaraDB for RDS](../../../../reseller.en-US/Product Introduction/What is ApsaraDB for RDS?.md#) provides database services accessible over internal networks to ECS instances, reduces network latency, access fees, and delivers top-notch performance. ApsaraDB for RDS supports multiple database engines, including MySQL, SQL Server, PostgreSQL, PPAS, and MariaDB.
 -   [Alibaba Cloud Marketplace:](https://partners-intl.aliyun.com/marketplace/vodafone/) a platform to purchase software infrastructure, business software, website construction, hosted O&M, security, data & APIs, and solutions provided by third-party partners. You can also provide software programs and services as a service provider. For more information, see [Alibaba Cloud Marketplace documentation](https://partners-intl.aliyun.com/help/product/30488.htm).
 
