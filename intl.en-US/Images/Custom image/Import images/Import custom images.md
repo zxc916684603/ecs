@@ -15,14 +15,17 @@ This topic describes how to import on-premises image files to your ECS environme
 To import custom images in the ECS console, follow these steps:
 
 1.  Use an OSS third-party client or OSS API to upload the prepared custom image. If the file you want to upload is larger than 5 GiB, see [Multipart upload and resumable upload](../../../../../reseller.en-US/Developer Guide/Upload files/Multipart upload and resumable upload.md#).
-2.  Click **Import Image**.
-3.  In the Import Image dialog box, click **Confirm Address**.
+2.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+3.  In the left-side navigation pane, choose **Instances & Images** \> **Images**.
+4.  In the top navigation bar, select a region.
+5.  Click **Import Image**.
+6.  In the Import Image dialog box, click **Confirm Address**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9706/15661816907027_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9706/15661819657027_en-US.png)
 
-4.  In the Cloud Resource Access Authorization window, select `AliyunECSImageImportDefaultRole` and `AliyunECSExportDefaultRole`, then click **Confirm Authorization Policy** to allow the ECS service to access your OSS resources.
-5.  Go back to the **Images** page and click **Import Image** again.
-6.  In the Import Image dialog box, enter the following information:
+7.  In the Cloud Resource Access Authorization window, select `AliyunECSImageImportDefaultRole` and `AliyunECSExportDefaultRole`, then click **Confirm Authorization Policy** to allow the ECS service to access your OSS resources.
+8.  Go back to the **Images** page and click **Import Image** again.
+9.  In the Import Image dialog box, enter the following information:
     -   **Region of Image**: Select the region where the OSS Bucket of the image file to upload is located.
     -   **OSS Object Address**: Copy the object address of the image file from the OSS console. For more information, see [Download an object](../../../../../reseller.en-US/Console User Guide/Upload、download and manage objects/Download an object.md#).
     -   **Image Name**: Enter a name for the custom image. The name must be 2 to 128 characters in length and start with a letter. It can contain letters, numbers, periods \(.\), underscores \(\_\), colons \(:\), and hyphens \(-\).
@@ -39,8 +42,8 @@ To import custom images in the ECS console, follow these steps:
 
     -   **Image Description**: Enter a description of the custom image.
     -   **Add Images of Data Disks**: Choose this option if you want to import an image that contains data disks. Supported data disk capacity ranges from 5 GiB to 2,000 GiB.
-7.  Click **OK**.
-8.  \(Optional\) You can view the task progress in the image list of the import region. Before the task is completed, you can find the imported custom image through [Tasks](https://partners-intl.console.aliyun.com/#/ecs/task/region/) management, and, if needed, cancel the import task.
+10. Click **OK**.
+11. \(Optional\) You can view the task progress in the image list of the import region. Before the task is completed, you can find the imported custom image through [Tasks](https://partners-intl.console.aliyun.com/#/ecs/task/region/) management, and, if needed, cancel the import task.
 
 The time it takes to import a custom image depends on the size of the image file and the number of image import tasks in the queue.
 
