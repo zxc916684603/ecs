@@ -1,6 +1,6 @@
 # 实例FAQ {#concept_gqy_fyx_wgb .concept}
 
-本文汇总了使用实例时的常见问题。
+本文汇总了使用云服务器ECS实例时的常见问题。
 
 -   购买实例问题
     -   [如何查看某个地域或可用区是否能购买实例？](#section_dxe_iha_q0o)
@@ -9,6 +9,7 @@
     -   [购买ECS实例如何付款？](#section_huh_ipu_6gt)
     -   [开通一台云服务器需要多久？](#section_ska_yf3_rvx)
     -   [购买实例付款成功，但是没有生成实例，为什么？](#section_gbw_acs_xwn)
+    -   [为什么购买实例时看不到按量付费资源？](#section_ls5_e9e_kt3)
 -   企业级实例问题
     -   [什么是企业级实例？什么是入门级实例？](#section_2p8_osd_e5y)
     -   [企业级实例与入门级实例有什么本质区别？](#section_cm4_dks_zu1)
@@ -130,6 +131,7 @@
     -   [如何查看同一账号下所有地域的预付费实例？](#section_s5o_w6z_95z)
     -   [什么时候可以强制停止实例？有什么后果？](#section_nlp_9qg_6gq)
     -   [为什么会重开机失败？](#section_vk6_sjc_agd)
+    -   [使用弹性伸缩功能时，伸缩组内ECS实例开启了释放保护，为什么仍然被自动释放了？](#section_so8_gdz_2i5)
 -   实例安全问题
     -   [ECS实例中AliVulfix进程是什么？](#section_4ek_d0m_191)
     -   [云服务器能防网络攻击吗？](#section_t6g_7b5_165)
@@ -142,7 +144,6 @@
     -   [如何调整Linux实例目录文件的拥有者和拥有组？](#section_kf0_kn1_74z)
     -   [如何更新Linux实例的软件源？](#section_8jc_uw1_mjn)
     -   [如何在Linux实例上搭建支持PHP的Web环境？](#section_ww2_idc_mq1)
-    -   [如何安装VNC Server以实现图形化访问Linux系统？](#section_m4o_mku_bj2)
 -   实例建站问题
     -   [织梦建站选择什么服务器？](#section_nff_lzp_v4l)
 -   实例使用限制问题
@@ -152,12 +153,13 @@
     -   [ECS实例是否可以访问亚马逊网站？](#section_q6i_bio_ba9)
     -   [为什么登录到ECS实例后访问不了海外网站？](#section_ags_ovh_bde)
     -   [我需要增加按量付费的服务器，如何增加台数？](#section_xt4_ax4_x66)
--   中国大陆用户购买其他国家和地区实例资源问题
-    -   [中国大陆用户购买其它国家和地区资源可以享受与阿里云中国大陆资源相同的品质和服务吗？](#section_16z_pn3_0qf)
-    -   [是否可以通过镜像复制功能将中国大陆的ECS转移到其它国家和地区？](#section_50j_2mc_pdr)
+    -   [如何查看资源的限额？](#section_z6z_9bh_9is)
+-   中国大陆用户购买其他国家或地区实例资源问题
+    -   [中国大陆用户购买其它国家或地区资源可以享受与阿里云中国大陆资源相同的品质和服务吗？](#section_16z_pn3_0qf)
+    -   [是否可以通过镜像复制功能将中国大陆的ECS转移到其它国家或地区？](#section_50j_2mc_pdr)
     -   [为什么日本（东京）地域的Windows实例要比Linux实例贵，而在中国大陆地域两者价格一样？](#section_o2e_baz_lvj)
     -   [我是非中国大陆的用户，能否使用其他币种线上支付？](#section_lwb_bgi_n6q)
-    -   [中国大陆以外地域的实例与中国大陆地域实例有什么区别？怎么判断哪个国家和地区的地域适合我？](#section_jxf_qpr_bbi)
+    -   [中国大陆以外地域的实例与中国大陆地域实例有什么区别？怎么判断哪个国家或地区的地域适合我？](#section_jxf_qpr_bbi)
     -   [在中国大陆以外地域购买的实例，能互换Linux系统和Windows系统吗？](#section_1dv_ju1_xq6)
     -   [中国大陆以外地域是否支持购买镜像市场的镜像？](#section_4rw_exo_4dv)
     -   [中国大陆以外地域如果遇到产品售后等问题，如何解决？](#section_yk8_a2w_7d8)
@@ -200,7 +202,7 @@
 
 您也可以使用到货通知功能：
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156470697948634_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156620901948634_zh-CN.png)
 
 ## 如何选择适合我业务的ECS实例？ {#section_j8t_fwz_mjf .section}
 
@@ -231,6 +233,12 @@
 可能是该可用区下该实例规格库存不足。系统会自动退款，如果半小时内没有收到退款，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)。
 
 您可以前往[ECS实例可购买地域](https://ecs-buy.aliyun.com/instanceTypes/#/instanceTypeByRegion)，查看实例的可购情况。
+
+## 为什么购买实例时看不到按量付费资源？ {#section_ls5_e9e_kt3 .section}
+
+16核及以上实例规格可能存在按量高配限制。如果您在购买实例时能看到预付费资源，但是看不到按量付费资源，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)确认当前账号是否已经获得购买该实例规格按量高配资源的授权。
+
+如果已获得授权，仍然看不到按量资源，可能是当前地域下库存不足，请参见[购买实例时，资源已经售罄怎么办？](#section_lxw_bwz_qgb)。
 
 ## 什么是企业级实例？什么是入门级实例？ {#section_2p8_osd_e5y .section}
 
@@ -363,7 +371,7 @@ SCC实例支持包年包月和按周付费。
 
 创建SCC实例时，选择SCC定制版的系统镜像，该镜像支持RDMA RoCE驱动和OFED堆栈。您可以通过IB verbs编程使用RDMA功能或者通过MPI进行RDMA通讯。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156470698050536_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156620902050536_zh-CN.png)
 
 ## 我没有欠费，为什么抢占式实例被释放了？ {#section_0ns_pj7_dxg .section}
 
@@ -479,7 +487,7 @@ SCC实例支持包年包月和按周付费。
 
 ## 什么场景购买地域级预留实例券？ {#section_rym_4rw_cl5 .section}
 
-您不需要库存预留，但是想更方便、灵活地使用预留实例券抵扣按量付费实例账单，比如需要更好的可用区灵活性和实例大小灵活性，建议购买地域级预留实例券。
+您不需要库存预留，但是想更方便、灵活地使用预留实例券抵扣按量付费实例账单，例如需要更好的可用区灵活性和实例大小灵活性，建议购买地域级预留实例券。
 
 ## 如何应用可用区灵活性？ {#section_6vd_nvw_m73 .section}
 
@@ -709,7 +717,7 @@ SCC实例支持包年包月和按周付费。
 
 假设您持有以下OSS Bucket，要通过域名www.example.com实现HTTPS访问。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156470698043179_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156620902043179_zh-CN.png)
 
 1.  创建一台和Bucket位于相同地域的ECS实例。
 
@@ -781,15 +789,15 @@ SCC实例支持包年包月和按周付费。
 
 1.  连接FTP服务。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156470698043224_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156620902043224_zh-CN.png)
 
 2.  进入正确的目录，Windows系统无需切换，Linux系统切换至htdocs。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156470698049119_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156620902049119_zh-CN.png)
 
 3.  运行put命令上传。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156470698149120_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156620902149120_zh-CN.png)
 
 
 方式二：通过第三方工具上传
@@ -799,11 +807,11 @@ SCC实例支持包年包月和按周付费。
 3.  填写FTP的服务器IP、用户名和密码；协议选择标准（FTP），端口选择默认21（或更改为其您所使用的端口），不选择SSH密匙。
 4.  单击**连接**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156470698143228_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156620902143228_zh-CN.png)
 
 5.  在右侧选择要上传的目录（Windows不需要选择目录，Linux主机选择htdocs目录），然后在左边窗口选择要上传的文件，单击上传即可。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156470698143230_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156620902143230_zh-CN.png)
 
     **说明：** 若安装Yummy FTP时系统提示：您的安全性偏好设置仅允许安装来自Mac App Store和被认可的开发者的应用程序，按以下步骤设置您的电脑。
 
@@ -812,7 +820,7 @@ SCC实例支持包年包月和按周付费。
     3.  在**允许从以下位置下载的应用程序**菜单中，选择**任何来源**。
     设置后即可正常安装该软件。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156470698243238_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156620902143238_zh-CN.png)
 
 
 如问题还未解决，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)。
@@ -865,7 +873,10 @@ SCC实例支持包年包月和按周付费。
 
 云服务器默认不提供数据库，您可以：
 
--   自行部署数据库，请参见[在ECS上部署数据库](../cn.zh-CN/建站教程/在ECS上部署数据库.md#)。
+-   自行部署数据库。
+
+    **说明：** 数据库部署教程，请参见[在ECS上部署数据库](../cn.zh-CN/建站教程/在ECS上部署数据库.md#)。
+
 -   单独购买阿里云[RDS数据库](https://rdsnext.console.aliyun.com/)服务。
 -   使用镜像市场配置环境数据库。
 
@@ -932,6 +943,12 @@ Linux操作系统的云服务器和Windows操作系统的云服务器都可以�
     **说明：** 您可以前往[ECS实例可购买地域](https://ecs-buy.aliyun.com/instanceTypes/#/instanceTypeByRegion)，查看实例的可购情况。
 
 
+## 使用弹性伸缩功能时，伸缩组内ECS实例开启了释放保护，为什么仍然被自动释放了？ {#section_so8_gdz_2i5 .section}
+
+在弹性伸缩自动创建一台ECS实例后，如果您在ECS控制台的实例列表页面或者调用[ModifyInstanceAttribute](../cn.zh-CN/API参考/实例/ModifyInstanceAttribute.md#)为ECS实例开启了释放保护，并不能阻止弹性伸缩自动释放实例。
+
+您可以在弹性伸缩控制台将伸缩组内的ECS实例转为保护状态，避免被自动释放，具体操作请参见[实例转为保护状态](../../../../../cn.zh-CN/用户指南/维护自动伸缩/实例转为保护状态.md#)。
+
 ## ECS实例中AliVulfix进程是什么？ {#section_4ek_d0m_191 .section}
 
 AliVulfix进程是云盾进行漏洞检测的程序，用于扫描云服务器是否有漏洞。
@@ -960,7 +977,7 @@ AliVulfix进程是云盾进行漏洞检测的程序，用于扫描云服务器�
     #netstat -nltp //查看服务器80端口是否处于监听状态
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156470698241861_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156620902241861_zh-CN.png)
 
 2.  如果未显示80端口信息，说明网站服务没有启动，运行命令手动开启网站服务及相关服务。
 
@@ -1021,10 +1038,6 @@ AliVulfix进程是云盾进行漏洞检测的程序，用于扫描云服务器�
 
 搭建支持PHP的Web环境，通常需要安装Apache/Nginx+PHP+MySQL。您可以使用云市场的[阿里云Linux一键安装Web环境](https://market.aliyun.com/products/56014009/cmgj000262.html)。
 
-## 如何安装VNC Server以实现图形化访问Linux系统？ {#section_m4o_mku_bj2 .section}
-
-请参见[云服务器 ECS Linux VNC Server 自动安装工具介绍](https://help.aliyun.com/knowledge_detail/41181.html)。
-
 ## 织梦建站选择什么服务器？ {#section_nff_lzp_v4l .section}
 
 您可以使用[云虚拟主机](https://wanwang.aliyun.com/hosting)搭建网站，或者前往[云市场](https://market.aliyun.com/)选购织梦建站服务。
@@ -1057,8 +1070,6 @@ AliVulfix进程是云盾进行漏洞检测的程序，用于扫描云服务器�
 -   假如第二个网站绑定了多个域名，您需要保证这几个域名打开的是同一个网站内容。不能在备案通过后，又使用exmple3.com去绑定另外一个网站。
 -   备案只针对一级域名。您可以在云服务器ECS新创建一个站点，绑定blog.example1.com，再创建一个站点绑定new.example2.com。这种建站方式不在限制范围内，也不计算在最多备案5个网站的限制内。
 
-IIS7建站请参见[Windows Server 2008 IIS7 创建站点教程](https://help.aliyun.com/knowledge_detail/40975.html)。
-
 ## 收到违规信息整改通知邮件如何处理？ {#section_ybb_uao_2kh .section}
 
 收到邮件，内容如下：
@@ -1081,11 +1092,15 @@ ECS实例可以访问亚马逊网站，确保您的ECS实例可以正常访问�
 
 如果您无法继续购买按量付费实例，可能是因为可购数量达到上限，详情请参见[实例使用限制](../cn.zh-CN/产品简介/使用限制.md#section_tbg_zdx_wdb)。您也可以在ECS控制台概览页面查看权益配额，具体步骤请参见[管理配额](../cn.zh-CN/标签与资源/管理配额.md#)。
 
-## 中国大陆用户购买其它国家和地区资源可以享受与阿里云中国大陆资源相同的品质和服务吗？ {#section_16z_pn3_0qf .section}
+## 如何查看资源的限额？ {#section_z6z_9bh_9is .section}
+
+查看资源的使用限制和限额，请参见[使用限制](../cn.zh-CN/产品简介/使用限制.md#)。
+
+## 中国大陆用户购买其它国家或地区资源可以享受与阿里云中国大陆资源相同的品质和服务吗？ {#section_16z_pn3_0qf .section}
 
 是的，阿里云中国站为所有用户提供相同品质产品与服务，购买地域不同不会影响您在阿里云中国站所享受的服务权益。
 
-## 是否可以通过镜像复制功能将中国大陆的ECS转移到其它国家和地区？ {#section_50j_2mc_pdr .section}
+## 是否可以通过镜像复制功能将中国大陆的ECS转移到其它国家或地区？ {#section_50j_2mc_pdr .section}
 
 可以。
 
@@ -1097,9 +1112,9 @@ ECS实例可以访问亚马逊网站，确保您的ECS实例可以正常访问�
 
 目前阿里云中国站只支持人民币支付。
 
-## 中国大陆以外地域的实例与中国大陆地域实例有什么区别？怎么判断哪个国家和地区的地域适合我？ {#section_jxf_qpr_bbi .section}
+## 中国大陆以外地域的实例与中国大陆地域实例有什么区别？怎么判断哪个国家或地区的地域适合我？ {#section_jxf_qpr_bbi .section}
 
-其它国家和地区的实例部署在中国大陆以外的机房，对于非中国大陆用户来说地理及市场优势十分明显，这些机房对当地网络连接也相对快速，可以满足国际化客户的需求，更适合有其它国家和地区业务的用户。
+其它国家或地区的实例部署在中国大陆以外的机房，对于非中国大陆用户来说地理及市场优势十分明显，这些机房对当地网络连接也相对快速，可以满足国际化客户的需求，更适合有其它国家或地区业务的用户。
 
 支持的地域请参见[地域和可用区](../../../../../cn.zh-CN/通用参考/地域和可用区.md#)。
 
@@ -1125,7 +1140,7 @@ ECS实例可以访问亚马逊网站，确保您的ECS实例可以正常访问�
 
 ## 我要买中国大陆以外地域的实例，需要单独申请一个国际站账号吗？ {#section_hn3_htw_jyg .section}
 
-使用阿里云中国站账号既可以购买中国大陆地域的实例，也可以购买其它国家和地区的实例，无需分别申请中国站账号和国际站账号。
+使用阿里云中国站账号既可以购买中国大陆地域的实例，也可以购买其它国家或地区的实例，无需分别申请中国站账号和国际站账号。
 
 ## 如何在中国大陆以外地域部署ECS实例？ {#section_t1s_784_kli .section}
 
@@ -1133,7 +1148,7 @@ ECS实例可以访问亚马逊网站，确保您的ECS实例可以正常访问�
 
 ## 可否将中国大陆地域的实例迁移到中国大陆以外地域呢？ {#section_up6_nbw_5vn .section}
 
-实例的地域和可用区不能变更。如果您需要在其它国家和地区使用实例，您需要重新购买实例或者复制镜像。
+实例的地域和可用区不能变更。如果您需要在其它国家或地区使用实例，您需要重新购买实例或者复制镜像。
 
 ## 为什么有些实例规格只能在中国大陆地域购买，而在中国大陆以外地域无法购买？ {#section_fuo_80o_9lm .section}
 
@@ -1141,18 +1156,18 @@ ECS实例可以访问亚马逊网站，确保您的ECS实例可以正常访问�
 
 ## 如果我使用中国大陆以外地域的实例搭建了一个网站，我的用户将通过域名访问网站，这个域名需要ICP备案吗？ {#section_bso_zgt_6t6 .section}
 
-中国大陆地域的网站，域名需要备案。其它国家和地区的网站，域名不需要ICP备案。详细信息请参见[什么是备案](../../../../../cn.zh-CN/产品简介/什么是备案.md#)。
+中国大陆地域的网站，域名需要备案。其它国家或地区的网站，域名不需要ICP备案。详细信息请参见[什么是备案](../../../../../cn.zh-CN/产品简介/什么是备案.md#)。
 
 ## 不同地域的实例，价格一样吗？ {#section_w86_nck_hic .section}
 
-购买一台实例时，实例价格的内容包括实例规格、存储、网络带宽，部分其它国家和地区还包括镜像使用费用。不同的地域，上述各部分的价格可能不同，所以实例的价格也不同。
+购买一台实例时，实例价格的内容包括实例规格、存储、网络带宽，部分其它国家或地区还包括镜像使用费用。不同的地域，上述各部分的价格可能不同，所以实例的价格也不同。
 
 具体的价格信息，请参见[详细价格总览](https://www.aliyun.com/price/product#/ecs/detail)。
 
 ## 各个地域的网络覆盖范围是什么呢？ {#section_qyy_69n_4sl .section}
 
 -   华北5（呼和浩特）、华北3（张家口）、华北2（北京）、华北1（青岛）、华东1（杭州）、华南1（深圳）和华东2（上海）地域：提供多线BGP骨干网线路，网络能力覆盖全国各省市，实现稳定高速国内大陆地域访问。
--   香港、新加坡、澳大利亚（悉尼）、马来西亚（吉隆坡）、日本（东京）、德国（法兰克福）、阿联酋（迪拜）地域：提供国际带宽访问，覆盖香港、亚太、东南亚、日本、韩国、欧洲、中东、澳洲等地域。
+-   中国香港、新加坡、澳大利亚（悉尼）、马来西亚（吉隆坡）、日本（东京）、德国（法兰克福）、阿联酋（迪拜）地域：提供国际带宽访问，覆盖中国香港、亚太、东南亚、日本、韩国、欧洲、中东、澳洲等地域。
 -   美国（硅谷）和美国（弗吉尼亚）地域：位于美国，通过BGP线路直接接连多家美国运营商骨干网，可覆盖全美，同时可以很好的辐射南美洲和欧洲大陆。
 
 ## 中国大陆以外地域是否都可以提供经典网络和专有网络的类型呢？网络类型是否可以变更呢？ {#section_2z3_zvk_4tu .section}
@@ -1220,15 +1235,15 @@ ECS实例可以访问亚马逊网站，确保您的ECS实例可以正常访问�
 
 待转换的ECS实例需要满足以下条件：
 
--   不能是[系列I实例规格](../cn.zh-CN/实例/选择实例规格/已停售的实例规格.md#section_ilt_c3h_4gb)，也不能是[n1、n2、e3实例规格族](../cn.zh-CN/实例/选择实例规格/已停售的实例规格.md#section_z2t_5ch_4gb)中的任一种实例规格。
--   不能是[抢占式实例](../cn.zh-CN/实例/选择实例购买方式/抢占式实例/什么是抢占式实例.md#)。
+-   不能是系列I实例规格，也不能是n1、n2、e3实例规格族中的任一种实例规格。具体实例规格描述请参见[系列I实例规格](../cn.zh-CN/实例/选择实例规格/已停售的实例规格.md#section_ilt_c3h_4gb)和[入门级实例 n1/n2/e3](../cn.zh-CN/实例/选择实例规格/已停售的实例规格.md#section_z2t_5ch_4gb)。
+-   不能是抢占式实例。
 -   不能有未完成的转换订单。
 
     如果实例有未支付的转换订单，您必须作废这个未支付的订单后才能执行新的转换操作。
 
--   没有设置[自动释放时间](../cn.zh-CN/实例/管理实例/释放实例.md#section_gqg_ccn_xdb)。
+-   没有设置自动释放时间。
 
-    如果实例已经设置过自动释放时间，您必须先关闭自动释放设置才能进行转换操作。
+    如果实例已经设置过自动释放时间，您必须先关闭自动释放设置才能进行转换操作。如何关闭自动释放，请参见[关闭自动释放](../cn.zh-CN/实例/管理实例/释放实例.md#section_mqg_ccn_xdb)。
 
 -   归属于您的账号下。
 -   状态为**运行中**或**已停止**。
@@ -1240,7 +1255,7 @@ ECS实例可以访问亚马逊网站，确保您的ECS实例可以正常访问�
 
 您可以在ECS控制台实例列表页面的**付费方式**列查看预付费实例的到期时间。
 
-**说明：** 如果没有**付费方式**列，则在页面右上方单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156470698253726_zh-CN.png)按钮，勾选**付费方式**，并单击**确定**。
+**说明：** 如果没有**付费方式**列，则在页面右上方单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156620902253726_zh-CN.png)按钮，勾选**付费方式**，并单击**确定**。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156470698253728_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156620902253728_zh-CN.png)
 
