@@ -4,7 +4,7 @@ This topic provides a complete list of Alibaba Cloud regions and zones.
 
 Regions in Alibaba Cloud are independent. Zones in Alibaba Cloud are completely isolated. However, zones in the same region are connected through links with low latency. The following figure shows the relationship between regions and zones in Alibaba Cloud.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13778/156583811744660_en-US.jpg)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13778/156618320744660_en-US.jpg)
 
 ## Regions {#section_ug5_k5k_xdb .section}
 
