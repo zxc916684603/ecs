@@ -32,7 +32,7 @@
 
 格式化分区完成后，**磁盘管理**中磁盘 2的状态如下图所示。
 
-![磁盘管理](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15663655605103_zh-CN.png)
+![磁盘管理](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15663657335103_zh-CN.png)
 
 您可以在**这台电脑**中查看到新建的驱动器**新加卷 \(F:\)**。至此，您就可以开始使用这个数据盘了。
 

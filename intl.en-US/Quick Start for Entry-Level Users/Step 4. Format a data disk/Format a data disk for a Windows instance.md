@@ -44,7 +44,7 @@ In this example, a new 20 GiB data disk is partitioned and formatted. An instanc
 
 After Disk 2 is partitioned and formatted, its status is displayed in the **Disk Management** window, as shown in the following figure.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15663655825103_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15663657565103_en-US.png)
 
 In **This PC**, you can view a new drive named **New Volume \(F:\)**. The data disk is ready to use.
 
