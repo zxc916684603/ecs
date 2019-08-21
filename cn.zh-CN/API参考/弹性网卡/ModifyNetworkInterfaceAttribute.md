@@ -1,10 +1,10 @@
 # ModifyNetworkInterfaceAttribute {#doc_api_Ecs_ModifyNetworkInterfaceAttribute .reference}
 
-修改一个弹性网卡（ENI）的属性。例如，弹性网卡名称、描述以及所属安全组等。
+调用ModifyNetworkInterfaceAttribute修改一个弹性网卡（ENI）的属性。例如，弹性网卡名称、描述以及所属安全组等。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=ModifyNetworkInterfaceAttribute)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=ModifyNetworkInterfaceAttribute&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
@@ -38,7 +38,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -51,15 +51,13 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=ModifyNetworkInterfaceAttribute
 &NetworkInterfaceId=eni-myeni
 &RegionId=cn-hangzhou
-&SecurityGroupId.1=sg-1133aa
+&SecurityGroupId.1=sg-1133**
 &NetworkInterfaceName=my-eni-name
 &Description=test
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -68,9 +66,8 @@ https://ecs.aliyuncs.com/?Action=ModifyNetworkInterfaceAttribute
 
 ``` {#xml_return_success_demo}
 <DetachNetworkInterfaceResponse>
-  <RequestId>04F0F334-1335-436C-A1D7-6C044FExxxxx</RequestId>
+      <RequestId>04F0F334-1335-436C-A1D7-6C044FExxxxx</RequestId>
 </DetachNetworkInterfaceResponse>
-
 ```
 
 `JSON` 格式
@@ -99,7 +96,7 @@ https://ecs.aliyuncs.com/?Action=ModifyNetworkInterfaceAttribute
 |400|InvalidParams.EniId|%s|指定的网卡ID格式不合法。|
 |404|InvalidEcsId.NotFound|%s|指定的实例ID不存在。|
 |404|InvalidEniId.NotFound|%s|指定的网卡ID不存在。|
-|404|InvalidVSwitchId.NotFound|%s|指定的交换机ID。|
+|404|InvalidVSwitchId.NotFound|%s|指定的交换机ID不存在。|
 |404|InvalidSecurityGroupId.NotFound|%s|指定的安全组ID不存在。|
 |403|EniPerInstanceLimitExceeded|%s|弹性网卡的数量超过了指定实例类型允许的最大值。|
 |403|InvalidOperation.AvailabilityZoneMismatch|%s|指定的VPC交换机ID、弹性网卡和实例ID不在同一个可用区。|
@@ -107,7 +104,7 @@ https://ecs.aliyuncs.com/?Action=ModifyNetworkInterfaceAttribute
 |403|SecurityGroupInstanceLimitExceed|%s|该安全组内已有的实例数量已超出最大限制。|
 |403|InvalidSecurityGroupId.NotVpc|%s|指定的安全组 ID 不是 VPC 类型。|
 |403|InvalidOperation.InvalidEniType|%s|当前弹性网卡类型不支持该操作。|
-|400|Forbidden.RegionId|%s|前区域暂不支持此功能。|
+|400|Forbidden.RegionId|%s|当前区域暂不支持此功能。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
