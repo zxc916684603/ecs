@@ -4,8 +4,8 @@ This topic describes several typical scenarios in which VPC security groups and 
 
 **Note:** 
 
--   For information about how to create security groups and add security group rules, see [EN-US\_TP\_9717.md\#](intl.en-US/Security/Security groups/Create a security group.md#) and [Add security group rules](intl.en-US/Security/Security groups/Add security group rules.md#).
--   For information about commonly used ports, see [Typical applications of commonly used ports](../../../../intl.en-US/Security/Security groups/Typical applications of commonly used ports.md#).
+-   For information about how to create security groups and add security group rules, see [Create a security group](reseller.en-US/Security/Security groups/Create a security group.md#) and [Add security group rules](reseller.en-US/Security/Security groups/Add security group rules.md#).
+-   For information about commonly used ports, see [Typical applications of commonly used ports](../../../../reseller.en-US/Security/Security groups/Typical applications of commonly used ports.md#).
 
 -   [Scenario 1: Establish intranet communication between two instances in the same region and under the same account](#) 
 
@@ -55,15 +55,15 @@ For two instances in the same region and under the same account:
 
 **Note:** 
 
-For ECS instances that belong to a VPC, if they are in the same VPC, you can configure their security group rules to establish intranet communication. If they are in different VPCs \(regardless of whether they belong to the same account or in the same region\), you can use Express Connect to establish VPC communication. For more information, see [Connect two VPCs under different accounts](https://www.alibabacloud.com/help/doc-detail/44842.htm).
+For ECS instances that belong to a VPC, if they are in the same VPC, you can configure their security group rules to establish intranet communication. If they are in different VPCs \(regardless of whether they belong to the same account or in the same region\), you can use Express Connect to establish VPC communication. For more information, see [Connect two VPCs under different accounts](https://partners-intl.aliyun.com/help/doc-detail/44842.htm).
 
 ## Scenario 2: Establish intranet communication between two instances in the same region and under different accounts {#section_sfg_zll_ngb .section}
 
 This scenario applies only to ECS instances in a classic network.
 
-For example, User A owns an ECS instance in a classic network in China East 1, named Instance A \(The intranet IP address is A.A.A.A\), which belongs to a security group named Group A.
+For example, User A owns an ECS instance in a classic network in China \(Hangzhou\), named Instance A \(The intranet IP address is A.A.A.A\), which belongs to a security group named Group A.
 
-User B owns an ECS instance in a classic network in China East 1, named Instance B \(The intranet IP address is B.B.B.B\), which belongs to a security group named Group B.
+User B owns an ECS instance in a classic network in China \(Hangzhou\), named Instance B \(The intranet IP address is B.B.B.B\), which belongs to a security group named Group B.
 
 You must add security group rules in Group A and Group B to authorize intranet communication between Instance A and Instance B.
 
@@ -144,13 +144,13 @@ To allow remote access to your instance through the Internet, add the security g
 |Linux: SSH \(22\)|22/22|
 |Custom TCP|Custom \(for example, 8080/8080\)|
 
-For information about how to customize remote access ports, see [Modify the default remote access port](https://www.alibabacloud.com/help/doc-detail/51644.htm).
+For information about how to customize remote access ports, see [Modify the default remote access port](https://partners-intl.aliyun.com/help/doc-detail/51644.htm).
 
 ## Scenario 7: Allow an ECS instance in a security group under another account in the same intranet to remotely connect to your instance {#section_tkx_fyq_ngb .section}
 
 If your account is in the same intranet as another account in the same region, and you want to allow remote access to an ECS instance in a security group of that account, add a security group rule by using the settings described in the following examples.
 
--   To allow an intranet IP address of an instance under another account to connect to your instance, add the security group rule described in the following table. For VPC instances, ensure that the instances under the two accounts can communicate with each other through Express Connect before you add a security group rule. For more information, see [Interconnect two VPCs under the same account](../../../../intl.en-US/Getting Started (New Console)/Interconnect two VPCs under the same account.md#).
+-   To allow an intranet IP address of an instance under another account to connect to your instance, add the security group rule described in the following table. For VPC instances, ensure that the instances under the two accounts can communicate with each other through Express Connect before you add a security group rule. For more information, see [Interconnect two VPCs under the same account](../../../../reseller.en-US/Peering connections/Interconnect two VPCs under the same account.md#).
 
     |Network type|NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
     |:-----------|:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
@@ -161,7 +161,7 @@ If your account is in the same intranet as another account in the same region, a
     |Linux: SSH \(22\)|22/22|
     |Custom TCP|Custom, for example, 8080/8080|
 
--   To allow all ECS instances in a security group under another intranet account to connect to your instance, add the security group rule described in the following table. For VPC instances, ensure that the instances under the two accounts can communicate with each other through Express Connect before you add a security group rule. For more information, see [Connect two VPCs under the same account](../../../../intl.en-US/Getting Started (New Console)/Interconnect two VPCs under the same account.md#).
+-   To allow all ECS instances in a security group under another intranet account to connect to your instance, add the security group rule described in the following table. For VPC instances, ensure that the instances under the two accounts can communicate with each other through Express Connect before you add a security group rule. For more information, see [Connect two VPCs under the same account](../../../../reseller.en-US/Peering connections/Interconnect two VPCs under the same account.md#).
 
     |Network type|NIC|Rule direction|Authorization policy|Protocol type|Port range|Authorization type|Authorization object|Priority|
     |:-----------|:--|:-------------|:-------------------|:------------|:---------|:-----------------|:-------------------|:-------|
@@ -202,6 +202,6 @@ If you host a website on your instance, you can add a security group rule to all
 
 **Note:** 
 
--   If your users cannot access your instance by using the `http://Internet IP address`, [verify if TCP port 80 works properly](https://www.alibabacloud.com/help/faq-detail/59367.htm).
+-   If your users cannot access your instance by using the `http://Internet IP address`, [verify if TCP port 80 works properly](https://partners-intl.aliyun.com/help/faq-detail/59367.htm).
 -   Port 80 is the default port for the HTTP service. If you want to use another port \(for example, port 8080\), you must modify the listening port settings in the configuration file of the Web server.
 
