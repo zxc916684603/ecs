@@ -83,7 +83,7 @@ No. When you delete files in an ECS instance, tags are added to the file headers
 
 You can create a file system in a disk partition. The file system manages disk space. These management tasks take the form of I/O requests in the disk. The disk records the states of data blocks and copies the data to OSS as needed. This process is how snapshots are created. The following figure shows the relationship between a file system and a snapshot.
 
-![Relationship between a file system and a cloud disk or a snapshot](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10122/156637834539434_en-US.png)
+![Relationship between a file system and a cloud disk or a snapshot](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10122/156637844839434_en-US.png)
 
 **Note:** In the preceding figure, any data blocks with data written to them will be recorded in the snapshot, even if the related files have been deleted from the disk. In the file system, only tags are added in the headers of files to deleted but space is not cleared in the cloud disks.
 
