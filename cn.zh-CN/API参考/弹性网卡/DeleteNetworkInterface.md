@@ -1,8 +1,8 @@
-# DeleteNetworkInterface {#doc_api_1000116 .reference}
+# DeleteNetworkInterface {#doc_api_Ecs_DeleteNetworkInterface .reference}
 
-删除弹性网卡（ENI）。
+调用DeleteNetworkInterface删除一个弹性网卡（ENI）。
 
-## 描述 {#description .section}
+## 接口描述 {#description .section}
 
 -   弹性网卡必须处于可用（Available）状态。
 -   如果弹性网卡已经附加到 ECS 实例，必须先从实例分离（[DetachNetworkInterface](~~58514~~)），才能删除弹性网卡。
@@ -10,9 +10,9 @@
     -   弹性网卡的主私有 IP 地址（PrimaryIpAddress）自动释放。
     -   被删除的弹性网卡退出所属的所有安全组。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=DeleteNetworkInterface)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=DeleteNetworkInterface&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
@@ -27,15 +27,12 @@
 |Action|String|否|DeleteNetworkInterface|系统规定参数。取值：DeleteNetworkInterface
 
  |
-|OwnerAccount|String|否|ECSforCloud@Alibaba.com|RAM 用户的账号登录名称。
 
- |
-
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|请求 ID。无论调用接口成功与否，我们都会返回请求 ID。473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。无论调用接口成功与否，我们都会返回请求 ID。
+|RequestId|String|F3CD6886-D8D0-4FEE-B93E-1B73239673DE|请求 ID。
 
  |
 
@@ -44,12 +41,10 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=DeleteNetworkInterface
 &NetworkInterfaceId=eni-myeni
 &RegionId=cn-hangzhou
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -58,9 +53,8 @@ https://ecs.aliyuncs.com/?Action=DeleteNetworkInterface
 
 ``` {#xml_return_success_demo}
 <DetachNetworkInterface>
-  <RequestId>04F0F334-1335-436C-A1D7-6C044FExxxxx</RequestId>
+      <RequestId>04F0F334-1335-436C-A1D7-6C044FExxxxx</RequestId>
 </DetachNetworkInterface>
-
 ```
 
 `JSON` 格式
@@ -88,7 +82,7 @@ https://ecs.aliyuncs.com/?Action=DeleteNetworkInterface
 |400|InvalidOperation.DetachPrimaryEniNotAllowed|%s|不允许分离主网卡。|
 |404|InvalidEcsId.NotFound|%s|指定的实例ID不存在。|
 |404|InvalidEniId.NotFound|%s|指定的网卡ID不存在。|
-|404|InvalidVSwitchId.NotFound|%s|指定的交换机ID。|
+|404|InvalidVSwitchId.NotFound|%s|指定的交换机ID不存在。|
 |404|InvalidSecurityGroupId.NotFound|%s|指定的安全组ID不存在。|
 |403|EniPerInstanceLimitExceeded|%s|弹性网卡的数量超过了指定实例类型允许的最大值。|
 |403|InvalidOperation.AvailabilityZoneMismatch|%s|指定的VPC交换机ID、弹性网卡和实例ID不在同一个可用区。|
@@ -96,8 +90,8 @@ https://ecs.aliyuncs.com/?Action=DeleteNetworkInterface
 |403|SecurityGroupInstanceLimitExceed|%s|该安全组内已有的实例数量已超出最大限制。|
 |403|InvalidSecurityGroupId.NotVpc|%s|指定的安全组 ID 不是 VPC 类型。|
 |403|InvalidOperation.InvalidEniType|%s|当前弹性网卡类型不支持该操作。|
-|400|Forbidden.RegionId|%s|前区域暂不支持此功能。|
+|400|Forbidden.RegionId|%s|当前区域暂不支持此功能。|
 |400|InvalidParams.EniId|%s|指定的网卡ID格式不合法。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
