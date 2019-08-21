@@ -144,6 +144,7 @@ gn5包括的实例规格及指标数据如下：
 
 **说明：** 
 
+-   gn5优惠活动详情请参见[异构计算GPU实例活动页](https://promotion.aliyun.com/ntms/act/gpufreetier.html)。
 -   您可以前往[ECS实例可购买地域](https://ecs-buy.aliyun.com/instanceTypes/#/instanceTypeByRegion)，查看本实例的可购情况。
 -   指标的含义请参见[实例规格指标说明](cn.zh-CN/实例/实例规格族.md#section_e9r_xkf_z15)。
 
