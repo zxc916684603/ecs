@@ -31,7 +31,7 @@ RAPIDS，全称Real-time Acceleration Platform for Integrated Data Science，是
 -   **实例**：RAPIDS仅适用于特定的GPU型号（采用NVIDIA Pascal及以上架构），因此您需要选择GPU型号符合要求的实例规格，目前有gn6i、gn6v、gn5和gn5i。本文案例中，选用了ecs.gn6v-c8g1.2xlarge实例规格。
 -   **镜像**：在镜像市场中使用关键字RAPIDS，搜索并使用预装了RAPIDS加速库的镜像。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216663/156516876646839_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156635078856547_zh-CN.png)
 
 -   **安全组**：选择的安全组需要开放TCP 8888端口，用于支持访问JupyterLab服务。
 
@@ -57,18 +57,18 @@ RAPIDS，全称Real-time Acceleration Platform for Integrated Data Science，是
 
 3.  输入启动命令中设置的密码，然后单击**Log in**。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156516876754231_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156635078854231_zh-CN.png)
 
 
 ## 步骤三：执行图像搜索案例 {#section_stk_wjy_hyd .section}
 
 1.  进入案例所在目录rapids\_notebooks\_v0.7/cuml。
 2.  双击cuml\_knn.ipynb文件。
-3.  单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156516876754341_zh-CN.png)。 
+3.  单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156635078954341_zh-CN.png)。 
 
     **说明：** 单击一次执行一个cell，请单击至案例执行结束，详细说明请参见[案例执行过程](#section_vqt_ih6_0t7)。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156516876754232_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156635078954232_zh-CN.png)
 
 
 ## 案例执行过程 {#section_vqt_ih6_0t7 .section}
@@ -80,19 +80,19 @@ RAPIDS，全称Real-time Acceleration Platform for Integrated Data Science，是
 
         本文案例提供了`download_and_extract(data_dir)`方法供您下载和解压STL-10数据集。RAPIDS镜像中已经将数据集下载到./data目录，您可以执行`download_and_extract()`方法直接解压数据集。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156516876754233_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156635078954233_zh-CN.png)
 
     2.  读取图片。 从数据集解压出的数据为二进制格式，执行`read_all_images(path_to_data)`方法加载数据并转换为NHWC（batch, height, width, channels）格式，以便用Tensorflow提取图片特征。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156516876754234_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156635078954234_zh-CN.png)
 
     3.  展示图片。 执行`show_image(image)`方法随机展示一张数据集中的图片。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156516876854237_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156635079054237_zh-CN.png)
 
     4.  分割数据集。 按照9:1的比例把数据集分为两部分，分别用于创建图片索引库和搜索图片。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156516876854238_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156635079054238_zh-CN.png)
 
 2.  提取图片特征。 使用开源框架Tensorflow和Keras提取图片特征，其中模型为基于ImageNet数据集的ResNet50（notop）预训练模型。
     1.  设定Tensorflow参数。 Tensorflow默认使用所有GPU显存，我们需要留出部分GPU显存供cuML使用。您可以选择一种方法设置GPU显存参数：
@@ -109,7 +109,7 @@ RAPIDS，全称Real-time Acceleration Platform for Integrated Data Science，是
             config.gpu_options.per_process_gpu_memory_fraction = 0.3
             ```
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156516876854241_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156635079054241_zh-CN.png)
 
     2.  下载ResNet50（notop）预训练模型。 连接公网下载模型（大小约91M），下载完成后默认保存到/root/.keras/models/目录。
 
@@ -131,22 +131,22 @@ RAPIDS，全称Real-time Acceleration Platform for Integrated Data Science，是
         -   max：最大池化，输出为2D tensor。
  本案例中设置为max。|
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156516876854243_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156635079154243_zh-CN.png)
 
         您可以执行`model.summary()`方法查看模型的网络结构。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156516876954248_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156635079154248_zh-CN.png)
 
     3.  提取图片特征。 对分割得到的两个图片数据集执行`model.predict()`方法提取图片特征。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156516876954250_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156635079154250_zh-CN.png)
 
 3.  搜索相似图片。 
     1.  使用cuml KNN搜索相似图片。 通过`k=3`设置K值为3，即查找最相似的3张图片，您可以依据使用场景自定义K值。
 
         其中，`knn_cuml.fit()`方法为创建索引阶段，`knn_cuml.kneighbors()`为搜索近邻阶段。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156516876954253_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156635079154253_zh-CN.png)
 
         KNN向量检索耗时791 ms。
 
@@ -154,7 +154,7 @@ RAPIDS，全称Real-time Acceleration Platform for Integrated Data Science，是
 
         **说明：** ecs.gn6v-c8g1.2xlarge的配置为8 vCPU。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156516876954254_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156635079254254_zh-CN.png)
 
         KNN向量检索耗时7分34秒。
 
@@ -166,7 +166,7 @@ RAPIDS，全称Real-time Acceleration Platform for Integrated Data Science，是
         -   indices：对应的图片索引。`indices.shape=(10000, 3)`。
         由于本案例所用数据集中存在重复图片，容易出现图片相同但索引不同的情况，因此使用distances，不使用indices对比结果。考虑到计算误差，如果两种方法得出的10000张图片中的3个最小距离值误差都小于1，则认为结果相同。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156516877054388_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156635079254388_zh-CN.png)
 
 
 ## 图片搜索结果 {#section_7sm_tny_f6x .section}
@@ -175,5 +175,5 @@ RAPIDS，全称Real-time Acceleration Platform for Integrated Data Science，是
 
 第一列为搜索图片，第二列至第四列为图片索引库中的相似图片，且相似性依次递减。每张相似图片的标题为计算的距离，数值越大相似性越低。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156516877054255_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188474/156635079254255_zh-CN.png)
 
