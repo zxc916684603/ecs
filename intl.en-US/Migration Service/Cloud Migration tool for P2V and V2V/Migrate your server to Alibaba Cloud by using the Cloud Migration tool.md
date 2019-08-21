@@ -58,7 +58,7 @@ To ensure that one or more server migrations are successful, we recommend that y
 
 **Note:** The name of the temporary intermediate instance is `No_Delete_GotoAliyun_Transition_Instance` if the version of the Cloud Migration tool is 1.5.0 or later.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9833/156473198138950_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9833/156636443438950_en-US.png)
 
 -   Incremental data migration is not allowed. We recommend that you pause such applications as databases and containers, or filter specified data directories before a migration and then synchronize these data directories after the migration.
 
@@ -125,7 +125,7 @@ We recommend that you perform the server migration by using the AccessKey of an 
 
  |
 |secret\_key|String|Yes|Your AccessKeySecret for accessing Alibaba Cloud APIs. For more information, see [Create an AccessKey](../../../../../reseller.en-US/General Reference/Create an AccessKey.md#).|
-|region\_id|String|Yes|The ID of the Alibaba Cloud region to which your server is migrated, for example, cn-hangzhou \(China East 1 \(Hangzhou\)\). For more information, see [Regions and zones](../../../../../reseller.en-US/General Reference/Regions and zones.md#).|
+|region\_id|String|Yes|The ID of the Alibaba Cloud region to which your server is migrated, for example, cn-hangzhou \(China \(Hangzhou\)\). For more information, see [Regions and zones](../../../../../reseller.en-US/General Reference/Regions and zones.md#).|
 |image\_name|String|Yes|Set a name for the image of the source server. The name must be unique in the Alibaba Cloud region. The name is a string of 2 to 128 characters. It must begin with an English or a Chinese character. It can contain A-Z, a-z, Chinese characters, numbers, periods \(.\), colons \(:\), underscores \(\_\), and hyphens \(-\).|
 |system\_disk\_size|Integer|No|Specify the system disk size. Unit: GiB. Value range: 40 to 500. **Note:** The value must be greater than the space occupied by the system disk on the source server. For example, if the system disk size is 500 GiB and the occupied space is 100 GiB, set this parameter to a value greater than 100 GiB.
 
@@ -160,7 +160,7 @@ The value of the `platform` parameter is case-sensitive.
 
  |
 
-Four scenarios are provided as follows to describe how to edit the user\_config.json file. In each scenario, the migration destination of the target server is the Alibaba Cloud region of China East 1 \(Hangzhou\).
+Four scenarios are provided as follows to describe how to edit the user\_config.json file. In each scenario, the migration destination of the target server is the Alibaba Cloud region of China \(Hangzhou\).
 
  **Scenario 1: Migrate a Windows server without data disk** 
 
