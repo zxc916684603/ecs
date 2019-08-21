@@ -3,11 +3,9 @@
 This topic lists FAQ related to ECS snapshots.
 
 -   OSS-related questions
-    -   [If I have activated OSS, will snapshots automatically be saved to my OSS buckets?](intl.en-US/Snapshots/Snapshot FAQ.md#section_wnf_qh1_4gb)
+    -   [If I have activated OSS, will snapshots automatically be saved to my OSS buckets?](reseller.en-US/Snapshots/Snapshot FAQ.md#section_wnf_qh1_4gb)
     -   [Can a custom image that was created from a snapshot be saved to an OSS bucket?](#section_agb_789_ug8)
 -   Billing-related questions
-    -   [How is the storage fee for snapshots calculated?](#section_svk_hax_cq5)
-    -   [\#section\_27q\_hxw\_8v0](#section_27q_hxw_8v0)
     -   [Where can I view a list of snapshot prices by Alibaba Cloud region?](#section_nom_iuk_an9)
     -   [What impact will unpaid bills have on snapshots?](#section_qs5_lyg_4gb)
     -   [I use snapshots frequently. How can I reduce the amount of fees incurred?](#section_75v_zgn_06k)
@@ -37,19 +35,11 @@ No. Snapshots will not automatically be saved to existing OSS buckets. The stora
 
 ## Can a custom image that was created from a snapshot be saved to an OSS bucket? {#section_agb_789_ug8 .section}
 
-Yes. You can export the image to your OSS bucket to download in the future. For more information, see [../../../../dita-oss-bucket/SP\_2/DNECS19100339/EN-US\_TP\_9712.md\#](../../../../intl.en-US/Images/Custom image/Export custom images.md#). However, custom images cannot be directly stored to the OSS bucket.
-
-## How is the storage fee for snapshots calculated? {#section_svk_hax_cq5 .section}
-
-Snapshots will soon be billed based on a pay-as-you-go basis. The price per GiB to store snapshots is the same as that of OSS standard storage and charged on a monthly basis. For a list of snapshot prices by Alibaba Cloud region, see the Pricing tab of the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs) page. The time that snapshots will begin billing will be posted on the Alibaba Cloud Notice List.
-
-For examples of pay-as-you-go billing, see [Billing of snapshots](../../../../intl.en-US/Pricing/Billing of snapshots.md#).
+Yes. You can export the image to your OSS bucket to download in the future. For more information, see [../../../../dita-oss-bucket/SP\_2/DNECS19100339/EN-US\_TP\_9712.md\#](../../../../reseller.en-US/Images/Custom image/Export custom images.md#). However, custom images cannot be directly stored to the OSS bucket.
 
 ## Where can I view a list of snapshot prices by Alibaba Cloud region? {#section_nom_iuk_an9 .section}
 
-The price per GiB to store snapshots is the same as that of OSS standard storage and charged on a monthly basis. For a list of snapshot prices by Alibaba Cloud region, see the Pricing tab of the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs) page. Scroll down to the **Snapshot Fee** section to view the price list. You can also download the list of snapshot prices by Alibaba Cloud region in CSV or JSON format by clicking **Download price**.
-
-![Download price](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10124/156637656251569_en-US.png)
+The price per GiB to store snapshots is the same as that of OSS standard storage and charged on a monthly basis. For a list of snapshot prices by Alibaba Cloud region, see the Pricing tab of the Elastic Compute Service page.
 
 ## What impact will unpaid bills have on snapshots? {#section_qs5_lyg_4gb .section}
 
@@ -62,7 +52,7 @@ You can recharge your account to resume the snapshot service. For more informati
 
 ## I use snapshots frequently. How can I reduce the amount of fees incurred? {#section_75v_zgn_06k .section}
 
-We recommend that you maintain an appropriate number of snapshots, and delete unnecessary snapshots. For more information, see [Reduce snapshot fees](intl.en-US/Snapshots/Use snapshots/Reduce snapshot fees.md#).
+We recommend that you maintain an appropriate number of snapshots, and delete unnecessary snapshots. For more information, see [Reduce snapshot fees](reseller.en-US/Snapshots/Use snapshots/Reduce snapshot fees.md#).
 
 ## Are automatic snapshots different from or in conflict with manual snapshots? {#section_vj5_5ws_ngb .section}
 
@@ -93,14 +83,14 @@ No. When you delete files in an ECS instance, tags are added to the file headers
 
 You can create a file system in a disk partition. The file system manages disk space. These management tasks take the form of I/O requests in the disk. The disk records the states of data blocks and copies the data to OSS as needed. This process is how snapshots are created. The following figure shows the relationship between a file system and a snapshot.
 
-![Relationship between a file system and a cloud disk or a snapshot](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10122/156637656339434_en-US.png)
+![Relationship between a file system and a cloud disk or a snapshot](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10122/156637834539434_en-US.png)
 
 **Note:** In the preceding figure, any data blocks with data written to them will be recorded in the snapshot, even if the related files have been deleted from the disk. In the file system, only tags are added in the headers of files to deleted but space is not cleared in the cloud disks.
 
 ## How can I prevent snapshots from being deleted by Alibaba Cloud? {#section_wj5_5ws_ngb .section}
 
 -   Manual snapshots will never be deleted by Alibaba Cloud, regardless of whether the cloud disk or instance has been released.
--   Automatic snapshots: When you [Modify an automatic snapshot policy](intl.en-US/Snapshots/Automatic snapshot policies/Modify an automatic snapshot policy.md#), you can set the **Keep Snapshots** parameter to **Always Keep**. Snapshots will then only be deleted when the maximum number of snapshots \(64\) has been reached.
+-   Automatic snapshots: When you [Modify an automatic snapshot policy](reseller.en-US/Snapshots/Automatic snapshot policies/Modify an automatic snapshot policy.md#), you can set the **Keep Snapshots** parameter to **Always Keep**. Snapshots will then only be deleted when the maximum number of snapshots \(64\) has been reached.
 
 ## Can snapshots be deleted to reduce backup costs? {#section_pjl_hqz_ngb .section}
 
@@ -110,13 +100,13 @@ You can create a file system in a disk partition. The file system manages disk s
 ## Will automatic snapshots be deleted after the system disk is changed, the instance expires, or the cloud disk is released? {#section_ck5_5ws_ngb .section}
 
 -   If **Delete Automatic Snapshots While Releasing Disk** is selected for the automatic snapshot policy, the automatic snapshots will be deleted when the corresponding instance or cloud disk is released.
--   If **Delete Automatic Snapshots While Releasing Disk** is not selected for the automatic snapshot policy, the retention period of the automatic snapshot policy applies. If necessary, you can [Modify an automatic snapshot policy](intl.en-US/Snapshots/Automatic snapshot policies/Modify an automatic snapshot policy.md#).
+-   If **Delete Automatic Snapshots While Releasing Disk** is not selected for the automatic snapshot policy, the retention period of the automatic snapshot policy applies. If necessary, you can [Modify an automatic snapshot policy](reseller.en-US/Snapshots/Automatic snapshot policies/Modify an automatic snapshot policy.md#).
 
 ## How can I delete snapshots that have been used to create images and cloud disks? {#section_hji_juh_uhk .section}
 
--   You can delete snapshots that have been used to create cloud disks. After deleting snapshots, you cannot perform operations that depend on the status of the original snapshot data, such as the operation to [reinitialize a cloud disk](../../../../intl.en-US/Block Storage/Block storage/Reinitialize a cloud disk/Reinitialize a cloud disk.md#).
+-   You can delete snapshots that have been used to create cloud disks. After deleting snapshots, you cannot perform operations that depend on the status of the original snapshot data, such as the operation to [reinitialize a cloud disk](../../../../reseller.en-US/Block Storage/Block storage/Reinitialize a cloud disk/Reinitialize a cloud disk.md#).
 -   If a snapshot has been used to create custom images, you must delete those custom images before the snapshot can be deleted.
--   You can delete images that have been used to create instances. After a snapshot is deleted, you cannot perform operations that depend on the status of the original snapshot data, such as the operation to [reinitialize a cloud disk](../../../../intl.en-US/Block Storage/Block storage/Reinitialize a cloud disk/Reinitialize a cloud disk.md#).
+-   You can delete images that have been used to create instances. After a snapshot is deleted, you cannot perform operations that depend on the status of the original snapshot data, such as the operation to [reinitialize a cloud disk](../../../../reseller.en-US/Block Storage/Block storage/Reinitialize a cloud disk/Reinitialize a cloud disk.md#).
 
 ## If I have used an automatic snapshot to create a custom image or a cloud disk, will the automatic snapshot policy fail to be executed? {#section_xj5_5ws_ngb .section}
 
@@ -128,7 +118,7 @@ No.
 
 ## How can I avoid losing data due to misoperations? {#section_oou_9ap_jvp .section}
 
-You can create snapshots to back up data in advance before you perform operations that carry risks to your data. For example, you can create a snapshot if you need to modify critical system files, migrate instances from a classic network to a VPC, back up data, restore an instance that was released by accident, prevent network attacks, change operating systems, or provide data support for a production environment. If an error occurs, you can roll back the cloud disk in time to reduce risks. For more information, see [Create a snapshot](intl.en-US/Snapshots/Use snapshots/Create a snapshot.md#) and [Roll back a disk by using a snapshot](intl.en-US/Snapshots/Use snapshots/Roll back a disk by using a snapshot.md#).
+You can create snapshots to back up data in advance before you perform operations that carry risks to your data. For example, you can create a snapshot if you need to modify critical system files, migrate instances from a classic network to a VPC, back up data, restore an instance that was released by accident, prevent network attacks, change operating systems, or provide data support for a production environment. If an error occurs, you can roll back the cloud disk in time to reduce risks. For more information, see [Create a snapshot](reseller.en-US/Snapshots/Use snapshots/Create a snapshot.md#) and [Roll back a disk by using a snapshot](reseller.en-US/Snapshots/Use snapshots/Roll back a disk by using a snapshot.md#).
 
 ## After you change the system disk, can a snapshot of a previous system disk be used to roll the new system disk back? {#section_hpz_qkh_mgb .section}
 
