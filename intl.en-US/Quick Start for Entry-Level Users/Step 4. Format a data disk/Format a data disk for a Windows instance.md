@@ -9,20 +9,7 @@ This topic describes how to format a new data disk for a Windows instance, creat
 -   We strongly recommend that you do not partition the system disk of an ECS instance. Failure to comply can result in unknown risks, such as system failure and data loss. You can only extend a partition of, or add a partition to, a system disk after you resize the system disk. For more information, see [Extend a Windows file system](../../../../intl.en-US/ECS/Increase disk size online/Extend a Windows file system.md#).
 
 
-## Configure automatic partitioning for a data disk {#section_vxd_zy6_c34 .section}
-
-You can configure automatic partitioning and formatting for a data disk during instance creation or as a separate action, regardless of whether this data disk is greater than 2 TiB.
-
--   If the data disk is purchased during the creation of the target instance, you do not need to configure automatic partitioning for the data disk. You can [connect to the instance](intl.en-US/Quick Start for Entry-Level Users/Step 3. Connect to an instance.md#) and view the partitions in the **Disk Management** window.
--   If the data disk is purchased separately, configure automatic partitioning for it by following these steps:
-    1.  [Attach the data disk to an instance](../../../../intl.en-US/Block Storage/Block storage/Attach a cloud disk.md#).
-    2.  [Restart the instance](../../../../intl.en-US/Instances/Manage instances/Restart an instance.md#) by using the ECS console or calling the [RebootInstance](../../../../intl.en-US/API Reference/Instances/RebootInstance.md#) API action.
-    3.  [Connect to the instance](intl.en-US/Quick Start for Entry-Level Users/Step 3. Connect to an instance.md#).
-    4.  View the partitions in the **Disk Management** window.
-
-After you configure automatic partitioning, a single partition is created in the data disk and an NTFS file system is mounted on the data disk automatically.
-
-## Partition a data disk manually {#section_bx0_5rf_awx .section}
+## Procedure {#section_bx0_5rf_awx .section}
 
 The following procedure applies only to data disks less than 2 TiB. If your data disk is greater than 2 TiB, see [Partition and format a data disk greater than 2 TiB](../../../../intl.en-US/Block Storage/Block storage/Format a data disk/Partition and format data disk more than 2 TiB.md#).
 
@@ -57,7 +44,7 @@ In this example, a new 20 GiB data disk is partitioned and formatted. An instanc
 
 After Disk 2 is partitioned and formatted, its status is displayed in the **Disk Management** window, as shown in the following figure.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15657484275103_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9605/15663655825103_en-US.png)
 
 In **This PC**, you can view a new drive named **New Volume \(F:\)**. The data disk is ready to use.
 
