@@ -22,7 +22,7 @@ The following procedure describes how to configure a GPU instance. For informati
 1.  Go to the [ECS purchase page](https://ecs-buy-intl4service.aliyun.com/#/postpay).
 2.  Complete the following Basic Configurations.
     -   **Region**: Select the target region. For information about regions and zones, see [Regions and zones that provide GPU instances](#section_e2n_pnb_ygb). If the regions and zones listed in this table are different from those displayed on the Basic Configurations page, the regions and zones displayed on the page are the actual regions and zones available.
-    -   **Instance Type**: Choose **Heterogeneous Computing** \> **GPU Compute**, and then select an instance type as needed.
+    -   **Instance Type**: Choose **Heterogeneous Computing** \> **Compute Optimized Type with GPU**, and then select an instance type as needed.
     -   **Image**: Some **Public Image** items of Linux OSs support automatic installation of the CUDA Toolkit and the GPU driver. For more information, see [Images that support automatic installation of the GPU driver](#section_gbb_nxz_xdb).
 
         If you select an image that supports automatic installation of the preceding drivers, select **Auto-install GPU driver**, and select a GPU driver version. If you want to use the GPU instance for a new service system, we recommend that you select the latest GPU driver version.
@@ -31,7 +31,7 @@ The following procedure describes how to configure a GPU instance. For informati
 
         **Note:** If you call the [RunInstances](../../../../reseller.en-US/API Reference/Instances/RunInstances.md#) API action to create a GPU instance, you need to use the UserData parameter to upload the installation script, which must be Base64-encoded.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/156618443939823_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/156636449739823_en-US.png)
 
 3.  Complete the Networking configurations as follows:
     -   **Network Type**: Select **VPC**.
@@ -44,7 +44,7 @@ The following procedure describes how to configure a GPU instance. For informati
     -   **User Data**:
         -   If you select **Auto-install GPU Driver** in the **Image** area on the Basic Configurations page, the Shell script and the precautionary information regarding the installation of the CUDA Toolkit and the GPU driver are displayed in this area.
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/156618443939825_en-US.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/156636449739825_en-US.png)
 
         -   If you do not select **Auto-install GPU Driver**, you can configure the installation script in the **User Data** area. For an installation script example, see [User Data installation script](#section_bl2_k23_ygb).
 5.  Complete the Grouping configurations and confirm your order on the Preview page.
@@ -60,26 +60,26 @@ The following table describes the regions and zones where GPU instance type fami
 
 |Instance type|Region and zone|
 |-------------|---------------|
-|gn4| -   China Beijing \(zone A\), China Shanghai \(zone B\)
--   China Shenzhen \(zone C\)
+|gn4| -   China \(Beijing\) zone A, China \(Shanghai\) zone B
+-   China \(Shenzhen\) zone C
 
  |
-|gn5| -   China Beijing \(zones C and E\), China Hohhot \(zone A\)
--   China Hangzhou \(zones G and F\), China Shanghai \(zones D, B, and E\)
--   China Shenzhen \(zone D\)
--   China Hong Kong \(zones C and B\)
--   Singapore \(zones B and A\), Australia Sydney \(zone A\), Malaysia Kuala Lumpur \(zone A\), Indonesia Jakarta \(zone A\)
--   US Silicon Valley \(zones B and A\), US Virginia \(zones B and A\)
--   Germany Frankfurt \(zone A\)
+|gn5| -   China \(Beijing\) zones C and E, China \(Hohhot\) zone A
+-   China \(Hangzhou\) zones G and F, China \(Shanghai\) zones D, B, and E
+-   China \(Shenzhen\) zone D
+-   China \(Hong Kong\) zones C and B
+-   Singapore zones B and A, Australia zone A, Malaysia zone A, Indonesia zone A
+-   US \(Silicon Valley\) zones B and A, US \(Virginia\) zones B and A
+-   Germany \(Frankfurt\) zone A
 
  |
 |gn5 \(NGC environment\)|The instance type family gn5 does not fully support the NVIDIA GPU CLOUD \(NGC\) environment. For more information, see [Deploy an NGC on gn5 instances](reseller.en-US/Best Practices/GPU instances/Deploy an NGC on gn5 instances.md#).|
-|gn5i| -   China Beijing \(zones C, E, and A\)
--   China Hangzhou \(zone B\), China Shanghai \(zones D and B\)
--   China Shenzhen \(zone A\)
+|gn5i| -   China \(Beijing\) zones C, E, and A
+-   China \(Hangzhou\) zone B, China \(Shanghai\) zones D and B
+-   China \(Shenzhen\) zone A
 
  |
-|gn6v|China Shanghai \(zone F\)|
+|gn6v|China \(Shanghai\) zone F|
 
 ## Images that support automatic installation of the GPU driver {#section_gbb_nxz_xdb .section}
 
