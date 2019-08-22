@@ -27,29 +27,32 @@ If an SSH key pair is used as the authentication method, check that you have [cr
 
 To reinitialize a system disk, follow these steps:
 
-1.  Find the target ECS instance and click its ID to go to the Instance Details page.
-2.  Click **Stop**.
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+2.  In the left-side navigation pane, choose **Instances & Images** \> **Instances**.
+3.  In the top navigation bar, select a region.
+4.  Find the target ECS instance and click its ID to go to the Instance Details page.
+5.  Click **Stop**.
 
-    **Note:** For a Pay-As-You-Go VPC-Connected ECS instance, if the [No fees for stopped VPC instances](../reseller.en-US/Pricing/No fees for stopped VPC instances.md#) feature is enabled, in the Notice dialog box, click **OK**, and then in the Stop dialog box, select **Keep Instance with Fees**. If you select the **No Fees for Stopped Instances \(VPC-Connected\)** mode, you may not be able to start the instance successfully after you reinitialize the system disk.
+    **Note:** For a Pay-As-You-Go VPC-Connected ECS instance, if the [No fees for stopped VPC instances](../reseller.en-US/Pricing/No fees for stopped VPC instances.md#) feature is enabled, in the Notice dialog box, click **OK**, and then in the Stop Instance dialog box, select **Retain Instance and Continue Charging After Instance Is Stopped**. If you select the **No Charges After Instance Is Stopped**, you may not be able to start the instance successfully after you reinitialize the system disk.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9676/15659456005328_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9676/15664635325328_en-US.png)
 
-3.  After the instance is **stopped**, click **Disks** in the left-side navigation pane.
-4.  Find the system disk and then, in the **Actions** column, click **Reinitialize Disk**.
-5.  In the Reinitialize Disk dialog box, complete the following configuration:
+6.  After the instance is **stopped**, click **Disks** in the left-side navigation pane.
+7.  Find the system disk and then, in the **Actions** column, click **Reinitialize Disk**.
+8.  In the Reinitialize Disk dialog box, complete the following configuration:
     1.  Authentication method:
         -   For a Windows instance, you must specify a logon password. You can either use a previous password or specify a new one.
 
-            ![](images/33021_en-US.jpg)
+            ![windows-sys-disk](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9679/156646353355976_en-US.png)
 
         -   For a Linux instance, select **Set SSH Key** or **Set Password** as the security setting. If Key Pair is selected, bind a key pair. If Password is selected, specify a logon password.
 
-            ![](images/33022_en-US.jpg)
+            ![linux-sys-disk](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9679/156646353355977_en-US.png)
 
     2.  \(Optional\) **Security Enhancement**: Select **Activate**. After the security enhancement feature is enabled, ECS security components are loaded. These components provide security features such as backdoor detection, remote logon reminders, brute-force cracking prevention mechanisms, and more.
     3.  \(Optional\) **Instance Startup**: Select **Start Instance Resetting Disk**. .
     4.  Click **Confirm**.
-6.  For Linux instances: If you have attached a data disk to the instance, connect to the instance and [create a mounting point for the partitions of data disks](https://partners-intl.aliyun.com/help/faq-detail/40580.htm), because the mounting points are lost after the system disk is reinitialized.
+9.  For Linux instances: If you have attached a data disk to the instance, connect to the instance and [create a mounting point for the partitions of data disks](https://partners-intl.aliyun.com/help/faq-detail/40580.htm), because the mounting points are lost after the system disk is reinitialized.
 
     **Note:** For a Windows instance, both the system disk and the data disks are ready for use. No additional operations are needed.
 
@@ -89,19 +92,22 @@ To reinitialize a data disk, follow these steps:
         ```
 
     5.  Press the `Esc` key to exit the Insert mode, and then run :wq to save and exit.
-2.  Find the target ECS instance and click its ID to go to the Instance Details page.
-3.  Click **Stop**.
+2.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+3.  In the left-side navigation pane, choose **Instances & Images** \> **Instances**.
+4.  In the top navigation bar, select a region.
+5.  Find the target ECS instance and click its ID to go to the Instance Details page.
+6.  Click **Stop**.
 
-    **Note:** For a Pay-As-You-Go VPC-Connected ECS instance, if the [No fees for stopped VPC instances](../reseller.en-US/Pricing/No fees for stopped VPC instances.md#) feature is enabled, in the Notice dialog box, click **OK**, and then in the Stop dialog box, select **Keep Instance with Fees******. If you select the **No Fees for Stopped Instances \(VPC-Connected\)** mode, you may not be able to start the instance successfully after you reinitialize the system disk.
+    **Note:** For a Pay-As-You-Go VPC-Connected ECS instance, if the [No fees for stopped VPC instances](../reseller.en-US/Pricing/No fees for stopped VPC instances.md#) feature is enabled, in the Notice dialog box, click **OK**, and then in the Stop Instance dialog box, select **Retain Instance and Continue Charging After Instance Is Stopped**. If you select the **No Charges After Instance Is Stopped**, you may not be able to start the instance successfully after you reinitialize the system disk.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9676/15659456005328_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9676/15664635325328_en-US.png)
 
-4.  After the instance is **stopped**, click **Disks** in the left-side navigation pane.
-5.  Find the target data disk and in the **Actions** column, click **Reinitialize Disk**.
-6.  In the Reinitialize Disk dialog box, read the notes and click **Confirm**.
-7.  In the left-side navigation pane, click **Instance Details**.
-8.  Click **Start**.
-9.  For Linux instances: If the data disk was an empty disk after it was created, [format and mount data disks for Linux instances](../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk of a Linux instance.md#).
+7.  After the instance is **Stopped**, click **Disks** in the left-side navigation pane.
+8.  Find the target data disk and in the **Actions** column, click **Reinitialize Disk**.
+9.  In the Reinitialize Disk dialog box, read the notes and click **Confirm**.
+10. In the left-side navigation pane, click **Instance Details**.
+11. Click **Start**.
+12. For Linux instances: If the data disk was an empty disk after it was created, [format and mount data disks for Linux instances](../reseller.en-US/Quick Start for Entry-Level Users/Step 4. Format a data disk/Format a data disk of a Linux instance.md#).
 
 After the data disk is reinitialized, you may need to deploy applications to restore your business operations.
 
