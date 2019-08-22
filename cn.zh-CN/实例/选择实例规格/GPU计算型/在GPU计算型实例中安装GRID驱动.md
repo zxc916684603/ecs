@@ -12,6 +12,8 @@
 
 如果您的GPU计算型实例（gn5、gn5i、gn6v、vgn5i或gn6i实例）需要OpenGL图形支持，必须在实例上安装GRID驱动。GPU计算型实例自带的Nvidia GPU计算卡，如P100、P4、V100等，因为NVIDIA GRID License而限制了GPU图形功能，您可以使用NVIDIA官方发布的试用版GRID驱动满足使用OpenGL图形功能的需求。
 
+gn5优惠活动详情请参见[异构计算GPU实例活动页](https://promotion.aliyun.com/ntms/act/gpufreetier.html)。
+
 ## 操作步骤 {#section_dna_wrl_18n .section}
 
 安装GRID驱动的步骤如下：
@@ -54,7 +56,7 @@
 
     如果返回以下类似结果，说明驱动已经成功安装。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156568625611965_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156643733511965_zh-CN.png)
 
 7.  按以下步骤添加License服务器并激活License。 
     1.  切换到/etc/nvidia目录：`cd /etc/nvidia`。
@@ -84,7 +86,7 @@
     1.  运行命令`nvidia-xconfig --enable-all-gpus --separate-x-screens`。
     2.  编辑/etc/X11/xorg.conf，在`Section "Device"`段添加GPU BusID，如本示例中为`BusID "PCI:0:7:0"`。 
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156568625611966_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156643733511966_zh-CN.png)
 
     3.  运行`reboot`命令重启系统。
 
@@ -103,7 +105,7 @@
     -   如果没有`startx`命令，执行`apt-get install xinit`命令安装。
     -   `startx`启动时可能会提示`hostname: Name or service not known`。这个提示不会影响X Server启动。您可以运行命令`hostname`查得主机名后，再修改/etc/hosts文件，将`127.0.0.1`后的`hostname`改为本机的hostname。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156568625711967_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156643733511967_zh-CN.png)
 
 3.  开启一个新的SSH客户端终端，运行命令启动x11vnc。 
 
@@ -113,7 +115,7 @@
 
     如果看到如下图所示的信息，表示x11vnc已经成功启动。此时，您能通过VNC Viewer等VNC远程连接软件连接实例。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156568625711968_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156643733511968_zh-CN.png)
 
 4.  登录ECS控制台，在实例所在安全组中添加安全组规则，允许TCP 5900端口的入方向访问。具体操作，请参见[添加安全组规则](../../../../cn.zh-CN/安全/安全组/添加安全组规则.md#)。
 5.  在本地机器上，使用VNC Viewer等VNC远程连接软件，通过`实例公网IP地址:5900`连接实例，进入KDE桌面。
@@ -125,7 +127,7 @@
     1.  在KDE桌面上，右键单击桌面，并选择**Run Command**。
     2.  运行`glxgears`启动齿轮图形测试程序。 如果出现如下图所示的窗口，表明GRID驱动正常工作。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156568625711970_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156643733511970_zh-CN.png)
 
 
 ## 在CentOS 7.3 64-bit中安装GRID驱动 {#section_tvd_ytk_ngb .section}
@@ -169,7 +171,7 @@
 
 8.  运行命令`nvidia-smi`测试驱动是否安装成功。 如果返回以下类似结果，说明驱动已经成功安装。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156568625711971_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156643733611971_zh-CN.png)
 
 9.  按以下步骤添加License服务器并激活License。 
     1.  切换到/etc/nvidia目录：`cd /etc/nvidia`。
@@ -196,7 +198,7 @@
     1.  运行命令`nvidia-xconfig --enable-all-gpus --separate-x-screens`。
     2.  编辑/etc/X11/xorg.conf，在`Section "Device"`段添加GPU BusID，如本示例中为`BusID "PCI:0:7:0"`。 
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156568625611966_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156643733511966_zh-CN.png)
 
 13. 运行`reboot`重启系统。
 
@@ -211,7 +213,7 @@
 
     如果看到如下图所示的信息，表示x11vnc已经成功启动。此时，您能通过VNC Viewer等VNC远程连接软件连接实例。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156568625711968_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156643733511968_zh-CN.png)
 
 3.  登录ECS管理控制台，在实例所在安全组中添加安全组规则，允许TCP 5900端口的入方向访问。具体操作，请参见[添加安全组规则](../../../../cn.zh-CN/安全/安全组/添加安全组规则.md#)。
 4.  在本地机器上，使用VNC Viewer等VNC远程连接软件，通过`实例公网IP地址:5900`连接实例，进入KDE桌面。
@@ -223,6 +225,6 @@
     1.  在KDE桌面上，右键单击桌面，并选择**Run Command**。
     2.  运行`glxgears`启动齿轮图形测试程序。 如果出现如下图所示的窗口，表明GRID驱动正常工作。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156568625711970_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156643733511970_zh-CN.png)
 
 
