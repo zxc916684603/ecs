@@ -4,6 +4,8 @@ The ECS image encryption function allows you to add or replace keys to generate 
 
 ## What is image encryption? {#section_ijf_131_chb .section}
 
+Image encryption is in the beta phase and only available in China \(Hong Kong\).
+
 When you need to encrypt the data in an image for security or compliance purposes, you can use the Alibaba Cloud ECS image encryption function to protect your data privacy without the need to build, maintain, or protect your own key management infrastructure.
 
 The Key Management Service \(KMS\) provides system generated CMKs and supports the BYOK model. Specifically, you can upload the key material to generate CMKs and host the CMKs in the KMS. Then, when you encrypt an image, you can choose the CMK provided by the system or use your own key.
@@ -16,25 +18,25 @@ The following image encryption methods are supported:
 
 -   Copy an unencrypted custom image to an unencrypted custom image.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/136784/155385237541604_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/136784/156644514541604_en-US.png)
 
     The image copying process does not change the encryption status of the target image.
 
 -   Copy an unencrypted custom image to an encrypted custom image.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/136784/155385237541606_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/136784/156644514641606_en-US.png)
 
     The image copying process changes the encryption status of the target image. During the image copying process, you must provide a new encryption key. After encryption, you need to use this key to access the instance that is created by using the target image.
 
 -   Copy an encrypted custom image to an encrypted custom image \(the key is not replaced\).
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/136784/155385237641607_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/136784/156644514841607_en-US.png)
 
     The image copying process does not change the encryption status of the target image or replace the key. That is, the encrypted source image remains encrypted in the target image. In this case, you must use the original key to access the instance that is created by using the target image.
 
 -   Copy an encrypted custom image to an encrypted custom image \(the key is replaced\).
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/136784/155385237641608_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/136784/156644514941608_en-US.png)
 
     The image copying process does not change the encryption status of the image, but replaces the key. This means that during the image copying process, you must provide a new encryption key. After encryption, you need to use this key to access the instance that is created by using the target image.
 
@@ -62,10 +64,10 @@ Make sure that your payment is successful. Otherwise, image encryption will fail
 
 ## Encrypt an image by using the ECS console {#howtocreate .section}
 
-1.  Log on to the ECS console.
-2.  Select the target region.
-3.  In the left-side navigation pane, choose **Snapshots and Images** \> **Custom Images**.
-4.  On the **Images** tab page, select the target image, and then click **Copy Image**.
+1.  Log on to the [ECS console](https://ecs.console.aliyun.com).
+2.  In the left-side navigation pane, choose **Instances & Images** \> **Images**.
+3.  In the top navigation bar, select a region.
+4.  On the Custom Images tab page, select the target image, and then click **Copy Image**.
 
     **Note:** If the selected custom image is larger than 200 GiB, the system will prompt you to open a ticket when you click **Copy Image**.
 
