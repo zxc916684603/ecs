@@ -18,25 +18,25 @@ The following image encryption methods are supported:
 
 -   Copy an unencrypted custom image to an unencrypted custom image.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/136784/156644514541604_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/136784/156644533141604_en-US.png)
 
     The image copying process does not change the encryption status of the target image.
 
 -   Copy an unencrypted custom image to an encrypted custom image.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/136784/156644514641606_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/136784/156644533441606_en-US.png)
 
     The image copying process changes the encryption status of the target image. During the image copying process, you must provide a new encryption key. After encryption, you need to use this key to access the instance that is created by using the target image.
 
 -   Copy an encrypted custom image to an encrypted custom image \(the key is not replaced\).
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/136784/156644514841607_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/136784/156644533641607_en-US.png)
 
     The image copying process does not change the encryption status of the target image or replace the key. That is, the encrypted source image remains encrypted in the target image. In this case, you must use the original key to access the instance that is created by using the target image.
 
 -   Copy an encrypted custom image to an encrypted custom image \(the key is replaced\).
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/136784/156644514941608_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/136784/156644533841608_en-US.png)
 
     The image copying process does not change the encryption status of the image, but replaces the key. This means that during the image copying process, you must provide a new encryption key. After encryption, you need to use this key to access the instance that is created by using the target image.
 
