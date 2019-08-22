@@ -69,8 +69,8 @@
 -   如果新增空间用于增加新的GPT分区，请参见[选项四：新增并格式化GPT分区](#)。
 
  |
-|全新数据盘，未分区，未创建文件系统|在控制台扩容磁盘空间后，参见[分区并格式化数据盘](../../../../cn.zh-CN/个人版快速入门/格式化数据盘/Linux格式化数据盘.md#)或者[分区格式化大于2 TiB云盘](cn.zh-CN/块存储/云盘/分区格式化数据盘/分区格式化大于2 TiB数据盘.md#)。|
-|数据盘已创建文件系统，未分区|在控制台扩容数据盘空间后，直接[扩容文件系统](#)。|
+|全新数据盘，未分区，未创建文件系统|在控制台扩容数据盘空间后，请参见[分区并格式化数据盘](../../../../cn.zh-CN/个人版快速入门/格式化数据盘/Linux格式化数据盘.md#)或者[分区格式化大于2 TiB云盘](cn.zh-CN/块存储/云盘/分区格式化数据盘/分区格式化大于2 TiB数据盘.md#)。|
+|数据盘是裸设备，已创建文件系统，未分区|在控制台扩容数据盘空间后，请参见[选项五：扩容裸设备文件系统](#section_f88_ax7_y8i)。|
 |数据盘未挂载到实例上|挂载数据盘到实例后，参见本文档的操作步骤完成扩容。|
 
 **说明：** 如果一个已有分区采用了MBR分区格式，则不支持扩容到2 TiB及以上。为避免造成数据丢失，建议您创建一块大于2 TiB的云盘，参见[分区格式化大于2 TiB云盘](cn.zh-CN/块存储/云盘/分区格式化数据盘/分区格式化大于2 TiB数据盘.md#)格式化一个GPT分区，再将MBR分区中的数据拷贝到GPT分区中。
@@ -662,6 +662,40 @@
 
     ``` {#codeblock_8if_42j_r60 .lanuage-shell}
     [root@ecshost ~]# mount /dev/vdb2 /mnt
+    ```
+
+
+## 选项五：扩容裸设备文件系统 {#section_f88_ax7_y8i .section}
+
+当数据盘没有创建分区，并且在裸设备上创建了文件系统时，您可以参见以下步骤直接扩容文件系统。
+
+1.  根据文件系统的类型，执行不同的扩容命令。
+    -   ext\*：使用root权限执行resize2fs命令扩容文件系统，例如：
+
+        ``` {#codeblock_z5t_tk5_4lj}
+        resize2fs /dev/vdb
+        ```
+
+    -   xfs：使用root权限执行xfs\_growfs命令扩容文件系统，例如：
+
+        ``` {#codeblock_tbl_c35_kds}
+        xfs_growfs /dev/vdb
+        ```
+
+2.  运行`df -h`查看数据盘扩容结果。
+
+    显示容量完成扩充，表示扩容成功。
+
+    ``` {#codeblock_7ld_itm_2o5 .lanuage-shell}
+    [root@ecshost ~]# df -h
+    Filesystem Size Used Avail Use% Mounted on
+    /dev/vda1 40G 1.6G 36G 5% /
+    devtmpfs 3.9G 0 3.9G 0% /dev
+    tmpfs 3.9G 0 3.9G 0% /dev/shm
+    tmpfs 3.9G 460K 3.9G 1% /run
+    tmpfs 3.9G 0 3.9G 0% /sys/fs/cgroup
+    /dev/vdb 98G 37G 61G 37% /mnt
+    tmpfs 783M 0 783M 0% /run/user/0
     ```
 
 
