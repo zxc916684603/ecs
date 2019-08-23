@@ -1,6 +1,6 @@
 # ModifyInstanceChargeType {#doc_api_Ecs_ModifyInstanceChargeType .reference}
 
-调用ModifyInstanceChargeType更换一台或者多台ECS实例的计费方式。支持在按量付费实例和预付费（包年包月）实例间相互转换，同时可以将实例挂载的所有按量付费云盘转换为预付费（包年包月）云盘。
+调用ModifyInstanceChargeType更换一台或者多台ECS实例的计费方式。支持在按量付费实例和包年包月实例间相互转换，同时可以将实例挂载的所有按量付费云盘转换为包年包月云盘。
 
 ## 接口说明 {#description .section}
 
@@ -10,11 +10,11 @@
 
 -   目标实例的状态必须为**运行中**（`Running`）或者**已停止**（`Stopped`），并且无欠费的情况下才能修改计费方式。
 -   更换计费方式后，默认自动扣费。您需要确保账户余额充足，否则会生成异常订单，此时只能作废订单。如果您的账户余额不足，可以将参数`AutoPay`置为`false`，此时会生成正常的未支付订单，您可以登录[ECS管理控制台](https://ecs.console.aliyun.com/)支付。
--   **预付费转按量付费**：
-    -   达到一定信用等级的阿里云用户可以使用预付费转按量付费功能。
+-   **包年包月转按量付费**：
+    -   达到一定信用等级的阿里云用户可以使用包年包月转按量付费功能。
     -   包年包月实例转按量实例的时候，新计费方式将覆盖实例的整个生命周期。您会收到修改前后的实例计费的价格差退款，退还到您的原付款渠道中，已使用的代金券将不退回。
     -   **退款规则**：您在一个月内能自由操作的退款额度有限且不累计，消耗完退款额度后，只能等待次月转换计费方式。一次转换计费消耗的退款额度公式为**vCPU数\*\(退款天数\*24±浮动小时数\)**。
--   **按量付费转预付费**：
+-   **按量付费转包年包月**：
     -   支持将实例挂载的所有按量付费数据盘同时转换为包年包月数据盘。
     -   如果按量付费实例已经设置了释放时间，则不能调用该接口。
 
@@ -35,7 +35,7 @@
 |Action|String|否|ModifyInstanceChargeType|接口名称。对于您自行拼凑HTTP/HTTPS URL发起的API请求，`Action`为必选参数。取值：**ModifyInstanceChargeType**
 
  |
-|Period|Integer|否|2|预付费续费时长。一旦指定了DedicatedHostId，则取值范围不能超过专有宿主机的订阅时长。取值范围：
+|Period|Integer|否|2|包年包月续费时长。一旦指定了DedicatedHostId，则取值范围不能超过专有宿主机的订阅时长。取值范围：
 
  -   `PeriodUnit=Week`时，`Period`取值：\{“1”, “2”, “3”, “4”\}
 -   `PeriodUnit=Month`时，`Period`取值：\{ “1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “12”, “24”, “36”,”48”,”60”\}
@@ -50,15 +50,15 @@
 |IncludeDataDisks|Boolean|否|true|是否将实例挂载的所有按量付费数据盘一起转换为包年包月数据盘。默认值：true
 
  |
-|IsDetailFee|Boolean|否|false|预付费转换为按量计费时，是否返回订单费用详情。
+|IsDetailFee|Boolean|否|false|包年包月转换为按量计费时，是否返回订单费用详情。
 
  默认值：false。
 
  |
 |InstanceChargeType|String|否|PrePaid|实例需要修改的目标计费方式。取值范围：
 
- -   PrePaid（默认）：预付费，即按量付费实例转换为包年包月实例。
--   PostPaid：按量付费，即包年包月实例转换为按量付费实例。
+ -   PrePaid（默认）：将按量付费实例转换为包年包月实例。
+-   PostPaid：将包年包月实例转换为按量付费实例。
 
  |
 |DryRun|Boolean|否|false|是否只预检此次请求。
@@ -197,7 +197,7 @@ https://ecs.aliyuncs.com/?Action=ModifyInstanceChargeType
 |403|ImageNotSupportInstanceType|The specified instanceType is not supported by instance with marketplace image.|指定的市场镜像不支持该实例规格。|
 |403|InvalidInstanceType.PhasedOut|This instanceType is no longer offered.|该实例规格已下线。|
 |400|InvalidSystemDiskCategory.ValueNotSupported|%s|参数不支持。|
-|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单。|
 |403|RealNameAuthenticationError|Your account has not passed the real-name authentication yet.|您的帐户尚未通过实名认证，请先实名认证后再操作。|
 
 访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
