@@ -23,7 +23,7 @@ Before you export a custom image, note the following items:
 4.  Find the custom image you want to export. In the **Actions** column corresponding to the image, click More and choose **Export Image** from the shortcut menu. 
     1.  In the Export Image dialog box that appears, click **Confirm Address**. 
 
-        ![Export a custom image](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9712/15665251624655_en-US.png)
+        ![Export a custom image](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9712/15665254194655_en-US.png)
 
     2.  In the Cloud Resource Access Authorization dialog box, click **Confirm Authorization Policy** to allow ECS to access your OSS resources.
 5.  Return to the ECS console homepage and access the Images page again. Find the custom image you want to export. In the **Actions** column corresponding to the image, click More and choose **Export Image** from the shortcut menu.
@@ -44,7 +44,7 @@ Before you export a custom image, note the following items:
 **More information**  
 
 
-[../DNA0011860945/EN-US\_TP\_9896.md\#](../reseller.en-US/API Reference/Images/ExportImage.md#)
+[ExportImage](../reseller.en-US/API Reference/Images/ExportImage.md#)
 
-[../DNA0011860945/EN-US\_TP\_9975.md\#](../reseller.en-US/API Reference/Others/CancelTask.md#)
+[CancelTask](../reseller.en-US/API Reference/Others/CancelTask.md#)
 
