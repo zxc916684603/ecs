@@ -1,12 +1,12 @@
 # CreateInstance {#doc_api_Ecs_CreateInstance .reference}
 
-创建一台ECS实例。
+调用CreateInstance创建一台包年包月或者按量付费ECS实例。
 
 ## 接口说明 {#description .section}
 
 **说明：** 创建一台实例前，您可以调用[DescribeAvailableResource](~~66186~~)查看指定地域或者可用区内的实例资源供给情况。若您希望批量创建实例并且实例自动进入运行中（Running）状态，推荐您使用[RunInstances](~~63440~~)接口。
 
-创建实例会涉及到资源计费，建议您提前了解云服务器ECS的计费方式。更多详情，请参见[计费概述](~~25398~~)。若实例付费类型为预付费的包年包月实例（`PrePaid`），则在付款时默认会使用您可用的优惠券。
+创建实例会涉及到资源计费，建议您提前了解云服务器ECS的计费方式。更多详情，请参见[计费概述](~~25398~~)。若实例计费方式为包年包月实例（`PrePaid`），则在付款时默认会使用您可用的优惠券。
 
 创建实例需要通过实名认证。您可以参见[账号实名认证相关文档](~~48263~~)完成认证。
 
@@ -62,13 +62,13 @@
 
 使用说明：**其他**
 
-在阿里云CLI及SDK中使用API时，部分带点号（.）的入参需要去掉点号（.）再使用，包括：`SystemDisk.Category`、`SystemDisk.Size`、`SystemDisk.Description`、`DataDisk.N.Size`、`DataDisk.N.Category`、`DataDisk.N.SnapshotId`、`DataDisk.N.DiskName`、`DataDisk.N.Description`、`DataDisk.N.DeleteWithInstance`。
+在阿里云CLI及SDK中使用API时，部分带点号（.）的入参需要去掉点号（.）再使用，包括：`SystemDisk.Category`、`SystemDisk.Size`、`SystemDisk.Description`、`DataDisk.N.Size`、`DataDisk.N.Category`、`DataDisk.N.SnapshotId`、`DataDisk.N.DiskName`、`DataDisk.N.Description`、`DataDisk.N.DeleteWithInstance`、`DataDisk.N.PerformanceLevel`。
 
-例如，在[阿里云CLI](~~66653~~)及[SDK](https://github.com/aliyun)中使用`SystemDiskCategory`表示入参 `SystemDisk.Category`。
+例如，在[阿里云CLI](~~66653~~)及[SDK](https://github.com/aliyun)中使用`SystemDiskCategory`表示入参`SystemDisk.Category`。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=CreateInstance)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=CreateInstance&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
@@ -83,7 +83,7 @@
 |RegionId|String|是|cn-hangzhou|实例所属的地域ID。您可以调用[DescribeRegions](~~25609~~)查看最新的阿里云地域列表。
 
  |
-|Action|String|否|CreateInstance|系统规定参数。取值：CreateInstance
+|Action|String|否|CreateInstance|系统规定参数。对于您自行拼凑HTTP/HTTPS URL发起的API请求，`Action`为必选参数。取值：CreateInstance
 
  |
 |SecurityGroupId|String|否|sg-bp15ed6xe1yxeycg7\*\*\*|指定新创建实例所属于的安全组代码，同一个安全组内的实例之间可以互相访问。
@@ -106,9 +106,9 @@
  |
 |AutoRenewPeriod|Integer|否|2|每次自动续费的时长，当参数AutoRenew取值True时为必填。
 
- PeriodUnit为Week 时，AutoRenewPeriod取值 \{“1”, “2”, “3”\}
+ PeriodUnit为Week时，AutoRenewPeriod取值\{“1”, “2”, “3”\}
 
- PeriodUnit为Month时，AutoRenewPeriod取值 \{“1”, “2”, “3”, “6”, “12”\}
+ PeriodUnit为Month时，AutoRenewPeriod取值\{“1”, “2”, “3”, “6”, “12”\}
 
  |
 |InternetMaxBandwidthIn|Integer|否|200|公网入带宽最大值，单位为Mbit/s。取值范围：1~200
@@ -168,7 +168,9 @@
  |
 |SystemDisk.Size|Integer|否|40|系统盘大小，单位为GiB。取值范围：20~500
 
- 该参数的取值必须大于或者等于max\{20, ImageSize\}。 默认值：max\{40, ImageSize\}
+ 该参数的取值必须大于或者等于max\{20, ImageSize\}。
+
+ 默认值：max\{40, ImageSize\}
 
  |
 |SystemDisk.Category|String|否|cloud\_ssd|系统盘的云盘种类。[已停售的实例规格](~~55263~~)且非I/O优化实例默认值为cloud，否则默认值为cloud\_efficiency。取值范围：
@@ -197,7 +199,7 @@
  该参数的取值必须大于等于参数`SnapshotId`指定的快照的大小。
 
  |
-|DataDisk.N.SnapshotId|String|否|s-bp17441ohwka0yuhx\*\*\*|创建数据盘n使用的快照。n的取值范围为1~16。指定参数`DataDisk.N.SnapshotId`后，参数`DataDisk.N.Size`会被忽略，实际创建的磁盘大小为指定的快照的大小。不能使用早于2013年7月15日（含）创建的快照，请求会报错被拒绝。
+|DataDisk.N.SnapshotId|String|否|s-bp17441ohwka0yuhx\*\*\*|创建数据盘n使用的快照。n的取值范围为1~16。指定参数`DataDisk.N.SnapshotId`后，参数`DataDisk.N.Size`会被忽略，实际创建的云盘大小为指定的快照的大小。不能使用早于2013年7月15日（含）创建的快照，请求会报错被拒绝。
 
  |
 |DataDisk.N.Category|String|否|cloud\_ssd|数据盘n的云盘种类。取值范围：
@@ -244,7 +246,7 @@
  |
 |InstanceChargeType|String|否|PrePaid|实例的付费方式。取值范围：
 
- -   PrePaid：预付费，包年包月。选择该类付费方式时，您必须确认自己的账号支持余额支付/信用支付，否则将返回 `InvalidPayMethod`的错误提示。
+ -   PrePaid：包年包月。选择该类付费方式时，您必须确认自己的账号支持余额支付/信用支付，否则将返回 `InvalidPayMethod`的错误提示。
 -   PostPaid（默认）：按量付费。
 
  |
@@ -261,7 +263,7 @@
 |Tag.N.Key|String|否|FinanceDept|实例、云盘和主网卡的标签键。N的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun和acs:开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.Value|String|否|FinanceDeptJoshua|实例、磁盘和主网卡的标签值。N的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun和acs:开头，不能包含 http:// 或者 https:// 。
+|Tag.N.Value|String|否|FinanceDeptJoshua|实例、云盘和主网卡的标签值。N的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun和acs:开头，不能包含 http:// 或者 https:// 。
 
  |
 |UserData|String|否|ZWNobyBoZWxsbyBlY3Mh|实例自定义数据，需要以Base64方式编码，原始数据最多为16KB。
@@ -328,6 +330,24 @@
  **说明：** 该属性仅适用于按量付费实例，且只能限制手动释放操作，对系统释放操作不生效。
 
  |
+|SystemDisk.PerformanceLevel|String|否|PL1|创建ESSD云盘作为系统盘使用时，设置云盘的性能等级。取值范围：
+
+ -   PL1（默认）：单盘最高随机读写IOPS 5万。
+-   PL2：单盘最高随机读写IOPS 10万。
+-   PL3：单盘最高随机读写IOPS 100万。
+
+ 有关如何选择ESSD性能等级，请参见[ESSD云盘](~~122389~~)。
+
+ |
+|DataDisk.N.PerformanceLevel|String|否|PL2|创建ESSD云盘作为数据盘使用时，设置云盘的性能等级。N的取值必须和`DataDisk.N.Category=cloud_essd`中的N保持一致。取值范围：
+
+ -   PL1（默认）：单盘最高随机读写IOPS 5万。
+-   PL2：单盘最高随机读写IOPS 10万。
+-   PL3：单盘最高随机读写IOPS 100万。
+
+ 有关如何选择ESSD性能等级，请参见[ESSD云盘](~~122389~~)。
+
+ |
 |Affinity|String|否|default|专有宿主机实例是否与专有宿主机关联。取值范围：
 
  -   default：实例不与专有宿主机关联。已开启停机不收费功能的实例，停机后再次启动时，若原专有宿主机可用资源不足，则实例被放置在自动部署资源池的其它专有宿主机上。
@@ -345,14 +365,14 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |InstanceId|String|i-instanceid1|实例ID，是访问实例的唯一标识。
 
  |
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID。无论调用接口成功与否，我们都会返回请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID。无论调用接口成功与否，我们都会返回请求ID。
 
  |
 
@@ -376,10 +396,9 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 
 ``` {#xml_return_success_demo}
 <CreateInstanceResponse>
-  <RequestId>04F0F334-1335-436C-A1D7-6C044FE73368</RequestId>
-  <InstanceId>i-instance1</InstanceId>
+      <RequestId>04F0F334-1335-436C-A1D7-6C044FE73368</RequestId>
+      <InstanceId>i-instance1</InstanceId>
 </CreateInstanceResponse>
-
 ```
 
 `JSON` 格式
@@ -439,7 +458,7 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |400|InvalidInstanceName.Malformed|The specified parameter "InstanceName" is not valid.|指定的实例名称格式不合法。长度为2-128个字符，以英文字母或中文开头，可包含数字，"."，"\_"或"-"。 不能以 http:// 和 https:// 开头。|
 |400|InvalidDiskDescription.Malformed|The specified parameter "SystemDisk.DiskDescription or DataDisk.n.Description" is not valid.|参数 SyatemDisk.DiskDescription 或 DataDisk.n.Description 不合法。|
 |403|QuotaExceed.PortableCloudDisk|The quota of portable cloud disk exceeds.|可卸载磁盘数量已达上限。|
-|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单。|
 |403|OperationDenied|Sales of this resource are temporarily suspended in the specified region; please try again later.|指定地域关闭。|
 |400|InvalidParameter.Conflict|The specified region and cluster do not match.|指定的地域与指定的集群不匹配。|
 |403|SecurityGroupInstanceLimitExceed|The maximum number of instances in a security group is exceeded.|安全组中实例数量超限。|
@@ -514,7 +533,7 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |400|InvalidSpotAuthorized|The specified Spot param is unauthorized.|指定的 Spot 未获得授权。|
 |400|InvalidSpotPrepaid|The specified Spot type is not support PrePay Instance.|指定的 Spot 类型不支持包年包月实例。|
 |400|InvalidSpotAliUid|The specified UID is not authorized to use SPOT instance.|指定的 UID 无权使用 SPOT 实例。|
-|403|InvalidPayMethod|The specified pay method is not valid.|没有可用的付费方式|
+|403|InvalidPayMethod|The specified pay method is not valid.|没有可用的付费方式。|
 |403|OperationDenied.ImageNotValid|The specified Image is disabled or is deleted.|指定的镜像不存在。|
 |403|InvalidUserData.Base64FormatInvalid|The specified UserData is not valid|指定的 UaseData 不合法。|
 |400|InvalidTagKey.Malformed|The specified Tag.n.Key is not valid.|指定的标签键不合法。|
@@ -574,7 +593,6 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |400|InvalidPeriod.ExceededDedicatedHost|Instance expired date can't exceed dedicated host expired date.|实例的自动订阅时长不能晚于专有宿主机订阅时长。|
 |400|InvalidInstanceType.ValueUnauthorized|The specified InstanceType is not authorize.|您未被授权使用该实例规格。|
 |400|DedicatedHostType.Unmatched|The specified DedicatedHostType doesn?t match the instance type.|抢占是实例不支持该实例规格。|
-|400|LackResource|There's no enough resource on the specified dedicated host.|专有宿主机的资源使用空间已满。|
 |400|ChargeTypeViolation.PostPaidDedicatedHost|Prepaid instance onto postpaid dedicated host is not allowed.|专有宿主机不支持更换计费方式。|
 |403|OperationDenied.ImageNotValid|%s|镜像不支持此操作。|
 |403|QuotaExceed.PostPaidDisk|Living postPaid disks quota exceeded.|按量付费磁盘数量已超出允许数量。|
@@ -594,7 +612,6 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |403|OperationDenied.InconsistentNetwork|The specified security group and vswitch are not in the same vpc.|安全组和交换机的VPC必须相同。|
 |403|OperationDenied|If the network segment of the vswitch is the same as that of its VPC. Therefore, the VPC cannot create other vswitchs across the region.|VPC与虚拟交换机的网段相同，无法在多可用区内创建其他交换机。|
 |403|DefaultVswitch.Existed|The default vswitch for VPC already exists.|VPC已存在默认交换机。|
-|403|InvalidChargeType.ValueNotSupported|The operation is not permitted due to deletion protection only support postPaid instance|仅按量付费实例支持释放保护。|
 |403|IncorrectInstanceStatus|The current status of the resource does not support this operation.|该资源目前的状态不支持此操作。|
 |403|CategoryViolation|The specified instance does not support this operation because of its disk category.|挂载有本地磁盘的实例不支持升降配。|
 |403|ResourcesNotInSameZone|The specified instance and dedicated host are not in the same zone.|实例和专有宿主机必须在同一地域下。|
@@ -611,11 +628,9 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |403|InsufficientBalance|Your account does not have enough balance.|账户余额不足，请先充值再操作。|
 |400|Duplicate.TagKey|The Tag.N.Key contain duplicate key.|标签键中存在重复的键。|
 |400|InvalidParam.Tenancy|The specified Tenancy is invalid.|您指定的Tenancy参数值无效。|
-|400|LackResource|A dedicated host with sufficient available resources cannot be found.|无法找到具有足够可用资源的专有宿主机。|
 |404|InvalidSecurityGroupId.NotFound|%s|指定的安全组ID不存在。|
-|403|InvalidVSwitchId.IpNotEnough|%s|指定的交换机内ip数量不足。|
 |403|InvalidVSwitchId.IpInvalid|%s|指定的私网ip不合法。|
 |404|InvalidDiskIds.NotPortable|The specified DiskId is not portable.|指定的磁盘是不可移植的。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
 
