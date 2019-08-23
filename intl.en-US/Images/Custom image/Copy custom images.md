@@ -40,14 +40,14 @@ Before you copy a custom image, note the following:
 
     **Note:** If **Progress** is not 100%, **Status** is **Creating**. In this case, you can click **Cancel Copy** to cancel the operation. After the operation is canceled, the image information is removed from the target region.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9699/15661816224607_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9699/15665433764607_en-US.png)
 
 
-You can also call the ECS APIs [CopyImage](../reseller.en-US/API Reference/Images/CopyImage.md#) and [CancelCopyImage](../reseller.en-US/API Reference/Images/CancelCopyImage.md#) to perform the preceding operations.
+You can also call the [CopyImage](../reseller.en-US/API Reference/Images/CopyImage.md#) and [CancelCopyImage](../reseller.en-US/API Reference/Images/CancelCopyImage.md#) API actions to perform the preceding operations.
 
 ## What to do next {#section_kmp_xfm_xdb .section}
 
-When a copied image is in the **Available** status, you can use it to [create an instance](../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#) or [change the system disk](../reseller.en-US/Block Storage/Block storage/Change the operating system/Replace the system disk (non-public image).md#).
+When a copied image is in the **Available** state, you can use it to [create an instance](../reseller.en-US/Quick Start for Entry-Level Users/Step 2. Create an instance.md#) or [change the system disk](../reseller.en-US/Block Storage/Block storage/Change the operating system/Replace the system disk (non-public image).md#).
 
 You can also view the copied snapshot in the target region.
 
