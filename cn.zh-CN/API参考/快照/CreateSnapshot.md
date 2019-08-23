@@ -4,7 +4,7 @@
 
 ## 接口说明 {#description .section}
 
--   一块云盘最多能创建256份手动快照。删除不需要的手动快照后，您可以继续创建快照。
+-   一块云盘最多能创建64份手动快照。删除不需要的手动快照后，您可以继续创建快照。
 -   云盘挂载的实例必须处于**已停止**（`Stopped`）或者**运行中**（`Running`）状态，否则无法创建快照。
 -   云盘必须已经挂载到实例上，否则无法创建快照。
 -   云盘挂载的实例从未启动过时，无法创建快照。
@@ -114,7 +114,7 @@ https://ecs.aliyuncs.com/?Action=CreateSnapshot
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
 |404|InvalidDiskId.NotFound|The specified DiskId does not exist.|指定的磁盘不存在。请您检查磁盘 ID 是否正确。|
-|400|InvalidSnapshotName.Malformed|The specified SnapshotName is wrongly formed.|快照名称格式不合法。长度为2-128个字符，以英文字母或中文开头，可包含数字，"."，"\_"或"-"。 不能以 http:// 和 https:// 开头。|
+|400|InvalidSnapshotName.Malformed|The specified SnapshotName is wrongly formed.|快照名称格式不合法。|
 |404|InvalidDescription.Malformed|The specified description is wrongly formed.|指定的资源描述格式不合法。长度为2-256个字符，不能以 http:// 和 https:// 开头。|
 |400|IncorrectInstanceStatus|The current status of the resource does not support this operation.|该资源目前的状态不支持此操作。|
 |403|IncorrectDiskStatus.CreatingSnapshot|A previous snapshot creation is in process.|当前磁盘有创建中的快照，请您等待创建完成再试。|
@@ -124,7 +124,7 @@ https://ecs.aliyuncs.com/?Action=CreateSnapshot
 |403|IncorrectDiskStatus.NeverUsed|The specified disk has never been used after creating.|磁盘创建后未被使用，内容没有变化。|
 |403|CreateSnapshot.Failed|The process of creating snapshot is failed.|创建快照失败。|
 |403|DiskInArrears|The specified operation is denied as your disk has expired.|磁盘欠费过期。|
-|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单。|
 |403|DiskId.ValueNotSupported|The specified parameter diskid is not supported.|当前磁盘类型不支持此操作|
 |400|DiskCategory.OperationNotSupported|The operation is not supported to the specified disk due to its disk category|由于磁盘种类限制，指定的磁盘不支持该操作。|
 |403|IncorrectDiskStatus|The current disk status does not support this operation.|当前的磁盘不支持此操作，请您确认磁盘处于正常使用状态，是否欠费。|
