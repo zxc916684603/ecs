@@ -1,6 +1,6 @@
 # RunInstances {#doc_api_Ecs_RunInstances .reference}
 
-调用RunInstances创建一台或多台按量付费或者预付费（包年包月）ECS实例。
+调用RunInstances创建一台或多台按量付费或者包年包月ECS实例。
 
 ## 接口说明 {#description .section}
 
@@ -127,7 +127,7 @@
  该参数的取值必须大于或者等于max\{20, ImageSize\}。默认值：max\{40, 参数ImageId对应的镜像大小\}
 
  |
-|SystemDisk.Category|String|否|cloud\_ssd|系统盘的磁盘种类。[已停售的实例规格](~~55263~~)且非I/O优化实例默认值为cloud，否则默认值为cloud\_efficiency。取值范围：
+|SystemDisk.Category|String|否|cloud\_ssd|系统盘的云盘种类。[已停售的实例规格](~~55263~~)且非I/O优化实例默认值为cloud，否则默认值为cloud\_efficiency。取值范围：
 
  -   cloud：普通云盘
 -   cloud\_efficiency：高效云盘
@@ -153,10 +153,10 @@
  该参数的取值必须大于等于参数`SnapshotId`指定的快照的大小。
 
  |
-|DataDisk.N.SnapshotId|String|否|s-bp17441ohwka0yuhx\*\*\*|创建数据盘n使用的快照。n的取值范围为1~16。指定参数`DataDisk.N.SnapshotId`后，参数`DataDisk.N.Size`会被忽略，实际创建的磁盘大小为指定的快照的大小。不能使用早于2013年7月15日（含）创建的快照，请求会报错被拒绝。
+|DataDisk.N.SnapshotId|String|否|s-bp17441ohwka0yuhx\*\*\*|创建数据盘n使用的快照。n的取值范围为1~16。指定参数`DataDisk.N.SnapshotId`后，参数`DataDisk.N.Size`会被忽略，实际创建的云盘大小为指定的快照的大小。不能使用早于2013年7月15日（含）创建的快照，请求会报错被拒绝。
 
  |
-|DataDisk.N.Category|String|否|cloud\_ssd|数据盘n的磁盘种类。取值范围：
+|DataDisk.N.Category|String|否|cloud\_ssd|数据盘n的云盘种类。取值范围：
 
  -   （默认）cloud：普通云盘
 -   cloud\_efficiency：高效云盘
@@ -266,10 +266,10 @@
  由于专有宿主机不支持创建抢占式实例，指定`DedicatedHostId`参数后，会自动忽略请求中的`SpotStrategy`和`SpotPriceLimit`设置。
 
  |
-|Tag.N.Key|String|否|FinanceDept|实例、磁盘和主网卡的标签键。N的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun和acs:开头，不能包含 http:// 或者 https:// 。
+|Tag.N.Key|String|否|FinanceDept|实例、云盘和主网卡的标签键。N的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun和acs:开头，不能包含 http:// 或者 https:// 。
 
  |
-|Tag.N.Value|String|否|FinanceDept.Joshua|实例、磁盘和主网卡的标签值。N的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun和acs:开头，不能包含 http:// 或者 https:// 。
+|Tag.N.Value|String|否|FinanceDept.Joshua|实例、云盘和主网卡的标签值。N的取值范围：1~20。一旦传入该值，可以为空字符串。最多支持128个字符，不能以aliyun和acs:开头，不能包含 http:// 或者 https:// 。
 
  |
 |HpcClusterId|String|否|hpc-clusterid|实例所属的EHPC集群ID。
@@ -338,10 +338,10 @@
  |
 |InstanceChargeType|String|否|PrePaid|实例的付费方式。取值范围：
 
- -   PrePaid：预付费，包年包月。
+ -   PrePaid：包年包月。
 -   PostPaid（默认）：按量付费。
 
- 选择预付费时，您必须确认自己的账号支持余额支付或者信用支付，否则将返回`InvalidPayMethod`的错误提示。
+ 选择包年包月时，您必须确认自己的账号支持余额支付或者信用支付，否则将返回`InvalidPayMethod`的错误提示。
 
  |
 |Ipv6AddressCount|Integer|否|1|为弹性网卡指定随机生成的IPv6地址数量。
@@ -505,7 +505,7 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |400|InvalidInstanceName.Malformed|The specified parameter "InstanceName" is not valid.|指定的实例名称格式不合法。长度为2-128个字符，以英文字母或中文开头，可包含数字，"."，"\_"或"-"。 不能以 http:// 和 https:// 开头。|
 |400|InvalidDiskDescription.Malformed|The specified parameter "SyatemDisk.DiskDescription or DataDisk.n.Description" is not valid.|参数 SyatemDisk.DiskDescription 或 DataDisk.n.Description 不合法。|
 |403|QuotaExceed.PortableCloudDisk|The quota of portable cloud disk exceeds.|可卸载磁盘数量已达上限。|
-|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单。|
 |400|InvalidParameter.Conflict|The speicified region and cluster do not match.|指定的地域与指定的集群不匹配。|
 |403|SecurityGroupInstanceLimitExceed|Exceeding the allowed amount of instances of a security group.|安全组的实例数已达上限。|
 |403|NodeControllerUnavailable|The Node Controller is temporarily unavailable.|节点控制器暂不可用。|
@@ -631,7 +631,7 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |403|InvalidInstance.UnPaidOrder|The specified Instance has unpaid order.|指定的实例有未支付的订单，请您先支付再进行操作。|
 |403|RealNameAuthenticationError|Your account has not passed the real-name authentication yet.|您的帐户尚未通过实名认证，请先实名认证后再操作。|
 |403|InvalidInstanceType.NotSupported|The specified InstanceType is not Supported.|不支持指定的 InstanceType。|
-|403|InvalidPayMethod|The specified pay method is not valid.|没有可用的付费方式|
+|403|InvalidPayMethod|The specified pay method is not valid.|没有可用的付费方式。|
 |403|InvalidAccountStatus.NotEnoughBalance|Your account does not have enough balance.|账号余额不足，请您先充值再进行该操作。|
 |400|InvalidSpotPriceLimit.LowerThanPublicPrice|The specified parameter "spotPriceLimit" can't be lower than current public price.|指定的参数sotPriceLimit不能低于目前的公开价格。|
 |400|InvalidRelationResource.NotFound|The relation resource has been deleted.|关联资源已被删除。|
@@ -704,7 +704,7 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 |403|InvalidVSwitch.Ipv6NotTurnOn|%s|交换机未开启 IPv6 功能。|
 |403|InvalidParam.Amount|%s|指定的Amount参数无效。|
 |403|InvalidVSwitchId.IpInvalid|%s|指定的私网ip不合法。|
-|403|Forbidden.RegionId|%s|前区域暂不支持此功能。|
+|403|Forbidden.RegionId|%s|当前区域暂不支持此功能。|
 |400|IncorrectVpcStatus|The current status of vpc does not support this operation.|VPC当前的状态不支持该操作。|
 |403|QuotaExceed.DeploymentSetInstanceQuotaFull|instance quota in one deployment set exceeded.|当前部署集内的实例数量已满额。|
 |403|InvalidRegion.NotSupport|The specified region does not support byok.|该地域不支持BYOK。|
