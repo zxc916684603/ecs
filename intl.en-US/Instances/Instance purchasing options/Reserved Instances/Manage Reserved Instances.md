@@ -2,9 +2,9 @@
 
 This topic describes how to split, merge, and modify the scope of your Reserved Instances \(RIs\). Such actions allow you to benefit from billing discounts of more Pay-As-You-Go instance types.
 
-## Before you begin: {#section_b5n_pnr_dgb .section}
+## Prerequisites {#section_b5n_pnr_dgb .section}
 
-To make this topic easier to understand, RIs to be split, merged, or modified are hereinafter referred to as original RIs, while split, merged, or modified RIs are hereinafter referred to as target RIs.
+**Note:** To make this topic easier to understand, RIs to be split, merged, or modified are hereinafter referred to as original RIs, while split, merged, or modified RIs are hereinafter referred to as target RIs.
 
 Before you split, merge, or modify RIs, make sure that the following conditions are met:
 
@@ -31,14 +31,13 @@ If the original RI fails to be split, merged, or modified, it will remain valid.
 
 You can split an RI into multiple RIs of less computing power. The smaller RIs can then match applicable Pay-As-You-Go instances to better distribute your service traffic.
 
-1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
-2.  In the left-side navigation pane, click **Reserved Instances**.
-3.  On the Reserved Instances page, click **Split** in the **Actions** column of the original RI.
-4.  On the Split Reserved Instance page, set the name, instance type, and instance quantity of the target RIs.
+1.  In the left-side navigation pane, choose **Instances & Images** \> **Reserved Instances**.
+2.  On the Reserved Instances page, click **Split** in the **Actions** column of the original RI.
+3.  On the Split Reserved Instance page, set the name, instance type, and instance quantity of the target RIs.
 
     **Note:** The total computing power of the target RIs must be equal to that of the original RI.
 
-5.  Click **OK**.
+4.  Click **OK**.
 
 ## Merge RIs {#section_xsk_fpr_dgb .section}
 
@@ -50,14 +49,13 @@ If traffic to your instances increases, you can merge multiple RIs into one RI t
 -   The original RIs have been purchased using the same currency.
 -   If the original RIs are regional RIs, they must be in the same region. If the original RIs are zonal RIs, they must be in the same zone.
 
-1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
-2.  In the left-side navigation pane, click **Reserved Instances**.
-3.  On the Reserved Instances page, click **Merge** in the **Actions** column of the original RI.
-4.  On the Merge Reserved Instances page, select the original RIs, and then set the name, instance type, and instance quantity of the target RI.
+1.  In the left-side navigation pane, choose **Instances & Images** \> **Reserved Instances**.
+2.  On the Reserved Instances page, click **Merge** in the **Actions** column of the original RI.
+3.  On the Merge Reserved Instances page, select the original RIs, and then set the name, instance type, and instance quantity of the target RI.
 
     **Note:** The computing power of the target RI must be equal to that of all selected original RIs, and the target RI must be of an existing instance type. For example, two ecs.g5.2xlarge RIs can be merged into one ecs.g5.4xlarge RI, but one ecs.g5.xlarge RI and two ecs.g5.2xlarge RIs cannot be merged into one ecs.g5.5xlarge RI.
 
-5.  Click **OK**.
+4.  Click **OK**.
 
 ## Modify the scope of an RI {#section_rrd_ppr_dgb .section}
 
@@ -67,11 +65,10 @@ If your service requirements change, you can modify the scope of your RIs. Speci
 -   Modify a zonal RI to a regional RI.
 -   Modify the zone of an RI in the same region.
 
-You cannot modify the scope of an RI across regions. For example, if you have a zonal RI in zone B of China East 1 \(Hangzhou\), you can modify it as a zonal RI in another zone of China East 1 \(Hangzhou\), or as a regional RI in China East 1 \(Hangzhou\). However, you cannot modify it as a regional or zonal RI in another region.
+You cannot modify the scope of an RI across regions. For example, if you have a zonal RI in zone B of China \(Hangzhou\), you can modify it as a zonal RI in another zone of China \(Hangzhou\), or as a regional RI in China \(Hangzhou\). However, you cannot modify it as a regional or zonal RI in another region.
 
-1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
-2.  In the left-side navigation pane, click **Reserved Instances**.
-3.  On the Reserved Instances page, click **Modify** in the **Actions** column of the original RI.
-4.  On the Modify Reserved Instance Page, modify the parameters as needed.
-5.  Click **OK**.
+1.  In the left-side navigation pane, choose **Instances & Images** \> **Reserved Instances**.
+2.  On the Reserved Instances page, click **Modify** in the **Actions** column of the original RI.
+3.  On the Modify Reserved Instance Page, modify the parameters as needed.
+4.  Click **OK**.
 
