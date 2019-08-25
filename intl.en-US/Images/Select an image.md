@@ -11,7 +11,7 @@ We recommend that you take the following items into consideration when selecting
 
 ## Region {#section_okd_bqv_hhb .section}
 
-Images are regional resources. An image that is used to create instances must belong to the same region as the instances. For example, if you create an instance in China North 2, you can use images only in China North 2. For more information, see [Regions and zones](../../../../reseller.en-US/General Reference/Regions and zones.md#).
+Images are regional resources. An image that is used to create instances must belong to the same region as the instances. For example, if you create an instance in China \(Beijing\), you can use images only in China \(Beijing\). For more information, see [Regions and zones](../../../../reseller.en-US/General Reference/Regions and zones.md#).
 
 To create an instance by using an image located in a different region, you must first copy the image to the current region. For more information, see [Copy images](Copy imagesEN-US_TP_9699.dita#concept_a3m_5dm_xdb).
 
@@ -41,7 +41,7 @@ You must select an operating system \(OS\) during instance creation.
     -   Supporting MySQL and other databases \(you need to manually install a database first.\)
  |
 
-    Alibaba Cloud provides a list of public images that run Windows or Linux/Unix-like OS. For more information, see [Overview of public images](reseller.en-US/Images/Public image/Public images.md#).
+    Alibaba Cloud provides a list of public images that run Windows or Linux/Unix-like OS. For more information, see [Overview of public images](reseller.en-US/Images/Public image/Public image overview.md#).
 
 -   **Considerations for Windows**
 
