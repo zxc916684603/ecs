@@ -29,16 +29,16 @@ Before building a TensorFlow environment, you must do the following:
 2.  Connect to the ECS instance: Based on the logon credentials selected during instance creation, you can [connect to an ECS instance by using a password](../../../../intl.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to a Linux instance by using a password.md#) or [connect to an ECS instance by using an SSH key pair](../../../../intl.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to a Linux instance by using an SSH key pair.md#).
 3.  Enter the NGC API Key obtained from the NGC website, and then press the Enter key to log on to the NGC container environment.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/156618371511904_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/156679927811904_en-US.png)
 
 4.  Run `nvidia-smi`. You can view the information about the current GPU, including the GPU model, the driver version, and more, as shown below.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/156618371511905_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/156679928211905_en-US.png)
 
 5.  Follow the steps below to build the TensorFlow environment:
     1.  Log on to the [NGC website](https://ngc.nvidia.com/signin/email), go to the TensorFlow image page, and then get the `docker pull` command.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/156618371611906_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/156679928211906_en-US.png)
 
     2.  Download the TensorFlow image.
 
@@ -61,7 +61,7 @@ Before building a TensorFlow environment, you must do the following:
         							
         ```
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/156618371611907_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/156679928411907_en-US.png)
 
 6.  Test TensorFlow by using one of the following methods:
     -   Simple test of TensorFlow.
@@ -81,7 +81,7 @@ Before building a TensorFlow environment, you must do the following:
 
         If TensorFlow loads the GPU device correctly, the result is as shown below.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/156618371611908_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/156679928511908_en-US.png)
 
     -   Download the TensorFlow model and test TensorFlow.
 
@@ -94,7 +94,7 @@ Before building a TensorFlow environment, you must do the following:
 
         The running status is as shown below.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/156618371611909_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9837/156679928811909_en-US.png)
 
 7.  Save the changes made to the TensorFlow image. Otherwise, the configuration will be lost the next time you log on.
 
