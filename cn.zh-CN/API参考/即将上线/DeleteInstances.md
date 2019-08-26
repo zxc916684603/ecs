@@ -1,6 +1,6 @@
 # DeleteInstances {#doc_api_Ecs_DeleteInstances .reference}
 
-调用DeleteInstances释放一台或多台按量付费ECS实例或者到期的预付费（包年包月）ECS实例。
+调用DeleteInstances释放一台或多台按量付费ECS实例或者到期的包年包月ECS实例。
 
 ## 接口说明 {#description .section}
 
@@ -22,7 +22,7 @@
 |Action|String|否|DeleteInstances|系统规定参数。对于您自行拼凑HTTP/HTTPS URL发起的API请求，`Action`为必选参数。取值：DeleteInstances
 
  |
-|TerminateSubscription|Boolean|否|false|是否释放已到期的预付费（包年包月）实例。
+|TerminateSubscription|Boolean|否|false|是否释放已到期的包年包月实例。
 
  默认值：false。
 
@@ -88,7 +88,7 @@ https://ecs.aliyuncs.com/?Action=DeleteInstances
 |403|InvalidOperation.DeletionProtection|%s|实例被删除保护了。|
 |403|IncorrectInstanceStatus|%s|实例当前的状态不支持该操作。|
 |403|IncorrectInstanceStatus|The current status of the resource does not support this operation.|该资源目前的状态不支持此操作。|
-|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单。|
 |500|InternalError|%s|内部错误。|
 |403|InstanceLockedForSecurity|The specified operation is denied as your instance is locked for security reasons.|实例被安全锁定，指定的操作无法完成。|
 |400|DependencyViolation.SLBConfiguring|Specified operation is denied as your instance is using by another product.|实例被SLB引用，且SLB正在配置。|
