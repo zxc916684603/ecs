@@ -8,7 +8,7 @@ Alibaba Cloud ECS provides only Chinese and English editions of Windows Server p
 2.  Open the PowerShell module.
 3.  Run the following commands to temporarily disable Windows Server Update Services \(WSUS\). 
 
-    ```
+    ``` {#codeblock_f86_0jg_i2u}
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU' -Name UseWUServer -Value 0
     Restart-Service -Name wuauserv
     ```
@@ -16,24 +16,24 @@ Alibaba Cloud ECS provides only Chinese and English editions of Windows Server p
 4.  Find the Control Panel, click **Clock, Language, and Region** \> **Language** \> **Add a language**.
 5.  In the Add languages dialog box, select a language, for example, **Deutsch \(German\)** \> **Deutsch \(Deutschland\)**, and click **Add**. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22197/155894836713242_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22197/156677835213242_en-US.png)
 
 6.  Select the language, such as **Deutsch \(Deutschland\)**, and click **Move up** to change the language priority.
 7.  Click **Options** next to the selected language to check online for language updates. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22197/155894836713243_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22197/156677835213243_en-US.png)
 
 8.  Wait for about three minutes while the instance checks for updates. Once the update is available for download, click **Download and install language pack** and wait until the installation is complete. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22197/155894836713244_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22197/156677835213244_en-US.png)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22197/155894836713245_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22197/156677835213245_en-US.png)
 
-9.  [Restart your instance](../reseller.en-US/Instances/Manage instances/Restart an instance.md#)in the ECS console.
+9.  [Restart your instance](../reseller.en-US/Instances/Manage instances/Restart an instance.md#) in the ECS console.
 10. [Connect to the Windows instance](../reseller.en-US/Instances/Connect to instances/Overview.md#) again. The display language is now Deutsch \(German\).
 11. Open the PowerShell ISE module and run the following commands to enable WSUS. 
 
-    ```
+    ``` {#codeblock_myn_81u_uat}
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU' -Name UseWUServer -Value 1
     Restart-Service -Name wuauserv                    
     ```
@@ -43,6 +43,9 @@ Alibaba Cloud ECS provides only Chinese and English editions of Windows Server p
 Create multiple instances with the same language settings
 
 1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
-2.  and [create a custom image](../reseller.en-US/Images/Custom image/Create custom image/Create a custom image by using an instance.md#) by using the Windows instance with the new display language.
+2.  [Create a custom image](../reseller.en-US/Images/Custom image/Create custom image/Create a custom image by using an instance.md#) by using the Windows instance with the new display language.
 3.  [Create a specified number of instances from the custom image](../reseller.en-US/Instances/Create an instance/Create an instance by using a custom image.md#).
+
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22197/156677835213247_en-US.png)
+
 
