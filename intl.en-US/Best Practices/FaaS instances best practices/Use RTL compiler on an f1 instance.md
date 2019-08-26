@@ -11,14 +11,14 @@ This topic describes how to use Register Transfer Level \(RTL\) compiler on an f
 
 -   Create an f1 instance and add a security group rule to allow Internet access to SSH Port 22 of the instance.
 
-    **Note:** Only the image we share with you can be used on an f1 instance. For more information, see [Create an f1 instance](../../../../reseller.en-US/Instances/Instance type families/Compute optimized type family with FPGA/Create an f1 instance.md) .
+    **Note:** Only the image we share with you can be used on an f1 instance. For more information, see [Create an f1 instance](../../../../intl.en-US/Instances/Instance type families/Compute optimized type family with FPGA/Create an f1 instance.md) .
 
--   Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs) to obtain the instance ID.
--   Activate OSS and [create an OSS bucket](../../../../reseller.en-US/Quick Start/Create a bucket.md) to upload your files. The OSS bucket and the f1 instance must be owned by one account and operated in the same region.
--   For encryption, activate [Key Management Service \(KMS\)](../../../../reseller.en-US/Quick Start/Quick start.md#).
+-   Log on to the [ECS console](https://ecs.console.aliyun.com/#/home) to obtain the instance ID.
+-   Activate OSS and [create an OSS bucket](../../../../intl.en-US/Quick Start/Create a bucket.md) to upload your files. The OSS bucket and the f1 instance must be owned by one account and operated in the same region.
+-   For encryption, activate [Key Management Service \(KMS\)](../../../../intl.en-US/Quick Start/Quick start.md#).
 -   To operate FPGA as a RAM user, do the following in advance:
-    -   [Create a RAM](../../../../reseller.en-US/Quick Start/(Old Version) Quick Start/Create a RAM user.md) and [grant permissions](../../../../reseller.en-US/Quick Start/(Old Version) Quick Start/Authorize RAM users.md).
-    -   [Create a RAM](../../../../reseller.en-US/User Guide/(Old Version) User Guide/Identities/RAM roles.md) and [grant permissions](../../../../reseller.en-US/User Guide/(Old Version) User Guide/Authorization management/Permission granting in RAM.md).
+    -   [Create a RAM](../../../../intl.en-US/Quick Start/(Old Version) Quick Start/Create a RAM user.md) and [grant permissions](../../../../intl.en-US/Quick Start/(Old Version) Quick Start/Authorize RAM users.md).
+    -   [Create a RAM](../../../../intl.en-US/User Guide/(Old Version) User Guide/Identities/RAM roles.md) and [grant permissions](../../../../intl.en-US/User Guide/(Old Version) User Guide/Authorization management/Permission granting in RAM.md).
     -   Use the AccessKey to complete the authentication.
 
 ## Procedure {#section_i5l_453_dfb .section}
@@ -27,7 +27,7 @@ To use RTL compiler on an f1 instance, follow these steps.
 
 ## Step 1. Connect to the f1 instance {#section_ccx_f53_dfb .section}
 
-[Connect to your f1 instance](../../../../reseller.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to a Linux instance by using a password.md).
+[Connect to your f1 instance](../../../../intl.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to a Linux instance by using a password.md).
 
 ## Step 2. Configure the basic environment {#section_dcx_f53_dfb .section}
 
@@ -89,7 +89,7 @@ To download the image, follow these steps:
 
     If `"State":"success"` exists in the returned result, it means the image is created. Record the FpgaImageUUID. Record the **FpgaImageUUID**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/156678528312086_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/156678540612086_en-US.png)
 
 2.  Run the command to obtain FPGA ID.
 
@@ -100,7 +100,7 @@ To download the image, follow these steps:
 
     Record FpgaUUID in the returned result.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/156678528812087_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/156678541212087_en-US.png)
 
 3.  Run the command to download the image to your f1 instance.
 
@@ -118,7 +118,7 @@ To download the image, follow these steps:
 
     If `"TaskStatus":"operating"` exists in the returned result, and the displayed FpgaImageUUID is identical with your recorded FpgaImageUUID, the image is downloaded.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/156678529212088_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/156678541612088_en-US.png)
 
 
 ## Step 6. Test {#section_xcx_f53_dfb .section}
@@ -133,7 +133,7 @@ sudo LD_LIBRARY_PATH=/opt/dcp1_1/hw/samples/dma_afu/sw:$LD_LIBRARY_PATH ./fpga_d
 
 If the following result is returned, the test is completed.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/156678529512089_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9828/156678541912089_en-US.png)
 
 **Note:** If the Huge pages feature is not enabled, run the following command to enable it.
 
