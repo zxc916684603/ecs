@@ -11,11 +11,14 @@ This topic describes how to start or stop an ECS instance in the ECS console. It
 
 To start an instance, follow these steps:
 
-1.  Find the instance to be started and, in the **Actions** column, choose **More** \> **Instance Status** \> **Start**.
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+2.  In the left-side navigation pane, choose **Instances & Images** \> **Instances**.
+3.  In the top navigation bar, select a region.
+4.  Find the instance to be started and, in the **Actions** column, choose **More** \> **Instance Status** \> **Start**.
 
     **Note:** If you want to start multiple **Stopped** instances, select the required instances and then, under the instance list, click **Start**.
 
-2.  Read and confirm you agree to the note displayed in the dialog box by clicking **OK**.
+5.  Read and confirm you agree to the note displayed in the dialog box by clicking **OK**.
 
 After the instance is started, it enters the **Running** state.
 
@@ -27,12 +30,15 @@ You can also start an instance by calling the [StartInstance](../reseller.en-US/
 
 To stop an instance, follow these steps:
 
-1.  Find the instance to be stopped and, in the **Actions** column, choose **More** \> **Instance Status** \> **Stop**.
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+2.  In the left-side navigation pane, choose **Instances & Images** \> **Instances**.
+3.  In the top navigation bar, select a region.
+4.  Find the instance to be stopped and, in the **Actions** column, choose **More** \> **Instance Status** \> **Stop**.
 
     **Note:** If you want to stop multiple **Running** instances, select the required instances and then, under the instance list, click **Stop**.
 
-2.  Read and confirm you agree to the note displayed in the dialog box by clicking **OK**.
-3.  In the Stop Instance dialog box, set **Stop Mode** and click **OK**.
+5.  Read and confirm you agree to the note displayed in the dialog box by clicking **OK**.
+6.  In the Stop Instance dialog box, set **Stop Mode** and click **OK**.
 
 After the instance is stopped, it enters the **Stopped** state.
 
@@ -49,11 +55,14 @@ Stopping a Pay-As-You-Go instance may affect instance billing. The impact is det
 
 To stop a Pay-As-You-Go instance, follow these steps:
 
-1.  Find the Pay-As-You-Go instance to be stopped and, in the **Actions** column, choose **More** \> **Instance Status** \> **Stop**.
+1.  Log on to the [ECS console](https://partners-intl.console.aliyun.com/#/ecs).
+2.  In the left-side navigation pane, choose **Instances & Images** \> **Instances**.
+3.  In the top navigation bar, select a region.
+4.  Find the Pay-As-You-Go instance to be stopped and, in the **Actions** column, choose **More** \> **Instance Status** \> **Stop**.
 
     **Note:** If you want to stop multiple **Running** instances, select the required instances and then, under the instance list, click **Stop**.
 
-2.  Complete required actions according to the network type of the instance and whether **No Fees for Stopped Instances \(VPC-Connected\)** is enabled:
+5.  Complete required actions according to the network type of the instance and whether **No Fees for Stopped Instances \(VPC-Connected\)** is enabled:
     -   If the network type is classic or **No Fees for Stopped Instances \(VPC-Connected\)** is not enabled:
         1.  In the Stop Instance dialog box, set **Stop Mode**.
         2.  Click **OK**.
@@ -68,7 +77,7 @@ To stop a Pay-As-You-Go instance, follow these steps:
         4.  Click **OK**.
         **Note:** To disable the **No Fees for Stopped Instances \(VPC-Connected\)** feature, see [No fees for stopped VPC instances](../reseller.en-US/Pricing/No fees for stopped VPC instances.md#).
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9648/15659440425448_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9648/15667780375448_en-US.png)
 
 
 The instance is in the **Stopped** state after you stop it.
