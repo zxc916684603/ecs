@@ -9,7 +9,7 @@ gn5优惠活动详情请参见[异构计算GPU实例活动页](https://promotion
 -   自动安装只支持Linux公共镜像。
 -   自动安装脚本已更新到v2.1版本，支持自动安装不同版本的GPU驱动、CUDA、cuDNN库。
 -   自动安装过程受不同实例规格的内网带宽和CPU核数的影响，安装时间约10～15分钟，在安装过程中无法使用GPU，请勿对实例进行任何操作，也不要安装其它GPU相关软件，以防自动安装失败，导致实例不可用。
--   如果您在创建完成后更换操作系统 ，请确保使用同一镜像或者为可自动安装CUDA和GPU驱动的镜像，以防自动安装失败。详情请参见[支持自动安装CUDA和GPU驱动的镜像](#table_u78_x1x_199)。
+-   如果您在创建完成后更换操作系统 ，请确保使用同一镜像或者为可自动安装CUDA和GPU驱动的镜像，以防自动安装失败。详情请参见[支持自动安装CUDA和GPU驱动的镜像](#step_cq7_0by_971)。
 -   您可以远程连接实例，通过安装日志查看安装进程和结果：
     -   如果正在安装，您可以看到安装进度条。
     -   如果已经安装成功，您可以看到安装结果提示**NVIDIA INSTALL OK**。
@@ -74,7 +74,7 @@ gn5优惠活动详情请参见[异构计算GPU实例活动页](https://promotion
 
             **说明：** 如果调用RunInstances接口创建GPU计算型实例，必须通过UserData参数上传安装脚本，脚本内容需要采用Base64方式编码。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/156642656839823_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/156678251839823_zh-CN.png)
 
         -   镜像市场提供经严格审核的优质镜像，预装操作系统、应用环境和各类软件，无需配置即可一键部署云服务器。目前镜像市场提供了支持深度学习和机器学习的镜像：
             -   如果GPU计算型实例用于深度学习，您可以选择预装深度学习框架的镜像。在镜像市场搜索关键字深度学习并选择可用的镜像，目前仅支持CentOS 7.3。
@@ -94,7 +94,7 @@ gn5优惠活动详情请参见[异构计算GPU实例活动页](https://promotion
     -   **实例自定义数据**：
         -   如果您在基础配置页面的**镜像**中选择了**自动安装GPU驱动**，此处会显示自动安装CUDA和GPU驱动的注意事项和Shell脚本内容。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/156642656839825_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9632/156678251939825_zh-CN.png)
 
         -   如果您未选择**自动安装GPU驱动**，可以在**实例自定义数据**处配置安装脚本，脚本示例请参见[自动安装脚本v2.1](#section_bl2_k23_ygb)。
 5.  根据需要完成分组设置并确认订单，完成创建GPU计算型实例。 
