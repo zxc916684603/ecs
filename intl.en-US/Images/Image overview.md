@@ -11,7 +11,7 @@ ECS images are classified into the following types based on their sources. Fees 
 |Public image|Public images are licensed by Alibaba Cloud, which are highly secure and stable. Public images include Windows Server system images and mainstream Linux system images. For more information, see [Public image overview](reseller.en-US/Images/Public image/Public image overview.md#).| Only Windows Server and Red Hat Enterprise Linux public images are charged. Check the actual fees when you use them to create instances. The Windows Server and Red Hat Enterprise Linux public images are licensed and maintained by Microsoft and Red Hat, respectively.
 
 -   Red Hat Enterprise Linux: Fees are calculated based on the instance specification.
--   Windows Server: Free of charge for Alibaba Cloud regions in Mainland China. For regions outside Mainland China, Windows Server public images are charged.
+-   Windows Server: Fees are calculated based on the instance specification.
 
  Other public images are free of charge.
 
@@ -40,7 +40,7 @@ An Alibaba Cloud Marketplace image contains an operating system and pre-installe
 
 After you create or import a custom image, the image is in the **Available** state. You can then use the image to create an ECS instance, share the image to another Alibaba Cloud account, or copy the image to another region. You can also delete images that you no longer need. The following figure shows the lifecycle of a custom image.
 
-![Lifecycle of a custom image](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9572/156687650334490_en-US.png)
+![Lifecycle of a custom image](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9572/156687662734490_en-US.png)
 
 ## Create a custom image {#section_ybx_jv3_dhb .section}
 
