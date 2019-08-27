@@ -47,7 +47,7 @@
 
     出现以下说明信息则表明安装成功。
 
-    ![安装结果](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9774/156678422112347_zh-CN.png)
+    ![安装结果](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9774/156689253712347_zh-CN.png)
 
 
 ## 使用Docker {#section_x1c_w5u_5wb .section}
@@ -87,13 +87,13 @@ Docker有以下基本用法：
         ```
 
 3.  管理容器。
-    -   进入容器。e1xxxxxxxxxe是执行`docker images`命令查询到的IMAGE ID，使用`docker run`命令进入容器。
+    -   进入容器。e1xxxxxxxxxe是执行`docker images`命令查询到的ImageId，使用`docker run`命令进入容器。
 
         ``` {#codeblock_6jg_70g_z3a}
         # docker run –ti e1xxxxxxxxxe /bin/bash
         ```
 
-    -   退出容器。使用`exit`命令可以退出当前容器。
+    -   退出容器。使用`exit`命令退出当前容器。
     -   `run`命令加上`–d`参数可以在后台运行容器，`--name`指定容器命名为apache。
 
         ``` {#codeblock_cor_erv_3y9}
@@ -112,7 +112,7 @@ Docker有以下基本用法：
         # docker commit containerID/containerName newImageName:tag
         ```
 
-    -   为了方便测试和恢复，先将源镜像运行起来后再做一个命名简单的镜像做测试。
+    -   为了方便测试和恢复，将源镜像运行起来后，再做一个命名简单的镜像做测试。
 
         ``` {#codeblock_ulh_jkh_zof}
         # docker commit 4c8066cd8c01 apachephp:v1
@@ -126,7 +126,7 @@ Docker有以下基本用法：
 
         在浏览器输入宿主机IP加8080端口访问测试，出现以下内容则说明运行成功。
 
-        ![映射结果](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9774/156678422212348_zh-CN.png)
+        ![映射结果](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9774/156689253712348_zh-CN.png)
 
 
 ## 制作镜像 {#section_i4r_m92_6ev .section}
