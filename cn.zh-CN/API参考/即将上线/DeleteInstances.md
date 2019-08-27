@@ -5,7 +5,6 @@
 ## 接口说明 {#description .section}
 
 -   释放实例时，实例被[安全控制](~~25695~~)并且其`OperationLocks`中标记了`"LockReason" : "security"`的锁定状态，即使云盘的`DeleteWithInstance`的属性为`False`，系统会忽略这个属性而释放挂载在实例上的云盘。
--   指定了多台ECS实例时，如果其中有一台ECS实例无法被成功释放，则任务状态（`TaskStatus`）显示为失败（`Failed`）。您可以调用[DescribeTaskAttribute](~~25623~~)并根据返回的`TaskId`查看任务状态（`TaskStatus`）信息。
 -   释放后，实例所使用的物理资源都被回收，相关数据全部丢失且不可恢复。挂载在实例上 `DeleteWithInstance=True`属性的云盘被释放，云盘的快照仍旧保留。云盘的自动快照的保留和释放跟随云盘的`DeleteAutoSnapshot`属性，如果为`DeleteAutoSnapshot=false`时，保留自动快照，如果为`DeleteAutoSnapshot=true`，释放自动快照。
 
 ## 调试 {#api_explorer .section}
