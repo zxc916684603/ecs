@@ -141,34 +141,34 @@ Node.js是一个基于Chrome V8引擎的JavaScript运行环境，用来方便快
     touch example.js
     ```
 
-2.  使用vim编辑器打开项目文件example.js。 
+2.  修改项目文件example.js。 
+    1.  运行以下命令打开example.js。 
 
-    ``` {#codeblock_pms_cvv_uov}
-    yum install vim
-    vim example.js
-    ```
+        ``` {#codeblock_lxg_3eo_kvh}
+        vim example.js
+        ```
 
-    输入`i`进入编辑模式，将以下项目文件内容粘贴到文件中。按Esc退出编辑模式。输入`:wq`后，按回车键以保存并关闭文件。
+    2.  按i进入编辑模式。
+    3.  将以下项目文件内容粘贴到文件中。 
 
-    项目文件内容：
+        ``` {#codeblock_n9u_2im_d02}
+        const http = require('http');
+        const hostname = '0.0.0.0';
+        const port = 3000;
+        const server = http.createServer((req, res) => { 
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'text/plain');
+            res.end('Hello World\n');
+        }); 
+        
+        server.listen(port, hostname, () => { 
+            console.log(`Server running at http://${hostname}:${port}/`);
+        });
+        ```
 
-    ``` {#codeblock_isa_tmi_q1x}
-    const http = require('http');
-    const hostname = '0.0.0.0';
-    const port = 3000;
-    const server = http.createServer((req, res) => { 
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'text/plain');
-        res.end('Hello World\n');
-    }); 
-    
-    server.listen(port, hostname, () => { 
-        console.log(`Server running at http://${hostname}:${port}/`);
-    });
-    ```
+        **说明：** 本示例中，项目配置的端口号为3000。实际应用过程中，您可以自行配置端口号，但是必须在ECS实例安全组的入方向添加安全组规则，放行您配置的端口号。具体操作，请参见[添加安全组规则](../cn.zh-CN/安全/安全组/添加安全组规则.md#)。
 
-    **说明：** 本示例中，项目配置的端口号为3000。实际应用过程中，您可以自行配置端口号，但是必须在ECS实例安全组的入方向添加安全组规则，放行您配置的端口号。
-
+    4.  按Esc退出编辑模式，然后输入:wq并回车以保存并关闭文件。
 3.  运行项目。 
 
     ``` {#codeblock_90o_q0j_lem}
@@ -186,7 +186,7 @@ Node.js是一个基于Chrome V8引擎的JavaScript运行环境，用来方便快
 5.  登录[ECS管理控制台](https://ecs.console.aliyun.com)，并在ECS实例安全组的入方向添加规则， 放行项目中配置的端口（本示例中端口号为3000）。 添加安全组规则的具体步骤，请参见[添加安全组规则](../cn.zh-CN/安全/安全组/添加安全组规则.md#)。
 6.  在本地机器的浏览器中输入`http://<ECS实例公网IP地址>:端口号`访问项目。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9770/156704751612144_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9770/156715038912144_zh-CN.png)
 
 
 **相关文档**  
