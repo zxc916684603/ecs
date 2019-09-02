@@ -47,9 +47,9 @@ https://ecs.aliyuncs.com/?Action=InstallCloudAssistant
 `XML` 格式
 
 ``` {#xml_return_success_demo}
-<DeleteInstanceResponse>
+<InstallCloudAssistantResponse>
       <RequestId>928E2273-5715-46B9-A730-238DC996A533</RequestId>
-</DeleteInstanceResponse>
+</InstallCloudAssistantResponse>
 ```
 
 `JSON` 格式
@@ -67,5 +67,5 @@ https://ecs.aliyuncs.com/?Action=InstallCloudAssistant
 |500|InternalError.Dispatch|An error occurred when you dispatched the request.|发生未知错误。|
 |404|InvalidInstance.NotFound|The specified instance does not exist.|指定的实例不存在。|
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Ecs)查看更多错误码。
 
