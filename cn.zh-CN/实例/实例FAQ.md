@@ -202,7 +202,7 @@
 
 您也可以使用到货通知功能：
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156688441448634_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156741960748634_zh-CN.png)
 
 ## 如何选择适合我业务的ECS实例？ {#section_j8t_fwz_mjf .section}
 
@@ -371,7 +371,7 @@ SCC实例支持包年包月和按周付费。
 
 创建SCC实例时，选择SCC定制版的系统镜像，该镜像支持RDMA RoCE驱动和OFED堆栈。您可以通过IB verbs编程使用RDMA功能或者通过MPI进行RDMA通讯。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156688441550536_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156741960750536_zh-CN.png)
 
 ## 我没有欠费，为什么抢占式实例被释放了？ {#section_0ns_pj7_dxg .section}
 
@@ -469,7 +469,7 @@ SCC实例支持包年包月和按周付费。
 
 ## 哪些规格族能够使用预留实例券？ {#section_j7h_12a_tuy .section}
 
-能够使用预留实例券的规格族包括：sn1ne、sn2ne、se1ne、ic5、c5、g5、r5、i2、i2g、hfc5、hfg5和t5。
+能够使用预留实例券的规格族包括：sn1ne、sn2ne、se1ne、ic5、c5、g5、r5、c6、g6、r6、i2、i2g、hfc5、hfg5和t5。
 
 其中，[突发性能实例t5](cn.zh-CN/实例/选择实例规格/突发型/什么是突发性能实例.md#)只支持可用区级预留实例券，不支持地域级预留实例券，也不支持合并、拆分或者范围调整。
 
@@ -723,7 +723,7 @@ SCC实例支持包年包月和按周付费。
 
 假设您持有以下OSS Bucket，要通过域名www.example.com实现HTTPS访问。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156688441543179_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156741960843179_zh-CN.png)
 
 1.  创建一台和Bucket位于相同地域的ECS实例。
 
@@ -795,15 +795,15 @@ SCC实例支持包年包月和按周付费。
 
 1.  连接FTP服务。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156688441543224_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156741960843224_zh-CN.png)
 
 2.  进入正确的目录，Windows系统无需切换，Linux系统切换至htdocs。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156688441549119_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156741960849119_zh-CN.png)
 
 3.  运行put命令上传。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156688441649120_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156741960849120_zh-CN.png)
 
 
 方式二：通过第三方工具上传
@@ -813,11 +813,11 @@ SCC实例支持包年包月和按周付费。
 3.  填写FTP的服务器IP、用户名和密码；协议选择标准（FTP），端口选择默认21（或更改为其您所使用的端口），不选择SSH密匙。
 4.  单击**连接**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156688441643228_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156741960843228_zh-CN.png)
 
 5.  在右侧选择要上传的目录（Windows不需要选择目录，Linux主机选择htdocs目录），然后在左边窗口选择要上传的文件，单击上传即可。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156688441643230_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156741960843230_zh-CN.png)
 
     **说明：** 若安装Yummy FTP时系统提示：您的安全性偏好设置仅允许安装来自Mac App Store和被认可的开发者的应用程序，按以下步骤设置您的电脑。
 
@@ -826,7 +826,7 @@ SCC实例支持包年包月和按周付费。
     3.  在**允许从以下位置下载的应用程序**菜单中，选择**任何来源**。
     设置后即可正常安装该软件。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156688441643238_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156741960843238_zh-CN.png)
 
 
 如问题还未解决，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)。
@@ -881,7 +881,7 @@ SCC实例支持包年包月和按周付费。
 
 -   自行部署数据库。
 
-    **说明：** 数据库部署教程，请参见[在ECS上部署数据库](../cn.zh-CN/建站教程/在ECS上部署数据库.md#)。
+    **说明：** 数据库部署教程，请参见[数据库概述](../cn.zh-CN/建站教程/在ECS上部署数据库/数据库概述.md#)。
 
 -   单独购买阿里云[RDS数据库](https://rdsnext.console.aliyun.com/)服务。
 -   使用镜像市场配置环境数据库。
@@ -983,7 +983,7 @@ AliVulfix进程是云盾进行漏洞检测的程序，用于扫描云服务器�
     #netstat -nltp //查看服务器80端口是否处于监听状态
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156688441741861_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156741960841861_zh-CN.png)
 
 2.  如果未显示80端口信息，说明网站服务没有启动，运行命令手动开启网站服务及相关服务。
 
@@ -1257,7 +1257,7 @@ ECS实例可以访问亚马逊网站，确保您的ECS实例可以正常访问�
 
 您可以在ECS控制台实例列表页面的**付费方式**列查看包年包月实例的到期时间。
 
-**说明：** 如果没有**付费方式**列，则在页面右上方单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156688441753726_zh-CN.png)按钮，勾选**付费方式**，并单击**确定**。
+**说明：** 如果没有**付费方式**列，则在页面右上方单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156741960853726_zh-CN.png)按钮，勾选**付费方式**，并单击**确定**。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156688441753728_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156741960853728_zh-CN.png)
 
