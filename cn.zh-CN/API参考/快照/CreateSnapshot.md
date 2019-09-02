@@ -4,7 +4,7 @@
 
 ## 接口说明 {#description .section}
 
--   一块云盘最多能创建64份手动快照。删除不需要的手动快照后，您可以继续创建快照。
+-   一块云盘最多能创建256份手动快照。删除不需要的手动快照后，您可以继续创建快照。
 -   云盘挂载的实例必须处于**已停止**（`Stopped`）或者**运行中**（`Running`）状态，否则无法创建快照。
 -   云盘必须已经挂载到实例上，否则无法创建快照。
 -   云盘挂载的实例从未启动过时，无法创建快照。
@@ -144,5 +144,5 @@ https://ecs.aliyuncs.com/?Action=CreateSnapshot
 |400|InvalidTagValue.Malformed|The specified Tag.n.Value is not valid.|指定的标签值不合法。|
 |403|IdempotentProcessing|The previous idempotent request\(s\) is still processing.|同样clienttoken的请求正在处理中。|
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Ecs)查看更多错误码。
 
