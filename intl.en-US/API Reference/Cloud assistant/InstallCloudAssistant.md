@@ -36,8 +36,8 @@ Sample requests
 
 ``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=InstallCloudAssistant
-&InstanceId.1=i-bp11f7trr4hbi1xxxxxx
-&InstanceId.2=i-bp1iudwa5b1tqaxxxxxx
+&InstanceId.1=i-bp11f7trr4hbi1******
+&InstanceId.2=i-bp1iudwa5b1tqa******
 &RegionId=cn-hangzhou 
 &<Common request parameters>
 ```
@@ -47,9 +47,9 @@ Successful response examples
 `XML` format
 
 ``` {#xml_return_success_demo}
-<DeleteInstanceResponse>
+<InstallCloudAssistantResponse>
   <RequestId>928E2273-5715-46B9-A730-238DC996A533</RequestId>
-</DeleteInstanceResponse>
+</InstallCloudAssistantResponse>
 ```
 
 `JSON` format
