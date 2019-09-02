@@ -4,6 +4,8 @@ A Reserved Instance \(RI\) is a discount coupon with specific attributes. It can
 
 ## Feature release {#section_sfs_frg_vgb .section}
 
+You can [purchase a Reserved Instance](reseller.en-US/Instances/Instance purchasing options/Reserved Instances/Purchase a reserved instance.md#) in the ECS console without applying for testing.
+
 ## Comparison of RIs against Subscription and Pay-As-You-Go instances {#section_qv2_nlq_dgb .section}
 
 The following table compares RIs with Subscription and Pay-As-You-Go instances.
@@ -38,7 +40,10 @@ When you purchase an RI, you can specify the payment method, term, and instance 
 
 An RI has specific attributes that automatically match the corresponding Pay-As-You-Go instances. You can also split an RI, merge multiple RIs, or change the scope of an RI. In this way, your RIs can flexibly match your Pay-As-You-Go instances. The attributes include:
 
--   Operating system: Currently, RIs can only match Pay-As-You-Go Linux instances.
+-   Operating system: RIs can match Pay-As-You-Go Linux and Windows instances.
+
+    **Note:** A Windows RI can be used to pay for image bills of a Pay-As-You-Go instance.
+
 -   Instance type: The type of an RI, which indicates the instance type family and the instance size. This attribute is used to match the corresponding Pay-As-You-Go instances.
 -   Scope: This attribute indicates the matching scope of an RI. Depending on the matching scope, RIs can be classified into regional RIs and zonal RIs.
 
@@ -57,9 +62,9 @@ Currently, RIs have the following limits:
     For example, in China \(Hangzhou\) and China \(Qingdao\), you can purchase 10 regional RIs respectively because the upper limit of regional RIs is 20 per account. In zones B and H of China \(Hangzhou\), you can purchase up to 20 zonal RIs respectively. If you need more RIs, you can open a ticket.
 
 -   Matchable instances: RIs only match Pay-As-You-Go instances \(excluding [preemptible instances](../../../../reseller.en-US/Instances/Instance purchasing options/Preemptible instances/Preemptible instances.md#)\).
--   Instance type family: Currently, RIs support the following instance type families: sn1ne, sn2ne, se1ne, ic5, c5, g5, r5, hfc5, hfg5, and t5. For more information, see [Instance type families](reseller.en-US/Instances/Instance type families.md#).
+-   Instance family: Currently, RIs support the following instance families: sn1ne, sn2ne, se1ne, ic5, c5, g5, r5, i2, i2g, hfc5, hfg5, and t5. For more information, see [Instance families](reseller.en-US/Instances/Instance families.md#).
 
-    **Note:** The RIs of [burstable performance instances](../../../../reseller.en-US/Instances/Instance type families/Burstable performance instances/Basic concepts.md#) are only available at the zonal level. Additionally, they do not support merging, splitting, or scope changing.
+    **Note:** The RIs of [burstable performance instances](../../../../reseller.en-US/Instances/Instance type families/Burstable performance instances/Overview.md#) are only available at the zonal level. Additionally, they do not support merging, splitting, or scope changing.
 
 
 ## Fees {#section_exj_yvw_dhb .section}
@@ -70,19 +75,21 @@ For more information about RI billing, see [Reserved Instance billing](../../../
 
 For the matching rules, see [Matching rules of Reserved Instances](reseller.en-US/Instances/Instance purchasing options/Reserved Instances/Matching rules of Reserved Instances.md#).
 
-For purchasing operations, see [Purchase a Reserved Instance](reseller.en-US/Instances/Instance purchasing options/Reserved Instances/Purchase a Reserved Instance.md#).
+For purchasing operations, see [Purchase a Reserved Instance](reseller.en-US/Instances/Instance purchasing options/Reserved Instances/Purchase a reserved instance.md#).
 
 For managing operations, see [Manage Reserved Instances flexibly](reseller.en-US/Instances/Instance purchasing options/Reserved Instances/Manage Reserved Instances.md#).
 
-For information on how to use an API to purchase an RI, see [PurchaseReservedInstancesOffering](reseller.en-US/API Reference/Reserved Instances/PurchaseReservedInstancesOffering.md#).
+For information on how to use an API to purchase an RI, see [PurchaseReservedInstancesOffering](../../../../reseller.en-US/API Reference/Reserved Instances/PurchaseReservedInstancesOffering.md#).
 
-For information on how to use an API to query RIs, see [DescribeReservedInstances](reseller.en-US/API Reference/Reserved Instances/DescribeReservedInstances.md#).
+For information on how to use an API to query RIs, see [DescribeReservedInstances](../../../../reseller.en-US/API Reference/Reserved Instances/DescribeReservedInstances.md#).
 
-For information on how to use an API to manage RIs, see [ModifyReservedInstances](reseller.en-US/API Reference/Reserved Instances/ModifyReservedInstances.md#).
+For information on how to use an API to manage RIs, see [ModifyReservedInstances](../../../../reseller.en-US/API Reference/Reserved Instances/ModifyReservedInstances.md#).
+
+For the FAQ of RIs, see [Instance FAQ](reseller.en-US/Instances/Instance FAQ.md#).
 
 ## Contact us {#section_xfs_sdz_3hb .section}
 
 If you have any questions when you use RIs, you can scan the following QR code to join the [DingTalk](https://tms.dingtalk.com/markets/dingtalk/download) Reserved Instances Service Group for technical support.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80437/156375925043499_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80437/156741969243499_en-US.png)
 
