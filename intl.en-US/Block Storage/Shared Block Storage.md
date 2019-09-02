@@ -1,54 +1,58 @@
 # Shared Block Storage {#concept_abt_gpv_xgb .concept}
 
-Shared Block Storage is a block-level storage device that supports concurrent read and write access from multiple ECS instances.
+Shared Block Storage is a block-level data storage service that features high concurrency, high performance, and high reliability. It supports concurrent reads and writes on multiple ECS instances, and provides data reliability of up to 99.9999999%.
 
-**Note:** Currently, Shared Block Storage is available only in public beta release. You can open a ticket to submit an application to join the testing group.
+## Benefits {#section_uv2_4pf_xv7 .section}
 
-Shared Block Storage replicates data three times by default, and stores the data copies across different servers, to provide 99.9999999% data reliability for ECS instances. This means that if service disruptions occur \(for example, due to hardware failure\), Shared Block Storage can automatically copy your data within the target zone to help ensure data availability. You can partition and format Shared Block Storage attached to an ECS instance, and create a file system and store data on Shared Block Storage. For more information, see [Triplicate technology](Triplicate technologyEN-US_TP_9559.dita#concept_pnm_hdw_ydb).
+Shared Block Storage stores three copies of each piece of data, and distributes the copies across different servers. This achieves 99.9999999% data reliability for ECS instances. Shared Block Storage automatically copies your data within a zone to ensure data availability and prevent service disruptions, for example, due to a hardware failure.
 
-**Note:** 
+## Scenarios {#section_c1n_z2w_xgb .section}
 
--   A single Shared Block Storage device can be attached to a maximum of eight ECS instances in the same zone and region at a time.
--   When attached to an ECS instance, Shared Block Storage shares the data disk quota with cloud disks, that is, up to 16 data disks can be attached to each ECS instance.
--   Shared Block Storage can only be created separately and used only as data disks.
+In a traditional cluster architecture, multiple computing nodes access the same copy of data to provide services. To prevent service disruptions due to single point of failures, you can use Shared Block Storage to ensure access to the data, achieving high availability. We recommend that you store business data in Shared Block Storage devices and use a cluster file system to manage these devices. Data consistency can be guaranteed between multiple front-end computing nodes during concurrent read/write operations.
 
-## Background information {#section_c1n_z2w_xgb .section}
+The high availability architecture of Shared Block Storage is suitable for enterprise-level applications. It provides shared access to block storage devices in a shared-everything architecture, such as the high availability server cluster architecture and Oracle Real Application Clusters \(RAC\). Oracle RAC is common among government departments, enterprises, and financial customers.
 
-In a traditional cluster architecture, multiple computing nodes require access to the same copy of data so that the entire cluster can continue providing business services even when one or more computing nodes fail. If data files are stored in Shared Block Storage devices and these devices are managed through the cluster file system, data consistency can be guaranteed between multiple front-end computing nodes during concurrent read/write operations.
+## Types {#sharedBlock .section}
 
-Shared Block Storage is designed for high-availability architectures required by enterprise-level applications.
+Shared Block Storage can be divided into the following types based on performance:
 
-## Limits {#section_fnr_hjr_f9t .section}
+-   Shared SSD Block Storage
 
-Before you use Shared Block Storage, note the following:
+    Shared SSD Block Storage uses SSDs as storage media to provide stable and high-performance storage with enhanced random I/O and data reliability.
 
-Shared Block Storage does not provide a cluster file system. However, you can install a cluster file system to manage Shared Block Storage. Specifically, you can use such cluster file systems as GFS and GPFS to manage Shared Block Storage. If your architecture is a typical Oracle RAC architecture, we recommend that you use ASM to manage storage volumes and data files.
+-   Shared Ultra Block Storage
 
-If you use a traditional file system to manage Shared Block Storage that is attached to multiple ECS instances, the following two errors may occur:
+    Shared Ultra Block Storage uses a combination of SSDs and HDDs as storage media.
 
--   Disk space allocation conflict
-
-    If a Shared Block Storage device is attached to multiple instances and one of these instances \(for example, Instance A\) writes data to a file, Instance A checks the file system and available disk space. After the write operation is completed, the space allocation record of Instance A is changed, but the records of other instances are not updated. In this case, when another instance \(for example, Instance B\) tries to write data to the file, this instance may allocate the disk space that has been already allocated by Instance A, resulting in a disk space allocation conflict.
-
--   Data file inconsistency
-
-    After an instance \(for example, Instance A\) reads and caches data, another process that accesses the same data will directly read the data from the cache. However, if a copy of the same data that is stored on another instance \(for example, Instance B\) is modified during this period, and Instance A does not update according to the latest data change, Instance A still reads the data from the cache. As a result, data inconsistency occurs.
-
-
-## Types of Shared Block Storage {#sharedBlock .section}
-
-The following table describes the available types of Shared Block Storage.
-
-|Type|Description|
-|:---|:----------|
-|SSD|SSD Shared Block Storage, which uses SSDs as storage media to provide stable and high-performance storage with enhanced random I/O and data reliability.|
-|Ultra|Ultra Shared Block Storage, which uses a combination of SSDs and HDDs as storage media.|
 
 ## Performance {#section_qhm_gfw_xgb .section}
 
-For information about the performance indexes of Shared Block Storage, see [Block storage performance](reseller.en-US/Block Storage/Block storage performance.md#).
+For more information about the performance of Shared Block Storage, see [Block storage performance](reseller.en-US/Block Storage/Block storage performance.md#).
 
-## Billing {#section_inz_nbw_ydb .section}
+## Pricing {#section_inz_nbw_ydb .section}
 
-Currently, Shared Block Storage is available free of charge. We recommend that you check the official Alibaba Cloud website for the latest billing information.
+Shared Block Storage is free and under public preview.
+
+## Operations {#section_mnz_nbw_ydb .section}
+
+-   You can create, attach, detach, and release Shared Block Storage devices in a similar manner as disks.
+-   Shared Block Storage devices can only be created separately and used only as data disks.
+-   A single Shared Block Storage device can be attached to a maximum of eight ECS instances in the same zone and region at the same time.
+-   When attached to an ECS instance, Shared Block Storage devices share the data disk quota with disks, that is, up to 16 data disks can be attached to each ECS instance.
+-   You can allocate the capacity of Shared Block Storage devices in a similar manner as hard disks. You can format and partition Shared Block Storage devices that are attached to an ECS instance and create a file system.
+
+## File system {#section_6zk_pfk_3eb .section}
+
+Shared Block Storage devices are not pre-installed with a cluster file system. However, you can install cluster file systems such as Google File System \(GFS\) and General Parallel File System \(GPFS\) to manage these devices. If Oracle RAC is deployed, we recommend that you use Automatic Storage Management \(ASM\) to manage storage volumes and file systems.
+
+We recommend that you do not use a traditional file system to manage Shared Block Storage devices because the following two errors may occur:
+
+-   Disk space allocation conflict
+
+    If a Shared Block Storage device is attached to multiple instances and one of these instances \(for example, instance A\) writes data to a file, instance A checks the file system and available disk space. After the write operation is complete, the space allocation record is changed in instance A, but the records in other instances are not updated. In this case, when another instance \(for example, instance B\) tries to write data to the file, this instance may allocate the disk space that has been already allocated by instance A, resulting in a disk space allocation conflict.
+
+-   Data file inconsistency
+
+    After an instance \(for example, instance A\) reads and caches data, another process that accesses the same data will directly read the data from the cache. However, if a copy of the same data that is stored on another instance \(for example, instance B\) is modified during this period, and instance A does not update according to the latest data change, instance A still reads the data from the cache. Data inconsistency occurs as a result.
+
 
