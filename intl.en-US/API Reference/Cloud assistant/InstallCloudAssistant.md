@@ -10,7 +10,7 @@ You can use [API Explorer](https://api.aliyun.com/#product=Ecs&api=InstallCloudA
 
 |Name|Type|Required|Example|Description|
 |----|----|--------|-------|-----------|
-|InstanceId.N|RepeatList|Yes|InstanceID1| The ID of the instance. Valid values of N: 1 to 20.
+|InstanceId.N|RepeatList|Yes|i-bp1iudwa5b1tqaxxxxxx| The ID of the instance. Valid values of N: 1 to 20.
 
  |
 |RegionId|String|Yes|cn-hangzhou| The ID of the region where the instance is located. You can call [DescribeRegions](~~25609~~) to view the latest regions of Alibaba Cloud.
@@ -36,7 +36,8 @@ Sample requests
 
 ``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=InstallCloudAssistant
-&InstanceId.1=["i-bp11f7trr4hbi1xxxxxx", "i-bp1iudwa5b1tqaxxxxxx"]
+&InstanceId.1=i-bp11f7trr4hbi1xxxxxx
+&InstanceId.2=i-bp1iudwa5b1tqaxxxxxx
 &RegionId=cn-hangzhou 
 &<Common request parameters>
 ```
