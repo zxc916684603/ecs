@@ -2,23 +2,23 @@
 
 调用InstallCloudAssistant为一台或多台实例安装云助手客户端。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=InstallCloudAssistant)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=InstallCloudAssistant&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|InstanceId.N|RepeatList|是|InstanceID1|实例 ID，N的取值范围为 1~50。
+|InstanceId.N|RepeatList|是|i-bp1iudwa5b1tqa\*\*\*\*\*\*|实例ID，N的取值范围为1~50。
 
  |
-|RegionId|String|是|cn-hangzhou|实例所在地域ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
+|RegionId|String|是|cn-hangzhou|实例所在地域ID。您可以调用[DescribeRegions](~~25609~~)查看最新的阿里云地域列表。
 
  |
 |Action|String|否|InstallCloudAssistant|系统规定参数。取值：InstallCloudAssistant
 
- **说明：** 调用 InstallCloudAssistant 后再调用 [RebootInstance](~~25502~~)，云助手客户端即可生效。
+ **说明：** 调用InstallCloudAssistant后再调用[RebootInstance](~~25502~~)，云助手客户端即可生效。
 
  |
 
@@ -26,7 +26,7 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID。
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID。
 
  |
 
@@ -36,7 +36,8 @@
 
 ``` {#request_demo}
 https://ecs.aliyuncs.com/?Action=InstallCloudAssistant
-&InstanceId.1=["i-bp11f7trr4hbi1******", "i-bp1iudwa5b1tqa******"]
+&InstanceId.1=i-bp11f7trr4hbi1******
+&InstanceId.2=i-bp1iudwa5b1tqa******
 &RegionId=cn-hangzhou
 &<公共请求参数>
 ```
@@ -47,9 +48,8 @@ https://ecs.aliyuncs.com/?Action=InstallCloudAssistant
 
 ``` {#xml_return_success_demo}
 <DeleteInstanceResponse>
-  <RequestId>928E2273-5715-46B9-A730-238DC996A533</RequestId>
+      <RequestId>928E2273-5715-46B9-A730-238DC996A533</RequestId>
 </DeleteInstanceResponse>
-
 ```
 
 `JSON` 格式
