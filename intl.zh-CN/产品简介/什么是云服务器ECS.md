@@ -37,7 +37,7 @@
 
 以下为云服务器ECS的产品组件架构图，图中涉及的功能组件的详细介绍请参见相应的帮助文档。
 
-![whatIsECS](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/156686994348636_zh-CN.png)
+![whatIsECS](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/156749109048636_zh-CN.png)
 
 ## 产品定价 {#section_vq5_brj_ydb .section}
 
@@ -87,7 +87,7 @@
 使用云服务器ECS的同时，您还可以选择以下阿里云服务：
 
 -   根据业务需求和策略的变化，使用[弹性伸缩（Auto Scaling）](../../../../intl.zh-CN/产品简介/什么是弹性伸缩.md#)自动调整云服务器ECS的数量。
--   使用[容器服务（Container Service）](../../../../intl.zh-CN/产品简介/什么是容器服务.md#)在一组云服务器ECS上通过Docker容器管理应用生命周期。
+-   使用[容器服务Kubernetes版](../../../../intl.zh-CN/产品简介/什么是容器服务 ACK.md#)在一组云服务器ECS上通过Docker容器管理应用生命周期。
 -   通过[负载均衡（Server Load Balancer）](../../../../intl.zh-CN/产品简介/什么是负载均衡.md#)对多台云服务器ECS实现流量分发的负载均衡目的。
 -   通过[云监控（CloudMonitor）](../../../../intl.zh-CN/产品简介/产品概述.md#)制定实例、系统盘和公网带宽等的监控方案。
 -   在同一阿里云地域下，采用[关系型云数据库（Relational Database Service）](../../../../intl.zh-CN/云数据库RDS简介/什么是云数据库RDS.md#)作为云服务器ECS的数据库应用是典型的业务访问架构，可极大降低网络延时和公网访问费用，并实现云数据库RDS的最佳性能。云数据库RDS支持多种数据库引擎，包括MySQL、SQL Server、PostgreSQL、PPAS和MariaDB。
