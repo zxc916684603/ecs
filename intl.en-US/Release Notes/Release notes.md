@@ -8,7 +8,7 @@ For information about release notes of images, see [Release notes](../../../../i
 
 |Feature|Description|Release date|Supported region|Documentation|
 |-------|:----------|:-----------|----------------|:------------|
-|Snapshot|The quota of manual snapshot and automatic snapshot hava been lifted to 256 respectively.|September 2, 2019|All|[Snapshot overview](../../../../intl.en-US/Snapshots/Snapshot overview.md#)|
+|Snapshot|The quota of manual snapshot and automatic snapshot have been lifted to 256 respectively.|September 2, 2019|All|[Snapshot overview](../../../../intl.en-US/Snapshots/Snapshot overview.md#)|
 
 ## June 2019 {#section_qst_fb8_cs .section}
 
