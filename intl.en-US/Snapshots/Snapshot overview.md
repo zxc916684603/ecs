@@ -8,15 +8,15 @@ A snapshot is a copy of the data stored on a cloud disk or on Shared Block Stora
 
 You can create snapshots in the following scenarios:
 
--   **Disaster backup**: [Create a snapshot for a disk](../../../../reseller.en-US/Snapshots/Use snapshots/Create a snapshot.md#) and use the snapshot as base data of another disk.
+-   Disaster backup: [Create a snapshot for a disk](../../../../reseller.en-US/Snapshots/Use snapshots/Create a snapshot.md#) and use the snapshot as base data of another disk.
 
--   **Version rollback**: [Roll back a disk by using a snapshot](reseller.en-US/Snapshots/Use snapshots/Roll back a disk by using a snapshot.md#) if a system error occurs after an upgrade.
+-   Version rollback: [Roll back a disk by using a snapshot](reseller.en-US/Snapshots/Use snapshots/Roll back a disk by using a snapshot.md#) if a system error occurs after an upgrade.
 
--   **Environment duplication**: If you want to purchase an instance that has the same environment as an existing instance, [create a custom image by using the system disk snapshot](../../../../reseller.en-US/Images/Custom image/Create custom image/Create a custom image by using a snapshot.md#) of the existing instance, and then [create an instance by using the custom image](../../../../reseller.en-US/Instances/Create an instance/Create an instance by using a custom image.md#).
+-   Environment duplication: If you want to purchase an instance that has the same environment as an existing instance, [create a custom image by using the system disk snapshot](../../../../reseller.en-US/Images/Custom image/Create custom image/Create a custom image by using a snapshot.md#) of the existing instance, and then [create an instance by using the custom image](../../../../reseller.en-US/Instances/Create an instance/Create an instance by using a custom image.md#).
 
--   **Data development**: By creating a snapshot of production data, you can provide near-real-time data for data mining, report query, and development, and testing applications.
+-   Data development: By creating a snapshot of production data, you can provide near-real-time data for data mining, report query, and development, and testing applications.
 
--   **Data recovery and restoration**:
+-   Data recovery and restoration:
 
 -   Use a snapshot to recover and restore the data on your disk even if incorrect data is mistakenly stored in the disk, your ECS instance is mistakenly released, an application error results in a data error, or your disk data is hacked.
 -   Use a snapshot to regularly back up your critical service data on your disk to eliminate the risk of data loss resulting from incorrect operations, attacks, or virus.
@@ -26,17 +26,19 @@ You can create snapshots in the following scenarios:
 
 Snapshots can be categorized into the following types depending on the method to create them:
 
--   **Manual snapshot**: a snapshot that you manually create for a disk.
--   **Automatic snapshot**: a snapshot that is created automatically according to an automatic snapshot policy. You can create an automatic snapshot policy and apply it to a disk. For more information, see [Apply automatic snapshot policies to disks](reseller.en-US/Snapshots/Use snapshots/Apply automatic snapshot policies to disks.md#). Then, ECS will create snapshots automatically for the disk at specified points in time.
+-   Manual snapshot: a snapshot that you manually create for a disk.
+-   Automatic snapshot: a snapshot that is created automatically according to an automatic snapshot policy. You can create an automatic snapshot policy and apply it to a disk. For more information, see [Automatic snapshot policy overview](reseller.en-US/Snapshots/Automatic snapshot policies/Automatic snapshot policy overview.md#). Then, ECS will create snapshots automatically for the disk at specified points in time.
 
 Snapshots can also be categorized into the following types depending on the portion of data contained within them:
 
--   **Full snapshot**: the first snapshot of a disk that contains the complete data.
--   **Incremental snapshot**: a subsequent snapshot after the first snapshot of a disk. An incremental snapshot contains the copied portion of changed data relative to the preceding snapshot. For more information, see [Snapshot concepts](reseller.en-US/Snapshots/Snapshot concepts.md#).
+-   Full snapshot: the first snapshot of a disk that contains the complete data.
+-   Incremental snapshot: a subsequent snapshot after the first snapshot of a disk. An incremental snapshot contains the copied portion of changed data relative to the preceding snapshot. For more information, see [Snapshot concepts](reseller.en-US/Snapshots/Snapshot concepts.md#).
 
-## Billing details {#section_zsk_hzw_ydb .section}
+## Billing details {#section_i5r_krq_wgb .section}
 
-Currently, the snapshot service is provided free of charge.
+The snapshot fee is calculated based on the size of the storage space used by a snapshot. After you create a snapshot for a disk, you can view the snapshot size of the disk by using the **Snapshot Chains** function in the ECS console. For more information, see [View the snapshot size](reseller.en-US/Snapshots/Use snapshots/View the snapshot size.md#). You can also view the total snapshot size of a region by using the **Snapshot Size** function in the ECS console.
+
+For more information about the billing methods and unit price of snapshot storage space, see [Billing of snapshots](../../../../reseller.en-US/Pricing/Billing of snapshots.md#).
 
 ## Service advantages {#section_j5r_krq_wgb .section}
 
@@ -44,17 +46,16 @@ The Alibaba Cloud snapshot service provides higher snapshot quotas and more flex
 
 |Item|Description|User benefit|Typical scenario|
 |:---|:----------|:-----------|:---------------|
-|Snapshot quota|Each disk has a quota of 64 snapshots.|Longer protection cycle with a finer granularity.| -   A non-critical service data disk creates a snapshot at 0:00 every day. The snapshot can store backup data of more than two months.
-
--   A critical service data disk creates a snapshot every four hours. The snapshot can store backup data of more than 10 days.
+|Snapshot quota|Each disk has a quota of 256 manual snapshots and a quota of 256 automatic snapshots.|Longer protection cycle with a finer granularity.| -   A non-critical service data disk creates a snapshot at 0:00 every day. The snapshot can store backup data of more than 16 months.
+-   A critical service data disk creates a snapshot every four hours. The snapshot can store backup data of more than 4 months.
 
 
  |
 |Automatic snapshot policy|You can customize when a snapshot is created, how often a snapshot is created in a week, and how long a snapshot is stored. You can also query the number and other details relating to the disks associated with automatic snapshot policies.|More flexible protection policies| -   You can select up to 24 specific hour intervals \(from 00:00 to 23:00\) at which an automatic snapshot is created in each day.
-
 -   Snapshots can be created automatically on multiple days during a week.
+-   Snapshots can be stored for a specified period of time or stored permanently.
 
--   Snapshots can be stored for a specified period of time or stored permanently. When the snapshot quota is reached, the system deletes the oldest snapshot automatically.
+**Note:** When the snapshot quota is reached, the system deletes the oldest snapshot automatically.
 
 
  |
@@ -72,4 +73,11 @@ The following table describes the advantages of the Alibaba Cloud ECS snapshot s
 -   Snapshots are invisible to users and can be created at any time without affecting user experience.
 
  |Copy-On-Write \(COW\), or other techniques such as ROW. COW has impact on the data write capability of the target system.|
+
+## Related operations {#section_goo_6mv_mzx .section}
+
+-   [Create a snapshot](reseller.en-US/Snapshots/Use snapshots/Create a snapshot.md#)
+-   [Create a cloud disk by using a snapshot](../../../../reseller.en-US/Block Storage/Block storage/Create a cloud disk/Create a cloud disk by using a snapshot.md#)
+-   [Roll back a disk by using a snapshot](reseller.en-US/Snapshots/Use snapshots/Roll back a disk by using a snapshot.md#)
+-   [Create a custom image by using a snapshot](../../../../reseller.en-US/Images/Custom image/Create custom image/Create a custom image by using a snapshot.md#)
 
