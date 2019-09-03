@@ -2,7 +2,6 @@
 
 This topic describes how to export Alibaba Cloud custom images and the items that need your attention.
 
--   Submit a ticket to apply for permissions to export a custom image. Include a short description of how the image will be used.
 -   Make sure that you have enabled OSS and that an OSS bucket is available in the region to which your custom image belongs. For more information, see [Create a bucket](../../../../../reseller.en-US/Quick Start/Create a bucket.md#).
 
     Exporting a custom image will incur OSS storage and download traffic fees. For more information, see [Billing items](../../../../../reseller.en-US/Pricing/Billing items.md#).
@@ -23,7 +22,7 @@ Before you export a custom image, note the following items:
 4.  Find the custom image you want to export. In the **Actions** column corresponding to the image, click More and choose **Export Image** from the shortcut menu. 
     1.  In the Export Image dialog box that appears, click **Confirm Address**. 
 
-        ![Export a custom image](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9712/15665254194655_en-US.png)
+        ![Export a custom image](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9712/15674785004655_en-US.png)
 
     2.  In the Cloud Resource Access Authorization dialog box, click **Confirm Authorization Policy** to allow ECS to access your OSS resources.
 5.  Return to the ECS console homepage and access the Images page again. Find the custom image you want to export. In the **Actions** column corresponding to the image, click More and choose **Export Image** from the shortcut menu.
