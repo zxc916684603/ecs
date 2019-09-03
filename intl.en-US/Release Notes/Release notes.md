@@ -4,11 +4,27 @@ This topic describes the release notes of ECS features.
 
 For information about release notes of images, see [Release notes](../../../../reseller.en-US/Images/Public image/Release notes.md#). For information about release notes of Server Migration Center, see the Update history section in [Server Migration Center](../../../../reseller.en-US/Migration Service/Cloud Migration tool for P2V and V2V/Cloud Migration tool.md#section_fjj_v5z_jfb).
 
+## September 2019 {#section_xks_vu0_82t .section}
+
+|Feature|Description|Release date|Supported region|Documentation|
+|-------|:----------|:-----------|----------------|:------------|
+|Snapshot|The quota of manual snapshot and automatic snapshot hava been lifted to 256 respectively.|September 2, 2019|All|[Snapshot overview](../../../../reseller.en-US/Snapshots/Snapshot overview.md#)|
+
+## June 2019 {#section_qst_fb8_cs .section}
+
+|Feature|Description|Release date|Supported region|Documentation|
+|-------|:----------|:-----------|----------------|:------------|
+
 ## May 2019 {#section_qst_fb8_cy .section}
 
 |Feature|Description|Release date|Supported region|Documentation|
 |-------|:----------|:-----------|----------------|:------------|
+|Cloud Assistant|This feature allows you to set custom parameters when you create Cloud Assistant commands through the console or by calling API operations. You can specify the values of those parameters when calling those commands.|May 15, 2019|All| -   [Create commands](../../../../reseller.en-US/Deployment & Maintenance/Cloud assistant/Use the cloud assistant/Create commands.md#)
+-   [Run commands](../../../../reseller.en-US/Deployment & Maintenance/Cloud assistant/Use the cloud assistant/Run commands.md#)
+
+ |
 |Block Storage|This feature allows you to create subscription disks by calling API operations.|May 15, 2019|All|[CreateDisk](../../../../reseller.en-US/API Reference/Disk/CreateDisk.md#)|
+|Event notifications|This feature allows you to configure CloudMonitor event notifications for manually created snapshots.|May 10, 2019|All|[Overview of event notifications](../../../../reseller.en-US/Deployment & Maintenance/Event notifications/Overview of event notifications.md#)|
 
 ## April 2019 {#section_qst_fb_csy .section}
 
@@ -26,9 +42,9 @@ For information about release notes of images, see [Release notes](../../../../r
 |Feature|Description|Release date|Supported region|Documentation|
 |-------|:----------|:-----------|----------------|:------------|
 |Public images|Public image Aliyun Linux 2 is released.|March 27, 2019|All|[Aliyun Linux 2](../../../../reseller.en-US/Images/Public image/Aliyun Linux 2.md#)|
-|Instance families|gn6i, compute optimized instance family with GPUs, is released.|March 21, 2019|All|[Instance families](../../../../reseller.en-US/Instances/Instance type families.md#)|
-|Instance families|sccgn6, compute optimized Super Computing Cluster \(SCC\) instance family with GPUs, is released.|March 20, 2019|All|[Instance families](../../../../reseller.en-US/Instances/Instance type families.md#)|
-|Instance families|vgn5i, light-weight compute optimized instance family with GPUs, is released.|March 19, 2019|All|[Instance families](../../../../reseller.en-US/Instances/Instance type families.md#)|
+|Instance families|gn6i, compute optimized instance family with GPUs, is released.|March 21, 2019|All|[Instance families](../../../../reseller.en-US/Instances/Instance families.md#)|
+|Instance families|sccgn6, compute optimized Super Computing Cluster \(SCC\) instance family with GPUs, is released.|March 20, 2019|All|[Instance families](../../../../reseller.en-US/Instances/Instance families.md#)|
+|Instance families|vgn5i, light-weight compute optimized instance family with GPUs, is released.|March 19, 2019|All|[Instance families](../../../../reseller.en-US/Instances/Instance families.md#)|
 |Reserved instances|The reserved instance feature is released.|March 18, 2019|All|[RI overview](../../../../reseller.en-US/Instances/Instance purchasing options/Reserved Instances/RI overview.md#)|
 
 ## January 2019 {#section_qt_fb8_csy .section}
@@ -50,8 +66,8 @@ For information about release notes of images, see [Release notes](../../../../r
 
 |Feature|Description|Release date|Supported region|Documentation|
 |-------|:----------|:-----------|----------------|:------------|
-|Custom images|Custom images can be created through Packer.|November 30, 2018|All|[../../../../dita-oss-bucket/SP\_2/DNECS19100339/EN-US\_TP\_9698.md\#](../../../../reseller.en-US/Images/Custom image/Create custom image/Use Packer to create a custom image.md#)|
-|Instance families|re4e, memory optimized instance family with enhanced performance, is released.|November 30, 2018|All|[Instance families](../../../../reseller.en-US/Instances/Instance type families.md#)|
+|Custom images|Custom images can be created through Packer.|November 30, 2018|All|[Use Packer to create a custom image](../../../../reseller.en-US/Images/Custom image/Create custom image/Use Packer to create a custom image.md#)|
+|Instance families|re4e, memory optimized instance family with enhanced performance, is released.|November 30, 2018|All|[Instance families](../../../../reseller.en-US/Instances/Instance families.md#)|
 |Block Storage|Subscription disks can be created separately and attached to a subscription instance.|November 29, 2018|All|[Create a Subscription cloud disk](../../../../reseller.en-US/Block Storage/Block storage/Create a cloud disk/Create a Subscription cloud disk.md#)|
 |Deployment set|Alibaba Cloud deployment sets are released.|November 16, 2018|All|[Deployment set](../../../../reseller.en-US/.md#)|
 
@@ -59,7 +75,7 @@ For information about release notes of images, see [Release notes](../../../../r
 
 |Feature|Description|Release date|Supported region|Documentation|
 |-------|:----------|:-----------|----------------|:------------|
-|Instance families|f3, compute optimized instance family with FPGAs, is released.|October 31, 2018|All|[Instance families](../../../../reseller.en-US/Instances/Instance type families.md#)|
+|Instance families|f3, compute optimized instance family with FPGAs, is released.|October 31, 2018|All|[Instance families](../../../../reseller.en-US/Instances/Instance families.md#)|
 |API best practices|API best practices for the console are released.|October 19, 2018|All|[Create an instance by using the wizard](../../../../reseller.en-US/Instances/Create an instance/Create an instance by using the wizard.md#)|
 
 ## September 2018 {#section_ost_fb8_csy .section}
@@ -69,7 +85,7 @@ For information about release notes of images, see [Release notes](../../../../r
 |Burstable performance instances \(t5\)|Burstable performance instances support the unlimited mode.|September 30, 2018|All|[Unlimited mode](../../../../reseller.en-US/Instances/Instance type families/Burstable performance instances/Overview.md#section_i6c_2kn_y5s)|
 |Instance metadata|Instance metadata supports O&M system events.|September 14, 2018|All|[Metadata](../../../../reseller.en-US/Instances/Manage instances/User-defined data and metadata/Metadata.md#)|
 |Instance health status|Health status of ECS instances is displayed on the instance details page.|September 14, 2018|All|[View instance health status](../../../../reseller.en-US/Deployment & Maintenance/Monitor the instance status/View instance health status.md#)|
-|Instance families|The new generation GPU cloud host GN6 \(V100 model\) is released.|September 12, 2018|All|[Instance families](../../../../reseller.en-US/Instances/Instance type families.md#)|
+|Instance families|The new generation GPU cloud host GN6 \(V100 model\) is released.|September 12, 2018|All|[Instance families](../../../../reseller.en-US/Instances/Instance families.md#)|
 |Instance purchase|Batch renewal of instances and batch purchase of historical instances are supported.|September 7, 2018|All|[Manual renewal](../../../../reseller.en-US/Pricing/Renew instances/Manual renewal.md#)|
 |System events|API operations that are used to create or cancel simulated system events are released.|September 3, 2018|All| -   [CreateSimulatedSystemEvents](../../../../reseller.en-US/API Reference/System event/CreateSimulatedSystemEvents.md#)
 -   [CancelSimulatedSystemEvents](../../../../reseller.en-US/API Reference/System event/CancelSimulatedSystemEvents.md#)
@@ -83,7 +99,7 @@ For information about release notes of images, see [Release notes](../../../../r
 |-------|:----------|:-----------|----------------|:------------|
 |Local disks|The O&M of instances to which local disks are attached is optimized.|August 31, 2018|All|[Local disks](../../../../reseller.en-US/Block Storage/Local disks.md#)|
 |Cloud Assistant|Cloud Assistant is supported in the ECS console.|August 17, 2018|All|[Cloud Assistant overview](../../../../reseller.en-US/Deployment & Maintenance/Cloud assistant/Cloud assistant overview.md#)|
-|Instance families|Super Computing Cluster \(SCC\) is released.|August 16, 2018|All|[Super Computing Clusters](../../../../reseller.en-US/Instances/Instance type families/Super Computing Cluster instance type family/Super Computing Clusters.md#)|
+|Instance families|Super Computing Cluster \(SCC\) is released.|August 16, 2018|All|[What is a Super Computing Cluster?](../../../../reseller.en-US/Instances/Instance type families/Super Computing Cluster instance type family/What is a Super Computing Cluster?.md#)|
 
 ## July 2018 {#section_qst_fb8_csh .section}
 
@@ -95,13 +111,13 @@ For information about release notes of images, see [Release notes](../../../../r
  |
 |Security groups|Security group rules can be modified.|July 25, 2018|All|[Modify security group rules](../../../../reseller.en-US//Manage security group rules.md#)|
 |Tags|Instances can be tagged when being created.|July 20, 2018|All|[Add a tag to resources](../../../../reseller.en-US/Tags & Resource Management /Tags/Add a tag to resources.md#)|
-|Instance families|ebmc4, compute optimized ECS Bare Metal Instance family, is released.|July 18, 2018|All|[Instance families](../../../../reseller.en-US/Instances/Instance type families.md#)|
+|Instance families|ebmc4, compute optimized ECS Bare Metal Instance family, is released.|July 18, 2018|All|[Instance families](../../../../reseller.en-US/Instances/Instance families.md#)|
 |Snapshots|The estimated remaining time for creating snapshots can be displayed.|July 17, 2018|All|[Create a snapshot](../../../../reseller.en-US/Snapshots/Use snapshots/Create a snapshot.md#)|
 |Account and user privileges|Quota management is supported.|July 15, 2018|All|[Manage privileges and quotas](../../../../reseller.en-US/Tags & Resource Management /Manage privileges and quotas.md#)|
 |Enhanced SSDs|Enhanced SSDs \(under public preview\) are available in Beijing Zone G.|July 14, 2018|All|[Cloud disk overview](../../../../reseller.en-US/Block Storage/Block storage/Cloud disk overview.md#)|
 |Instance troubleshooting|System logs and screenshots can be viewed.|July 13, 2018|All|[Console output and screenshot](../../../../reseller.en-US/Deployment & Maintenance/Troubleshoot operation errors/Console output and screenshot.md#)|
 |Security groups|You can submit a ticket to modify the maximum number of instances that can be added in a security group and the maximum number of security group rules.|July 10, 2018|All|[Limits](reseller.en-US/Product Introduction/Limits.md#)|
-|Instance families|ic5, compute optimized instance family, is released.|July 9, 2018|All|[Instance families](../../../../reseller.en-US/Instances/Instance type families.md#)|
+|Instance families|ic5, compute optimized instance family, is released.|July 9, 2018|All|[Instance families](../../../../reseller.en-US/Instances/Instance families.md#)|
 
 ## June 2018 {#section_qst_fj8_csy .section}
 
@@ -134,7 +150,7 @@ For information about release notes of images, see [Release notes](../../../../r
 |-------|:----------|:-----------|----------------|:------------|
 |GPU instances|The NGC GPU-accelerated container is supported.|March 28, 2018|All|[Deploy an NGC on gn5 instances](../../../../reseller.en-US/Best Practices/GPU instances/Deploy an NGC on gn5 instances.md#)|
 |System events|The system event feature is released.|March 26, 2018|All|[../../../../dita-oss-bucket/SP\_2/DNA0011894323/EN-US\_TP\_9748.md\#](../../../../reseller.en-US/Deployment & Maintenance/System events/System events.md#)|
-|ECS Bare Metal Instance|ECS Bare Metal Instance is released.|March 14, 2018|All|[EBM Instance overview](../../../../reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/EBM Instance overview.md#)|
+|ECS Bare Metal Instance|ECS Bare Metal Instance is released.|March 14, 2018|All|[What is an ECS Bare Metal Instance?](../../../../reseller.en-US/Instances/Instance type families/ECS bare metal instance type family/What is an ECS Bare Metal Instance?.md#)|
 |Instance identity|The ECS instance identity feature is released.|March 1, 2018|All|[Instance identity](../../../../reseller.en-US/Instances/Manage instances/Instance identity.md#)|
 
 ## February 2018 {#section_qst_fb8_cmy .section}
@@ -156,7 +172,7 @@ For information about release notes of images, see [Release notes](../../../../r
 |-------|:----------|:-----------|----------------|:------------|
 |No fees for stopped instances \(VPC-Connected\)|The No fees for stopped instances \(VPC-Connected\) feature is supported for pay-as-you-go instances.|December 14, 2017|All|[No fees for stopped VPC instances](../../../../reseller.en-US/Pricing/No fees for stopped VPC instances.md#)|
 |Elastic Network Interface \(ENI\)|The ENI feature is released.|December 8, 2017|All|[ENI overview](../../../../reseller.en-US/Network/Elastic Network Interfaces/ENI overview.md#)|
-|Instance family with FPGAs|f1, compute optimized instance family with FPGAs, is released.|December 2, 2017|All|[Instance families](../../../../reseller.en-US/Instances/Instance type families.md#)|
+|Instance family with FPGAs|f1, compute optimized instance family with FPGAs, is released.|December 2, 2017|All|[Instance families](../../../../reseller.en-US/Instances/Instance families.md#)|
 |ECS API operations|The API operation that is used to create multiple instances at a time is released.|December 1, 2017|All|[../../../../dita-oss-bucket/SP\_2/DNA0011860945/EN-US\_TP\_9856.md\#](../../../../reseller.en-US/API Reference/Instances/RunInstances.md#)|
 |Instance troubleshooting|The ECS console supports real-time diagnostics.|December 1, 2017|All|[Self-diagnostic system](../../../../reseller.en-US/Deployment & Maintenance/Troubleshoot operation errors/Self-diagnostic system.md#)|
 
@@ -183,7 +199,7 @@ For information about release notes of images, see [Release notes](../../../../r
 |Feature|Description|Release date|Supported region|Documentation|
 |-------|:----------|:-----------|----------------|:------------|
 |Billing methods|Bills of pay-as-you-go instances and disks are accurate to the second. Bills are generated every hour.|September 29, 2017|All|[Pay-as-you-go](../../../../reseller.en-US/Pricing/Billing method comparison.md#)|
-|Instance family gn5i|gn5i, compute optimized instance family with GPUs, is released, which is applicable to deep learning and online reasoning scenarios.|September 23, 2017|All|[Instance families](../../../../reseller.en-US/Instances/Instance type families.md#)|
+|Instance family gn5i|gn5i, compute optimized instance family with GPUs, is released, which is applicable to deep learning and online reasoning scenarios.|September 23, 2017|All|[Instance families](../../../../reseller.en-US/Instances/Instance families.md#)|
 |ECS disk encryption|ECS disks can be encrypted.|September 5, 2017|All|[ECS disk encryption](../../../../reseller.en-US/Block Storage/Block storage/ECS disk encryption.md#)|
 
 ## August 2017 {#section_qs4_fb8_csy .section}
@@ -192,7 +208,7 @@ For information about release notes of images, see [Release notes](../../../../r
 |-------|:----------|:-----------|----------------|:------------|
 |Security group rules|Security group rules can be configured based on the 5-tuple.|August 31, 2017|All|[Security group quintuple rules](../../../../reseller.en-US/Best Practices/Security/Security group quintuple rules.md#)|
 |ClassicLink|Instances in a classic network can be connected with instances in a VPC through ClassicLink.|August 25, 2017|All|[Network types](../../../../reseller.en-US/Network/Network types.md#)|
-|Instance families|The new-generation high speed ECS instances and local SSD instances that are equipped with the Skylake processor and support 25 GE networks are released.|August 22, 2017|All|[Instance families](../../../../reseller.en-US/Instances/Instance type families.md#)|
+|Instance families|The new-generation high speed ECS instances and local SSD instances that are equipped with the Skylake processor and support 25 GE networks are released.|August 22, 2017|All|[Instance families](../../../../reseller.en-US/Instances/Instance families.md#)|
 |ECS API operations|The bandwidth of instances can be changed by calling API operations.|August 17, 2017|All|[ModifyInstanceNetworkSpec](../../../../reseller.en-US/API Reference/Networks/ModifyInstanceNetworkSpec.md#)|
 |Custom images|Custom images can be imported.|August 10, 2017|All|[Import custom images](../../../../reseller.en-US/Images/Custom image/Import images/Import custom images.md#)|
 
@@ -212,8 +228,8 @@ For information about release notes of images, see [Release notes](../../../../r
 |Feature|Description|Release date|Supported region|Documentation|
 |-------|:----------|:-----------|----------------|:------------|
 |Instance RAM roles|API operations that are used to manages RAM roles of instances are released.|May 26, 2017|All|[../../../../dita-oss-bucket/SP\_2/DNECS19100344/EN-US\_TP\_9666.md\#](../../../../reseller.en-US/Security/Instance RAM roles/Use the instance RAM role by calling APIs.md#)|
-|Instance families|Network-optimized instances are released.|May 23, 2017|All|[Instance families](../../../../reseller.en-US/Instances/Instance type families.md#)|
-|Instance families|d1, storage optimized instance family, is released.|May 12, 2017|All|[Instance families](../../../../reseller.en-US/Instances/Instance type families.md#)|
+|Instance families|Network-optimized instances are released.|May 23, 2017|All|[Instance families](../../../../reseller.en-US/Instances/Instance families.md#)|
+|Instance families|d1, storage optimized instance family, is released.|May 12, 2017|All|[Instance families](../../../../reseller.en-US/Instances/Instance families.md#)|
 |Security groups|The default security group policy is modified to expose only ICMP ports, TCP port 22, and TCP port 3389.|May 11, 2017|All|[Default rules of the default security group](../../../../reseller.en-US/Security/Security groups/Security group overview.md#section_m4b_bdb_3gb)|
 |Security groups|Security groups can be backed up, overwritten, and restored.|May 10, 2017|All|[Restore security group rules](../../../../reseller.en-US//Manage security group rules.md#section_l2z_jyy_lgb)|
 
@@ -228,16 +244,16 @@ For information about release notes of images, see [Release notes](../../../../r
 |Feature|Description|Release date|Supported region|Documentation|
 |-------|:----------|:-----------|----------------|:------------|
 |Custom images|The cloud-init tool supports some custom images.|February 24, 2017|All|[Install cloud-init for Linux images](../../../../reseller.en-US/Images/Custom image/Import images/Install cloud-init for Linux images.md#)|
-|Instance families|i1, I/O optimized instance family with local SSDs, is released.|February 17, 2017|All|[Instance families](../../../../reseller.en-US/Instances/Instance type families.md#)|
+|Instance families|i1, I/O optimized instance family with local SSDs, is released.|February 17, 2017|All|[Instance families](../../../../reseller.en-US/Instances/Instance families.md#)|
 |Snapshots|The system disk snapshot can be used to create data disks.|February 15, 2017|All|[Create a disk by using a snapshot](../../../../reseller.en-US/Block Storage/Block storage/Create a cloud disk/Create a cloud disk by using a snapshot.md#)|
-|Instance families|gn4, compute optimized instance family with GPUs, is released.|February 14, 2017|All|[Instance families](../../../../reseller.en-US/Instances/Instance type families.md#)|
+|Instance families|gn4, compute optimized instance family with GPUs, is released.|February 14, 2017|All|[Instance families](../../../../reseller.en-US/Instances/Instance families.md#)|
 
 ## January 2017 {#section_qst_fb8_csy .section}
 
 |Feature|Description|Release date|Supported region|Documentation|
 |-------|:----------|:-----------|----------------|:------------|
-|Instance families|ga1, compute optimized instance family with GPUs for visualization computing, is released.|January 24, 2017|All|[Instance families](../../../../reseller.en-US/Instances/Instance type families.md#)|
-|Instance families|se1, memory optimized instance family, is released.|January 21, 2017|All|[Instance families](../../../../reseller.en-US/Instances/Instance type families.md#)|
+|Instance families|ga1, compute optimized instance family with GPUs for visualization computing, is released.|January 24, 2017|All|[Instance families](../../../../reseller.en-US/Instances/Instance families.md#)|
+|Instance families|se1, memory optimized instance family, is released.|January 21, 2017|All|[Instance families](../../../../reseller.en-US/Instances/Instance families.md#)|
 
 ## 2016 {#section_qst_fb8_csy .section}
 
