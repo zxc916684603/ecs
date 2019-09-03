@@ -24,18 +24,18 @@ For more benefits, see [Benefits of ECS](reseller.en-US/Product Introduction/Ben
 
 ECS comprises the following major components:
 
--   [Instance](../../../../reseller.en-US/Instances/What are ECS instances?.md#): a virtual computing environment that includes basic computing components such as CPU, memory, operating system, bandwidth, and disks. The computing performance, memory specifications, and applicable scenarios of an instance are determined by its [instance type](../../../../reseller.en-US/Instances/Instance type families.md#). The performance of an instance is determined by its vCPUs, memory capacity, and network performance.
+-   [Instance](../../../../reseller.en-US/Instances/What are ECS instances?.md#): a virtual computing environment that includes basic computing components such as CPU, memory, operating system, bandwidth, and disks. The computing performance, memory specifications, and applicable scenarios of an instance are determined by its [instance type](../../../../reseller.en-US/Instances/Instance families.md#). The performance of an instance is determined by its vCPUs, memory capacity, and network performance.
 -   [Image](../../../../reseller.en-US/Images/Image overview.md#): provides the operating system, initial application data, and pre-installed software for instances. Multiple Linux operating systems and Windows Server operating systems are supported.
 -   [Block storage](../../../../reseller.en-US/Block Storage/What is block storage?.md#): a block storage device which features high performance and low latency. Distributed storage architecture-based [cloud disks](../../../../reseller.en-US/Block Storage/Block storage/Cloud disk overview.md#), and physical storage-based [local disks](../../../../reseller.en-US/Block Storage/Local disks.md#) can be used.
 -   [Snapshot](../../../../reseller.en-US/Snapshots/Snapshot overview.md#): a stateful data file of a cloud disk or shared block storage at a certain point in time. It is often used to back up and restore data, and to create custom images.
 -   [Security group](../../../../reseller.en-US/Security/Security groups/Security group overview.md#): a logical group of instances located in the same region that have the same security requirements and require access to each other. A security group works as a virtual firewall for the ECS instances inside it.
 -   [Network](../../../../reseller.en-US/Network/Network types.md#):
-    -   [VPC](../../../../reseller.en-US/Product Introduction/What is VPC?.md#): a logically isolated private cloud network. You can configure a private IP address range, a route table, and a gateway for a VPC.
+    -   [VPC](../../../../reseller.en-US/Product Introduction/What is a VPC?.md#): a logically isolated private cloud network. You can configure a private IP address range, a route table, and a gateway for a VPC.
     -   Classic network: all classic instances are primarily built on a shared infrastructure network of Alibaba Cloud, which is planned and managed in a centralized manner.
 
 The following figure shows the architecture of ECS components. For more information about the functional components in the figure, see the related documentation.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/156618577948636_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9543/156749122548636_en-US.png)
 
 ## Pricing {#section_vq5_brj_ydb .section}
 
@@ -63,11 +63,11 @@ Before you purchase an ECS instance, consider the following factors:
 
 -   High availability
 
-    To ensure business consistency and continuity, we recommend that you use [snapshots](../../../../reseller.en-US/Snapshots/Snapshot overview.md#) to back up data, and use multi-zone deployment, [deployment sets](../../../../reseller.en-US/Deployment & Elasticity/Deployment sets/Deployment set.md#), and [Server Load Balancer \(SLB\)](../../../../reseller.en-US/Product Introduction/What is Server Load Balancer?.md#) for disaster recovery.
+    To ensure business consistency and continuity, we recommend that you use [snapshots](../../../../reseller.en-US/Snapshots/Snapshot overview.md#) to back up data, and use multi-zone deployment, [deployment sets](../../../../reseller.en-US/.md#), and [Server Load Balancer \(SLB\)](../../../../reseller.en-US/Product Introduction/What is Server Load Balancer?.md#) for disaster recovery.
 
 -   Network planning
 
-    We recommend that you use [VPC](../../../../reseller.en-US/Product Introduction/What is VPC?.md#) to plan your own private IP addresses. VPC supports all new features and new instance types. It also supports business system isolation and multi-region system deployment.
+    We recommend that you use [VPC](../../../../reseller.en-US/Product Introduction/What is a VPC?.md#) to plan your own private IP addresses. VPC supports all new features and new instance types. It also supports business system isolation and multi-region system deployment.
 
 -   Security solutions
 
@@ -81,7 +81,7 @@ Before you purchase an ECS instance, consider the following factors:
 Together with ECS, you can select the following Alibaba Cloud services:
 
 -   [Auto Scaling](../../../../reseller.en-US/Product Introduction/What is Auto Scaling?.md#) automatically adjusts the number of ECS instances based on business and policy changes.
--   [Container Service](../../../../reseller.en-US/Product Introduction/What is Container Service.md#) manages application lifecycles on groups of ECS instances.
+-   [Container Service for Kubernetes \(ACK\)](../../../../reseller.en-US/Product Introduction/What is ACK?.md#) manages application lifecycles on groups of ECS instances.
 -   [Server Load Balancer \(SLB\)](../../../../reseller.en-US/Product Introduction/What is Server Load Balancer?.md#) distributes traffic among multiple ECS instances.
 -   [CloudMonitor](../../../../reseller.en-US/Product Introduction/Overview.md#) develops monitoring solutions for instances, system disks, and public network bandwidth.
 -   [ApsaraDB for RDS](../../../../reseller.en-US/Product Introduction/What is ApsaraDB for RDS?.md#) provides database services accessible over internal networks to ECS instances, reduces network latency, access fees, and delivers top-notch performance. ApsaraDB for RDS supports multiple database engines, including MySQL, SQL Server, PostgreSQL, PPAS, and MariaDB.
