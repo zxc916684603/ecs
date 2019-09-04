@@ -64,7 +64,7 @@ https://ecs.aliyuncs.com/?Action=DeleteHpcCluster
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
-|400|MissingParameter.RegionId|The input parameter RegionId that is mandatory for processing this request is not supplied.|缺少必填参数RegionId。|
+|400|MissingParameter.RegionId|The input parameter RegionId that is mandatory for processing this request is not supplied.|缺少必填参数 RegionId 。|
 |404|InvalidRegionId.NotFound|The specified parameter "RegionId" is not valid.|指定的 RegionId 不存在，请您检查此产品在该地域是否可用。|
 |400|MissingParameter.HpcClusterId|The input parameter HpcClusterId that is mandatory for processing this request is not supplied.|缺少必填参数hpcClusterId。|
 |400|Invalid.Parameter|Invalid parameters.|参数不合法。|
