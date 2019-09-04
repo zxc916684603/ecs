@@ -8,12 +8,12 @@
 
 调用该接口时，您需要了解：
 
--   一个安全组的安全组规则最多为100条。
+-   安全组的出方向安全组规则和入方向安全组规则总和不能超过200条。
 -   安全组规则分为接受访问（accept）和拒绝访问（drop）两类。
 -   安全组规则优先级（Priority）可选范围为1~100。数字越小，代表优先级越高。
 -   优先级相同的安全组规则，优先以拒绝访问（drop）的规则为准。
 -   目的端设备可以是指定的IP地址范围（DestCidrIp），也可以是其他安全组（DestGroupId）。
--   以下任意一组参数可以确定一条安全组规则。如果匹配的安全组规则已存在，此次 AuthorizeSecurityGroupEgress调用失败。
+-   以下任意一组参数可以确定一条安全组规则。如果匹配的安全组规则已存在，此次AuthorizeSecurityGroupEgress调用失败。
     -   设置指定IP地址段的访问权限。经典网络类型安全组的网卡类型（NicType）可设置公网（internet）和内网（intranet）。VPC类型安全组的网卡类型（NicType）只可设置内网（intranet）。如以下请求示例：IpProtocol、PortRange、（可选）SourcePortRange、NicType、Policy、DestCidrIp和（可选）SourceCidrIp。
 
         ```
@@ -227,7 +227,7 @@ https://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroupEgress
 |400|InvalidPriority.Malformed|The parameter Priority is invalid.|无效的规则优先级。|
 |400|InvalidPriority.ValueNotSupported|The parameter Priority is invalid.|无效的规则优先级。|
 |400|InvalidDestCidrIp.Malformed|The specified parameter DestCidrIp is not valid.|指定的 DestCidrIp 无效，请您检查该参数是否正确。|
-|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单|
+|500|InternalError|The request processing has failed due to some unknown error.|内部错误，请重试。如果多次尝试失败，请提交工单。|
 |403|InvalidNetworkType.Conflict|The specified SecurityGroup network type should be same with SourceGroup network type \(vpc or classic\).|指定的 SecurityGroup 的网络类型必须与 SouceGroup 的网络类型一致。|
 |403|InvalidSecurityGroup.IsSame|The authorized SecurityGroupId should be different from the DestGroupId.|已授权的 SecurityGroupId 不能与 DestGroupId 相同。|
 |400|InvalidDestCidrIp.Malformed|The parameter DestCidrIp is not valid.|指定的目的CIDR地址段无效。|
