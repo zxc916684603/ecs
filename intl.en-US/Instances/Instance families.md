@@ -977,5 +977,5 @@ Instance types
 |Bandwidth|The maximum bandwidth in one direction. Inbound bandwidth and outbound bandwidth are calculated separately.|
 |Packet forwarding rate|The maximum sum of inbound and outbound packet forwarding rates. For details about how to test the packet forwarding rate, see [Test network performance](https://partners-intl.aliyun.com/help/faq-detail/55757.htm).|
 |NIC queues|The maximum number of NIC queues that the primary NIC of an instance supports. If your instance type is not of an ECS Bare Metal Instance family, the maximum number of NIC queues supported by the secondary NIC is the same as that supported by the primary NIC.|
-|ENIs|Enterprise-level instance types that are equipped with two or more vCPU cores support Elastic Network Interfaces \(ENIs\). Entry-level instance types that are equipped with four or more vCPU cores support ENIs. For more information, see [ENI overview](../../../../reseller.en-US/Network/Elastic Network Interfaces/ENI overview.md#).|
+|ENIs|Enterprise-level instance types that are equipped with two or more vCPUs support Elastic Network Interfaces \(ENIs\). Entry-level instance types that are equipped with four or more vCPUs support ENIs. For more information, see [ENI overview](../../../../reseller.en-US/Network/Elastic Network Interfaces/ENI overview.md#).|
 
