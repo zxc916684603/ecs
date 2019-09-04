@@ -9,7 +9,7 @@ ROS是阿里云官网提供的免费服务，无需下载安装。您可以使�
 
 您还可以使用ROS提供的其他模板样例搭建环境，例如Java Web测试环境、Node.js测试开发环境、Ruby Web开发测试环境或Hadoop/Spark分布式系统。
 
-更多ROS信息，请参见[ROS文档](../../../../../cn.zh-CN/产品简介/什么是资源编排服务？.md#)和[ROS云栖博客](https://yq.aliyun.com/articles/57553)。
+更多ROS信息，请参见[ROS文档](../../../../../cn.zh-CN/产品简介/什么是资源编排服务.md#)和[ROS云栖博客](https://yq.aliyun.com/articles/57553)。
 
 1.  登录[ROS管理控制台](https://ros.console.aliyun.com/)。 
 
@@ -19,7 +19,7 @@ ROS是阿里云官网提供的免费服务，无需下载安装。您可以使�
 3.  在左侧导航栏中，单击**模板样例**。
 4.  从模板样例中，找到**LNMP\_basic**。 
 
-    ![查找模板](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/156560600612071_zh-CN.png)
+    ![查找模板](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/156756653612071_zh-CN.png)
 
 5.  单击**预览**查看模板的JSON文件。JSON文件各个顶级字段的解释如下表所示。 
 
@@ -54,15 +54,15 @@ ROS是阿里云官网提供的免费服务，无需下载安装。您可以使�
     -   **ECS Instance Type**：填写您需要的ECS实例规格。详见第2步。
     -   **System Disk Category**：选择系统盘的云盘类型。
     -   **Instance Password**和**\(Please Confirm\) Instance Password**：设置并确认实例的登录密码。根据模板定义，密码只能包括大写或小写英文字母和数字。
-    ![设置参数](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/156560600612072_zh-CN.png)
+    ![设置参数](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/156756653712072_zh-CN.png)
 
 9.  在左侧导航栏中，单击**资源栈管理**查看新创建的栈的状态。 
 
-    ![资源栈管理](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/156560600614331_zh-CN.png)
+    ![资源栈管理](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/156756653714331_zh-CN.png)
 
 10. 单击新创建的栈的名称。在栈概况页面的**输出**区域查看`NginxWebsiteURL`的值。您能通过这个地址访问已创建的LNMP环境。 
 
-    ![查看栈概况](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/156560600714341_zh-CN.png)
+    ![查看栈概况](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9761/156756653714341_zh-CN.png)
 
     **说明：** 
 
