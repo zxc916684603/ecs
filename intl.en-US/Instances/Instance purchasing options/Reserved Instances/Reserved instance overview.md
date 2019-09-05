@@ -63,7 +63,7 @@ Reserved instances have the following limits:
 
 -   Instance families
 
-    Reserved instances support the following instance families: sn1ne, sn2ne, se1ne, ic5, c5, g5, r5, i2, i2g, hfc5, hfg5, and t5. [Burstable instances \(t5\)](../../../../reseller.en-US/Instances/Instance type families/Burstable performance instances/Overview.md#) can only match zonal reserved instances. They cannot match regional reserved instances. Reserved instances that match burstable instances cannot be merged, split, or have their matching scope changed.
+    Reserved instances support the following instance families: sn1ne, sn2ne, se1ne, ic5, c5, g5, r5, c6, g6, r6, i2, i2g, hfc5, hfg5, and t5. [Burstable instances \(t5\)](../../../../reseller.en-US/Instances/Instance type families/Burstable performance instances/Overview.md#) can only match zonal reserved instances. They cannot match regional reserved instances. Reserved instances that match burstable instances cannot be merged, split, or have their matching scope changed.
 
 
 ## Billing {#section_icr_mpc_dhb .section}
