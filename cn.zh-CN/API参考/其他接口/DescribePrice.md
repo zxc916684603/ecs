@@ -10,7 +10,7 @@
     -   参数`ResourceType`的值为`instance`时，您必须同时指定参数`InstanceType`。
     -   参数`ResourceType`的值为`disk`时，您必须同时指定参数`DataDisk.1.Category`和`DataDisk.1.Size`。查询`disk`资源的价格时，只返回云盘按量付费的价格，即参数PriceUnit只能取值为Hour。
     -   查询`bandwidth`资源的价格时，只返回按流量计费（`PayByTraffic`）的价格。
--   参数`ResourceType`的值为`disk`时，仅支持查询四块以内数据盘的价格。
+-   参数`ResourceType`的值为`instance`时，仅支持查询四块以内数据盘的价格。
 
 ## 调试 {#api_explorer .section}
 
@@ -236,6 +236,9 @@
 |DetailInfos| | |价格的详细信息。
 
  |
+|ResourcePriceModel| | |价格的详细信息。
+
+ |
 |DiscountPrice|Float|655.2|折扣价。
 
  |
@@ -246,6 +249,9 @@
 
  |
 |SubRules| | |定价规则子集。
+
+ |
+|Rule| | |定价规则子集。
 
  |
 |Description|String|买满1年,立享官网价格8.5折优惠|规则子集描述。
@@ -267,6 +273,9 @@
 
  |
 |Rules| | |活动规则。
+
+ |
+|Rule| | |活动规则。
 
  |
 |Description|String|买满1年,立享官网价格8.5折优惠|活动规则描述。
