@@ -67,7 +67,7 @@ If there are still no available resources, try to purchase resources at another 
 
 You can also use the arrival notice feature to be notified when resources are available.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156394932048634_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156765357048634_en-US.png)
 
 ## Are fees still incurred after a pay-as-you-go ECS instance is automatically stopped due to overdue payments or is manually stopped? {#section_utf_tx2_zdb .section}
 
@@ -130,7 +130,7 @@ Only Linux instances can be matched to reserved instances for a discount. To use
 
 ## Which instance type families do reserved instances support? {#section_j7h_12a_tuy .section}
 
-Reserved instances support the following instance type families: sn1ne, sn2ne, se1ne, ic5, c5, g5, r5, hfc5, hfg5, and t5.
+Reserved instances support the following instance type families: sn1ne, sn2ne, se1ne, ic5, c5, g5, r5, c6, g6, r6, i2, i2g, hfc5, hfg5, and t5.
 
 Reserved instances matching [t5 burstable instances \(t5\)](reseller.en-US/Instances/Instance type families/Burstable performance instances/Overview.md#) are only available at the zone level. These reserved instances cannot be merged, split, or changed in scope.
 
@@ -247,7 +247,7 @@ No. Only one user can connect to the Management Terminal at a time.
 
 ## What can I do if I forget the password for remote connection? {#section_tym_x4q_wgb .section}
 
-If you forgot your password, you can [modify the Management Terminal password](reseller.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to an instance by using the Management Terminal.md#section_nmj_5mx_wdb).
+If you forgot your password, you can [modify the Management Terminal password](reseller.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to a Linux instance by using the Management Terminal.md#section_nmj_5mx_wdb).
 
 ## Why am I unable to connect to the Management Terminal even after resetting the password for remote connection? {#section_huk_e8x_b38 .section}
 
@@ -258,7 +258,7 @@ If the ECS instance that you are connecting to is not I/O optimized, you must [r
 This may be because you entered the wrong password. Follow these steps to troubleshoot the problem:
 
 -   Enter the correct password.
--   If you forget your password, [modify the Management Terminal password](reseller.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to an instance by using the Management Terminal.md#section_nmj_5mx_wdb) and try again.
+-   If you forget your password, [modify the Management Terminal password](reseller.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to a Linux instance by using the Management Terminal.md#section_nmj_5mx_wdb) and try again.
 -   If the ECS instance that you are connecting to is not I/O optimized, you must [restart the instance](reseller.en-US/Instances/Manage instances/Restart an instance.md#) in the ECS console for the new password to take effect.
 
 ## What can I do if a black screen appears when I am connected to the Management Terminal? {#section_xrm_6sm_10m .section}
@@ -288,7 +288,7 @@ We recommend that you use Google Chrome, as it offers the best support for the M
 
 Linux instances use SSH for remote connection. You can use any of the following methods to remotely log on to a Linux instance:
 
--   [Connect to an instance through the Management Terminal](reseller.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to an instance by using the Management Terminal.md#)
+-   [Connect to an instance through the Management Terminal](reseller.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to a Linux instance by using the Management Terminal.md#)
 -   [Connect to a Linux instance by using a password](reseller.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to a Linux instance by using a password.md#)
 -   [Connect to a Linux instance by using SSH key pair](reseller.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to a Linux instance by using an SSH key pair.md#)
 -   [Connect to an instance through a mobile device](reseller.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to an instance on a mobile device.md#)
@@ -333,15 +333,15 @@ Open the Terminal in macOS or iTerm2 for Mac \(click [here](https://www.iterm2.c
 
 1.  Connect to the FTP server.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156394932043224_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156765357043224_en-US.png)
 
 2.  Enter the directory to be uploaded. If the directory is on a Windows instance, use this directory. If it is on a Linux instance, change the directory to htdocs.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156394932149119_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156765357149119_en-US.png)
 
 3.  Run the put command to upload files.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156394932149120_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156765357149120_en-US.png)
 
 
 **Upload files by using a third-party tool**
@@ -364,9 +364,9 @@ If the problem still persists, submit a ticket.
 
 ## How do I register my domain name after buying an ECS instance? {#section_br4_f3k_1jw .section}
 
-You can apply for a limited number of ICP Filing service codes for an instance. For more information, see [Prepare and check the instance or server](../../../../../reseller.en-US/Before ICP Filling/Host instances and service providers/Prepare and check the instance or server.md#).
+You can apply for a limited number of ICP Filing service codes for an instance. For more information, see [Prepare and check the instance or server](../../../../../reseller.en-US/Before ICP Filing/Host instances and service providers/Prepare and check the instance.md#).
 
-For more information about the procedure of ICP filing, see [Quick start](../../../../../reseller.en-US/ICP Quick Start/Quick start.md#).
+For more information about the procedure of ICP filing, see [Quick start](../../../../../reseller.en-US/ICP Quick Start/Quick Start.md#).
 
 ## How do I change the logon password of an instance? {#section_5dx_x72_cb8 .section}
 
