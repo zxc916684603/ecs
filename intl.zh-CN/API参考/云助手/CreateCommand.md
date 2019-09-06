@@ -1,52 +1,52 @@
 # CreateCommand {#doc_api_Ecs_CreateCommand .reference}
 
-新建一条云助手命令。
+调用CreateCommand新建一条云助手命令。
 
 ## 接口说明 {#description .section}
 
 -   您可以创建以下类型的命令：
-    -   Windows 实例适用的 Bat 脚本（RunBatScript）
-    -   Windows 实例适用的 PowerShell 脚本（RunPowerShellScript）
-    -   Linux 实例适用的 Shell 脚本（RunShellScript）
--   您可以通过指定参数 `TimeOut` 为命令设置在 ECS 实例中执行时最大的超时时间，命令执行超时后，[云助手客户端](~~64921~~) 会强制终止命令进程，即取消命令的 PID。
-    -   对于单次执行，超时后，该命令针对指定的 ECS 实例的执行状态（[InvokeRecordStatus](~~64845~~)\) 变为执行失败（Failed）。
+    -   Windows实例适用的Bat脚本（RunBatScript）
+    -   Windows实例适用的PowerShell脚本（RunPowerShellScript）
+    -   Linux实例适用的Shell脚本（RunShellScript）
+-   您可以通过指定参数`TimeOut`为命令设置在ECS实例中执行时最大的超时时间，命令执行超时后，[云助手客户端](~~64921~~)会强制终止命令进程，即取消命令的PID。
+    -   对于单次执行，超时后，该命令针对指定的ECS实例的执行状态（[InvokeRecordStatus](~~64845~~)\)变为执行失败（Failed）。
     -   对于周期执行：
         -   周期执行的超时时间对每一次执行记录均有效。
         -   某次执行超时后，该次执行记录的状态（[InvokeRecordStatus](~~64845~~)）变为执行失败（Failed）。
         -   上次执行超时与否不影响下一次执行。
--   在一个地域下，您最多可以保有 100 条云助手命令。您也可以 [提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) 调整保有量上限。
--   您可以通过指定参数 `WorkingDir` 为命令指定执行路径。对于 Linux 实例，默认在管理员 root 用户的 home 目录下，具体为 /root 目录。对于 Windows 实例，默认在云助手客户端进程所在目录，例如，C:\\ProgramData\\aliyun\\assist\\$\(version\)。
--   您可以通过指定参数 `EnableParameter=true` 启用自定义参数功能。在设置 CommandContent 时可以通过 `{{$(parameter)}}` 的形式表示自定义参数，并在运行命令（[InvokeCommand](~~64841~~) ）时，传入自定义参数键值对。例如，您在创建命令时，创建了`echo {{name}}`命令，在 InvokeCommand 时，通过 Parameter 参数传入键值对 `<name, Jack>`。则自定义参数将自动替换命令，您会得到一条新的命令，并在实例中执行 `echo Jack`。
+-   在一个地域下，您最多可以保有100条云助手命令。您也可以[提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex)调整保有量配额。
+-   您可以通过指定参数`WorkingDir`为命令指定执行路径。对于Linux实例，默认在管理员root用户的home目录下，具体为/root目录。对于Windows实例，默认在云助手客户端进程所在目录，例如，C:\\ProgramData\\aliyun\\assist\\$\(version\)。
+-   您可以通过指定参数`EnableParameter=true`启用自定义参数功能。在设置`CommandContent`时可以通过`{{$(parameter)}}`的形式表示自定义参数，并在运行命令（[InvokeCommand](~~64841~~)）时，传入自定义参数键值对。例如，您在创建命令时，创建了`echo {{name}}`命令，在 `InvokeCommand`时，通过`Parameter`参数传入键值对`<name, Jack>`。则自定义参数将自动替换命令，您会得到一条新的命令，并在实例中执行`echo Jack`。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=CreateCommand)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=CreateCommand&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|CommandContent|String|是|ZWNobyAxMjM=|命令 Base64 编码后的内容。
+|CommandContent|String|是|ZWNobyAxMjM=|命令Base64编码后的内容。
 
- -   该参数的值必须使用 Base64 编码后传输，且脚本内容的大小在 Base64 编码之后不能超过 16 KB。
--   命令内容支持使用自定义参数形式，具体通过指定参数 `EnableParameter=true` 启用自定义参数功能：
-    -   自定义参数用 `{{}}` 包含的方式定义，在 `{{}}` 内参数名前后的空格以及换行符会被忽略
-    -   自定义参数个数不能超过 20 个
-    -   自定义参数名允许 a-zA-Z0-9-\_ 的组合，不支持其余字符，参数名不区分大小写
-    -   单个参数名不能超过 64 字节
-
- |
-|Name|String|是|Test|命令名称，支持全字符集。长度不得超过 128 个字符。
+ -   该参数的值必须使用Base64编码后传输，且脚本内容的大小在Base64编码之后不能超过16KB。
+-   命令内容支持使用自定义参数形式，具体通过指定参数`EnableParameter=true`启用自定义参数功能：
+    -   自定义参数用`{{}}`包含的方式定义，在`{{}}`内参数名前后的空格以及换行符会被忽略
+    -   自定义参数个数不能超过20个
+    -   自定义参数名允许a-zA-Z0-9-\_的组合，不支持其余字符，参数名不区分大小写
+    -   单个参数名不能超过64字节
 
  |
-|RegionId|String|是|cn-hangzhou|地域 ID。您可以调用 [DescribeRegions](~~25609~~) 查看最新的阿里云地域列表。
+|Name|String|是|Test|命令名称，支持全字符集。长度不得超过128个字符。
+
+ |
+|RegionId|String|是|cn-hangzhou|地域ID。您可以调用[DescribeRegions](~~25609~~)查看最新的阿里云地域列表。
 
  |
 |Type|String|是|RunShellScript|命令的类型。取值范围：
 
- -   RunBatScript：创建一个在 Windows 实例中运行的 Bat 脚本
--   RunPowerShellScript：创建一个在 Windows 实例中运行的 PowerShell 脚本
--   RunShellScript：创建一个在 Linux 实例中运行的 Shell 脚本
+ -   RunBatScript：创建一个在Windows实例中运行的 Bat 脚本
+-   RunPowerShellScript：创建一个在Windows实例中运行的PowerShell脚本
+-   RunShellScript：创建一个在Linux实例中运行的Shell脚本
 
  |
 |Action|String|否|CreateCommand|系统规定参数。取值：CreateCommand
@@ -60,15 +60,15 @@
  默认值：false
 
  |
-|Timeout|Long|否|3600|您创建的命令在 ECS 实例中执行时最大的超时时间，单位为秒。当因为某种原因无法运行您创建的命令时，会出现超时现象；超时后，会强制终止命令进程，即取消命令的 PID。
+|Timeout|Long|否|3600|您创建的命令在ECS实例中执行时最大的超时时间，单位为秒。当因为某种原因无法运行您创建的命令时，会出现超时现象。超时后，会强制终止命令进程，即取消命令的PID。
 
  默认值：3600
 
  |
-|WorkingDir|String|否|/home/|您创建的命令在 ECS 实例中运行的目录。默认值：
+|WorkingDir|String|否|/home/|您创建的命令在ECS实例中运行的目录。默认值：
 
- -   对于 Linux 实例，默认在管理员 root 用户的 home 目录下，具体为 /root 目录。
--   对于 Windows 实例，默认在云助手客户端进程所在目录，例如，C:\\ProgramData\\aliyun\\assist\\$\(version\)。
+ -   对于Linux实例，默认在管理员root用户的home目录下，具体为/root目录。
+-   对于Windows实例，默认在云助手客户端进程所在目录，例如，C:\\ProgramData\\aliyun\\assist\\$\(version\)。
 
  |
 
@@ -76,10 +76,10 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|CommandId|String|c-7d2a745b412b4601b2d47f6a768d3a14|命令 ID
+|CommandId|String|c-7d2a745b412b4601b2d47f6a768d3\*\*\*|命令ID
 
  |
-|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求 ID
+|RequestId|String|473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E|请求ID
 
  |
 
@@ -106,10 +106,9 @@ https://ecs.aliyuncs.com/?Action=CreateCommand
 
 ``` {#xml_return_success_demo}
 <CreateCommandResponse>
-  <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
-  <CommandId>c-7d2a745b412b4601b2d47f6a768d3a14</CommandId>
+      <RequestId>E69EF3CC-94CD-42E7-8926-F133B86387C0</RequestId>
+      <CommandId>c-7d2a745b412b4601b2d47f6a768d3***</CommandId>
 </CreateCommandResponse>
-
 ```
 
 `JSON` 格式
@@ -117,7 +116,7 @@ https://ecs.aliyuncs.com/?Action=CreateCommand
 ``` {#json_return_success_demo}
 {
 	"RequestId":"E69EF3CC-94CD-42E7-8926-F133B86387C0",
-	"CommandId":"c-7d2a745b412b4601b2d47f6a768d3a14"
+	"CommandId":"c-7d2a745b412b4601b2d47f6a768d3***"
 }
 ```
 

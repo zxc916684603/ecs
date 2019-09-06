@@ -14,7 +14,7 @@
         -   周期执行的超时时间对每一次执行记录均有效。
         -   某次执行超时后，该次执行记录的状态（[InvokeRecordStatus](~~64845~~)）变为执行失败（Failed）。
         -   上次执行超时与否不影响下一次执行。
--   在一个地域下，您最多可以保有100条云助手命令。您也可以[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm)调整保有量上限。
+-   在一个地域下，您最多可以保有100条云助手命令。您也可以[提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex)调整保有量配额。
 -   您可以通过指定参数`WorkingDir`为命令指定执行路径。对于Linux实例，默认在管理员root用户的home目录下，具体为/root目录。对于Windows实例，默认在云助手客户端进程所在目录，例如，C:\\ProgramData\\aliyun\\assist\\$\(version\)。
 -   您可以通过指定参数`EnableParameter=true`启用自定义参数功能。在设置`CommandContent`时可以通过`{{$(parameter)}}`的形式表示自定义参数，并在运行命令（[InvokeCommand](~~64841~~)）时，传入自定义参数键值对。例如，您在创建命令时，创建了`echo {{name}}`命令，在 `InvokeCommand`时，通过`Parameter`参数传入键值对`<name, Jack>`。则自定义参数将自动替换命令，您会得到一条新的命令，并在实例中执行`echo Jack`。
 
@@ -133,5 +133,5 @@ https://ecs.aliyuncs.com/?Action=CreateCommand
 |403|CmdParam.InvalidParamName|Invalid parameter name. The name can contain only lowercase letters \(a to z\), uppercase letters \(A to Z\), numbers \(0 to 9\), hyphens \(-\), and underscores \(\_\).|自定义参数的参数名不合法，只允许a-zA-Z0-9-\_ 的组合。|
 |403|CmdParamName.ExceedLimit|The maximum length of a parameter name is exceeded.|您的自定义参数的参数名长度超过限制。|
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Ecs)查看更多错误码。
 
