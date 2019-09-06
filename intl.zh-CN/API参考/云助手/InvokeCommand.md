@@ -4,7 +4,7 @@
 
 ## 接口说明 {#description .section}
 
--   在一个阿里云地域下，您每天能调用5000次InvokeCommand接口。如果您想调整调用次数上限，请[提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex)申请。
+-   在一个阿里云地域下，您每天能调用5000次InvokeCommand接口。如果您想调整调用次数配额，请[提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex)申请。
 -   目标实例的网络类型必须是[专有网络VPC](~~34217~~)。
 -   目标实例的状态必须为运行中（`Running`）。
 -   目标实例必须预先安装[云助手客户端](~~64921~~)。
