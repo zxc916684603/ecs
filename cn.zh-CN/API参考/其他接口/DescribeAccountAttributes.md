@@ -1,12 +1,12 @@
 # DescribeAccountAttributes {#doc_api_Ecs_DescribeAccountAttributes .reference}
 
-调用DescribeAccountAttributes查询您在一个阿里云地域下能创建的ECS资源上限。包括您能创建的安全组数量、弹性网卡数量、按量付费vCPU核数、抢占式实例vCPU核数、专用宿主机数量、地域网络类型以及账号是否已完成实名认证。
+调用DescribeAccountAttributes查询您在一个阿里云地域下能创建的ECS资源配额。包括您能创建的安全组数量、弹性网卡数量、按量付费vCPU核数、抢占式实例vCPU核数、专用宿主机数量、地域网络类型以及账号是否已完成实名认证。
 
 ## 接口说明 {#description .section}
 
-[注册](https://account.aliyun.com/register/register.htm)了阿里云账号后，您可以在不同的阿里云地域中创建一定数量的ECS资源，更多详情，请参见[使用限制](~~25412~~)。
+[注册](https://account.alibabacloud.com/register/intl_register.htm)了阿里云账号后，您可以在不同的阿里云地域中创建一定数量的ECS资源，更多详情，请参见[使用限制](~~25412~~)。
 
-您也可以根据自己的需求[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm)提高资源使用上限。
+您也可以根据自己的需求[提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex)提高资源使用配额。
 
 ## 调试 {#api_explorer .section}
 
@@ -25,7 +25,7 @@
 |ZoneId|String|否|cn-hangzhou-b|可用区ID。
 
  |
-|AttributeName.N|RepeatList|否|max-security-groups|查询某类资源的使用上限，N的取值范围为1~8。取值范围：
+|AttributeName.N|RepeatList|否|max-security-groups|查询某类资源的使用配额，N的取值范围为1~8。取值范围：
 
  -   instance-network-type：当前地域可选择的网络类型。
 -   max-security-groups：安全组数量。
@@ -52,7 +52,10 @@
 |AccountAttributeItems| | |指定地域下账号特权的信息集合。
 
  |
-|AttributeName|String|max-security-groups|资源的使用上限分类。可能值:
+|AccountAttributeItem| | |指定地域下账号特权的信息集合。
+
+ |
+|AttributeName|String|max-security-groups|资源的使用配额分类。可能值:
 
  -   instance-network-type：当前地域可选择的网络类型。
 -   max-security-groups：安全组数量。
@@ -66,7 +69,10 @@
 -   max-axt-invocation-daily：当前地域下每天可以执行的云助手命令次数。
 
  |
-|AttributeValues| | |资源的使用上限具体数值。
+|AttributeValues| | |资源的使用配额具体数值。
+
+ |
+|ValueItem| | |资源的使用配额具体数值。
 
  |
 |Count|Integer|3|特权属性类型的数量。
@@ -81,7 +87,7 @@
 |InstanceType|String|\["ecs.g5.large"\]|实例规格。
 
  |
-|Value|String|800|当前地域或全部地域下某类资源的使用上限具体数值。可能值:
+|Value|String|800|当前地域或全部地域下某类资源的使用配额具体数值。可能值:
 
  -   分类为max-security-groups、max-elastic-network-interfaces、max-postpaid-instance-vcpu-count、max-dedicated-hosts、max-spot-instance-vcpu-count时：返回0或正整数。
 -   分类为supported-postpay-instance-types时：返回实例规格取值。参见[实例规格族](~~25378~~)。
@@ -238,5 +244,5 @@ https://ecs.aliyuncs.com/?Action=DescribeAccountAttributes
 |--------|---|----|--|
 |403|Invalid.Parameter|The required parameter regionId must be not null.|缺失必需参数。|
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Ecs)查看更多错误码。
 
