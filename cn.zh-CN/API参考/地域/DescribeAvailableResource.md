@@ -30,6 +30,7 @@
 -   SystemDisk：系统盘
 -   DataDisk：数据盘
 -   Network：网络类型
+-   ddh：专有宿主机
 
  |
 |RegionId|String|是|cn-hangzhou|目标地域ID。您可以调用[DescribeRegions](~~25609~~)查看最新的阿里云地域列表。
@@ -134,10 +135,19 @@
 |AvailableZones| | |数据中心信息组成的集合。
 
  |
+|AvailableZone| | |数据中心信息组成的集合。
+
+ |
 |AvailableResources| | |可供创建的具体资源组成的数组。
 
  |
+|AvailableResource| | |可供创建的具体资源组成的数组。
+
+ |
 |SupportedResources| | |支持的可供创建的具体资源组成的数组。
+
+ |
+|SupportedResource| | |支持的可供创建的具体资源组成的数组。
 
  |
 |Max|Integer|2|资源规格的最大值，该参数值为空时将不返回。
@@ -173,6 +183,7 @@
 -   SystemDisk：系统盘
 -   DataDisk：数据盘
 -   Network：网络类型
+-   ddh：专有宿主机
 
  |
 |RegionId|String|cn-hangzhou|地域ID。
@@ -316,5 +327,5 @@ https://ecs.aliyuncs.com/?Action=DescribeAvailableResource
 |403|InvalidParam.Memory|The specified parameter 'Memory' should be empty|资源在当前地域不存在或者已释放。|
 |400|InvalidRegionId.MalFormed|The specified parameter RegionId is not valid.|指定的 RegionId 不合法。|
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Ecs)查看更多错误码。
 
