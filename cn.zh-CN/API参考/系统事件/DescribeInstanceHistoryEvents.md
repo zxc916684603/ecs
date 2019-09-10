@@ -1,6 +1,11 @@
 # DescribeInstanceHistoryEvents {#doc_api_Ecs_DescribeInstanceHistoryEvents .reference}
 
-调用DescribeInstanceHistoryEvents查询指定实例的系统事件信息，默认查询处于非活跃状态的历史系统事件。您最多可以查询最近一周的历史系统事件。通过指定InstanceEventCycleStatus参数，可以查询处于Scheduled（计划中）和Executing（执行中）状态的系统事件。
+调用DescribeInstanceHistoryEvents查询指定实例的系统事件信息，默认查询处于非活跃状态的历史系统事件。
+
+## 接口说明 {#description .section}
+
+-   您最多可以查询最近一周的历史系统事件。
+-   通过指定InstanceEventCycleStatus参数，还可以查询处于Scheduled（计划中）和Executing（执行中）状态的系统事件。
 
 ## 调试 {#api_explorer .section}
 
@@ -24,6 +29,7 @@
 -   Executed
 -   Canceled
 -   Failed
+-   Inquiring
 
  |
 |EventId.N|RepeatList|否|e-2ze9y\*\*\*\*wtqcvai68rl|一个或者多个系统事件ID。N的取值范围：1~100，多个取值使用重复列表的形式。
@@ -38,7 +44,9 @@
 |EventType|String|否|SystemMaintenance.Reboot|系统事件的类型。EventType参数只在未指定InstanceEventType.N参数时有效。取值范围：
 
  -   SystemMaintenance.Reboot：因系统维护实例重启
+-   SystemMaintenance.Redeploy：因系统维护实例重新部署
 -   SystemFailure.Reboot：因系统错误实例重启
+-   SystemFailure.Redeploy：因系统错误实例重新部署
 -   SystemFailure.Delete：因实例创建失败实例释放
 -   InstanceFailure.Reboot：因实例错误实例重启
 -   InstanceExpiration.Stop：因包年包月期限到期，实例停止
@@ -55,12 +63,15 @@
 -   Executed：事件已完成执行
 -   Canceled：事件已取消
 -   Failed：事件执行失败
+-   Inquiring：事件问询中
 
  |
 |InstanceEventType.N|RepeatList|否|SystemMaintenance.Reboot|一个或者多个系统事件的类型。N的取值范围：1~30，多个取值使用重复列表的形式。取值范围：
 
  -   SystemMaintenance.Reboot：因系统维护实例重启
+-   SystemMaintenance.Redeploy：因系统维护实例重新部署
 -   SystemFailure.Reboot：因系统错误实例重启
+-   SystemFailure.Redeploy：因系统错误实例重新部署
 -   SystemFailure.Delete：因实例创建失败实例释放
 -   InstanceFailure.Reboot：因实例错误实例重启
 -   InstanceExpiration.Stop：因包年包月期限到期，实例停止
@@ -69,7 +80,7 @@
 -   AccountUnbalanced.Delete：因账号欠费，按量付费实例释放
 
  |
-|InstanceId|String|否|i-myInstance|实例ID。不指定实例ID 时，表示查询您指定地域下所有实例的系统事件信息。
+|InstanceId|String|否|i-myInstance|实例ID。不指定实例ID时，表示查询您指定地域下所有实例的系统事件信息。
 
  |
 |NotBefore.End|String|否|2017-12-01T06:32:31Z|查询系统事件计划执行时间的结束时间。按照[ISO8601](~~25696~~)标准表示，并需要使用UTC +0时间，格式为yyyy-MM-ddTHH:mm:ssZ。
@@ -94,6 +105,9 @@
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |InstanceSystemEventSet| | |实例历史系统事件数组。
+
+ |
+|InstanceSystemEventType| | |实例历史系统事件数组。
 
  |
 |EventCycleStatus| | |系统事件的生命周期状态。
@@ -273,5 +287,5 @@ https://ecs.aliyuncs.com/?Action=DescribeInstanceHistoryEvents
 |403|InvalidParameter.TimeEndBeforeStart|%s|结束时间不得早于开始时间。|
 |403|OperationDenied.NotInWhiteList|%s|无权限执行此操作。|
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Ecs)查看更多错误码。
 
