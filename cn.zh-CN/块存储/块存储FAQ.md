@@ -650,7 +650,7 @@ Linux系统添加数据盘时，在格式化数据盘编辑分区信息时，/de
     -   直接测试裸盘会破坏文件系统结构。如果云盘上的数据丢失不影响业务，可以设置`filename=[设备名，如本示例中的/dev/vdb]`。否则，请设置为`filename=[具体的文件路径，比如/mnt/test.image]`。
 5.  运行`sh test100w.sh`开始测试ESSD云盘性能。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10111/156768411442181_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10111/156810715942181_zh-CN.png)
 
 
 脚本解读：
