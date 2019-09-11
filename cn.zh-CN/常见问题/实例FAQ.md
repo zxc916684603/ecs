@@ -22,7 +22,6 @@
     -   [入门级实例能否变配为企业级实例？](#section_90e_qq9_gmf)
 -   GPU实例问题
     -   [为什么Nvidia驱动安装成功后，但是nvidia-smi无效，显示驱动未安装？](#section_6fo_f6k_wy9)
-    -   [为什么gn5和gn5i的Windows实例安装官网驱动时断网？](#section_6ww_806_shg)
     -   [为什么Windows图形不支持DirectX等功能？](#section_5mx_en9_guy)
     -   [为什么ga1实例使用云市场预装AMD驱动的镜像，但是进入Windows设备管理器时显示GPU驱动未能正常加载？](#section_myh_mu2_r7g)
     -   [为什么使用云市场预装AMD驱动的镜像，启动实例时蓝屏？](#section_593_bs5_c1l)
@@ -202,7 +201,7 @@
 
 您也可以使用到货通知功能：
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156767755348634_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156817120648634_zh-CN.png)
 
 ## 如何选择适合我业务的ECS实例？ {#section_j8t_fwz_mjf .section}
 
@@ -288,17 +287,6 @@
 
 解决方案：查看kernel版本号，网上下载对应的kernel-devel包，在实例里运行`rpm –qa | grep kernel`检测版本是否一致。确认版本后，再重新安装驱动。
 
-## 为什么gn5和gn5i的Windows实例安装官网驱动时断网？ {#section_6ww_806_shg .section}
-
-问题分析：Nvidia对图形功能做了限制，需要特定的驱动并认证License。
-
-解决方案：当前只在特定可用区（华北2可用区E、华北5）安装测试版本的驱动可用，保证不断网，测试驱动有效时间为7−100天。100天后需要认证的License。
-
-以下是针对不同版本Windows的测试驱动下载地址：
-
--   [Windows Server 2016](http://vgpu-internal-59120.oss-cn-shanghai.aliyuncs.com/385.41_grid_win10_server2016_64bit_international.exe)
--   [Window Server 2008 或 2012](http://vgpu-internal-59120.oss-cn-shanghai.aliyuncs.com/385.41_grid_win8_win7_server2012R2_server2008R2_64bit_international.exe)
-
 ## 为什么Windows图形不支持DirectX等功能？ {#section_5mx_en9_guy .section}
 
 问题分析：对于Windows系统，GPU驱动安装生效后，Windows自带的远程连接（RDP）协议不支持DirectX、OpenGL等相关应用。
@@ -338,7 +326,7 @@
 
 ## 弹性裸金属服务器和传统云主机（虚拟机）和传统物理机有何本质区别？ {#section_m7m_pvm_64b .section}
 
-弹性裸金属服务器、传统云主机（虚拟机）和传统物理机的差异请参见[什么是弹性裸金属服务器](cn.zh-CN/实例/选择实例规格/弹性裸金属服务器（神龙）/什么是弹性裸金属服务器.md#)。
+弹性裸金属服务器、传统云主机（虚拟机）和传统物理机的差异请参见[什么是弹性裸金属服务器](cn.zh-CN/实例/选择实例规格/弹性裸金属服务器（神龙）/弹性裸金属服务器概述.md#)。
 
 ## 弹性裸金属服务器的网络性能怎么样？ {#section_mtz_x6v_4v4 .section}
 
@@ -371,7 +359,7 @@ SCC实例支持包年包月和按周付费。
 
 创建SCC实例时，选择SCC定制版的系统镜像，该镜像支持RDMA RoCE驱动和OFED堆栈。您可以通过IB verbs编程使用RDMA功能或者通过MPI进行RDMA通讯。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156767755450536_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156817120650536_zh-CN.png)
 
 ## 我没有欠费，为什么抢占式实例被释放了？ {#section_0ns_pj7_dxg .section}
 
@@ -379,7 +367,7 @@ SCC实例支持包年包月和按周付费。
 
 ## 抢占式实例被释放时会有通知吗？怎么通知？ {#section_b3n_69r_ccj .section}
 
-有通知。如果因为市场价格变化或供需调整需要释放抢占式实例，实例会先进入待回收状态，约5分钟后再自动释放。您可以通过[实例元数据](cn.zh-CN/实例/管理实例/使用实例元数据/什么是实例元数据.md#)或者[DescribeInstances](../cn.zh-CN/API参考/实例/DescribeInstances.md#)接口返回的OperationLocks信息查看实例是否进入待回收状态。
+有通知。如果因为市场价格变化或供需调整需要释放抢占式实例，实例会先进入待回收状态，约5分钟后再自动释放。您可以通过[实例元数据](cn.zh-CN/实例/管理实例/使用实例元数据/实例元数据概述.md#)或者[DescribeInstances](../cn.zh-CN/API参考/实例/DescribeInstances.md#)接口返回的OperationLocks信息查看实例是否进入待回收状态。
 
 ## 抢占式实例被释放后数据能自动保留吗？ {#section_hqu_m54_1ac .section}
 
@@ -471,7 +459,7 @@ SCC实例支持包年包月和按周付费。
 
 能够使用预留实例券的规格族包括：sn1ne、sn2ne、se1ne、ic5、c5、g5、r5、c6、g6、r6、i2、i2g、hfc5、hfg5和t5。
 
-其中，[突发性能实例t5](cn.zh-CN/实例/选择实例规格/突发型/什么是突发性能实例.md#)只支持可用区级预留实例券，不支持地域级预留实例券，也不支持合并、拆分或者范围调整。
+其中，[突发性能实例t5](cn.zh-CN/实例/选择实例规格/突发型/突发性能实例概述.md#)只支持可用区级预留实例券，不支持地域级预留实例券，也不支持合并、拆分或者范围调整。
 
 ## 预留实例券能否抵扣抢占式实例的账单？ {#section_m9r_qk6_39q .section}
 
@@ -723,7 +711,7 @@ SCC实例支持包年包月和按周付费。
 
 假设您持有以下OSS Bucket，要通过域名www.example.com实现HTTPS访问。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156767755443179_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156817120643179_zh-CN.png)
 
 1.  创建一台和Bucket位于相同地域的ECS实例。
 
@@ -795,15 +783,15 @@ SCC实例支持包年包月和按周付费。
 
 1.  连接FTP服务。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156767755443224_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156817120643224_zh-CN.png)
 
 2.  进入正确的目录，Windows系统无需切换，Linux系统切换至htdocs。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156767755449119_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156817120649119_zh-CN.png)
 
 3.  运行put命令上传。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156767755449120_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156817120649120_zh-CN.png)
 
 
 方式二：通过第三方工具上传
@@ -813,11 +801,11 @@ SCC实例支持包年包月和按周付费。
 3.  填写FTP的服务器IP、用户名和密码；协议选择标准（FTP），端口选择默认21（或更改为其您所使用的端口），不选择SSH密匙。
 4.  单击**连接**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156767755443228_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156817120643228_zh-CN.png)
 
 5.  在右侧选择要上传的目录（Windows不需要选择目录，Linux主机选择htdocs目录），然后在左边窗口选择要上传的文件，单击上传即可。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156767755443230_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156817120643230_zh-CN.png)
 
     **说明：** 若安装Yummy FTP时系统提示：您的安全性偏好设置仅允许安装来自Mac App Store和被认可的开发者的应用程序，按以下步骤设置您的电脑。
 
@@ -826,7 +814,7 @@ SCC实例支持包年包月和按周付费。
     3.  在**允许从以下位置下载的应用程序**菜单中，选择**任何来源**。
     设置后即可正常安装该软件。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156767755443238_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156817120743238_zh-CN.png)
 
 
 如问题还未解决，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)。
@@ -919,7 +907,7 @@ Linux操作系统的云服务器和Windows操作系统的云服务器都可以�
 如果您在购买服务器时选择了固定带宽，并且已经购买了新EIP，请按以下步骤操作：
 
 1.  将固定带宽转换为按量带宽，具体操作请参见[变更计费方式](../cn.zh-CN/产品定价/公网带宽计费.md#section_nxl_ntk_zdb)。
-2.  将固定公网IP转换为EIP，具体操作请参见[ECS固定公网IP转换为EIP](../../../../../cn.zh-CN/用户指南/申请EIP/ECS固定公网IP转换为EIP.md#)。
+2.  将固定公网IP转换为EIP，具体操作请参见[../../../../../dita-oss-bucket/SP\_73/DNEIP11899563/ZH-CN\_TP\_12809.md\#](../../../../../cn.zh-CN/用户指南/申请EIP/ECS固定公网IP转换为EIP.md#)。
 3.  解绑转换得到的EIP，具体操作请参见[解绑EIP](../../../../../cn.zh-CN/用户指南/解绑EIP.md#)。
 4.  绑定新的EIP，具体操作请参见[绑定ECS实例](../../../../../cn.zh-CN/用户指南/绑定云资源/绑定ECS实例.md#)。
 
@@ -983,7 +971,7 @@ AliVulfix进程是云盾进行漏洞检测的程序，用于扫描云服务器�
     #netstat -nltp //查看服务器80端口是否处于监听状态
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156767755441861_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156817120741861_zh-CN.png)
 
 2.  如果未显示80端口信息，说明网站服务没有启动，运行命令手动开启网站服务及相关服务。
 
@@ -1257,7 +1245,7 @@ ECS实例可以访问亚马逊网站，确保您的ECS实例可以正常访问�
 
 您可以在ECS控制台实例列表页面的**付费方式**列查看包年包月实例的到期时间。
 
-**说明：** 如果没有**付费方式**列，则在页面右上方单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156767755553726_zh-CN.png)按钮，勾选**付费方式**，并单击**确定**。
+**说明：** 如果没有**付费方式**列，则在页面右上方单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156817120753726_zh-CN.png)按钮，勾选**付费方式**，并单击**确定**。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156767755553728_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156817120753728_zh-CN.png)
 
