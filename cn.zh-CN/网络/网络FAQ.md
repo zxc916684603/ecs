@@ -3,39 +3,40 @@
 本文汇总了使用云服务器ECS网络时的常见问题。
 
 -   公网带宽问题
-    -   [什么是云服务器ECS的入网带宽和出网带宽？](#)
-    -   [我购买的公网带宽为5 Mbps，相应的出入网带宽有什么区别？](#)
-    -   [云服务器ECS的公网带宽是独享还是共享？](#)
-    -   [云服务器ECS的公网带宽怎么收费？](#)
-    -   [为何新建的ECS实例就有200 Kbps左右入网流量？](#)
-    -   [如何查看云服务器ECS公网流量统计信息？](#)
-    -   [为什么云监控显示的云服务器ECS带宽和ECS控制台显示带宽不一致？](#)
-    -   [ECS实例为已停止状态，为什么按流量计费公网仍产生出网流量？](#)
+    -   [什么是云服务器ECS的入网带宽和出网带宽？](#section_pv3_qbl_qgb)
+    -   [我购买的公网带宽为5 Mbps，相应的出入网带宽有什么区别？](#section_v44_ona_zjq)
+    -   [云服务器ECS的公网带宽是独享还是共享？](#section_sp8_7jn_p3g)
+    -   [云服务器ECS的公网带宽怎么收费？](#section_hex_69p_rar)
+    -   [为何新建的ECS实例就有200 Kbps左右入网流量？](#section_duq_s7w_t96)
+    -   [如何查看云服务器ECS公网流量统计信息？](#section_r5a_u6t_chb)
+    -   [为什么云监控显示的云服务器ECS带宽和ECS控制台显示带宽不一致？](#section_tsb_lpy_gvz)
+    -   [ECS实例为已停止状态，为什么按流量计费公网带宽仍产生出网流量？](#section_d7h_fs2_xu8)
 -   IP地址问题
-    -   [如何查询ECS实例的IP地址？](#)
-    -   [如何查询IP地址的详细信息？](#)
-    -   [如何禁用ECS实例的公网网卡？](#)
-    -   [如何查看弹性公网IP的流量和带宽监控信息？](#)
+    -   [ECS实例从经典网络迁移到专有网络VPC，内网IP会变化吗？](#section_0ix_w2y_ioa)
+    -   [？](#section_vpl_qbg_qgb)
+    -   [如何查询IP地址的详细信息？](#section_gzn_x1g_qgb)
+    -   [如何禁用ECS实例的公网网卡？](#section_bxf_ywf_qgb)
+    -   [如何查看弹性公网IP的流量和带宽监控信息？](#section_86u_m71_ixs)
 -   网络访问和流量定向问题
-    -   [为什么不能访问云服务器ECS上的网站？](#)
-    -   [云盾是否有屏蔽IP的功能？](#)
-    -   [云服务器ECS出现了异地登录怎么办？](#)
-    -   [什么是流量清洗？](#)
-    -   [云服务器ECS怎么取消流量清洗？](#)
-    -   [怎么申请云服务器ECS反向解析？](#)
-    -   [一个IP地址是否允许指向多个反向解析域名？](#)
+    -   [为什么不能访问云服务器ECS上的网站？](#section_cwr_y3g_4gb)
+    -   [云盾是否有屏蔽IP的功能？](#section_ftb_ngg_4gb)
+    -   [云服务器ECS出现了异地登录怎么办？](#section_mgg_dhg_4gb)
+    -   [什么是流量清洗？](#section_4xo_and_tfv)
+    -   [云服务器ECS怎么取消流量清洗？](#section_r2g_vg8_gtv)
+    -   [怎么申请云服务器ECS反向解析？](#section_24x_y33_pml)
+    -   [一个IP地址是否允许指向多个反向解析域名？](#section_0u1_fng_nzy)
 -   更换公网IP地址问题
-    -   [实例创建六小时以后可以更换公网IP（IPv4）地址吗？怎么更换？](#)
-    -   [为什么我在ECS管理控制台上看不到更换公网IP选项？](#)
-    -   [除了更换公网IP地址？我还可以更换私网IP地址吗？](#)
-    -   [如果在创建实例时未分配公网IP（IPv4）地址，实例创建成功后怎么获得公网IP地址？](#)
+    -   [实例创建六小时以后可以更换公网IP（IPv4）地址吗？怎么更换？](#section_c7c_7n5_fae)
+    -   [为什么我在ECS管理控制台上看不到更换公网IP选项？](#section_y27_eqe_lgp)
+    -   [除了更换公网IP地址？我还可以更换私网IP地址吗？](#section_q67_0xd_eps)
+    -   [如果在创建实例时未分配公网IP（IPv4）地址，实例创建成功后怎么获得公网IP地址？](#section_9rr_e3x_ks1)
 -   网络基础问题
-    -   [什么是BGP机房？](#)
-    -   [什么是广域网和局域网？](#)
-    -   [如何表示子网掩码？](#)
-    -   [如何划分子网？](#)
+    -   [什么是BGP机房？](#section_hmd_spf_qgb)
+    -   [什么是广域网和局域网？](#section_o52_nlg_4gb)
+    -   [如何表示子网掩码？](#section_nw6_q4l_pdt)
+    -   [如何划分子网？](#section_g8p_l4s_2e8)
 -   限额问题
-    -   [如何查看资源的限额？](#)
+    -   [如何查看资源的限额？](#section_ubf_rd5_utp)
 
 ## 什么是云服务器ECS的入网带宽和出网带宽？ {#section_pv3_qbl_qgb .section}
 
@@ -91,6 +92,10 @@
 -   问题现象：DDoS基础防护中显示ECS实例为**清洗中**，ECS实例状态为**已停止**，但是按量付费的带宽每小时仍会产生费用。
 -   原因分析：ECS实例开启了CC安全防护。开启CC安全防护后，安全机制会主动发送探测包对攻击源进行探测，可能会产生较大的出网流量。
 -   解决方法：关闭CC安全防护。
+
+## ECS实例从经典网络迁移到专有网络VPC，内网IP会变化吗？ {#section_0ix_w2y_ioa .section}
+
+会。由于经典网络和专有网络VPC划分子网网段的方式不一样，ECS实例迁移了网络类型后，内网IP会发生变化。但公网IP保持不变。更多详情，请参见[经典网络迁移至专有网络](cn.zh-CN/网络/经典网络迁移至专有网络.md#)。
 
 ## 如何查询ECS实例的IP地址？ {#section_vpl_qbg_qgb .section}
 
@@ -156,7 +161,7 @@
 2.  选择云产品，找到您想要取消的正在清洗中的IP，单击**查看详情**。
 3.  单击**取消清洗**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10166/156696164150257_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10166/156819416350257_zh-CN.png)
 
 
 ## 怎么申请云服务器ECS反向解析？ {#section_24x_y33_pml .section}
@@ -191,7 +196,7 @@ dig -x 121.196.255.** +trace +nodnssec
 -   如果您的实例创建后已经超过六小时，不会显示**更换公网IP**选项。
 -   如果您为您的账号设置了**VPC内实例停机不收费**模式，请务必在停止实例时勾选**停止后仍旧保留实例并继续收费**，避免公网IP地址被暂时性释放。更多详情，请参见[按量付费实例停机不收费](../cn.zh-CN/产品定价/按量付费实例停机不收费.md#)。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9656/156696164144752_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9656/156819416344752_zh-CN.jpg)
 
 
 ## 除了更换公网IP地址？我还可以更换私网IP地址吗？ {#section_q67_0xd_eps .section}
