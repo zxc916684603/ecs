@@ -1,6 +1,6 @@
 # Resize partitions and file systems of Linux data disks {#concept_z11_xsh_ydb .concept}
 
-When cloud disks are resized, the storage capacity increases but the file system is not affected. To resize the file system and increase the storage capacity of ECS instance, follow the steps in this topic.
+When cloud disks are resized, the storage capacity increases but the file system is not affected. To resize the file system and increase the storage capacity of ECS instances, follow the steps in this topic.
 
 ## Preparations {#section_vjz_tg3_vlw .section}
 
@@ -88,7 +88,7 @@ Step 1: Modify the partition table
 
 1.  Run the `fdisk -lu /dev/vdb` command and record the start and end sectors of the existing partition.
 
-    In this example, the start sector of /dev/vdb1 is 2,048 and the end sector is 41,943,039.
+    In this example, the start sector of /dev/vdb1 is 2048 and the end sector is 41943039.
 
     ``` {#codeblock_y7s_lg2_9mv .lanuage-shell}
     [root@ecshost ~]# fdisk -lu /dev/vdb
