@@ -19,7 +19,7 @@ To install SharePoint 2016, you must meet the following environment requirements
 
     **Note:** 
 
-    -   When you install .Net Framework 3.5, an error may occur at the step of **adding roles and features**. For more information about how to fix this issue, see [What can I do if I am unable to install .NET Framework 3.5.1, or a language package, on Windows Server 2012 R2/2016/2019?](https://help.aliyun.com/knowledge_detail/38203.html)
+    -   When you install .Net Framework 3.5, an error may occur at the step of **adding roles and features**. For more information about how to fix this issue, see [What can I do if I am unable to install .NET Framework 3.5.1, or a language package, on Windows Server 2012 R2/2016/2019?](https://www.alibabacloud.com/help/faq-detail/38203.htm).
     -   For more information about the required component of SharePoint, see Microsoft documentation. The system indicates that you need to install dependencies when you install SharePoint. If you fail to install dependencies, you cannot install SharePoint.
 
 1.  Build AD. 
