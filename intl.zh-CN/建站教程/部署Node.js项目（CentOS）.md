@@ -18,9 +18,9 @@ Node.js是一个基于Chrome V8引擎的JavaScript运行环境，用来方便快
 
 在ECS实例上安装Node.js并部署项目的操作步骤如下：
 
-1.  [创建并连接ECS实例](#section_e0r_tml_c8k)
-2.  [部署Node.js环境](#section_tug_p3l_h9l)
-3.  [部署测试项目](#section_igz_e58_4zq)
+1.  [步骤一：创建并连接ECS实例](#section_e0r_tml_c8k)
+2.  [步骤二：部署Node.js环境](#section_tug_p3l_h9l)
+3.  [步骤三：部署测试项目](#section_igz_e58_4zq)
 
 ## 步骤一：创建并连接ECS实例 {#section_e0r_tml_c8k .section}
 
@@ -186,6 +186,6 @@ Node.js是一个基于Chrome V8引擎的JavaScript运行环境，用来方便快
 5.  登录[ECS管理控制台](https://ecs.console.aliyun.com)，并在ECS实例安全组的入方向添加规则， 放行项目中配置的端口（本示例中端口号为3000）。 添加安全组规则的具体步骤，请参见[添加安全组规则](../intl.zh-CN/安全/安全组/添加安全组规则.md#)。
 6.  在本地机器的浏览器中输入`http://<ECS实例公网IP地址>:端口号`访问项目。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9770/156750422812144_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9770/156862610412144_zh-CN.png)
 
 
