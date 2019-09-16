@@ -12,9 +12,9 @@ The procedure described in this topic is applicable to users that are familiar w
 
 To build a Drupal-based website on an ECS instance, follow these steps:
 
-1.  [Activate an ECS instance](#section_i87_j52_9zo)
-2.  [Build the Web environment](#section_y3l_5ds_jz7)
-3.  [Install Drupal](#section_mdj_fvs_xov)
+1.  [Step 1: Activate an ECS instance](#section_i87_j52_9zo)
+2.  [Step 2: Build the Web environment](#section_y3l_5ds_jz7)
+3.  [Step 3: Install Drupal](#section_mdj_fvs_xov)
 
 ## Step 1: Activate an ECS instance {#section_i87_j52_9zo .section}
 
