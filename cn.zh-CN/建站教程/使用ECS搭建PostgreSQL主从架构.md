@@ -21,10 +21,10 @@ PostgreSQL被业界誉为最先进的开源数据库。目前阿里云数据库P
 
 本教程基于yum方式手动安装并搭建PostgreSQL主从复制架构，操作步骤如下：
 
-1.  [选购ECS实例](#section_pav_wid_h44)
-2.  [配置PostgreSQL主节点](#section_qgn_13v_8op)
-3.  [配置PostgreSQL从节点](#section_o5u_jgk_048)
-4.  [检测验证](#section_rk4_uqg_m71)
+1.  [步骤一：选购ECS实例](#section_pav_wid_h44)
+2.  [步骤二：配置PostgreSQL主节点](#section_qgn_13v_8op)
+3.  [步骤三：配置PostgreSQL从节点](#section_o5u_jgk_048)
+4.  [步骤四：检测验证](#section_rk4_uqg_m71)
 
 ## 步骤一：选购ECS实例 {#section_pav_wid_h44 .section}
 
