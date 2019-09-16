@@ -17,12 +17,12 @@ This topic describes how to deploy the Ghost blogging platform on an ECS instanc
 
 To deploy the Ghost blogging platform on an ECS instance, follow these steps:
 
-1.  [Create a Linux-based ECS instance](#section_lll_v4o_d8l)
-2.  [Deploy the Web environment](#section_3as_stl_g30)
-3.  [Install Ghost](#section_ab9_fr6_oj6)
-4.  [Purchase a domain](#section_vhr_y2k_pga)
-5.  [Apply for an ICP filing](#section_6ph_sb6_rb4)
-6.  [Resolve the domain name to the IP address of the instance](#section_b35_s43_byu)
+1.  [Step 1: Create a Linux-based ECS instance](#section_lll_v4o_d8l)
+2.  [Step 2: Deploy the Web environment](#section_3as_stl_g30)
+3.  [Step 3: Install Ghost](#section_ab9_fr6_oj6)
+4.  [Step 4: Purchase a domain](#section_vhr_y2k_pga)
+5.  [Step 5: Apply for an ICP filing](#section_6ph_sb6_rb4)
+6.  [Step 6: Resolve the domain name to the IP address of the instance](#section_b35_s43_byu)
 
 ## Step 1: Create a Linux-based ECS instance {#section_lll_v4o_d8l .section}
 
@@ -64,11 +64,11 @@ To deploy the Web environment, follow these steps:
     2.  Select **SSH** from the Protocol drop-down list.
     3.  Enter the host IP address in the Hostname field and specify the username.
     4.  Click **Connect**.
-    ![Set logon information](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156750542412471_en-US.png)
+    ![Set logon information](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156862687312471_en-US.png)
 
 2.  Enter the root username and the password. 
 
-    ![Enter the username and the password](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156750542412472_en-US.png)
+    ![Enter the username and the password](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156862687312472_en-US.png)
 
 3.  Add the NGINX repository. 
 
@@ -97,7 +97,7 @@ To deploy the Web environment, follow these steps:
 
 7.  Open your browser, and in the address bar, enter the public IP address of the ECS instance to view the default NGINX web page. 
 
-    ![NGINX web page](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156750542512474_en-US.png)
+    ![NGINX web page](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156862687312474_en-US.png)
 
 
 Then, the NGINX environment is ready to run.
@@ -172,7 +172,7 @@ To install Ghost, follow these steps:
         [root@localhost ghost]# vim config.js
         ```
 
-        ![Specify the domain](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156750542512477_en-US.png)
+        ![Specify the domain](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156862687312477_en-US.png)
 
     8.  Use the process manager to enable Ghost to run permanently. 
 
@@ -216,7 +216,7 @@ To install Ghost, follow these steps:
 
     5.  Open your browser, and in the address bar, enter the public IP address of the ECS instance to view the default NGINX web page. 
 
-        ![NGINX web page](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156750542512478_en-US.png)
+        ![NGINX web page](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156862687312478_en-US.png)
 
 5.  Specify NGINX as the reverse proxy for Ghost. 
     1.  Enter the NGINX configuration directory, and create the NGINX configuration file for Ghost. 
@@ -227,7 +227,7 @@ To install Ghost, follow these steps:
 
     2.  Add the following content to the ghost.conf file, and set server\_name to the domain that is used in your actual running environment. 
 
-        ![Specify the domain](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156750542512479_en-US.png)
+        ![Specify the domain](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156862687312479_en-US.png)
 
     3.  Change the name of the default configuration file default.conf to default.conf.bak, so NGINX is only applicable to ghost.conf. 
 
@@ -244,13 +244,13 @@ To install Ghost, follow these steps:
 6.  Connect to the Ghost blogging platform. 
     1.  Open your browser, and in the address bar, enter the URL http://IP address of the ECS instance or http://Domain of the Ghost blogging platform to connect to the Ghost blogging platform. 
 
-        ![Ghost web page](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156750542512480_en-US.png)
+        ![Ghost web page](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156862687312480_en-US.png)
 
         **Note:** If the system returns Error Code 502, check whether you have disabled the firewall.
 
     2.  To edit your Ghost blogging platform, open your browser, and in the address bar, enter the URL http://IP address of the ECS instance/ghost. 
 
-        ![Edit the Ghost blogging platform](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156750542512481_en-US.png)
+        ![Edit the Ghost blogging platform](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156862687412481_en-US.png)
 
 
 ## Step 4: Purchase a domain {#section_vhr_y2k_pga .section}

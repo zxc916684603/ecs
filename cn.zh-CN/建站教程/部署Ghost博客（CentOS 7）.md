@@ -17,12 +17,12 @@ Ghost是一个基于Node.js开发的免费开源博客平台，用于简化个�
 
 使用云服务器ECS搭建Ghost网站的操作步骤如下：
 
-1.  [创建Linux实例](#section_lll_v4o_d8l)
-2.  [部署Web环境](#section_3as_stl_g30)
-3.  [安装Ghost](#section_ab9_fr6_oj6)
-4.  [购买域名](#section_vhr_y2k_pga)
-5.  [备案](#section_6ph_sb6_rb4)
-6.  [配置域名解析](#section_b35_s43_byu)
+1.  [步骤一：创建Linux实例](#section_lll_v4o_d8l)
+2.  [步骤二：部署Web环境](#section_3as_stl_g30)
+3.  [步骤三：安装Ghost](#section_ab9_fr6_oj6)
+4.  [步骤四：购买域名](#section_vhr_y2k_pga)
+5.  [步骤五：备案](#section_6ph_sb6_rb4)
+6.  [步骤六：配置域名解析](#section_b35_s43_byu)
 
 ## 步骤一：创建Linux实例 {#section_lll_v4o_d8l .section}
 
@@ -64,11 +64,11 @@ Ghost是一个基于Node.js开发的免费开源博客平台，用于简化个�
     2.  协议选择**SSH**。
     3.  输入主机IP地址和用户。
     4.  单击**确定**保存。
-    ![设置登录信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156750542912471_zh-CN.png)
+    ![设置登录信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156862686712471_zh-CN.png)
 
 2.  输入用户名root和登录密码。 
 
-    ![输入用户名密码](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156750543012472_zh-CN.png)
+    ![输入用户名密码](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156862686712472_zh-CN.png)
 
 3.  添加Nginx软件库。 
 
@@ -97,7 +97,7 @@ Ghost是一个基于Node.js开发的免费开源博客平台，用于简化个�
 
 7.  在浏览器中输入IP地址，可以看到默认的Nginx网页。 
 
-    ![nginx网页](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156750543012474_zh-CN.png)
+    ![nginx网页](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156862686712474_zh-CN.png)
 
 
 至此，Nginx搭建完成。
@@ -172,7 +172,7 @@ Ghost是一个基于Node.js开发的免费开源博客平台，用于简化个�
         [root@localhost ghost]# vim config.js
         ```
 
-        ![修改域名](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156750543012477_zh-CN.png)
+        ![修改域名](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156862686712477_zh-CN.png)
 
     8.  使用进程管理器配置Ghost处于永久运行状态。 
 
@@ -216,7 +216,7 @@ Ghost是一个基于Node.js开发的免费开源博客平台，用于简化个�
 
     5.  在浏览器中输入IP地址，可以看到默认的Nginx的网页。 
 
-        ![nginx网页](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156750543012478_zh-CN.png)
+        ![nginx网页](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156862686712478_zh-CN.png)
 
 5.  配置Nginx作为Ghost的反向代理。 
     1.  进入Nginx配置目录，新建Ghost博客的Nginx配置文件。 
@@ -227,7 +227,7 @@ Ghost是一个基于Node.js开发的免费开源博客平台，用于简化个�
 
     2.  将以下内容输入到ghost.conf中，把server\_name改成实际的域名。 
 
-        ![修改域名](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156750543012479_zh-CN.png)
+        ![修改域名](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156862686712479_zh-CN.png)
 
     3.  修改默认的配置文件default.conf为default.conf.bak，使Nginx只应用于ghost.conf。 
 
@@ -244,13 +244,13 @@ Ghost是一个基于Node.js开发的免费开源博客平台，用于简化个�
 6.  访问Ghost博客。 
     1.  在浏览器输入http://IP或http://域名即可访问Ghost。 
 
-        ![Ghost网页](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156750543012480_zh-CN.png)
+        ![Ghost网页](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156862686712480_zh-CN.png)
 
         **说明：** 如果访问出现502，请检查是否是防火墙的问题，可以关闭防火墙。
 
     2.  如果需要对博客进行编辑修改，在浏览器输入http://IP/ghost即可。 
 
-        ![修改博客](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156750543012481_zh-CN.png)
+        ![修改博客](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9768/156862686712481_zh-CN.png)
 
 
 ## 步骤四：购买域名 {#section_vhr_y2k_pga .section}
