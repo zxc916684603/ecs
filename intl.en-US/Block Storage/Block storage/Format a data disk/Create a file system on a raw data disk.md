@@ -1,6 +1,6 @@
 # Create a file system on a raw data disk {#task_1797291 .task}
 
-This topic uses an ECS instance running the Ubuntu operating system to show how to create a file system on a raw data disk. You can skip the steps to create a new partition, such as /dev/vdb1 or/dev/vdb2, and directly create a file system if no partition is required. This method is only applicable to ECS instances running a Linux operating system.
+This topic uses an ECS instance running the Ubuntu operating system to show how to create a file system on a raw data disk. You can skip the steps to create a new partition, such as /dev/vdb1 or /dev/vdb2, and directly create a file system if no partition is required. This method is only applicable to ECS instances running a Linux operating system.
 
 A cloud disk has been created and attached to an ECS instance. For more information, see [Create a Pay-As-You-Go cloud disk](reseller.en-US/Block Storage/Block storage/Create a cloud disk/Create a Pay-As-You-Go cloud disk.md#) and [Attach a cloud disk](reseller.en-US/Block Storage/Block storage/Attach a cloud disk.md#).
 
@@ -11,9 +11,9 @@ A cloud disk has been created and attached to an ECS instance. For more informat
     fdisk -l 
     ```
 
-    If the following output is displayed, it indicates that the ECS instance has two cloud disks: /dev/vda as the system disk and/dev/vdb as a data disk.
+    If the following output is displayed, it indicates that the ECS instance has two cloud disks: /dev/vda as the system disk and /dev/vdb as a data disk.
 
-    ![fdisk](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1423208/156860252456567_en-US.png)
+    ![fdisk](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1423208/156861803256567_en-US.png)
 
 3.  Create a file system for the /dev/vdb data disk. Example: 
     -   Create an ext4 file system
