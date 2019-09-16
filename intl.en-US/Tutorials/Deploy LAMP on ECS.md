@@ -25,11 +25,11 @@ This topic describes how to manually build a LAMP stack. You can also purchase a
 
 Follow these steps to build a LAMP stack on an ECS instance:
 
-1.  [Prepare the compilation environment](#section_g52_3gn_gq0)
-2.  [Install Apache HTTP Server](#section_quq_rne_jnu)
-3.  [Install the MySQL database management system](#section_11v_i8e_gi0)
-4.  [Install PHP](#section_mi4_v1k_psh)
-5.  [Install phpMyAdmin](#section_sae_6lj_aa5)
+1.  [Step 1. Prepare the compilation environment](#section_g52_3gn_gq0)
+2.  [Step 2. Install Apache HTTP Server](#section_quq_rne_jnu)
+3.  [Step 3. Install the MySQL database management system](#section_11v_i8e_gi0)
+4.  [Step 4. Install PHP](#section_mi4_v1k_psh)
+5.  [Step 5. Install phpMyAdmin](#section_sae_6lj_aa5)
 
 ## Step 1. Prepare the compilation environment {#section_g52_3gn_gq0 .section}
 
@@ -39,12 +39,12 @@ Follow these steps to prepare the compilation environment:
 2.  [Connect to a Linux instance by using the Management Terminal](../intl.en-US/Instances/Connect to instances/Connect to Linux instances/Connect to a Linux instance by using the Management Terminal.md#).
 3.  Run the `cat /etc/redhat-release` command to view the system version. 
 
-    ![View the system version](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/156750496432170_en-US.png)
+    ![View the system version](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/156862662432170_en-US.png)
 
 4.  Disable the firewall. 
     1.  Run the systemctl status firewalld command to check the firewall status. 
 
-        ![Check the firewall status](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/156750496432172_en-US.png)
+        ![Check the firewall status](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/156862662432172_en-US.png)
 
         -   If the firewall status is inactive, the firewall is disabled.
         -   If the firewall status is active, the firewall is enabled. In this example, the firewall is enabled. Therefore, you must disable the firewall.
@@ -60,7 +60,7 @@ Follow these steps to prepare the compilation environment:
 5.  Disable SELinux. 
     1.  Run the getenforce command to check the SELinux status. 
 
-        ![Check the SELinux status](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/156750496421065_en-US.png)
+        ![Check the SELinux status](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/156862662421065_en-US.png)
 
         -   If the SELinux status is Disabled, SELinux is disabled.
         -   If the SELinux status is Enforcing, SELinux is enabled. In this example, SELinux is enabled. Therefore, you must disable SELinux.
@@ -170,7 +170,7 @@ source /etc/profile.d/httpd.sh
 
 6.  You can run the httpd -v command to view the Apache version number. 
 
-    ![View the Apache version number](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156750496433483_en-US.png)
+    ![View the Apache version number](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156862662433483_en-US.png)
 
 7.  Add the Apache configuration file. 
     1.  Run the `vi /usr/lib/systemd/system/httpd.service` command to open the configuration file.
@@ -209,7 +209,7 @@ systemctl enable httpd
     3.  On the **Instances** page, find the target instance and copy its **public IP address**.
     4.  Enter `http:// The public IP address of the ECS instance` into the address bar of your browser, and then press `Enter`. If the following page is displayed, it indicates that Apache HTTP Server has been started.
 
-        ![The default welcome page](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156750496412353_en-US.png)
+        ![The default welcome page](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156862662512353_en-US.png)
 
 
 ## Step 3. Install the MySQL database management system {#section_11v_i8e_gi0 .section}
@@ -372,7 +372,7 @@ systemctl enable mysql
     mysql -uroot -p
     ```
 
-    ![Test the database](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156750496433592_en-US.png)
+    ![Test the database](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156862662533592_en-US.png)
 
 13. Run the `\q` command to log out of MySQL.
 
@@ -443,19 +443,19 @@ make && make install
 4.  Run the `vi /usr/local/apache2/conf/httpd.conf` command to open the Apache configuration file, and then press `I` to edit the configuration file. 
     1.  Find the ServerName parameter and add `ServerName localhost:80` to the parameter. 
 
-        ![Add parameter content](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156750496412350_en-US.png)
+        ![Add parameter content](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156862662512350_en-US.png)
 
     2.  Find the Directory parameter. Add a number sign \(`#`\) before `Require all denied`, start a new line, and then add `Require all granted`. 
 
-        ![Add parameter content](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156750496512349_en-US.png)
+        ![Add parameter content](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156862662512349_en-US.png)
 
     3.  Find `DirectoryIndex index.html` and replace it with `DirectoryIndex index.php index.html`. 
 
-        ![Replace the content](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156750496533711_en-US.png)
+        ![Replace the content](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156862662533711_en-US.png)
 
     4.  Find the following content: 
 
-        ![Find the following content](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156750496533713_en-US.png)
+        ![Find the following content](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156862662533713_en-US.png)
 
         Add the following content:
 
@@ -466,7 +466,7 @@ make && make install
 
         After you add the content, the configuration is as follows.
 
-        ![The content is added](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156750496533714_en-US.png)
+        ![The content is added](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156862662533714_en-US.png)
 
     5.  Press `Esc`, enter `:wq`, and then press Enter to save and close the Apache configuration file.
 5.  Add Apache support for PHP parsing. 
@@ -493,7 +493,7 @@ make && make install
 
 6.  Enter `http:// The public IP address of the ECS instance` into the address bar of your browser and press `Enter`. If the following page is displayed, it indicates that PHP parsing is working properly.
 
-    ![PHP parsing is working properly](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156750496533715_en-US.png)
+    ![PHP parsing is working properly](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156862662533715_en-US.png)
 
 
 ## Step 5. Install phpMyAdmin {#section_sae_6lj_aa5 .section}
@@ -526,10 +526,10 @@ unzip phpMyAdmin-4.0.10.20-all-languages.zip
 
 4.  Enter `http:// The public IP address of the ECS instance/phpmyadmin` into the address bar of your browser, and press `Enter` to go to the logon page of phpMyAdmin. If the following page is displayed, it indicates that phpMyAdmin has been installed.
 
-    ![PhpMyAdmin is installed](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156750496533718_en-US.png)
+    ![PhpMyAdmin is installed](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156862662533718_en-US.png)
 
 5.  Enter the MySQL username and password, and click **Go**. 
 
-    ![Enter the MySQL username and password](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156750496533716_en-US.png)
+    ![Enter the MySQL username and password](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9778/156862662533716_en-US.png)
 
 
