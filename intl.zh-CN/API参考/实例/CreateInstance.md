@@ -63,9 +63,9 @@
 
 例如，在[阿里云CLI](~~66653~~)及[SDK](https://github.com/aliyun)中使用`SystemDiskCategory`表示入参`SystemDisk.Category`。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=CreateInstance)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=CreateInstance&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
@@ -388,10 +388,9 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 
 ``` {#xml_return_success_demo}
 <CreateInstanceResponse>
-  <RequestId>04F0F334-1335-436C-A1D7-6C044FE73368</RequestId>
-  <InstanceId>i-instance1</InstanceId>
+      <RequestId>04F0F334-1335-436C-A1D7-6C044FE73368</RequestId>
+      <InstanceId>i-instance1</InstanceId>
 </CreateInstanceResponse>
-
 ```
 
 `JSON` 格式
