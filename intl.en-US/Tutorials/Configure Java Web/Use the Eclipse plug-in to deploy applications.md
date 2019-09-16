@@ -12,13 +12,13 @@ This topic describes how to install Cloud Toolkit in Eclipse on Windows, and eff
 
 To deploy a Java application by using the Eclipse plug-in on an ECS instance, follow these steps:
 
-1.  [Install Cloud Toolkit](#section_swe_tkc_2ir)
-2.  [Set the AccessKey pair](#section_qb9_4j0_0r9)
-3.  [Download and upload the JDK installation package](#section_aux_qrq_9ny)
-4.  [Prepare for installation](#section_942_mtv_3nn)
-5.  [Install JDK Install Apache Tomc](#section_crs_eb3_tkq)
-6.  [Install Apache Tomcat](#section_u3u_gdp_kuc)
-7.  [Deploy a Java application to the ECS instance](#section_pwr_rqr_y6f)
+1.  [Step 1: Install Cloud Toolkit](#section_swe_tkc_2ir)
+2.  [Step 2: Set the AccessKey pair](#section_qb9_4j0_0r9)
+3.  [Step 3: Download and upload the JDK installation package](#section_aux_qrq_9ny)
+4.  [Step 4: Prepare for installation](#section_942_mtv_3nn)
+5.  [Step 5: Install JDK](#section_crs_eb3_tkq)
+6.  [Step 6: Install Apache Tomcat](#section_u3u_gdp_kuc)
+7.  [Step 7: Deploy a Java application to the ECS instance](#section_pwr_rqr_y6f)
 
 ## Step 1: Install Cloud Toolkit {#section_swe_tkc_2ir .section}
 
@@ -27,29 +27,29 @@ To install Cloud Toolkit, follow these steps:
 1.  Start Eclipse.
 2.  On the menu, choose **Help** \> **Install New Software...**. 
 
-    ![Install new software](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750405721799_en-US.png)
+    ![Install new software](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862606121799_en-US.png)
 
 3.  Click **Add...** in the window that appears. 
 
-    ![Add](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750405730980_en-US.png)
+    ![Add](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862606130980_en-US.png)
 
 4.  Enter a name such as Cloud Toolkit for Eclipse and the software location http://toolkit.aliyun.com/eclipse, and click **Add**. 
 
-    ![Edit site information](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750405731037_en-US.png)
+    ![Edit site information](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862606131037_en-US.png)
 
 5.  In the Name column, select **Alibaba Cloud Toolkit Core** and **Alibaba Cloud Toolkit Deployment Tools**, and clear **Contact all update sites during install to find required software** in the **Details** section, and then click **Next**. 
 
-    ![Select components](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750405731038_en-US.png)
+    ![Select components](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862606231038_en-US.png)
 
 6.  Click **Next**.
 7.  Select **I accept the terms of the license agreement**, and click **Finish**.
 8.  Click **Install anyway**. 
 
-    ![Install anyway](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750405730612_en-US.png)
+    ![Install anyway](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862606230612_en-US.png)
 
 9.  Click **Restart Now** to restart Eclipse. 
 
-    ![Restart Eclipse](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750405821860_en-US.png)
+    ![Restart Eclipse](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862606221860_en-US.png)
 
 
 ## Step 2: Set the AccessKey pair {#section_qb9_4j0_0r9 .section}
@@ -60,7 +60,7 @@ To set the AccessKey ID and AccessKey Secret, follow these steps:
 
 1.  On the toolbar, choose **Window** \> **Preferences**. 
 
-    ![Preferences](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750405830995_en-US.png)
+    ![Preferences](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862606230995_en-US.png)
 
 2.  In the left-side navigation pane, choose **Alibaba Cloud Toolkit** \> **Accounts**.
 3.  Enter the **AccessKey ID** and **AccessKey Secret**, and click **Apply and Close**. 
@@ -69,7 +69,7 @@ To set the AccessKey ID and AccessKey Secret, follow these steps:
 
     -   If you have an account but have not generated any AccessKey pair, click **Get existing AK/SK**, and log on to the Alibaba Cloud console to generate an AccessKey pair. For more information, see [Create an AccessKey pair](../../../../../intl.en-US/General Reference/Create an AccessKey.md#).
     -   If you have not created any account, click **Sign up**.
-    ![Set the account](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750405830215_en-US.png)
+    ![Set the account](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862606230215_en-US.png)
 
 
 ## Step 3: Download and upload the JDK installation package {#section_aux_qrq_9ny .section}
@@ -99,7 +99,7 @@ To prepare for installation, follow these steps:
 3.  Disable the firewall. 
     1.  Run the command `systemctl status firewalld` to check the state of the firewall. 
 
-        ![Check the state of the firewall](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/156750405832172_en-US.png)
+        ![Check the state of the firewall](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/156862606232172_en-US.png)
 
         -   If the firewall stays in the inactive state, the firewall is disabled.
         -   If the firewall stays in the active state, the firewall is enabled. In this example, the firewall is in the active state, so you must disable the firewall.
@@ -115,7 +115,7 @@ To prepare for installation, follow these steps:
 4.  Disable Security-Enhanced Linux \(SELinux\). 
     1.  Run the `getenforce` command to check the state of SELinux. 
 
-        ![Check the state of SELinux](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/156750405821065_en-US.png)
+        ![Check the state of SELinux](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/156862606221065_en-US.png)
 
         -   If SELinux stays in the Disabled state, SELinux is disabled.
         -   If SELinux stays in the Enforcing state, SELinux is enabled. In this example, SELinux is in the Enforcing state, so you must disable SELinux.
@@ -183,7 +183,7 @@ To install JDK, follow these steps:
 
     The following response indicates that JDK has been installed.
 
-    ![JDK installed](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9766/156750405830641_en-US.png)
+    ![JDK installed](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9766/156862606230641_en-US.png)
 
 
 ## Step 6: Install Apache Tomcat {#section_u3u_gdp_kuc .section}
@@ -296,7 +296,7 @@ You can use Cloud Toolkit to deploy a Java application to the ECS instance. Then
 
 1.  In Eclipse, right-click the name of the application project that you want to deploy, and choose **Alibaba Cloud** \> **Deploy to ECS...**. 
 
-    ![Deploy to ECS](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750405830615_en-US.png)
+    ![Deploy to ECS](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862606230615_en-US.png)
 
 2.  In the window Deploy to Alibaba Cloud that appears, follow these settings: 
 
@@ -305,18 +305,18 @@ You can use Cloud Toolkit to deploy a Java application to the ECS instance. Then
     -   **Target Deploy ECS**: specifies the region where your instance is located and the target instance.
     -   **Deploy Location**: the directory that you deploy on the ECS instance, such as /data/wwwroot/default in this example.
     -   **Command**: Click **Select...**, and in the dialog box that appears, click **Add...**. Enter a command in the text box. The ECS instance runs the command automatically after the Cloud Toolkit plug-in deploys the Java application to the directory on the ECS instance. In this example, enter the `service tomcat restart` command to restart Tomcat. You can also enter another command as needed.
-    ![Enter a command](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750405830623_en-US.png)
+    ![Enter a command](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862606230623_en-US.png)
 
 3.  Click **Deploy** to start deploying the Java application to the ECS instance.
 4.  In the **Console** section of Eclipse, you can view the progress of the deployment. 
 
-    ![View the progress](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750405830632_en-US.png)
+    ![View the progress](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862606230632_en-US.png)
 
 5.  Open your browser, and in the address bar, enter the URL `http://Public IP address of the ECS instance:8080` to connect to the ECS instance. 
 
     The following response indicates that the Java application has been deployed to the ECS instance by using the Alibaba Cloud Toolkit for Eclipse plug-in.
 
-    ![Java application deployed](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9766/156750405812137_en-US.png)
+    ![Java application deployed](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9766/156862606312137_en-US.png)
 
 
 You can modify the Java application in Eclipse, save the code, and then use the Cloud Toolkit plug-in again to deploy the modified file to the ECS instance.

@@ -10,13 +10,13 @@ Alibaba Cloud Toolkit for Eclipse，简称Cloud Toolkit，是一款免费的IDE�
 
 在ECS实例上使用Eclipse插件部署一个Java应用的操作步骤如下：
 
-1.  [安装Cloud Toolkit](#section_swe_tkc_2ir)
-2.  [设置AccessKey](#section_qb9_4j0_0r9)
-3.  [下载并上传JDK安装压缩包](#section_aux_qrq_9ny)
-4.  [完成准备工作](#section_942_mtv_3nn)
-5.  [安装JDK](#section_crs_eb3_tkq)
-6.  [安装Apache Tomcat](#section_u3u_gdp_kuc)
-7.  [部署Java应用程序到ECS实例](#section_pwr_rqr_y6f)
+1.  [步骤一：安装Cloud Toolkit](#section_swe_tkc_2ir)
+2.  [步骤二：设置AccessKey](#section_qb9_4j0_0r9)
+3.  [步骤三：下载并上传JDK安装压缩包](#section_aux_qrq_9ny)
+4.  [步骤四：完成准备工作](#section_942_mtv_3nn)
+5.  [步骤五：安装JDK](#section_crs_eb3_tkq)
+6.  [步骤六：安装Apache Tomcat](#section_u3u_gdp_kuc)
+7.  [步骤七：部署Java应用程序到ECS实例](#section_pwr_rqr_y6f)
 
 ## 步骤一：安装Cloud Toolkit {#section_swe_tkc_2ir .section}
 
@@ -25,29 +25,29 @@ Alibaba Cloud Toolkit for Eclipse，简称Cloud Toolkit，是一款免费的IDE�
 1.  启动Eclipse。
 2.  在菜单栏中单击**Help** \> **Install New Software...**。 
 
-    ![安装新软件](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750376821799_zh-CN.png)
+    ![安装新软件](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862606921799_zh-CN.png)
 
 3.  单击**Add...**。 
 
-    ![Add](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750376930980_zh-CN.png)
+    ![Add](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862606930980_zh-CN.png)
 
 4.  输入名称（例如Cloud Toolkit for Eclipse）以及下载地址http://toolkit.aliyun.com/eclipse，并单击**Add**。 
 
-    ![编辑站点信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750376931037_zh-CN.png)
+    ![编辑站点信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862606931037_zh-CN.png)
 
 5.  选择需要的组件：选中**Alibaba Cloud Toolkit Core**和**Alibaba Cloud Toolkit Deployment Tools**复选框，并在下方**Details**区域中清除**Contact all update sites during install to find required software**复选框，然后单击**Next**。 
 
-    ![选择组件](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750376931038_zh-CN.png)
+    ![选择组件](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862606931038_zh-CN.png)
 
 6.  单击**Next**。
 7.  选择**I accept the terms of the license agreement**， 然后单击**Finish**。
 8.  单击**Install anyway**。 
 
-    ![强制安装](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750376930612_zh-CN.png)
+    ![强制安装](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862606930612_zh-CN.png)
 
 9.  单击**Restart Now**重启Eclipse。 
 
-    ![重启Eclipse](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750376921860_zh-CN.png)
+    ![重启Eclipse](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862606921860_zh-CN.png)
 
 
 ## 步骤二：设置AccessKey {#section_qb9_4j0_0r9 .section}
@@ -58,7 +58,7 @@ AccessKeyID和AccessKeySecret由阿里云官方颁发给访问者。AccessKeyID�
 
 1.  在Eclipse工具栏，单击**Window** \> **Preferences**。 
 
-    ![选择菜单](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750376930995_zh-CN.png)
+    ![选择菜单](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862607030995_zh-CN.png)
 
 2.  在左侧导航栏中，单击**Alibaba Cloud Toolkit** \> **Accounts**。
 3.  输入**Access Key ID**和**Access Key Secret**，然后单击**Apply and Close**完成设置。 
@@ -67,7 +67,7 @@ AccessKeyID和AccessKeySecret由阿里云官方颁发给访问者。AccessKeyID�
 
     -   如果您已有账号，但未创建AccessKey，单击**Get existing AK/SK**，然后登录阿里云控制台创建AccessKey。详情请参见[创建AccessKey](../../../../../intl.zh-CN/通用参考/创建AccessKey.md#)。
     -   如果您还没有注册账号，单击**Sign up**。
-    ![设置账号](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750376930215_zh-CN.png)
+    ![设置账号](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862607030215_zh-CN.png)
 
 
 ## 步骤三：下载并上传JDK安装压缩包 {#section_aux_qrq_9ny .section}
@@ -97,7 +97,7 @@ AccessKeyID和AccessKeySecret由阿里云官方颁发给访问者。AccessKeyID�
 3.  关闭防火墙。 
     1.  运行systemctl status firewalld命令查看当前防火墙的状态。 
 
-        ![查看防火墙状态](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/156750376932172_zh-CN.png)
+        ![查看防火墙状态](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/156862607032172_zh-CN.png)
 
         -   如果防火墙的状态参数是inactive，则防火墙为关闭状态。
         -   如果防火墙的状态参数是active，则防火墙为开启状态。本示例中防火墙为开启状态，因此需要关闭防火墙。
@@ -113,7 +113,7 @@ AccessKeyID和AccessKeySecret由阿里云官方颁发给访问者。AccessKeyID�
 4.  关闭SELinux。 
     1.  运行命令getenforce查看SELinux的当前状态。 
 
-        ![查看SELinux状态](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/156750376921065_zh-CN.png)
+        ![查看SELinux状态](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/156862607021065_zh-CN.png)
 
         -   如果SELinux状态参数是Disabled， 则SELinux为关闭状态。
         -   如果SELinux状态参数是Enforcing，则SELinux为开启状态。本示例中SELinux为开启状态，因此需要关闭SELinux。
@@ -181,7 +181,7 @@ AccessKeyID和AccessKeySecret由阿里云官方颁发给访问者。AccessKeyID�
 
     当显示JDK版本信息时，表示JDK已经安装成功。
 
-    ![安装成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9766/156750376930641_zh-CN.png)
+    ![安装成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9766/156862607030641_zh-CN.png)
 
 
 ## 步骤六：安装Apache Tomcat {#section_u3u_gdp_kuc .section}
@@ -293,7 +293,7 @@ AccessKeyID和AccessKeySecret由阿里云官方颁发给访问者。AccessKeyID�
 
 1.  在Eclipse中右键单击要部署的应用工程名，选择**Alibaba Cloud** \> **Deploy to ECS...**。 
 
-    ![选择菜单](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750376930615_zh-CN.png)
+    ![选择菜单](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862607030615_zh-CN.png)
 
 2.  在Deploy to Alibaba Cloud对话框中，您可以做如下设置。 
 
@@ -302,18 +302,18 @@ AccessKeyID和AccessKeySecret由阿里云官方颁发给访问者。AccessKeyID�
     -   **Target Deploy ECS**：选择您的实例所在的地域，并选择实例。
     -   **Deploy Location**：填入部署在ECS实例上的目录，本示例中，目录为/data/wwwroot/default。
     -   **Command**：单击**Select...**，在弹出的对话框中单击**Add...**。在文本框里输入一个命令，这个命令会在Cloud Toolkit插件把Java应用程序部署到ECS的文件夹后自动执行。本示例中，输入service tomcat restart命令来重启Tomcat。您可根据您的需求输入要执行的命令。
-    ![输入命令](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750376930623_zh-CN.png)
+    ![输入命令](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862607030623_zh-CN.png)
 
 3.  单击**Deploy**开始部署Java应用程序到ECS实例。
 4.  在Eclipse的**Console**区域，您可以查看部署的进展信息。 
 
-    ![查看进展](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156750377030632_zh-CN.png)
+    ![查看进展](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/41804/156862607030632_zh-CN.png)
 
 5.  在浏览器地址栏中输入`http://公网IP:8080`进行访问。 
 
     出现如下图所示页面，表示已成功用Alibaba Cloud Toolkit for Eclipse插件部署Java应用程序到ECS实例。
 
-    ![部署成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9766/156750377012137_zh-CN.png)
+    ![部署成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9766/156862607012137_zh-CN.png)
 
 
 如果您要修改Java应用程序，可在Eclipse中直接修改，然后保存代码，再次用Cloud Toolkit插件将改动过的文件部署到ECS实例上。
