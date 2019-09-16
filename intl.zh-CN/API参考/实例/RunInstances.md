@@ -27,9 +27,9 @@
 
 您可以在[ECS管理控制台](https://ecs.console.aliyun.com/)创建ECS实例时获取`RunInstances`的最佳实践建议。确认订单时，左侧**API 工作流**罗列出`RunInstances`能使用的关联API以及请求参数的值。右侧提供面向编程语言的SDK示例，目前支持**Java**和**Python**示例。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=RunInstances)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=RunInstances&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
@@ -74,21 +74,25 @@
  默认值：0
 
  |
-|InstanceName|String|否|JoshuaHost|实例名称。长度为2~128个英文或中文字符。必须以大小字母或中文开头，不能以http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值为实例的`InstanceId`。
+|InstanceName|String|否|k8s-node-\[1,4\]-alibabacloud|实例名称。长度为2~128个字符，必须以大小字母或中文开头，不能以http://和https://开头。可以包含中文、英文、数字、半角冒号（:）、下划线（\_）、点号（.）或者连字符（-）。默认值为实例的`InstanceId`。
 
- **说明：** 创建多台实例时，您可以使用`UniqueSuffix`为这些实例设置不同的`InstanceName`。
+ **说明：** 创建多台ECS实例时，您可以使用`UniqueSuffix`为这些实例设置不同的实例名称。您也可以使用`name_prefix[begin_number,bits]name_suffix`的命名格式设置有序的实例名称，例如，设置`InstanceName`取值为`k8s-node-[1,4]-alibabacloud`，则第一台ECS实例的实例名称为`k8s-node-0001-alibabacloud` 。详情请参见[API FAQ](~~122617#howToAddSequentialSuffix~~)。
+
+ 当实例名称或主机名称不设置命名后缀`name_suffix`，即命名格式为`name_prefix[begin_number,bits]`时，`UniqueSuffix`不生效。例如，当`InstanceName`取值为`instance-[99,3]`，`UniqueSuffix`取值为`true`时，生效的实例名称为`instance099`，而不是`instance099001`。
 
  |
-|HostName|String|否|JoshuaHost|云服务器的主机名。
+|HostName|String|否|k8s-node-\[1,4\]-ecshost|实例主机名称。
 
  -   点号（.）和短横线（-）不能作为首尾字符，更不能连续使用。
 -   Windows实例：字符长度为2~15，不支持点号（.），不能全是数字。允许大小写英文字母、数字和短横线（-）。
 -   其他类型实例（Linux等）：字符长度为2~64，支持多个点号（.），点之间为一段，每段允许大小写英文字母、数字和短横线（-）。
 
- **说明：** 创建多台实例时，您可以使用`UniqueSuffix`为这些实例设置不同的`HostName`。
+ **说明：** 创建多台ECS实例时，您可以使用`UniqueSuffix`为这些实例设置不同的主机名称。您也可以使用`name_prefix[begin_number,bits]name_suffix`的命名格式设置有序的主机名称，例如，设置`HostName`取值为`k8s-node-[1,4]-ecshost`，则第一台ECS实例的主机名称为`k8s-node-0001-ecshost` 。详情请参见[API FAQ](~~122617#howToAddSequentialSuffix~~)。
+
+ 当实例名称或主机名称不设置命名后缀`name_suffix`，即命名格式为`name_prefix[begin_number,bits]`时，`UniqueSuffix`不生效。例如，当`InstanceName`取值为`instance-[99,3]`，`UniqueSuffix`取值为`true`时，生效的实例名称为`instance099`，而不是`instance099001`。
 
  |
-|UniqueSuffix|Boolean|否|true|是否为`HostName`和`InstanceName`添加有序后缀，有序后缀从001开始递增，最大不能超过999。例如：`LocalHost001`，`LocalHost002`和`MyInstance001`，`MyInstance002`。默认值：false
+|UniqueSuffix|Boolean|否|true|是否为`HostName`和`InstanceName`添加有序后缀，有序后缀从001开始递增，最大不能超过999。例如，`LocalHost001`，`LocalHost002`和`MyInstance001`，`MyInstance002`。默认值：false
 
  |
 |Description|String|否|FinaceDept|实例的描述。长度为2~256个英文或中文字符，不能以 http:// 和 https:// 开头。
@@ -127,7 +131,7 @@
 -   cloud\_efficiency：高效云盘
 -   cloud\_ssd：SSD云盘
 -   ephemeral\_ssd：本地SSD盘
--   cloud\_essd：ESSD云盘。
+-   cloud\_essd：ESSD云盘
 
  |
 |SystemDisk.DiskName|String|否|cloud\_ssdSystem|系统盘名称。长度为2~128个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值：空。
@@ -156,7 +160,7 @@
 -   cloud\_efficiency：高效云盘
 -   cloud\_ssd：SSD云盘
 -   ephemeral\_ssd：本地SSD盘
--   cloud\_essd：ESSD云盘。
+-   cloud\_essd：ESSD云盘
 
  |
 |DataDisk.N.Encrypted|String|否|false|数据盘n是否加密。默认值：false
@@ -431,16 +435,15 @@ https://ecs.aliyuncs.com/?Action=RunInstances
 
 ``` {#xml_return_success_demo}
 <RunInstancesResponse>
-  <RequestId>04F0F334-1335-436C-A1D7-6C044FE73368</RequestId>
-  <InstanceIdSets>
-    <InstanceIdSet>
-      <InstanceId>i-instanceid1</InstanceId>
-      <InstanceId>i-instanceid2</InstanceId>
-      <InstanceId>i-instanceid3</InstanceId>
-    </InstanceIdSet>
-  </InstanceIdSets>
+      <RequestId>04F0F334-1335-436C-A1D7-6C044FE73368</RequestId>
+      <InstanceIdSets>
+            <InstanceIdSet>
+                  <InstanceId>i-instanceid1</InstanceId>
+                  <InstanceId>i-instanceid2</InstanceId>
+                  <InstanceId>i-instanceid3</InstanceId>
+            </InstanceIdSet>
+      </InstanceIdSets>
 </RunInstancesResponse>
-
 ```
 
 `JSON` 格式
