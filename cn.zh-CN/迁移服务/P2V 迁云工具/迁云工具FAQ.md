@@ -1,6 +1,9 @@
 # 迁云工具FAQ {#ServerMigrationFAQ .reference}
 
+本文介绍迁云工具相关的常见问题和解决方案。
+
 -   [我在什么场景下可以使用迁云工具？](#section_7j4_nma_nch)
+-   [迁云工具与服务器迁移中心SMC有什么区别？](#section_cty_gfd_b2q)
 -   [在一台物理主机数据库服务器上有单实例Oracle数据库，向阿里云迁移时，请问是选择整台服务器（包含操作系统、数据库）迁移，还是选择数据库迁移（仅迁移数据库）？两种方式都有哪些利弊？](#section_1eh_f8c_wlg)
 -   [迁云工具的迁移过程是什么？](#section_qiw_m1f_xdp)
 -   [迁云工具是否支持断点续传？](#section_g9d_fes_ce2)
@@ -28,6 +31,10 @@
 
 迁云工具可以将物理服务器、虚拟机以及其他云平台云主机一站式地迁移到阿里云ECS，支持迁移主流Windows和Linux操作系统。详情请参见[什么是迁云工具与P2V](cn.zh-CN/迁移服务/P2V 迁云工具/什么是迁云工具.md#)。
 
+## 迁云工具与服务器迁移中心SMC有什么区别？ {#section_cty_gfd_b2q .section}
+
+为了更好的迁云体验，迁云工具已升级为服务器迁移中心SMC（Server Migration Center）。现有迁云工具将不再提供维护和技术支持，建议您尽早切换至服务器迁移中心，详情请参见[SMC产品文档](../cn.zh-CN/产品简介/什么是服务器迁移中心.md#)。
+
 ## 在一台物理主机数据库服务器上有单实例Oracle数据库，向阿里云迁移时，请问是选择整台服务器（包含操作系统、数据库）迁移，还是选择数据库迁移（仅迁移数据库）？两种方式都有哪些利弊？ {#section_1eh_f8c_wlg .section}
 
 请根据您的实际需要，选择迁移方式。两种迁移方式的利弊如下：
@@ -39,7 +46,7 @@
 
 迁云工具的迁移过程如下图所示。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22635/156283243813350_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22635/156862055013350_zh-CN.png)
 
 1.  检查源服务器是否满足迁移条件。
 2.  在您的云账号下创建一台临时中转实例，将源服务器系统数据传输到中转实例。
@@ -129,7 +136,7 @@ client\_data文件记录了迁云过程数据，包含中转实例信息、迁�
 
 确认源服务器能访问以下服务地址及端口。
 
--   云服务器ECS：`https://ecs.aliyuncs.com` 443端口。有关其他地域ECS服务地址，请参见[接入地址](../cn.zh-CN/API参考/快速入门/请求结构.md#)。
+-   云服务器ECS：`https://ecs.aliyuncs.com` 443端口。有关其他地域ECS服务地址，请参见[接入地址](../cn.zh-CN/API参考/HTTP调用方式/请求结构.md#)。
 -   专有网络VPC：`http://vpc.aliyuncs.com` 443端口。
 -   安全凭证STS：`https://sts.aliyuncs.com` 443端口。
 -   中转实例：公网IP地址8080和8703端口。使用VPC内网迁移方案时，访问私有IP地址。VPC内网迁移详情，请参见[VPC内网迁移](../cn.zh-CN/迁移服务/P2V 迁云工具/VPC内网迁云.md#)。
@@ -144,7 +151,7 @@ client\_data文件记录了迁云过程数据，包含中转实例信息、迁�
 2.  如果有数据盘缺失，进入磁盘管理检查盘符是否丢失。
 3.  等待文件系统权限修复过程完成后，选择是否重启实例：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22635/156283243813956_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/22635/156862055013956_zh-CN.png)
 
     **说明：** 初次启动ECS实例后，如果文件系统权限修复程序未自启动，您可以运行C:\\go2aliyun\_prepare\\go2aliyun\_restore.exe手动修复。执行前要确保实例上的磁盘数量和盘符路径跟源系统保持一致。
 
