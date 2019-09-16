@@ -27,14 +27,14 @@ Nginx是一款小巧而高效的Web服务器软件，可以帮助您在Linux系�
 
 使用云服务器ECS手动搭建LNMP平台的操作步骤如下：
 
-1.  [准备编译环境](#section_swe_tkc_2ir)
-2.  [安装Nginx](#section_dri_f0r_ivi)
-3.  [安装MySQL](#section_sok_8r6_jr6)
-4.  [安装PHP](#section_5tw_l02_k4s)
-5.  [配置Ngnix](#section_e7d_ddt_6tc)
-6.  [配置MySQL](#section_mp6_h2y_zkp)
-7.  [配置PHP](#section_ual_v4d_k6e)
-8.  [测试访问LNMP平台](#section_b0a_az5_erl)
+1.  [步骤一：准备编译环境](#section_swe_tkc_2ir)
+2.  [步骤二：安装Nginx](#section_dri_f0r_ivi)
+3.  [步骤三：安装MySQL](#section_sok_8r6_jr6)
+4.  [步骤四：安装PHP](#section_5tw_l02_k4s)
+5.  [步骤五：配置Nginx](#section_e7d_ddt_6tc)
+6.  [步骤六：配置MySQL](#section_mp6_h2y_zkp)
+7.  [步骤七：配置PHP](#section_ual_v4d_k6e)
+8.  [步骤八：测试访问LNMP平台](#section_b0a_az5_erl)
 
 ## 步骤一：准备编译环境 {#section_swe_tkc_2ir .section}
 
@@ -44,7 +44,7 @@ Nginx是一款小巧而高效的Web服务器软件，可以帮助您在Linux系�
 2.  关闭防火墙。 
     1.  运行systemctl status firewalld命令查看当前防火墙的状态。 
 
-        ![查看防火墙状态](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/156750410632172_zh-CN.png)
+        ![查看防火墙状态](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/156862597232172_zh-CN.png)
 
         -   如果防火墙的状态参数是inactive，则防火墙为关闭状态。
         -   如果防火墙的状态参数是active，则防火墙为开启状态。本示例中防火墙为开启状态，因此需要关闭防火墙。
@@ -60,7 +60,7 @@ Nginx是一款小巧而高效的Web服务器软件，可以帮助您在Linux系�
 3.  关闭SELinux。 
     1.  运行getenforce命令查看SELinux的当前状态。 
 
-        ![查看SELinux状态](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/156750410621065_zh-CN.png)
+        ![查看SELinux状态](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9763/156862597221065_zh-CN.png)
 
         -   如果SELinux状态参数是Disabled， 则SELinux为关闭状态。
         -   如果SELinux状态参数是Enforcing，则SELinux为开启状态。本示例中SELinux为开启状态，因此需要关闭SELinux。
@@ -328,7 +328,7 @@ Nginx是一款小巧而高效的Web服务器软件，可以帮助您在Linux系�
 
     返回结果如下图所示，表示LNMP环境部署成功。
 
-    ![LNMP部署成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/156750410644922_zh-CN.png)
+    ![LNMP部署成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64105/156862597244922_zh-CN.png)
 
 
 测试访问LNMP平台成功后，建议您运行以下命令将/usr/share/php/phpinfo.php文件删除，消除安全隐患。
