@@ -8,7 +8,9 @@ The following table describes two types of public images provided by Alibaba Clo
 
 |Type|Description|Technical support|
 |:---|:----------|:----------------|
-|Aliyun Linux images|Aliyun Linux images are custom, native operating systems provided by Alibaba Cloud for you to launch ECS instances. Each Aliyun Linux image has been rigorously tested to guarantee its security, stability, and normal startup and operation.|Alibaba Cloud provides [technical support](https://selfservice.console.aliyun.com/ticket/createIndex.htm) if any problem occurs during the use of Aliyun Linux images.|
+|Aliyun Linux images|Aliyun Linux images are custom, native operating systems provided by Alibaba Cloud for you to launch ECS instances. Each Aliyun Linux image has been rigorously tested to guarantee its security, stability, and normal startup and operation.| Alibaba Cloud provides technical support if any problem occurs during the use of Aliyun Linux images.
+
+ |
 |Third-party and open-source images|Third-party and open-source images have been rigorously tested and released by Alibaba Cloud to guarantee their security, stability, and normal startup and operation. Such images include: -   Windows: Windows Server
 -   Linux: Ubuntu, CentOS, Red Hat Enterprise Linux, Debian, SUSE Linux, FreeBSD, and CoreOS
 
@@ -20,7 +22,7 @@ Aliyun Linux is a Linux public image independently developed by Alibaba Cloud. T
 
 |Operating system|Version|Description|
 |:---------------|:------|:----------|
-|Aliyun Linux 2|Aliyun Linux 2.1903 64-bit| A next-generation OS that supports various Alibaba Cloud instance types including ECS Bare Metal Instances. Aliyun Linux 2 is also equipped with [Alibaba Cloud CLI](https://help.aliyun.com/product/29991.html) and other software packages by default.
+|Aliyun Linux 2|Aliyun Linux 2.1903 64-bit| A next-generation OS that supports various Alibaba Cloud instance types including ECS Bare Metal Instances. Aliyun Linux 2 is also equipped with [Alibaba Cloud CLI](../../../../reseller.en-US/Product Introduction/What is Alibaba Cloud CLI?.md#) and other software packages by default.
 
  If you want to replace other Linux distributions with Aliyun Linux 2, you can select Public Image and then Aliyun Linux 2 when creating an ECS instance, or replace the system disk of an existing ECS instance with Aliyun Linux 2.
 
