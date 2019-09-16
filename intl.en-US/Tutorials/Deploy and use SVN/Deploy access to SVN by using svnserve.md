@@ -14,10 +14,10 @@ In this topic, the following software versions are used to manually deploy SVN. 
 
 To deploy access to SVN by using svnserve, follow these steps:
 
-1.  [Install SVN](#section_h54_dqf_pyz)
-2.  [Configure SVN](#section_qui_xbb_dke)
-3.  [Configure the security group rules](#section_9qx_vu2_6zo)
-4.  [Use a Windows client to test the SVN service](#section_frq_nei_7ay)
+1.  [Step 1: Install SVN](#section_h54_dqf_pyz)
+2.  [Step 2: Configure SVN](#section_qui_xbb_dke)
+3.  [Step 3: Configure the security group rules](#section_9qx_vu2_6zo)
+4.  [Step 4: Use a Windows client to test the SVN service](#section_frq_nei_7ay)
 
 ## Step 1: Install SVN {#section_h54_dqf_pyz .section}
 
@@ -42,7 +42,7 @@ You can install SVN in any of the following ways:
         svnserve --version
         ```
 
-        ![Check the SVN version](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/156756149312528_en-US.png)
+        ![Check the SVN version](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/156862701112528_en-US.png)
 
 
 ## Step 2: Configure SVN {#section_qui_xbb_dke .section}
@@ -69,7 +69,7 @@ To configure SVN, follow these steps:
     # ls
     ```
 
-    ![Check files in the SVN repository](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/156756149312529_en-US.png)
+    ![Check files in the SVN repository](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/156862701112529_en-US.png)
 
     The SVN directories are described as follows:
 
@@ -89,7 +89,7 @@ To configure SVN, follow these steps:
 
         **Note:** You can add the username and password in the following format: username = password. For example, suzhan \(username\) = redhat \(password\), as shown in the following figure. There must be a space on both ends of the equal sign \(=\).
 
-        ![Add the username and password](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/156756149312530_en-US.png)
+        ![Add the username and password](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/156862701112530_en-US.png)
 
     5.  Press the `Esc` key to exit the edit mode, and type `:wq` to save and close the file.
 5.  Set the read and write permissions for the username. 
@@ -104,7 +104,7 @@ To configure SVN, follow these steps:
 
     4.  Press the `Esc` key to exit the edit mode, and type `:wq` to save and close the file. 
 
-        ![Set the read and write permissions for the username](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/156756149312531_en-US.png)
+        ![Set the read and write permissions for the username](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/156862701112531_en-US.png)
 
 6.  Modify the configurations of the SVN service. 
     1.  Run the command `vi svnserve.conf` to open the configuration file of the SVN service.
@@ -121,7 +121,7 @@ To configure SVN, follow these steps:
 
         **Note:** Each line cannot start with a space and there must be a space on both ends of the equal sign \(=\).
 
-        ![Modify the configurations of the SVN service](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/156756149312532_en-US.png)
+        ![Modify the configurations of the SVN service](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/156862701112532_en-US.png)
 
     4.  Press the `Esc` key to exit the edit mode, and type `:wq` to save and close the file.
 7.  Run the following command to start the SVN repository. 
@@ -134,7 +134,7 @@ To configure SVN, follow these steps:
 
     The following response indicates that the SVN service has been started.
 
-    ![Check the SVN service status](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/156756149312533_en-US.png)
+    ![Check the SVN service status](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/156862701112533_en-US.png)
 
     **Note:** Run the command `killall svnserve` to stop the SVN service.
 
@@ -154,7 +154,7 @@ To test the SVN service by using a Windows client, follow these steps:
 
     -   Set the **URL of repository** field in this format: svn://Public IP address of the ECS instance/SVN repository name. In this example, the SVN repository name is svnrepos.
     -   Set the **Checkout directory** field. In this example, the directory is C:\\KDR.
-    ![Checkout settings](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/156756149312535_en-US.png)
+    ![Checkout settings](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9780/156862701112535_en-US.png)
 
     **Note:** During the logon for the first time, you must provide the username and password that you have configured in the passwd file.
 
