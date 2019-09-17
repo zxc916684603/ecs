@@ -30,7 +30,7 @@ PostgreSQL被业界誉为最先进的开源数据库。目前阿里云数据库P
 
 搭建PostgreSQL主从复制架构，需要选购2台专有网络类型的ECS实例，一台ECS实例作为主节点，另一台ECS实例作为从节点。 具体操作，请参见[使用向导创建实例](../intl.zh-CN/实例/创建实例/使用向导创建实例.md#)。
 
-**说明：** 建议您不为ECS实例分配公网IP，按需购买弹性公网IP绑定至ECS实例，后续您可以根据实际情况考虑升级配置或调优架构。详情请参见[弹性公网IP](https://help.aliyun.com/document_detail/51995.html)。
+**说明：** 建议您不为ECS实例分配公网IP，按需购买弹性公网IP绑定至ECS实例，后续您可以根据实际情况考虑升级配置或调优架构。详情请参见[申请弹性公网IP](../../../../../intl.zh-CN/用户指南/申请EIP/申请新EIP.md#)。
 
 ## 步骤二：配置PostgreSQL主节点 {#section_qgn_13v_8op .section}
 
