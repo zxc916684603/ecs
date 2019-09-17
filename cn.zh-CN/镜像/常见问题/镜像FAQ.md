@@ -20,17 +20,9 @@
 -   一般性FAQ
     -   [选择了镜像后能更换吗？](#section_ovb_trx_fhb)
     -   [ECS系统盘是否支持KMS加密，通过Terraform或Packer如何使用？](#section_bjd_h5l_93s)
--   快照与镜像相关FAQ
     -   [快照和镜像有什么不同？有什么关系？](#section_bmh_2xf_3ds)
-    -   [如何将A账号下面的ECS快照数据迁移到B账号下？](#section_ed5_k10_dzu)
-    -   [数据盘的快照不能创建自定义镜像吗？那如何将A账号下的数据盘快照迁移到B账号？](#section_lyx_6pb_932)
-    -   [服务器下的快照无法回滚，是什么原因？](#section_2sn_6vw_p3l)
-    -   [因为删除了创建快照的实例，而导致使用快照回滚不成功，该如何解决？](#section_5p6_ip2_7g0)
-    -   [ECS实例系统快照能否下载到本地？](#section_1ff_9s6_3i5)
-    -   [实例释放后，快照是否还存在？](#section_ocf_oay_z1e)
-    -   [我想删除华北2快照链列表内的某一快照，但提示我关联了“RequestId: xxx”，这个是什么？](#section_72i_6dy_wdp)
-    -   [之前实例的地域为华东1（杭州），对数据盘做了快照。实例到期释放我在华东1（杭州）地域又新购了一个实例，能否把之前实例的快照回滚？](#section_c7y_3ij_f53)
 -   自定义镜像FAQ
+    -   [数据盘的快照是否可以创建自定义镜像？](#section_lyx_6pb_932)
     -   [如何查看数据盘？](#section_hrq_fgx_fhb)
     -   [如何卸载（umount）和删除disk table里的数据？](#section_lzy_rgx_fhb)
     -   [如何确认已经卸载数据盘，并可以新建自定义镜像？](#section_wdy_3ty_dhb)
@@ -71,8 +63,12 @@
     -   [我能把别人共享给我的镜像再共享给其他人吗？](#section_abm_4qc_ghb)
     -   [我把镜像共享给他人，还能使用该镜像创建实例吗？](#section_xny_pqc_ghb)
     -   [华北地域服务器A制作的镜像能共享给华东地域的服务器B吗？](#section_b5i_fn9_i06)
+-   导入镜像FAQ
+    -   [导入自定义镜像时，是否支持自带许可证BYOL？](#section_dhc_07k_xgz)
+    -   [导入自定义镜像支持哪些许可证类型？](#section_988_25j_qkp)
+    -   [导入的自带许可BYOL镜像如何计费？](#section_bn1_o19_a61)
+    -   [自带许可证、订阅到期后，如何通过阿里云做认证和订阅？](#section_gko_ai0_s3o)
 -   导出镜像FAQ
-    -   [为何没有导出镜像的入口？](#section_j80_1pu_tv2)
     -   [我想将镜像导出到本地进行测试，具体要怎么操作呢？](#section_9dl_9cs_oba)
 -   删除镜像FAQ
     -   [如果使用自定义镜像创建了ECS实例，我可以删除这个镜像吗？](#section_lvj_dht_8a4)
@@ -146,6 +142,7 @@
     -   [Linux镜像如何开启或关闭Meltdown与Spectre安全漏洞补丁？](#section_mf9_75m_jnp)
     -   [如何检查与修复CentOS 7实例和Windows实例IP地址缺失问题？](#section_29l_kc7_8hw)
     -   [历史Linux镜像问题修复方案有哪些？](#section_via_bwe_3ah)
+    -   [ECS实例启动时报错“UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.”，怎么办？](#section_1qr_p2r_fp0)
 
 ## Aliyun Linux 2与Aliyun Linux有何不同？ {#section_zxs_xnv_fhb .section}
 
@@ -228,7 +225,7 @@ Aliyun Linux 2属于与CentOS 7同源的操作系统。CentOS 7的管理员可�
 
 ## ECS系统盘是否支持KMS加密，通过Terraform或Packer如何使用？ {#section_bjd_h5l_93s .section}
 
-目前，ECS系统盘支持KMS的默认key加密，即选择加密后，ECS系统会为您在KMS中的使用地域自动创建一个专为ECS使用的CMK。更多详情，请参见[ECS云盘加密](../cn.zh-CN/块存储/云盘/ECS云盘加密.md#)。
+目前，ECS系统盘支持KMS的默认key加密，即选择加密后，ECS系统会为您在KMS中的使用地域自动创建一个专为ECS使用的CMK。更多详情，请参见[云盘加密](../cn.zh-CN/块存储/云盘/云盘加密.md#)。
 
 BYOK加密方式和Packer加密功能即将支持。
 
@@ -264,48 +261,11 @@ Terraform中通过参数encrypted指定，详情请参见[alicloud\_disks](https
 
 使用系统盘快照，也可以创建自定义镜像。具体步骤，请参见[使用快照创建自定义镜像](cn.zh-CN/镜像/自定义镜像/创建自定义镜像/使用快照创建自定义镜像.md#)。
 
-## 如何将A账号下面的ECS快照数据迁移到B账号下？ {#section_ed5_k10_dzu .section}
-
-快照不支持迁移。如果您有需要，可将快照制作成镜像，然后共享到其他账号下。更多详情，请参见[使用快照创建自定义镜像](cn.zh-CN/镜像/自定义镜像/创建自定义镜像/使用快照创建自定义镜像.md#)和[共享镜像](cn.zh-CN/镜像/自定义镜像/共享镜像.md#)。
-
-## 数据盘的快照不能创建自定义镜像吗？那如何将A账号下的数据盘快照迁移到B账号？ {#section_lyx_6pb_932 .section}
+## 数据盘的快照是否可以创建自定义镜像？ {#section_lyx_6pb_932 .section}
 
 创建自定义镜像的快照磁盘属性必须是系统盘，数据盘不能用于创建自定义镜像。
 
-如果您需要将A账号数据盘快照迁移到B账号，可按以下步骤操作。
-
-1.  为数据盘快照的原实例创建镜像。具体步骤，请参见[使用实例创建自定义镜像](cn.zh-CN/镜像/自定义镜像/创建自定义镜像/使用实例创建自定义镜像.md#)。
-2.  共享镜像给B账号。具体步骤，请参见[共享镜像](cn.zh-CN/镜像/自定义镜像/共享镜像.md#)。
-3.  在B账号中，使用该镜像新购一台按量付费实例。具体步骤，请参见[使用自定义镜像创建实例](../cn.zh-CN/实例/创建实例/使用自定义镜像创建实例.md#)。
-4.  为新购实例的数据盘创建快照。具体步骤，请参见[创建快照](../cn.zh-CN/快照/使用快照/创建快照.md#)。
-5.  释放该新购实例。具体步骤，请参见[释放实例](../cn.zh-CN/实例/管理实例/释放实例.md#)。
-
-## 服务器下的快照无法回滚，是什么原因？ {#section_2sn_6vw_p3l .section}
-
-您可以根据回滚磁盘的报错信息，检查快照情况。常见问题及解决方案，请参见[回滚磁盘报错](https://help.aliyun.com/knowledge_detail/40616.html)。
-
-## 因为删除了创建快照的实例，而导致使用快照回滚不成功，该如何解决？ {#section_5p6_ip2_7g0 .section}
-
-您可以按照以下步骤操作。
-
-1.  使用快照创建自定义镜像。具体步骤，请参见[使用快照创建自定义镜像](cn.zh-CN/镜像/自定义镜像/创建自定义镜像/使用快照创建自定义镜像.md#)。
-2.  更换系统盘，更换时选择该自定义镜像。具体步骤，请参见[更换系统盘（非公共镜像）](../cn.zh-CN/块存储/云盘/更换系统盘/更换系统盘（非公共镜像）.md#)。
-
-## ECS实例系统快照能否下载到本地？ {#section_1ff_9s6_3i5 .section}
-
-快照不能下载到本地。您可以利用快照创建镜像，再申请导出镜像。具体步骤，请参见[使用快照创建自定义镜像](cn.zh-CN/镜像/自定义镜像/创建自定义镜像/使用快照创建自定义镜像.md#)和[导出镜像](cn.zh-CN/镜像/自定义镜像/导出镜像.md#)。
-
-## 实例释放后，快照是否还存在？ {#section_ocf_oay_z1e .section}
-
-保留手动快照，自动快照会随着实例释放而被清除。更多详情，请参见[快照FAQ](../cn.zh-CN/快照/快照FAQ.md#)。
-
-## 我想删除华北2快照链列表内的某一快照，但提示我关联了“RequestId: xxx”，这个是什么？ {#section_72i_6dy_wdp .section}
-
-您的快照创建过自定义镜像，需要先删除这个自定义镜像才可以删除快照。
-
-## 之前实例的地域为华东1（杭州），对数据盘做了快照。实例到期释放我在华东1（杭州）地域又新购了一个实例，能否把之前实例的快照回滚？ {#section_c7y_3ij_f53 .section}
-
-快照回滚是回滚到原来的实例。您可以利用之前数据盘的快照创建云盘，将云盘挂载到新的实例上。具体步骤，请参见[使用快照创建云盘](../cn.zh-CN/块存储/云盘/创建云盘/使用快照创建云盘.md#)和[挂载云盘](../cn.zh-CN/块存储/云盘/挂载云盘.md#)。
+但是，使用系统盘快照创建自定义镜像时，您可以添加数据盘快照，详情请参见[使用快照创建自定义镜像](cn.zh-CN/镜像/自定义镜像/创建自定义镜像/使用快照创建自定义镜像.md#)。
 
 ## 如何查看数据盘？ {#section_hrq_fgx_fhb .section}
 
@@ -410,15 +370,15 @@ Linux其他较重要的配置文件如下：
 
 1.  ECS实例数据盘未分区，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156690182249584_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156871035949584_zh-CN.png)
 
 2.  使用自定义镜像创建的ECS实例中，未注释掉/etc/fstab中的磁盘挂载条目，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156690182249589_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156871035949589_zh-CN.png)
 
 3.  实例启动时，会按照/etc/fstab文件中的配置挂载磁盘，但由于数据盘未分区导致挂载失败，如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156690182249591_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156871036049591_zh-CN.png)
 
 
 不用注释磁盘挂载条目的情况：一般只有在创建ECS实例时，选择了数据盘且数据盘是通过已分区、已格式化的数据盘快照生成。
@@ -584,13 +544,65 @@ Linux其他较重要的配置文件如下：
 -   如果服务器A与B属于同一账号，可直接复制镜像到华东地域给服务器B使用。具体步骤，请参见[复制镜像](cn.zh-CN/镜像/自定义镜像/复制镜像.md#)。
 -   如果服务器A与B属于不同的账号，可先复制镜像到华东地域再共享给服务器B的账号。具体步骤，请参见[复制镜像](cn.zh-CN/镜像/自定义镜像/复制镜像.md#)和[共享镜像](cn.zh-CN/镜像/自定义镜像/共享镜像.md#)。
 
-## 为何没有导出镜像的入口？ {#section_j80_1pu_tv2 .section}
+## 导入自定义镜像时，是否支持自带许可证BYOL？ {#section_dhc_07k_xgz .section}
 
-您需要提交工单申请导出镜像的权限，详情请参见[导出镜像](cn.zh-CN/镜像/自定义镜像/导出镜像.md#)。
+支持。您可以通过ECS管理控制台的导入镜像功能或ImportImage配置许可证类型，详情请参见[导入自定义镜像](cn.zh-CN/镜像/自定义镜像/导入镜像/导入自定义镜像.md#)和[ImportImage](../cn.zh-CN/API参考/镜像/ImportImage.md#)。
+
+## 导入自定义镜像支持哪些许可证类型？ {#section_988_25j_qkp .section}
+
+导入自定义镜像时，您可以选择以下三种许可证类型：
+
+-   阿里云（Aliyun）
+
+    由阿里云提供许可证，主要包括Windows Server操作系统许可证。在导入镜像安装了cloud-init的前提下，阿里云会使用官方密钥管理服务器（KMS）激活操作系统，且提供Windows Server更新服务（WSUS）。
+
+-   自带许可（Bring Your Own License，简称BYOL）
+
+    自带许可证上云的场景目前主要有以下两种：
+
+    -   Microsoft
+
+        微软自带许可场景包含：
+
+        -   通过软件保障协议（Software Assurance，简称SA）实现自带许可场景
+
+            支持微软许可证移动性（License Mobility）的软件，包括SQL Server，SharePoint等，可以通过创建ECS实例实现自带许可。
+
+        -   Windows操作系统场景
+
+            Windows客户端访问许可（[Client Access License，简称CAL](https://docs.microsoft.com/zh-cn/windows-server/remote/remote-desktop-services/rds-client-access-license)）不适用于许可证移动性，所以无法在共享硬件环境下使用已经拥有的Windows许可证。您需要将Windows部署在独享的物理环境中，可以使用阿里云的专有宿主机或弹性裸金属服务器，详情请参见[专有宿主机产品文档](../../../../../cn.zh-CN/产品简介/什么是专有宿主机DDH.md#)和[弹性裸金属服务器产品文档](../cn.zh-CN/实例/选择实例规格/弹性裸金属服务器（神龙）/弹性裸金属服务器概述.md#)。
+
+            对于此类ECS实例，阿里云不提供KMS、WSUS服务及对软件的技术支持，您可以联系微软获取软件技术支持。
+
+        -   无SA或不支持通过SA实现自带许可的场景
+
+            此场景类似于与Windows操作系统场景，您可以在独享的硬件环境中复用已购的软件许可证并自行下载软件进行部署。
+
+    -   Redhat
+
+        Redhat提供云接入（Cloud Access）方式。若要迁移当前的Red Hat订阅在阿里云上使用（Bring Your Own Subscription，简称BYOS），可以注册Red Hat云接入计划，详情请参见[注册云接入计划](https://help.aliyun.com/document_detail/90933.html)。
+
+-   自动（Auto）
+
+    默认值。根据您设置的要导入操作系统的发行版，自动设置成相应的许可证类型。
+
+    -   对于阿里云已经和厂商签署授权协议的操作系统（如Windows Server），并且阿里云可以提供官方许可证的操作系统，许可证类型会设置成阿里云（Aliyun）。
+    -   其他操作系统会设置成自带许可（BYOL），例如非商业化的Linux镜像，阿里云不提供软件技术支持。
+
+## 导入的自带许可BYOL镜像如何计费？ {#section_bn1_o19_a61 .section}
+
+自带许可的镜像，不需要支付操作系统组件的费用，适用于新建ECS实例、续费ECS实例、实例升降配和重新初始化实例的场景。
+
+## 自带许可证、订阅到期后，如何通过阿里云做认证和订阅？ {#section_gko_ai0_s3o .section}
+
+您可以将BYOL镜像更换成阿里云镜像。
+
+-   Windows Server系统可使用阿里云的官方镜像。阿里云官方镜像详情，请参见[公共镜像概述](cn.zh-CN/镜像/公共镜像/公共镜像概述.md#)。
+-   SQL Server、Redhat镜像可通过阿里云云市场获取，详情请参见[镜像市场](cn.zh-CN/镜像/镜像市场.md#)。
 
 ## 我想将镜像导出到本地进行测试，具体要怎么操作呢？ {#section_9dl_9cs_oba .section}
 
-目前镜像文件的导出格式默认为.raw.tar.gz，解压后为.raw格式，您可以搜索下该格式镜像的相关使用资料来使用，阿里云并未做特殊限制。
+目前镜像文件的导出格式默认为.raw.tar.gz，解压后为.raw格式，您可以自行查看该格式镜像的相关使用资料，阿里云并未做特殊限制。
 
 ## 如果使用自定义镜像创建了ECS实例，我可以删除这个镜像吗？ {#section_lvj_dht_8a4 .section}
 
@@ -821,11 +833,7 @@ Linux其他较重要的配置文件如下：
 
 ## ECS实例使用操作系统需要付费吗？ {#section_ttw_qwc_ghb .section}
 
-大陆地域的Windows Server公共镜像自带正版激活，不收取系统正版激活费用，其他国家或地区地域会收取系统正版激活费用。
-
-Windows Server 公共镜像默认最多允许2个会话（Session）[远程连接](../cn.zh-CN/实例/连接实例/连接Windows实例/在本地客户端上连接Windows实例.md#)，如果您新增连接数，请向微软单独购买远程桌面授权（RD授权）服务，该项授权费用需要您自理。
-
-除Red Hat公共镜像外，Linux公共镜像不需要您支付版权费用。
+使用公共镜像Windows Server和Red Hat需付费，计费与实例规格大小有关，其余公共镜像均免费。其他类型镜像的费用详情，请参见[镜像类型](cn.zh-CN/镜像/镜像概述.md#section_nyg_r5w_ydb)。
 
 ## 我能自己安装或者升级操作系统吗？ {#section_zhs_twc_ghb .section}
 
@@ -957,7 +965,7 @@ Linux 操作系统是命令行形式，您可以根据需要安装图形化桌�
 
             默认使用阿里云`options`配置`options timeout:2 attempts:3 rotate single-request-reopen`。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156690182346335_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/147740/156871036046335_zh-CN.png)
 
         -   如果存在`options`配置：
             -   不存在`single-request-reopen`配置，则在`options`配置中追加该项。
@@ -965,11 +973,11 @@ Linux 操作系统是命令行形式，您可以根据需要安装图形化桌�
 
 ## 为什么ECS默认没有启用虚拟内存或Swap说明？ {#section_m02_5j5_qf2 .section}
 
-Swap分区或虚拟内存文件，是在系统物理内存不够用的时候，由系统内存管理程序将那些很长时间没有操作的内存数据，临时保存到Swap分区虚拟内存文件中，以提高可用内存额度的一种机制。
+Swap分区或虚拟内存文件，是在系统物理内存不够用的时候，由系统内存管理程序将那些很长时间没有操作的内存数据，临时保存到Swap分区或虚拟内存文件中，以提高可用内存额度的一种机制。
 
 但是，如果在内存使用率已经非常高，而同时I/O性能也不是很好的情况下，该机制其实会起到相反的效果。阿里云ECS云磁盘使用了分布式文件系统作为云服务器的存储，对每一份数据都进行了强一致的多份拷贝。该机制在保证用户数据安全的同时，由于3倍增涨的I/O操作，会降低本地磁盘的存储性能和I/O性能。
 
-综上，为了避免当系统资源不足时进一步降低ECS云磁盘的I/O性能，所以ECS Windows默认没有启用虚拟内存，Linux默认未配置Swap分区。
+综上，为了避免当系统资源不足时进一步降低ECS云磁盘的I/O性能，所以Windows系统实例默认没有启用虚拟内存，Linux系统实例默认未配置Swap分区。
 
 ## 如何在阿里云公共镜像中开启kdump？ {#section_kwb_4l4_a16 .section}
 
@@ -1016,7 +1024,7 @@ Swap分区或虚拟内存文件，是在系统物理内存不够用的时候，�
 
     **说明：** 运行该命令后，实例会与网络失去连接。您需要重新连接实例，完成后续操作。
 
-4.  分析core dump文件。
+4.  分析core文件。
     1.  运行以下命令安装Crash分析工具。
 
         ``` {#codeblock_a42_yzr_9lt}
@@ -1094,4 +1102,8 @@ Swap分区或虚拟内存文件，是在系统物理内存不够用的时候，�
 
     -   CentOS和Aliyun Linux系统：yum update bash glibc openssl wget ntp
     -   Ubuntu和Debian系统：apt-get install bash libc6 libc-bin openssl wget ntp
+
+## ECS实例启动时报错“UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.”，怎么办？ {#section_1qr_p2r_fp0 .section}
+
+该问题可能是由于断电等情况，导致ECS实例内存数据丢失引发的文件系统错误。问题详情及修复方案，请参见[ECS实例系统启动失败时报“UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.”的错误](https://help.aliyun.com/knowledge_detail/136317.html)。
 
