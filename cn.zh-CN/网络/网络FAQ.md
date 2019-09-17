@@ -12,7 +12,7 @@
     -   [为什么云监控显示的云服务器ECS带宽和ECS控制台显示带宽不一致？](#section_tsb_lpy_gvz)
     -   [ECS实例为已停止状态，为什么按流量计费公网带宽仍产生出网流量？](#section_d7h_fs2_xu8)
 -   IP地址问题
-    -   [？](#section_vpl_qbg_qgb)
+    -   [如何查询ECS实例的IP地址？](#section_vpl_qbg_qgb)
     -   [如何禁用ECS实例的公网网卡？](#section_bxf_ywf_qgb)
 -   网络访问和流量定向问题
     -   [为什么不能访问云服务器ECS上的网站？](#section_cwr_y3g_4gb)
@@ -138,7 +138,7 @@
 2.  选择云产品，找到您想要取消的正在清洗中的IP，单击**查看详情**。
 3.  单击**取消清洗**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10166/156872178350257_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10166/156872258950257_zh-CN.png)
 
 
 ## 怎么申请云服务器ECS反向解析？ {#section_24x_y33_pml .section}
@@ -173,7 +173,7 @@ dig -x 121.196.255.** +trace +nodnssec
 -   如果您的实例创建后已经超过六小时，不会显示**更换公网IP**选项。
 -   如果您为您的账号设置了**VPC内实例停机不收费**模式，请务必在停止实例时勾选**停止后仍旧保留实例并继续收费**，避免公网IP地址被暂时性释放。更多详情，请参见[按量付费实例停机不收费](../intl.zh-CN/产品定价/按量付费实例停机不收费.md#)。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9656/156872178344752_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9656/156872258944752_zh-CN.jpg)
 
 
 ## 除了更换公网IP地址？我还可以更换私网IP地址吗？ {#section_q67_0xd_eps .section}
