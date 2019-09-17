@@ -1,10 +1,11 @@
 # DescribeInstances {#doc_api_Ecs_DescribeInstances .reference}
 
-调用DescribeInstances查询一台或多台实例的详细信息。
+调用DescribeInstances查询一台或多台ECS实例的详细信息。
 
 ## 接口说明 {#description .section}
 
-请求参数的作用类似于一个过滤器，过滤器为逻辑与（AND）关系。如果某一参数为空，则过滤器不起作用。但是参数InstanceIds如果是一个空JSON数组，则视为该过滤器有效，且返回空。
+-   请求参数的作用类似于一个过滤器，过滤器为逻辑与（AND）关系。如果某一参数为空，则过滤器不起作用。但是参数InstanceIds如果是一个空JSON数组，则视为该过滤器有效，且返回空。
+-   如果您使用的是RAM用户账号或者RAM角色，当用户或者角色缺乏接口权限时，将会返回空列表。您可以在请求中加入`DryRun`参数，判断是否因权限问题导致的空列表现象。
 
 ## 调试 {#api_explorer .section}
 
@@ -32,7 +33,7 @@
 |InstanceNetworkType|String|否|vpc|实例网络类型。取值范围：
 
  -   classic：经典网络
--   vpc：VPC
+-   vpc：专有网络VPC
 
  |
 |SecurityGroupId|String|否|sg-securitygroupid1|实例所属的安全组。
@@ -57,10 +58,10 @@
 |PrivateIpAddresses|String|否|\["172.16.1.1", "172.16.2.1", … "172.16.10.1"\]|VPC网络类型实例的私有IP。当InstanceNetworkType=vpc时生效，取值可以由多个IP组成一个JSON数组，最多支持100个IP，IP之间用半角逗号（,）隔开。
 
  |
-|PublicIpAddresses|String|否|\["42.1.1.1", "42.1.2.1", … "42.1.10.1"\]|实例的公网IP列表。当InstanceNetworkType=classic时生效，取值可以由多个IP组成一个JSON数组，最多支持100个IP，IP之间用半角逗号（,）隔开。
+|PublicIpAddresses|String|否|\["42.1.1.\*\*", "42.1.2.\*\*", … "42.1.10.\*\*"\]|实例的公网IP列表。当InstanceNetworkType=classic时生效，取值可以由多个IP组成一个JSON数组，最多支持100个IP，IP之间用半角逗号（,）隔开。
 
  |
-|EipAddresses|String|否|\["42.1.1.1", "42.1.2.1", … "42.1.10.1"\]|实例的弹性公网IP列表。当InstanceNetworkType=vpc时该参数生效，取值可以由多个IP组成一个JSON数组，最多支持100个IP，IP之间用半角逗号（,）隔开。
+|EipAddresses|String|否|\["42.1.1.\*\*", "42.1.2.\*\*", … "42.1.10.\*\*"\]|实例的弹性公网IP列表。当InstanceNetworkType=vpc时该参数生效，取值可以由多个IP组成一个JSON数组，最多支持100个IP，IP之间用半角逗号（,）隔开。
 
  |
 |InstanceChargeType|String|否|PostPaid|实例的计费方式。取值范围：
@@ -101,7 +102,7 @@
 |Tag.N.Key|String|否|FinanceDept|实例的标签键。N的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持64个字符，不能以aliyun和acs:开头，不能包含http://或者https://。
 
  |
-|Tag.N.Value|String|否|FinanceDeptJoshua|实例的标签值。N的取值范围：1~20。一旦传入该值，则不允许为空字符串。最多支持128个字符，不能以aliyun和acs:开头，不能包含http://或者https://。
+|Tag.N.Value|String|否|FinanceDeptJoshua|实例的标签值。N的取值范围：1~20。一旦传入该值，允许为空字符串。最多支持128个字符，不能以aliyun和acs:开头，不能包含http://或者https://。
 
  |
 |InstanceType|String|否|ecs.g5.larger|实例的规格。
@@ -136,21 +137,24 @@
 |Instances| | |由InstanceAttributesType组成的数组格式，返回实例的信息。
 
  |
+|Instance| | |由InstanceAttributesType组成的数组格式，返回实例的信息。
+
+ |
 |AutoReleaseTime|String|2017-12-10T04:04Z|按量付费实例的自动释放时间。
 
  |
-|ClusterId|String|c-clusterid1|实例所在的集群 ID。
+|ClusterId|String|c-clusterid1|实例所在的集群ID。
 
  **说明：** 该参数即将被弃用，为提高兼容性，请尽量使用其他参数。
 
  |
-|Cpu|Integer|8|vCPU 核数。
+|Cpu|Integer|8|vCPU核数。
 
  |
 |CreationTime|String|2017-12-10T04:04Z|实例创建时间。
 
  |
-|CreditSpecification|String|Standard|修改t5突发性能实例的运行模式。取值范围：
+|CreditSpecification|String|Standard|修改突发性能实例的运行模式。取值范围：
 
  -   Standard：标准模式，实例性能请参见[什么是突发性能实例](~~59977~~)下的性能约束模式章节。
 -   Unlimited：无性能约束模式，实例性能请参见[什么是突发性能实例](~~59977~~)下的无性能约束模式章节。
@@ -216,13 +220,13 @@
  默认值：5。
 
  |
-|InternetChargeType|String|PayByTraffic|弹性公网 IP 的计费方式。
+|InternetChargeType|String|PayByTraffic|弹性公网IP的计费方式。
 
  |
-|IpAddress|String|xxx.xx.xxx.xx|弹性公网 IP。
+|IpAddress|String|xxx.xx.xxx.xx|弹性公网IP。
 
  |
-|IsSupportUnassociate|Boolean|true|是否可以解绑弹性公网 IP。
+|IsSupportUnassociate|Boolean|true|是否可以解绑弹性公网IP。
 
  |
 |ExpiredTime|String|2017-12-10T04:04Z|过期时间。按照[ISO8601](~~25696~~)标准表示，并使用UTC +0时间，格式为yyyy-MM-ddTHH:mm:ssZ。
@@ -246,6 +250,9 @@
 |InnerIpAddress| |10.170.XX.XXX|实例的内网IP地址。
 
  |
+|IpAddress| | |实例的内网IP地址。
+
+ |
 |InstanceChargeType|String|PostPaid|实例的计费方式。可能值：
 
  -   PrePaid：包年包月。
@@ -260,8 +267,8 @@
  |
 |InstanceNetworkType|String|vpc|实例网络类型。可能值：
 
- -   Classic
--   Vpc
+ -   classic
+-   vpc
 
  |
 |InstanceType|String|ecs.g5.large|实例规格。
@@ -300,25 +307,34 @@
 |NetworkInterfaces| | |实例包含的弹性网卡集合。
 
  |
+|NetworkInterface| | |实例包含的弹性网卡集合。
+
+ |
 |MacAddress|String|00:16:3e:32:b4:dc|弹性网卡的MAC地址。
 
  |
-|NetworkInterfaceId|String|eni-2zeh9atclduxvf1zc\*\*\*|弹性网卡的 ID
+|NetworkInterfaceId|String|eni-2zeh9atclduxvf1zc\*\*\*|弹性网卡的ID。
 
  |
-|PrimaryIpAddress|String|172.17.XX.XXX|弹性网卡主私有 IP 地址
+|PrimaryIpAddress|String|172.17.XX.XXX|弹性网卡主私有IP地址。
 
  |
-|OSName|String|Ubuntu 16.04 64|实例的操作系统名称。
+|OSName|String|CentOS 7.4 64 位|实例的操作系统名称。
 
  |
-|OSNameEn|String|Ubuntu 16.04 64|实例操作系统的英文名称。
+|OSNameEn|String|CentOS 7.4 64 bit|实例操作系统的英文名称。
 
  |
-|OSType|String|linux|实例的操作系统类型，分为Windows和Linux两种。
+|OSType|String|linux|实例的操作系统类型，分为Windows Server和Linux两种。可能值：
+
+ -   windows
+-   linux
 
  |
 |OperationLocks| | |实例的锁定原因。
+
+ |
+|LockReason| | |实例的锁定原因。
 
  |
 |LockMsg|String|The specified instance is locked due to financial reason.|实例被锁定的描述信息。
@@ -335,7 +351,13 @@
 |PublicIpAddress| |172.17.XX.XXX|实例公网IP地址。
 
  |
+|IpAddress| | |实例公网IP地址。
+
+ |
 |RdmaIpAddress| |10.10.10.102|HPC实例的Rdma网络IP。
+
+ |
+|IpAddress| | |HPC实例的Rdma网络IP。
 
  |
 |Recyclable|Boolean|false|实例是否可以回收。
@@ -357,7 +379,10 @@
 |SecurityGroupIds| |sg-securitygroupid1|实例所属安全组集合。
 
  |
-|SerialNumber|String|51d1353b-22bf-4567-a176-8b3e12e43135|实例序列号。
+|SecurityGroupId| | |实例所属安全组集合。
+
+ |
+|SerialNumber|String|51d1353b-22bf-4567-a176-8b3e12e43\*\*\*|实例序列号。
 
  |
 |SpotPriceLimit|Float|0.98|实例的每小时最高价格。支持最大3位小数，参数SpotStrategy=SpotWithPriceLimit时，该参数生效。
@@ -368,8 +393,6 @@
  -   NoSpot：正常按量付费实例。
 -   SpotWithPriceLimit：设置上限价格的抢占式实例。
 -   SpotAsPriceGo：系统自动出价，最高按量付费价格。
-
- 默认值：NoSpot。
 
  |
 |StartTime|String|2017-12-10T04:04Z|实例的竞价模式开始时间。
@@ -386,6 +409,9 @@
 
  |
 |Tags| | |实例的标签集合。
+
+ |
+|Tag| | |实例的标签集合。
 
  |
 |TagKey|String|FinanceDept|实例的标签键。
@@ -406,6 +432,9 @@
 
  |
 |PrivateIpAddress| |172.17.XX.XXX|私有IP地址。
+
+ |
+|IpAddress| | |私有IP地址。
 
  |
 |VSwitchId|String|vsw-2zeh0r1pabwtg6wcss\*\*\*|虚拟交换机ID。
@@ -474,7 +503,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInstances
             <InternetChargeType>PayByBandwidth</InternetChargeType>
             <SpotStrategy>NoSpot</SpotStrategy>
             <StoppedMode>Not-applicable</StoppedMode>
-            <SerialNumber>d9bd1cdc-624d-4736-9da5-2ba2f741a304</SerialNumber>
+            <SerialNumber>d9bd1cdc-624d-4736-9da5-2ba2f741a***</SerialNumber>
             <IoOptimized>true</IoOptimized>
             <Memory>8192</Memory>
             <Cpu>2</Cpu>
@@ -563,7 +592,7 @@ https://ecs.aliyuncs.com/?Action=DescribeInstances
 				"InternetChargeType":"PayByTraffic",
 				"HostName":"iZ94t3s0j***",
 				"InstanceType":"ecs.s2.large",
-				"SerialNumber":"51d1353b-22bf-4567-a176-8b3e12e43135",
+				"SerialNumber":"51d1353b-22bf-4567-a176-8b3e12e43***",
 				"IoOptimized":"false",
 				"CreationTime":"2015-07-27T07:08Z",
 				"Status":"Running",
