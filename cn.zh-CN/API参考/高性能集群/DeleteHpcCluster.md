@@ -71,5 +71,5 @@ https://ecs.aliyuncs.com/?Action=DeleteHpcCluster
 |400|NotExists.HpcCluster|The specified hpc cluster does not exist.|hpc集群不存在。|
 |400|NotEmpty.HpcCluster|The specified hpc cluster is not empty, still contains instances.|hpc集群非空，包含实例，无法删除。|
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Ecs)查看更多错误码。
 
