@@ -314,7 +314,7 @@
  由于专有宿主机不支持创建抢占式实例，指定`DedicatedHostId`参数后，会自动忽略请求中的`SpotStrategy`和`SpotPriceLimit`设置。
 
  |
-|CreditSpecification|String|否|Standard|修改t5突发性能实例的运行模式。取值范围：
+|CreditSpecification|String|否|Standard|修改突发性能实例的运行模式。取值范围：
 
  -   Standard：标准模式，实例性能请参见[什么是突发性能实例](~~59977~~)下的性能约束模式章节。
 -   Unlimited：无性能约束模式，实例性能请参见[什么是突发性能实例](~~59977~~)下的无性能约束模式章节。
@@ -469,10 +469,8 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |403|CategoryNotSupported|The specified cluster does not offer the specified disk category.|指定的集群没有提供该磁盘种类。|
 |404|InvalidVSwitchId.NotFound|Specified virtual switch does not exist.|指定的虚拟交换机ID不存在。|
 |400|InvalidParameter.Mismatch|Specified security group and virtual switch are not in the same VPC.|指定的安全组与虚拟交换机不在同一专有网络中。|
-|400|InvalidNetworkType.Mismatch|Specified parameter "InternetMaxBandwidthIn" or "InternetMaxBandwidthOut" conflict with instance network type.|网络类型不匹配,|
 |400|InvalidNetworkType.Mismatch|Specified parameter "InternetChargeType" conflict with instance network type.|实例的网络类型不支持指定的网络计费方式。|
 |400|InvalidPrivateIpAddress|Specified private IP address is not in the CIDR block of virtual switch.|指定的私有 IP 地址不属于交换机的 CIDR 网段。|
-|400|InvalidPrivateIpAddress.Malformed|Specified private IP address is malformed.|指定的私有IP不合法。|
 |400|InvalidPrivateIpAddress.Duplicated|Specified private IP address is duplicated.|指定的私网IP已经被使用，请您更换IP再重试。|
 |400|QuotaExceeded.PrivateIpAddress|Don't have enough private IPs in this switch|虚拟交换机下的私有IP已经被使用完，请您使用其他的虚拟交换机。|
 |400|QuotaExceeded|Living instances quota exceeded in this VPC.|活跃的实例已达上限。|
@@ -549,7 +547,6 @@ https://ecs.aliyuncs.com/?Action=CreateInstance
 |400|Zone.NotOnSale|%s|可用区关闭。|
 |400|InvalidSystemDiskSize.ValueNotSupported|%s|参数不支持。|
 |400|InvalidDataDiskSize.ValueNotSupported|%s|参数不支持。|
-|404|InvalidKeyPairName.NotFound|The specified parameter "KeyPairName" does not exist in our records.|密钥对不存在,|
 |403|DependencyViolation.WindowsInstance|The instance creating is window, cannot use ssh key pair to login.|Windows操作系统不支持SSH密钥对。|
 |400|InvalidInstanceType.ValueNotSupported|The specified parameter "KeyPairName" only support IoOptimized Instance.|非I/O优化实例不支持密钥对。|
 |403|RealNameAuthenticationError|Your account has not passed the real-name authentication yet.|您的帐户尚未通过实名认证，请先实名认证后再操作。|
