@@ -2,9 +2,9 @@
 
 调用DescribeHpcClusters查询您可用的HPC集群。请求参数作为筛选器（Filter）使用，筛选关系为逻辑与（&&）关系，参数之间无依赖关系。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=DescribeHpcClusters)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=DescribeHpcClusters&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
@@ -84,24 +84,23 @@ https://ecs.aliyuncs.com/?Action=DescribeHpcClusters
 
 ``` {#xml_return_success_demo}
 <DescribeHpcClustersResponse>
-  <PageNumber>1</PageNumber>
-  <TotalCount>2</TotalCount>
-  <HpcClusters>
-    <HpcCluster>
-      <Name>chuatest1</Name>
-      <Description>desc</Description>
-      <HpcClusterId>hpc-l6ack54lcr2g17563***</HpcClusterId>
-    </HpcCluster>
-    <HpcCluster>
-      <Name>chuatest2</Name>
-      <Description>desc</Description>
-      <HpcClusterId>hpc-l6aam7fivcfd21fun***</HpcClusterId>
-    </HpcCluster>
-  </HpcClusters>
-  <PageSize>10</PageSize>
-  <RequestId>168D82CE-F8A0-4200-AC5C-26FD94438423</RequestId>
+    <PageNumber>1</PageNumber>
+    <TotalCount>2</TotalCount>
+    <HpcClusters>
+        <HpcCluster>
+            <Name>chuatest1</Name>
+            <Description>desc</Description>
+            <HpcClusterId>hpc-l6ack54lcr2g17563***</HpcClusterId>
+        </HpcCluster>
+        <HpcCluster>
+            <Name>chuatest2</Name>
+            <Description>desc</Description>
+            <HpcClusterId>hpc-l6aam7fivcfd21fun***</HpcClusterId>
+        </HpcCluster>
+    </HpcClusters>
+    <PageSize>10</PageSize>
+    <RequestId>168D82CE-F8A0-4200-AC5C-26FD94438423</RequestId>
 </DescribeHpcClustersResponse>
-
 ```
 
 `JSON` 格式
@@ -139,5 +138,5 @@ https://ecs.aliyuncs.com/?Action=DescribeHpcClusters
 |400|InvalidHpcClusterIds.Malformed|The amount of specified specified hpc cluster ids is invalid.|批量查询的hpcClusterIds参数不合法。|
 |400|Invalid.Parameter|Invalid parameters.|参数不合法。|
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Ecs)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Ecs)查看更多错误码。
 
