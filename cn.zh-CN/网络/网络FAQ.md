@@ -12,14 +12,10 @@
     -   [为什么云监控显示的云服务器ECS带宽和ECS控制台显示带宽不一致？](#section_tsb_lpy_gvz)
     -   [ECS实例为已停止状态，为什么按流量计费公网带宽仍产生出网流量？](#section_d7h_fs2_xu8)
 -   IP地址问题
-    -   [ECS实例从经典网络迁移到专有网络VPC，内网IP会变化吗？](#section_0ix_w2y_ioa)
     -   [？](#section_vpl_qbg_qgb)
-    -   [如何查询IP地址的详细信息？](#section_gzn_x1g_qgb)
     -   [如何禁用ECS实例的公网网卡？](#section_bxf_ywf_qgb)
-    -   [如何查看弹性公网IP的流量和带宽监控信息？](#section_86u_m71_ixs)
 -   网络访问和流量定向问题
     -   [为什么不能访问云服务器ECS上的网站？](#section_cwr_y3g_4gb)
-    -   [云盾是否有屏蔽IP的功能？](#section_ftb_ngg_4gb)
     -   [云服务器ECS出现了异地登录怎么办？](#section_mgg_dhg_4gb)
     -   [什么是流量清洗？](#section_4xo_and_tfv)
     -   [云服务器ECS怎么取消流量清洗？](#section_r2g_vg8_gtv)
@@ -66,11 +62,11 @@
 
 ## 云服务器ECS的公网带宽怎么收费？ {#section_hex_69p_rar .section}
 
-详情请参见[公网带宽计费](../cn.zh-CN/产品定价/公网带宽计费.md#)。
+详情请参见[公网带宽计费](../intl.zh-CN/产品定价/公网带宽计费.md#)。
 
 ## 为何新建的ECS实例就有200 Kbps左右入网流量？ {#section_duq_s7w_t96 .section}
 
-该流量是由ARP（Adjustable Radio Pouch）广播包产生的。因为每台ECS实例都被分配到一个较大的网段中，在同一网段里，每当有ECS实例与网关之间进行ARP广播时，您新建的ECS实例都会收到请求报文。但是，只要请求的不是您ECS实例的IP地址，您的ECS实例就不需要发送响应报文。
+该流量是由ARP（Address Resolution Protocol）广播包产生的。因为每台ECS实例都被分配到一个较大的网段中，在同一网段里，每当有ECS实例与网关之间进行ARP广播时，您新建的ECS实例都会收到请求报文。但是，只要请求的不是您ECS实例的IP地址，您的ECS实例就不需要发送响应报文。
 
 ## 如何查看云服务器ECS公网流量统计信息？ {#section_r5a_u6t_chb .section}
 
@@ -93,10 +89,6 @@
 -   原因分析：ECS实例开启了CC安全防护。开启CC安全防护后，安全机制会主动发送探测包对攻击源进行探测，可能会产生较大的出网流量。
 -   解决方法：关闭CC安全防护。
 
-## ECS实例从经典网络迁移到专有网络VPC，内网IP会变化吗？ {#section_0ix_w2y_ioa .section}
-
-会。由于经典网络和专有网络VPC划分子网网段的方式不一样，ECS实例迁移了网络类型后，内网IP会发生变化。但公网IP保持不变。更多详情，请参见[经典网络迁移至专有网络](cn.zh-CN/网络/经典网络迁移至专有网络.md#)。
-
 ## 如何查询ECS实例的IP地址？ {#section_vpl_qbg_qgb .section}
 
 -   Linux实例
@@ -107,10 +99,6 @@
 
     在命令窗口，通过`ipconfig /all`查看网卡信息。您可以查看IP地址、子网掩码、网关、DNS、MAC地址等信息。
 
-
-## 如何查询IP地址的详细信息？ {#section_gzn_x1g_qgb .section}
-
-您可以登录[淘宝IP地址库](http://ip.taobao.com/ipSearch.html)，查询IP地址所属的国家或地区、省份、城市、县、运营商等信息。
 
 ## 如何禁用ECS实例的公网网卡？ {#section_bxf_ywf_qgb .section}
 
@@ -124,22 +112,11 @@
     1.  在命令窗口，通过`ipconfig`查看网卡信息。
     2.  打开**控制面板** \> **网络和共享中心** \> **更改适配器设置**，禁用网卡。
 
-## 如何查看弹性公网IP的流量和带宽监控信息？ {#section_86u_m71_ixs .section}
-
-详情请参见 *弹性公网IP文档* [高精度秒级监控](../../../../../cn.zh-CN/用户指南/高精度秒级监控/概述.md#)。
-
 ## 为什么不能访问云服务器ECS上的网站？提示”很抱歉，由于你访问的URL可能对网站造成安全威胁，您的访问被阻断“ {#section_cwr_y3g_4gb .section}
 
 -   问题现象：访问云服务器ECS搭建上的网站时，提示很抱歉，由于您访问的URL可能对网站造成安全威胁，您的访问被阻断。
 -   原因分析：云盾的应用防火墙对您的URL访问判定存在攻击行为，进行安全拦截。
--   解决方法：将本地公网IP，添加到云盾应用防火墙的白名单中。详情请参见[通过设置白名单解决因误判IP被拦截问题](../../../../../cn.zh-CN/DDoS基础防护服务/用户指南/通过设置白名单解决因误判IP被拦截问题.md#)。
-
-## 云盾是否有屏蔽IP的功能？ {#section_ftb_ngg_4gb .section}
-
-目前，云盾没有单独屏蔽IP的功能。
-
--   如果您使用的ECS实例是Windows系统，您可以参见[ECS Windows通过IIS6.0屏蔽IP访问](https://help.aliyun.com/document_detail/38327.html)。
--   如果您使用的ECS实例是Linux系统，您可以参见[ECS Linux 系统屏蔽某个IP的访问](https://help.aliyun.com/document_detail/41213.html)。
+-   解决方法：将本地公网IP，添加到云盾应用防火墙的白名单中。详情请参见[通过设置白名单解决因误判IP被拦截问题](../../../../../intl.zh-CN/DDoS基础防护服务/用户指南/通过设置白名单解决因误判IP被拦截问题.md#)。
 
 ## 云服务器ECS出现了异地登录怎么办？ {#section_mgg_dhg_4gb .section}
 
@@ -147,9 +124,9 @@
 
 1.  确认异地登录的时间点，是否是自己或者其他管理员登录。
 2.  如果不是合法管理员登录的，可执行以下操作：
-    1.  立即[重置密码](../cn.zh-CN/实例/管理实例/重置实例登录密码.md#)。
-    2.  排查是否被病毒攻击，请参见[云服务器ECS中病毒/木马了怎么办](https://help.aliyun.com/knowledge_detail/40994.html)。
-    3.  使用安全组功能设置[只允许特定的IP登录](../cn.zh-CN/安全/安全组/安全组应用案例.md#specifyIpAccess)。
+    1.  立即[重置密码](../intl.zh-CN/实例/管理实例/重置实例登录密码.md#)。
+    2.  排查是否被病毒攻击。
+    3.  使用安全组功能设置[只允许特定的IP登录](../intl.zh-CN/安全/安全组/安全组应用案例.md#specifyIpAccess)。
 
 ## 什么是流量清洗？ {#section_4xo_and_tfv .section}
 
@@ -161,14 +138,14 @@
 2.  选择云产品，找到您想要取消的正在清洗中的IP，单击**查看详情**。
 3.  单击**取消清洗**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10166/156819416350257_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10166/156872178350257_zh-CN.png)
 
 
 ## 怎么申请云服务器ECS反向解析？ {#section_24x_y33_pml .section}
 
 反向解析常用于邮件服务。启动该功能后，可以拒绝接收所有没有注册域名的地址发来的信息。多数垃圾邮件发送者使用动态分配或者没有注册域名的IP地址发送垃圾邮件，逃避追踪。您可以在邮件服务器上拒绝接收来自没有域名的站点发来的信息，降低垃圾邮件的数量。
 
-您可以[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm)申请反向解析。建议您在工单中注明ECS实例所在的地域、公网IP地址和注册域名，提高流程效率。
+您可以[提交工单](https://workorder-intl.console.aliyun.com/#/ticket/createIndex)申请反向解析。建议您在工单中注明ECS实例所在的地域、公网IP地址和注册域名，提高流程效率。
 
 申请成功后，您可以使用dig命令查看是否生效。例如：
 
@@ -188,26 +165,26 @@ dig -x 121.196.255.** +trace +nodnssec
 
 ## 实例创建六小时以后可以更换公网IP（IPv4）地址吗？怎么更换？ {#section_c7c_7n5_fae .section}
 
--   专有网络VPC类型实例：可以。具体通过[专有网络公网IP转换为弹性公网IP](cn.zh-CN/网络/修改IPv4地址/专有网络公网IP转换为弹性公网IP.md#)功能更换公网IP地址。
+-   专有网络VPC类型实例：可以。具体通过[专有网络公网IP转换为弹性公网IP](intl.zh-CN/网络/修改IPv4地址/专有网络公网IP转换为弹性公网IP.md#)功能更换公网IP地址。
 -   经典网络类型实例：不可以。
 
 ## 为什么我在ECS管理控制台上看不到更换公网IP选项？ {#section_y27_eqe_lgp .section}
 
 -   如果您的实例创建后已经超过六小时，不会显示**更换公网IP**选项。
--   如果您为您的账号设置了**VPC内实例停机不收费**模式，请务必在停止实例时勾选**停止后仍旧保留实例并继续收费**，避免公网IP地址被暂时性释放。更多详情，请参见[按量付费实例停机不收费](../cn.zh-CN/产品定价/按量付费实例停机不收费.md#)。
+-   如果您为您的账号设置了**VPC内实例停机不收费**模式，请务必在停止实例时勾选**停止后仍旧保留实例并继续收费**，避免公网IP地址被暂时性释放。更多详情，请参见[按量付费实例停机不收费](../intl.zh-CN/产品定价/按量付费实例停机不收费.md#)。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9656/156819416344752_zh-CN.jpg)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9656/156872178344752_zh-CN.jpg)
 
 
 ## 除了更换公网IP地址？我还可以更换私网IP地址吗？ {#section_q67_0xd_eps .section}
 
--   专有网络VPC类型实例：可以。具体操作请参见[修改私网IP地址](cn.zh-CN/网络/修改IPv4地址/修改私网IP地址.md#)。
+-   专有网络VPC类型实例：可以。具体操作请参见[修改私网IP地址](intl.zh-CN/网络/修改IPv4地址/修改私网IP地址.md#)。
 -   经典网络类型实例：不可以。
 
 ## 如果在创建实例时未分配公网IP（IPv4）地址，实例创建成功后怎么获得公网IP地址？ {#section_9rr_e3x_ks1 .section}
 
--   预付费实例：您可以通过升降公网带宽配置分配公网IP地址，更多信息，请参考[升降配方式汇总](../cn.zh-CN/实例/升降配实例/升降配方式汇总.md#)。
--   按量付费实例：无法再分配公网IP地址。如有公网访问需求，您只能[绑定弹性公网IP（EIP）地址](https://help.aliyun.com/document_detail/27714.html)。
+-   预付费实例：您可以通过升降公网带宽配置分配公网IP地址，更多信息，请参考[升降配方式汇总](../intl.zh-CN/实例/升降配实例/升降配方式汇总.md#)。
+-   按量付费实例：无法再分配公网IP地址。如有公网访问需求，您只能[绑定弹性公网IP（EIP）地址](https://www.alibabacloud.com/help/doc-detail/27714.htm)。
 
 ## 什么是BGP机房？ {#section_hmd_spf_qgb .section}
 
@@ -241,5 +218,5 @@ BGP（边界网关协议）主要用于互联网AS（自治系统）之间的互
 
 ## 如何查看资源的限额？ {#section_ubf_rd5_utp .section}
 
-查看资源的使用限制和限额，请参见[使用限制](../cn.zh-CN/产品简介/使用限制.md#)。
+查看资源的使用限制和限额，请参见[使用限制](../intl.zh-CN/产品简介/使用限制.md#)。
 
