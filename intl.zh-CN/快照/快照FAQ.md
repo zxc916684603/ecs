@@ -54,7 +54,7 @@
 
 单GiB价格与OSS标准型存储一致，单位为USD/GiB/月。阿里云各地域的快照价格表请参见[云服务器ECS产品详情页](https://www.alibabacloud.com/product/ecs)的定价页面。向下滚动鼠标至**快照价格**处，根据地域查看价格列表。您也可以单击**Download price**下载CSV或者JSON格式的价格列表。
 
-![Download price](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10124/156801540951569_zh-CN.png)
+![Download price](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10124/156871304651569_zh-CN.png)
 
 ## 账号欠费对快照有什么影响？ {#section_qs5_lyg_4gb .section}
 
@@ -106,7 +106,7 @@
 
 您在磁盘分区上创建的是文件系统。文件系统负责管理磁盘空间，管理操作最终均转化为磁盘的I/O请求。磁盘会记录数据块状态，按需将数据一并拷贝到对象存储OSS，这就是创建快照的过程。文件系统与快照之间的关系如下图所示：
 
-![文件系统与云盘和快照的关系](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10122/156801540939434_zh-CN.png)
+![文件系统与云盘和快照的关系](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/10122/156871304639434_zh-CN.png)
 
 **说明：** 上图中，只要被写过数据的数据块，即使在磁盘中的相关文件已经被删除，数据块仍会被记录到快照中。文件系统中所谓删除只是在需要删除的文件头部做个标记，让您知道这块空间可以利用了，不会减少磁盘本身的空间占用。
 
