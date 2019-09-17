@@ -1,10 +1,10 @@
-# ModifyHpcClusterAttribute {#doc_api_1022305 .reference}
+# ModifyHpcClusterAttribute {#doc_api_Ecs_ModifyHpcClusterAttribute .reference}
 
-修改一个 HPC 集群的描述信息。
+调用ModifyHpcClusterAttribute修改一个HPC集群的描述信息。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Ecs&api=ModifyHpcClusterAttribute)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Ecs&api=ModifyHpcClusterAttribute&type=RPC&version=2014-05-26)
 
 ## 请求参数 {#parameters .section}
 
@@ -19,7 +19,7 @@
 |Action|String|否|ModifyHpcClusterAttribute|系统规定参数。取值：ModifyHpcClusterAttribute
 
  |
-|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken** 只支持 ASCII 字符，且不能超过 64 个字符。更多详情，请参阅 [如何保证幂等性](~~25693~~)。
+|ClientToken|String|否|123e4567-e89b-12d3-a456-426655440000|保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。**ClientToken**只支持ASCII字符，且不能超过64个字符。更多详情，请参见[如何保证幂等性](~~25693~~)。
 
  |
 |Description|String|否|FinanceDept|HPC 集群描述。长度为 2~256 个英文或中文字符，不能以 http:// 和 https:// 开头。默认值：空。
@@ -28,11 +28,8 @@
 |Name|String|否|FinanceJoshua|HPC 集群名称。长度为 2~128 个英文或中文字符。必须以大小字母或中文开头，不能以 http:// 和 https:// 开头。可以包含数字、半角冒号（:）、下划线（\_）或者连字符（-）。默认值：空。
 
  |
-|OwnerAccount|String|否|EcsforCloud@Alibaba.com|RAM用户的账号登录名称。
 
- |
-
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -45,12 +42,10 @@
 请求示例
 
 ``` {#request_demo}
-
 https://ecs.aliyuncs.com/?Action=ModifyHpcClusterAttribute
 &HpcClusterId=hpc-hpcclusterid1
 &RegionId=cn-hangzhou
 &<公共请求参数>
-
 ```
 
 正常返回示例
@@ -59,9 +54,8 @@ https://ecs.aliyuncs.com/?Action=ModifyHpcClusterAttribute
 
 ``` {#xml_return_success_demo}
 <ModifyHpcClusterAttributeResponse>
-  <RequestId>04F0F334-1335-436C-A1D7-6C044FE73368</RequestId>
+      <RequestId>04F0F334-1335-436C-A1D7-6C044FE73368</RequestId>
 </ModifyHpcClusterAttributeResponse>
-
 ```
 
 `JSON` 格式
@@ -85,5 +79,5 @@ https://ecs.aliyuncs.com/?Action=ModifyHpcClusterAttribute
 |400|Invalid.Parameter|Invalid parameters|参数不合法。|
 |400|HpcClusterNotExists|The specified hpc cluster does not exist|指定的hpc集群不存在。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Ecs)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Ecs)查看更多错误码。
 
