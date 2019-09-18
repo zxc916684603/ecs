@@ -2,13 +2,13 @@
 
 Improper settings of security group rules may impose serious security risks. You can modify improper rules in a security group.
 
-## Context {#section_ypy_3sz_ggb .section}
-
-If security group rules do not restrict access to certain ports, it will cause serious security risks. You can review your current security group rules by referring to [Overview of risky security groups](reseller.en-US/Best Practices/Security/View an overview of risky security groups.md#), and modify any improperly set rules to ensure the security of your ECS instances.
-
-## Prerequisites {#section_u5f_4sz_ggb .section}
+## Prerequisites {#section_usp_g9k_soz .section}
 
 You have [created a security group](reseller.en-US/Security/Security groups/Create a security group.md#), and [added security group rules](reseller.en-US/Security/Security groups/Add security group rules.md#) in that security group.
+
+## Context {#section_ypy_3sz_ggb .section}
+
+If security group rules do not restrict access to certain ports, it will cause serious security risks. You can review your current security group rules and modify any improperly set rules to ensure the security of your ECS instances.
 
 ## Procedure {#section_swc_rsz_ggb .section}
 
@@ -29,12 +29,12 @@ You have [created a security group](reseller.en-US/Security/Security groups/Crea
 
 ## API operations {#section_f2p_dwz_ggb .section}
 
-You can call [ModifySecurityGroupRule](../reseller.en-US/API Reference/Security groups/ModifySecurityGroupRule.md#) to modify an inbound rule.
+You can call [ModifySecurityGroupRule](../../../../reseller.en-US/API Reference/Security groups/ModifySecurityGroupRule.md#) to modify an inbound rule.
 
 ## What to do next {#section_t2q_c5z_ggb .section}
 
--   If you want to view specific inbound and outbound rules, you can [query security group rules](reseller.en-US//Manage security group rules.md#).
--   If you need to back up security group rules, you can [export security group rules](reseller.en-US//Export security group rules.md#).
--   If you want to create or restore security group rules quickly, you can [import security group rules](reseller.en-US//Import security group rules.md#).
+-   To view specific inbound and outbound rules, you can [query security group rules](reseller.en-US//Manage security group rules.md#).
+-   To back up security group rules, you can [export security group rules](reseller.en-US//Export security group rules.md#).
+-   To create or restore security group rules quickly, you can [import security group rules](reseller.en-US//Import security group rules.md#).
 -   If you no longer need a security group rule, you can [delete security group rules](reseller.en-US//Delete a security group rule.md#).
 
