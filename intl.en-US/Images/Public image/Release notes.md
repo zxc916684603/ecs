@@ -2,6 +2,85 @@
 
 This topic describes the release notes of images and their updates.
 
+## August 29, 2019 {#section_wzs_d7d_rt5 .section}
+
+|Release|Description|
+|:------|:----------|
+|Aliyun Linux 2| -   Image ID: aliyun\_2\_1903\_64\_20G\_alibase\_20190829.vhd
+-   Kernel version: 4.19.57-13.2.al7.x86\_64
+-   Released in: China \(Qingdao\), China \(Beijing\), China \(Zhangjiakou-Beijing Winter Olympics\), and China \(Hohhot\)
+-   Changes:
+    -   Fixed the Spectre SWAPGS vulnerability
+    -   Fixed redundant IO accounting for bios that need splitting
+    -   Set the default TCP congestion control algorithm to CUBIC
+    -   Modified Virtio Vsockets as a module
+    -   Configured the network to 10-eth0.network
+
+ |
+
+## August 16, 2019 {#section_ki2_9i7_eht .section}
+
+|Release|Description|
+|:------|:----------|
+|Windows Server Version 1903 Datacenter Edition| -   Image ID:
+    -   winsvr\_64\_dtcC\_1903\_zh-cn\_40G\_alibase\_20190816.vhd \(Chinese\)
+    -   winsvr\_64\_dtcC\_1903\_en-us\_40G\_alibase\_20190816.vhd \(English\)
+-   Released in: all regions
+-   Changes:
+    -   Updated to include the latest operating system patches
+    -   Fixed the CVE-2019-1181 and CVE-2019-1182 vulnerabilities
+
+ |
+|Windows Server 2019 Datacenter Edition| -   Image ID:
+    -   win2019\_64\_dtc\_1809\_zh-cn\_40G\_alibase\_20190816.vhd \(Chinese\)
+    -   win2019\_64\_dtc\_1809\_en-us\_40G\_alibase\_20190816.vhd \(English\)
+-   Released in: all regions
+-   Changes:
+    -   Updated to include the latest operating system patches
+    -   Fixed the CVE-2019-1181 and CVE-2019-1182 vulnerabilities
+
+ |
+|Windows Server 2016 Datacenter Edition| -   Image ID:
+    -   win2016\_64\_dtc\_1607\_zh-cn\_40G\_alibase\_20190816.vhd \(Chinese\)
+    -   win2016\_64\_dtc\_1607\_en-us\_40G\_alibase\_20190816.vhd \(English\)
+-   Released in: all regions
+-   Changes:
+    -   Updated to include the latest operating system patches
+    -   Fixed the CVE-2019-1181 and CVE-2019-1182 vulnerabilities
+
+ |
+|Windows Server 2012 R2 Datacenter Edition| -   Image ID:
+    -   win2012r2\_64\_dtc\_9600\_zh-cn\_40G\_alibase\_20190816.vhd \(Chinese\)
+    -   win2012r2\_64\_dtc\_9600\_en-us\_40G\_alibase\_20190816.vhd \(English\)
+-   Released in: all regions
+-   Changes:
+    -   Updated to include the latest operating system patches
+    -   Fixed the CVE-2019-1181 and CVE-2019-1182 vulnerabilities
+
+ |
+|Windows Server 2008 R2 Enterprise Edition| -   Image ID:
+    -   win2008r2\_64\_ent\_sp1\_zh-cn\_40G\_alibase\_20190816.vhd \(Chinese\)
+    -   win2008r2\_64\_ent\_sp1\_en-us\_40G\_alibase\_20190816.vhd \(English\)
+-   Released in: all regions
+-   Changes:
+    -   Updated to include the latest operating system patches
+    -   Fixed the CVE-2019-1181 and CVE-2019-1182 vulnerabilities
+
+ |
+
+## August 6, 2019 {#section_w1u_xie_u4c .section}
+
+|Release|Description|
+|:------|:----------|
+|FreeBSD 11.2| -   Image ID: freebsd\_11\_02\_64\_30G\_alibase\_20190806.vhd
+-   Kernel version: 11.2-RELEASE
+-   Released in: all regions
+-   Changes:
+    -   Fixed the clock offset error
+    -   Fixed the error causing 30-GiB system disk creation to fail
+
+ |
+
 ## July 18, 2019 {#section_qvh_jqx_77q .section}
 
 |Release|Description|
@@ -92,7 +171,7 @@ This topic describes the release notes of images and their updates.
 |Ubuntu 18.04| -   Image ID: ubuntu\_18\_04\_64\_20G\_alibase\_20190624.vhd
 -   Kernel version: 4.15.0-52-generic
 -   Released in: all regions
--   Changes: updated system patches and fixed the CVE-2019-11477 vulnerability
+-   Changes: updated to include the latest operating system patches and fixed the CVE-2019-11477 vulnerability
 
  |
 
@@ -103,7 +182,7 @@ This topic describes the release notes of images and their updates.
 |CentOS 6.10| -   Image ID: centos\_6\_10\_64\_20G\_alibase\_20190621.vhd
 -   Kernel version: 2.6.32-754.15.3.el6.x86\_64
 -   Released in: all regions
--   Changes: updated system patches and fixed the CVE-2019-11477 vulnerability
+-   Changes: updated to include the latest operating system patches and fixed the CVE-2019-11477 vulnerability
 
  |
 
@@ -114,7 +193,7 @@ This topic describes the release notes of images and their updates.
 |Ubuntu 16.04| -   Image ID: ubuntu\_16\_04\_64\_20G\_alibase\_20190620.vhd
 -   Kernel version: 4.4.0-151-generic
 -   Released in: all regions
--   Changes: updated system patches and fixed the CVE-2019-11477 vulnerability
+-   Changes: updated to include the latest operating system patches and fixed the CVE-2019-11477 vulnerability
 
  |
 
@@ -126,7 +205,7 @@ This topic describes the release notes of images and their updates.
 -   Kernel version: 3.10.0-957.21.3.el7.x86\_64
 -   Released in: all regions
 -   Changes:
-    -   Updated system patches and fixed the CVE-2019-11477 vulnerability
+    -   Updated to include the latest operating system patches and fixed the CVE-2019-11477 vulnerability
     -   Set the default CPU mode to performance
 
  |
@@ -139,7 +218,7 @@ This topic describes the release notes of images and their updates.
         -   Support for policy-based routing
         -   Support for the ss command from the iproute2 suite by enabling the INET\_DIAG kernel configuration
         -   Support for configurable kernel tcp\_tw\_timeout interfaces
-    -   Fixed network-related kernel vulnerabilities CVE-2019-11477, CVE-2019-11478, and CVE-2019-11479
+    -   Fixed the CVE-2019-11477, CVE-2019-11478, and CVE-2019-11479 network-related kernel vulnerabilities
 
  |
 
@@ -190,7 +269,7 @@ This topic describes the release notes of images and their updates.
 -   Released in: all regions
 -   Changes:
     -   Updated to include the latest operating system patches
-    -   Fixed the CVE-2019-0708 remote code-execution vulnerability in Microsoft Windows Remote Desktop Services
+    -   Fixed the CVE-2019-0708 remote code execution vulnerability in Microsoft Windows Remote Desktop Services
 
  |
 
@@ -204,7 +283,7 @@ This topic describes the release notes of images and their updates.
 -   Released in: all regions
 -   Changes:
     -   Updated to include the latest operating system patches
-    -   Fixed the CVE-2019-0708 remote code-execution vulnerability in Microsoft Windows Remote Desktop Services
+    -   Fixed the CVE-2019-0708 remote code execution vulnerability in Microsoft Windows Remote Desktop Services
 
  |
 
@@ -251,8 +330,8 @@ This topic describes the release notes of images and their updates.
 -   Kernel version: 4.19.34-11.al7.x86\_64
 -   Released in: all regions
 -   Changes:
-    -   Updated the system kernel and user mode package
-    -   Fixed the latency in time synchronization on instance startup
+    -   Updated the system kernel and user-mode package
+    -   Fixed time synchronization latency present on instance startup
 
  |
 
@@ -395,7 +474,7 @@ This topic describes the release notes of images and their updates.
     -   winsvr\_64\_dtcC\_1809\_en-us\_40G\_alibase\_20181222.vhd \(English\)
 -   Released in: all regions
 -   Changes:
-    -   Updated to include the latest patch KB4483235 \(released in December 2018\)
+    -   Updated to include the latest security patch KB4483235, released in December 2018
     -   Used the Sysprep tool to generalize the image
 
  |
@@ -403,9 +482,9 @@ This topic describes the release notes of images and their updates.
     -   win2008r2\_64\_ent\_sp1\_en-us\_40G\_alibase\_20181222.vhd \(English\)
 -   Released in: all regions
 -   Changes:
-    -   Updated to include the latest security patch KB4471318 \(released in December 2018\). Windows clients must be updated with the latest patches to establish RDP connections.
-    -   Upgraded .NET Framework to version 4.7.2
-    -   Used the Sysprep tool to generalize the image
+    -   Updated to include the latest security patch KB4471318, released in December 2018. You must update Windows clients with the latest patches to establish RDP connections.
+    -   Upgraded .NET Framework to version 4.7.2.
+    -   Used the Sysprep tool to generalize the image.
 
  |
 
@@ -417,9 +496,9 @@ This topic describes the release notes of images and their updates.
     -   win2008r2\_64\_ent\_sp1\_zh-cn\_40G\_alibase\_20181220.vhd \(Chinese\)
 -   Released in: all regions
 -   Changes:
-    -   Updated to include the latest security patch KB4471318 \(released in December 2018\). Windows clients must be updated with the latest patches to establish RDP connections.
-    -   Upgraded .NET Framework to version 4.7.2
-    -   Used the Sysprep tool to generalize the image
+    -   Updated to include the latest security patch KB4471318, released in December 2018. You must update Windows clients with the latest patches to establish RDP connections.
+    -   Upgraded .NET Framework to version 4.7.2.
+    -   Used the Sysprep tool to generalize the image.
 
  |
 |Windows Server 2012 R2 Datacenter Edition| -   Image ID:
@@ -427,9 +506,9 @@ This topic describes the release notes of images and their updates.
     -   win2012r2\_64\_dtc\_9600\_en-us\_40G\_alibase\_20181220.vhd \(English\)
 -   Released in: all regions
 -   Changes:
-    -   Updated to include the latest security patch KB4471320 \(released in December 2018\). Windows clients must be updated with the latest patches to establish RDP connections.
-    -   Upgraded .NET Framework to version 4.7.2
-    -   Used the Sysprep tool to generalize the image
+    -   Updated to include the latest security patch KB4471320, released in December 2018. You must update Windows clients with the latest patches to establish RDP connections.
+    -   Upgraded .NET Framework to version 4.7.2.
+    -   Used the Sysprep tool to generalize the image.
 
  |
 |Windows Server 2016 Datacenter Edition| -   Image ID:
@@ -437,9 +516,9 @@ This topic describes the release notes of images and their updates.
     -   win2016\_64\_dtc\_1607\_en-us\_40G\_alibase\_20181220.vhd \(English\)
 -   Released in: all regions
 -   Changes:
-    -   Updated to include the latest security patch KB4471321 \(released in December 2018\). Windows clients must be updated with the latest patches to establish RDP connections.
-    -   Upgraded .NET Framework to version 4.7.2
-    -   Used the Sysprep tool to generalize the image
+    -   Updated to include the latest security patch KB4471321, released in December 2018. You must update Windows clients with the latest patches to establish RDP connections.
+    -   Upgraded .NET Framework to version 4.7.2.
+    -   Used the Sysprep tool to generalize the image.
 
  |
 
@@ -460,8 +539,8 @@ This topic describes the release notes of images and their updates.
     -   Updated to include the latest operating system patches
     -   Updated the cloud-init version
     -   Enabled the chrony time synchronization service
-    -   Set GRUB\_TIMEOUT=1
--   Known issues: [Classic network configuration issues](reseller.en-US/Images/Public image/Known issues.md#section_zyc_kxl_jgb)
+    -   Set GRUB\_TIMEOUT to 1
+-   Known issues: [classic network configuration issues](reseller.en-US/Images/Public image/Known issues.md#section_zyc_kxl_jgb)
 
  |
 |Ubuntu 18.04| -   Image ID: ubuntu\_18\_04\_64\_20G\_alibase\_20181212.vhd
@@ -471,7 +550,7 @@ This topic describes the release notes of images and their updates.
     -   Updated to include the latest operating system patches
     -   Updated the cloud-init version
     -   Enabled the chrony time synchronization service
-    -   Set GRUB\_TIMEOUT=1
+    -   Set GRUB\_TIMEOUT to 1
 
  |
 
@@ -487,7 +566,7 @@ This topic describes the release notes of images and their updates.
     -   Updated the cloud-init version
     -   Enabled the chrony time synchronization service
     -   Disabled password authentication by default
-    -   Set GRUB\_TIMEOUT=1
+    -   Set GRUB\_TIMEOUT to 1
 
  |
 
