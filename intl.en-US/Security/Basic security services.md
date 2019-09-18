@@ -6,8 +6,6 @@ Alibaba Cloud Security Center provides ECS with basic security services such as 
 
 Alibaba Cloud Security Center provides basic security services for ECS, which collect and visualize security logs and fingerprints of ECS assets. Main basic security services **security prevention** and **intrusion detection** are available free of charge. You can view security information about ECS assets on the **Overview** page of the ECS console or in the Security Center console. For more information, see [Security Center Documentation](../../../../../reseller.en-US/Product Introduction/What is Security Center?.md#).
 
-![](images/49033_en-US.png)
-
 ## Security Center agent {#section_wwj_msv_75h .section}
 
 The Security Center agent is a lightweight security control that can be installed on ECS instances. If the Security Center agent is not installed on an ECS instance, the ECS instance is not protected by Security Center. The security data of this instance, such as vulnerabilities, alerts, and baseline vulnerabilities, and asset fingerprints, will not be displayed in the ECS console. For the installation paths of the Security Center agent, see [Security Center agent](../../../../../reseller.en-US/Access Cloud Security Center/Security Center agent.md#).
