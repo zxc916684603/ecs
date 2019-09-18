@@ -2,7 +2,7 @@
 
 Software packages for Linux are often stored in software repositories. After you add a repository, you can use the package management tool of the Linux system to search, install, and update the software in the repository. This topic uses Alibaba Cloud repositories as an example to describe how to add repositories on different Linux distributions.
 
-**Note:** Both Alibaba Cloud users and non-users have free access to software repositories of Alibaba Cloud. You can visit the [Alibaba Open Source Mirror Site](https://opsx.alibaba.com/mirror) to obtain the software repository of the Linux distribution.
+**Note:** Both Alibaba Cloud users and non-users have free access to software repositories of Alibaba Cloud. You can visit the [Alibaba Open Source Mirror Site](https://opsx.alibaba.com/mirror?lang=en-US) to obtain the software repository of the Linux distribution.
 
 ## Add software repositories on CentOS {#section_sw2_rtz_cs8 .section}
 
@@ -27,7 +27,7 @@ To add a software repository on the CentOS 7 operating system, follow these step
 
     **Note:** 
 
-    -   To view the steps of adding Alibaba Cloud repositories on other versions of the CentOS operating system, visit the [Alibaba Open Source Mirror Site](https://opsx.alibaba.com/mirror?lang=zh-CN), find `centos`, and click **Help**.
+    -   To view the steps of adding Alibaba Cloud repositories on other versions of the CentOS operating system, visit the [Alibaba Open Source Mirror Site](https://opsx.alibaba.com/mirror?lang=en-US), find `centos`, and click **Help**.
     -   To add a software repository that is not from Alibaba Cloud, replace the URL of `http://mirrors.aliyun.com/repo/Centos-7.repo` in the commands above with the URL of the software repository that you want to add.
 4.  Run the following command to generate a local cache for faster searching and installation of software.
 
@@ -37,7 +37,7 @@ To add a software repository on the CentOS 7 operating system, follow these step
 
 5.  Run the `sudo yum repolist` command to check whether the software repository is added. You will see the following content after you add a software repository of Alibaba Cloud on the CentOS 7 operating system.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/328191/156877916248248_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/328191/156877980148248_en-US.png)
 
 
 ## Add software repositories on Ubuntu {#section_n68_se1_900 .section}
@@ -68,7 +68,7 @@ To add a software repository on the Ubuntu 18.04 operating system, follow these 
 
     **Note:** 
 
-    -   To view the steps of adding software repositories of Alibaba Cloud on other versions of Ubuntu, visit the [Alibaba Open Source Mirror Site](https://opsx.alibaba.com/mirror?lang=zh-CN), find `ubuntu`, and click **Help**. If you want to add a software repository of Alibaba Cloud on an Elastic Computing Service \(ECS\) instance, replace `http://mirrors.aliyun.com/ubuntu/` in the Help page with `http://mirrors.cloud.aliyuncs.com/ubuntu`. This helps save data transfer costs.
+    -   To view the steps of adding software repositories of Alibaba Cloud on other versions of Ubuntu, visit the [Alibaba Open Source Mirror Site](hhttps://opsx.alibaba.com/mirror?lang=en-US), find `ubuntu`, and click **Help**. If you want to add a software repository of Alibaba Cloud on an Elastic Computing Service \(ECS\) instance, replace `http://mirrors.aliyun.com/ubuntu/` in the Help page with `http://mirrors.cloud.aliyuncs.com/ubuntu`. This helps save data transfer costs.
     -   To add a software repository that is not from Alibaba Cloud, replace the added content above with the content of the software repository that you want to add.
 4.  Run the `sudo apt-get update` command to update the information about software packages.
 
@@ -94,7 +94,7 @@ To add a software repository on the Debian 8.9 operating system, follow these st
 
     **Note:** 
 
-    -   To view the steps of adding software repositories of Alibaba Cloud on other versions of Debian, visit the [Alibaba Open Source Mirror Site](https://opsx.alibaba.com/mirror?lang=zh-CN), find `debian`, and click **Help**. If you want to add a software repository of Alibaba Cloud on an ECS instance, replace `http://mirrors.aliyun.com/debian/` in the Help page with `http://mirrors.cloud.aliyuncs.com/ubuntu`. This helps save data transfer costs.
+    -   To view the steps of adding software repositories of Alibaba Cloud on other versions of Debian, visit the [Alibaba Open Source Mirror Site](https://opsx.alibaba.com/mirror?lang=en-US), find `debian`, and click **Help**. If you want to add a software repository of Alibaba Cloud on an ECS instance, replace `http://mirrors.aliyun.com/debian/` in the Help page with `http://mirrors.cloud.aliyuncs.com/ubuntu`. This helps save data transfer costs.
     -   To add a software repository that is not from Alibaba Cloud, replace the added content above with the content of the software repository that you want to add.
 4.  Run the `sudo apt-get update` command to update the information about software packages.
 
