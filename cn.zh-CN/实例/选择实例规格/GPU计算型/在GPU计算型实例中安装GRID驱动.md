@@ -2,15 +2,18 @@
 
 本文介绍如何在操作系统为Linux的GPU计算型实例中安装GRID驱动，并搭建桌面显示环境。
 
-在安装GRID驱动之前，您需要确认以下信息：
+在安装GRID驱动之前，您需要确认以下信息： 建议您选择**公共镜像**中的镜像。如果您选择了**镜像市场**中预装NVIDIA驱动的镜像，创建实例后您必须按照此方法禁用Nouveau驱动：在/etc/modprobe.d目录下创建一个nouveau.conf文件，添加`blacklist nouveau`。
 
 -   您需要创建一台GPU计算型实例，确保实例能访问公网。具体操作，请参见[创建GPU计算型实例](cn.zh-CN/实例/选择实例规格/GPU计算型/创建GPU计算型实例.md#)。
 
     **说明：** 建议您选择**公共镜像**中的镜像。如果您选择了**镜像市场**中预装NVIDIA驱动的镜像，创建实例后您必须按照此方法禁用Nouveau驱动：在/etc/modprobe.d目录下创建一个nouveau.conf文件，添加`blacklist nouveau`。
 
 -   在本地机器上已经安装了VNC连接软件，例如本示例中使用的VNC Viewer。
+-   选择任意一种方式获取GRID License：
+    -   提交工单获取用于临时测试的License。该方式不需要自建License服务器。
+    -   在[NVIDIA官网](https://www.nvidia.com/object/nvidia-enterprise-account.html)购买License。该方式需要自建License服务器，您可以购买ECS实例并参考NVIDIA官网教程搭建。
 
-如果您的GPU计算型实例（gn5、gn5i、gn6v、vgn5i或gn6i实例）需要OpenGL图形支持，必须在实例上安装GRID驱动。GPU计算型实例自带的Nvidia GPU计算卡，如P100、P4、V100等，因为NVIDIA GRID License而限制了GPU图形功能，您可以使用NVIDIA官方发布的试用版GRID驱动满足使用OpenGL图形功能的需求。
+如果您的GPU计算型实例（gn5、gn5i、gn6v、vgn5i或gn6i实例）需要OpenGL图形支持，必须在实例上安装GRID驱动。GPU计算型实例自带的Nvidia GPU计算卡，如P100、P4、V100等，因为NVIDIA GRID License而限制了GPU图形功能，您可以使用NVIDIA官方发布的GRID驱动满足使用OpenGL图形功能的需求。
 
 gn5优惠活动详情请参见[异构计算GPU实例活动页](https://promotion.aliyun.com/ntms/act/gpufreetier.html)。
 
@@ -27,7 +30,7 @@ gn5优惠活动详情请参见[异构计算GPU实例活动页](https://promotion
 
 ## 在Ubuntu 16.04 64-bit中安装GRID驱动 {#section_zsd_ytk_ngb .section}
 
-1.  [远程连接Linux实例](../../../../cn.zh-CN/实例/连接实例/连接Linux实例/使用用户名密码验证连接Linux实例.md#)。
+1.  [远程连接Linux实例](../cn.zh-CN/实例/连接实例/连接Linux实例/使用用户名密码验证连接Linux实例.md#)。
 2.  依次运行以下命令升级系统并安装KDE桌面。 
 
     ``` {#codeblock_z2r_afm_ir5 .language-shell}
@@ -56,14 +59,12 @@ gn5优惠活动详情请参见[异构计算GPU实例活动页](https://promotion
 
     如果返回以下类似结果，说明驱动已经成功安装。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156643733511965_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156888435511965_zh-CN.png)
 
 7.  按以下步骤添加License服务器并激活License。 
     1.  切换到/etc/nvidia目录：`cd /etc/nvidia`。
     2.  创建gridd.conf文件：`cp gridd.conf.template gridd.conf`。
     3.  在gridd.conf文件中添加License服务器的信息。 
-
-        **说明：** 您需要向NVIDIA购买License后自行搭建License服务器。
 
         ``` {#codeblock_jve_s7v_hxq .language-shell}
         ServerAddress=License服务器的IP
@@ -86,7 +87,7 @@ gn5优惠活动详情请参见[异构计算GPU实例活动页](https://promotion
     1.  运行命令`nvidia-xconfig --enable-all-gpus --separate-x-screens`。
     2.  编辑/etc/X11/xorg.conf，在`Section "Device"`段添加GPU BusID，如本示例中为`BusID "PCI:0:7:0"`。 
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156643733511966_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156888435511966_zh-CN.png)
 
     3.  运行`reboot`命令重启系统。
 
@@ -105,7 +106,7 @@ gn5优惠活动详情请参见[异构计算GPU实例活动页](https://promotion
     -   如果没有`startx`命令，执行`apt-get install xinit`命令安装。
     -   `startx`启动时可能会提示`hostname: Name or service not known`。这个提示不会影响X Server启动。您可以运行命令`hostname`查得主机名后，再修改/etc/hosts文件，将`127.0.0.1`后的`hostname`改为本机的hostname。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156643733511967_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156888435611967_zh-CN.png)
 
 3.  开启一个新的SSH客户端终端，运行命令启动x11vnc。 
 
@@ -115,9 +116,9 @@ gn5优惠活动详情请参见[异构计算GPU实例活动页](https://promotion
 
     如果看到如下图所示的信息，表示x11vnc已经成功启动。此时，您能通过VNC Viewer等VNC远程连接软件连接实例。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156643733511968_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156888435611968_zh-CN.png)
 
-4.  登录ECS控制台，在实例所在安全组中添加安全组规则，允许TCP 5900端口的入方向访问。具体操作，请参见[添加安全组规则](../../../../cn.zh-CN/安全/安全组/添加安全组规则.md#)。
+4.  登录ECS控制台，在实例所在安全组中添加安全组规则，允许TCP 5900端口的入方向访问。具体操作，请参见[添加安全组规则](../cn.zh-CN/安全/安全组/添加安全组规则.md#)。
 5.  在本地机器上，使用VNC Viewer等VNC远程连接软件，通过`实例公网IP地址:5900`连接实例，进入KDE桌面。
 6.  按以下步骤使用`glxinfo`命令查看当前GRID驱动支持的配置。 
     1.  开启一个新的SSH客户端终端。
@@ -127,12 +128,12 @@ gn5优惠活动详情请参见[异构计算GPU实例活动页](https://promotion
     1.  在KDE桌面上，右键单击桌面，并选择**Run Command**。
     2.  运行`glxgears`启动齿轮图形测试程序。 如果出现如下图所示的窗口，表明GRID驱动正常工作。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156643733511970_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156888435611970_zh-CN.png)
 
 
 ## 在CentOS 7.3 64-bit中安装GRID驱动 {#section_tvd_ytk_ngb .section}
 
-1.  [远程连接Linux实例](../../../../cn.zh-CN/实例/连接实例/连接Linux实例/使用用户名密码验证连接Linux实例.md#)。
+1.  [远程连接Linux实例](../cn.zh-CN/实例/连接实例/连接Linux实例/使用用户名密码验证连接Linux实例.md#)。
 2.  依次运行以下命令升级系统并安装KDE桌面。 
 
     ``` {#codeblock_l35_umd_976 .language-shell}
@@ -171,14 +172,12 @@ gn5优惠活动详情请参见[异构计算GPU实例活动页](https://promotion
 
 8.  运行命令`nvidia-smi`测试驱动是否安装成功。 如果返回以下类似结果，说明驱动已经成功安装。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156643733611971_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156888435611971_zh-CN.png)
 
 9.  按以下步骤添加License服务器并激活License。 
     1.  切换到/etc/nvidia目录：`cd /etc/nvidia`。
     2.  创建gridd.conf文件：`cp gridd.conf.template gridd.conf`。
     3.  在gridd.conf文件中添加License服务器的信息。 
-
-        **说明：** 您需要向NVIDIA购买License后自行搭建License服务器。
 
         ``` {#codeblock_cyr_vwi_erh .language-shell}
         ServerAddress=License服务器的IP
@@ -198,7 +197,7 @@ gn5优惠活动详情请参见[异构计算GPU实例活动页](https://promotion
     1.  运行命令`nvidia-xconfig --enable-all-gpus --separate-x-screens`。
     2.  编辑/etc/X11/xorg.conf，在`Section "Device"`段添加GPU BusID，如本示例中为`BusID "PCI:0:7:0"`。 
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156643733511966_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156888435511966_zh-CN.png)
 
 13. 运行`reboot`重启系统。
 
@@ -213,9 +212,9 @@ gn5优惠活动详情请参见[异构计算GPU实例活动页](https://promotion
 
     如果看到如下图所示的信息，表示x11vnc已经成功启动。此时，您能通过VNC Viewer等VNC远程连接软件连接实例。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156643733511968_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156888435611968_zh-CN.png)
 
-3.  登录ECS管理控制台，在实例所在安全组中添加安全组规则，允许TCP 5900端口的入方向访问。具体操作，请参见[添加安全组规则](../../../../cn.zh-CN/安全/安全组/添加安全组规则.md#)。
+3.  登录ECS管理控制台，在实例所在安全组中添加安全组规则，允许TCP 5900端口的入方向访问。具体操作，请参见[添加安全组规则](../cn.zh-CN/安全/安全组/添加安全组规则.md#)。
 4.  在本地机器上，使用VNC Viewer等VNC远程连接软件，通过`实例公网IP地址:5900`连接实例，进入KDE桌面。
 5.  按以下步骤使用`glxinfo`命令查看当前GRID驱动支持的配置。 
     1.  开启一个新的SSH客户端终端。
@@ -225,6 +224,6 @@ gn5优惠活动详情请参见[异构计算GPU实例活动页](https://promotion
     1.  在KDE桌面上，右键单击桌面，并选择**Run Command**。
     2.  运行`glxgears`启动齿轮图形测试程序。 如果出现如下图所示的窗口，表明GRID驱动正常工作。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156643733511970_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/9838/156888435611970_zh-CN.png)
 
 
