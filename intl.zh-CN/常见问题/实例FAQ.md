@@ -1,6 +1,6 @@
 # 实例FAQ {#concept_gqy_fyx_wgb .concept}
 
-本文汇总了使用云服务器ECS实例时的常见问题。
+本文汇总了使用实例时的常见问题。
 
 -   购买实例问题
     -   [如何查看某个地域或可用区是否能购买实例？](#section_dxe_iha_q0o)
@@ -8,7 +8,6 @@
     -   [如何选择适合我业务的ECS实例？](#section_j8t_fwz_mjf)
     -   [开通一台云服务器需要多久？](#section_ska_yf3_rvx)
     -   [购买实例付款成功，但是没有生成实例，为什么？](#section_gbw_acs_xwn)
-    -   [为什么购买实例时看不到按量付费资源？](#section_ls5_e9e_kt3)
 -   企业级实例问题
     -   [什么是企业级实例？什么是入门级实例？](#section_2p8_osd_e5y)
     -   [企业级实例与入门级实例有什么本质区别？](#section_cm4_dks_zu1)
@@ -122,10 +121,10 @@
     -   [购买ECS实例后可以更换地域吗？](#section_wm7_rby_mij)
     -   [可以调整已购磁盘的分区大小吗？](#section_nih_446_koq)
     -   [如何将实例的固定公网IP更换为其它EIP？](#section_grq_3gj_n2r)
+    -   [如何查看同一地域下的预付费实例？](#section_bud_chq_gek)
     -   [如何查看同一账号下所有地域的预付费实例？](#section_s5o_w6z_95z)
     -   [什么时候可以强制停止实例？有什么后果？](#section_nlp_9qg_6gq)
     -   [为什么会重开机失败？](#section_vk6_sjc_agd)
-    -   [使用弹性伸缩功能时，伸缩组内ECS实例开启了释放保护，为什么仍然被自动释放了？](#section_so8_gdz_2i5)
 -   实例安全问题
     -   [ECS实例中AliVulfix进程是什么？](#section_4ek_d0m_191)
     -   [云服务器能防网络攻击吗？](#section_t6g_7b5_165)
@@ -136,6 +135,7 @@
     -   [如何向Linux实例上传文件？](#section_861_wjj_km6)
     -   [如何调整Linux实例目录文件的拥有者和拥有组？](#section_kf0_kn1_74z)
     -   [如何更新Linux实例的软件源？](#section_8jc_uw1_mjn)
+    -   [如何安装VNC Server以实现图形化访问Linux系统？](#section_m4o_mku_bj2)
 -   实例使用限制问题
     -   [ECS实例转移和更换公网IP地址有什么限制？](#section_y49_iww_fvq)
     -   [ECS实例是否可以访问亚马逊网站？](#section_q6i_bio_ba9)
@@ -169,7 +169,7 @@
 
 您也可以使用到货通知功能：
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156603309448634_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156896158848634_zh-CN.png)
 
 ## 如何选择适合我业务的ECS实例？ {#section_j8t_fwz_mjf .section}
 
@@ -195,12 +195,6 @@
 可能是该可用区下该实例规格库存不足。系统会自动退款，如果半小时内没有收到退款，请[提交工单](https://workorder-intl.console.aliyun.com/console.htm)。
 
 您可以前往[ECS实例可购买地域](https://ecs-buy.aliyun.com/instanceTypes/#/instanceTypeByRegion)，查看实例的可购情况。
-
-## 为什么购买实例时看不到按量付费资源？ {#section_ls5_e9e_kt3 .section}
-
-16核及以上实例规格可能存在按量高配限制。如果您在购买实例时能看到预付费资源，但是看不到按量付费资源，请[提交工单](https://workorder-intl.console.aliyun.com/console.htm)确认当前账号是否已经获得购买该实例规格按量高配资源的授权。
-
-如果已获得授权，仍然看不到按量资源，可能是当前地域下库存不足，请参见[购买实例时，资源已经售罄怎么办？](#section_lxw_bwz_qgb)。
 
 ## 什么是企业级实例？什么是入门级实例？ {#section_2p8_osd_e5y .section}
 
@@ -300,7 +294,7 @@
 
 ## 弹性裸金属服务器和传统云主机（虚拟机）和传统物理机有何本质区别？ {#section_m7m_pvm_64b .section}
 
-弹性裸金属服务器、传统云主机（虚拟机）和传统物理机的差异请参见[什么是弹性裸金属服务器](intl.zh-CN/实例/选择实例规格/弹性裸金属服务器（神龙）/什么是弹性裸金属服务器.md#)。
+弹性裸金属服务器、传统云主机（虚拟机）和传统物理机的差异请参见[什么是弹性裸金属服务器](intl.zh-CN/实例/选择实例规格/弹性裸金属服务器（神龙）/弹性裸金属服务器概述.md#)。
 
 ## 弹性裸金属服务器的网络性能怎么样？ {#section_mtz_x6v_4v4 .section}
 
@@ -333,7 +327,7 @@ SCC实例支持包年包月和按周付费。
 
 创建SCC实例时，选择SCC定制版的系统镜像，该镜像支持RDMA RoCE驱动和OFED堆栈。您可以通过IB verbs编程使用RDMA功能或者通过MPI进行RDMA通讯。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156603309450536_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156896158850536_zh-CN.png)
 
 ## 我没有欠费，为什么抢占式实例被释放了？ {#section_0ns_pj7_dxg .section}
 
@@ -341,7 +335,7 @@ SCC实例支持包年包月和按周付费。
 
 ## 抢占式实例被释放时会有通知吗？怎么通知？ {#section_b3n_69r_ccj .section}
 
-有通知。如果因为市场价格变化或供需调整需要释放抢占式实例，实例会先进入待回收状态，约5分钟后再自动释放。您可以通过[实例元数据](intl.zh-CN/实例/管理实例/使用实例元数据/什么是实例元数据.md#)或者[DescribeInstances](../intl.zh-CN/API参考/实例/DescribeInstances.md#)接口返回的OperationLocks信息查看实例是否进入待回收状态。
+有通知。如果因为市场价格变化或供需调整需要释放抢占式实例，实例会先进入待回收状态，约5分钟后再自动释放。您可以通过[实例元数据](intl.zh-CN/实例/管理实例/使用实例元数据/实例元数据概述.md#)或者[DescribeInstances](../intl.zh-CN/API参考/实例/DescribeInstances.md#)接口返回的OperationLocks信息查看实例是否进入待回收状态。
 
 ## 抢占式实例被释放后数据能自动保留吗？ {#section_hqu_m54_1ac .section}
 
@@ -433,7 +427,7 @@ SCC实例支持包年包月和按周付费。
 
 能够使用预留实例券的规格族包括：sn1ne、sn2ne、se1ne、ic5、c5、g5、r5、i2、i2g、hfc5、hfg5和t5。
 
-其中，[突发性能实例t5](intl.zh-CN/实例/选择实例规格/突发型/什么是突发性能实例.md#)只支持可用区级预留实例券，不支持地域级预留实例券，也不支持合并、拆分或者范围调整。
+其中，[突发性能实例t5](intl.zh-CN/实例/选择实例规格/突发型（入门级）/突发性能实例概述.md#)只支持可用区级预留实例券，不支持地域级预留实例券，也不支持合并、拆分或者范围调整。
 
 ## 预留实例券能否抵扣抢占式实例的账单？ {#section_m9r_qk6_39q .section}
 
@@ -615,7 +609,7 @@ SCC实例支持包年包月和按周付费。
 
 ## 我能升级包年包月ECS实例规格和配置吗？ {#section_5ap_zkp_361 .section}
 
-可以，请参见[预付费实例升级配置](intl.zh-CN/实例/升降配实例/升配预付费实例/预付费实例升级配置.md#)。
+可以，请参见[包年包月实例升级配置](intl.zh-CN/实例/升降配实例/升配包年包月实例/包年包月实例升级配置.md#)。
 
 ## 我能升级按量付费ECS实例规格和配置吗？ {#section_472_rev_qvi .section}
 
@@ -708,15 +702,15 @@ SCC实例支持包年包月和按周付费。
 
 1.  连接FTP服务。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156603309443224_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156896158843224_zh-CN.png)
 
 2.  进入正确的目录，Windows系统无需切换，Linux系统切换至htdocs。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156603309549119_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156896158849119_zh-CN.png)
 
 3.  运行put命令上传。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156603309549120_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156896158849120_zh-CN.png)
 
 
 方式二：通过第三方工具上传
@@ -769,7 +763,7 @@ SCC实例支持包年包月和按周付费。
 
 云服务器默认不提供数据库，您可以：
 
--   自行部署数据库。
+-   自行部署数据库，请参见[数据库概述](../intl.zh-CN/建站教程/在ECS上部署数据库/数据库概述.md#)。
 -   单独购买阿里云[RDS数据库](https://rdsnext.console.aliyun.com/)服务。
 -   使用镜像市场配置环境数据库。
 
@@ -810,6 +804,10 @@ Linux操作系统的云服务器和Windows操作系统的云服务器都可以�
 3.  [解绑转换的得到的EIP](../../../../../intl.zh-CN/用户指南/解绑EIP.md#)。
 4.  [绑定新的EIP](../../../../../intl.zh-CN/用户指南/绑定云资源/绑定ECS实例.md#)。
 
+## 如何查看同一地域下的预付费实例？ {#section_bud_chq_gek .section}
+
+您可以使用资源概览功能查看同一个地域下的预付费实例，详细步骤请参见[查看资源概览](../intl.zh-CN/标签与资源/查看资源概览.md#)。
+
 ## 如何查看同一账号下所有地域的预付费实例？ {#section_s5o_w6z_95z .section}
 
 您可以前往续费管理页面查看所有地域下的预付费实例。
@@ -831,10 +829,6 @@ Linux操作系统的云服务器和Windows操作系统的云服务器都可以�
 
     **说明：** 您可以前往[ECS实例可购买地域](https://ecs-buy.aliyun.com/instanceTypes/#/instanceTypeByRegion)，查看实例的可购情况。
 
-
-## 使用弹性伸缩功能时，伸缩组内ECS实例开启了释放保护，为什么仍然被自动释放了？ {#section_so8_gdz_2i5 .section}
-
-在弹性伸缩自动创建一台ECS实例后，如果您在ECS控制台的实例列表页面或者调用[ModifyInstanceAttribute](../intl.zh-CN/API参考/实例/ModifyInstanceAttribute.md#)为ECS实例开启了释放保护，并不能阻止弹性伸缩自动释放实例。
 
 ## ECS实例中AliVulfix进程是什么？ {#section_4ek_d0m_191 .section}
 
@@ -864,7 +858,7 @@ AliVulfix进程是云盾进行漏洞检测的程序，用于扫描云服务器�
     #netstat -nltp //查看服务器80端口是否处于监听状态
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156603309541861_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156896158841861_zh-CN.png)
 
 2.  如果未显示80端口信息，说明网站服务没有启动，运行命令手动开启网站服务及相关服务。
 
@@ -916,6 +910,10 @@ AliVulfix进程是云盾进行漏洞检测的程序，用于扫描云服务器�
 ## 如何更新Linux实例的软件源？ {#section_8jc_uw1_mjn .section}
 
 您可以使用软件源自动更新工具，请参见[云服务器ECS Linux软件源自动更新工具](https://www.alibabacloud.com/help/faq-detail/41177.htm)。
+
+## 如何安装VNC Server以实现图形化访问Linux系统？ {#section_m4o_mku_bj2 .section}
+
+请参见[云服务器 ECS Linux VNC Server 自动安装工具介绍](https://www.alibabacloud.com/help/faq-detail/41181.htm)。
 
 ## ECS实例转移和更换公网IP地址有什么限制？ {#section_y49_iww_fvq .section}
 
@@ -1001,27 +999,11 @@ ECS实例可以访问亚马逊网站，确保您的ECS实例可以正常访问�
 
 待转换的ECS实例需要满足以下条件：
 
--   不能是系列I实例规格，也不能是n1、n2、e3实例规格族中的任一种实例规格。具体实例规格描述请参见[系列I实例规格](../intl.zh-CN/实例/选择实例规格/已停售的实例规格.md#section_ilt_c3h_4gb)和[入门级实例 n1/n2/e3](../intl.zh-CN/实例/选择实例规格/已停售的实例规格.md#section_z2t_5ch_4gb)。
--   不能是抢占式实例。
--   不能有未完成的转换订单。
-
-    如果实例有未支付的转换订单，您必须作废这个未支付的订单后才能执行新的转换操作。
-
--   没有设置自动释放时间。
-
-    如果实例已经设置过自动释放时间，您必须先关闭自动释放设置才能进行转换操作。如何关闭自动释放，请参见[关闭自动释放](../intl.zh-CN/实例/管理实例/释放实例.md#section_mqg_ccn_xdb)。
-
--   归属于您的账号下。
--   状态为**运行中**或**已停止**。
-
-    如果您在ECS实例处于**运行中**或**已停止**时下单成功，但是在支付未完成时实例状态发生了变化不再处于上述状态，支付会失败，从而导致计费方式转换失败。当实例重新处于上述状态时，您可以去订单中心重新支付这个订单。
-
-
 ## 如何查询实例到期时间？ {#section_8hf_t8x_5n3 .section}
 
 您可以在ECS控制台实例列表页面的**付费方式**列查看预付费实例的到期时间。
 
-**说明：** 如果没有**付费方式**列，则在页面右上方单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156603309553726_zh-CN.png)按钮，勾选**付费方式**，并单击**确定**。
+**说明：** 如果没有**付费方式**列，则在页面右上方单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156896158953726_zh-CN.png)按钮，勾选**付费方式**，并单击**确定**。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156603309553728_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/130429/156896158953728_zh-CN.png)
 
