@@ -298,7 +298,7 @@ File "/root/cloud-init/cloudinit/log.py", line 19, in <module>
 ```
 File "/root/cloud-init/cloudinit/url_helper.py", line 20, in <module>
       import oauthlib.oauth1 as oauth1
-  ImportError: No module named oauthlib.oauth1  )
+  ImportError: No 
 ```
 
 **报错时没有明确缺少的依赖库**
